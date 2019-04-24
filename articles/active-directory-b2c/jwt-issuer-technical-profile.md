@@ -11,11 +11,11 @@ ms.date: 10/30/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 247ebdc8156453062eefe6738c5c281d393a9923
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436047"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60396760"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico para um emissor de token JWT em uma política personalizada do Azure Active Directory B2C
 
@@ -44,7 +44,7 @@ Os elementos **InputClaims**, **OutputClaims** e **PersistClaims** estão vazios
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | issuer_refresh_token_user_identity_claim_type | Sim | A declaração que deve ser usada como a declaração de identidade do usuário nos códigos de autorização OAuth2 e tokens de atualização. Por padrão, você deve defini-la como `objectId`, a menos que especifique um tipo de declaração SubjectNamingInfo diferente. | 
 | SendTokenResponseBodyWithJsonNumbers | Não  | Sempre defina como `true`. Para formatos herdados em que os valores numéricos são fornecidos como cadeias de caracteres em vez de números JSON, defina como `false`. Esse atributo é necessário para clientes que adotaram uma dependência em uma implementação anterior que retornou propriedades como cadeias de caracteres. | 
@@ -60,7 +60,7 @@ Os elementos **InputClaims**, **OutputClaims** e **PersistClaims** estão vazios
 
 O elemento CryptographicKeys contém os seguintes atributos:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | issuer_secret | Sim | O certificado X509 (conjunto de chaves RSA) a ser usado para assinar o token JWT. Essa é a chave `B2C_1A_TokenSigningKeyContainer` configurada em [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md). | 
 | issuer_refresh_token_key | Sim | O certificado X509 (conjunto de chaves RSA) a ser usado para criptografar o token de atualização. Você configurou a chave `B2C_1A_TokenEncryptionKeyContainer` em [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md) |

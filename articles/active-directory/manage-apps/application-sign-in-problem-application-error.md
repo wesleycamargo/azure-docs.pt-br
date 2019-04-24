@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 438f4f60c80cb798c3c40f57e22c9194a9fd5f86
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110844"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60442804"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>Erro em uma página de aplicativo após a entrada
 
@@ -159,5 +159,5 @@ Para alterar o algoritmo de assinatura, siga estas etapas:
 
 Na próxima vez em que o usuário entrar no aplicativo, o Azure AD assinará o token SAML usando o algoritmo SHA-1.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Como depurar o logon único baseado em SAML em aplicativos no Active Directory do Azure](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging)

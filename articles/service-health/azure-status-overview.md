@@ -15,11 +15,11 @@ ms.workload: Supportability
 ms.date: 02/11/2019
 ms.author: stbaron
 ms.openlocfilehash: 6054b33e4068d36c5bfbb80120086a92a03525c8
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097501"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60506751"
 ---
 # <a name="azure-status"></a>Status do Azure
 O [status do Azure](https://azure.microsoft.com/status/) fornece uma exibição global da integridade dos serviços e regiões do Azure. Com o status do Azure, você pode obter informações atualizadas sobre a disponibilidade do serviço. O status do Azure está disponível para todas as pessoas e exibe todos os serviços que relatam sua integridade de serviço, além de incidentes com impacto abrangente. Se você for um usuário do Azure atual, no entanto, recomendamos fortemente que você use a experiência personalizada da [Integridade do Serviço do Azure](https://aka.ms/azureservicehealth). A Integridade do Serviço do Azure inclui todas as interrupções, atividades de manutenção planejada futura e comunicados de serviços.

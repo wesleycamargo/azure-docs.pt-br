@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
 ms.openlocfilehash: 88305e5d877f5bc3cc7ebb116f69b0f49f162b79
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59268374"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60409905"
 ---
 # <a name="avere-vfxt-for-azure---deployment-overview"></a>Avere vFXT para Azure - visão geral da implantação
 
@@ -68,6 +68,6 @@ Aqui está uma visão geral de todas as etapas.
 
    Como o Avere vFXT é um cache escalonável de vários clientes, a melhor maneira de mover dados para um novo contêiner de armazenamento de back-end é com a estratégia de cópia de arquivos multithread e de vários clientes. Leia [Mover dados para o cluster vFXT](avere-vfxt-data-ingest.md) para obter detalhes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Continue em [Preparar para criar o Avere vFXT](avere-vfxt-prereqs.md) para concluir as tarefas preliminares para implantar o Avere vFXT para Azure. 

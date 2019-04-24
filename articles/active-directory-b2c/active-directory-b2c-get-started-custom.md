@@ -11,11 +11,11 @@ ms.date: 04/03/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: b414529d7756812f1e1e16d2d0184c8472c0c55f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798053"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317948"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introdução às políticas personalizadas no Azure Active Directory B2C
 
@@ -151,6 +151,6 @@ Adicione as IDs de aplicativo ao arquivo de extensões *TrustFrameworkExtensions
 3. Faça upload do arquivo *TrustFrameworkExtensions.xml* no seu locatário.
 4. Teste usando **Executar Agora** ou invocando a política diretamente do seu aplicativo registrado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Adicionar o Azure Active Directory como um provedor de identidade. O arquivo base usado neste guia de introdução já contém uma parte do conteúdo de que você precisa para adicionar outros provedores de identidade. Para obter informações sobre como configurar entradas, confira o artigo [Configurar inscrição e entrada com uma conta do Azure Active Directory usando políticas personalizadas do Active Directory B2C](active-directory-b2c-setup-aad-custom.md).

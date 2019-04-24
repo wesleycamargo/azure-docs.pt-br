@@ -15,11 +15,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 66f16e02716ceb94d2c8b10bb246a13dc566229c
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578299"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60287805"
 ---
 # <a name="perform-an-access-review-of-my-azure-ad-roles-in-pim"></a>Executar uma revisão de acesso das minhas funções do Azure AD no PIM
 Azure Active Directory (AD) Privileged Identity Management (PIM) simplifica como as empresas gerenciam o acesso privilegiado a recursos no Azure AD e outros Microsoft online services como Office 365 ou Microsoft Intune.  
@@ -47,6 +47,6 @@ Siga estas etapas para localizar e concluir a análise de acesso:
 5. Feche a folha **Funções de análise do AD do Azure** .
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Realizar uma revisão de acesso das minhas funções de recurso do Azure no PIM](pim-resource-roles-perform-access-review.md)

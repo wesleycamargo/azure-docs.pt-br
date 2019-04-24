@@ -11,14 +11,14 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
 ms.openlocfilehash: 0d79bc167ea0416218a4d4822bcd6221699643ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852875"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60346995"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Gerenciar serviços da web do Azure Machine Learning Studio usando o Gerenciamento de API
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Este guia mostra como começar rapidamente a usar o Gerenciamento de API para gerenciar os serviços da Web do Azure Machine Learning Studio.
 
 ## <a name="what-is-azure-api-management"></a>O que é o Gerenciamento de API do Azure?
@@ -166,9 +166,9 @@ Após invocar uma operação, o portal do desenvolvedor exibe a **URL solicitada
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>Apêndice A - criando e testando um serviço Web do AzureML simples
 ### <a name="creating-the-experiment"></a>Criando o teste
-Veja abaixo as etapas para criar um teste simples do AzureML e implantá-lo como um serviço Web. O serviço Web assume como entrada uma coluna de texto arbitrário e retorna um conjunto de recursos representados como números inteiros. Por exemplo:
+Veja abaixo as etapas para criar um teste simples do AzureML e implantá-lo como um serviço Web. O serviço Web assume como entrada uma coluna de texto arbitrário e retorna um conjunto de recursos representados como números inteiros. Por exemplo: 
 
-| Texto | Texto marcado com sustenido |
+| Text | Texto marcado com sustenido |
 | --- | --- |
 | Este é um bom dia |1 1 2 2 0 2 0 1 |
 
@@ -228,7 +228,7 @@ Você pode encontrar a **api_key** clicando no teste no painel de serviço Web.
 ##### <a name="test-button"></a>Botão de teste
 Uma maneira fácil de testar o ponto de extremidade RRS é clicar em **Testar** no painel de serviço Web.
 
-![teste](./media/manage-web-service-endpoints-using-api-management/test.png)
+![test](./media/manage-web-service-endpoints-using-api-management/test.png)
 
 Digite **Este é um bom dia** para **col2**. Clique na marca de seleção.
 

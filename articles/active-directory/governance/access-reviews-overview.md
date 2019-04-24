@@ -17,11 +17,11 @@ ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1563a023f397999deb5c6abd40843d6a376b0492
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576115"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60351388"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Revisões de quais são o acesso do Azure AD?
 
@@ -104,7 +104,7 @@ Para habilitar as revisões de acesso, siga estas etapas.
 
     ![Revisões de acesso habilitadas](./media/access-reviews-overview/access-reviews-enabled.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar uma revisão de acesso de grupos ou aplicativos](create-access-review.md)
 - [Criar uma revisão de acesso de usuários em uma função administrativa do Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)

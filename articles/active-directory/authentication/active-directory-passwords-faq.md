@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb825a193071d263d800dafdd6296246eb74aec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 77154ef35242c55724becb77595dbd5ecf8a4da9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878186"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359051"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Perguntas frequentes sobre gerenciamento de senhas
 
@@ -41,12 +41,12 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P:  Se eu habilitar a redefinição de senha para um grupo e, em seguida, decidir habilitá-la para todos, os usuários deverão se registrar novamente?**
 
-  > **R:**  Não. Os usuários que possuem dados de autenticação populados não devem se registrar novamente.
+  > **R:** Não. Os usuários que possuem dados de autenticação populados não devem se registrar novamente.
   >
   >
 * **P:  Posso definir os dados da redefinição de senha em nome dos usuários?**
 
-  > **R:** Sim, você pode fazer isso com o Azure AD Connect, o PowerShell, o [portal do Azure](https://portal.azure.com) ou o centro de administração do Office 365. Para obter mais informações, consulte [Dados usados pelo autoatendimento de redefinição de senha do Azure AD](howto-sspr-authenticationdata.md).
+  > **R:** Sim, você pode fazer isso com o Azure AD Connect, PowerShell, o [portal do Azure](https://portal.azure.com), ou o [Centro de administração do Microsoft 365](https://admin.microsoft.com). Para obter mais informações, consulte [Dados usados pelo autoatendimento de redefinição de senha do Azure AD](howto-sspr-authenticationdata.md).
   >
   >
 * **P:  Posso sincronizar os dados de perguntas de segurança localmente?**
@@ -61,7 +61,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P:  Os usuários precisam ser registrados antes de usar a redefinição de senha?**
 
-  > **R:**  Não. Se você definir informações de autenticação suficientes em nome deles, os usuários não precisarão se registrar. A redefinição de senha funcionará desde que você tenha formatado corretamente os dados armazenados nos campos apropriados no diretório.
+  > **R:** Não. Se você definir informações de autenticação suficientes em nome deles, os usuários não precisarão se registrar. A redefinição de senha funcionará desde que você tenha formatado corretamente os dados armazenados nos campos apropriados no diretório.
   >
   >
 * **P:  Posso sincronizar ou definir os campos de telefone de autenticação, email de autenticação ou telefone de autenticação alternativo em nome dos usuários?**
@@ -159,7 +159,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P:  Um usuário pode registrar a mesma pergunta de segurança mais de uma vez?**
 
-  > **R:**  Não. Quando um usuário registra uma pergunta específica, ele não pode registrar essa pergunta uma segunda vez.
+  > **R:** Não. Quando um usuário registra uma pergunta específica, ele não pode registrar essa pergunta uma segunda vez.
   >
   >
 * **P:  É possível definir um limite mínimo de perguntas de segurança para registro e redefinição?**

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: yizhon
 ms.openlocfilehash: 0a7e30be374ae5095e206ce0e519e51bb58f1f00
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024846"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60399179"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>SDK do dispositivo IoT do Azure para C – mais sobre o serializador
 
@@ -64,7 +64,7 @@ O que não foi demonstrado neste exemplo são os tipos de dados adicionais que r
 
 Os tipos de dados a seguir têm suporte em modelos criados com a biblioteca do **serializador** :
 
-| Tipo | DESCRIÇÃO |
+| Type | DESCRIÇÃO |
 | --- | --- |
 | double |número de ponto flutuante de precisão dupla |
 | int |inteiro de 32 bits |
@@ -74,11 +74,11 @@ Os tipos de dados a seguir têm suporte em modelos criados com a biblioteca do *
 | int16\_t |inteiro de 16 bits |
 | int32\_t |inteiro de 32 bits |
 | int64\_t |inteiro de 64 bits |
-| bool |booleano |
+| bool |boolean |
 | ascii\_char\_ptr |Cadeia de caracteres ASCII |
 | EDM\_DATE\_TIME\_OFFSET |diferença de data e horário |
 | EDM\_GUID |GUID |
-| EDM\_BINARY |binário |
+| EDM\_BINARY |binary |
 | DECLARE\_STRUCT |tipo de dados complexo |
 
 Vamos começar com o último tipo de dados. **DECLARE\_STRUCT** permite que você defina tipos de dados complexos, que são agrupamentos dos outros tipos primitivos. Esses agrupamentos nos permitem definir um modelo com a seguinte aparência:
@@ -194,7 +194,7 @@ Se você executar esse código, a seguinte mensagem será enviada ao Hub IoT:
 {"aDouble":1.100000000000000, "aInt":2, "aFloat":3.000000, "aLong":4, "aInt8":5, "auInt8":6, "aInt16":7, "aInt32":8, "aInt64":9, "aBool":true, "aAsciiCharPtr":"ascii string 1", "aDateTimeOffset":"2015-09-14T21:18:21Z", "aGuid":"00010203-0405-0607-0809-0A0B0C0D0E0F", "aBinary":"AQID"}
 ```
 
-Observe que a serialização está em JSON, que é o formato gerado pela biblioteca do **serializador** . Perceba também que cada membro do objeto JSON serializado corresponde os membros de **TestType** que definimos em nosso modelo. Os valores também correspondem exatamente aos valores utilizados no código. No entanto, observe que os dados binários são codificados com base64; "AQID" é a codificação base64 de {0x01, 0x02, 0x03}.
+Observe que a serialização está em JSON, que é o formato gerado pela biblioteca do **serializador** . Perceba também que cada membro do objeto JSON serializado corresponde os membros de **TestType** que definimos em nosso modelo. Os valores também correspondem exatamente aos valores utilizados no código. No entanto, observe que os dados binários codificados na base64: "AQID" é o base64 codificação de {0x01, 0x02, 0x03}.
 
 Esse exemplo demonstra a vantagem de usar a biblioteca do **serializador**. Ela nos permite enviar JSON para a nuvem, sem precisar lidar explicitamente com a serialização em nosso aplicativo. Só precisamos nos preocupar com a configuração dos valores dos eventos de dados em nosso modelo e chamar APIs simples para enviar esses eventos para a nuvem.
 
@@ -233,7 +233,7 @@ WITH_DATA(HumidityEvent, Humidity)
 END_NAMESPACE(Contoso);
 ```
 
-Observe que o modelo inclui dois eventos de dados: **Temperature** e **Humidity**. Ao contrário dos exemplos anteriores, o tipo de cada evento é uma estrutura definida usando **DECLARE\_STRUCT**. **TemperatureEvent** inclui uma medição de temperatura e um carimbo de data e hora; **HumidityEvent** contém uma medição de umidade e um carimbo de data e hora. Esse modelo nos proporciona uma forma natural de modelar os dados para o cenário descrito acima. Quando enviamos um evento à nuvem, enviamos um par de temperatura/carimbo de data e hora ou um par de umidade/carimbo de data e hora.
+Observe que o modelo inclui dois eventos de dados: **Temperatura** e **umidade**. Ao contrário dos exemplos anteriores, o tipo de cada evento é uma estrutura definida usando **DECLARE\_STRUCT**. **TemperatureEvent** inclui uma medição de temperatura e um carimbo de data e hora; **HumidityEvent** contém uma medição de umidade e um carimbo de data e hora. Esse modelo nos proporciona uma forma natural de modelar os dados para o cenário descrito acima. Quando enviamos um evento à nuvem, enviamos um par de temperatura/carimbo de data e hora ou um par de umidade/carimbo de data e hora.
 
 Podemos enviar um evento de temperatura à nuvem usando um código como o seguinte:
 
@@ -514,7 +514,7 @@ Se você estiver enviando uma mensagem para um dispositivo, o fará por meio do 
 {"Name" : "", "Parameters" : "" }
 ```
 
-Você está enviando um objeto JSON serializado com duas propriedades: **Name** é o nome da ação (mensagem) e **Parameters** contém os parâmetros da ação.
+Você está enviando um objeto JSON serializado com duas propriedades: **Nome da** é o nome da ação (mensagem) e **parâmetros** contém os parâmetros da ação.
 
 Por exemplo, para invocar **SetAirResistance** , você pode enviar essa mensagem para um dispositivo:
 
@@ -661,7 +661,7 @@ serializer_deinit();
 
 Caso contrário, todos os outros recursos listados acima funcionarão da mesma forma na biblioteca do **serializador** como na biblioteca **IoTHubClient**. Para obter mais informações sobre qualquer um desses tópicos, veja o [artigo anterior](iot-hub-device-sdk-c-iothubclient.md) desta série.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo descreve em detalhes os aspectos exclusivos da biblioteca do **serializador** contidos no **SDK do dispositivo IoT do Azure para o C**. Com base nas informações fornecidas, você deverá ter uma boa compreensão de como usar modelos para enviar eventos e receber mensagens do Hub IoT.
 

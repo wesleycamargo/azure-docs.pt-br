@@ -8,11 +8,11 @@ ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/19/2019
 ms.openlocfilehash: f222b37e8ca6efcfe28146ee948511d887f547a4
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339135"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60201305"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Visão geral de exclusão reversível do Azure Key Vault
 
@@ -83,7 +83,7 @@ Em geral, quando um objeto (um cofre de chaves ou uma chave ou um segredo) está
 - Ações “limpar' e “recuperar” contarão até as operações do cofre de chaves normal e serão cobradas.
 - Se o objeto for uma chave de HSM, o encargo”chave Protegida HSM” por versão de chave por encargo mensal será aplicada se uma versão de chave tiver sido usada nos últimos 30 dias. Depois disso, uma vez que o objeto está no estado excluído, nenhuma operação pode ser executada em relação a ela, portanto nenhum encargo será aplicado.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 As duas guias a seguir oferecem os cenários de uso primário para usar a exclusão reversível.
 

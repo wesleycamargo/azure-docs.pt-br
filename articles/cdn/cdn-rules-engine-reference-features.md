@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
 ms.openlocfilehash: 205a8dae55394a82a60f54ed32bad95324a59517
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996931"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324211"
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Recursos do mecanismo de regras da CDN do Azure
 Este artigo lista descrições detalhadas dos recursos disponíveis para o [Mecanismo de regras](cdn-rules-engine.md)da CDN (Rede de Distribuição de Conteúdo) do Azure.
@@ -183,9 +183,9 @@ NOME | Finalidade
 ### <a name="age-response-header"></a>Cabeçalho de Resposta de Idade
 **Finalidade**: Determina se um cabeçalho de resposta de idade será incluído na resposta enviada ao solicitante.
 
-Valor|Result
+Value|Result
 --|--
-habilitado | O cabeçalho de resposta Age será incluído na resposta enviada ao solicitante.
+Enabled | O cabeçalho de resposta Age será incluído na resposta enviada ao solicitante.
 Desabilitado | O cabeçalho de resposta Age será excluído da resposta enviada ao solicitante.
 
 **Comportamento padrão**: Desabilitado.
@@ -200,9 +200,9 @@ Desabilitado | O cabeçalho de resposta Age será excluído da resposta enviada 
 
 Os parâmetros de limitação de largura de banda determinam se a taxa de transferência de dados para uma solicitação do cliente é limitada a uma taxa personalizada.
 
-Valor|Result
+Value|Result
 --|--
-habilitado|Permite que os POPs cumpram as solicitações de limitação de largura de banda.
+Enabled|Permite que os POPs cumpram as solicitações de limitação de largura de banda.
 Desabilitado|Faz com que os POPs ignorem os parâmetros de limitação de largura de banda. O conteúdo solicitado é servido normalmente (ou seja, sem limitação de largura de banda).
 
 **Comportamento padrão:** habilitado.
@@ -232,9 +232,9 @@ Segundos de Prebuf|Defina essa opção para o número de segundos que os POPs de
 ### <a name="bypass-cache"></a>Ignorar o Cache
 **Finalidade:** determina se a solicitação deve ignorar o cache.
 
-Valor|Result
+Value|Result
 --|--
-habilitado|Faz com que todas as solicitações sejam passadas para o servidor de origem, mesmo que o conteúdo tenha sido armazenado em cache anteriormente nos POPs.
+Enabled|Faz com que todas as solicitações sejam passadas para o servidor de origem, mesmo que o conteúdo tenha sido armazenado em cache anteriormente nos POPs.
 Desabilitado|Faz com que os POPs armazenem ativos em cache de acordo com a política de cache definida em seus cabeçalhos de resposta.
 
 **Comportamento padrão:**
@@ -294,7 +294,7 @@ Informações de chave:
 
 A maneira mais fácil de obter esse tipo de configuração é colocar os recursos de Tratamento de Cabeçalho Max-Age Externo e Cache-Control na mesma instrução.
 
-Valor|Result
+Value|Result
 --|--
 Substituir|Garante que as seguintes ações ocorrerão:<br/> -Substitui o `Cache-Control` cabeçalho gerado pelo servidor de origem. <br/>– Adiciona o `Cache-Control` cabeçalho produzido pelo recurso externo Max-Age à resposta.
 Passagem|Garante que o `Cache-Control` cabeçalho produzido pelo recurso externo Max-Age nunca seja adicionado à resposta. <br/> Se o servidor de origem produzir um `Cache-Control` cabeçalho, ele será passado para o usuário final. <br/> Se o servidor de origem não produzir um `Cache-Control` cabeçalho, essa opção poderá fazer com que o cabeçalho de resposta não contenha um `Cache-Control` cabeçalho.
@@ -431,9 +431,9 @@ Um erro de cache parcial normalmente ocorre depois que um usuário anula um down
 
 Mantenha a configuração padrão para a plataforma HTTP Grande, pois isso reduzir a carga no servidor de origem do cliente e aumenta a velocidade com a qual os clientes baixam o conteúdo.
 
-Valor|Result
+Value|Result
 --|--
-habilitado|Restaura o comportamento padrão. O comportamento padrão é forçar o POP a iniciar uma busca em segundo plano do ativo do servidor de origem. Depois disso, o ativo estará no cache local do POP.
+Enabled|Restaura o comportamento padrão. O comportamento padrão é forçar o POP a iniciar uma busca em segundo plano do ativo do servidor de origem. Depois disso, o ativo estará no cache local do POP.
 Desabilitado|Impede que um POP realize uma busca em segundo plano para o ativo. O resultado é que a próxima solicitação desse ativo dessa região faz com que um POP solicite-o do servidor de origem do cliente.
 
 **Comportamento padrão:** habilitado.
@@ -534,9 +534,9 @@ Cabeçalhos de resposta de cache de depuração podem ser solicitados incluindo-
 
 X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
-Valor|Result
+Value|Result
 -|-
-habilitado|Solicitações para cabeçalhos de resposta do cache de depuração retornarão uma resposta que inclui o cabeçalho X-EC-Debug.
+Enabled|Solicitações para cabeçalhos de resposta do cache de depuração retornarão uma resposta que inclui o cabeçalho X-EC-Debug.
 Desabilitado|O cabeçalho de resposta X-EC-Debug será excluído da resposta.
 
 **Comportamento padrão:** desabilitado.
@@ -591,9 +591,9 @@ Devido à maneira como as configurações de cache são acompanhadas, esse recur
 ### <a name="deny-access-403"></a>Negar Acesso (403)
 **Finalidade**: Determina se todas as solicitações são rejeitadas com uma resposta 403 Proibido.
 
-Valor | Result
+Value | Result
 ------|-------
-habilitado| Faz com que todas as solicitações que atendem aos critérios de correspondência sejam rejeitadas com uma resposta 403 Proibido.
+Enabled| Faz com que todas as solicitações que atendem aos critérios de correspondência sejam rejeitadas com uma resposta 403 Proibido.
 Desabilitado| Restaura o comportamento padrão. O comportamento padrão é permitir que o servidor de origem determine o tipo de resposta que será retornado.
 
 **Comportamento padrão**: Desabilitado
@@ -611,7 +611,7 @@ Desabilitado| Restaura o comportamento padrão. O comportamento padrão é permi
 
 A maneira mais fácil de obter esse tipo de configuração é colocar os recursos de Tratamento de Cabeçalho Max-Age Externos e Expires na mesma instrução.
 
-Valor|Result
+Value|Result
 --|--
 Substituir|Garante que as seguintes ações ocorrerão:<br/>-Substitui o `Expires` cabeçalho gerado pelo servidor de origem.<br/>– Adiciona o `Expires` cabeçalho produzido pelo recurso externo Max-Age à resposta.
 Passagem|Garante que o `Expires` cabeçalho produzido pelo recurso externo Max-Age nunca seja adicionado à resposta. <br/> Se o servidor de origem produzir um `Expires` cabeçalho, ele será passado para o usuário final. <br/>Se o servidor de origem não produzir um `Expires` cabeçalho, essa opção poderá fazer com que o cabeçalho de resposta não contenha um `Expires` cabeçalho.
@@ -651,9 +651,9 @@ Informações de chave:
 
 - As solicitações só podem ser redirecionadas para CNAMEs de borda que correspondam à mesma plataforma.
 
-Valor|Result
+Value|Result
 -|-
-habilitado|As solicitações podem ser redirecionadas.
+Enabled|As solicitações podem ser redirecionadas.
 Desabilitado|As solicitações não serão redirecionadas.
 
 **Comportamento padrão:** desabilitado.
@@ -724,9 +724,9 @@ Informações de chave:
 
 Uma solicitação no-cache ocorre quando o cliente HTTP envia um `Cache-Control: no-cache` e/ou `Pragma: no-cache` cabeçalho na solicitação HTTP.
 
-Valor|Result
+Value|Result
 --|--
-habilitado|Permite que solicitações no-cache de um cliente HTTP sejam encaminhadas ao servidor de origem, e o servidor de origem retornará os cabeçalhos de resposta e o corpo por meio do POP para o cliente HTTP.
+Enabled|Permite que solicitações no-cache de um cliente HTTP sejam encaminhadas ao servidor de origem, e o servidor de origem retornará os cabeçalhos de resposta e o corpo por meio do POP para o cliente HTTP.
 Desabilitado|Restaura o comportamento padrão. O comportamento padrão é impedir que solicitações de cache sejam encaminhadas para o servidor de origem.
 
 Para todo o tráfego de produção, é altamente recomendável deixar esse recurso em seu estado padrão desabilitado. Caso contrário, os servidores de origem não serão protegidos de usuários finais que podem disparar inadvertidamente muitas solicitações no-cache durante a atualização de páginas da Web ou de muitos players de mídia mais populares que são codificados para enviar um cabeçalho no-cache com cada solicitação de vídeo. No entanto, esse recurso pode ser útil para ser aplicado a determinados diretórios de teste que não sejam de produção, para permitir que o conteúdo novo seja obtido sob demanda do servidor de origem.
@@ -786,9 +786,9 @@ Devido à maneira como as configurações de cache são acompanhadas, esse recur
 
 Por padrão, esse código de status é retornado quando a solicitação de intervalo de bytes especificado não pode ser atendida por um POP e um campo de cabeçalho de solicitação If-Range não foi especificado.
 
-Valor|Result
+Value|Result
 -|-
-habilitado|Impede que os POPs respondam a uma solicitação inválida de intervalo de bytes com um código de status 416 Intervalo solicitado não satisfatório. Em vez disso, os servidores serão distribuirão o ativo solicitado e retornarão uma resposta 200 Okey para o cliente.
+Enabled|Impede que os POPs respondam a uma solicitação inválida de intervalo de bytes com um código de status 416 Intervalo solicitado não satisfatório. Em vez disso, os servidores serão distribuirão o ativo solicitado e retornarão uma resposta 200 Okey para o cliente.
 Desabilitado|Restaura o comportamento padrão. O comportamento padrão é cumprir o código de status 416 Intervalo solicitado não satisfatório.
 
 **Comportamento padrão:** desabilitado.
@@ -847,9 +847,9 @@ Devido à maneira como as configurações de cache são acompanhadas, esse recur
 ### <a name="log-query-string"></a>Cadeia de Caracteres de Consulta de Log
 **Finalidade:** determina se uma cadeia de caracteres de consulta será armazenada juntamente com a URL nos logs de acesso.
 
-Valor|Result
+Value|Result
 -|-
-habilitado|Permite o armazenamento de cadeias de caracteres de consulta durante a gravação de URLs em um log de acesso. Se uma URL não contiver uma cadeia de caracteres de consulta, essa opção não terá efeito.
+Enabled|Permite o armazenamento de cadeias de caracteres de consulta durante a gravação de URLs em um log de acesso. Se uma URL não contiver uma cadeia de caracteres de consulta, essa opção não terá efeito.
 Desabilitado|Restaura o comportamento padrão. O comportamento padrão é ignorar as cadeias de caracteres de consulta durante a gravação de URLs em um log de acesso.
 
 **Comportamento padrão:** desabilitado.
@@ -945,7 +945,7 @@ Informações de chave:
     - content-encoding
     - content-length
     - content-range
-    - data
+    - date
     - Servidor
     - trailer
     - transfer-encoding
@@ -965,9 +965,9 @@ Informações de chave:
 
 Esse cache parcial pode ser usado para atender a novas solicitações desse conteúdo até que o conteúdo solicitado seja totalmente armazenado em cache.
 
-Valor|Result
+Value|Result
 -|-
-habilitado|As solicitações podem gerar conteúdo parcialmente em cache.
+Enabled|As solicitações podem gerar conteúdo parcialmente em cache.
 Desabilitado|As solicitações só podem gerar uma versão totalmente em cache do conteúdo solicitado.
 
 **Comportamento padrão:** desabilitado.
@@ -1023,9 +1023,9 @@ Os cabeçalhos HTTP a seguir estão incluídos na lista padrão:
 
 Os valores válidos são:
 
-Valor|Result
+Value|Result
 --|--
-habilitado|Faz o POP buscar novamente o ativo do servidor de origem.
+Enabled|Faz o POP buscar novamente o ativo do servidor de origem.
 Desabilitado|Restaura o comportamento padrão. O comportamento padrão é fornecer ativos de cache válidos mediante solicitação.
 
 Este recurso não é necessário para o armazenamento em cache e o fornecimento de conteúdo corretos, mas pode ser útil como solução alternativa. Por exemplo, geradores de conteúdo dinâmicos em servidores de origem inadvertidamente podem fazer com que respostas de 0 byte sejam enviadas aos POPs. Esses tipos de respostas normalmente são armazenados em cache pelos POPs. Se você souber que uma resposta de 0 byte nunca é uma resposta válida 
@@ -1086,9 +1086,9 @@ Certifique-se de que o nome do cabeçalho especificado não corresponde a nenhum
 ### <a name="stale-content-delivery-on-error"></a>Distribuição de Conteúdo Obsoleta em Erro
 **Finalidade:** determina se conteúdo armazenado em cache expirado será entregue quando ocorre um erro durante a revalidação de cache ou ao recuperar o conteúdo solicitado do servidor de origem do cliente.
 
-Valor|Result
+Value|Result
 -|-
-habilitado|Conteúdo obsoleto será fornecido ao solicitante quando ocorrer um erro durante a conexão com um servidor de origem.
+Enabled|Conteúdo obsoleto será fornecido ao solicitante quando ocorrer um erro durante a conexão com um servidor de origem.
 Desabilitado|O erro do servidor de origem será encaminhado ao solicitante.
 
 **Comportamento padrão:** desabilitado
@@ -1126,9 +1126,9 @@ A chave de criptografia que é usada para criptografar e descriptografar valores
 
 Este recurso toma precedência sobre os recursos com a exceção do recurso de Regenerar URL.
 
-Valor | Result
+Value | Result
 ------|---------
-habilitado | Protege o conteúdo solicitado com Autenticação Baseada em Token. Somente as solicitações de clientes que fornecerem um token válido e atenderem aos requisitos serão respeitadas. Transações de FTP são excluídas da Autenticação Baseada em Token.
+Enabled | Protege o conteúdo solicitado com Autenticação Baseada em Token. Somente as solicitações de clientes que fornecerem um token válido e atenderem aos requisitos serão respeitadas. Transações de FTP são excluídas da Autenticação Baseada em Token.
 Desabilitado| Restaura o comportamento padrão. O comportamento padrão é permitir que sua configuração de Autenticação Baseada em Token determine se uma solicitação será protegida.
 
 #### <a name="compatibility"></a>Compatibilidade
@@ -1198,9 +1198,9 @@ Os parâmetros afetados por esse recurso são:
 
 Os valores válidos são:
 
-Valor|Result
+Value|Result
 ---|----
-habilitado|Faz com que o POP ignore maiúsculas e minúsculas durante a comparação de URLs para os parâmetros de Autenticação Baseada em Token.
+Enabled|Faz com que o POP ignore maiúsculas e minúsculas durante a comparação de URLs para os parâmetros de Autenticação Baseada em Token.
 Desabilitado|Restaura o comportamento padrão. O comportamento padrão é que comparações de URL para Autenticação de Token diferenciem maiúsculas de minúsculas.
 
 **Comportamento padrão:** desabilitado.
@@ -1219,9 +1219,9 @@ Informações de chave:
 - A opção de valor não pode ser definida como "ec_token".
 - Certifique-se de que o nome definido na opção valor contém caracteres de URL só é válidos.
 
-Valor|Result
+Value|Result
 ----|----
-habilitado|A opção Value define o nome de parâmetro de cadeia de consulta por meio do qual os tokens devem ser definidos.
+Enabled|A opção Value define o nome de parâmetro de cadeia de consulta por meio do qual os tokens devem ser definidos.
 Desabilitado|Um token pode ser especificado como um parâmetro de cadeia de caracteres de consulta indefinido na URL da solicitação.
 
 **Comportamento padrão:** desabilitado. Um token pode ser especificado como um parâmetro de cadeia de caracteres de consulta indefinido na URL da solicitação.

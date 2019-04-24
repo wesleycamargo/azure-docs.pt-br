@@ -9,11 +9,11 @@ ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
 ms.openlocfilehash: 16f3ad1aa037dca2e7b8c3e68ae952c27b952711
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103019"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60366422"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Criar e modificar um circuito do ExpressRoute
 
@@ -84,19 +84,19 @@ Nessa página, **Status do provedor** fornece informações sobre o estado de pr
 Quando você cria um novo circuito do ExpressRoute, ele está no seguinte estado:
 
 Status do provedor: Não provisionado<BR>
-Status do circuito: habilitado
+Status do circuito: Enabled
 
 ![Iniciar o processo de provisionamento](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
 
 O circuito assumirá o seguinte o estado quando o provedor de conectividade estiver habilitando-o para você:
 
 Status do provedor: Provisionamento<BR>
-Status do circuito: habilitado
+Status do circuito: Enabled
 
 Para que você consiga usar um circuito do ExpressRoute, ele deverá estar no seguinte estado:
 
 Status do provedor: Provisionado<BR>
-Status do circuito: habilitado
+Status do circuito: Enabled
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Verifique periodicamente o status e o estado da chave do circuito
 
@@ -156,7 +156,7 @@ Você pode excluir seu circuito do ExpressRoute selecionando o ícone **Excluir*
 * Se o estado de provisionamento do provedor de serviço de circuito de ExpressRoute for **Provisionando** ou **Provisionado**, você deverá trabalhar com seu provedor de serviços para que ele desprovisione o circuito. Continuaremos a reservar recursos e a cobrar de você até que o provedor de serviços complete o desprovisionamento do circuito e nos notifique.
 * Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisionamento do provedor de serviços estiver definido como **Não provisionado**), exclua o circuito. Isso interrompe a cobrança pelo circuito.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Depois de criar o circuito, continue para as próximas etapas:
 

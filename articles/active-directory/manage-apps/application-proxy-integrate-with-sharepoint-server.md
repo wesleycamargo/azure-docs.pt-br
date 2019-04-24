@@ -17,11 +17,11 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7dc80b78bbba369e0ddb5c2c1e9fd90834dc0148
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120407"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60293114"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Habilitar acesso remoto ao SharePoint com o Proxy de Aplicativo do Azure AD
 
@@ -185,7 +185,7 @@ A configuração do SharePoint foi concluída, mas como a URL interna da zona Ex
 
 Agora você pode acessar o site do SharePoint externamente por meio do Proxy de Aplicativo do Azure AD.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Trabalhando com domínios personalizados no Proxy de Aplicativo do Azure AD](application-proxy-configure-custom-domain.md)
 * [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-connectors.md)

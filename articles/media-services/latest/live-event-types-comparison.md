@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: juliako
 ms.openlocfilehash: 9952a7bbac1eb79de0d3425f839e3bd30196844e
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243883"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322277"
 ---
 # <a name="live-event-types-comparison"></a>Comparação de tipos de Eventos ao Vivo
 
@@ -57,7 +57,7 @@ A tabela a seguir compara os recursos dos dois tipos de Evento ao Vivo.
 
 ## <a name="system-presets"></a>Predefinições do sistema
 
-Ao usar a codificação ao vivo (conjunto de eventos ao vivo **Standard**), a predefinição de codificação define como o fluxo de entrada é codificado em várias taxas de bits ou camadas. Atualmente, o único valor permitido para é a predefinição *Default720p* (padrão).
+Ao usar a codificação ao vivo (Eventos ao vivo definidos como **Padrão**), a predefinição de codificação define como o fluxo de entrada é codificado em várias taxas de bits ou camadas. Atualmente, o único valor permitido para é a predefinição *Default720p* (padrão).
 
 **Default720p** codificará o vídeo nas seis camadas a seguir.
 
@@ -73,7 +73,7 @@ Ao usar a codificação ao vivo (conjunto de eventos ao vivo **Standard**), a pr
 | 200 |340 |192 |30 |Alto |Video_340x192_200kbps |
 
 > [!NOTE]
-> Se você precisar usar uma predefinição de codifica ao vivo personalizada, entre em contato com amshelp@microsoft.com. Você deve especificar a tabela desejada da resolução e taxas de bits. Verifique se há apenas uma camada em 720p e no máximo de 6 camadas.
+> Caso precise usar uma predefinição de codificação ao vivo personalizada, entre em contato com amshelp@microsoft.com. Você deve especificar a tabela desejada da resolução e das taxas de bits. Verifique se há apenas uma camada em 720p e no máximo seis camadas.
 
 ### <a name="output-audio-stream"></a>Fluxo de áudio de saída
 

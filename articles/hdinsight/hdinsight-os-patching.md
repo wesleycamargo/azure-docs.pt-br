@@ -1,7 +1,6 @@
 ---
 title: Configurar o agendamento de aplicação de patch no SO para clusters Azure HDInsight baseados em Linux
 description: Saiba como configurar o agendamento de aplicação de patch no SO para clusters HDInsight baseados em Linux.
-services: hdinsight
 author: omidm1
 ms.author: omidm
 ms.service: hdinsight
@@ -9,11 +8,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.openlocfilehash: ef57608d092c05b30be63a54bb41ba87558eabc3
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694611"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60333682"
 ---
 # <a name="os-patching-for-hdinsight"></a>Aplicação de patch no HDInsight 
 
@@ -51,7 +50,7 @@ Ao usar esse script você precisará das seguintes informações:
 > [!NOTE]  
 > Marque esse script como persistente ao aplicar a um cluster existente. Caso contrário, quaisquer nós novos criado por meio de operações de dimensionamento usarão o agendamento de aplicação de patch padrão.  Se você aplicar o script como parte do processo de criação de cluster, ele será persistido automaticamente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para conhecer as etapas específicas sobre como usar a ação de script, confira as seções a seguir em [Personalizar clusters HDInsight baseados em Linux usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md):
 

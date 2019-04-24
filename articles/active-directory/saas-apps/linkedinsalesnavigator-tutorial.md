@@ -16,11 +16,11 @@ ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 63e3e98c2c3dc8f99e733174c86965304fe483ce
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181993"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60257648"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-sales-navigator"></a>Tutorial: Integração do Azure Active Directory ao LinkedIn Sales Navigator
 
@@ -66,11 +66,11 @@ Para configurar a integração do LinkedIn Sales Navigator com o Azure AD, é ne
 
 1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![APLICATIVOS][2]
+    ![Aplicativos][2]
     
 1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo.
 
-    ![APLICATIVOS][3]
+    ![Aplicativos][3]
 
 1. Na caixa de pesquisa, digite **LinkedIn Sales Navigator**.
 

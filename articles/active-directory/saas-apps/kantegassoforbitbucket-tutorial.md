@@ -16,11 +16,11 @@ ms.date: 07/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d7f24c211e057447782c7fab596c9be73106c552
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165291"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60265768"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bitbucket"></a>Tutorial: Integração do Azure Active Directory ao SSO do Kantega para Bitbucket
 
@@ -70,7 +70,7 @@ Para configurar a integração do SSO do Kantega para o Bitbucket ao Azure AD, �
     
 1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![APLICATIVOS][3]
+    ![Aplicativos][3]
 
 1. Na caixa de pesquisa, digite **SSO do Kantega para o Bitbucket**.
 
@@ -174,7 +174,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
      a. Copie o valor da **URI da ID do Aplicativo** e use-o como **o Identificador, a URL de Resposta e a URL de Logon** na seção **Domínio e URLs do SSO do Kantega para o Bitbucket** do portal do Azure.
 
-    b. Clique em **Próximo**.
+    b. Clique em **Avançar**.
 
 1. Na seção **Importação de metadados**, realize as seguintes etapas:
 
@@ -182,7 +182,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
      a. Selecione **Arquivo de metadados no meu computador** e carregue um arquivo de metadados baixado no portal do Azure.
 
-    b. Clique em **Próximo**.
+    b. Clique em **Avançar**.
 
 1. Na seção **Nome e localização de SSO**, realize as seguintes etapas:
 
@@ -190,7 +190,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
      a. Adicione Nome do Provedor de Identidade à caixa de texto **Nome do provedor de identidade** (por exemplo, Azure AD).
 
-    b. Clique em **Próximo**.
+    b. Clique em **Avançar**.
 
 1. Verifique o Certificado de autenticação e clique em **Avançar**.   
 
@@ -202,7 +202,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
      a. Selecione **Criar usuários no Diretório interno do Bitbucket, se necessário** e insira o nome apropriado do grupo de usuários (podem ser vários números de grupos separados por vírgula).
 
-    b. Clique em **Próximo**.
+    b. Clique em **Avançar**.
 
 1. Clique em **Concluir**.
 

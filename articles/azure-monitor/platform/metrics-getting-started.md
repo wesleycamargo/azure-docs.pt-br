@@ -9,11 +9,11 @@ ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: e611f1564896cfdecb3ce34ab7c5361e5200b48a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537330"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60254115"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introdução ao Gerenciador de métricas do Azure
 
@@ -32,7 +32,7 @@ Para criar um gráfico de métricas do seu recurso, grupo de recursos, assinatur
 
 1. Usando o seletor de recurso, selecione o recurso para o qual você deseja ver as métricas. (O recurso é pré-selecionada, se você abriu **métricas** no contexto de um recurso específico).
 
-    > ![Selecione um recurso](./media/metrics-getting-started/resource-picker.png)
+    > ![Selecionar um recurso](./media/metrics-getting-started/resource-picker.png)
 
 2. Para alguns recursos, você deve escolher um namespace. O namespace é apenas uma maneira de organizar as métricas para que você possa localizá-los. Por exemplo, contas de armazenamento têm namespaces separados para armazenar as métricas de arquivos, tabelas, Blobs e filas. Muitos tipos de recurso tem apenas um namespace.
 

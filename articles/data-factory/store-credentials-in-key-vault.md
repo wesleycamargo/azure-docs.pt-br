@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: jingwang
 ms.openlocfilehash: a7d440509e2b823400cde83c1ac2ec054c37eb74
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57896204"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311858"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Armazenar credencial no Azure Key Vault
 
@@ -43,7 +43,7 @@ As propriedades a seguir têm suporte no serviço vinculado do Azure Key Vault:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **AzureKeyVault**. | Sim |
+| type | A propriedade type deve ser definida como: **AzureKeyVault**. | Sim |
 | baseUrl | Especifique a URL (nome DNS) do Azure Key Vault. | Sim |
 
 **Usando a criação da interface do usuário:**
@@ -115,5 +115,5 @@ Selecione **Azure Key Vault** para os campos secretos ao criar a conexão para s
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

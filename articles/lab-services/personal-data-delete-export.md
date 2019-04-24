@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: spelluru
 ms.openlocfilehash: e681652c13e521bd33524e247db65088f47a794c
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51637068"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60394848"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Exportar ou excluir dados pessoais do Azure DevTest Labs
 Este artigo fornece etapas para excluir e exportar dados pessoais do serviço Azure DevTest Labs. 
@@ -74,7 +74,7 @@ Como usuário de laboratório, você pode solicitar uma exportação nos dados p
 
     ![Baixar arquivo CSV](./media/personal-data-delete-export/download-csv-file.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Confira os seguintes artigos: 
 
 - [Definir políticas para um laboratório](devtest-lab-get-started-with-lab-policies.md)

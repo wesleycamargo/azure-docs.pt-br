@@ -8,14 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/11/2018
-ms.author: panosper
+origin.date: 06/11/2018
+ms.date: 04/01/2019
+ms.author: v-biyu
 ms.openlocfilehash: 29ec50a1d2e0aebb1aeb73b38c662f4a18624754
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431981"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60539053"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Perguntas frequentes sobre Conversão de Fala em Texto
 
@@ -33,7 +34,7 @@ Se você não encontrar respostas para suas perguntas nas perguntas frequentes, 
 
 **P: Preciso sempre criar um modelo de fala personalizada?**
 
-**R**:  Não. Se o aplicativo usa linguagem genérica diária, você não precisa personalizar um modelo. Se o aplicativo é usado em um ambiente em que há pouco ou nenhum ruído de fundo, você não precisa personalizar um modelo.
+**R**: Não. Se o aplicativo usa linguagem genérica diária, você não precisa personalizar um modelo. Se o aplicativo é usado em um ambiente em que há pouco ou nenhum ruído de fundo, você não precisa personalizar um modelo.
 
 Você pode implantar modelos personalizados e de linha de base no portal e, em seguida, executar testes de precisão neles. Você pode usar esse recurso para medir a precisão de um modelo de linha de base em comparação com um modelo personalizado.
 
@@ -93,7 +94,7 @@ Se você tiver mais problemas de privacidade que o impeçam de usar o serviço d
 
 **P: Posso compactar meus arquivos de texto para carregar um arquivo de texto maior?** 
 
-**R**:  Não. No momento são permitidos apenas os arquivos de texto não compactados.
+**R**: Não. No momento são permitidos apenas os arquivos de texto não compactados.
 
 **P: O relatório de dados indica que houve enunciados com falha. Qual é o problema?**
 

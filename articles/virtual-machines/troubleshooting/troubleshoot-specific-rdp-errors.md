@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f4d733e29d2ba8213e1832f2c604b726283ab3e1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417388"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318690"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Solucionar problemas de mensagens de erro específicas ao RDP para uma VM do Windows no Azure
 Você pode receber mensagens de erro específicas ao usar a conexão de Área de Trabalho Remota para uma VM (máquina virtual) do Windows no Azure. Este artigo detalha algumas das mensagens de erro mais comuns encontradas, junto com as etapas para resolvê-las. Se você estiver enfrentando problemas para se conectar à sua VM usando o RDP, mas não encontrar uma mensagem de erro específica, consulte o [guia de solução de Área de Trabalho Remota](troubleshoot-rdp-connection.md).
@@ -31,13 +31,13 @@ Para obter informações sobre mensagens de erro específicas, consulte o seguin
 * [A sessão remota foi desconectada porque não há Servidores de Licença da Área de Trabalho Remota disponíveis para fornecer uma licença](#rdplicense).
 * [A Área de Trabalho Remota não consegue localizar o "nome" do computador](#rdpname).
 * [Ocorreu um erro de autenticação. A Autoridade de Segurança Local não pode ser contatada](#rdpauth).
-* [Erro de Segurança do Windows: suas credenciais não funcionaram](#wincred).
+* [Erro de segurança do Windows: suas credenciais não funcionaram](#wincred).
 * [Este computador não pode se conectar ao computador remoto](#rdpconnect).
 
 <a id="rdplicense"></a>
 
 ## <a name="the-remote-session-was-disconnected-because-there-are-no-remote-desktop-license-servers-available-to-provide-a-license"></a>A sessão remota foi desconectada porque não há Servidores de Licença da Área de Trabalho Remota disponíveis para fornecer uma licença.
-Causa: o período de cortesia de licenciamento de 120 dias para a função de Servidor de Área de Trabalho Remota expirou e você precisa instalar licenças.
+Causa: O período de cortesia de licenciamento de 120 dias para a função de servidor de área de trabalho remota expirou e você precisa instalar licenças.
 
 Como alternativa, salve uma cópia local do arquivo RDP do portal e execute este comando no prompt de comando do PowerShell para conectar-se. Essa etapa desabilita o licenciamento apenas para esta conexão:
 
@@ -50,7 +50,7 @@ Para saber mais, confira a postagem no blog [Azure VM fails with "No Remote Desk
 <a id="rdpname"></a>
 
 ## <a name="remote-desktop-cant-find-the-computer-name"></a>A Área de Trabalho Remota não consegue localizar o “nome” do computador.
-Causa: o cliente da Área de Trabalho Remota em seu computador não pode resolver o nome do computador nas configurações do arquivo RDP.
+Causa: O cliente de área de trabalho remota em seu computador não é possível resolver o nome do computador nas configurações do arquivo RDP.
 
 Soluções possíveis:
 
@@ -68,9 +68,9 @@ A parte do endereço desse arquivo RDP tem:
 <a id="rdpauth"></a>
 
 ## <a name="an-authentication-error-has-occurred-the-local-security-authority-cannot-be-contacted"></a>Ocorreu um erro de autenticação. A Autoridade de Segurança Local não pode ser contatada.
-Causa: a VM de destino não pôde localizar a autoridade de segurança na parte do nome de usuário das suas credenciais.
+Causa: A VM de destino não é possível localizar a autoridade de segurança na parte do nome de usuário de suas credenciais.
 
-Quando seu nome de usuário estiver no formato *SecurityAuthority*\\*UserName* (exemplo: CORP\User1), a parte *SecurityAuthority* será o nome do computador da VM (para a autoridade de segurança local) ou um nome de domínio do Active Directory.
+Quando seu nome de usuário está no formato *SecurityAuthority*\\*UserName* (exemplo: CORP\User1), o *SecurityAuthority* parte é o nome do computador da VM (para a autoridade de segurança local) ou um nome de domínio do Active Directory.
 
 Soluções possíveis:
 
@@ -80,13 +80,13 @@ Soluções possíveis:
 
 <a id="wincred"></a>
 
-## <a name="windows-security-error-your-credentials-did-not-work"></a>Erro de Segurança do Windows: suas credenciais não funcionaram.
-Causa: a VM de destino não pôde validar seu nome de conta e senha.
+## <a name="windows-security-error-your-credentials-did-not-work"></a>Erro de segurança do Windows: Suas credenciais não funcionaram.
+Causa: A VM de destino não pode validar seu nome de conta e senha.
 
 Um computador baseado em Windows pode validar as credenciais de uma conta local ou de uma conta de domínio.
 
-* Para contas locais, use a sintaxe *NomeDoComputador*\\*NomeDeUsuário* (exemplo: SQL1\Admin4798).
-* Para contas de domínio, use a sintaxe *NomeDeDomínio*\\*NomeDeUsuário* (exemplo: CONTOSO\fabiopena).
+* Para contas locais, use o *NomeDoComputador*\\*UserName* sintaxe (exemplo: SQL1\Admin4798).
+* Para contas de domínio, use o *nome_do_domínio*\\*UserName* sintaxe (exemplo: Contoso\fabiopena).
 
 Se você promoveu sua VM a um controlador de domínio em uma nova floresta do Active Directory, a conta de administrador local à qual você está conectado também será convertida em uma conta equivalente com a mesma senha na nova floresta e domínio. A conta local é então excluída.
 
@@ -99,7 +99,7 @@ Se você precisar alterar a senha da conta de administrador local, consulte [Com
 <a id="rdpconnect"></a>
 
 ## <a name="this-computer-cant-connect-to-the-remote-computer"></a>Este computador não pode se conectar ao computador remoto.
-Causa: a conta que você usou para se conectar não tem direitos de entrada na Área de Trabalho Remota.
+Causa: A conta que é usada para se conectar não tem direitos de entrada de área de trabalho remota.
 
 Todo computador Windows tem um grupo local Usuários da Área de Trabalho Remota que contém as contas e os grupos que podem se conectar remotamente. Os membros do grupo local de administradores também têm acesso, mesmo que essas contas não sejam listadas no grupo local de usuários da Área de Trabalho Remota. Para computadores que ingressaram no domínio, o grupo local de administradores também contém os administradores de domínio para o domínio.
 

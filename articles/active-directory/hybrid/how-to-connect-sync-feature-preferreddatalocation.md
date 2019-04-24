@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a7b9c8827979ac4135bcaf4dfeef7cd5de02b2d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58118435"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60348121"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronização do Azure AD Connect: configurar o local de dados preferencial para recursos do Office 365
 O objetivo deste tópico é orientá-lo como configurar o atributo para o local de dados preferencial na sincronização do Azure Active Directory (Azure AD) Connect. Quando alguém usa recursos de Multi-Geo no Office 365, este atributo é usado para designar a localização geográfica de dados do Office 365 do usuário. (Os termos *região* e *área geográfica* são usados de maneira intercambiável.)
@@ -124,7 +124,7 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
 3. Para criar uma nova regra de entrada, selecione **Adicionar nova regra**.
 4. Na guia **Descrição**, forneça a seguinte configuração:
 
-    | Atributo | Valor | Detalhes |
+    | Atributo | Value | Detalhes |
     | --- | --- | --- |
     | NOME | *Fornecer um nome* | Por exemplo, "Entrada do AD – PreferredDataLocation do usuário" |
     | DESCRIÇÃO | *Forneça uma descrição personalizada* |  |
@@ -153,7 +153,7 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 3. Selecione **Adicionar nova regra**.
 4. Na guia **Descrição**, forneça a seguinte configuração:
 
-    | Atributo | Valor | Detalhes |
+    | Atributo | Value | Detalhes |
     | ----- | ------ | --- |
     | NOME | *Fornecer um nome* | Por exemplo, "Saída para Microsoft Azure AD – PreferredDataLocation do usuário" |
     | DESCRIÇÃO | *Fornecer uma descrição* ||
@@ -165,7 +165,7 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 
 5. Acesse a guia **Filtro de escopo** e adicione um único grupo de filtro de escopo com as duas cláusulas a seguir:
 
-    | Atributo | Operador | Valor |
+    | Atributo | Operador | Value |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Usuário |
     | cloudMastered | NOTEQUAL | True |

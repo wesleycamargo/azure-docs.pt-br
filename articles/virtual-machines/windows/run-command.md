@@ -8,18 +8,18 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: ecf19da59e91edd08953296d96ca68ca62f008e1
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: d199a9db879263bbca49298df190c5a127444c42
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195346"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60251230"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Executar scripts do PowerShell em sua VM Windows com o recurso Executar Comando
 
 O recurso Executar Comando usa o agente da VM para executar scripts do PowerShell dentro de uma VM do Windows do Azure. Esses scripts podem ser usados para gerenciamento geral do computador ou de aplicativos e para diagnosticar e corrigir rapidamente o acesso à VM, problemas de rede e colocar a VM de volta em um bom estado.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="benefits"></a>Benefícios
 

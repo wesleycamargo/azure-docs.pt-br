@@ -13,11 +13,11 @@ ms.author: celested
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d35f8b440fe748f91c9e01003fe83a3a5343c8df
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203719"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60291578"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>Configurar o modo como os usuários finais consentem em um aplicativo no Active Directory do Azure
 Aprenda a configurar a maneira como os usuários consentem com as permissões do aplicativo. Você pode simplificar a experiência do usuário concedendo o consentimento do administrador. Este artigo fornece as diferentes maneiras de configurar o consentimento do usuário. Os métodos se aplicam a todos os usuários finais do locatário do Azure AD (Azure Active Directory). 
@@ -70,7 +70,7 @@ Para conceder o consentimento do administrador por meio de uma solicitação de 
 
 Para exigir que os usuários finais consintam com um aplicativo sempre que autenticarem, anexe `&prompt=consent` ao URL de solicitação de autenticação.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Consentir e integrar aplicativos ao AzureAD](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)
 

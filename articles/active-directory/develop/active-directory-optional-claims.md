@@ -18,11 +18,11 @@ ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 253a5e247dbbea5fc7e0e556d8619328b43bff58
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501052"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60300137"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Como: Fornecer declarações opcionais para seu aplicativo do AD do Azure
 
@@ -40,8 +40,8 @@ Embora declarações opcionais tenham suporte na v1.0 e v2.0 tokens de formato, 
 
 | Tipo de Conta | Tokens da v1.0 | Tokens da v2.0  |
 |--------------|---------------|----------------|
-| Conta pessoal da Microsoft  | N/D  | Suportado|
-| Conta do AD do Azure      | Suportado | Suportado |
+| Conta pessoal da Microsoft  | N/D  | Com suporte|
+| Conta do AD do Azure      | Com suporte | Com suporte |
 
 ## <a name="v10-and-v20-optional-claims-set"></a>Definir versões 1.0 e declarações opcionais V2.0
 
@@ -243,7 +243,7 @@ Há várias opções disponíveis para atualizar as propriedades na configuraç�
 
 1. Quando terminar de atualizar o manifesto, clique em **Salvar** para salvar o manifesto
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as declarações padrão fornecidas pelo Azure AD.
 

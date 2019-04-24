@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aba12a2bca882b5f0e6e95d8e4f6014b318a12e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 58ca814551d8c7d309328f236052e1d07ac6f035
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119710"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60469116"
 ---
 # <a name="delegate-app-administrator-roles-in-azure-active-directory"></a>Delegar funções de administrador do aplicativo no Azure Active Directory
 
@@ -58,13 +58,13 @@ Quando um usuário registra um aplicativo, ele é automaticamente adicionado com
 
 ## <a name="delegate-app-ownership"></a>Delegar a propriedade de aplicativos
 
-Os proprietários do aplicativo e de registro de aplicativo podem, cada um, gerenciar apenas as aplicações de aplicativo ou registros de aplicativo de que são proprietários. Por exemplo, quando você adiciona um proprietário para o aplicativo Salesforce, esse proprietário pode gerenciar o acesso e a configuração apenas para o Salesforce, mais nenhum outro aplicativo. Um aplicativo pode ter vários proprietários e um usuário pode ser o proprietário de vários aplicativos.
+Os proprietários do aplicativo e os proprietários de registro de aplicativo podem cada gerenciar apenas os aplicativos ou os registros do aplicativo que eles possuem. Por exemplo, quando você adiciona um proprietário para o aplicativo Salesforce, esse proprietário pode gerenciar o acesso e a configuração apenas para o Salesforce, mais nenhum outro aplicativo. Um aplicativo pode ter vários proprietários e um usuário pode ser o proprietário de vários aplicativos.
 
 Um proprietário de aplicativo pode:
 
 * Alterar propriedades do aplicativo, tais como o nome e as permissões solicitadas pelo aplicativo
 * Gerenciar credenciais
-* Configurar logon único
+* Configurar o logon único
 * Atribuir acesso de usuário
 * Adicionar ou remover outros proprietários
 * Editar o manifesto do aplicativo

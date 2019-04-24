@@ -13,11 +13,11 @@ ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a787e896016b3230d389b2ec140ae6c03477d875
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684082"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60292976"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Noções básicas sobre conectores de Proxy de Aplicativo Azure AD
 
@@ -75,7 +75,7 @@ Poderá ocorrer tempo de inatividade quando o conector for atualizado se:
 - você possui somente um conector, recomendamos que instale um segundo conector e [crie um grupo de conectores](application-proxy-connector-groups.md). Isso evitará tempo de inatividade e oferece maior disponibilidade.  
 - Um conector estava no meio de uma transação quando a atualização foi iniciada. Embora a transação inicial seja perdida, o navegador deverá repetir a operação automaticamente ou você poderá atualizar a página. Quando a solicitação é enviada novamente, o tráfego é direcionado para um conector de backup.
 
-Para obter informações sobre as versões lançadas anteriormente e quais alterações elas incluem, consulte [aplicativo Proxy - histórico de versão](application-proxy-release-version-history.md).
+Para obter informações sobre as versões lançadas anteriormente e quais alterações elas incluem, confira [Proxy de Aplicativo – histórico de lançamento de versão](application-proxy-release-version-history.md).
 
 ## <a name="creating-connector-groups"></a>Criando grupos de conector
 
@@ -174,7 +174,7 @@ Você pode examinar o estado do serviço na janela Serviços. O conector é comp
 
  ![Local dos Serviços do Azure AD](./media/application-proxy-connectors/aad-connector-services.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 
 * [Publicar aplicativos em redes e locais separados usando grupos de conectores](application-proxy-connector-groups.md)

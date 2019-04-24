@@ -19,11 +19,11 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d0c7c29bf3094c3d5fc99b9906ee4469a6643317
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501582"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60296855"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plataforma de identidade da Microsoft e de fluxo em nome do OAuth 2.0
 
@@ -69,12 +69,12 @@ Ao usar um segredo compartilhado, uma solicitação de token de acesso de servi�
 
 | Parâmetro |  | DESCRIÇÃO |
 | --- | --- | --- |
-| `grant_type` | Obrigatório | O tipo da solicitação do token. Para uma solicitação usando um JWT, o valor deve ser `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Obrigatório | ID do aplicativo (cliente) [portal do Azure - registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) página tem atribuído ao seu aplicativo. |
-| `client_secret` | Obrigatório | O segredo do cliente que você gerou para seu aplicativo no portal do Azure - página de registros do aplicativo. |
-| `assertion` | Obrigatório | O valor do token usado na solicitação. |
-| `scope` | Obrigatório | Lista de escopos separados por espaço para a solicitação de token. Para obter mais informações, consulte [escopos](v2-permissions-and-consent.md). |
-| `requested_token_use` | Obrigatório | Especifica como a solicitação deve ser processada. No fluxo OBO, o valor precisa ser definido como `on_behalf_of`. |
+| `grant_type` | Necessário | O tipo da solicitação do token. Para uma solicitação usando um JWT, o valor deve ser `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
+| `client_id` | Necessário | ID do aplicativo (cliente) [portal do Azure - registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) página tem atribuído ao seu aplicativo. |
+| `client_secret` | Necessário | O segredo do cliente que você gerou para seu aplicativo no portal do Azure - página de registros do aplicativo. |
+| `assertion` | Necessário | O valor do token usado na solicitação. |
+| `scope` | Necessário | Lista de escopos separados por espaço para a solicitação de token. Para obter mais informações, consulte [escopos](v2-permissions-and-consent.md). |
+| `requested_token_use` | Necessário | Especifica como a solicitação deve ser processada. No fluxo OBO, o valor precisa ser definido como `on_behalf_of`. |
 
 #### <a name="example"></a>Exemplo
 
@@ -101,13 +101,13 @@ Uma solicitação de token de acesso de serviço para serviço com certificado c
 
 | Parâmetro |  | DESCRIÇÃO |
 | --- | --- | --- |
-| `grant_type` | Obrigatório | O tipo da solicitação de token. Para uma solicitação usando um JWT, o valor deve ser `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Obrigatório |  ID do aplicativo (cliente) [portal do Azure - registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) página tem atribuído ao seu aplicativo. |
-| `client_assertion_type` | Obrigatório | O valor deve ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| `client_assertion` | Obrigatório | Uma asserção (um token web JSON) que você precisa para criar e assinar com o certificado registrado como credenciais do seu aplicativo. Para saber mais sobre como registrar seu certificado e o formato da asserção, confira [credenciais de certificado](active-directory-certificate-credentials.md). |
-| `assertion` | Obrigatório | O valor do token usado na solicitação. |
-| `requested_token_use` | Obrigatório | Especifica como a solicitação deve ser processada. No fluxo OBO, o valor precisa ser definido como `on_behalf_of`. |
-| `scope` | Obrigatório | Lista de escopos separados por espaço para a solicitação de token. Para obter mais informações, consulte [escopos](v2-permissions-and-consent.md).|
+| `grant_type` | Necessário | O tipo da solicitação de token. Para uma solicitação usando um JWT, o valor deve ser `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
+| `client_id` | Necessário |  ID do aplicativo (cliente) [portal do Azure - registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) página tem atribuído ao seu aplicativo. |
+| `client_assertion_type` | Necessário | O valor deve ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| `client_assertion` | Necessário | Uma asserção (um token web JSON) que você precisa para criar e assinar com o certificado registrado como credenciais do seu aplicativo. Para saber mais sobre como registrar seu certificado e o formato da asserção, confira [credenciais de certificado](active-directory-certificate-credentials.md). |
+| `assertion` | Necessário | O valor do token usado na solicitação. |
+| `requested_token_use` | Necessário | Especifica como a solicitação deve ser processada. No fluxo OBO, o valor precisa ser definido como `on_behalf_of`. |
+| `scope` | Necessário | Lista de escopos separados por espaço para a solicitação de token. Para obter mais informações, consulte [escopos](v2-permissions-and-consent.md).|
 
 Observe que os parâmetros são praticamente os mesmos como no caso da solicitação pelo segredo compartilhado, exceto pelo fato de o parâmetro `client_secret` ser substituído por dois parâmetros: `client_assertion_type` e `client_assertion`.
 
@@ -221,7 +221,7 @@ Em alguns cenários, você pode ter apenas um emparelhamento único de cliente d
 
 Se um cliente usa o fluxo implícito para obter um id_token, e que o cliente também tem os caracteres curinga em uma URL de resposta, o id_token não pode ser usado por um fluxo OBO.  No entanto, os tokens de acesso adquiridos por meio de fluxo de concessão implícito ainda podem ser resgatados por um cliente confidencial mesmo se o cliente que inicia o processo tiver uma URL de resposta curinga registrada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre o protocolo OAuth 2.0 e outra maneira de executar autenticação de serviço para serviço usando as credenciais do cliente.
 

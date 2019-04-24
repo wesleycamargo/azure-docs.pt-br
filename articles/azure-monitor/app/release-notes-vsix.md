@@ -14,11 +14,11 @@ ms.date: 03/20/2017
 ms.reviewer: aruna
 ms.author: mbullwin
 ms.openlocfilehash: 0befc5e00cf31960a0ecda3f739e65477c740edd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54026939"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60373782"
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Notas de versão para ferramentas de análise do desenvolvedor
 

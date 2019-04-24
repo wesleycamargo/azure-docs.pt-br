@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 550b971602d1736e0ba3981a5b7ca546862ea034
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913846"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318945"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>O servidor de licenças da Área de Trabalho Remota não está disponível quando você se conecta a uma VM do Azure
 
@@ -67,7 +67,7 @@ Para resolver esse problema, [faça backup do disco de SO](../windows/snapshot-c
 
     2. Crie um novo canal para uma instância de CMD. Digite **CMD** para iniciar o canal e obter o nome do canal.
 
-    3. Alterne para o canal que executa a instância do CMD. Nesse caso, ele deve ser 1 do canal:
+    3. Alterne para o canal que executa a instância do CMD. Nesse caso, deve ser o canal 1:
 
        ```
        ch -si 1
@@ -129,4 +129,4 @@ Para resolver esse problema, [faça backup do disco de SO](../windows/snapshot-c
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 
-Se você precisar de Ajuda, ainda [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema.
+Se você ainda precisar de ajuda, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema.

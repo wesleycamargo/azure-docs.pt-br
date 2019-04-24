@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.openlocfilehash: d01c825e50e30e3545a0d47e432835c658d677af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59043874"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60448253"
 ---
 # <a name="connect-to-azure-data-explorer-with-odbc"></a>Conectar-se ao Gerenciador de dados do Azure com o ODBC
 
@@ -98,7 +98,7 @@ Agora que você tiver terminado de configurar o ODBC, você pode colocar dados d
 
 1. Agora você pode criar visualizações no Tableau, com base nos dados trazidos do Gerenciador de dados do Azure. Para obter mais informações, consulte [Tableau Learning](https://www.tableau.com/learn).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Gravar consultas para Azure Data Explorer](write-queries.md)
 

@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171818"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60246254"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Sincronização do Azure AD Connect: Noções básicas sobre o provisionamento declarativo
 Este tópico explica o modelo de configuração no Azure AD Connect. O modelo é chamado de Provisionamento Declarativo e permite que você altere uma configuração com facilidade. Muitos itens descritos neste tópico são avançados e não são necessários para a maioria dos cenários do cliente.
@@ -151,7 +151,7 @@ Se você tiver vários objetos no mesmo espaço do conector associados ao mesmo 
 Para esse cenário, você precisa alterar o escopo das regras de sincronização para que os objetos de origem tenham regras de sincronização diferentes no escopo. Isso permite que você defina uma precedência diferente.  
 ![Vários objetos unidos ao mesmo objeto mv](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple2.png)  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Leia mais sobre a linguagem de expressão em [Noções básicas sobre expressões de provisionamento declarativo](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md).
 * Veja como o provisionamento declarativo está pronto para uso em [Noções básicas sobre a configuração padrão](concept-azure-ad-connect-sync-default-configuration.md).
 * Veja como fazer uma alteração prática usando o provisionamento declarativo em [Como fazer uma alteração na configuração padrão](how-to-connect-sync-change-the-configuration.md).

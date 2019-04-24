@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: f78275af5faaf19a4993a5ae4414b0163f9a4d9d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124143"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60487495"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Processar conjuntos de dados em larga escala usando o Data Factory e o Lote
 > [!NOTE]
@@ -92,7 +92,7 @@ A solução de exemplo é intencionalmente simples. Ela foi projetada para mostr
 #### <a name="azure-subscription"></a>Assinatura do Azure
 Se você não tem uma assinatura do Azure, crie uma conta de avaliação gratuita rapidamente. Para obter mais informações, consulte [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-#### <a name="azure-storage-account"></a>Conta de armazenamento do Azure
+#### <a name="azure-storage-account"></a>Conta de Armazenamento do Azure
 Use uma conta de armazenamento para armazenar os dados deste tutorial. Se você não tem uma conta de armazenamento, consulte [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md). A solução de exemplo usa o armazenamento de blobs.
 
 #### <a name="azure-batch-account"></a>Conta do Lote do Azure
@@ -111,7 +111,7 @@ Crie um pool do Lote com pelo menos dois nós de computação.
 
 1. Na folha **Pools**, selecione o botão **Adicionar** na barra de ferramentas para adicionar um pool.
 
-   a. Insira uma ID para o pool (**ID do Pool**). Anote a ID do pool. Você precisará dela quando criar a solução de data factory.
+    a. Insira uma ID para o pool (**ID do Pool**). Anote a ID do pool. Você precisará dela quando criar a solução de data factory.
 
    b. Especifique **Windows Server 2012 R2** para a configuração **Família de Sistemas Operacionais**.
 
@@ -180,7 +180,7 @@ O método tem alguns componentes principais que você precisa entender:
 #### <a name="procedure-create-the-custom-activity"></a>Procedimento: Criar a atividade personalizada
 1. Crie um projeto de biblioteca de classes .NET no Visual Studio.
 
-   a. Inicie o Visual Studio 2012/2013/2015.
+    a. Inicie o Visual Studio 2012/2013/2015.
 
    b. Selecione **Arquivo** > **Novo** > **Projeto**.
 
@@ -528,7 +528,7 @@ A apresentação passo a passo a seguir dá os detalhes adicionais.
 #### <a name="step-1-create-the-data-factory"></a>Etapa 1: Criar o data factory
 1. Depois de entrar no [portal do Azure](https://portal.azure.com/), execute as seguintes etapas:
 
-   a. Selecione **NOVO** no menu à esquerda.
+    a. Selecione **NOVO** no menu à esquerda.
 
    b. Selecione **Dados + Análise** na folha **Novo**.
 
@@ -571,7 +571,7 @@ Nesta etapa, você cria um serviço vinculado para sua conta do Lote que é usad
 
 1. No script JSON:
 
-   a. Substitua **nome da conta** pelo nome de sua conta do Lote.
+    a. Substitua **nome da conta** pelo nome de sua conta do Lote.
 
    b. Substitua **chave de acesso** pela chave de acesso da conta do Lote.
 

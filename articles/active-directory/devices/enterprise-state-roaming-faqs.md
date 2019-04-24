@@ -18,11 +18,11 @@ ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a77cf89b7697b7b6b08dead34339ae50dbba8518
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517854"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60296309"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Configurações e perguntas frequentes sobre o roaming de dados
 Este artigo responde a algumas dúvidas que os administradores de TI podem ter sobre as configurações e a sincronização de dados do aplicativo.
@@ -125,6 +125,6 @@ Se sua organização já estiver usando o roaming no Windows 10 com a assinatura
 ## <a name="known-issues"></a>Problemas conhecidos
 Confira a documentação na seção de [solução de problemas](enterprise-state-roaming-troubleshooting.md) para obter uma lista de problemas conhecidos. 
 
-## <a name="next-steps"></a>Próximas etapas 
+## <a name="next-steps"></a>Próximos passos 
 
 Para obter uma visão geral, consulte [visão geral de roaming de estado empresarial](enterprise-state-roaming-overview.md)

@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 543e237a4a8390a8ebf74d0eb2a1f4be41dcd911
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000582"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193702"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Back-ends e pools de back-end no Azure Front Door Service
 Este artigo descreve os conceitos sobre como mapear sua implantação de aplicativo com o serviço de porta da frente do Azure. Ele também explica os termos diferentes na configuração de porta da frente em torno de back-ends de aplicativo.

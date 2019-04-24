@@ -14,11 +14,11 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6e87ae0a8adf28176d9a97cbf1b78943179884a
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340103"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60475020"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Solucionar problemas com o portal meus aplicativos
 Se você estiver tendo problemas ao entrar ou usando o **meus aplicativos** portal, experimente estas dicas de solução de problemas antes de contatar o suporte técnico ou o administrador para obter ajuda.
@@ -73,7 +73,7 @@ Se você estiver recebendo um **acesso negado** depois de iniciar um aplicativo 
 
 Se depois de tentar essas coisas que você não puder acessar seu aplicativo, você deve contatar o suporte técnico da sua organização para obter assistência.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Depois de entrar para o **meus aplicativos** portal, você também pode atualizar seu perfil e informações da conta, suas informações de grupo e acesso Examine informações (se você tiver permissão).
 
 - [Acessar e usar aplicativos no portal meus aplicativos](my-apps-portal-end-user-access.md).

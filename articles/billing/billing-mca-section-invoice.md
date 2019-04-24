@@ -12,11 +12,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 21d6c1671c57341d785c002f360c05cc5c610657
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551612"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371559"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>Criar seções na sua fatura para organizar seus custos
 
@@ -38,7 +38,7 @@ Para criar uma seção de fatura, você precisa ser um **proprietário do perfil
 
    ![Captura de tela que mostra a pesquisa do portal do Azure](./media/billing-mca-section-invoice/billing-mca-list-invoice-sections.png)
 
-4. Na parte superior da página, selecione **adicionar**.
+4. Na parte superior da página, selecione **Adicionar**.
 
 5. Insira o nome da seção da nota fiscal.
 

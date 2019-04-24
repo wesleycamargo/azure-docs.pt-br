@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
 ms.openlocfilehash: 9a93786759941def4cf8677509b1b2565cac5090
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823851"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325418"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossário do Microsoft Azure: um dicionário de terminologia de nuvem na plataforma do Azure
 
 O glossário do Microsoft Azure é um pequeno dicionário de terminologia de nuvem para a plataforma do Azure Consulte também:
 
-* [Microsoft Azure e Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) – definições dos serviços do Azure e de suas contrapartes em AWS.<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
+* [Microsoft Azure e Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) -definições de serviços do Azure e suas contrapartes em AWS.<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
 * [Termos de computação em nuvem](https://azure.microsoft.com/overview/cloud-computing-dictionary/) – termos gerais de nuvem do setor.
 
 ## <a name="account"></a>conta
@@ -66,7 +66,7 @@ Veja [Regiões do Azure](best-practices-availability-paired-regions.md)
 
 ## <a name="geo-replication"></a>replicação geográfica
 O processo de replicação automaticamente de conteúdo como blobs, tabelas e filas dentro de um par regional.  
-Veja [Replicação geográfica ativa para o Banco de Dados SQL do Azure](sql-database/sql-database-geo-replication-overview.md)
+Veja [Replicação Geográfica Ativa para o Banco de Dados SQL do Azure](sql-database/sql-database-geo-replication-overview.md)
 <!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->
 
 ## <a name="image"></a>image

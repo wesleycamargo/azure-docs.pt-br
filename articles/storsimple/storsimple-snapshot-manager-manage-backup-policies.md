@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: 218c89e403673c16c72da95aa2c1d685bbed5a86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7dac26b058b959011e38b4373369b8a1115d2705
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109274"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303178"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Usar o StorSimple Snapshot Manager para criar e gerenciar políticas de backup
 ## <a name="overview"></a>Visão geral
@@ -67,7 +67,7 @@ Após você criar uma política de backup, as seguintes informações aparecem n
 * **Grupo de Volumes** – o grupo de volumes associado à política.
 * **Retenção** – o número de instantâneos retidos; o máximo é 64.
 * **Criado** – a data em que esta política foi criada.
-* **Habilitado** – se a política está em vigor: **Verdadeiro** indica que está em vigor; **Falso** indica que não está.
+* **Habilitado** – indica se a política está atualmente em vigor: **True** indica que ele está em vigor. **Falsos** indica que ele não está em vigor.
 
 ## <a name="edit-a-backup-policy"></a>Editar uma política de backup
 Use o procedimento a seguir para editar uma política de backup existente.
@@ -91,6 +91,6 @@ Use o procedimento a seguir para excluir uma política de backup.
 
     ![Excluir confirmação da política de backup](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Saiba como [usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
 * Saiba como [Usar o StorSimple Snapshot Manager para exibir e gerenciar trabalhos de backup](storsimple-snapshot-manager-manage-backup-jobs.md).

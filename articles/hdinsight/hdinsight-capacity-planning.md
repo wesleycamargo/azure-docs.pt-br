@@ -1,7 +1,6 @@
 ---
 title: Planejamento de capacidade de cluster no Azure HDInsight
 description: Como especificar um cluster HDInsight quanto a capacidade e desempenho.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: hrasheed
 ms.openlocfilehash: b35c5073f2b19523010528800c2a989d5de5b448
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848006"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60253317"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planejamento de capacidade para clusters HDInsight
 
@@ -127,7 +126,7 @@ Você pode [entrar em contato com o suporte para solicitar um aumento de cota](h
 
 No entanto, há alguns limites de cota fixos, por exemplo, uma única assinatura do Azure pode ter, no máximo, 10 mil núcleos. Para detalhes sobre esses limites, confira [Assinatura do Azure e limites, cotas e restrições de serviços](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Configurar clusters no HDInsight com Apache Hadoop, Spark, Kafka e mais](hdinsight-hadoop-provision-linux-clusters.md): Saiba como instalar e configurar clusters HDInsight com Apache Hadoop, Spark, Kafka, Hive Interativo, HBase, ML Services ou Storm.
 * [Monitorar o desempenho do cluster](hdinsight-key-scenarios-to-monitor.md): saiba mais sobre os principais cenários a serem monitorados em seu cluster HDInsight e que podem afetar a capacidade do seu cluster.

@@ -16,11 +16,11 @@ ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1223c96bffdf125da0c47fc932d46cfa84fa45c8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187773"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60291255"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guia de introdução: integrando o Active Directory do Azure com aplicativos
 
@@ -90,7 +90,7 @@ Os artigos a seguir descrevem as maneiras pelas quais você pode gerenciar o ace
 * [Atribuindo grupos a um aplicativo](../active-directory-applications-guiding-developers-assigning-groups.md)
 * [Compartilhando contas](../active-directory-sharing-accounts.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter informações detalhadas, você pode baixar os planos de implantação do Azure Active Directory do [GitHub](https://aka.ms/deploymentplans). Para aplicativos da galeria, você pode baixar os planos de implantação para logon único, acesso condicional e provisionamento de usuário por meio do [portal do Azure](https://portal.azure.com). 
 
 Para baixar um plano de implantação do portal do Azure:

@@ -15,11 +15,11 @@ ms.date: 01/21/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ed081b32fd8ac464f7ec66f97c6867708a6f8533
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991473"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60291425"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrevendo expressões para mapeamentos de atributo no Active Directory do Azure
 Quando você configura o provisionamento de um aplicativo SaaS, um dos tipos de mapeamentos de atributos que você pode especificar é o mapeamento de expressão. Nesses casos, você deve escrever uma expressão semelhante a script que permite transformar os dados de usuários em formatos que são mais aceitáveis para o aplicativo SaaS.
@@ -50,8 +50,8 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 
 | NOME | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
-| **suffix** |Obrigatório |Cadeia de caracteres |A cadeia de caracteres que você deseja acrescentar ao final do valor de source. |
+| **fonte** |Necessário |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
+| **suffix** |Necessário |Cadeia de caracteres |A cadeia de caracteres que você deseja acrescentar ao final do valor de source. |
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
@@ -63,9 +63,9 @@ A sintaxe de expressões para mapeamentos de atributos é semelhante à das fun�
 
 | NOME | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
-| **inputFormat** |Obrigatório |Cadeia de caracteres |Formato esperado do valor de source. Para formatos com suporte, consulte [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
-| **outputFormat** |Obrigatório |Cadeia de caracteres |Formato da data de saída. |
+| **fonte** |Necessário |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
+| **inputFormat** |Necessário |Cadeia de caracteres |Formato esperado do valor de source. Para formatos com suporte, consulte [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **outputFormat** |Necessário |Cadeia de caracteres |Formato da data de saída. |
 
 - - -
 ### <a name="join"></a>Ingressar
@@ -79,7 +79,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 | NOME | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **separator** |Obrigatório |Cadeia de caracteres |Cadeia de caracteres usada para separar os valores de source quando eles são concatenados em uma cadeia de caracteres. Pode ser "" se não for necessário nenhum separador. |
+| **separator** |Necessário |Cadeia de caracteres |Cadeia de caracteres usada para separar os valores de source quando eles são concatenados em uma cadeia de caracteres. Pode ser "" se não for necessário nenhum separador. |
 | **source1  … sourceN** |Obrigatório, número de vezes variável |Cadeia de caracteres |Valores de cadeia de caracteres a serem unidos. |
 
 - - -
@@ -92,9 +92,9 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 | NOME | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **fonte** |Obrigatório |Cadeia de caracteres |Geralmente o nome do atributo. |
-| **iniciar** |Obrigatório |inteiro |Índice na cadeia de caracteres de **source** em que a subcadeia de caracteres deve começar. O primeiro caractere na cadeia de caracteres terá o índice de 1, o segundo caractere terá o índice 2 e assim por diante. |
-| **length** |Obrigatório |inteiro |Comprimento da subcadeia de caracteres. Se o comprimento terminar fora da cadeia de caracteres **source**, a função retornará uma subcadeia de caracteres do índice **start** até o final da cadeia de caracteres **source**. |
+| **fonte** |Necessário |Cadeia de caracteres |Geralmente o nome do atributo. |
+| **iniciar** |Necessário |inteiro |Índice na cadeia de caracteres de **source** em que a subcadeia de caracteres deve começar. O primeiro caractere na cadeia de caracteres terá o índice de 1, o segundo caractere terá o índice 2 e assim por diante. |
+| **length** |Necessário |inteiro |Comprimento da subcadeia de caracteres. Se o comprimento terminar fora da cadeia de caracteres **source**, a função retornará uma subcadeia de caracteres do índice **start** até o final da cadeia de caracteres **source**. |
 
 - - -
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -106,7 +106,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 | NOME | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **fonte** |Obrigatório |Cadeia de caracteres | Geralmente um atributo de nome ou sobrenome. |
+| **fonte** |Necessário |Cadeia de caracteres | Geralmente um atributo de nome ou sobrenome. |
 
 - - -
 ### <a name="not"></a>não
@@ -118,7 +118,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 | NOME | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **fonte** |Obrigatório |Cadeia de caracteres booliana |Os valores de **source** esperados são "True" ou "False". |
+| **fonte** |Necessário |Cadeia de caracteres booliana |Os valores de **source** esperados são "True" ou "False". |
 
 - - -
 ### <a name="replace"></a>Substitua
@@ -145,7 +145,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 | NOME | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
+| **fonte** |Necessário |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
 | **oldValue** |Opcional |Cadeia de caracteres |Valor a ser substituído em **source** ou **template**. |
 | **regexPattern** |Opcional |Cadeia de caracteres |Padrão de Regex para o valor a ser substituído em **source**. Ou, quando replacementPropertyName for usado, o padrão para extrair o valor da propriedade de substituição. |
 | **regexGroupName** |Opcional |Cadeia de caracteres |Nome do grupo dentro de **regexPattern**. Somente quando replacementPropertyName for usado, extrairemos o valor desse grupo como replacementValue da propriedade de substituição. |
@@ -181,7 +181,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 | NOME | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **[appRoleAssignments]** |Obrigatório |Cadeia de caracteres |Objeto **[appRoleAssignments]**. |
+| **[appRoleAssignments]** |Necessário |Cadeia de caracteres |Objeto **[appRoleAssignments]**. |
 
 - - -
 ### <a name="split"></a>Divisão
@@ -193,8 +193,8 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 | NOME | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **fonte** |Obrigatório |Cadeia de caracteres |**fonte** a atualizar. |
-| **delimiter** |Obrigatório |Cadeia de caracteres |Especifica o caractere que será usado para dividir a cadeia de caracteres (exemplo: ",") |
+| **fonte** |Necessário |Cadeia de caracteres |**fonte** a atualizar. |
+| **delimiter** |Necessário |Cadeia de caracteres |Especifica o caractere que será usado para dividir a cadeia de caracteres (exemplo: ",") |
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
@@ -206,7 +206,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 | NOME | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **fonte** |Obrigatório |Cadeia de caracteres |**fonte** a atualizar. |
+| **fonte** |Necessário |Cadeia de caracteres |**fonte** a atualizar. |
 
 - - -
 ### <a name="switch"></a>Switch
@@ -218,10 +218,10 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 | NOME | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **fonte** |Obrigatório |Cadeia de caracteres |**Source** a atualizar. |
+| **fonte** |Necessário |Cadeia de caracteres |**Source** a atualizar. |
 | **defaultValue** |Opcional |Cadeia de caracteres |Valor padrão a ser usado quando source não corresponde a nenhum parâmetro. Pode ser uma cadeia de caracteres vazia (""). |
-| **chave** |Obrigatório |Cadeia de caracteres |Parâmetro **key** com o qual comparar o valor de **source**. |
-| **valor** |Obrigatório |Cadeia de caracteres |Valor de substituição para o **source** que corresponde ao parâmetro key. |
+| **chave** |Necessário |Cadeia de caracteres |Parâmetro **key** com o qual comparar o valor de **source**. |
+| **valor** |Necessário |Cadeia de caracteres |Valor de substituição para o **source** que corresponde ao parâmetro key. |
 
 - - -
 ### <a name="tolower"></a>ToLower
@@ -233,7 +233,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 | NOME | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source |
+| **fonte** |Necessário |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source |
 | **cultura** |Opcional |Cadeia de caracteres |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2*, em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
 
 - - -
@@ -246,7 +246,7 @@ Se um dos valores de source for um atributo com vários valores, todos os valore
 
 | NOME | Obrigatório/repetição | Type | Observações |
 | --- | --- | --- | --- |
-| **fonte** |Obrigatório |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
+| **fonte** |Necessário |Cadeia de caracteres |Normalmente o nome do atributo do objeto de source. |
 | **cultura** |Opcional |Cadeia de caracteres |O formato para o nome da cultura com base em RFC 4646 é *languagecode2-country/regioncode2*, em que *regioncode2* é o código de idioma de duas letras e *country/regioncode2* é o código de subcultura de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Quando não há um código de idioma de duas letras disponível, um código de três letras derivado da ISO 639-2 é usado.|
 
 ## <a name="examples"></a>Exemplos

@@ -18,11 +18,11 @@ ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07e140ef9f561625bb89498c6b6591734e8a9b10
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563749"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60411395"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acesso do Microsoft identity platform
 
@@ -101,7 +101,7 @@ As declarações estão presentes somente se existe um valor para preenchê-lo. 
 | `azp` | Cadeia de caracteres, um GUID | Presente apenas em tokens v2.0. A ID do aplicativo do cliente que usa o token. O aplicativo pode agir como ele próprio ou em nome de um usuário. A ID do aplicativo normalmente representa um objeto de aplicativo, mas também pode representar um objeto de entidade de serviço no AD do Azure. |
 | `azpacr` | "0", "1" ou "2" | Presente apenas em tokens v2.0. Indica como o cliente foi autenticado. Para um cliente público, o valor é "0". Se a ID do cliente e o segredo do cliente são usados, o valor é "1". Se um certificado do cliente foi usado para autenticação, o valor é "2". |
 | `groups` | Matriz JSON de GUIDs | Fornece IDs de objetos que representam as associações de grupo do assunto. Esses valores são exclusivos (consulte a ID de objeto) e podem ser usados com segurança para gerenciar o acesso, como a imposição da autorização para acessar um recurso. Os grupos incluídos na declaração dos grupos são configurados por aplicativo, por meio da propriedade `groupMembershipClaims` do [manifesto do aplicativo](reference-app-manifest.md). Um valor nulo exclui todos os grupos; já um valor "SecurityGroup" inclui somente os membros do grupo de segurança do Active Directory, enquanto um valor "All" inclui tanto grupos de segurança quanto listas de distribuição do Office 365. <br><br>Consulte a declaração `hasgroups` abaixo para obter detalhes de como usar a declaração `groups` com a concessão implícita. <br>Para outros fluxos, se o número de grupos que o usuário está no ultrapassar um limite (150 para SAML, 200 para JWT), é adicionada uma declaração excedente às fontes de declaração que apontam para o ponto de extremidade do Graph que contém a lista de grupos para o usuário. |
-| `hasgroups` | BOOLEAN | Se houver algum, sempre `true`, indicando que o usuário pertence a pelo menos um grupo. Usado no lugar da declaração `groups` de JWTs em fluxos de concessão implícitos se a declaração completa de grupos ultrapassar o fragmento de URI para além dos limites de extensão da URL (atualmente, 6 ou mais grupos). Indica que o cliente deve usar o Graph para determinar os grupos do usuário (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
+| `hasgroups` | Boolean | Se houver algum, sempre `true`, indicando que o usuário pertence a pelo menos um grupo. Usado no lugar da declaração `groups` de JWTs em fluxos de concessão implícitos se a declaração completa de grupos ultrapassar o fragmento de URI para além dos limites de extensão da URL (atualmente, 6 ou mais grupos). Indica que o cliente deve usar o Graph para determinar os grupos do usuário (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
 | `groups:src1` | Objeto JSON | Para solicitações de token que não são o limite de tamanho (consulte `hasgroups` acima), mas ainda muito grande para o token, um link para a lista completa de grupos para o usuário está incluído. Para JWTs na forma de declaração distribuída, para SAML como uma nova declaração no lugar da declaração `groups`. <br><br>**Valor de exemplo de JWT**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }` |
 | `preferred_username` | Cadeia de caracteres | O nome de usuário principal que representa o usuário. Ele pode ser um endereço de email, número de telefone ou nome de usuário genérico sem um formato especificado. Seu valor é mutável e pode ser alterado ao longo do tempo. Uma vez que ele é mutável, esse valor não deve ser usado para tomar decisões de autorização.  Ele pode ser usado para obter dicas de nome de usuário. O `profile` escopo é necessário para receber essa declaração. |
 | `name` | Cadeia de caracteres | Fornece um valor legível por humanos que identifica a entidade do token. O valor não é garantido que seja exclusivo, ele é mutável e foi projetada para ser usado apenas para fins de exibição. O `profile` escopo é necessário para receber essa declaração. |
@@ -125,7 +125,7 @@ As seguintes declarações serão incluídas nos tokens de v 1.0, se aplicável,
 | `onprem_sid`| Cadeia de caracteres, em [formato SID](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | Nos casos em que o usuário tem uma autenticação local, essa declaração fornece o SID. Você pode usar `onprem_sid` para autorização em aplicativos herdados.|
 | `pwd_exp`| int, um carimbo de data/hora UNIX | Indica quando a senha do usuário expira. |
 | `pwd_url`| Cadeia de caracteres | Uma URL para a qual os usuários podem ser enviados para redefinir suas senhas. |
-| `in_corp`| booleano | Indica se o cliente está se conectando da rede corporativa. Se não estiverem, a declaração não está incluída. |
+| `in_corp`| boolean | Indica se o cliente está se conectando da rede corporativa. Se não estiverem, a declaração não está incluída. |
 | `nickname`| Cadeia de caracteres | Um nome adicional para o usuário, separado do nome ou sobrenome.|
 | `family_name` | Cadeia de caracteres | Fornece o sobrenome ou o nome da família do usuário, conforme definido no objeto de usuário. |
 | `given_name` | Cadeia de caracteres | Fornece o nome ou nome especificado do usuário, conforme definido no objeto de usuário. |
@@ -135,7 +135,7 @@ As seguintes declarações serão incluídas nos tokens de v 1.0, se aplicável,
 
 As identidades da Microsoft podem autenticar de maneiras diferentes, que podem ser relevantes ao seu aplicativo. A declaração `amr` é uma matriz que pode conter vários itens, como `["mfa", "rsa", "pwd"]`, para uma autenticação que usou uma senha e o aplicativo Authenticator.
 
-| Valor | DESCRIÇÃO |
+| Value | DESCRIÇÃO |
 |-----|-------------|
 | `pwd` | Autenticação de senha, uma senha da Microsoft do usuário ou um segredo do cliente do aplicativo. |
 | `rsa` | A autenticação se baseava na prova de uma chave RSA, por exemplo, com o [aplicativo Microsoft Authenticator](https://aka.ms/AA2kvvu). Isso inclui se a autenticação foi feita por um JWT auto-assinado com um serviço de propriedade X509 certificado. |

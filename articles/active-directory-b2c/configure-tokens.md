@@ -11,11 +11,11 @@ ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 2455b8c12ed042af3a06a158a4e5c60a0aee748b
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59685698"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60383995"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configurar tokens no Azure Active Directory B2C
 
@@ -52,7 +52,7 @@ Você pode configurar o tempo de vida de token em qualquer fluxo de usuário.
 
 5. Clique em **Salvar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre como [usar tokens de acesso](active-directory-b2c-access-tokens.md).
 

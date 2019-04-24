@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bd3ae06c42452d425f041543715336827048ccb2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58076438"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60293980"
 ---
 # <a name="problem-using-self-service-application-access"></a>Problema ao usar o acesso de aplicativo de autoatendimento
 
@@ -98,5 +98,5 @@ Abra um tíquete de suporte com as informações a seguir, se estiverem disponí
 
 -   Rastreamentos do Fiddler
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Configuração do Azure Active Directory para gerenciamento de grupo de autoatendimento](../users-groups-roles/groups-self-service-management.md)

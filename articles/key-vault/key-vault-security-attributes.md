@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: fa36a3c1eb6bda109c7985fa7cade496d2ccf9f4
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 3ccfc38136ba3e8ec7c6130658032b7565988e5c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677792"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60461393"
 ---
 # <a name="common-security-attributes-for-azure-key-vault"></a>Atributos comuns de segurança para o Azure Key Vault
 
@@ -28,18 +28,18 @@ A segurança é integrada a todos os aspectos de um serviço do Azure. Este arti
 |---|---|--|
 | Criptografia em repouso:<ul><li>Criptografia no servidor</li><li>Criptografia do lado do servidor com chaves gerenciadas pelo cliente</li><li>Outros recursos de criptografia (como do lado do cliente, Always Encrypted, etc.)</ul>| Sim | Todos os objetos são criptografados. |
 | Criptografia em trânsito:<ul><li>Criptografia do ExpressRoute</li><li>Na criptografia de VNET</li><li>Criptografia de rede virtual a rede virtual</ul>| Sim | Toda a comunicação é por meio de chamadas à API criptografadas |
-| Manipulação de chave de criptografia (CMK, BYOK, etc.)| Sim | O cliente controla todas as chaves em seu Cofre de chaves. Quando as chaves de HSM (módulo) com suporte de segurança de hardware são especificadas, um HSM do FIPS nível 2 protege a chave, o certificado ou o segredo. |
-| Criptografia de nível de coluna (Serviços de Dados do Azure)| N/D |  |
+| Tratamento de chaves de criptografia (CMK, BYOK, etc.)| Sim | O cliente controla todas as chaves em seu Cofre de chaves. Quando as chaves de HSM (módulo) com suporte de segurança de hardware são especificadas, um HSM do FIPS nível 2 protege a chave, o certificado ou o segredo. |
+| Criptografia de nível de coluna (serviços de dados do Azure)| N/D |  |
 | Chamadas à API criptografadas| Sim | Usando HTTPS. |
 
 ## <a name="network-segmentation"></a>Segmentação de rede
 
 | Atributo de segurança | Sim/Não | Observações |
 |---|---|--|
-| Suporte para ponto de extremidade de serviço| Sim | Usando pontos de extremidade de serviço de Rede Virtual (VNet). |
-| Suporte à injeção de vNET| Não  |  |
-| Isolamento de rede/Suporte a firewall| Sim | Usando regras de firewall de rede virtual. |
-| Suporte para túnel forçado | Não  |  |
+| Suporte de ponto de extremidade de serviço| Sim | Usando pontos de extremidade de serviço de Rede Virtual (VNet). |
+| suporte à injeção de rede virtual| Não  |  |
+| Isolamento de rede e suporte de firewall| Sim | Usando regras de firewall de rede virtual. |
+| Forçado suporte por túnel| Não  |  |
 
 ## <a name="detection"></a>Detecção
 
@@ -47,12 +47,12 @@ A segurança é integrada a todos os aspectos de um serviço do Azure. Este arti
 |---|---|--|
 | Monitoramento (Log analytics, insights de aplicativo, etc.) de suporte do Azure| Sim | Usando o Log Analytics. |
 
-## <a name="iam-support"></a>Suporte IAM
+## <a name="identity-and-access-management"></a>Gerenciamento de identidade e de acesso
 
 | Atributo de segurança | Sim/Não | Observações|
 |---|---|--|
-| Gerenciamento de acesso - Autenticação| Sim | A autenticação é feita pelo Azure Active Directory. |
-| Gerenciamento de acesso - Autorização| Sim | Usando a política de acesso ao Key Vault. |
+| Authentication| Sim | A autenticação é feita pelo Azure Active Directory. |
+| Autorização| Sim | Usando a política de acesso ao Key Vault. |
 
 
 ## <a name="audit-trail"></a>Trilha de auditoria
@@ -60,7 +60,7 @@ A segurança é integrada a todos os aspectos de um serviço do Azure. Este arti
 | Atributo de segurança | Sim/Não | Observações|
 |---|---|--|
 | Registro em log e auditoria de plano de controle/gerenciamento| Sim | Usando o Log Analytics. |
-| Registro em log e auditoria de plano de dados| Sim | Usando o Log Analytics. |
+| Auditoria e log de plano de dados| Sim | Usando o Log Analytics. |
 
 ## <a name="access-controls"></a>Controles de acesso
 

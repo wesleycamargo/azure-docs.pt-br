@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
 ms.openlocfilehash: 96656da078b79474dbf6576455a485d17868db49
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565948"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60406566"
 ---
 # <a name="monitor-azure-functions"></a>Monitorar Azure Functions
 
@@ -148,7 +148,7 @@ O tempo de execução fornece o `customDimensions.LogLevel` e `customDimensions.
 
 Você pode usar o Application Insights sem qualquer configuração personalizada. A configuração padrão pode resultar em altos volumes de dados. Se você estiver usando uma assinatura do Azure do Visual Studio, poderá ter atingido o limite de dados para o Application Insights. Neste artigo, você aprenderá como configurar e personalizar os dados que suas funções enviam ao Application Insights. Para um aplicativo de função, o log está configurado na [host. JSON] arquivo.
 
-### <a name="categories"></a>Categorias
+### <a name="categories"></a>Categories
 
 O agente do Azure Functions inclui uma *categoria* para cada log. A categoria indica qual parte do código de tempo de execução ou do seu código de função gravou o log. 
 

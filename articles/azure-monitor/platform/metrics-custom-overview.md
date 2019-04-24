@@ -9,11 +9,11 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 8602027431fdf2c1378834419977606bab5c6921
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287257"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60254073"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métricas personalizadas no Azure Monitor
 
@@ -38,7 +38,7 @@ Para autenticar a solicitação, o Monitor do Azure valida o token do aplicativo
 > [!NOTE]  
 > Quando você solicita que um token do Azure AD emita métricas personalizadas, verifique se o público ou recurso para o qual o token é solicitado é https://monitoring.azure.com/. Certifique-se de incluir à direita '/'.
 
-### <a name="subject"></a>Assunto
+### <a name="subject"></a>Subject
 Essa propriedade indica a ID de recurso do Azure para a qual a métrica personalizada é relatada. Essas informações serão codificadas na URL da chamada à API que está sendo feita. Cada API só pode enviar valores de métrica para um único recurso do Azure.
 
 > [!NOTE]  
@@ -189,7 +189,7 @@ O Monitor do Azure impõe os seguintes limites de uso em métricas personalizada
 
 Uma série temporal ativa é definida como qualquer combinação exclusiva de métrica, chave de dimensão ou valor de dimensão que teve valores de métrica publicados nas últimas 12 horas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Use métricas personalizadas de diferentes serviços: 
  - [Máquinas virtuais](collect-custom-metrics-guestos-resource-manager-vm.md)
  - [Conjunto de dimensionamento de máquinas virtuais](collect-custom-metrics-guestos-resource-manager-vmss.md)

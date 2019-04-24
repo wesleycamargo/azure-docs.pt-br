@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
 ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283470"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60323817"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condições de correspondência do mecanismo de regras da CDN do Azure 
 Este artigo lista descrições detalhadas das condições de correspondência disponíveis para o [mecanismo de regras](cdn-rules-engine.md) da CDN (Rede de Distribuição de Conteúdo) do Azure.
@@ -752,7 +752,7 @@ Informações de chave:
 
 A configuração de exemplo na tabela a seguir supõe que essa condição de correspondência é atendida quando uma solicitação corresponde ao padrão de URL especificado:
 
-Valor                   | Relativo a    | Result 
+Value                   | Relativo a    | Result 
 ------------------------|----------------|-------
 \*/test.html \*/test.php  | Raiz ou origem | Esse padrão é correspondido por solicitações para ativos nomeados "test.html" ou "test.php" em qualquer pasta.
 /80ABCD/origin/text/*   | Raiz           | Esse padrão é correspondido quando o ativo solicitado atende aos seguintes critérios: <br />- Ele deve estar em uma origem de cliente chamada "origem". <br />- O caminho relativo deve começar com uma pasta chamada "texto". Ou seja, o ativo solicitado pode residir na pasta "texto" ou em uma de suas subpastas recursivas.
@@ -868,7 +868,7 @@ Informações de chave:
 #### <a name="sample-scenarios"></a>Cenários de exemplo
 O exemplo a seguir demonstra como essa opção funciona em situações específicas:
 
-NOME  | Valor |  Result
+NOME  | Value |  Result
 ------|-------|--------
 Usuário  | Joe   | Esse padrão é correspondido quando a cadeia de caracteres de consulta para uma URL solicitada é "?user=joe."
 Usuário  | *     | Esse padrão é correspondido quando a cadeia de caracteres de consulta para uma URL solicitada contém um parâmetro de Usuário.
@@ -895,7 +895,7 @@ Informações de chave:
     
 - Determinados caracteres exigem codificação de URL. Use o símbolo de porcentagem para a URL codificar os seguintes caracteres:
 
-   Character | Codificação de URL | Valor
+   Character | Codificação de URL | Value
    ----------|--------------|------
    Espaço     | %20          | \%20
    &         | %25          | \%25
@@ -906,7 +906,7 @@ Informações de chave:
 
    Por exemplo: 
 
-   Valor | Interpretado como 
+   Value | Interpretado como 
    ------|---------------
    \\+    | +
    \\\\+   | \\+
@@ -969,7 +969,7 @@ user=joe              | Esse padrão é correspondido quando a cadeia de caracte
 
 </br>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Visão geral da Rede de Distribuição de Conteúdo do Azure](cdn-overview.md)
 * [Referência do mecanismo de regras](cdn-rules-engine-reference.md)
 * [Expressões condicionais do mecanismo de regras](cdn-rules-engine-reference-conditional-expressions.md)

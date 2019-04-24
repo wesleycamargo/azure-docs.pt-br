@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
 ms.openlocfilehash: 5aa5ea2a39a0fb9f969e965fed14063522197cda
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085761"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303752"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Tratar mensagens grandes com agrupamentos nos Aplicativos Lógicos do Azure
 
@@ -117,7 +117,7 @@ Estas etapas descrevem o processo detalhado que os Aplicativos Lógicos usam par
 
 1. Seu aplicativo lógico envia uma solicitação HTTP POST ou PUT inicial com o corpo da mensagem vazio. O cabeçalho de solicitação, inclui essas informações sobre o conteúdo que seu aplicativo lógico quer carregar em partes:
 
-   | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Valor | Tipo | DESCRIÇÃO |
+   | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Value | Type | DESCRIÇÃO |
    |---------------------------------|-------|------|-------------|
    | **x-ms-transfer-mode** | em partes | Cadeia de caracteres | Indica que o conteúdo é carregado em partes |
    | **x-ms-content-length** | <*content-length*> | Número inteiro | O tamanho do conteúdo inteiro em bytes antes da divisão em partes |
@@ -125,7 +125,7 @@ Estas etapas descrevem o processo detalhado que os Aplicativos Lógicos usam par
 
 2. O ponto de extremidade responde com o código de status de êxito “200” e essas informações opcionais:
 
-   | Campo de cabeçalho de resposta do ponto de extremidade | Tipo | Obrigatório | DESCRIÇÃO |
+   | Campo de cabeçalho de resposta do ponto de extremidade | Type | Obrigatório | DESCRIÇÃO |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Número inteiro | Não  | O tamanho da parte sugerido em bytes |
    | **Localidade** | Cadeia de caracteres | Não  | O local da URL para a qual enviar as mensagens HTTP PATCH |
@@ -137,7 +137,7 @@ Estas etapas descrevem o processo detalhado que os Aplicativos Lógicos usam par
 
    * Esses detalhes de cabeçalho sobre a parte do conteúdo enviados em cada mensagem PATCH:
 
-     | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Valor | Tipo | DESCRIÇÃO |
+     | Campo de cabeçalho de solicitação de Aplicativos Lógicos | Value | Type | DESCRIÇÃO |
      |---------------------------------|-------|------|-------------|
      | **Content-Range** | <*range*> | Cadeia de caracteres | O intervalo de bytes da parte do conteúdo atual, incluindo o valor inicial, o valor final e o tamanho total do conteúdo, por exemplo, "bytes=0-1023/10100" |
      | **Content-Type** | <*content-type*> | Cadeia de caracteres | O tipo de conteúdo em partes |

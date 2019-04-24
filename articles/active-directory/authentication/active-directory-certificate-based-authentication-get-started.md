@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f57d4615fc80df6c5df9ba295288ad71ae12fa23
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310822"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359068"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Inicie com uma autenticação baseada em certificado do Azure Active Directory
 
@@ -96,7 +96,7 @@ Para a configuração, você pode usar o [Azure Active Directory PowerShell vers
 
 Como essa é a primeira etapa de configuração, você precisa estabelecer uma conexão com seu locatário. Como existe uma conexão com o seu locatário, você pode revisar, adicionar, excluir e modificar autoridades de certificação confiáveis que são definidas em seu diretório.
 
-### <a name="connect"></a>Conectar
+### <a name="connect"></a>Connect
 
 Para estabelecer uma conexão com seu locatário, use o cmdlet [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0):
 

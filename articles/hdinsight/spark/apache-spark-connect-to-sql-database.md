@@ -1,7 +1,6 @@
 ---
 title: Use o Apache Spark para leitura e gravação dados no Banco de Dados SQL do Azure
 description: Saiba como configurar uma conexão entre o cluster do Azure HDInsight Spark e um Banco de Dados SQL do Azure para ler dados, gravar dados e transmitir dados em um Banco de Dados SQL
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/15/2018
 ms.openlocfilehash: 2b818350c19d1d9ff34bcdac0e438def0f859e40
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381899"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326931"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Usar o cluster do Azure HDInsight Spark para leitura e gravação dos dados no Banco de Dados SQL do Azure
 
@@ -230,7 +229,7 @@ Nesta seção, transmitimos dados para o **hvactable** já criados no Banco de D
 
         SELECT COUNT(*) FROM hvactable
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Usar o cluster HDInsight Spark para analisar dados no Data Lake Storage](apache-spark-use-with-data-lake-store.md)
 * [Processo de eventos de fluxo estruturado usando EventHub](apache-spark-eventhub-structured-streaming.md)

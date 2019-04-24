@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
 ms.openlocfilehash: a9426c20ae23fd3dad4cdba25590ff2eac271896
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727954"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311381"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Adicionar usuários e proprietários aos Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -33,27 +33,27 @@ Há três funções principais às quais você pode atribuir um usuário:
 
 * Proprietário
 * Usuário do DevTest Labs
-* Contribuidor
+* Colaborador
 
 A tabela a seguir ilustra as ações que podem ser executadas por usuários em cada uma dessas funções:
 
 | **Ações que os usuários nesta função podem executar** | **Usuário do DevTest Labs** | **Proprietário** | **Colaborador** |
 | --- | --- | --- | --- |
 | **Tarefas do laboratório** | | | |
-| Adicionar usuários a um laboratório |Não |Sim |Não |
-| Atualizar configurações de custo |Não |sim |Sim |
+| Adicionar usuários a um laboratório |Não  |Sim |Não  |
+| Atualizar configurações de custo |Não  |sim |Sim |
 | **Tarefas de base da VM** | | | |
-| Adicionar e remover imagens personalizadas |Não |sim |Sim |
-| Adicionar, atualizar e excluir fórmulas |Sim |Sim |Sim |
-| Incluir imagens do Azure Marketplace na listra branca |Não |sim |Sim |
+| Adicionar e remover imagens personalizadas |Não  |sim |Sim |
+| Adicionar, atualizar e excluir fórmulas |Sim |sim |Sim |
+| Incluir imagens do Azure Marketplace na listra branca |Não  |sim |Sim |
 | **Tarefas da VM** | | | |
-| Criar VMs |Sim |Sim |Sim |
+| Criar VMs |Sim |sim |Sim |
 | Iniciar, parar e excluir VMs |Somente máquinas virtuais criadas pelo usuário |Sim |Sim |
-| Atualizar políticas de VM |Não |sim |Sim |
+| Atualizar políticas de VM |Não  |sim |Sim |
 | Adicionar/remover discos de dados de/para máquinas virtuais |Somente máquinas virtuais criadas pelo usuário |Sim |Sim |
 | **Tarefas de artefato** | | | |
-| Adicionar e remover repositórios de artefato |Não |sim |Sim |
-| Aplicar artefatos |Sim |Sim |Sim |
+| Adicionar e remover repositórios de artefato |Não  |sim |Sim |
+| Aplicar artefatos |Sim |sim |Sim |
 
 > [!NOTE]
 > Quando um usuário cria uma VM, esse usuário é atribuído automaticamente à função **Proprietário** da VM criada.

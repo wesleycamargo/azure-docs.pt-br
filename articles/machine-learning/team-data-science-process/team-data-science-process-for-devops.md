@@ -12,11 +12,11 @@ ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 6a339b0a063312e7f68c8b88d63d83621b9402ca
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960242"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60253062"
 ---
 # <a name="team-data-science-process-for-developer-operations"></a>Processo de ciência de dados de equipe para operações de desenvolvedor
 
@@ -90,5 +90,5 @@ A tabela a seguir fornece orientação em níveis especificados para ajudar a co
 |                                                                |                                         | [Esta entrada do blog mostra como usar a integração contínua com o Azure e o GitHub](https://blogs.msdn.microsoft.com/microsoftimagine/2015/09/01/using-continuous-integration-with-azure-github/)                                                                      | Git, GitHub                                                                                                                                                                                                                                                                                           | Intermediário                                            | Desenvolvimento de software                                                                                                                                                                                                      |
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Processo de ciência de dados de equipe para cientistas de dados](team-data-science-process-for-data-scientists.md) Este artigo fornece orientações para um conjunto de objetivos que normalmente são usados para implementar soluções de ciência de dados abrangentes com as tecnologias do Azure.

@@ -7,22 +7,22 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.subservice: develop
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: celested
+origin.date: 09/24/2018
+ms.date: 11/07/2018
+ms.author: v-junlch
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0ced89ce97d5f22270d9968fdeb0ddb3fad1e4e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194981"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60251985"
 ---
 # <a name="service-to-service-apps"></a>Aplicativos serviço a serviço
 
@@ -63,8 +63,8 @@ Consulte os exemplos de código para os cenários de aplicativo daemon ou de ser
 
 ## <a name="app-registration"></a>Registro do aplicativo
 
-* Locatário único – Para a identidade do aplicativo e casos de identidade de usuário delegado, o aplicativo daemon ou para servidores deve ser registrado no mesmo diretório no Azure AD. A API da Web pode ser configurada para expor um conjunto de permissões, que são usadas para limitar o acesso do daemon ou do servidor a seus recursos. Se um tipo de identidade de usuário delegado estiver sendo usado, o aplicativo de servidor precisará selecionar as permissões desejadas no menu suspenso "Permissões para Outros Aplicativos" no portal do Azure. Essa etapa não será necessária se o tipo de identidade de aplicativo estiver sendo usado.
-* Multilocatário – Primeiro, o aplicativo daemon ou para servidores é configurado para indicar as permissões necessárias para que seja funcional. Essa lista de permissões necessárias é mostrada em uma caixa de diálogo quando um usuário ou administrador no diretório de destino dá consentimento para o aplicativo, o que o torna disponível para sua organização. Alguns aplicativos exigem apenas permissões de nível de usuário, que qualquer usuário na organização pode conceder. Outros aplicativos exigem permissões de nível administrativo, que um usuário na organização não pode conceder. Somente um administrador do diretório pode dar consentimento para aplicativos que exigem esse nível de permissões. Quando o usuário ou administrador concede permissão, ambas as APIs Web são registradas no diretório delas.
+- Locatário único – Para a identidade do aplicativo e casos de identidade de usuário delegado, o aplicativo daemon ou para servidores deve ser registrado no mesmo diretório no Azure AD. A API da Web pode ser configurada para expor um conjunto de permissões, que são usadas para limitar o acesso do daemon ou do servidor a seus recursos. Se um tipo de identidade de usuário delegado estiver sendo usado, o aplicativo de servidor precisará selecionar as permissões desejadas no menu suspenso "Permissões para Outros Aplicativos" no portal do Azure. Essa etapa não será necessária se o tipo de identidade de aplicativo estiver sendo usado.
+- Multilocatário – Primeiro, o aplicativo daemon ou para servidores é configurado para indicar as permissões necessárias para que seja funcional. Essa lista de permissões necessárias é mostrada em uma caixa de diálogo quando um usuário ou administrador no diretório de destino dá consentimento para o aplicativo, o que o torna disponível para sua organização. Alguns aplicativos exigem apenas permissões de nível de usuário, que qualquer usuário na organização pode conceder. Outros aplicativos exigem permissões de nível administrativo, que um usuário na organização não pode conceder. Somente um administrador do diretório pode dar consentimento para aplicativos que exigem esse nível de permissões. Quando o usuário ou administrador concede permissão, ambas as APIs Web são registradas no diretório delas.
 
 ## <a name="token-expiration"></a>Expiração do token
 
@@ -74,3 +74,4 @@ Quando o primeiro aplicativo usa seu código de autorização para obter um toke
 
 - Saiba mais sobre outros [Tipos e cenários de aplicativo](app-types.md)
 - Saiba mais sobre as [noções básicas de autenticação](authentication-scenarios.md) do Azure AD
+

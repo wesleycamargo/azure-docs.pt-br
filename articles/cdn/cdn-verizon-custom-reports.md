@@ -1,6 +1,6 @@
 ---
 title: Relatórios personalizados da Verizon | Microsoft Docs
-description: 'É possível exibir os padrões de uso da CDN usando os seguintes relatórios: largura de banda, dados transferidos, ocorrências, status do cache, taxa de ocorrências no cache, dados IPV4/IPV6 transferidos.'
+description: 'Você pode exibir os padrões de uso para o CDN usando os relatórios a seguir: Largura de banda, dados transferidos, acertos, status do Cache, taxa de IPV4/IPV6 dados transferidos de acertos do Cache.'
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/11/2017
 ms.author: magattus
 ms.openlocfilehash: 75a1fb4beb4025dc3ec63d29944331d07be35d8a
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092058"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60323532"
 ---
 # <a name="custom-reports-from-verizon"></a>Relatórios personalizados da Verizon
 
@@ -45,17 +45,17 @@ O log de dados de relatório personalizado se inicia uma hora depois de você ha
 
 Gere um relatório personalizado definindo as seguintes opções de relatório:
 
-- Métrica: as seguintes opções contam com suporte:
+- Métricas: Há suporte para as seguintes opções:
 
-   - Ocorrências: indica o número total de solicitações direcionadas para um CNAME de borda em que a funcionalidade de geração de relatório personalizado está habilitada. Essa métrica não inclui o código de status retornado ao cliente.
+   - Ocorrências: Indica o número total de solicitações que são direcionadas para um CNAME de borda em que a funcionalidade de relatório personalizada está habilitada. Essa métrica não inclui o código de status retornado ao cliente.
 
-   - Dados transferidos: indica a quantidade total de dados transferidos dos servidores de borda para os clientes HTTP (por exemplo, navegadores da Web) para solicitações direcionadas a um CNAME de borda no qual a funcionalidade de geração de relatório personalizado está habilitada. A quantidade de dados transferidos é calculada adicionando cabeçalhos de resposta HTTP ao corpo da resposta. Como resultado, a quantidade de dados transferidos para cada ativo é maior que o tamanho do arquivo real.
+   - Dados transferidos: Indica a quantidade total de dados transferidos dos servidores de borda para os clientes HTTP (por exemplo, navegadores da web) para solicitações que são direcionadas para um CNAME de borda em que a funcionalidade de relatório personalizada está habilitada. A quantidade de dados transferidos é calculada adicionando cabeçalhos de resposta HTTP ao corpo da resposta. Como resultado, a quantidade de dados transferidos para cada ativo é maior que o tamanho do arquivo real.
 
-- Agrupamentos: determina o tipo das estatísticas que são mostradas abaixo do gráfico de barras. Há suporte para as seguintes opções:
+- Agrupamentos: Determina o tipo de estatísticas que são mostrados abaixo do gráfico de barras. Há suporte para as seguintes opções:
 
-   - Códigos de resposta HTTP: organiza as estatísticas por código de resposta HTTP (por exemplo, 200, 403, etc.) retornado ao cliente. 
+   - Códigos de resposta HTTP: Organiza as estatísticas por código de resposta HTTP (por exemplo, 200, 403, etc.) retornado ao cliente. 
 
-   - Status do cache: organiza as estatísticas por status de cache.
+   - Status do cache: Organiza as estatísticas por status de cache.
 
 
 Para definir o intervalo de datas do relatório, é possível selecionar um intervalo de datas predefinido na lista suspensa, como **Hoje** ou **Esta semana**, ou selecionar **Personalizado** e inserir manualmente um intervalo de datas clicando nos ícones de calendário. 

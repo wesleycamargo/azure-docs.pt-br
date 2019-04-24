@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 ms.openlocfilehash: 0c4702dada17e759d89c33be99b3155f4b15ad9e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399852"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60328877"
 ---
 # <a name="configure-the-windows-virtual-desktop-preview-load-balancing-method"></a>Configurar o método de balanceamento de carga de visualização de área de trabalho Virtual do Windows
 
@@ -25,7 +25,7 @@ Configurar o método de balanceamento de carga para um pool de host permite que 
 
 Balanceamento de carga de amplitude é a configuração padrão para novos pools de host não persistente. Balanceamento de carga de amplitude distribui novas sessões de usuário em todos os hosts de sessão disponíveis no pool de host. Ao configurar o balanceamento de carga de amplitude, você pode definir um limite máximo de sessão por host de sessão no pool de host.
 
-Primeiro, [Baixe e importe o módulo do Windows PowerShell de área de trabalho Virtual](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) usar em sua sessão do PowerShell se você ainda não fez isso.
+Primeiro, [baixe e importe o módulo do PowerShell da Área de Trabalho Virtual do Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) para usá-lo na sessão do PowerShell, caso ainda não tenha feito isso.
 
 Para configurar um pool de host para executar sem ajustar o limite máximo de sessão de balanceamento de carga de amplitude, execute o seguinte cmdlet do PowerShell:
 

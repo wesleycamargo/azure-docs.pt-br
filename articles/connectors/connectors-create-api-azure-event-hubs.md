@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: a59f21478f85f238d91c01faed44d8e49cb15f0a
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310788"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313388"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorar, receber e enviar eventos com Hubs de Eventos do Azure e Aplicativos Lógicos do Azure
 
@@ -89,7 +89,7 @@ Este exemplo mostra como é possível iniciar um fluxo de trabalho de aplicativo
       |----------|---------| 
       | Tipo de conteúdo  | Selecione o tipo de conteúdo do evento. O padrão é "application/octet-stream". |
       | Esquema de conteúdo | Insira o esquema de conteúdo em JSON para os eventos que são lidos a partir do Hub de eventos. |
-      | Nome do grupo de consumidores | Insira o [nome do grupo de consumidores](../event-hubs/event-hubs-features.md#consumer-groups) do Hub de Eventos para ler os eventos. Se não especificado, será usado o grupo de consumidores padrão. |
+      | Nome do grupo de consumidor | Insira o [nome do grupo de consumidores](../event-hubs/event-hubs-features.md#consumer-groups) do Hub de Eventos para ler os eventos. Se não especificado, será usado o grupo de consumidores padrão. |
       | Chave de participação mínima | Insira a ID de [partição](../event-hubs/event-hubs-features.md#partitions) mínima para leitura. Por padrão, todas as partições são lidas. |
       | Chave de participação máxima | Insira a ID de [participação](../event-hubs/event-hubs-features.md#partitions) para leitura. Por padrão, todas as partições são lidas. |
       | Contagem de eventos máxima | Insira um valor para o número máximo de eventos. O gatilho retorna entre um e o número de eventos especificado por essa propriedade. |
@@ -126,14 +126,14 @@ Na lista de ações, selecione a ação desejada.
 
 4. Se for solicitado-lhe a fornecer detalhes da conexão, [crie sua conexão de Hubs de Eventos agora](#create-connection). Ou, se a conexão já existir, forneça as informações necessárias para a ação.
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | Obrigatório | DESCRIÇÃO |
    |----------|----------|-------------|
    | Nome do Hub de Eventos | Sim | Selecione o Hub de Eventos para o qual você quer enviar o evento |
-   | Conteúdo do evento | Não | O conteúdo do evento que você quer enviar |
-   | Propriedades | Não | As propriedades e os valores do aplicativo a serem enviados |
+   | Conteúdo do evento | Não  | O conteúdo do evento que você quer enviar |
+   | propriedades | Não  | As propriedades e os valores do aplicativo a serem enviados |
    ||||
 
-   Por exemplo:
+   Por exemplo: 
 
    ![Selecione o nome do Hub de Eventos e forneça o conteúdo do evento](./media/connectors-create-api-azure-event-hubs/event-hubs-send-event-action.png)
 
@@ -150,10 +150,10 @@ Na lista de ações, selecione a ação desejada.
    | Propriedade | Necessário | Value | Descrição |
    |----------|----------|-------|-------------|
    | Nome da Conexão | Sim | <*connection-name*> | O nome para criar a conexão |
-   | Namespace de Hubs de Eventos | Sim | <*event-hubs-namespace*> | Selecione o namespace do Hubs de Eventos que você quer usar. |
+   | Namespace do Hubs de Eventos | Sim | <*event-hubs-namespace*> | Selecione o namespace do Hubs de Eventos que você quer usar. |
    |||||  
 
-   Por exemplo:
+   Por exemplo: 
 
    ![Criar conexão do Hub de Eventos](./media/connectors-create-api-azure-event-hubs/create-event-hubs-connection-1.png)
 

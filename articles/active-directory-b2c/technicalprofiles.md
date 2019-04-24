@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 86f2a8fa11becdf24c0a10c0325893946a033c3d
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568168"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360122"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -74,7 +74,7 @@ Um elemento **TechnicalProfiles** contém um conjunto de perfis técnicos com su
 
 O elemento **TechnicalProfile** contém o seguinte atributo:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 |---------|---------|---------|
 | ID | Sim | Um identificador exclusivo do perfil técnico. O perfil técnico pode ser referenciado usando esse identificador em outros elementos no arquivo de política. Por exemplo, **OrchestrationSteps** e **ValidationTechnicalProfile**. |
 
@@ -106,7 +106,7 @@ O **TechnicalProfile** contém os seguintes elementos:
 
 O elemento **Protocol** contém os seguintes atributos:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | Name | Sim | O nome de um protocolo válido com suporte no Azure AD B2C que é usado como parte do perfil técnico. Valores possíveis: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `WsFed`, `WsTrust`, `Proprietary`, `session management`, `self-asserted` ou `None`. |
 | Manipulador | Não  | Quando o nome do protocolo for definido como `Proprietary`, especifique o nome totalmente qualificado do assembly usado pelo Azure AD B2C para determinar o manipulador de protocolo. |
@@ -123,7 +123,7 @@ Um elemento **Metadata** contém os seguintes elementos:
 
 O elemento **Item** do elemento **Metadata** contém os seguintes atributos:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | Chave | Sim | A chave de metadados. Confira cada tipo de perfil técnico para obter a lista de itens de metadados. |
 
@@ -139,7 +139,7 @@ O elemento **CryptographicKeys** contém o seguinte elemento:
 
 O elemento **Key** contém o seguinte atributo:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ID | Não  | Um identificador exclusivo de um par de chaves específico referenciado por outros elementos no arquivo de política. |
 | StorageReferenceId | Sim | Um identificador de um contêiner de chave de armazenamento referenciado por outros elementos no arquivo de política. |
@@ -156,7 +156,7 @@ O elemento **InputClaimsTransformations** contém o seguinte elemento:
 
 O elemento **InputClaimsTransformation** contém o seguinte atributo:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ReferenceId | Sim | Um identificador de uma transformação de declarações já definido no arquivo de política ou no arquivo de política pai. |
 
@@ -172,7 +172,7 @@ O elemento **InputClaims** contém o seguinte elemento:
 
 O elemento **InputClaim** contém os seguintes atributos:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sim | O identificador de um tipo de declaração já definido na seção ClaimsSchema no arquivo de política ou no arquivo de política pai. |
 | DefaultValue | Não  | Um valor padrão a ser usado para criar uma declaração se a declaração indicada por ClaimTypeReferenceId não existir. Assim, a declaração resultante poderá ser usada como um InputClaim pelo perfil técnico. |
@@ -190,7 +190,7 @@ O elemento **PersistedClaims** contém os seguintes elementos:
 
 O elemento **PersistedClaim** contém os seguintes atributos:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sim | O identificador de um tipo de declaração já definido na seção ClaimsSchema no arquivo de política ou no arquivo de política pai. |
 | DefaultValue | Não  | Um valor padrão a ser usado para criar uma declaração se a declaração indicada por ClaimTypeReferenceId não existir. Assim, a declaração resultante poderá ser usada como um InputClaim pelo perfil técnico. |
@@ -208,7 +208,7 @@ O elemento **OutputClaims** contém o seguinte elemento:
 
 O elemento **OutputClaim** contém os seguintes atributos:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sim | O identificador de um tipo de declaração já definido na seção ClaimsSchema no arquivo de política ou no arquivo de política pai. |
 | DefaultValue | Não  | Um valor padrão a ser usado para criar uma declaração se a declaração indicada por ClaimTypeReferenceId não existir. Assim, a declaração resultante poderá ser usada como um InputClaim pelo perfil técnico. |
@@ -227,7 +227,7 @@ O elemento **OutputClaimsTransformations** contém o seguinte elemento:
 
 O elemento **OutputClaimsTransformation** contém o seguinte atributo:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ReferenceId | Sim | Um identificador de uma transformação de declarações já definido no arquivo de política ou no arquivo de política pai. |
 
@@ -243,7 +243,7 @@ O elemento **ValidationTechnicalProfiles** contém o seguinte elemento:
 
 O elemento **ValidationTechnicalProfile** contém o seguinte atributo:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ReferenceId | Sim | Um identificador de um perfil técnico já definido no arquivo de política ou no arquivo de política pai. |
 
@@ -251,7 +251,7 @@ O elemento **ValidationTechnicalProfile** contém o seguinte atributo:
 
 O **SubjectNamingInfo** contém o seguinte atributo:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ClaimType | Sim | Um identificador de um tipo de declaração já definido na seção ClaimsSchema no arquivo de política. |
 
@@ -259,7 +259,7 @@ O **SubjectNamingInfo** contém o seguinte atributo:
 
 O elemento **IncludeTechnicalProfile** contém o seguinte atributo:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ReferenceId | Sim | Um identificador de um perfil técnico já definido no arquivo de política ou no arquivo de política pai. |
 
@@ -267,7 +267,7 @@ O elemento **IncludeTechnicalProfile** contém o seguinte atributo:
 
 O elemento **UseTechnicalProfileForSessionManagement** contém o seguinte atributo:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ReferenceId | Sim | Um identificador de um perfil técnico já definido no arquivo de política ou no arquivo de política pai. |
 

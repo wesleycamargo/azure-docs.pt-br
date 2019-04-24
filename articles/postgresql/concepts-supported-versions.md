@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.openlocfilehash: 5b06128979bf448a0b85084d5178d9291beb7691
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542775"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60422058"
 ---
 # <a name="supported-postgresql-database-versions"></a>Versões suportadas do banco de dados do PostgreSQL
 A Microsoft pretende suportar versões n-2 do mecanismo PostgreSQL no serviço Banco de Dados do Azure para PostgreSQL. As versões seriam a versão principal atual no Azure (n) e as duas versões principais anteriores (-2).

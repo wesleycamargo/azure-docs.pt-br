@@ -7,15 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: davidmu
+origin.date: 09/10/2018
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.subservice: B2C
 ms.openlocfilehash: c312433832f7402eaff8b40c4e0a2a61397f6f87
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123497"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360343"
 ---
 # <a name="stringcollection-claims-transformations"></a>Transformações de declarações StringCollection
 
@@ -120,4 +121,5 @@ O exemplo a seguir lê a declaração **otherMails** e retorna o primeiro item p
   - **collection**: ["someone@outlook.com", "someone@contoso.com"]
 - Declarações de saída: 
   - **extractedItem**: "someone@outlook.com"
+
 

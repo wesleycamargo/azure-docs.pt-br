@@ -1,19 +1,19 @@
 ---
 title: Enviar métricas personalizadas de um recurso do Azure para o repositório de métricas do Azure Monitor usando uma API REST
 description: Enviar métricas personalizadas de um recurso do Azure para o repositório de métricas do Azure Monitor usando uma API REST
-author: anirudhcavale
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: ancav
+ms.date: 04/12/19
+ms.author: v-lingwu
 ms.subservice: metrics
 ms.openlocfilehash: aa842979bf86410e9dab97d6209f336eb6b02bd3
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621899"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60253858"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Enviar métricas personalizadas de um recurso do Azure para o repositório de métricas do Azure Monitor usando uma API REST
 
@@ -39,7 +39,7 @@ Dê ao aplicativo criado na etapa 1 as permissões de "Editor de métricas de mo
 Abra um prompt de comando e execute o seguinte comando:
 
 ```shell
-curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "grant_type=client_credentials" -F "client_id=<insert clientId from earlier step>" -F "client_secret=<insert client secret from earlier step>" -F "resource=https://monitoring.azure.com/"
+curl -X POST https://login.partner.microsoftonline.cn/<yourtenantid>/oauth2/token -F "grant_type=client_credentials" -F "client_id=<insert clientId from earlier step> " -F "client_secret=<insert client secret from earlier step>" -F "resource=https://monitoring.azure.com/"
 ```
 Salve o token de acesso da resposta.
 
@@ -77,7 +77,7 @@ Salve o token de acesso da resposta.
     } 
     ``` 
 
-1. Na janela do prompt de comando, poste os dados de métrica: 
+2. Na janela do prompt de comando, poste os dados de métrica: 
    - **azureRegion**. Deve corresponder à região de implantação do recurso do qual você está emitindo métricas. 
    - **resourceID**.  ID do recurso do Azure cuja métrica você está acompanhando.  
    - **AccessToken**. Cole o token adquirido anteriormente.
@@ -85,8 +85,8 @@ Salve o token de acesso da resposta.
      ```Shell 
      curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
      ```
-1. Altere o carimbo de data/hora e os valores no arquivo JSON. 
-1. Repita as duas etapas anteriores algumas vezes, para que você tenha dados por vários minutos.
+3. Altere o carimbo de data/hora e os valores no arquivo JSON. 
+4. Repita as duas etapas anteriores algumas vezes, para que você tenha dados por vários minutos.
 
 ## <a name="troubleshooting"></a>solução de problemas 
 Se você receber uma mensagem de erro em alguma parte do processo, considere as seguintes informações de solução de problemas:
@@ -117,6 +117,5 @@ Se você receber uma mensagem de erro em alguma parte do processo, considere as 
 1. No menu suspenso **métricas**, selecione **QueueDepth**.  
 
  
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [métricas personalizadas](../../azure-monitor/platform/metrics-custom-overview.md).
-

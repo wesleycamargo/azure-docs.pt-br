@@ -17,17 +17,17 @@ ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f8db5552ad81a1a47db72a5372e643a6fc167888
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091198"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60292668"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erro "Não é possível Acessar este Aplicativo Corporativo" ao usar um aplicativo de Proxy de Aplicativo
 
 Este artigo ajuda-o a solucionar problemas comuns do erro "Este aplicativo corporativo não pode ser acessado" em um aplicativo de Proxy de Aplicativo do Azure AD.
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Quando você vir esse erro, localize o código de status na página de erro. Esse código provavelmente é um dos seguintes códigos de status:
 
 -   **Tempo Limite do Gateway**: O serviço de Proxy do Aplicativo não consegue alcançar o conector. Esse erro normalmente indica um problema com a atribuição do conector, o próprio conector ou as regras de rede do conector.

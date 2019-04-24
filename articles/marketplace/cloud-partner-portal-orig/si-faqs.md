@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
 ms.openlocfilehash: ec7fc3a7877cf0bffac0043a74c34d6f0f04826b
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805319"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60362366"
 ---
 <a name="seller-insights-faq"></a>Perguntas Frequentes sobre os Insights do Vendedor
 ===================
@@ -36,7 +36,7 @@ As definições dos valores de métrica no arquivo de transação são encontrad
 <a name="see-customer-details-of-transactions-for-which-ive-been-paid"></a>Consulte os detalhes do cliente de transações pelas quais eu já paguei
 -------------------------------------------------------------
 
-Depois de baixar suas transações de módulo de pagamento, localize a coluna rotulada **Status do pagamento** e aplique o filtro para exibir apenas o valor "Pago". As colunas a seguir serão exibidas, contendo os detalhes do cliente: **Nome da empresa**, **Email do cliente**,  **do cliente**, **Estado do cliente** e **Código postal do cliente**.
+Depois de baixar suas transações de módulo de pagamento, localize a coluna rotulada **Status do pagamento** e aplique o filtro para exibir apenas o valor "Pago". As colunas a seguir serão exibida contendo os detalhes do cliente: **Nome da empresa**, **Email de cliente**, **país do cliente**, **estado cliente**, e **Código Postal do cliente**.
 
 
 <a name="calculate-my-open-accounts-receivable"></a>Calcular o valor a receber pelas minhas contas abertas
@@ -48,7 +48,7 @@ Depois de baixar suas transações de módulo de pagamento, localize a coluna ro
 <a name="calculate-revenue-by-customer-usage-period"></a>Calcular a receita por período de uso do cliente
 ------------------------------------------
 
-Depois de baixar suas transações de módulo de pagamento, localize a coluna rotulada **Status da transação** e aplique o filtro para exibir apenas o valor "Pago".   Para cada transação listada, a coluna rotulada **rótulo** representa o valor que foi pago a você.  Para calcular o período de uso associado à transação, use a coluna **Data de cobrança**, que é uma aproximação do último dia de uso do período para o qual a transação se aplica.
+Depois de baixar suas transações de módulo de pagamento, localize a coluna rotulada **Status de transação**e filtrar o valor "Pago".   Para cada transação listados, a coluna rotulada **quantidade do pagamento (PC)** representa o valor foi pago.  Para calcular o período de uso associado à transação, use a coluna **data de cobrança**, que é uma aproximação do último dia de uso para o período para o qual a transação se aplica.
 
 
 <a name="calculate-your-bad-debt"></a>Calcular sua dívida inválida
@@ -104,5 +104,5 @@ Você pode ver a data quando o cliente comprou uma das suas ofertas pela primeir
 
 - [Definições dos Insights do Vendedor](./si-insights-definitions-v4.md) – localizar definições para métricas e dados
 
-- [Introdução aos Insights do Vendedor](./si-getting-started.md) – introdução ao recurso Insights do Vendedor.
+- [Introdução ao Seller Insights](./si-getting-started.md) - Introdução ao recurso Seller Insights.
 

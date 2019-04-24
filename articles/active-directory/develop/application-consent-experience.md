@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a7de892143e1c69953cc60429ea0d24df194f0df
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795178"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60300193"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Noções básicas sobre experiências de consentimento de aplicativo do Microsoft Azure Active Directory
 
@@ -83,7 +83,7 @@ Aqui estão as experiências de consentimento que um usuário pode ver em cenár
         
     1. Usuários não administradores verão a mesma tela 2.ii exibida acima.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Tenha uma visão geral passo a passo de [como a estrutura de consentimento do Azure AD implementa o consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
 - Para se aprofundar, veja [como um aplicativo multilocatário pode usar a estrutura de consentimento](active-directory-devhowto-multi-tenant-overview.md) para implementar consentimento de "usuário" e "administrador", dando suporte a padrões mais avançados de aplicativos de várias camadas.
 - Saiba mais [como configurar o domínio do aplicativo de editor](howto-configure-publisher-domain.md).

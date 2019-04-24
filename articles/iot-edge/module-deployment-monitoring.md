@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 376ee74732daf526b31129fa8c93cbaa32350eae
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107807"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318199"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Noções básicas sobre implantações do IoT Edge para dispositivos únicos ou em escala
 
@@ -51,7 +51,7 @@ Um manifesto de implantação é um documento JSON que descreve os módulos a se
 
 Os metadados de configuração para cada módulo incluem: 
 
-* Versão 
+* Version 
 * Type 
 * Status (por exemplo, em execução ou parado) 
 * Política de reinicialização 
@@ -127,7 +127,7 @@ Execute as reversões na sequência abaixo: 
    * A segunda implantação agora deve incluir o status da implantação dos dispositivos que foram revertidos.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Siga as etapas para criar, atualizar ou excluir uma implantação em [Implantar e monitorar os módulos do IoT Edge em larga escala](how-to-deploy-monitor.md).
 * Saiba mais sobre outros conceitos de IoT Edge, como o [tempo de execução do IoT Edge](iot-edge-runtime.md) e os [módulos do IoT Edge](iot-edge-modules.md).

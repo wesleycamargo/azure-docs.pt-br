@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
 ms.openlocfilehash: 8e531de34302ef8aee571c960955d33a4832aa11
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013705"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60331496"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Acelerar a análise de Big Data em tempo real com o conector do Spark para Banco de Dados SQL do Azure e SQL Server
 
@@ -28,7 +28,7 @@ Para começar, baixe conector Spark para BD SQL do [repositório azure-sqldb-spa
 
 ## <a name="official-supported-versions"></a>Versões oficiais compatíveis
 
-| Componente                            |Versão                  |
+| Componente                            |Version                  |
 | :----------------------------------- | :---------------------- |
 | Apache Spark                         |2.0.2 ou posterior           |
 | Scala                                |2.10 ou posterior            |
@@ -213,7 +213,7 @@ df.bulkCopyToSqlDB(bulkCopyConfig, bulkCopyMetadata)
 //df.bulkCopyToSqlDB(bulkCopyConfig) if no metadata is specified.
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Se ainda não tiver feito isso, baixe o conector do Spark para o Banco de Dados SQL do Azure e o SQL Server do [repositório do GitHub azure-sqldb-spark](https://github.com/Azure/azure-sqldb-spark) e explore os recursos adicionais no repositório:
 
 -   [Blocos de anotações de exemplo do Azure Databricks](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)

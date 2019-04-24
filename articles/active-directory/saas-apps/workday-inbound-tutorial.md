@@ -16,11 +16,11 @@ ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d34bd9d7f80f72b3c6c0821ad48e6be1fd260be9
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524626"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60385061"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Workday para provisionamento automático do usuário
 
@@ -152,8 +152,8 @@ Nesse cenário, você tem um locatário do Workday e deseja provisionar usuário
 
 |   |   |
 | - | - |
-|  Não. de agentes de provisionamento a serem implantados localmente | 3 (para alta disponibilidade e failover) |
-|  Não. de aplicativos de Provisionamento de Usuário do Workday para o AD para configurar no portal do Azure | 1 |
+| Não. de agentes de provisionamento a serem implantados localmente | 3 (para alta disponibilidade e failover) |
+| Não. de aplicativos de Provisionamento de Usuário do Workday para o AD para configurar no portal do Azure | 1 |
 
   ![Cenário 1](./media/workday-inbound-tutorial/dep_scenario1.png)
 
@@ -163,8 +163,8 @@ Este cenário envolve o provisionamento de usuários do Workday para vários dom
 
 |   |   |
 | - | - |
-|  Não. de agentes de provisionamento a serem implantados localmente | 3 (para alta disponibilidade e failover) |
-|  Não. de aplicativos de Provisionamento de Usuário do Workday para o AD para configurar no portal do Azure | um aplicativo por domínio filho |
+| Não. de agentes de provisionamento a serem implantados localmente | 3 (para alta disponibilidade e failover) |
+| Não. de aplicativos de Provisionamento de Usuário do Workday para o AD para configurar no portal do Azure | um aplicativo por domínio filho |
 
   ![Cenário 2](./media/workday-inbound-tutorial/dep_scenario2.png)
 
@@ -174,8 +174,8 @@ Este cenário envolve o provisionamento de usuários do Workday para domínios e
 
 |   |   |
 | - | - |
-|  Não. de agentes de provisionamento a serem implantados localmente | 3 por floresta do AD não contígua |
-|  Não. de aplicativos de Provisionamento de Usuário do Workday para o AD para configurar no portal do Azure | um aplicativo por domínio filho |
+| Não. de agentes de provisionamento a serem implantados localmente | 3 por floresta do AD não contígua |
+| Não. de aplicativos de Provisionamento de Usuário do Workday para o AD para configurar no portal do Azure | um aplicativo por domínio filho |
 
   ![Cenário 3](./media/workday-inbound-tutorial/dep_scenario3.png)
 

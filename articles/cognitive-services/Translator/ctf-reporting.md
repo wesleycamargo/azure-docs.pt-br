@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
 ms.openlocfilehash: da321aa2a4db441fa5bb51e4986d00889cb7482d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917389"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60513706"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Como usar o relatório do CTF (Collaborative Translation Framework)
 
@@ -83,7 +83,7 @@ Esse método obtém a contagem de traduções criadas pelo usuário. Ele fornece
 | minRating| **Opcional** Um valor inteiro representando a classificação de qualidade mínima para o texto traduzido. O valor válido é entre -10 e 10. O valor padrão é 1.|
 | maxRating| **Opcional** Um valor inteiro representando a classificação máxima de qualidade para o texto traduzido. O valor válido é entre -10 e 10. O valor padrão é 1.|
 | usuário | **Opcional** Uma cadeia de caracteres usada para filtrar o resultado com base no originador do envio. |
-| categoria| **Opcional** Uma cadeia de caracteres contendo a categoria ou domínio da tradução. Esse parâmetro dá suporte apenas à opção padrão geral.|
+| category| **Opcional** Uma cadeia de caracteres contendo a categoria ou domínio da tradução. Esse parâmetro dá suporte apenas à opção padrão geral.|
 | minDateUtc| **Opcional** A data de quando você quer recuperar as traduções. A data deve estar no formato UTC. |
 | maxDateUtc| **Opcional** A data até quando você quer recuperar as traduções. A data deve estar no formato UTC. |
 | skip| **Opcional** O número de resultados que você quer ignorar em uma página. Por exemplo, se você quiser ignorar as primeiras 20 linhas dos resultados e exibir do 21º registro de resultados, especifique 20 para esse parâmetro. O valor padrão para esse parâmetro é 0.|
@@ -154,7 +154,7 @@ Esse método recupera as traduções criadas pelo usuário. Ele fornece as tradu
 | minRating| **Opcional** Um valor inteiro representando a classificação de qualidade mínima para o texto traduzido. O valor válido é entre -10 e 10. O valor padrão é 1.|
 | maxRating| **Opcional** Um valor inteiro representando a classificação máxima de qualidade para o texto traduzido. O valor válido é entre -10 e 10. O valor padrão é 1.|
 | usuário| **Opcional. Uma cadeia de caracteres usada para filtrar o resultado com base no originador do envio**|
-| categoria| **Opcional** Uma cadeia de caracteres contendo a categoria ou domínio da tradução. Esse parâmetro dá suporte apenas à opção padrão geral.|
+| category| **Opcional** Uma cadeia de caracteres contendo a categoria ou domínio da tradução. Esse parâmetro dá suporte apenas à opção padrão geral.|
 | minDateUtc| **Opcional** A data de quando você quer recuperar as traduções. A data deve estar no formato UTC.|
 | maxDateUtc| **Opcional** A data até quando você quer recuperar as traduções. A data deve estar no formato UTC.|
 | skip| **Opcional** O número de resultados que você quer ignorar em uma página. Por exemplo, se você quiser ignorar as primeiras 20 linhas dos resultados e exibir do 21º registro de resultados, especifique 20 para esse parâmetro. O valor padrão para esse parâmetro é 0.|

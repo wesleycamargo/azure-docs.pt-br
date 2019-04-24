@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: anantr
-ms.subservice: alerts
+ms.component: alerts
 ms.openlocfilehash: e0bef0fc4f4b61add24c243af0dac64933ad5bab
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54466900"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60346308"
 ---
 # <a name="smart-groups"></a>Grupos inteligentes
 Um desafio comum enfrentado ao lidar com alertas é ignorar o ruído para descobrir o que realmente importa – grupos inteligentes devem ser a solução para esse problema.  
@@ -58,9 +58,8 @@ A página de detalhes do grupo inteligente inclui as seções a seguir.
 
 O nome de um grupo inteligente é o nome do seu primeiro alerta. Você não pode criar ou renomear um grupo inteligente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Gerenciar grupos inteligentes](https://aka.ms/managing-smart-groups)
 - [Alterar o estado do grupo inteligente e o alerta](https://aka.ms/managing-alert-smart-group-states)
-
 

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 202b9632b7a7faaf955874a0300edbe5134b7fa1
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521247"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60196625"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Como adicionar padrões para aumentar a precisão de previsão
 Depois que um aplicativo LUIS recebe declarações de ponto de extremidade, use uma [padrão](luis-concept-patterns.md) para melhorar a precisão da previsão para declarações que revelam um padrão na ordem das palavras e a escolha do word. Padrões usam specific [sintaxe](luis-concept-patterns.md#pattern-syntax) para indicar a localização de: [entidades](luis-concept-entity-types.md), entidade [funções](luis-concept-roles.md)e texto opcional.
@@ -71,7 +71,7 @@ A barra de ferramentas contextual acima da lista de padrões permite que você:
 * Remover o filtro de entidade ou intenção
 * Adicionar padrão de declaração existente na página de intenção ou de entidade
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba como [criar um padrão](luis-tutorial-pattern.md) com um pattern.any e funções com um tutorial.
 * Saiba como [treinar](luis-how-to-train.md) seu aplicativo.

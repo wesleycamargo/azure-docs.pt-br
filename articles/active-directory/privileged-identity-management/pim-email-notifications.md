@@ -17,11 +17,11 @@ ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9aa9da83a7a6e97f5b721dad550831fe2645ffd3
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576940"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60289132"
 ---
 # <a name="email-notifications-in-pim"></a>Notificações por email no PIM
 
@@ -99,7 +99,7 @@ A seguir, é mostrado um email de exemplo enviado quando um usuário recebe uma 
 
 ![Novo email do PIM para funções de recurso do Azure](./media/pim-email-notifications/email-resources-new.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Definir configurações de função do AD do Azure no PIM](pim-how-to-change-default-settings.md)
 - [Aprovar ou negar as solicitações para funções do Azure AD no PIM](azure-ad-pim-approval-workflow.md)

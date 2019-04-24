@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: 7e058b7cebb9c2cdc3fb8b97bf99554b2f26dd8c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: d6d3a7111f3a5e49e32eba8ca4f09d692538cb87
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121568"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60427785"
 ---
 # <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Enviar mensagens de EDI em lotes para parceiros comerciais com os Aplicativos Lógicos do Azure
 
@@ -35,7 +35,7 @@ Certifique-se de que o receptor do lote e o remetente do lote compartilham a mes
 
 Para seguir este exemplo, você precisa destes itens:
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura, poderá [iniciar com uma conta gratuita do Azure](https://azure.microsoft.com/free/). Ou, [inscreva-se para uma assinatura de Pagamento Conforme o Uso](https://azure.microsoft.com/pricing/purchase-options/).
+* Uma assinatura do Azure. Se você não tiver uma assinatura, poderá [iniciar com uma conta gratuita do Azure](https://azure.microsoft.com/free/). Ou [inscreva-se para uma assinatura de Pagamento Conforme o Uso](https://azure.microsoft.com/pricing/purchase-options/).
 
 * Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -55,17 +55,17 @@ Antes de enviar mensagens para um lote, esse lote deverá existir primeiro como 
 
 Para esse receptor do lote, você especifica o modo de lote, nome, critérios de liberação, contrato do X12 e outras configurações. 
 
-1. No [portal do Azure](https://portal.azure.com) ou Visual Studio, crie um aplicativo lógico com este nome: "BatchX12Messages"
+1. No [portal do Azure](https://portal.azure.com) ou no Visual Studio, crie um aplicativo lógico com este nome: "BatchX12Messages"
 
 2. [Vincule o aplicativo lógico à sua conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
-3. No Designer de Aplicativos Lógicos, adicione o gatilho **Lote**, o que inicia seu fluxo de trabalho de aplicativo lógico. Na caixa de pesquisa, digite "lote" como filtro. Selecione este gatilho: **mensagens em lote**
+3. No Designer de Aplicativos Lógicos, adicione o gatilho **Lote**, o que inicia seu fluxo de trabalho de aplicativo lógico. Na caixa de pesquisa, digite "lote" como filtro. Selecione este gatilho: **Mensagens em lote**
 
    ![Adicionar o gatilho Lote](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-receiver-trigger.png)
 
 4. Defina propriedades de receptor do lote: 
 
-   | Propriedade | Valor | Observações | 
+   | Propriedade | Value | Observações | 
    |----------|-------|-------|
    | **Modo de lote** | Embutido |  |  
    | **Nome do lote** | TestBatch | Disponível apenas com o modo de lote **Embutido** | 
@@ -84,7 +84,7 @@ Para esse receptor do lote, você especifica o modo de lote, nome, critérios de
 
    1. No gatilho de lote, escolha **Nova etapa**.
 
-   2. Na caixa de pesquisa, insira "lote X12" como o filtro e selecione esta ação (qualquer versão): **Codificar em lote <*versão*> - X12** 
+   2. Na caixa de pesquisa, digite "Lote X12 X" como filtro e selecione a ação (qualquer versão): **Codificar em lote <*versão*>-X12** 
 
       ![Selecione a ação Codificação de lote X12](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-encode-action.png)
 
@@ -118,7 +118,7 @@ Para certificar-se de que o receptor do lote funciona conforme o esperado, você
 
 1. Na ação de codificação do X12, escolha **Nova etapa**. 
 
-2. Na caixa de pesquisa, insira "http" como o filtro. Selecione esta ação: **HTTP – HTTP**
+2. Na caixa de pesquisa, insira "http" como o filtro. Selecione esta ação: **HTTP - HTTP**
     
    ![Selecionar a ação HTTP](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-add-http-action.png)
 
@@ -160,7 +160,7 @@ Agora crie um ou mais aplicativos lógicos que enviem mensagens ao aplicativo l�
    1. Na ação de solicitação HTTP, escolha **Nova etapa**.
 
    2. Na caixa de pesquisa, digite "lote" como filtro. 
-   Selecione a lista **Ações** e, em seguida, selecione esta ação: **Escolher um fluxo de trabalho de Aplicativos Lógicos com gatilho do lote - Enviar mensagens para o lote**
+   Selecione a lista de **Ações** e depois esta ação: **Escolher um fluxo de trabalho de Aplicativos Lógicos com o gatilho de lote – Enviar mensagens para o lote**
 
       ![Selecione "Escolher um fluxo de trabalho de Aplicativos Lógicos com gatilho do lote"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-trigger.png)
 
@@ -168,7 +168,7 @@ Agora crie um ou mais aplicativos lógicos que enviem mensagens ao aplicativo l�
 
       ![Selecione o aplicativo lógico "destinatário do lote"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-receiver.png)
 
-   4. Selecione esta ação **Batch_messages - <*your-batch-receiver*>**
+   4. Selecione esta ação: Selecione esta ação **Batch_messages – <*seu_remetente_de_lote*>**
 
       ![Selecionar a ação "Batch_messages"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-messages-action.png)
 
@@ -176,7 +176,7 @@ Agora crie um ou mais aplicativos lógicos que enviem mensagens ao aplicativo l�
 
    | Propriedade | DESCRIÇÃO | 
    |----------|-------------| 
-   | **Nome do lote** | O nome do lote definido pelo aplicativo lógico do receptor, que é "TestBatch" neste exemplo <p>**Importante**: o nome do lote é validado no tempo de execução e deve corresponder ao nome especificado pelo aplicativo lógico do receptor. Alterar o nome do lote faz com que o remetente do lote falhe. | 
+   | **Nome do lote** | O nome do lote definido pelo aplicativo lógico do receptor, que é "TestBatch" neste exemplo <p>**Importante**: O nome do lote é validado no tempo de execução e deve corresponder ao nome especificado pelo aplicativo lógico do receptor. Alterar o nome do lote faz com que o remetente do lote falhe. | 
    | **Conteúdo da mensagem** | O conteúdo da mensagem que você quer enviar, que é o token do **Corpo** neste exemplo | 
    ||| 
    

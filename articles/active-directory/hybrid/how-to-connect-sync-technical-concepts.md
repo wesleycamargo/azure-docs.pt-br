@@ -4,24 +4,24 @@ description: Explica os conceitos técnicos da sincronização do Azure AD Conne
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: mtillman
 editor: ''
 ms.assetid: 731cfeb3-beaf-4d02-aef4-b02a8f99fd11
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 01/15/2018
-ms.subservice: hybrid
-ms.author: billmath
-ms.collection: M365-identity-device-management
+ms.topic: article
+origin.date: 01/15/2018
+ms.date: 11/12/2018
+ms.component: hybrid
+ms.author: v-junlch
 ms.openlocfilehash: b8ec4a6100cfbb4419d7e30f4b97589113b88939
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164321"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60347560"
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Sincronização do Azure AD Connect: Conceitos técnicos
 Este artigo é um resumo do tópico [Entender a arquitetura](how-to-connect-sync-technical-concepts.md).
@@ -34,11 +34,11 @@ Complementando MIIS, ILM e FIM, os Serviços de Sincronização do Active Direct
 
 As seções a seguir fornecem mais detalhes sobre os seguintes aspectos do Serviço de Sincronização FIM:
 
-* Conector
-* Fluxo de atributos
-* Espaço conector
-* Metaverso
-* Provisionamento
+- Conector
+- Fluxo de atributos
+- Espaço conector
+- Metaverso
+- Provisionamento
 
 ## <a name="connector"></a>Conector
 Os módulos de código que são usados para comunicação com um diretório conectado são chamados de conectores (anteriormente conhecidos como MAs [agentes de gerenciamento]).
@@ -87,8 +87,9 @@ Inerentemente, isso estabelece um vínculo e o fluxo de atributo pode prosseguir
 Sempre que uma regra determina que um novo objeto de espaço conector precisa ser criado, ele é chamado de provisionamento. No entanto, como essa operação só ocorre dentro do espaço conector, ele não se transfere para a fonte de dados conectada até que uma exportação seja executada.
 
 ## <a name="additional-resources"></a>Recursos adicionais
-* [Sincronização do Azure AD Connect: personalizando opções de Sincronização](how-to-connect-sync-whatis.md)
-* [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)
+- [Sincronização do Azure AD Connect: personalizando opções de Sincronização](how-to-connect-sync-whatis.md)
+- [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
+

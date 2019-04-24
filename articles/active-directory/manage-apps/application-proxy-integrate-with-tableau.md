@@ -14,11 +14,11 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c5d80381815524658d91067ee880eba47c394058
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59783546"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60292887"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Proxy e Tableau do Aplicativo do Azure Active Directory 
 
@@ -80,7 +80,7 @@ Seu aplicativo agora está pronto para teste. Acesse o URL externo que você uso
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o Proxy de Aplicativo do Azure AD, consulte [Como fornecer acesso remoto seguro a aplicativos locais](application-proxy.md).
 

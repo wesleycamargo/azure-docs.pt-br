@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 7a4cccf774d89229810c1668f38e4e2ef99fa79d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663937"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60393032"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista de eventos do Service Fabric 
 
@@ -108,7 +108,7 @@ Mais detalhes sobre as atualizações do aplicativo podem ser encontrados [aqui]
 
 **Eventos de ciclo de vida do contêiner** 
 
-| EventId | NOME | DESCRIÇÃO |Origem (Tarefa) | Nível | Versão |
+| EventId | NOME | DESCRIÇÃO |Origem (Tarefa) | Nível | Version |
 | --- | --- | ---| --- | --- | --- |
 | 23074 | ContainerActivated | Um contêiner for iniciado | Hosting | Informativo | 1 |
 | 23075 | ContainerDeactivated | Um contêiner for encerrado | Hosting | Informativo | 1 |
@@ -124,21 +124,21 @@ O [Modelo de Integridade do Service Fabric](service-fabric-health-introduction.m
 
 **Eventos de relatório de integridade do cluster**
 
-| EventId | NOME | DESCRIÇÃO |Origem (Tarefa) | Nível | Versão |
+| EventId | NOME | DESCRIÇÃO |Origem (Tarefa) | Nível | Version |
 | --- | --- | --- | --- | --- | --- |
 | 54428 | ClusterNewHealthReport | Um novo relatório de integridade do cluster está disponível | HM | Informativo | 1 |
 | 54437 | ClusterHealthReportExpired | Um relatório de integridade de cluster existente expirou | HM | Informativo | 1 |
 
 **Eventos de relatório de integridade do nó**
 
-| EventId | NOME | DESCRIÇÃO |Origem (Tarefa) | Nível | Versão |
+| EventId | NOME | DESCRIÇÃO |Origem (Tarefa) | Nível | Version |
 | --- | --- | ---| --- | --- | --- |
 | 54423 | NodeNewHealthReport | Um novo relatório de integridade do nó está disponível | HM | Informativo | 1 |
 | 54432 | NodeHealthReportExpired | Um relatório de integridade do nó existente expirou | HM | Informativo | 1 |
 
 **Eventos de relatório de integridade do aplicativo**
 
-| EventId | NOME | DESCRIÇÃO |Origem (Tarefa) | Nível | Versão |
+| EventId | NOME | DESCRIÇÃO |Origem (Tarefa) | Nível | Version |
 | --- | --- | ---| --- | --- | --- |
 | 54425 | ApplicationNewHealthReport | Um novo relatório de integridade do aplicativo foi criado. É referente a aplicativos não implantados. | HM | Informativo | 1 |
 | 54426 | DeployedApplicationNewHealthReport | Um novo relatório de integridade do aplicativo implantado foi criado | HM | Informativo | 1 |
@@ -149,21 +149,21 @@ O [Modelo de Integridade do Service Fabric](service-fabric-health-introduction.m
 
 **Eventos de relatório de integridade do serviço**
 
-| EventId | NOME | DESCRIÇÃO |Origem (Tarefa) | Nível | Versão |
+| EventId | NOME | DESCRIÇÃO |Origem (Tarefa) | Nível | Version |
 | --- | --- | ---| --- | --- | --- |
 | 54424 | ServiceNewHealthReport | Um novo relatório de integridade do serviço foi criado | HM | Informativo | 1 |
 | 54433 | ServiceHealthReportExpired | Um relatório de integridade do serviço existente expirou | HM | Informativo | 1 |
 
 **Eventos de relatório de integridade da partição**
 
-| EventId | NOME | DESCRIÇÃO |Origem (Tarefa) | Nível | Versão |
+| EventId | NOME | DESCRIÇÃO |Origem (Tarefa) | Nível | Version |
 | --- | --- | ---| --- | --- | --- |
 | 54422 | PartitionNewHealthReport | Um novo relatório de integridade da partição foi criado | HM | Informativo | 1 |
 | 54431 | PartitionHealthReportExpired | Um relatório de integridade da partição existente expirou | HM | Informativo | 1 |
 
 **Eventos de relatório de integridade da réplica**
 
-| EventId | NOME | DESCRIÇÃO |Origem (Tarefa) | Nível | Versão |
+| EventId | NOME | DESCRIÇÃO |Origem (Tarefa) | Nível | Version |
 | --- | --- | ---| --- | --- | --- |
 | 54429 | StatefulReplicaNewHealthReport | Um relatório de integridade da réplica com estado foi criado | HM | Informativo | 1 |
 | 54430 | StatelessInstanceNewHealthReport | Um novo relatório de integridade da réplica sem estado foi criado | HM | Informativo | 1 |
@@ -174,28 +174,28 @@ O [Modelo de Integridade do Service Fabric](service-fabric-health-introduction.m
 
 **Eventos de sessão de caos**
 
-| EventId | NOME | DESCRIÇÃO |Origem (Tarefa) | Nível | Versão |
+| EventId | NOME | DESCRIÇÃO |Origem (Tarefa) | Nível | Version |
 | --- | --- | ---| --- | --- | --- |
 | 50021 | ChaosStarted | Uma sessão de teste do caos foi iniciada | Capacidade de teste | Informativo | 1 |
 | 50023 | ChaosStopped | Uma sessão de teste do caos foi interrompida | Capacidade de teste | Informativo | 1 |
 
 **Eventos de nó de caos**
 
-| EventId | NOME | DESCRIÇÃO |Origem (Tarefa) | Nível | Versão |
+| EventId | NOME | DESCRIÇÃO |Origem (Tarefa) | Nível | Version |
 | --- | --- | ---| --- | --- | --- |
 | 50033 | ChaosNodeRestartScheduled | Um nó foi agendado para ser reiniciado como parte de uma sessão de teste do caos | Capacidade de teste | Informativo | 1 |
 | 50087 | ChaosNodeRestartCompleted | A reinicialização de um nó foi concluída como parte de uma sessão de teste do caos | Capacidade de teste | Informativo | 1 |
 
 **Eventos de aplicativo de caos**
 
-| EventId | NOME | DESCRIÇÃO |Origem (Tarefa) | Nível | Versão |
+| EventId | NOME | DESCRIÇÃO |Origem (Tarefa) | Nível | Version |
 | --- | --- | ---| --- | --- | --- |
 | 50053 | ChaosCodePackageRestartScheduled | Uma reinicialização do pacote de códigos foi agendada durante um sessão de teste do caos | Capacidade de teste | Informativo | 1 |
 | 50101 | ChaosCodePackageRestartCompleted | Uma reinicialização do pacote de códigos foi concluída durante um sessão de teste do caos | Capacidade de teste | Informativo | 1 |
 
 **Eventos de partição de caos**
 
-| EventId | NOME | DESCRIÇÃO |Origem (Tarefa) | Nível | Versão |
+| EventId | NOME | DESCRIÇÃO |Origem (Tarefa) | Nível | Version |
 | --- | --- | ---| --- | --- | --- |
 | 50069 | ChaosPartitionPrimaryMoveScheduled | Uma partição primária foi agendada para ser movida como parte de uma sessão de teste do caos | Capacidade de teste | Informativo | 1 |
 | 50077 | ChaosPartitionSecondaryMoveScheduled | Uma partição secundária foi agendada para ser movida como parte de uma sessão de teste do caos | Capacidade de teste | Informativo | 1 |
@@ -203,7 +203,7 @@ O [Modelo de Integridade do Service Fabric](service-fabric-health-introduction.m
 
 **Eventos de réplica de caos**
 
-| EventId | NOME | DESCRIÇÃO |Origem (Tarefa) | Nível | Versão |
+| EventId | NOME | DESCRIÇÃO |Origem (Tarefa) | Nível | Version |
 | --- | --- | ---| --- | --- | --- |
 | 50047 | ChaosReplicaRestartScheduled | Uma reinicialização de réplica foi agendada como parte de uma sessão de teste do caos | Capacidade de teste | Informativo | 1 |
 | 50051 | ChaosReplicaRemovalScheduled | Uma remoção de réplica foi agendada como parte de uma sessão de teste do caos | Capacidade de teste | Informativo | 1 |
@@ -213,7 +213,7 @@ O [Modelo de Integridade do Service Fabric](service-fabric-health-introduction.m
 
 **Eventos de correlação**
 
-| EventId | NOME | DESCRIÇÃO |Origem (Tarefa) | Nível | Versão |
+| EventId | NOME | DESCRIÇÃO |Origem (Tarefa) | Nível | Version |
 | --- | --- | ---| --- | --- | --- |
 | 65011 | CorrelationOperational | Uma correlação foi detectada | Capacidade de teste | Informativo | 1 |
 
@@ -247,7 +247,7 @@ Esta é uma lista abrangente dos eventos fornecidos pelo Service Fabric antes da
 | 18566 | ServiceCreated | FM | Informativo |
 | 18567 | ServiceDeleted | FM | Informativo |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Obtenha uma visão geral de [diagnóstico no Service Fabric](service-fabric-diagnostics-overview.md)
 * Saiba mais sobre o EventStore na [Visão geral de Eventstore do Service Fabric](service-fabric-diagnostics-eventstore.md)

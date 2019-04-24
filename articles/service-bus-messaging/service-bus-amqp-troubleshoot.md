@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/03/2019
 ms.author: aschhab
 ms.openlocfilehash: 85d24a9e7c753ec5dba80c4f259dd3fb51d9c14b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58910039"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60402778"
 ---
 # <a name="amqp-errors-in-azure-service-bus"></a>Erros AMQP no barramento de serviço do Azure
 Este artigo fornece alguns dos erros que você recebe ao usar AMQP com o barramento de serviço do Azure. Eles são todos os comportamentos padrão do serviço. Você pode evitá-las por meio de chamadas de enviar/receber em conexão/link, que recria automaticamente o link/conexão.

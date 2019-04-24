@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
 ms.openlocfilehash: c2089f9f6267f318dafe641a6a5b22e7e87427ca
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441059"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60308037"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnóstico de desempenho de máquinas virtuais do Azure
 
@@ -167,7 +167,7 @@ Cada execução de diagnóstico de desempenho tem duas etapas:
 
 No momento, não há nenhuma maneira fácil de saber exatamente quando a instalação da extensão da VM está concluída. Geralmente, são necessários cerca de 45 segundos a 1 minuto para instalar a extensão de VM. Depois de instalar a extensão de VM, você pode executar as etapas de reprodução para que o diagnóstico de desempenho capture o conjunto correto de dados para solução de problemas. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Depois de examinar os insights e o relatório de diagnóstico de desempenho, se você ainda não conseguir determinar a causa do problema e precisar de mais ajuda, poderá abrir um tíquete de suporte com o atendimento ao cliente Microsoft. 
 
 Caso precise de mais ajuda em qualquer ponto deste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN](https://azure.microsoft.com/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/support/faq/).

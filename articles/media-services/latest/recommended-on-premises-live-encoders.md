@@ -10,11 +10,11 @@ ms.date: 01/17/2019
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: c7d895cd87122374a79a520643580a179961fba3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317316"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405351"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Codificadores de transmissão ao vivo recomendados
 
@@ -126,6 +126,6 @@ Siga as mesmas etapas que as da [verificação de evento ao vivo de passagem](#p
 
 Por fim, envie por email as configurações registradas e os parâmetros dos arquivos ao vivo aos Serviços de Mídia do Azure em amsstreaming@microsoft.com como uma notificação de que todas as verificações de autoverificação foram aprovadas. Além disso, inclua suas informações de contato para quaisquer acompanhamentos. Contate a equipe dos Serviços de Mídia do Azure para tratar quaisquer questões sobre esse processo.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Transmissão ao vivo com os Serviços de Mídia v3](live-streaming-overview.md)

@@ -18,11 +18,11 @@ ms.reviewer: negoe,andret,saeeda,CelesteDG
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4feaf97de7b833514113af6c91b3745be0503eff
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58114176"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60411106"
 ---
 # <a name="national-clouds"></a>Nuvens nacionais
 
@@ -81,7 +81,7 @@ Para saber como chamar as APIs do Microsoft Graph no ambiente de Nuvem Nacional,
 > [!IMPORTANT]
 > Determinados serviços e recursos que estão em regiões específicas do serviço global podem não estar disponíveis em todas as nuvens Nacionais. Para descobrir quais serviços estão disponíveis, acesse [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre o [Azure Governamental](https://docs.microsoft.com/azure/azure-government/).
 - Saiba mais sobre o [Azure China 21Vianet](https://docs.microsoft.com/azure/china/).

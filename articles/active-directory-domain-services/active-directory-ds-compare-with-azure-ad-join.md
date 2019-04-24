@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: ergreenl
 ms.openlocfilehash: d4f50ea89f2623d387fb77acb09e609def547468
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55178929"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359425"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Escolha entre o ingresso no Azure Active Directory e o Azure Active Directory Domain Services
 Este artigo descreve as diferenças entre o ingresso no Azure Active Directory (AD) e o Azure AD Domain Services, além de ajudar você a escolher com base em seus casos de uso.
@@ -58,7 +58,7 @@ Em um computador ingressado no domínio, a autenticação de usuário ocorre por
 |:---| --- | --- |
 | Dispositivo controlado por | AD do Azure | Domínio gerenciado do Azure AD Domain Services |
 | Representação no diretório | Objetos de dispositivo no diretório do Azure AD. | Objetos de computador no domínio gerenciado do AAD-DS. |
-| Autenticação | Protocolos baseados em OAuth/OpenID Connect | Kerberos, protocolos NTLM |
+| Authentication | Protocolos baseados em OAuth/OpenID Connect | Kerberos, protocolos NTLM |
 | Gerenciamento | Software de MDM (Gerenciamento de Dispositivo Móvel) como o Intune | Política de Grupo |
 | Rede | Funciona pela Internet | Exige que os computadores estejam na mesma rede virtual que o domínio gerenciado.|
 | Excelente para... | Dispositivos da área de trabalho ou móveis de usuários finais | Máquinas virtuais de servidor implantadas no Azure |

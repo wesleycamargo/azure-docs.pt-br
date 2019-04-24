@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: kumud
 ms.openlocfilehash: 6dea36afd3a426bbbd0c28a96f21ccad1a82ea88
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998005"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60329798"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Tutorial: Melhorar a resposta de site usando o Gerenciador de Tráfego
 
@@ -57,11 +57,11 @@ Nesta seção, você criará duas VMs *myIISVMEastUS* e *myIISVMWEurope* nas reg
 
     |Configuração|Valor|
     |---|---|
-    |Nome|myIISVMEastUS|
+    |NOME|myIISVMEastUS|
     |Nome de usuário| Insira um nome de usuário de sua escolha.|
     |Senha| Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Grupo de recursos| Selecione **Novo**e digite *myResourceGroupTM1*.|
-    |Localizaçãoização| Selecione **Leste dos EUA**.|
+    |Local padrão| Selecione **Leste dos EUA**.|
     |||
 
 4. Selecione um tamanho da VM em **Escolher um tamanho**.
@@ -78,10 +78,10 @@ Nesta seção, você criará duas VMs *myIISVMEastUS* e *myIISVMWEurope* nas reg
 
 7. Conclua as etapas 1 a 6 novamente, com as seguintes alterações:
 
-    |Configuração|Valor|
+    |Configuração|Value|
     |---|---|
     |Grupo de recursos | Selecione **Novo**e digite *myResourceGroupTM2*|
-    |Localizaçãoização|Europa Ocidental|
+    |Local padrão|Europa Ocidental|
     |Nome da VM | myIISVMWEurope|
     |Rede virtual | Selecione **Rede Virtual**, em **Criar rede virtual**, para **Nome**, insira *myVNet2*, para a sub-rede, insira *mySubnet*.|
     |||
@@ -134,7 +134,7 @@ Nesta seção, você pode criar uma VM (*mVMEastUS* e *myVMWestEurope*) em cada 
 
     |Configuração|Valor|
     |---|---|
-    |Nome|myVMEastUS|
+    |NOME|myVMEastUS|
     |Nome de usuário| Insira um nome de usuário de sua escolha.|
     |Senha| Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Grupo de recursos| Selecione **Existente** e *myResourceGroupTM1*.|
@@ -154,7 +154,7 @@ Nesta seção, você pode criar uma VM (*mVMEastUS* e *myVMWestEurope*) em cada 
 
 7. Conclua as etapas 1 a 5 novamente, com as seguintes alterações:
 
-    |Configuração|Valor|
+    |Configuração|Value|
     |---|---|
     |Nome da VM | *myVMWEurope*|
     |Grupo de recursos | Selecione **Existente** e em seguida, digite *myResourceGroupTM2*|
@@ -171,11 +171,11 @@ Crie um perfil do Gerenciador de Tráfego que direciona o tráfego do usuário e
 
     | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
-    | Nome                   | Esse nome deve ser exclusivo na zona trafficmanager.net e resulta no nome DNS, trafficmanager.net, que é usado para acessar o seu perfil do Gerenciador de Tráfego.                                   |
+    | NOME                   | Esse nome deve ser exclusivo na zona trafficmanager.net e resulta no nome DNS, trafficmanager.net, que é usado para acessar o seu perfil do Gerenciador de Tráfego.                                   |
     | Método de roteamento          | Selecione o método de roteamento **Desempenho**.                                       |
     | Assinatura            | Selecione sua assinatura.                          |
     | Grupo de recursos          | Selecione **Criar novo** e insira *myResourceGroupTM1*. |
-    | Localizaçãoização                | Selecione **Leste dos EUA**. Essa configuração refere-se ao local do grupo de recursos e não tem impacto no perfil do Gerenciador de Tráfego que será implantado globalmente.                              |
+    | Local padrão                | Selecione **Leste dos EUA**. Essa configuração refere-se ao local do grupo de recursos e não tem impacto no perfil do Gerenciador de Tráfego que será implantado globalmente.                              |
     |
 
     ![Criar um perfil do Gerenciador de Tráfego](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-profile.png)
@@ -188,11 +188,11 @@ Adicione as duas VMs executando os servidores IIS - *myIISVMEastUS* & *myIISVMWE
 2. Em **Perfil do Gerenciador de Tráfego**, na seção **Configurações**, clique em **Pontos de Extremidade** e clique em **Adicionar**.
 3. Insira, ou selecione, as informações a seguir, aceite os padrões para as configurações restantes e, em seguida, selecione **OK**:
 
-    | Configuração                 | Valor                                              |
+    | Configuração                 | Value                                              |
     | ---                     | ---                                                |
-    | Digite                    | Ponto de extremidade do Azure                                   |
-    | Nome           | myEastUSEndpoint                                        |
-    | Tipo de recurso de destino           | Endereço IP Público                          |
+    | Type                    | Ponto de extremidade do Azure                                   |
+    | NOME           | myEastUSEndpoint                                        |
+    | Tipo de recurso de destino           | Endereço IP público                          |
     | Recurso de destino          | **Escolha um endereço IP Público** para mostrar a lista de recursos com endereços IP públicos na mesma assinatura. Em **Recursos**, selecione o endereço IP público denominado *myIISVMEastUS-ip*. Isso é o endereço IP público do servidor IIS VM no Leste dos EUA.|
     |        |           |
 

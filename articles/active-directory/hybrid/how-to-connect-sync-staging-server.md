@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 176b8509892ef16b631697a686471e7fa52bb380
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196122"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381547"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: Servidor de preparo e recuperação de desastre
 Com um servidor no modo de preparo, você pode fazer alterações na configuração e visualizar as alterações antes de tornar o servidor ativo. Ele também permite executar sincronização e importação totais para verificar se todas as alterações são esperadas antes de você fazê-las em seu ambiente de produção.
@@ -92,7 +92,7 @@ Você agora preparou a exportação das alterações para o Azure AD e AD local 
 2. Execute o assistente de instalação no servidor no **modo de preparo** e desabilite o **modo de preparo**.
    ![ReadyToConfigure](./media/how-to-connect-sync-staging-server/additionaltasks.png)
 
-## <a name="disaster-recovery"></a>Recuperação de desastres
+## <a name="disaster-recovery"></a>Recuperação de desastre
 Parte do design de implementação é planejar o que fazer em caso de desastre, quando você perde o servidor de sincronização. Há modelos diferentes para uso e qual deles usar depende de vários fatores, incluindo:
 
 * Quão tolerável é para você não poder fazer alterações em objetos no Azure AD durante o tempo de inatividade?

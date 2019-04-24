@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 370da046e5a964d91b668ea80730b8d331065d29
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019955"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322865"
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Copiar dados do Spark usando o Azure Data Factory 
 
@@ -41,12 +41,12 @@ As propriedades a seguir têm suporte para o serviço vinculado do Spark:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | a propriedade type deve ser definida como: **Spark** | SIM |
-| host | Endereço IP ou nome do host do servidor Spark  | SIM |
-| porta | A porta TCP usada pelo servidor Spark para ouvir conexões de cliente. Se você conectar ao Microsoft Azure HDInsights, especifique a porta como 443. | SIM |
+| type | a propriedade type deve ser definida como: **Spark** | Sim |
+| host | Endereço IP ou nome do host do servidor Spark  | Sim |
+| porta | A porta TCP usada pelo servidor Spark para ouvir conexões de cliente. Se você conectar ao Microsoft Azure HDInsights, especifique a porta como 443. | Sim |
 | serverType | O tipo de servidor do Spark. <br/>Valores permitidos são: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Não  |
 | thriftTransportProtocol | O protocolo de transporte a ser usado na camada de Thrift. <br/>Valores permitidos são: **Binary**, **SASL**, **HTTP** | Não  |
-| authenticationType | O método de autenticação usado para acessar o servidor do Spark. <br/>Valores permitidos são: **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | SIM |
+| authenticationType | O método de autenticação usado para acessar o servidor do Spark. <br/>Valores permitidos são: **Anonymous**, **Username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sim |
 | Nome de Usuário | O nome de usuário que você usa para acessar o servidor do Spark.  | Não  |
 | Senha | A senha correspondente ao usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não  |
 | httpPath | A URL parcial correspondente ao servidor do Spark.  | Não  |
@@ -86,7 +86,7 @@ Para copiar dados do Spark, defina a propriedade type do conjunto de dados como 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **SparkObject** | SIM |
+| type | A propriedade type do conjunto de dados deve ser definida como: **SparkObject** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -115,7 +115,7 @@ Para copiar dados do Spark, defina o tipo de fonte na atividade de cópia como *
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **SparkSource** | SIM |
+| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **SparkSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**

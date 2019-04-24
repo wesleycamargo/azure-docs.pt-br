@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: pbutlerm
 ms.openlocfilehash: f9cbf5033d0ffb84959de94db052626dd1d131c8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997956"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311230"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Guia Detalhes da Vitrine do Dynamics 365 for Customer Engagement
 
@@ -51,8 +51,8 @@ A seguinte tabela descreve os campos dessa guia:
 
 |    **Campo**          |  **Descrição**               |
 |  ---------------      |  ---------------               |
-|  Setores           | Selecione os setores (no máximo dois) com o qual o aplicativo melhor se alinha. Se nenhuma categoria for aplicável, não selecione nenhuma opção.  |
-|  Categorias           | Selecione as categorias relevantes para seu aplicativo. Selecione entre uma e três opções.  |
+|  Indústrias           | Selecione os setores (no máximo dois) com o qual o aplicativo melhor se alinha. Se nenhuma categoria for aplicável, não selecione nenhuma opção.  |
+|  Categories           | Selecione as categorias relevantes para seu aplicativo. Selecione entre uma e três opções.  |
 |  Tipo de aplicativo             | Selecione o tipo de avaliação habilitado para o aplicativo no AppSource. **Gratuito** indica que o aplicativo pode ser usado sem encargos; **Avaliação** indica que os clientes podem experimentar o aplicativo por um curto período sem encargos; e **Entrar em Contato comigo** indica que os clientes podem solicitar uma avaliação do aplicativo no AppSource.  |
 | Link de ajuda para seu aplicativo | URL para a documentação online ou para outro recurso de ajuda para o aplicativo.  |
 | Países/regiões com suporte | Uma caixa de diálogo pop-up permite a seleção das regiões geográficas nas quais o aplicativo é oferecido.  A distribuição mundial é o padrão. |
@@ -73,11 +73,11 @@ Nesta seção, você fornecerá o manual e os acessórios de marketing: imagens 
 
 A seguinte tabela descreve os campos dessa guia: 
 
-|      Campo            |    Descrição                 |
+|      Campo            |    DESCRIÇÃO                 |
 |  ---------------      |  ---------------               |
 | Logotipo da oferta (formato png, 48x48) | Carregue uma imagem que será exibida na página de pesquisa do aplicativo. O formato é PNG e o tamanho precisa ser 48 x 48 pixels. |
 | Logotipo de oferta (formato png, 216x216) | Carregue uma imagem que será exibida na página de detalhes do aplicativo. O formato é PNG e o tamanho precisa ser 216 x 216 pixels. |
-| Vídeos                | Carregue vídeos promocionais ou instrucionais do aplicativo, com um máximo de quatro.  Para cada vídeo, preencha o nome do vídeo, a URL (somente YouTube ou Vimeo) e a miniatura associada no formato PNG e dimensionada em 1280 x 720 pixels.  | 
+| vídeos                | Carregue vídeos promocionais ou instrucionais do aplicativo, com um máximo de quatro.  Para cada vídeo, preencha o nome do vídeo, a URL (somente YouTube ou Vimeo) e a miniatura associada no formato PNG e dimensionada em 1280 x 720 pixels.  | 
 | Documentos             | Carregue documentos promocionais ou instrucionais do produto no formato PDF, com um máximo de três.  Para cada documento, forneça um nome de documento.  |
 | Capturas de tela           | Carregue um máximo de cinco imagens da interface do usuário do aplicativo no formato PNG e dimensionadas em 1280 x 720 pixels.  Essas capturas de tela serão exibidas na página de detalhes do AppSource para o aplicativo. |
 |  |  |
@@ -91,7 +91,7 @@ Você fornecerá a *política de privacidade* e os *termos de uso* do aplicativo
 
 A seguinte tabela descreve os campos dessa guia: 
 
-|      Campo            |    Descrição                 |
+|      Campo            |    DESCRIÇÃO                 |
 |  ---------------      |  ---------------               |
 | URL da Política de Privacidade    | URL da política de privacidade online do aplicativo.  |
 | Termos de uso          | Termos de uso do aplicativo em texto sem formatação.  Os clientes do AppSource precisam aceitar esses termos antes de poderem testar o aplicativo. |

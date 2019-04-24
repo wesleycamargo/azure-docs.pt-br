@@ -12,11 +12,11 @@ ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 37cdac16a51a30bdaf1ba0266bab7fdd1f2990f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895440"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60368268"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>Detectar tipos de imagem com a Pesquisa Visual Computacional
 
@@ -26,7 +26,7 @@ Com o [analisar imagem](https://westus.dev.cognitive.microsoft.com/docs/services
 
 A Pesquisa Visual Computacional analisa uma imagem e classifica a probabilidade da imagem ser clip-art em uma escala de 0 a 3, conforme descrito na tabela a seguir.
 
-| Valor | Significado |
+| Value | Significado |
 |-------|---------|
 | 0 | Non-clip-art |
 | 1 | Ambíguo |
@@ -113,6 +113,6 @@ As respostas JSON a seguir ilustram o que a Pesquisa Visual Computacional retorn
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Consulte a [analisar imagem](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) documentação para aprender a detectar tipos de imagem de referência.

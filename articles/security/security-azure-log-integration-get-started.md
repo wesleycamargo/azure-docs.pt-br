@@ -16,11 +16,11 @@ ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
 ms.openlocfilehash: 244b2d1764f30f790c3e51e23cd2fa0af6375960
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894369"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60480147"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Integração de Logs do Azure com logs do Diagnóstico do Azure e encaminhamento de eventos do Windows
 
@@ -241,7 +241,7 @@ Ajuda da comunidade está disponível por meio de [Fórum do MSDN de integraçã
 
 Você também pode abrir uma [solicitação de suporte](../azure-supportability/how-to-create-azure-support-request.md). Selecione a Integração de Log como o serviço para o qual você está solicitando suporte.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre a Integração de Logs do Azure, consulte os seguintes artigos: Antes de experimentar as etapas neste artigo, você deve examinar o artigo Introdução e concluir as etapas dele.
 

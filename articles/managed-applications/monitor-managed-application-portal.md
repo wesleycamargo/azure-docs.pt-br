@@ -10,11 +10,11 @@ ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
 ms.openlocfilehash: 754d2a246a86585e9f05f8a070c51e158f73affd
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342588"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60253671"
 ---
 # <a name="monitor-a-deployed-instance-of-a-managed-application"></a>Monitorar uma instância implantada de um aplicativo gerenciado
 
@@ -50,7 +50,7 @@ Depois de implantar um aplicativo gerenciado em sua assinatura do Azure, você p
 
 É possível criar alertas para a instância do aplicativo gerenciado ou para os recursos no aplicativo gerenciado. Confira mais informações sobre como criar alertas em [Visão geral dos alertas no Microsoft Azure](../azure-monitor/platform/alerts-overview.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter exemplos de aplicativo gerenciado, veja [Projetos de exemplo para aplicativos gerenciados do Azure](sample-projects.md).
 * Para implantar um aplicativo gerenciado, confira [Implantar aplicativo do catálogo de serviços por meio do portal do Azure](deploy-service-catalog-quickstart.md).

@@ -11,11 +11,11 @@ ms.service: cost-management
 manager: micflan
 ms.custom: ''
 ms.openlocfilehash: e4c5607089efb247620766fb311b97cae3772770
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279866"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311924"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrar do Enterprise Agreement para APIs de contrato do cliente da Microsoft
 
@@ -180,12 +180,12 @@ O nome da propriedade que contém a matriz de registros de uso é alterado de da
 | Serviço Consumido | consumedService | Valores de cadeia de caracteres podem ser diferentes. |
 | Id do Serviço Consumido | Nenhum | &nbsp; |
 | CostCenter | costCenter | &nbsp; |
-| Data e usageStartDate | data | &nbsp;  |
+| Data e usageStartDate | date | &nbsp;  |
 | Dia | Nenhum | Analisa o dia da data. |
 | Id do Departamento | invoiceSectionId | Os valores exatos são diferentes. |
 | DepartmentName | invoiceSectionName | Valores de cadeia de caracteres podem ser diferentes. Configure as seções de nota fiscal de acordo com os departamentos, se necessário. |
 | ExtendedCost e custo | costInBillingCurrency | &nbsp;  |
-| InstanceId | ResourceId | &nbsp;  |
+| InstanceId | resourceId | &nbsp;  |
 | É Cobrança Recorrente | Nenhum | &nbsp;  |
 | Local padrão | location | &nbsp;  |
 | Categoria do Medidor | meterCategory | Valores de cadeia de caracteres podem ser diferentes. |
@@ -218,7 +218,7 @@ O nome da propriedade que contém a matriz de registros de uso é alterado de da
 | SubscriptionName | subscriptionName | &nbsp;  |
 | Marcas | marcas | A propriedade tags se aplica a raiz do objeto, não para a propriedade de propriedades aninhadas. |
 | Unidade de Medida | unitOfMeasure | Valores de cadeia de caracteres são diferentes. |
-| usageEndDate | data | &nbsp;  |
+| usageEndDate | date | &nbsp;  |
 | Ano | Nenhum | Analisa o ano da data. |
 | (novo) | billingCurrency | Moeda usada para a cobrança. |
 | (novo) | billingProfileId | ID exclusiva para o perfil de cobrança (mesmo que o registro). |
@@ -545,6 +545,6 @@ O conector é recomendado para organizações que desejam o máximo de flexibili
 
 O pacote de conteúdo de consumo de informações e o conector mais antigos trabalharam em um nível de registro. Ele necessário pelo menos acesso de leitura. O novo aplicativo de consumo Insights Power BI e o novo conector do Azure Consumption Insights estão disponíveis para usuários de perfil de cobrança. Equipes que precisam de opções adicionais para analisar os custos ou exibir os custos entre os perfis de cobrança devem usar [análise de custo](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/costanalysis) o portal do Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Leia as [documentação do gerenciamento de custos](index.yml) para aprender a monitorar e controlar os gastos do Azure. Ou, se você deseja otimizar o uso de recursos com o gerenciamento de custos.

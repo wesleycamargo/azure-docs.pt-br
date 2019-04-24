@@ -18,11 +18,11 @@ ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6704c00734d18b9918378db6e056696407421014
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207170"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60297792"
 ---
 # <a name="single-page-applications"></a>Aplicativos de página única
 
@@ -65,7 +65,7 @@ Usar o ADAL.js ajuda a:
 
 Após uma autenticação bem-sucedida, o Azure AD grava um cookie no navegador do usuário para estabelecer uma sessão. A sessão existe entre o usuário e o Azure AD, e não entre o usuário e o aplicativo Web. Quando um token expira, o ADAL.js usa essa sessão para obter silenciosamente outro token. O ADAL.js faz isso usando um iFrame oculto para enviar e receber a solicitação usando o protocolo de concessão implícita OAuth. O ADAL.js também pode usar o mesmo mecanismo para obter silenciosamente os tokens de acesso para outros recursos da API da Web que o aplicativo chama, contanto que esses recursos ofereçam suporte a CORS (compartilhamento de recursos entre origens), que eles estejam registrados no diretório do usuário e que qualquer consentimento necessário tenha sido fornecido pelo usuário durante o logon.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre outros [Tipos e cenários de aplicativo](app-types.md)
 * Saiba mais sobre as [noções básicas de autenticação](authentication-scenarios.md) do Azure AD

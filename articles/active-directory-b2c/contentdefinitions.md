@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: e36eb3816d6f465552c4db740508d5e7f5fa1331
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161657"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313301"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -61,9 +61,9 @@ Os metadados do perfil técnico autodeclarado **LocalAccountSignUpWithLogonEmail
 
 O elemento **ContentDefinition** contém o seguinte atributo:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| ID | SIM | Um identificador para uma definição de conteúdo. O valor é especificado na seção **ID de definição de conteúdo** mais adiante nesta página. |
+| ID | Sim | Um identificador para uma definição de conteúdo. O valor é especificado na seção **ID de definição de conteúdo** mais adiante nesta página. |
 
 O elemento **ContentDefinition** contém os seguintes elementos:
 
@@ -79,7 +79,7 @@ O elemento **ContentDefinition** contém os seguintes elementos:
 
 O elemento **DataUri** é usado para especificar o identificador de página. O Azure AD B2C usa o identificador de página para carregar e iniciar a elementos de interface do usuário e o JavaScript do lado do cliente. O formato do valor é `urn:com:microsoft:aad:b2c:elements:page-name:version`.  A tabela a seguir lista os identificadores de página que você pode usar.
 
-| Valor |   DESCRIÇÃO |
+| Value |   DESCRIÇÃO |
 | ----- | ----------- |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | Exibe uma página de erro quando uma exceção ou um erro é encontrado. |
 | `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | Lista os provedores de identidade que os usuários podem escolher durante a entrada. | 
@@ -99,10 +99,10 @@ O elemento **LocalizedResourcesReferences** contém os seguintes elementos:
 
 O elemento **LocalizedResourcesReferences** contém os seguintes atributos:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| Linguagem | SIM | Uma cadeia de caracteres que contém uma linguagem com suporte para a política de acordo com a RFC 5646 – Marcas para identificar idiomas. |
-| LocalizedResourcesReferenceId | SIM | O identificador do elemento **LocalizedResources**. |
+| Linguagem | Sim | Uma cadeia de caracteres que contém uma linguagem com suporte para a política de acordo com a RFC 5646 – Marcas para identificar idiomas. |
+| LocalizedResourcesReferenceId | Sim | O identificador do elemento **LocalizedResources**. |
 
 O exemplo a seguir mostra uma definição de conteúdo de inscrição ou entrada:
 

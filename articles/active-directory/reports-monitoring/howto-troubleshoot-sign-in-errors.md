@@ -15,11 +15,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: db68ad2a29dcaa53d219b679b9e0f24a50a6f576
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877050"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60286590"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Como: Solucionar problemas de erros de logon usando relatórios do Azure Active Directory Domain Services
 
@@ -61,7 +61,7 @@ Você precisa de:
 
 8. Se tudo mais falhar ou se o problema persistir apesar de ter tomado as medidas recomendadas, [abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) seguindo as etapas na guia **Solução de problemas e suporte**. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Códigos de erro de entradas de referência](reference-sign-ins-error-codes.md)
 * [Visão geral do relatório de entradas](concept-sign-ins.md)

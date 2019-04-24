@@ -14,11 +14,11 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: 8efab173f464b67c0c88c87ee28ea7fa19980501
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54154990"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60373161"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Análise do Impact com o Application Insights
 
@@ -85,7 +85,7 @@ Em seguida, as sessões são divididas em dois tipos diferentes de _subsessões_
 
 Como o impacto acaba sendo calculado varia de acordo com a análise feita por métrica ou dimensão. Para métricas, a média de todos os _A_s em uma subsessão é calculada. Embora para dimensões o valor de cada _A_ contribua _1/N_ para o valor atribuído a _B_ em que _N_ é o número de _A_s na subsessão.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Para habilitar as experiências de uso, comece enviando [eventos personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou [exibições de página](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Se você já envia eventos personalizados ou exibições de página, explore as ferramentas de uso para saber como os usuários utilizam o seu serviço.

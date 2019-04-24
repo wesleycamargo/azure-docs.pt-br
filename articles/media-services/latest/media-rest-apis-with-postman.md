@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/11/2019
 ms.author: juliako
 ms.openlocfilehash: a2171ff8a4354a59ec2f790f9bf38b7a687419ca
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59543869"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322542"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurar Postman para chamadas de API de REST dos Serviços de Mídia
 
@@ -97,7 +97,7 @@ Antes de começar a manipular os recursos do AMS v3, você precisa obter e defin
 - [Criar filtros com os Serviços de Mídia – REST](filters-dynamic-manifest-rest-howto.md)
 - [API REST baseada no Azure Resource Manager](https://github.com/Azure-Samples/media-services-v3-arm-templates)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Transmitir arquivos com REST](stream-files-tutorial-with-rest.md).  
 - [Tutorial: Codificar um arquivo remoto baseado em URL e transmitir o vídeo – REST](stream-files-tutorial-with-rest.md)

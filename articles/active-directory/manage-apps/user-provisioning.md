@@ -16,11 +16,11 @@ ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 40e8aaa60359fcfb85c79c4210f7c5cc14633c7b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894399"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60291124"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatize o provisionamento e o desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory
 
@@ -269,7 +269,7 @@ No entanto, o uso de grupos dinâmicos pode afetar o desempenho geral de provisi
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>O provisionamento automático de usuário para o trabalho de aplicativos SaaS com grupos dinâmicos no Azure Active Directory?
 
- Não. Quando configurado para "sincronização atribuído apenas usuários e grupos", o serviço de provisionamento de usuário do Azure AD não é capaz de ler ou provisionar os usuários que estão em grupos aninhados. Só é capaz de ler e provisionar os usuários que são membros imediatos do grupo atribuído explicitamente.
+Não. Quando configurado para "sincronização atribuído apenas usuários e grupos", o serviço de provisionamento de usuário do Azure AD não é capaz de ler ou provisionar os usuários que estão em grupos aninhados. Só é capaz de ler e provisionar os usuários que são membros imediatos do grupo atribuído explicitamente.
 
 Essa é uma limitação de "atribuições baseadas em grupo para aplicativos", o que também afeta o logon único e é descrito em [Usar um grupo para gerenciar o acesso a aplicativos SaaS](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps ).
 

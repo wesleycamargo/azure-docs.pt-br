@@ -15,11 +15,11 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 786b5ed99cce29c7217bfa42446821848ca8e05f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492627"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60288099"
 ---
 # <a name="discover-azure-resources-to-manage-in-pim"></a>Descobrir os recursos do Azure para gerenciar no PIM
 
@@ -64,7 +64,7 @@ Quando você configura pela primeira vez os recursos do PIM para o Azure, é nec
 
     ![Descoberta – mensagem Gerenciar recurso](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Definir configurações de função de recurso do Azure no PIM](pim-resource-roles-configure-role-settings.md)
 - [Atribuir funções de recurso do Azure no PIM](pim-resource-roles-assign-roles.md)

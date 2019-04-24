@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 558e9c3a3bfd43f6ceb958bc3be55d58e1eb7f91
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150230"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360447"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -38,13 +38,13 @@ Uma política personalizada é representada como um ou vários arquivos formatad
 
 O elemento **TrustFrameworkPolicy** contém os seguintes atributos:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 |---------- | -------- | ----------- |
-| PolicySchemaVersion | SIM | A versão do esquema a ser usado para executar a política. O valor deve ser `0.3.0.0` |
+| PolicySchemaVersion | Sim | A versão do esquema a ser usado para executar a política. O valor deve ser `0.3.0.0` |
 | TenantObjectId | Não  | O identificador de objeto exclusivo do locatário do Azure AD (Azure Active Directory) B2C. |
-| TenantId | SIM | O identificador exclusivo do locatário ao qual essa política pertence. |
-| PolicyId | SIM | O identificador exclusivo da política. Esse identificador deve ter o *B2C_1A_* como prefixo |
-| PublicPolicyUri | SIM | O URI para a política, o que é uma combinação de ID do locatário e ID da política. |
+| TenantId | Sim | O identificador exclusivo do locatário ao qual essa política pertence. |
+| PolicyId | Sim | O identificador exclusivo da política. Esse identificador deve ter o *B2C_1A_* como prefixo |
+| PublicPolicyUri | Sim | O URI para a política, o que é uma combinação de ID do locatário e ID da política. |
 | DeploymentMode | Não  | Valores possíveis: `Production`, `Debugging` ou `Development`. O padrão é `Production`. Use essa propriedade para depurar sua política. Para obter mais informações, veja [Coleta de Logs](active-directory-b2c-troubleshoot-custom.md). |
 | UserJourneyRecorderEndpoint | Não  | O ponto de extremidade usado quando **DeploymentMode** é definido como `Development`. O valor deve ser `urn:journeyrecorder:applicationinsights`. Para obter mais informações, veja [Coleta de Logs](active-directory-b2c-troubleshoot-custom.md). |
 

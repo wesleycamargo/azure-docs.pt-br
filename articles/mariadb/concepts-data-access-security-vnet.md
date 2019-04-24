@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: 5a4e6819eeff2a2c8efaf3807c38cc06f7c35002
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006695"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332806"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Usar regras e pontos de extremidade de serviço de Rede Virtual para Banco de Dados do Azure para MariaDB
 
@@ -138,7 +138,7 @@ Você pode definir o sinalizador **IgnoreMissingServiceEndpoint** usando a CLI d
 - [Redes virtuais do Azure][vm-virtual-network-overview]
 - [Pontos de extremidade de serviço de rede virtual do Azure][vm-virtual-network-service-endpoints-overview-649d]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter artigos sobre como criar regras de VNet, consulte:
 - [Criar e gerenciar regras de VNet do Banco de Dados do Azure para MariaDB usando o portal do Azure](howto-manage-vnet-portal.md)
  

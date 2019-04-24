@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9009d29e281ace179ad1dd2021c7cf35e3dc611a
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
-ms.translationtype: HT
+ms.openlocfilehash: e5be5635964ebeedc7be4d1d1f5403e4d281b55c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084794"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60251274"
 ---
 # <a name="microsoftcomputesizeselector-ui-element"></a>Elemento de interface do usuário Microsoft.Compute.SizeSelector
 Um controle para selecionar um tamanho de uma ou mais instâncias de máquina virtual.

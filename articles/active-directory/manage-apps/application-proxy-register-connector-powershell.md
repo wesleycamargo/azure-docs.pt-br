@@ -17,11 +17,11 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb193119186c2cf9e758f8c74f99f18c5fb389b8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58792511"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60292649"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Criar um script de instalação autônoma para o conector de Proxy de Aplicativo do Azure AD
 
@@ -179,7 +179,7 @@ Há dois métodos que você pode usar para registrar o conector:
 
    `.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID> -Feature ApplicationProxy`
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Próximas etapas 
 * [Publicar aplicativos usando seu próprio nome de domínio](application-proxy-configure-custom-domain.md)
 * [Habilitar o logon único](application-proxy-configure-single-sign-on-with-kcd.md)
 * [Solucionar problemas que surgirem com o Proxy de Aplicativo](application-proxy-troubleshoot.md)

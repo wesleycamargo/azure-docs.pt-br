@@ -14,11 +14,11 @@ ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f602b5f9809e5bbe0b1efb52cfa66877a31a2170
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183332"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60249563"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Perguntas frequentes sobre o Azure Active Directory
 O Azure AD (Azure Active Directory) é uma solução abrangente de IDaaS (identidade como um serviço) que inclui todos os aspectos de identidade, gerenciamento de acesso e segurança.
@@ -59,7 +59,7 @@ Além disso, os serviços pagos do Azure AD, como Enterprise Mobility + Security
 - - -
 **P: Existe um relatório que mostra quando minhas licenças de usuário do Microsoft Azure Active Directory irão expirar?**
 
-**R:** Nenhum.  Isso não está disponível atualmente.
+**R:** Não.  Isso não está disponível atualmente.
 
 - - -
 
@@ -210,4 +210,4 @@ Para saber mais, confira [Automatizar o provisionamento e o desprovisionamento d
 - - -
 **P:  Posso configurar uma conexão LDAP segura com o Microsoft Azure Active Directory?**
 
-**R:**  Nenhum. O Azure AD não dá suporte ao protocolo LDAP. No entanto, é possível configurar LDAP seguro com Azure Active Directory Domain Services.
+**R:**  Não. O Azure AD não dá suporte ao protocolo LDAP. No entanto, é possível configurar LDAP seguro com Azure Active Directory Domain Services.

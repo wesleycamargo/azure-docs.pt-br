@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/18/2019
+ms.date: 04/22/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fbb90e95c07c66f45d49076f0570ac028c37244
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 894c42e4102a3565ff43798d33afb4046fda76bd
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011394"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60286697"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Logs de atividades do Azure AD no Azure Monitor
 
@@ -72,14 +72,14 @@ Se você já tiver uma licença do Azure AD, precisará de uma assinatura do Azu
 
 Cada evento de trilha de auditoria usa cerca de 2 KB de armazenamento de dados. Para um locatário com 100 mil usuários, o que poderia gerar cerca de 1,5 milhão de eventos por dia, seria necessário cerca de 3 GB de armazenamento de dados por dia. Já que as gravações ocorrem em lotes de aproximadamente cinco minutos, é possível estimar aproximadamente 9 mil operações de gravação por mês. 
 
-A tabela a seguir contém uma estimativa de custo, dependendo do tamanho do locatário, para uma conta de armazenamento de uso geral v2 no Oeste dos EUA com pelo menos um ano de retenção. Para criar uma estimativa mais precisa para o volume de dados que você prevê em seu aplicativo, use a [calculadora de preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/blobs/). 
+A tabela a seguir contém uma estimativa de custo, dependendo do tamanho do locatário, para uma conta de armazenamento de uso geral v2 no Oeste dos EUA com pelo menos um ano de retenção. Para criar uma estimativa mais precisa para o volume de dados que você prevê em seu aplicativo, use a [calculadora de preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/blobs/). A tabela inclui somente o custo de processamento/armazenamento e não o custo da assinatura. 
 
-| Categoria do log | Número de usuários | Eventos por dia | Volume de dados por mês (est.) | Custo por mês (est.) | Custo por ano (est.) |
-|--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
-| Audit | 100.000 | 1,5&nbsp;milhão | 90 GB | US$ 1,93 | US$ 23,12 |
-| Audit | 1.000 | 15.000 | 900 MB | US$ 0,02 | US$ 0,24 |
-| Entradas | 1.000 | 34.800 | 4 GB | US$ 0,13 | US$ 1,56 |
-| Entradas | 100.000 | 15&nbsp;milhões | 1.7 TB | US$ 35,41 | US$ 424,92 | 
+
+| Categoria do log       | Número de usuários | Eventos por dia | Eventos por mês (30 dias) | Custo por mês em USD (est). |
+| ---                | ---             | ---            | ---                        | ---                          | 
+| Auditoria e entradas | 100.000         | 16,500,000     | 495,000,000                | $1093                        |
+| Audit              | 100.000         | 1,500,000      | 45.000.000                 | $246.66                      |
+| Entradas           | 100.000         | 15.000.000     | 450,000,000                | $847.28                      |
 
 
 ### <a name="event-hub-messages-for-activity-logs"></a>Mensagens do hub de eventos para logs de atividade

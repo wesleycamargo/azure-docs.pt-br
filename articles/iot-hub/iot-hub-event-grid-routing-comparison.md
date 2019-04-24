@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
 ms.openlocfilehash: e7d5ab3ebdf29fbf699220a3b214176ec4862739
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672790"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60398716"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Comparar roteamento de mensagens e Grade de Eventos para Hub IoT
 
@@ -73,7 +73,7 @@ O roteamento de mensagens do Hub IoT e a integração do Hub IoT com a Grade de 
 
    A Grade de Eventos não garante que os pontos de extremidade receberão eventos na mesma ordem em que ocorreram. No entanto, o esquema de eventos inclui um carimbo data/hora que pode ser usado para identificar a ordem após os eventos chegarem ao ponto de extremidade. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [Roteamento de Mensagens do Hub IoT ](iot-hub-devguide-messages-d2c.md) e os [endpoints do Hub IoT ](iot-hub-devguide-endpoints.md).
 * Saiba mais sobre a [Grade de Eventos do Azure](../event-grid/overview.md).

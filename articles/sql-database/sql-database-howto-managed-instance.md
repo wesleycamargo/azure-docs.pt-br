@@ -13,11 +13,11 @@ ms.reviewer: sstein, carlr
 manager: craigg
 ms.date: 04/16/2019
 ms.openlocfilehash: 886f06e8640891ac09d1e4624335a7bfebcd3def
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009371"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60340784"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Como usar uma Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -45,6 +45,6 @@ Neste artigo, é possível encontrar vários guias, scripts e explicações que 
 - A [replicação transacional](replication-with-sql-database-managed-instance.md) permite que você replique seus dados entre Instâncias Gerenciadas ou do SQL Server local para a Instância Gerenciada e vice-versa. Encontre mais informações sobre como usar e configurar a replicação de transação neste guia.
 - [Configurar a detecção de ameaças](sql-database-managed-instance-threat-detection.md) – a [detecção de ameaças](sql-database-threat-detection-overview.md) é um recurso interno do Banco de Dados SQL do Azure que detecta vários ataques potenciais, como Injeção de SQL ou o acesso de locais suspeitos. Neste guia, você pode aprender como habilitar e configurar a [detecção de ameaças](sql-database-threat-detection-overview.md) para a Instância Gerenciada.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [Guias de instruções para bancos de dados individuais](sql-database-howto-single-database.md)

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 08/18/2018
 tags: connectors
 ms.openlocfilehash: b81efba0ce860bea5fd68dd99ce52980e6816b7e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310567"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313558"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Gerenciar registros do Dynamics 365 com os Aplicativos Lógicos do Azure
 
@@ -50,7 +50,7 @@ Primeiro, adicione um gatilho do Dynamics 365 que é acionado quando um novo reg
 
 1. Forneça os seguintes detalhes do gatilho:
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | Obrigatório | DESCRIÇÃO |
    |----------|----------|-------------|
    | **Nome da organização** | Sim | O nome da instância do Dynamics 365 da sua organização a ser monitorada, por exemplo, “Contoso” |
    | **Nome da entidade** | Sim | O nome da entidade a ser monitorada, por exemplo, “Clientes potenciais” | 
@@ -72,7 +72,7 @@ Agora, adicione a ação do Dynamics 365 que cria um registro de tarefa para o n
 
 1. Forneça esses detalhes da ação:
 
-   | Propriedade | Necessário | Descrição |
+   | Propriedade | Obrigatório | DESCRIÇÃO |
    |----------|----------|-------------|
    | **Nome da organização** | Sim | A instância do Dynamics 365 na qual você deseja criar o registro, que não precisa ser a mesma instância em seu gatilho, mas é “Contoso” neste exemplo |
    | **Nome da entidade** | Sim | A entidade na qual você deseja criar o registro, por exemplo, “Tarefas” |
@@ -82,7 +82,7 @@ Agora, adicione a ação do Dynamics 365 que cria um registro de tarefa para o n
 
 1. Quando a caixa **Assunto** é exibida na ação, clique dentro dessa caixa **Assunto** para que a lista de conteúdo dinâmica seja exibida. Nesta lista, selecione os valores de campo a serem incluídos no registro da tarefa associado ao novo registro de cliente potencial:
 
-   | Campo | Descrição |
+   | Campo | DESCRIÇÃO |
    |-------|-------------|
    | **Sobrenome** | O sobrenome do cliente potencial, como o contato principal no registro |
    | **Tópico** | O nome descritivo para o cliente potencial no registro |
@@ -94,7 +94,7 @@ Agora, adicione a ação do Dynamics 365 que cria um registro de tarefa para o n
 
 1. Para iniciar manualmente o aplicativo lógico, escolha **Executar** na barra de ferramentas do designer.
 
-   ![Executar aplicativo lógico](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
+   ![Executar o aplicativo lógico](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
 
 1. Agora, crie um registro de cliente potencial no Dynamics 365 para que você possa acionar o fluxo de trabalho do aplicativo lógico.
 
@@ -120,17 +120,17 @@ Quando você especifica um valor para um campo em um gatilho ou ação, o tipo d
 
 Esta tabela descreve alguns dos tipos de campo e os tipos de dados exigidos para seus valores.
 
-| Tipo de campo | Tipo de dados exigido | Descrição | 
+| Tipo de campo | Tipo de dados exigido | DESCRIÇÃO | 
 |------------|--------------------|-------------|
 | Campos de texto | Linha única de texto | Esses campos exigem uma única linha de texto ou conteúdo dinâmico que tenha o tipo do texto. <p><p>*Campos de exemplo*: **Descrição** e **categoria** | 
 | Campos de número inteiro | Número inteiro | Alguns campos exigem conteúdo inteiro ou dinâmico que tenha um tipo inteiro. <p><p>*Campos de exemplo*: **Porcentagem concluída** e **duração** | 
-| Campos de data | Data e Hora | Alguns campos exigem a data inserida no formato mm/dd/aaaa ou conteúdo dinâmico que tenha o tipo de data. <p><p>*Campos de exemplo*: **Criado em**, **data de início**, **início real**, **término real**, e **data de vencimento** | 
+| Campos de data | Data e hora | Alguns campos exigem a data inserida no formato mm/dd/aaaa ou conteúdo dinâmico que tenha o tipo de data. <p><p>*Campos de exemplo*: **Criado em**, **data de início**, **início real**, **término real**, e **data de vencimento** | 
 | Campos que exigem uma ID de registro e um tipo de pesquisa | Chave primária | Alguns campos que fazem referência a outro registro de entidade exigem a ID do registro e um tipo de pesquisa. | 
 ||||
 
 Expandindo esses tipos de campo, vemos aqui os campos de exemplo em gatilhos e ações do Dynamics 365 que exigem uma ID de registro e o tipo de pesquisa. Esse requisito significa que valores selecionados na lista dinâmica não funcionarão.
 
-| Campo | Descrição |
+| Campo | DESCRIÇÃO |
 |-------|-------------|
 | **Proprietário** | É preciso ser uma ID de usuário ou ID de registro de equipe válida. |
 | **Tipo de proprietário** | Precisa ser **systemusers** ou **teams**. |

@@ -9,11 +9,11 @@ ms.date: 03/19/2018
 ms.author: mcollier
 ms.subservice: ''
 ms.openlocfilehash: ddbc00155c3c5c136f7d33861e9ad5177df77470
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528060"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60452971"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Passo a passo da API REST de Monitoramento do Azure
 
@@ -720,7 +720,7 @@ Invoke-RestMethod -Uri $request `
     -Verbose
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Verifique a [Visão geral do monitoramento](../../azure-monitor/overview.md).
 * Visualize as [Métricas compatíveis com o Azure Monitor](metrics-supported.md).

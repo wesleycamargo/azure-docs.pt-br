@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
 ms.openlocfilehash: 0832010707fc9b5d5f435aac29940db6905d18d7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58009295"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60329999"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Adicionar, desabilitar, habilitar ou excluir pontos de extremidade
 
@@ -74,7 +74,7 @@ Você também pode desabilitar pontos de extremidade individuais que fazem parte
 5. Na folha **Ponto de extremidade**, altere o status de ponto de extremidade para **Habilitado**e, em seguida, clique em **Salvar**.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Gerenciar perfis do Gerenciador de Tráfego](traffic-manager-manage-profiles.md)
 * [Configurar métodos de roteamento](traffic-manager-configure-routing-method.md)

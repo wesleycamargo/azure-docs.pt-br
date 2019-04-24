@@ -19,11 +19,11 @@ ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 53f8ec8a6833446663d7f142deefd595eed13136
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116258"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60250861"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Chamadas de serviço a serviço que usam a identidade do usuário delegado no fluxo On-Behalf-Of
 
@@ -294,7 +294,7 @@ A resposta contém um token SAML codificado em Base64url e UTF8.
 
 Clientes públicos com URLs de resposta curinga não podem usar um `id_token` para fluxos OBO. No entanto, um cliente confidencial ainda poderá resgatar tokens de **acesso** obtidos por meio do fluxo de concessão implícita mesmo se o cliente público tiver um URI de redirecionamento curinga registrado.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre o protocolo OAuth 2.0 e outra maneira de executar autenticação de serviço a serviço usando as credenciais do cliente:
 

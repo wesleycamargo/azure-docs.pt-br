@@ -15,18 +15,18 @@ ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 2dcbcbec9054b31312043ef6642f59fa64728b30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005792"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60194289"
 ---
 # <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Exibir atribuições de negação para recursos do Azure usando o portal do Azure
 
 As [atribuições de negação](deny-assignments.md) impedem que os usuários executem ações específicas, mesmo que uma atribuição de função conceda o acesso a elas. Este artigo descreve como usar o portal do Azure para exibir atribuições de negação.
 
 > [!NOTE]
-> Neste momento, a única maneira de adicionar seu próprio negar atribuições é por meio de especificações técnicas do Azure. Para obter mais informações, consulte [proteger os novos recursos com bloqueios de recursos do Azure BluePrint](../governance/blueprints/tutorials/protect-new-resources.md).
+> Neste momento, a única maneira de adicionar suas próprias atribuições de negação é usando o Azure Blueprints. Para obter mais informações, consulte [Proteger novos recursos com bloqueios de recurso do Azure Blueprints](../governance/blueprints/tutorials/protect-new-resources.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -107,7 +107,7 @@ Siga estas etapas para visualizar detalhes adicionais sobre uma atribuição de 
 
     Na folha **Propriedades**, você pode ver o nome, a ID, a descrição e o escopo da atribuição de negação. A opção **Não se aplica a filhos** indica se a atribuição de negação é herdada para os subescópios. A chave **System protected** indica se essa atribuição de negação é gerenciada pelo Azure. Atualmente, isso é **Sim** em todos os casos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Compreender atribuições de negação dos recursos do Azure](deny-assignments.md)
 * [Listar atribuições de negação para recursos do Azure usando a API REST](deny-assignments-rest.md)

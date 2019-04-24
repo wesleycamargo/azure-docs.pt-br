@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: 5a97a40ba48db9f73471d5fd778ceb5cb9070964
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011311"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542638"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Use o Console Serial para chamadas SysRq e NMI
 
@@ -127,7 +127,7 @@ Para obter mais informações sobre configurações de kernel do Linux, incluind
 ### <a name="coreos"></a>CoreOS 
 - [Coletar logs de falha](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * A página principal da documentação do Linux do Console Serial está localizada [aqui](serial-console.md).
 * Usar o Console Serial para inicializar em [GRUB e entrar no modo de usuário único](serial-console-grub-single-user-mode.md)
 * O Console Serial também está disponível para VMs do [Windows](../windows/serial-console.md)

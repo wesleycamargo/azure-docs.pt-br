@@ -11,11 +11,11 @@ ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 11361bc6ab75e873e1b4081dcfc6492abc093b54
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680257"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316928"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Visão geral dos tokens no Azure Active Directory B2C
 
@@ -57,11 +57,11 @@ A tabela a seguir lista as declarações que você pode esperar nos tokens de ID
 | Emitido em | `iat` | `1438535543` | A hora em que o token foi emitido, representada na época. |
 | Hora de expiração | `exp` | `1438539443` | A hora em que o token se torna inválido, representada na época. Seu aplicativo deve usar essa declaração para verificar a validade da vida útil do token. |
 | Não antes de | `nbf` | `1438535543` | O horário em que o token se torna inválido, representado no horário da época. Esse tempo é geralmente o mesmo que o tempo que o token foi emitido. Seu aplicativo deve usar essa declaração para verificar a validade da vida útil do token. |
-| Versão | `ver` | `1.0` | A versão do token de ID, conforme definido pelo Azure AD B2C. |
+| Version | `ver` | `1.0` | A versão do token de ID, conforme definido pelo Azure AD B2C. |
 | Hash de código | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Um hash de código incluído em um token de ID apenas quando o token é emitido junto com um código de autorização do OAuth 2.0. Um hash de código pode ser usado para validar a autenticidade de um código de autorização. Para obter mais informações sobre como realizar essa validação, consulte o [especificação do OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html).  |
 | Hash de token de acesso | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Um hash de token de acesso incluído em um token de ID apenas quando o token é emitido junto com um token de acesso OAuth 2.0. Um hash de token de acesso pode ser usado para validar a autenticidade de um token de acesso. Para obter mais informações sobre como realizar essa validação, consulte o [especificação do OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | Nonce | `nonce` | `12345` | Um nonce é uma estratégia usada para reduzir ataques de reprodução de token. Seu aplicativo pode especificar um nonce em uma solicitação de autorização usando o `nonce` parâmetro de consulta. O valor que você fornece na solicitação é emitido sem modificações no `nonce` de declaração de um token de ID. Esta declaração permite que seu aplicativo verificar se o valor com relação ao valor especificado na solicitação. O aplicativo deve executar essa validação durante o processo de validação de token de ID. |
-| Assunto | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | A entidade de segurança sobre o qual o token declara informações, como o usuário de um aplicativo. Esse valor é imutável e não pode ser reatribuído nem reutilizado. Ele pode ser usado para executar verificações de autorização com segurança, por exemplo, quando o token é usado para acessar um recurso. Por padrão, a declaração de entidade é preenchida com a ID de objeto do usuário no diretório. |
+| Subject | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | A entidade de segurança sobre o qual o token declara informações, como o usuário de um aplicativo. Esse valor é imutável e não pode ser reatribuído nem reutilizado. Ele pode ser usado para executar verificações de autorização com segurança, por exemplo, quando o token é usado para acessar um recurso. Por padrão, a declaração de entidade é preenchida com a ID de objeto do usuário no diretório. |
 | Referência de classe de contexto de autenticação | `acr` | Não aplicável | Usado apenas com políticas mais antigas. |
 | Política de estrutura confiável | `tfp` | `b2c_1_signupsignin1` | O nome da política que foi usada para adquirir o token de ID. |
 | Hora da autenticação | `auth_time` | `1438535543` | A hora em que um usuário entrou pela última vez credenciais, representada na época. |
@@ -149,7 +149,7 @@ Quando seus aplicativos ou a API recebe um token de ID, ele também deve executa
 
 Para obter uma lista completa das validações de seu aplicativo deve executar, consulte o [especificação do OpenID Connect](https://openid.net).  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como [usar tokens de acesso](active-directory-b2c-access-tokens.md).
 

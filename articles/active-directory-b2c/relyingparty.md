@@ -11,11 +11,11 @@ ms.date: 01/25/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 5d42568a738d946d7df65601044b9797a35f6b1f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176005"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360394"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -102,9 +102,9 @@ Política *B2C_1A_signup_signin*:
 
 O elemento **DefaultUserJourney** contém o seguinte atributo:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| ReferenceId | SIM | Um identificador de percurso do usuário na política. Para obter mais informações, confira [percursos do usuário](userjourneys.md) |
+| ReferenceId | Sim | Um identificador de percurso do usuário na política. Para obter mais informações, confira [percursos do usuário](userjourneys.md) |
 
 ## <a name="userjourneybehaviors"></a>UserJourneyBehaviors
 
@@ -122,23 +122,23 @@ O elemento **UserJourneyBehaviors** contém os seguintes elementos:
 
 O elemento **SingleSignOn** contém o seguinte atributo:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| Escopo | SIM | O escopo do comportamento de logon único. Valores possíveis: `Suppressed`, `Tenant`, `Application` ou `Policy`. O valor `Suppressed` indica que o comportamento será suprimido. Por exemplo, no caso de uma única sessão de logon único, nenhuma sessão será mantida para o usuário e o usuário sempre será solicitado a fazer uma seleção de provedor de identidade. O valor `TrustFramework` indica que o comportamento é aplicado a todas as políticas na estrutura de confiança. Por exemplo, um usuário navegando por dois percursos de política para uma estrutura de confiança não é solicitado a fazer uma seleção de provedor de identidade. O valor `Tenant` indica que o comportamento é aplicado a todas as políticas no locatário. Por exemplo, um usuário navegando por dois percursos de política para um locatário não é solicitado a fazer uma seleção de provedor de identidade. O valor `Application` indica que o comportamento é aplicado a todas as políticas para o aplicativo que está fazendo a solicitação. Por exemplo, um usuário navegando por dois percursos de política para um aplicativo não é solicitado a fazer uma seleção de provedor de identidade. O valor `Policy` indica que o comportamento se aplica somente a uma política. Por exemplo, um usuário que navega pelas dois percursos de política para uma estrutura de confiança é solicitado a informar uma seleção de provedor de identidade ao alternar entre políticas. |
-| KeepAliveInDays | SIM | Controla por quanto tempo o usuário permanece conectado. A definição do valor como 0 desliga a funcionalidade KMSI. Para obter mais informações, confira [Manter-me conectado](active-directory-b2c-reference-kmsi-custom.md). |
+| Escopo | Sim | O escopo do comportamento de logon único. Valores possíveis: `Suppressed`, `Tenant`, `Application` ou `Policy`. O valor `Suppressed` indica que o comportamento será suprimido. Por exemplo, no caso de uma única sessão de logon único, nenhuma sessão será mantida para o usuário e o usuário sempre será solicitado a fazer uma seleção de provedor de identidade. O valor `TrustFramework` indica que o comportamento é aplicado a todas as políticas na estrutura de confiança. Por exemplo, um usuário navegando por dois percursos de política para uma estrutura de confiança não é solicitado a fazer uma seleção de provedor de identidade. O valor `Tenant` indica que o comportamento é aplicado a todas as políticas no locatário. Por exemplo, um usuário navegando por dois percursos de política para um locatário não é solicitado a fazer uma seleção de provedor de identidade. O valor `Application` indica que o comportamento é aplicado a todas as políticas para o aplicativo que está fazendo a solicitação. Por exemplo, um usuário navegando por dois percursos de política para um aplicativo não é solicitado a fazer uma seleção de provedor de identidade. O valor `Policy` indica que o comportamento se aplica somente a uma política. Por exemplo, um usuário que navega pelas dois percursos de política para uma estrutura de confiança é solicitado a informar uma seleção de provedor de identidade ao alternar entre políticas. |
+| KeepAliveInDays | Sim | Controla por quanto tempo o usuário permanece conectado. A definição do valor como 0 desliga a funcionalidade KMSI. Para obter mais informações, confira [Manter-me conectado](active-directory-b2c-reference-kmsi-custom.md). |
 
 ## <a name="journeyinsights"></a>JourneyInsights
 
 O elemento **JourneyInsights** contém os seguintes atributos:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| TelemetryEngine | SIM | O valor deve ser `ApplicationInsights`. | 
-| InstrumentationKey | SIM | A cadeia de caracteres que contém a chave de instrumentação para o elemento de insights de aplicativo. |
-| DeveloperMode | SIM | Valores possíveis: `true` ou `false`. Se `true`, o Application Insights acelerará a telemetria pelo pipeline de processamento. Essa configuração é boa para desenvolvimento, mas restrita em grandes volumes. Os logs de atividade detalhados destinam-se somente a ajudar no desenvolvimento de políticas personalizadas. Não use o modo de desenvolvimento em produção. Os logs coletam todas as declarações enviadas entre os provedores de identidade durante o desenvolvimento. Se for usado em produção, o desenvolvedor assumirá a responsabilidade pela PII (Informações de identificação particular) coletadas no log do App Insights que ele possui. Esses logs detalhados são coletados apenas quando esse valor é definido como `true`.|
-| ClientEnabled | SIM | Valores possíveis: `true` ou `false`. Se `true`, enviará o script do lado do cliente do Application Insights para acompanhar erros de exibição de página e do lado do cliente. | 
-| ServerEnabled | SIM | Valores possíveis: `true` ou `false`. Se `true`, enviará o JSON UserJourneyRecorder existente como um evento personalizado para o Application Insights. | 
-| TelemetryVersion | SIM | O valor deve ser `1.0.0`. | 
+| TelemetryEngine | Sim | O valor deve ser `ApplicationInsights`. | 
+| InstrumentationKey | Sim | A cadeia de caracteres que contém a chave de instrumentação para o elemento de insights de aplicativo. |
+| DeveloperMode | Sim | Valores possíveis: `true` ou `false`. Se `true`, o Application Insights acelerará a telemetria pelo pipeline de processamento. Essa configuração é boa para desenvolvimento, mas restrita em grandes volumes. Os logs de atividade detalhados destinam-se somente a ajudar no desenvolvimento de políticas personalizadas. Não use o modo de desenvolvimento em produção. Os logs coletam todas as declarações enviadas entre os provedores de identidade durante o desenvolvimento. Se for usado em produção, o desenvolvedor assumirá a responsabilidade pela PII (Informações de identificação particular) coletadas no log do App Insights que ele possui. Esses logs detalhados são coletados apenas quando esse valor é definido como `true`.|
+| ClientEnabled | Sim | Valores possíveis: `true` ou `false`. Se `true`, enviará o script do lado do cliente do Application Insights para acompanhar erros de exibição de página e do lado do cliente. | 
+| ServerEnabled | Sim | Valores possíveis: `true` ou `false`. Se `true`, enviará o JSON UserJourneyRecorder existente como um evento personalizado para o Application Insights. | 
+| TelemetryVersion | Sim | O valor deve ser `1.0.0`. | 
 
 Para obter mais informações, confira [Coleta de Logs](active-directory-b2c-troubleshoot-custom.md)
 
@@ -158,9 +158,9 @@ O elemento **ContentDefinitionParameters** contém o seguinte elemento:
 
 O elemento **ContentDefinitionParameter** contém o seguinte atributo:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| Name | SIM | O nome do par chave-valor. |
+| Name | Sim | O nome do par chave-valor. |
 
 Para obter mais informações, confira [Configurar a interface do usuário com conteúdo dinâmico usando políticas personalizadas](active-directory-b2c-ui-customization-custom-dynamic.md)
 
@@ -168,9 +168,9 @@ Para obter mais informações, confira [Configurar a interface do usuário com c
 
 O elemento **TechnicalProfile** contém o seguinte atributo:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- | 
-| ID | SIM | O valor deve ser `PolicyProfile`. |
+| ID | Sim | O valor deve ser `PolicyProfile`. |
 
 O **TechnicalProfile** contém os seguintes elementos:
 
@@ -185,9 +185,9 @@ O **TechnicalProfile** contém os seguintes elementos:
 
 O elemento **Protocol** contém os seguinte atributo:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| Name | SIM | O nome de um protocolo válido com suporte no Azure AD B2C que é usado como parte do perfil técnico. Valores possíveis: `OpenIdConnect` ou `SAML2`. O valor `OpenIdConnect` representa o padrão de protocolo do OpenID Connect 1.0 de acordo com a especificação OpenID Foundation. O representa `SAML2` o padrão de protocolo SAML 2.0 de acordo com a especificação OASIS. Não use um token SAML em produção. |
+| Name | Sim | O nome de um protocolo válido com suporte no Azure AD B2C que é usado como parte do perfil técnico. Valores possíveis: `OpenIdConnect` ou `SAML2`. O valor `OpenIdConnect` representa o padrão de protocolo do OpenID Connect 1.0 de acordo com a especificação OpenID Foundation. O representa `SAML2` o padrão de protocolo SAML 2.0 de acordo com a especificação OASIS. Não use um token SAML em produção. |
 
 ## <a name="outputclaims"></a>OutputClaims
 
@@ -199,9 +199,9 @@ O elemento **OutputClaims** contém o seguinte elemento:
 
 O elemento **OutputClaim** contém os seguintes atributos:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | SIM | Uma referência a um **ClaimType** já definido na seção **ClaimsSchema** no arquivo de política. |
+| ClaimTypeReferenceId | Sim | Uma referência a um **ClaimType** já definido na seção **ClaimsSchema** no arquivo de política. |
 | DefaultValue | Não  | Um valor padrão que poderá ser usado se o valor da declaração estiver vazio. |
 | PartnerClaimType | Não  | Envia a declaração em um nome diferente, conforme configurado na definição ClaimType. |
 
@@ -213,9 +213,9 @@ Com o elemento **SubjectNameingInfo**, você controla o valor da entidade do tok
 
 O elemento **SubjectNamingInfo** contém o seguinte atributo:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| ClaimType | SIM | Uma referência a **PartnerClaimType** da declaração de saída. As declarações de saída devem ser definidas na política de terceira parte confiável da coleção **OutputClaims**. |
+| ClaimType | Sim | Uma referência a **PartnerClaimType** da declaração de saída. As declarações de saída devem ser definidas na política de terceira parte confiável da coleção **OutputClaims**. |
 
 O exemplo a seguir mostra como definir uma terceira parte confiável OpenId Connect. As informações de nome da entidade são configuradas como a `objectId`:
 

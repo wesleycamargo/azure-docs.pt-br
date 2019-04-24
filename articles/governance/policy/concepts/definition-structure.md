@@ -9,11 +9,11 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 7bb25aa1f77a49363fe2e08d1430282b9b33caae
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549347"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311634"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -25,7 +25,7 @@ O esquema usado pela política do Azure pode ser encontrado aqui: [https://schem
 Você usa JSON para criar uma definição de política. A definição de política contém elementos para:
 
 - modo
-- parâmetros
+- parameters
 - nome de exibição
 - descrição
 - regra de política
@@ -287,7 +287,7 @@ No exemplo a seguir, `concat` é usado para criar uma pesquisa de campo de marca
 }
 ```
 
-### <a name="value"></a>Valor
+### <a name="value"></a>Value
 
 As condições também podem ser formadas usando o **valor**. O **valor** verifica as condições em relação aos [parâmetros](#parameters), [funções de modelo com suporte](#policy-functions) ou literais.
 O **valor** é emparelhado a uma [condição](#conditions) com suporte.
@@ -591,7 +591,7 @@ O exemplo a seguir ilustra como criar uma iniciativa para lidar com duas marcas:
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Revise os exemplos em [amostras da Política do Azure](../samples/index.md)
 - Revisão [Noções básicas sobre os efeitos de política](effects.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
-ms.openlocfilehash: db03b3cd668bf8e35913872ac4225de6d4d3edd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 8303195f0f3228ee145cbba9e322ea4e5e4c1264
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110564"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60302527"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Suporte para hardware de interfaces de rede de 10 GbE em seu dispositivo StorSimple
 ## <a name="overview"></a>Visão geral
@@ -34,7 +34,7 @@ A Microsoft testou os seguintes transceptores de fator forma pequeno conectávei
 | Cisco |SFP-10G-SR |
 
 ### <a name="cables"></a>Cabos
-| S. Nº | Faça | Modelo |
+| S. Não. | Faça | Modelo |
 | --- | --- | --- |
 | 1. |Cisco |SFP-H10GB-CU1M |
 | 2. |Cisco |SFP-H10GB-CU2M |
@@ -42,7 +42,7 @@ A Microsoft testou os seguintes transceptores de fator forma pequeno conectávei
 | 4. |Tripp-Lite |N820-05M (OM3) |
 
 ### <a name="switches"></a>Opções
-| S. Nº | Faça | Modelo |
+| S. Não. | Faça | Modelo |
 | --- | --- | --- |
 | 1. |Cisco |N3K-C3172PQ-10GE |
 | 2. |Cisco |N3K-C3048-ZM-F |
@@ -51,14 +51,14 @@ A Microsoft testou os seguintes transceptores de fator forma pequeno conectávei
 ## <a name="list-of-devices-tested-in-the-field"></a>Lista de dispositivos testados em campo
 Esta seção contém a lista dos dispositivos que têm sido implantados com êxito em campo por clientes do StorSimple. Não foram testados pela Microsoft, mas devem funcionar com o dispositivo StorSimple.
 
-| Parâmetro | Valor |
+| Parâmetro | Value |
 | --- | --- |
 | Comutador   marca |Juniper |
 | Comutador   modelo |ex4550-32F |
 | Comutador   versão do sistema operacional |JunOS 12.3R9.4 |
 | Folha   modelo |Portas integradas (PIC 0) |
 | Forma do transceptor |Juniper |
-| Transceptor   modelo |Peça número 740-021308  <br></br> Peça número 740-030658 |
+| Transceptor   modelo |Peça número 740-021308  <br></br>  Peça número 740-030658 |
 | Transceptor   versão do firmware |Rev 01 Versão 0.0 (reportada) |
 | Cabo   modelo |Duplex jumper LC/LC 50/125µ,   OM3, LSZH |
 | StorSimple   modelo |8600 |
@@ -70,7 +70,7 @@ A Mellanox testou os seguintes transceptores de fator forma pequeno conectável 
 ### <a name="cables-and-modules-supported-by-mellanox"></a>Cabos e módulos compatíveis com Mellanox
 A tabela a seguir lista os cabos e módulos compatíveis com Mellanox. Não foram testados pela Microsoft, mas devem funcionar com o dispositivo StorSimple.
 
-| S. Nº | Velocidade | Modelo | Descrição | Faça |
+| S. Não. | Velocidade | Modelo | DESCRIÇÃO | Faça |
 | --- | --- | --- | --- | --- |
 | 1. |10 GbE |CAB-SFP-SFP-1M |cabo de cobre passivo SFP+ 10 Gb/s 1m |Arista |
 | 2. |10 GbE |CAB-SFP-SFP-2M |cabo de cobre passivo SFP+ 10 Gb/s 2m |Arista |
@@ -111,7 +111,7 @@ A tabela a seguir lista os cabos e módulos compatíveis com Mellanox. Não fora
 ### <a name="switches-supported-by-mellanox"></a>Opções compatíveis com o Mellanox
 A tabela a seguir lista as opções compatíveis com Mellanox. Não foram testados pela Microsoft, mas devem funcionar com o dispositivo StorSimple.
 
-| S. Nº | Velocidade | Modelo | Descrição | Faça |
+| S. Não. | Velocidade | Modelo | DESCRIÇÃO | Faça |
 | --- | --- | --- | --- | --- |
 | 1. |10 GbE |516733-B21 |Blade Switch de Ethernet de 10 GbE HP ProCurve 6120XG |HP |
 | 2. |10 GbE |538113-B21 |Módulo de passagem de 10 GbE HP (PTM) |HP |

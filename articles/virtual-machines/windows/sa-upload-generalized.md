@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: cd81eb3d62332bba67f0056a6f7b49279bc50c4f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5b38d022d372e7d35ba2dbeaef90660ce95f73fa
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788805"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60250749"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Upload de um VHD generalizado para o Azure para criar uma nova VM
 
@@ -31,7 +31,7 @@ Se desejar criar uma VM com base em um VHD especializado em uma conta de armazen
 
 Este tópico aborda o uso de contas de armazenamento, mas é recomendável que os clientes mudem para utilizar o Managed Disks. Para um completo passo a passo de como preparar, carregar e criar uma nova VM usando discos gerenciados, consulte [Criar uma nova VM a partir de um VHD generalizado carregado para o Azure utilizando o Managed Disks](upload-generalized-managed.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="prepare-the-vm"></a>Preparar a VM
 
@@ -290,7 +290,7 @@ Ao concluir, você deverá ver a VM recém-criada no [portal do Azure](https://p
     $vmList.Name
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para gerenciar sua nova máquina virtual com o Azure PowerShell, consulte [Gerenciar máquinas virtuais usando o PowerShell e o Azure Resource Manager](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

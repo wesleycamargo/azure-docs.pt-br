@@ -2,17 +2,18 @@
 title: Melhores práticas do desenvolvedor - Segurança do Pod no Azure Kubernetes Services (AKS)
 description: Conheça as práticas recomendadas do desenvolvedor para saber como proteger os pods no serviço de Kubernetes do Azure (AKS)
 services: container-service
-author: zr-msft
+author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: zarhoads
+origin.date: 12/06/2018
+ms.date: 04/08/2019
+ms.author: v-yeche
 ms.openlocfilehash: 1c2c5cbee91ddaee5f1f6af8ec17c48326f68e84
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755049"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60466846"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Práticas recomendadas de segurança do pod no Serviço de Kubernetes do Azure (AKS)
 
@@ -53,7 +54,7 @@ metadata:
 spec:
   containers:
     - name: security-context-demo
-      image: nginx:1.15.5
+      image: dockerhub.azk8s.cn/nginx:1.15.5
     securityContext:
       runAsUser: 1000
       fsGroup: 2000
@@ -97,7 +98,7 @@ Quando os aplicativos precisam de uma credencial, se comunicam com o cofre digit
 
 Com o Azure Key Vault, você pode armazenar e regularmente girar segredos, como certificados, chaves de conta de armazenamento ou as credenciais. Você pode integrar o Azure Key Vault com um cluster AKS usando um FlexVolume. O driver FlexVolume permite que o cluster do AKS nativamente recupere credenciais do Cofre de Chaves e fornecê-las com segurança apenas para o pod solicitante. Trabalhe com seu operador de cluster para implantar o driver FlexVol de Cofre de Chaves para os nós do AKS. Você pode usar uma identidade gerenciada de pod para solicitar acesso ao Key Vault e recuperar as credenciais necessárias por meio do driver FlexVolume.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo se concentrou em como proteger seus pods. Para implementar algumas dessas áreas, confira os seguintes artigos:
 

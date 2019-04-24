@@ -17,11 +17,11 @@ ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 24914cc3ff673d04e8c181082e13c087aeabe709
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765741"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60482038"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Visão geral das máquinas virtuais do Windows no Azure
 
@@ -101,7 +101,7 @@ Estas tarefas comuns podem ser realizadas usando extensões:
 ### <a name="related-resources"></a>Recursos relacionados
 Os recursos nesta tabela são usados por VM e precisam existir ou ser criados quando a VM é criada.
 
-| Recurso | Obrigatório | DESCRIÇÃO |
+| Recurso | Necessário | DESCRIÇÃO |
 | --- | --- | --- |
 | [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) |Sim |A VM deve estar contida em um grupo de recursos. |
 | [Conta de armazenamento](../../storage/common/storage-create-storage-account.md) |Sim |A VM precisa da conta de armazenamento para armazenar seus discos rígidos virtuais. |
@@ -151,6 +151,6 @@ Para sua implantação se qualificar para nosso Contrato de Nível de Serviço d
 ### <a name="back-up-the-vm"></a>Fazer backup da VM
 Um [dos serviços de recuperação de cofre](../../backup/backup-introduction-to-azure-backup.md) é usado para proteger dados e ativos nos serviços de Backup do Azure e do Azure Site Recovery. Você pode usar um cofre de serviços de recuperação para [implantar e gerenciar backups para VMs implantadas pelo Gerenciador de Recursos usando o PowerShell](../../backup/backup-azure-vms-automation.md). 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * Se seu objetivo é trabalhar com VMs do Linux, confira [Azure e Linux](../linux/overview.md).
 * Saiba mais sobre as diretrizes para configurar sua infraestrutura no [Passo a passo de infraestrutura do Azure de exemplo](infrastructure-example.md).

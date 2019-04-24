@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: 6067a88cd42d29c3d2f4b74580095424de77561e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: HT
+ms.openlocfilehash: e84bc790ac577796e91be010deecc8c5cea1b010
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23109844"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303059"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Usar o StorSimple Snapshot Manager para criar e gerenciar grupos de volumes
 ## <a name="overview"></a>Visão geral
@@ -33,7 +33,7 @@ Grupos de volumes são conjuntos de volumes relacionados usados para garantir qu
 
 ![Nó Grupos de volumes](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Volume_groups.png)
 
-**Figura 1: Nó Grupos de Volumes do StorSimple Snapshot Manager** 
+**Figura 1: Nó de grupos de volumes do StorSimple Snapshot Manager** 
 
 Este tutorial explica como você pode usar o StorSimple Snapshot Manager para:
 

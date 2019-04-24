@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: bb2df9c32d5adc8160da82148e4a66a4ab68d182
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311592"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60363628"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Reconhecer o tempo de execução do Azure IoT Edge e sua arquitetura
 
@@ -94,9 +94,9 @@ Cada item no manifesto de implantação contém informações específicas sobre
 * **settings.createOptions**: uma cadeia de caracteres que é passada diretamente para o daemon do Docker ao iniciar o contêiner do módulo. A adição de opções de Docker a esta propriedade permite opções avançadas, como encaminhamento de porta ou montagem de volumes no contêiner do módulo.  
 * **status** – o estado no qual o agente do IoT Edge coloca o módulo. Geralmente, esse valor é definido como *executando*, já que a maioria das pessoas deseja que o agente do IoT Edge inicie imediatamente todos os módulos no dispositivo. No entanto, você pode especificar o estado inicial de um módulo para ser interrompido e aguardar para mandar o agente do IoT Edge iniciar um módulo. O agente do IoT Edge relata o status de cada módulo para a nuvem nas propriedades relatadas. Uma diferença entre a propriedade desejada e a propriedade relatada é um indicador de um dispositivo com comportamento inadequado. Os status com suporte são:
    * Baixando
-   * Em execução
+   * Executando
    * Não Íntegro
-   * Falhou
+   * Com falha
    * Parado
 * **restartPolicy** – como o agente do IoT Edge reinicia um módulo. Os valores possíveis incluem:
    * Nunca – o agente do IoT Edge nunca reinicia o módulo.
@@ -118,6 +118,6 @@ O agente do IoT Edge desempenha um papel fundamental na segurança de um disposi
 
 Para obter mais informações sobre a estrutura de segurança do Azure IoT Edge, leia sobre o [Gerenciador de segurança do IoT Edge](iot-edge-security-manager.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Entender os certificados do Azure IoT Edge](iot-edge-certs.md)
