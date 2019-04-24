@@ -17,11 +17,11 @@ ms.author: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a354fdf8ea75d9446c2a5e5ee6a70489cf9dbfb5
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990503"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60412041"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como: configurar a declaração de função emitida no token SAML para aplicativos empresariais
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 105b8481486c088a05e3acb95081d3ee55b55f52
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897088"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371967"
 ---
 # <a name="create-an-additional-azure-subscription-for-microsoft-customer-agreement"></a>Criar uma assinatura do Azure adicional para o contrato de cliente da Microsoft
 
@@ -63,11 +63,11 @@ Adicione usuários como criadores de assinatura do Azure em uma seção de nota 
 
    ![Captura de tela que mostra a pesquisa no portal de assinaturas](./media/billing-mca-create-subscription/billing-search-cost-management-billing.png)
 
-3. Vá para a seção de nota fiscal. Dependendo do seu acesso, você precisa selecionar uma conta de cobrança ou o perfil de cobrança. Na conta ou perfil de cobrança, selecione **seções de nota fiscal** e, em seguida, uma seção de nota fiscal.
+3. Acesse a seção de fatura. Dependendo do seu acesso, você precisa selecionar uma conta de cobrança ou o perfil de cobrança. Na conta ou perfil de cobrança, selecione **seções de nota fiscal** e, em seguida, uma seção de nota fiscal.
 
 4. Selecione **gerenciamento de acesso (IAM)** do lado do canto superior esquerdo.
 
-5. Na parte superior da página, selecione **adicionar**.
+5. Na parte superior da página, selecione **Adicionar**.
 
 6. Selecione **criador da assinatura do Azure** para a função.
 

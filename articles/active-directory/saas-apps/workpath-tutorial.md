@@ -16,11 +16,11 @@ ms.date: 05/22/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2e8b334998983684d50c4faddceb03a0f30fd257
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878155"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60374445"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workpath"></a>Tutorial: Integração do Azure Active Directory com o Workpath
 
@@ -70,7 +70,7 @@ Para configurar a integração do Workpath ao Azure AD, você precisará adicion
     
 1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![APLICATIVOS][3]
+    ![Aplicativos][3]
 
 1. Na caixa de pesquisa, digite **Workpath**.
 

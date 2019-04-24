@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: mamccrea
 ms.openlocfilehash: c57550a8b683ad8f184884374c4f09216417fc40
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995626"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60236296"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Conecte-se ao Azure Databricks do Excel, Python ou R
 
@@ -54,7 +54,7 @@ Um nome de fonte de dados (DSN) contém as informações sobre uma fonte de dado
 
     A tabela a seguir fornece informações sobre os valores a fornecer na caixa de diálogo.
     
-    |Campo  | Valor  |
+    |Campo  | Value  |
     |---------|---------|
     |**Nome da fonte de dados**     | Forneça um nome para a fonte de dados.        |
     |**Host(s)**     | Forneça o valor que você copiou do workspace do Databricks para *nome do host do servidor*.        |

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
 ms.openlocfilehash: 5adc86b161770f2502b6ef9cf5ec2189ec3d4f99
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619918"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60388668"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensão de Driver NVIDIA GPU para Windows
 
@@ -35,7 +35,7 @@ Uma extensão também está disponível para instalar drivers NVIDIA GPU em [VMs
 
 A Extensão suporta os seguintes OS:
 
-| Distribuição | Versão |
+| Distribuição | Version |
 |---|---|
 | Windows 10 (até a versão 1803)| Núcleo |
 | Windows Server 2016 | Núcleo |
@@ -73,7 +73,7 @@ O JSON a seguir mostra o esquema para a extensão.
 
 | NOME | Valor/Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | data |
+| apiVersion | 2015-06-15 | date |
 | publicador | Microsoft.HpcCompute | cadeia de caracteres |
 | Tipo | NvidiaGpuDriverWindows | cadeia de caracteres |
 | typeHandlerVersion | 1.2 | int |
@@ -139,7 +139,7 @@ az vm extension set `
 
 ## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
 
-### <a name="troubleshoot"></a>Solucionar problemas
+### <a name="troubleshoot"></a>Solução de problemas
 
 Os dados sobre o estado das implantações de extensão podem ser recuperados no Portal do Azure usando o Azure PowerShell e a CLI do Azure. Para ver o estado da implantação das extensões de uma determinada VM, execute o comando a seguir.
 

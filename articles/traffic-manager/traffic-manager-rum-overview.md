@@ -13,11 +13,11 @@ ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: fd37ef739522955ae8227db39a41aecf199d65c3
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052812"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60329574"
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>Visão geral das Medidas Reais de Usuário do Gerenciador de Tráfego
 
@@ -35,7 +35,7 @@ Ao longo do tempo, isso ocorre muitas vezes e em várias redes levando o Gerenci
 
 Ao usar as Medidas Reais de Usuário, você é cobrado com base no número de medidas enviadas para o Gerenciador de Tráfego. Para obter mais detalhes sobre os preços, visite o [página de preços do Gerenciador de Tráfego](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba como usar as [Medidas Reais de Usuário com páginas da Web](traffic-manager-create-rum-web-pages.md)
 - Saiba [como funciona o Gerenciador de Tráfego](traffic-manager-overview.md)
 - Saiba mais sobre o [Mobile Center](https://docs.microsoft.com/mobile-center/)

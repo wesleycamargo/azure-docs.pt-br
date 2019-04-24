@@ -14,11 +14,11 @@ ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2e07c53192ea2c8b792256af944c81c9c909dc55
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368111"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60469657"
 ---
 # <a name="consent-to-linkedin-account-connections-for-an-azure-active-directory-organization"></a>Consentimento para conexões de conta do LinkedIn para uma organização do Active Directory do Azure
 
@@ -66,7 +66,7 @@ Você pode habilitar conexões de conta do LinkedIn para apenas os usuários que
 
 Essa política de grupo afeta somente os aplicativos do Office 2016 para um computador local. Se os usuários desabilitarem o LinkedIn em seus aplicativos do Office 2016, eles ainda podem ver LinkedIn recursos do Office 365.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Consentimento do usuário e dados de compartilhamento para o LinkedIn](linkedin-user-consent.md)
 

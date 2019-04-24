@@ -9,11 +9,11 @@ ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
 ms.openlocfilehash: 6fb49baf8ab58ae6cfe7639cedcc4466810c8b96
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003305"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60347394"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Visão geral dos alertas no Microsoft Azure 
 
@@ -108,7 +108,7 @@ Isso não mostra ou controla [alertas clássicos](#classic-alerts) mais antigos.
 
 Selecione os valores a seguir na parte superior da página Alertas para abrir outra página.
 
-| Valor | DESCRIÇÃO |
+| Value | DESCRIÇÃO |
 |:---|:---|
 | Total de alertas | O número total de alertas que correspondem aos critérios selecionados. Selecione esse valor para abrir a exibição Todos os Alertas sem filtro. |
 | Grupos inteligentes | O número total de grupos inteligentes que foram criados a partir dos alertas que correspondem aos critérios selecionados. Selecione esse valor para abrir a lista de grupos inteligentes na exibição Todos os Alertas.
@@ -179,7 +179,7 @@ O recurso de alerta do log de atividades e de métricas do Azure Monitor anterio
 Para saber mais, confira [Alertas clássicos](./../../azure-monitor/platform/alerts-classic.overview.md)
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Saiba mais sobre os grupos inteligentes](https://aka.ms/smart-groups)
 - [Saiba mais sobre grupos de ação](../../azure-monitor/platform/action-groups.md)

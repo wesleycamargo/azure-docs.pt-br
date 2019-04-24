@@ -1,7 +1,6 @@
 ---
 title: Uma introdução à segurança do Apache Hadoop com Enterprise Security Package
 description: Saiba como o Enterprise Security Package dá suporte aos quatro pilares da segurança empresarial.
-services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
@@ -10,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
 ms.openlocfilehash: 8a568302b2fd8ed0140c2ad084495d41cc09ed8f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994581"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60536842"
 ---
 # <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Uma introdução à segurança do Apache Hadoop com Enterprise Security Package
 
@@ -58,7 +57,7 @@ A proteção de dados é importante para atender aos requisitos de segurança e 
 
 Ambos os armazenamentos de dados para clusters HDInsight, Armazenamento de Blobs do Azure e Azure Data Lake Storage Gen1/Gen2, dão suporte à [criptografia de dados](../../storage/common/storage-service-encryption.md) transparente do lado do servidor em repouso. Os clusters seguros do HDInsight funcionarão perfeitamente com esse recurso de criptografia de dados do lado do servidor em repouso.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Planejar clusters do HDInsight com ESP](apache-domain-joined-architecture.md)
 * [Configurar clusters do HDInsight com ESP](apache-domain-joined-configure.md)

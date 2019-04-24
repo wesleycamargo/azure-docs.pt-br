@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 497571a65510f806d7d7994c9dc37f9a00b65a5f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006731"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60197129"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Compreender atribuições de negação dos recursos do Azure
 
@@ -38,7 +38,7 @@ Este artigo descreve como as atribuições de negação são definidas.
  Uma atribuição de negação tem as seguintes propriedades:
 
 > [!div class="mx-tableFixed"]
-> | Propriedade | Obrigatório | Type | DESCRIÇÃO |
+> | Propriedade | Necessário | Type | DESCRIÇÃO |
 > | --- | --- | --- | --- |
 > | `DenyAssignmentName` | Sim | Cadeia de caracteres | O nome de exibição da atribuição de negação. Os nomes devem ser exclusivos para um determinado escopo. |
 > | `Description` | Não  | Cadeia de caracteres | A descrição da atribuição de negação. |
@@ -47,12 +47,12 @@ Este artigo descreve como as atribuições de negação são definidas.
 > | `Permissions.DataActions` | Pelo menos um Actions ou um DataActions | String[] | Uma matriz de cadeias de caracteres que especificam as operações de dados para as quais o acesso é bloqueado pela atribuição de negação. |
 > | `Permissions.NotDataActions` | Não  | String[] | Uma matriz de cadeias de caracteres que especificam as operações de dados a excluir da atribuição de negação. |
 > | `Scope` | Não  | Cadeia de caracteres | Uma cadeia de caracteres que especifica o escopo ao qual a atribuição de negação se aplica. |
-> | `DoNotApplyToChildScopes` | Não  | BOOLEAN | Especifica se a atribuição de negação se aplica a escopos filho. O valor padrão é falso. |
+> | `DoNotApplyToChildScopes` | Não  | Boolean | Especifica se a atribuição de negação se aplica a escopos filho. O valor padrão é falso. |
 > | `Principals[i].Id` | Sim | String[] | Uma matriz de IDs de objeto principal do Microsoft Azure Active Directory (usuário, grupo, entidade de serviço ou identidade gerenciada) à qual a atribuição de negação se aplica. Defina como um GUID vazio `00000000-0000-0000-0000-000000000000` para representar todos os principais. |
 > | `Principals[i].Type` | Não  | String[] | Uma matriz de tipos de objeto representados por Principals[i].Id. Defina como `SystemDefined` para representar todos os principais. |
 > | `ExcludePrincipals[i].Id` | Não  | String[] | Uma matriz de IDs de objeto principal do Microsoft Azure Active Directory (usuário, grupo, entidade de serviço ou identidade gerenciada) à qual a atribuição de negação não se aplica. |
 > | `ExcludePrincipals[i].Type` | Não  | String[] | Uma matriz de tipos de objeto representados por ExcludePrincipals[i].Id. |
-> | `IsSystemProtected` | Não  | BOOLEAN | Especifica se esta atribuição de negação foi ou não criada pelo Azure e não pode ser editada ou excluída. Atualmente, todas as atribuições de negação são protegidas pelo sistema. |
+> | `IsSystemProtected` | Não  | Boolean | Especifica se esta atribuição de negação foi ou não criada pelo Azure e não pode ser editada ou excluída. Atualmente, todas as atribuições de negação são protegidas pelo sistema. |
 
 ## <a name="system-defined-principal"></a>Entidade definida pelo sistema
 
@@ -61,7 +61,7 @@ Para suportar negar atribuições, o **Principal definido pelo sistema** foi int
 - Pode ser usada apenas em `Principals` e não pode ser usada em `ExcludePrincipals`.
 - `Principals[i].Type` deve ser definido como `SystemDefined`.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Modo de exibição negar as atribuições de recursos do Azure usando o portal do Azure](deny-assignments-portal.md)
 * [Noções básicas sobre definições de função para recursos do Azure](role-definitions.md)

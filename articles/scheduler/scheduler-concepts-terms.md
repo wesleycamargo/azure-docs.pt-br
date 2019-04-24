@@ -11,11 +11,11 @@ ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
 ms.openlocfilehash: d701fba39685d781d1a4c2d8a6cf194ca7eb2908
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683045"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60530931"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceitos, terminologia e entidades do Agendador do Azure
 
@@ -81,7 +81,7 @@ Em alto nível, um trabalho do Agendador tem essas partes básicas:
 
 O trabalho também inclui os dados fornecidos pelo sistema, como tempo de execução agendada do próximo do trabalho. A definição do código desse trabalho é um objeto no formato JSON (JavaScript Object Notation), que tem estes elementos:
 
-| Elemento | Obrigatório | DESCRIÇÃO | 
+| Elemento | Necessário | DESCRIÇÃO | 
 |---------|----------|-------------| 
 | [**startTime**](#start-time) | Não  | A hora de início do trabalho com um deslocamento de fuso horário em [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
 | [**action**](#action) | Sim | Os detalhes para a ação principal, que podem incluir um objeto **errorAction** | 
@@ -245,7 +245,7 @@ Um trabalho se repetirá se a definição do JSON do trabalho incluir o objeto *
 },
 ```
 
-| Propriedade | Obrigatório | Value | DESCRIÇÃO | 
+| Propriedade | Necessário | Value | DESCRIÇÃO | 
 |----------|----------|-------|-------------| 
 | **frequency** | Sim, quando **recurrence** é usado | "Minute", "Hour", "Day", "Week", "Month", "Year" | A unidade de tempo entre ocorrências | 
 | **interval** | Não  | 1 a 1000, inclusive | Um inteiro positivo que determina o número de unidades de tempo entre cada ocorrência com base em **frequency** | 
@@ -275,7 +275,7 @@ Para o caso quando um trabalho do Agendador falhar, você pode configurar uma po
 },
 ```
 
-| Propriedade | Obrigatório | Value | DESCRIÇÃO | 
+| Propriedade | Necessário | Value | DESCRIÇÃO | 
 |----------|----------|-------|-------------| 
 | **retryType** | Sim | **Fixed**, **None** | Determina se você especifica uma política de repetição (**fixed**) ou não (**none**). | 
 | **retryInterval** | Não  | PT30S | Especifica o intervalo e a frequência entre as tentativas de repetição no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O valor mínimo é 15 segundos, enquanto o valor máximo é 18 meses. | 

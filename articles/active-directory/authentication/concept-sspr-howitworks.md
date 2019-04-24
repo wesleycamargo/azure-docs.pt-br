@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47a6f475b5f1152850ec918b196883c6974f4d95
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369986"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60415586"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Redefinição de senha self-service do Azure AD
 
@@ -202,7 +202,7 @@ Para testar este cenário, acesse https://passwordreset.microsoftonline.com com 
 > [!NOTE]
 > Contas Microsoft que receberam acesso de convidado a seu locatário do Azure AD, como as de Hotmail.com, Outlook.com ou outros endereços de email pessoal, não podem usar a SSPR do Azure AD. É necessário que definam a senha, utilizando as informações localizadas no artigo [Quando não for possível entrar na sua conta da Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Os artigos a seguir fornecem informações adicionais sobre a redefinição de senha através do Azure Active Directory:
 

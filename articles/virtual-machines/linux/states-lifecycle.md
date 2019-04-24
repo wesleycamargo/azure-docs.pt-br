@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: 31933b0297dd821340313df04b3f6eccd5865e13
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
-ms.translationtype: HT
+ms.openlocfilehash: d7341c40b8a130b81e61277daf306f7a900d24ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043225"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419955"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Ciclo de vida e estados de máquinas virtuais
 
 [!INCLUDE [virtual-machines-common-states-lifecycle](../../../includes/virtual-machines-common-states-lifecycle.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre como monitorar a VM, consulte [Como monitorar máquinas virtuais no Azure](monitor.md).

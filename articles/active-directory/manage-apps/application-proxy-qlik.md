@@ -15,11 +15,11 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 12e36c49d8c4db60302d4b72dfa81ea4aceec77b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107382"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60441322"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Proxy de Aplicativo e Qlik Sense 
 O Proxy de Aplicativo do Azure Active Directory e a Qlik Sense fizeram uma parceria para garantir que você possa facilmente usar o Proxy de Aplicativo para fornecer acesso remoto para sua implantação do Qlik Sense.  
@@ -56,7 +56,7 @@ Siga as mesmas etapas do aplicativo nº 1, com as seguintes exceções:
 **Etapa 10:** não configure o SSO e deixe o **Logon único desabilitado**
  
  
-## <a name="testing"></a>Testes 
+## <a name="testing"></a>Testando 
 Seu aplicativo agora está pronto para teste. Acesse a URL externa usada para publicar o QlikSense no aplicativo nº 1 e faça logon como um usuário atribuído aos dois aplicativos.  
 
 ## <a name="additional-references"></a>Referências adicionais

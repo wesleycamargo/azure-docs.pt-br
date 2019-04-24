@@ -16,11 +16,11 @@ ms.date: 04/16/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 886b56de194f38fbb4b94f96b92bff11f2288b37
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448598"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60293500"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-azure-powershell"></a>Criar, listar ou excluir uma identidade gerenciada atribuída ao usuário usando o Azure PowerShell
 
@@ -79,6 +79,6 @@ Remove-AzUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP> -Name <USER AS
 > [!NOTE]
 > A exclusão de uma identidade gerenciada atribuída ao usuário não removerá a referência de nenhum recurso ao qual foi atribuída. Atribuições de identidade devem ser removidas separadamente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter uma lista completa e mais detalhes sobre as identidades gerenciadas do Azure PowerShell para os comandos de recursos do Azure, confira [Az.ManagedServiceIdentity](/powershell/module/az.managedserviceidentity#managed_service_identity).

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/17/2018
 ms.author: iainfou
 ms.openlocfilehash: ae92a5c894b186a1c8b471c1b446a88299742aec
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004849"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60466368"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas frequentes sobre o Serviço de Kubernetes do Azure (AKS)
 
@@ -93,7 +93,7 @@ Em um contrato de nível serviço (SLA), o provedor concorda em reembolse o clie
 
 <!-- LINKS - internal -->
 
-[aks-regions]: ./container-service-quotas.md#region-availability
+[aks-regions]: ./quotas-skus-regions.md#region-availability
 [aks-upgrade]: ./upgrade-cluster.md
 [aks-cluster-autoscale]: ./autoscaler.md
 [virtual-kubelet]: virtual-kubelet.md

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: jeconnoc
 ms.openlocfilehash: b212eaffb977846d40270a5f2abc76192aee4c0d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550604"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60528148"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Criar um aplicativo Web do Node.js usando o Express em um Serviço de Nuvem do Microsoft Azure
 
@@ -118,7 +118,7 @@ Quando a operação de implantação estiver concluída, o navegador será abert
 
 ![Um navegador da web exibindo a página do Express. A URL indica que agora a página está hospedada no Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para saber mais, confira o [Centro de desenvolvedores do Node.js](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest).
 
 [Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/

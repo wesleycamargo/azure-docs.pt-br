@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 08/23/2018
 tags: connectors
 ms.openlocfilehash: 7785d1788e8d5e9b432a8189345f293ebf05ef7c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878393"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313909"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Gerenciar recursos do IBM DB2 com os Aplicativos Lógicos do Azure
 
@@ -29,7 +29,7 @@ O conector DB2 inclui um cliente Microsoft que se comunica com servidores DB2 re
 
 O conector do IBM DB2 é compatível com estas plataformas e versões do IBM DB2, juntamente com os produtos compatíveis com o IBM DB2, como IBM Bluemix dashDB, que são compatíveis com as versões 10 e 11 do SQLAM (SQL Access Manager) da DRDA (Distributed Relational Database Architecture):
 
-| Plataforma | Versão | 
+| Plataforma | Version | 
 |----------|---------|
 | IBM DB2 para z/OS | 11.1, 10.1 |
 | IBM DB2 para i | 7.3, 7.2, 7.1 |
@@ -364,11 +364,11 @@ Expanda a ação **Excluir linha**.
 
 Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descrito pelo OpenAPI do conector (anteriormente conhecido como Swagger) de arquivos, consulte o [página de referência do conector](/connectors/db2/).
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: 9fd9eaf1e62d063026e0e656346baaaade87064f
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187137"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60410089"
 ---
 # <a name="avere-cluster-dns-configuration"></a>Configuração de DNS do cluster do Avere
 
@@ -41,7 +41,7 @@ Para atingir o desempenho ideal, configure seu servidor DNS para lidar com ender
 
 Um vserver do cluster é mostrado à esquerda e os endereços IP aparecem no centro e à direita. Configure cada ponto de acesso do cliente com registros e ponteiros A conforme ilustrado.
 
-![Diagrama do DNS com round robin no cluster do Avere](media/avere-vfxt-rrdns-diagram.png) 
+![Diagrama de round robin do DNS do cluster de Avere](media/avere-vfxt-rrdns-diagram.png) 
 <!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
 
 Cada endereço IP voltado ao cliente deve ter um nome exclusivo para uso interno pelo cluster. (Neste diagrama, os IPs do cliente são chamados de vs1-client-IP-* para maior clareza, mas na produção você provavelmente deve usar algo mais conciso, como cliente*.)

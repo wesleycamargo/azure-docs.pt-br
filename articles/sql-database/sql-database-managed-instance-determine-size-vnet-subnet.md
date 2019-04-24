@@ -6,18 +6,19 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
-author: srdan-bozovic-msft
-ms.author: srbozovi
-ms.reviewer: sstein, bonova, carlrab
-manager: craigg
-ms.date: 02/22/2019
+ms.topic: howto
+author: WenJason
+ms.author: v-jay
+ms.reviewer: bonova, carlrab
+manager: digimobile
+origin.date: 12/12/2018
+ms.date: 03/11/2019
 ms.openlocfilehash: 2a10876bc3c9558de29caf9fee2ae0b06ee87f28
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59783842"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405334"
 ---
 # <a name="determine-vnet-subnet-size-for-azure-sql-database-managed-instance"></a>Determinar o tamanho da sub-rede da VNet para o banco de dados da Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -45,7 +46,7 @@ Se você planeja implantar múltiplas instâncias gerenciadas dentro da sub-rede
 > [!IMPORTANT]
 > O cálculo exibido acima se tornará obsoleto com as melhorias futuras.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma visão geral, consulte [O que é uma Instância Gerenciada](sql-database-managed-instance.md).
 - Saiba mais sobre [Arquitetura de conectividade para a Instância Gerenciada](sql-database-managed-instance-connectivity-architecture.md).

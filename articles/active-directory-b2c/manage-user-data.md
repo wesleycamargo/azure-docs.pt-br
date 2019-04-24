@@ -11,11 +11,11 @@ ms.date: 05/06/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 62846fe744e7295f58902481400ce91770c916da
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798089"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60406471"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Gerenciar dados dos usuários no Azure Active Directory B2C
 
@@ -56,7 +56,7 @@ No exemplo a seguir de uma exportação de fluxo de dados, as etapas descritas c
 3. O aplicativo recupera a atividade de auditoria do usuário. A API do Graph do Azure AD fornece os dados de evento para o aplicativo.
 4. O aplicativo agrega os dados e os torna disponíveis para o usuário.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para aprender a gerenciar como os usuários podem acessar seu aplicativo, consulte [Gerenciar o acesso do usuário](manage-user-access.md).
 

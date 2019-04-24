@@ -15,11 +15,11 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 13aef9b180a671a9b42bbc6319c487be36652093
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574868"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437339"
 ---
 # <a name="use-custom-roles-for-azure-resources-in-pim"></a>Usar funções personalizadas para recursos do Azure no PIM
 
@@ -48,7 +48,7 @@ Depois que a função é criada em seu locatário, no portal do Azure, vá para 
 
 Por fim, [atribua funções](pim-resource-roles-assign-roles.md) ao grupo distinto de membros que você deseja ter como destino com essas configurações.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Definir configurações de função de recurso do Azure no PIM](pim-resource-roles-configure-role-settings.md)
 - [Funções personalizadas no Azure](../../role-based-access-control/custom-roles.md)

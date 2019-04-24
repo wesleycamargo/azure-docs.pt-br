@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: magoedte
 ms.openlocfilehash: bbd7c733c7c089328d2fbe016426fe9de3a6b5ce
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998644"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60494619"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Como configurar alertas para problemas de desempenho no Azure Monitor para contêineres
 O Azure Monitor para contêineres monitora o desempenho de cargas de trabalho de contêiner que são implantados em instâncias de contêiner do Azure ou para clusters de Kubernetes hospedados no serviço de Kubernetes do Azure (AKS) gerenciados.
@@ -283,7 +283,7 @@ Siga estas etapas para criar um alerta do log no Azure Monitor, usando uma das r
 12. Selecione uma existente **grupo de ação** ou criar um novo grupo. Essa etapa garante que as mesmas ações são executadas sempre que um alerta é disparado. Configurar com base em como sua equipe de TI ou DevOps equipe de operações gerencia os incidentes.
 13. Selecione **criar regra de alerta** para concluir a regra de alerta. Ela começa a ser executada imediatamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Modo de exibição [exemplos de consulta de log](container-insights-log-search.md#search-logs-to-analyze-data) para ver consultas predefinidas e exemplos para avaliar ou personalizar para alertas, visualizar ou analisar seus clusters.
 - Para saber mais sobre como monitorar outros aspectos do seu cluster do AKS e o Azure Monitor, consulte [integridade do serviço de Kubernetes do Azure de modo de exibição](container-insights-analyze.md).

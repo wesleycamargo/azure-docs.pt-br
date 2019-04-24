@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 7e2f5c344a0fb632956ab5d5b951ee69cff528ec
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482793"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60363414"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Testar resultados para replicação do Hyper-V para um site secundário
 
@@ -180,6 +180,6 @@ A tabela resume as métricas e os contadores de desempenho medidos na implantaç
 | Taxa de transferência de leitura da VM |Dispositivo de armazenamento virtual \Hyper-V (\<VHD >) \Read Bytes/s |
 | Taxa de transferência de gravação da VM |Dispositivo de armazenamento virtual \Hyper-V (\<VHD >) \Write Bytes/s |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Configurar a replicação](hyper-v-vmm-disaster-recovery.md)

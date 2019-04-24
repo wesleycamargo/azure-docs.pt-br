@@ -13,11 +13,11 @@ ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dbfcab7900a1552a46341ec71b8b0ea4b41b0bce
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339157"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60474683"
 ---
 # <a name="view-your-privacy-related-info-from-the-my-profile-preview-portal"></a>Visualize suas informações de privacidade no portal Meu Perfil (versão prévia)
 Você pode visualizar como sua empresa usa seus dados na página **Privacidade** do portal **Meu Perfil**.

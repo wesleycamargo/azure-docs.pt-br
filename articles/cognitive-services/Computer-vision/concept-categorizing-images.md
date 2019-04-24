@@ -12,11 +12,11 @@ ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 257da397e11843ee96e93f7b3e9bc5ada29822cf
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995567"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60203254"
 ---
 # <a name="categorize-images-by-subject-matter"></a>Categorizar imagens por assunto
 
@@ -60,6 +60,6 @@ A tabela a seguir ilustra um conjunto de imagens típico e a categoria retornada
 | ![Uma pessoa em uma rocha na montanha ao pôr do sol](./Images/mountain_vista.png) | outdoor_mountain |
 | ![Uma montanha de pães em uma mesa](./Images/bread.png) | food_bread |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Aprenda conceitos sobre [marcação de imagens](concept-tagging-images.md) e [descrevendo imagens](concept-describing-images.md).

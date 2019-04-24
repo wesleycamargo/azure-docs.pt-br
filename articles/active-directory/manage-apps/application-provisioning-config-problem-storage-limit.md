@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e74519bf2eeb31a700c2fb02cbf3b94702449427
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218084"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60443123"
 ---
 # <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>Problema para salvar as credenciais de administrador ao configurar o provisionamento do usuário para um aplicativo de galeria do Azure Active Directory 
 
@@ -45,5 +45,5 @@ Há duas maneiras possíveis de contornar esse problema atualmente:
 
 2. **Reduzir a quantidade de dados de configuração armazenados** - Todos os dados inseridos na seção [Credenciais de administrador](user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) da guia de configuração são armazenados no mesmo local que o certificado SAML. Embora não seja possível reduzir o tamanho de todos esses dados, alguns campos de configuração opcionais, como o **Email de notificação** podem ser removidos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Configurar o provisionamento e cancelamento de usuários para aplicativos SaaS](user-provisioning.md)

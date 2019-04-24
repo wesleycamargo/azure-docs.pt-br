@@ -9,11 +9,11 @@ ms.date: 10/04/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
 ms.openlocfilehash: a4664e628af5824b7b197cbdb5c5af602a3a4476
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958679"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60459930"
 ---
 # <a name="virtual-wan-partners"></a>Parceiros de WAN Virtual
 
@@ -274,7 +274,7 @@ O dispositivo VPN/SDWAN local ou a configuração SD-WAN devem corresponder ou c
 * Algoritmo de integridade de IPsec
 * Grupo PFS
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre WAN Virtual, consulte [Sobre a WAN Virtual do Azure](virtual-wan-about.md) e [Perguntas frequentes sobre a WAN Virtual do Azure](virtual-wan-faq.md).
 

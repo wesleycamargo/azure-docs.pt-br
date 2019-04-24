@@ -7,15 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: davidmu
+origin.date: 09/10/2018
+ms.date: 04/03/2019
+ms.author: v-junlch
 ms.subservice: B2C
 ms.openlocfilehash: afa064232c10d3e84e9c301d44b82faae4904253
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152970"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60383942"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
 
@@ -29,9 +30,9 @@ O elemento **BuildingBlocks** é adicionado dentro do elemento [TrustFrameworkPo
   xmlns:xsd="https://www.w3.org/2001/XMLSchema"
   xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
   PolicySchemaVersion="0.3.0.0"
-  TenantId="mytenant.onmicrosoft.com"
+  TenantId="mytenant.partner.onmschina.cn"
   PolicyId="B2C_1A_TrustFrameworkBase"
-  PublicPolicyUri="http://mytenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
+  PublicPolicyUri="http://mytenant.partner.onmschina.cn/B2C_1A_TrustFrameworkBase">
 
   <BuildingBlocks>
     <ClaimsSchema>
@@ -71,5 +72,6 @@ O elemento **BuildingBlocks** contém os seguintes elementos que precisam ser es
 - [ContentDefinitions](contentdefinitions.md) – contém URLs de modelos HTML5 a serem usado em seu percurso do usuário. Em uma política personalizada, uma definição de conteúdo define o URI da página HTML5 que é usado para uma etapa especificada no percurso do usuário. Por exemplo, a redefinição de senha de entrada ou de inscrição ou páginas de erro. Você pode modificar a aparência substituindo o LoadUri pelo arquivo HTML5. Ou você pode criar definições de conteúdo de acordo com suas necessidades. Esse elemento pode conter uma referência de recursos localizados usando uma ID de localização.
 
 - [Localização](localization.md) – permite que você dê suporte a vários idiomas. O suporte de localização nas políticas permite que você configure a lista de idiomas com suporte em uma política e escolha um idioma padrão. Também há suporte para coleções e cadeias de caracteres específicas a um idioma.
+
 
 

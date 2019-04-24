@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 04/10/2019
 ms.author: aljo
 ms.openlocfilehash: 46c9b37e9bb8613b34dea6705320f5689eeb51d8
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526530"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60386815"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Saiba como personalizar algumas das configurações de cluster do Service Fabric
 Este artigo descreve as várias configurações de malha para o cluster do Service Fabric que você pode personalizar. Para clusters hospedados no Azure, você pode personalizá-los através do [portal do Azure](https://portal.azure.com) ou utilizando um modelo do Azure Resource Manager. Para obter mais informações, consulte [Atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters independentes, você customiza as configurações atualizando o arquivo *ClusterConfig.json* e executando uma atualização de configuração em seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -378,7 +378,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 
 | **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
-|habilitado |Bool, o padrão é false |estático|O sinalizador Enabled para ImageStoreService. Padrão: false |
+|Enabled |Bool, o padrão é false |estático|O sinalizador Enabled para ImageStoreService. Padrão: false |
 |MinReplicaSetSize | Int, o padrão é 3 |estático|O MinReplicaSetSize para ImageStoreService. |
 |PlacementConstraints | cadeia de caracteres, o padrão é "" |estático| O PlacementConstraints para ImageStoreService. |
 |QuorumLossWaitDuration | Tempo em segundos, o padrão é MaxValue |estático| Especifique o intervalo de tempo em segundos. O QuorumLossWaitDuration para ImageStoreService. |
@@ -879,5 +879,5 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |X509StoreLocation | cadeia de caracteres, o padrão é "" |Dinâmico| X509StoreLocation para UpgradeService. |
 |X509StoreName | cadeia de caracteres, o padrão é "My"|Dinâmico|X509StoreName para UpgradeService. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações, consulte [Atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md) e [Atualizar a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md).

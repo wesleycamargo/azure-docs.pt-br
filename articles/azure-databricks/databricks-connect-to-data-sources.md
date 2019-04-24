@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: mamccrea
 ms.openlocfilehash: f2b7136ec21416e31c2af658974577023a4494de
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997921"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60240340"
 ---
 # <a name="connect-to-data-sources-from-azure-databricks"></a>Conectar a fontes de dados do Azure Databricks
 
@@ -52,7 +52,7 @@ A lista a seguir fornece as fontes de dados no Azure que podem ser utilizadas co
     Este link fornece instruções sobre como usar o conector do SQL Data Warehouse do Azure para conectar a partir do Azure Databricks.
     
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre fontes, a partir das quais é possível importar dados para o Azure Databricks, consulte [Fontes de dados para Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html#).
 

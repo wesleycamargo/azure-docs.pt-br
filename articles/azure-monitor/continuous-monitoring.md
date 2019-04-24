@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
 ms.openlocfilehash: 1b86bc015b187fe75e79ba04df60a6bc5257a9b8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994006"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60497413"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Monitoramento contínuo com o Azure Monitor
 
 Monitoramento contínuo refere-se ao processo e à tecnologia necessários para incorporar o monitoramento em cada fase dos ciclos de vida de operações de TI e DevOps. Ele ajuda a garantir de maneira contínua a integridade, o desempenho e a confiabilidade do aplicativo e da infraestrutura à medida que passa do desenvolvimento à produção. O monitoramento contínuo se baseia nos conceitos de Integração Contínua e Implantação Contínua (CI/CD), que ajudam você a desenvolver e fornecer software de maneira mais rápida e confiável, para oferecer vantagens contínuas aos usuários.
 
-O [Azure Monitor](overview.md) é a solução unificada de monitoramento do Azure que oferece a capacidade de observação de pilha completa entre aplicativos e infraestrutura local ou na nuvem. Ele funciona perfeitamente com [Visual Studio e o Visual Studio Code](https://visualstudio.microsoft.com/), durante o desenvolvimento e teste, e é integrado ao [Azure DevOps](/azure/devops/user-guide/index) para gerenciamento de versão e de itens de trabalho, durante a implantação e as operações. Ele oferece ainda integração entre as ferramentas ITSM e SIEM de sua escolha para acompanhar incidentes em seus processos de TI existentes.
+O [Azure Monitor](overview.md) é a solução de monitoramento unificada do Azure que oferece a capacidade de observação de pilha completa entre aplicativos e infraestrutura local ou na nuvem. Ele funciona perfeitamente com [Visual Studio e o Visual Studio Code](https://visualstudio.microsoft.com/), durante o desenvolvimento e teste, e é integrado ao [Azure DevOps](/azure/devops/user-guide/index) para gerenciamento de versão e de itens de trabalho, durante a implantação e as operações. Ele oferece ainda integração entre as ferramentas ITSM e SIEM de sua escolha para acompanhar incidentes em seus processos de TI existentes.
 
 Este artigo descreve as etapas específicas de uso do Azure Monitor para ativar o monitoramento contínuo em todos os fluxos de trabalho. Ele inclui links para documentação adicional que oferece detalhes sobre a implementação de diferentes recursos.
 

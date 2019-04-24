@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/28/2019
 ms.author: juliako
 ms.openlocfilehash: 30cd77799837f9b1ef08a9c609e518fd679b9b15
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871415"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322294"
 ---
 # <a name="live-event-latency-in-media-services"></a>Latência do Evento ao Vivo nos Serviços de Mídia
 
@@ -75,7 +75,7 @@ A tabela a seguir mostra os resultados comuns de latência (quando o sinalizador
 > [!NOTE]
 > A latência de ponta a ponta pode variar, dependendo das condições de rede local ou com a introdução de uma camada de cache da CDN. Você deve testar as configurações exatas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral da transmissão ao vivo](live-streaming-overview.md)
 - [Tutorial de live streaming](stream-live-tutorial-with-api.md)

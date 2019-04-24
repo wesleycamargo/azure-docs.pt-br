@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pbutlerm
 ms.openlocfilehash: 539bc7861a487e6eb563f565d3475efdda99b093
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798172"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332662"
 ---
 # <a name="cloud-partner-portal-management"></a>Gerenciamento do Portal de parceiros de nuvem
 
@@ -43,6 +43,6 @@ Esta seção contém os seguintes artigos que explicam como gerenciar contas de 
 - [Gerenciando usuários no Portal do Cloud Partner](./cpp-manage-users.md) adicionar usuários à nuvem da sua organização conta e como gerenciar o acesso, para permitir que várias pessoas trabalhem nas ofertas a mesmas publicação.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Você deve cumprir os [pré-requisitos para gerenciamento de contas](./cpp-manage-prerequisites.md) antes de continuar.  Depois disso, você também deve levar a [Tour do Portal de parceiros de nuvem](../portal-tour/cpp-portal-tour.md) de se familiarizar com a interface do usuário do portal.

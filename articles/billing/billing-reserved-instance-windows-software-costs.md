@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
 ms.openlocfilehash: 340cba65a1faac247678cd187f106157ba566f3e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918715"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371165"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Custos do software do Windows não incluídos nas Instâncias de VM Reservadas do Azure
 
@@ -68,7 +68,7 @@ Se você não tiver um benefício do híbrido do Azure em suas instâncias de m�
 
 Você pode obter o custo de cada um desses medidores por meio da API RateCard do Azure. Para obter informações sobre como obter as taxas de um medidor do Azure, consulte [Obter informações sobre preço e metadados para recursos usados em uma assinatura do Azure](/previous-versions/azure/reference/mt219004(v=azure.100)).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre reservas para o Azure, consulte os seguintes artigos:
 
 - [Quais são as reservas para o Azure?](billing-save-compute-costs-reservations.md)

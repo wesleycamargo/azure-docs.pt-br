@@ -2,18 +2,19 @@
 title: Modelagem de relações no projeto da tabela de armazenamento do Azure | Microsoft Docs
 description: Entenda o processo de modelagem ao projetar sua solução de armazenamento em tabela.
 services: storage
-author: MarkMcGeeAtAquent
+author: WenJason
 ms.service: storage
 ms.topic: article
-ms.date: 04/23/2018
-ms.author: sngun
+origin.date: 04/23/2018
+ms.date: 02/25/2019
+ms.author: v-jay
 ms.subservice: tables
 ms.openlocfilehash: 5d83e61282d2f21a3016997e324d0f58eff15e78
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813000"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60502466"
 ---
 # <a name="modeling-relationships"></a>Relações de modelagem
 Este artigo descreve o processo de modelagem para ajudar você a projetar suas soluções de armazenamento em Tabela do Azure.

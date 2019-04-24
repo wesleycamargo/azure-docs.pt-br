@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: b-juche
 ms.openlocfilehash: 86c016a5dbcc0d78378e59bc6b3606ddf2c54f64
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122328"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60452750"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registro no Azure NetApp Files
 Antes de usar o Azure NetApp Files, é necessário enviar uma solicitação para inscrever-se no serviço Azure NetApp Files.  Após o registro, inscreva-se para usar o serviço.
@@ -78,6 +78,6 @@ Para usar o serviço, é necessário registrar o Provedor de recursos do Azure n
       ![Microsoft.NetApp registrado](../media/azure-netapp-files/azure-netapp-files-registered-resource-providers.png)
 
 
-## <a name="next-steps"></a>Próximas etapas  
+## <a name="next-steps"></a>Próximos passos  
 
 [Criar uma conta do NetApp](azure-netapp-files-create-netapp-account.md)

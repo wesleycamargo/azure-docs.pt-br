@@ -8,11 +8,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.openlocfilehash: a78167e9b143a4c8d424947b489043dd45dfe2db
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886415"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60420906"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql"></a>Solucionar problemas de conexão ao Banco de Dados do Azure para PostgreSQL
 
@@ -57,6 +57,6 @@ Se o aplicativo falhar persistentemente em se conectar ao Banco de Dados do Azur
 3. Verifique a cadeia de conexão e outras configurações de conexão.
 4. Verifique a integridade do serviço no painel. Se você achar que há uma interrupção regional, consulte [Visão geral da continuidade dos negócios com o Banco de Dados do Azure para PostgreSQL](concepts-business-continuity.md) para obter as etapas para recuperar para uma nova região.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Manipulação de erros de conectividade transitória para Banco de Dados do Azure para PostgreSQL](concepts-connectivity.md)

@@ -11,11 +11,11 @@ ms.date: 04/24/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: b08c5e6f2bc7d7970c47e14db84f4172e92eb820
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203650"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316860"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Passo a passo: Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como validação na entrada do usuário
 
@@ -127,7 +127,7 @@ Para adicionar a troca de declarações ao perfil técnico autodeclarado:
 2. Use **Executar agora** para testar o arquivo de política de edição do perfil RP.
 3. Teste a validação fornecendo um dos nomes existentes (por exemplo, mcvinny) no campo **Nome Fornecido**. Se tudo estiver configurado corretamente, você deverá receber uma mensagem que notifica o usuário de que a marcação de player já está sendo usada.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Modificar a edição de perfil e o registro de usuário para coletar informações adicionais dos usuários](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 

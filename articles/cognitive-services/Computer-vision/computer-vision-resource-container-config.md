@@ -12,11 +12,11 @@ ms.date: 04/16/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: 42c08864c6908e92a7ecea336f8b1bd0606760db
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678676"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60203458"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>Configurar os contêineres do Docker de Reconhecimento de Texto
 
@@ -51,7 +51,7 @@ Essa configuração pode ser localizada no seguinte local:
 
 Lembre-se de adicionar o `vision/v1.0` roteamento para o URI do ponto de extremidade, conforme mostrado na tabela a seguir. 
 
-|Obrigatório| NOME | Tipo de dados | DESCRIÇÃO |
+|Necessário| NOME | Tipo de dados | DESCRIÇÃO |
 |--|------|-----------|-------------|
 |Sim| `Billing` | Cadeia de caracteres | URI do ponto de extremidade de cobrança<br><br>Exemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
@@ -95,7 +95,7 @@ Lembre-se de adicionar o `vision/v1.0` roteamento para o URI do ponto de extremi
 
 Substitua {_argument_name_} pelos seus próprios valores:
 
-| Placeholder | Valor | Formato ou exemplo |
+| Placeholder | Value | Formato ou exemplo |
 |-------------|-------|---|
 |{BILLING_KEY} | A chave do ponto de extremidade do recurso dos serviços Cognitivos. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT_URI} | O valor de ponto de extremidade cobrança, incluindo a região.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|

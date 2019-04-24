@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: f4558c6fdb1e5e4f0ffb7a4b4fdb1ab62eb4cfa9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121274"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332787"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Corrigir as configurações de segurança na Central de Segurança do Azure
 A Central de Segurança do Azure analisa diariamente o SO (sistema operacional) de suas VMs (máquinas virtuais) e computadores para verificar a existência de configuração que possa tornar as VMs e computadores mais vulneráveis a ataques. A Central de Segurança recomenda que você resolva as vulnerabilidades quando sua configuração do sistema operacional não corresponder às regras de configuração de segurança e recomenda alterações de configuração para resolver essas vulnerabilidades.
@@ -93,7 +93,7 @@ Este exemplo abrange a recomendação “Corrigir configurações de segurança�
 
    ![Informações detalhadas sobre o computador selecionado][6]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Este artigo mostrou como implementar a recomendação da Central de Segurança para "Corrigir configurações de segurança". Para saber como personalizar avaliações de configuração de segurança, consulte [Personalizar configurações de segurança do sistema operacional na Central de Segurança do Azure (versão prévia)](security-center-customize-os-security-config.md).
 
 Para examinar as configurações específicas que estão sendo monitoradas, veja a [lista de regras de configuração recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). A Central de Segurança usa a CCE (Common Configuration Enumeration) para atribuir identificadores exclusivos a regras de configuração. Para obter mais informações, visite o site da [CCE](https://nvd.nist.gov/cce/index.cfm).

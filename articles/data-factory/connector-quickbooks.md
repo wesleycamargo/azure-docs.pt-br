@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 8f5e3958588a597bde04ae1c8e4873006b281458
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992225"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405810"
 ---
 # <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Copiar dados do QuickBooks Online usando o Azure Data Factory (Versão prévia)
 
@@ -46,7 +46,7 @@ As propriedades a seguir têm suporte no serviço vinculado do QuickBooks:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **QuickBooks** | Sim |
+| type | A propriedade type deve ser definida como: **QuickBooks** | Sim |
 | endpoint | O ponto de extremidade do servidor do QuickBooks Online. (ou seja, quickbooks.api.intuit.com)  | Sim |
 | companyId | A ID de empresa da empresa QuickBooks para autorização. Para obter informações sobre como localizar a ID da empresa, confira [Como encontrar minha ID da Empresa?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Sim |
 | consumerKey | A chave do consumidor para autenticação OAuth 1.0. | Sim |
@@ -92,7 +92,7 @@ Para copiar dados do QuickBooks Online, defina a propriedade type do conjunto de
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **QuickBooksObject** | Sim |
+| type | A propriedade type do conjunto de dados deve ser definida como: **QuickBooksObject** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -121,7 +121,7 @@ Para copiar dados do QuickBooks Online, defina o tipo de fonte na atividade de c
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **QuickBooksSource** | Sim |
+| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **QuickBooksSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**
@@ -159,5 +159,5 @@ Para copiar dados do QuickBooks Online, defina o tipo de fonte na atividade de c
 
 A atividade de cópia no Azure Data Factory não consegue copiar dados diretamente do Quickbooks Desktop. Para copiar dados do Quickbooks Desktop, exporte os dados do seu Quickbooks para um arquivo CSV (valores separados por vírgula) e, depois, carregue o arquivo no Armazenamento de Blobs do Azure. A partir daí, você pode usar o Data Factory para copiar os dados para o seu coletor preferido.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

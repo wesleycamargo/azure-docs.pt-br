@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
 ms.openlocfilehash: d5e62bf1838c8f07068208019d28d7273c28bd63
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492338"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60457337"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurar o tráfego do gateway de VPN para o emparelhamento de rede virtual
 
@@ -159,7 +159,7 @@ Add-AzVirtualNetworkPeering `
   -AllowGatewayTransit
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [as restrições e os comportamentos do emparelhamento de rede virtual](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints) e [as configurações de emparelhamento de rede virtual](../virtual-network/virtual-network-manage-peering.md#create-a-peering) antes de criar um emparelhamento de rede virtual para uso em produção.
 * Saiba como [criar uma topologia de rede hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) com o emparelhamento de rede virtual e o trânsito de gateway.

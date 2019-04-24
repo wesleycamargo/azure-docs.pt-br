@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: f5e3186a4271e0be781f367fa75ada195c58c960
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 51632b8b68640814fc113a94925b6d6deaca4c5c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111434"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60482455"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Usar o StorSimple Snapshot Manager para conectar e gerenciar dispositivos StorSimple
 ## <a name="overview"></a>Visão geral
@@ -27,15 +27,15 @@ Você pode usar nós no painel **Escopo** do StorSimple Snapshot Manager para ve
 
 ![Dispositivos conectados](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_connect_devices.png)
 
-**Figura 1: Dispositivo conectado no StorSimple Snapshot Manager** 
+**Figura 1: Dispositivo conectado do StorSimple Snapshot Manager** 
 
 Dependendo de suas seleções de **Exibição**, o painel **Resultados** mostra as informações a seguir sobre cada dispositivo. (Para obter mais informações sobre como configurar um modo de exibição, vá até o [menu Exibir](storsimple-use-snapshot-manager.md#view-menu).
 
-| Coluna de resultados | Descrição |
+| Coluna de resultados | DESCRIÇÃO |
 |:--- |:--- |
-| Nome |O nome do dispositivo conforme configurado no Portal Clássico do Azure |
+| NOME |O nome do dispositivo conforme configurado no Portal Clássico do Azure |
 | Modelo |O número do modelo do dispositivo |
-| Versão |A versão do software instalado no dispositivo |
+| Version |A versão do software instalado no dispositivo |
 | Status |Se o dispositivo está disponível |
 | Sincronizado pela última vez |Data e hora em que o dispositivo foi sincronizado pela última vez |
 | N° de série |O número de série do dispositivo |
@@ -182,7 +182,7 @@ Você deve inserir uma senha para autenticar um dispositivo StorSimple com o Sto
 Se um dispositivo StorSimple falhar e for substituído por um dispositivo em espera (failover), use as seguintes etapas para conectar o novo dispositivo e exibir os backups associados.
 
 #### <a name="to-connect-to-a-new-device-after-failover"></a>Para conectar a um novo dispositivo após failover
-1. Reconfigure a conexão iSCSI para o novo dispositivo. Para obter instruções, consulte a "Etapa 7: Montar, inicializar e formatar um volume" em [Implantar seu dispositivo StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
+1. Reconfigure a conexão iSCSI para o novo dispositivo. Para obter instruções, vá para "etapa 7: Montar, inicializar e formatar um volume"em [implantar o dispositivo StorSimple no local](storsimple-8000-deployment-walkthrough-u2.md).
 
 > [!NOTE]
 > Se o novo dispositivo StorSimple tiver o mesmo endereço IP do antigo, você poderá conectar a configuração antiga.
@@ -204,7 +204,7 @@ Se um dispositivo StorSimple falhar e for substituído por um dispositivo em esp
    2. Na janela **Serviços**, selecione o **Microsoft StorSimple Management Service**.
    3. No painel direito, em **Microsoft StorSimple Management Service**, clique em **Reiniciar o serviço**.
 4. Inicie o StorSimple Snapshot Manager.
-5. Para configurar o novo dispositivo StorSimple, execute as etapas da Etapa 2: conectar a um dispositivo StorSimple em [Implantar o StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
+5. Para configurar o novo dispositivo StorSimple, conclua as etapas na etapa 2: Conectar um dispositivo StorSimple no [implantar o StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 6. Clique com o botão direito do mouse no nó de nível superior no painel **Escopo** (StorSimple Snapshot Manager no exemplo) e clique em **Ativar/Desativar Exibição de Importações**. 
 7. Uma mensagem é exibida quando os grupos de volumes e backups importados ficam visíveis no StorSimple Snapshot Manager. Clique em **OK**.
 

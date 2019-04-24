@@ -15,11 +15,11 @@ ms.workload: tbd
 ms.date: 5/21/2017
 ms.author: raiye
 ms.openlocfilehash: d6429766b6aac547fd99279659acb1067298e77c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244671"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60518963"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Aviso de desativação da família 1 de SO convidados
 A desativação da família 1 do sistema operacional foi anunciada em 1º de junho de 2013.
@@ -37,7 +37,7 @@ Os Serviços de Nuvem são afetados se qualquer uma das opções a seguir se apl
 2. Você não tem um valor para osFamily especificado explicitamente no arquivo ServiceConfiguration.cscfg para seu serviço de nuvem. Atualmente, o sistema usa o valor padrão de "1" nesse caso.
 3. O Portal do Azure lista o valor da família do Sistema Operacional Convidado como "Windows Server 2008".
 
-Para definir quais dos serviços de nuvem estão executando qual família de SO, execute o script a seguir no Azure PowerShell, embora você deva [configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) primeiro. Para saber mais sobre o script, consulte [Fim da vida útil da família 1 dos sistemas operacionais convidados do Azure: junho de 2014](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
+Para definir quais dos serviços de nuvem estão executando qual família de SO, execute o script a seguir no Azure PowerShell, embora você deva [configurar o Azure PowerShell](/powershell/azureps-cmdlets-docs) primeiro. Para obter mais informações sobre o script, consulte [Azure convidado SO família 1 fim da vida útil: Junho de 2014](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {
@@ -72,5 +72,5 @@ Recomendamos que você migre suas funções de serviço de nuvem para uma das fa
 ## <a name="extended-support-for-guest-os-family-1-ended-nov-3-2014"></a>O suporte estendido para a Família 1 dos sistemas operacionais convidados terminou em 3 de novembro de 2014
 Não há mais suporte para serviços de nuvem na família 1 dos sistemas operacionais convidados. Migre da família 1 assim que possível para evitar a interrupção do serviço.  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Examine as últimas [versões do SO convidado](cloud-services-guestos-update-matrix.md).

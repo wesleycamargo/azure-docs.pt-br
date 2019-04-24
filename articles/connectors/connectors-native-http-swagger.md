@@ -12,11 +12,11 @@ tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
 ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893367"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60448609"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Chamar pontos de extremidade REST com conector HTTP + Swagger nos Aplicativos Lógicos do Azure
 
@@ -98,7 +98,7 @@ Um asterisco (*) significa um campo obrigatório.
 | URI* |uri |URI da solicitação HTTP. |
 | Cabeçalhos |headers |Um objeto JSON de cabeçalhos HTTP a serem incluídos. |
 | Corpo |body |O corpo da solicitação HTTP. |
-| Autenticação |Autenticação |A autenticação a ser usada para solicitação. Para obter mais informações, consulte [Conector HTTP](connectors-native-http.md#authentication). |
+| Authentication |Autenticação |A autenticação a ser usada para solicitação. Para obter mais informações, consulte [Conector HTTP](connectors-native-http.md#authentication). |
 
 **Detalhes de saída**
 

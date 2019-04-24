@@ -12,11 +12,11 @@ tags: connectors
 ms.topic: article
 ms.date: 01/08/2019
 ms.openlocfilehash: eb22539d1f433e396935f82e4cb3786d5699d21a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083947"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60447416"
 ---
 # <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>Criar e executar tarefas recorrentes e fluxos de trabalho com os Aplicativos Lógicos do Azure
 
@@ -95,7 +95,7 @@ Para disparar seu aplicativo lógico e executar apenas uma vez no futuro, veja [
 
 Você pode configurar essas propriedades para o gatilho de recorrência.
 
-| NOME | Obrigatório | Nome da propriedade | Type | DESCRIÇÃO | 
+| NOME | Necessário | Nome da propriedade | Type | DESCRIÇÃO | 
 |----- | -------- | ------------- | ---- | ----------- | 
 | **Frequência** | Sim | frequência | Cadeia de caracteres | A unidade de tempo para a recorrência: **Segundo**, **Minuto**, **Hora**, **Dia**, **Semana** ou **Mês** | 
 | **Intervalo** | Sim | intervalo | Número inteiro | Um inteiro positivo que descreve a frequência na qual o fluxo de trabalho é executado com base na frequência. <p>O intervalo padrão é 1. Aqui estão os intervalos mínimos e máximos: <p>- Mês: 1 a 16 meses </br>- Dia: 1 a 500 dias </br>- Hora: 1 a 12.000 horas </br>- Minuto: 1 a 72.000 minutos </br>- Segundo: 1-9.999.999 segundos<p>Por exemplo, se o intervalo for 6 e a frequência for "Mês", a recorrência será a cada 6 meses. | 
@@ -153,7 +153,7 @@ Ou, se você estiver usando um modelo de aplicativo lógico em branco, inicie se
 **P:** Quais são outros agendamentos de recorrência de exemplo? </br>
 **R:** Veja mais alguns exemplos:
 
-| Recorrência | Intervalo | Frequência | Hora de início | Nestes dias | A estas horas | A estes minutos | Observação |
+| Recorrência | Interval | Frequência | Hora de início | Nestes dias | A estas horas | A estes minutos | Observação |
 | ---------- | -------- | --------- | ---------- | ------------- | -------------- | ---------------- | ---- |
 | Executar a cada 15 minutos (sem data e hora de início) | 15 | Minuto | {none} | {não disponível} | {none} | {none} | Esse agendamento será iniciado imediatamente e, em seguida, calculará as recorrências futuras com base na última hora de execução. | 
 | Executar a cada 15 minutos (com data e hora de início) | 15 | Minuto | *startDate*T*startTime*Z | {não disponível} | {none} | {none} | Esse agendamento não se inicia *antes* da data e hora de início especificada e, em seguida, calcula as recorrências futuras com base na última hora de execução. | 
@@ -206,7 +206,7 @@ Nesse cenário, o mecanismo dos Aplicativos Lógicos calcula as horas de execuç
 
 Portanto, neste cenário, não importa o quanto no passado você especifica a hora de início, por exemplo, 2017-09-**05** às 14h ou 2017-09-**01** às 14h, a primeira hora de execução será a mesma.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Gatilhos e ações do fluxo de trabalho](../logic-apps/logic-apps-workflow-actions-triggers.md#recurrence-trigger)
 * [Conectores](../connectors/apis-list.md)

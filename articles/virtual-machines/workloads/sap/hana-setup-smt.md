@@ -15,11 +15,11 @@ ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 690f41e941f2d1db8fc92d225a54d07570299222
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313128"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60477907"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>Configurar o servidor SMT para o SUSE Linux
 As Instâncias Grandes do SAP HANA não têm conectividade direta com a Internet. Não é um processo simples registrar uma unidade como essa no provedor do sistema operacional e baixar e aplicar atualizações. Uma solução para o SUSE Linux é configurar um servidor SMT em uma máquina virtual do Azure. Hospede a máquina virtual em uma rede virtual do Azure conectada à HANA em Instância Grande. Com um servidor SMT desse tipo, a unidade do HANA em Instância Grande pode registrar e baixar atualizações. 

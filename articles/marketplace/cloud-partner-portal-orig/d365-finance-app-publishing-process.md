@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 0fc82229e158ed35b97203b11d08841c683c45ce
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805104"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60398004"
 ---
 <a name="app-publishing-steps"></a>Etapas de publicação de aplicativo
 ====================
@@ -29,9 +29,9 @@ Para iniciar o processo de publicação, você clicará em "Publicar" na guia Ed
 ![Botão Publicar Aplicativo CPP](./media/d365-financials/image014.jpg)
 
 
-Na guia Status, você verá as etapas de Publicação indicando onde sua oferta está no processo de publicação. A qualquer momento no processo de publicação, você também poderá entrar e clicar na guia Todas as Ofertas para exibir o status mais recente de qualquer uma de suas ofertas. Clique diretamente no status da oferta e veja os detalhes de onde sua oferta está no processo de publicação.
+Na guia Status, você verá as etapas de Publicação indicando onde sua oferta está no processo de publicação. Em qualquer ponto no processo de publicação, você também pode entrar e clicar na guia Todas as Ofertas para exibir o status mais recente de qualquer uma das suas ofertas. Clique diretamente no status da oferta e veja os detalhes de onde sua oferta está no processo de publicação.
 
-Vamos percorrer cada uma das etapas de publicação e discutir o que acontece em cada etapa e quanto tempo estimado cada etapa levará.
+Vamos percorrer cada uma das etapas de publicação e discutir o que acontece em cada etapa e quanto tempo cada etapa levará.
 
 ![Diagrama do processo de publicação](./media/d365-financials/image017.png)
 

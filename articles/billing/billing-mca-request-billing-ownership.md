@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: be8c7fcebca224196d9eac7d22387989b1bdfd46
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890926"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371867"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-users"></a>Obter propriedade de assinaturas do Azure de outros usuários de cobrança
 
@@ -39,12 +39,12 @@ Este artigo se aplicam a uma conta de cobrança para um contrato de cliente da M
 
    ![Captura de tela que mostra a pesquisa do portal do Azure para gerenciamento de custos + cobrança](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
-3. Vá para a seção de nota fiscal. Dependendo do seu acesso, você precisa selecionar uma conta de cobrança ou o perfil de cobrança. Na conta ou perfil de cobrança, selecione **seções de nota fiscal** e, em seguida, uma seção de nota fiscal.
+3. Acesse a seção de fatura. Dependendo do seu acesso, você precisa selecionar uma conta de cobrança ou o perfil de cobrança. Na conta ou perfil de cobrança, selecione **seções de nota fiscal** e, em seguida, uma seção de nota fiscal.
    <!-- Todo - Add a screenshot -->
 
 4. Selecione **solicitações de transferência** do lado inferior esquerdo.
 
-5. Na parte superior da página, selecione **adicionar**.
+5. Na parte superior da página, selecione **Adicionar**.
 
 6. Insira o endereço de email do usuário que está solicitando a propriedade da cobrança do. O usuário deve ser um administrador da conta em uma conta de cobrança do programa de serviço Online da Microsoft ou um proprietário de conta em um Enterprise Agreement. Para obter mais informações, consulte [exibir suas contas de cobrança no portal do Azure](billing-view-all-accounts.md).
 
@@ -68,7 +68,7 @@ Este artigo se aplicam a uma conta de cobrança para um contrato de cliente da M
 
    ![Captura de tela que mostra a pesquisa do portal do Azure para gerenciamento de custos + cobrança](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
-3. Vá para a seção de nota fiscal. Dependendo do seu acesso, você precisa selecionar uma conta de cobrança ou o perfil de cobrança. Na conta ou perfil de cobrança, selecione **seções de nota fiscal** e, em seguida, uma seção de nota fiscal.
+3. Acesse a seção de fatura. Dependendo do seu acesso, você precisa selecionar uma conta de cobrança ou o perfil de cobrança. Na conta ou perfil de cobrança, selecione **seções de nota fiscal** e, em seguida, uma seção de nota fiscal.
    <!-- Todo - Add a screenshot -->
 
 4. Selecione **solicitações de transferência** do lado inferior esquerdo.

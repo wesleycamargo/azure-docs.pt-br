@@ -15,12 +15,12 @@ ums.workload: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 473f9db7eb507fa910657696590bb656a8aff52f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: db065c78008e47326155e9e2b3a0f65031ec4cd9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109870"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60478422"
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Integrar o Azure Active Directory a logs de auditoria
 
@@ -70,7 +70,7 @@ Ajuda da comunidade está disponível por meio de [Fórum do MSDN de integraçã
 
 Você também pode abrir uma [solicitação de suporte](../azure-supportability/how-to-create-azure-support-request.md). Selecione **Integração de Log** como o serviço para o qual você está solicitando suporte.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre a Integração de Log do Azure, veja:
 
 * [Integração de Logs do Microsoft Azure para logs do Azure](https://www.microsoft.com/download/details.aspx?id=53324): Esta página do Centro de Download fornece detalhes, requisitos de sistema e instruções de instalação para a Integração de Logs do Azure.

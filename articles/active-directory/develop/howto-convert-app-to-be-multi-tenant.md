@@ -19,11 +19,11 @@ ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c2054a873d73bce7048ef9e48adabf3fb5279df9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500381"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60410446"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como: Entrar em qualquer usuário do Azure Active Directory usando o padrão de aplicativo multilocatário
 
@@ -174,7 +174,7 @@ Se um administrador der o consentimento a um aplicativo para todos os usuários 
 
 Os aplicativos multilocatários também podem obter tokens de acesso para chamar APIs que são protegidas pelo Azure AD. Um erro comum ao usar a ADAL (Biblioteca de Autenticação do Active Directory) com um aplicativo multilocatário é solicitar inicialmente um token para um usuário usando /common, receber uma resposta e, depois, solicitar um próximo token para o mesmo usuário também usando /common. Como a resposta do Azure AD vem de um locatário, e não de /common, a ADAL armazena em cache o token como sendo do locatário. A chamada subsequente para /common para obter um token de acesso para o usuário perde a entrada de cache e o usuário é solicitado a entrar novamente. Para evitar a perda de cache, certifique-se de que as chamadas subsequentes para um usuário já conectado sejam feitas para o ponto de extremidade do locatário.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu a criar um aplicativo que pode conectar um usuário por meio de qualquer locatário do Azure AD. Depois de habilitar o SSO (Logon Único) entre o aplicativo e o Azure AD, também é possível atualizar o aplicativo para acessar as APIs expostas por recursos da Microsoft, como o Office 365. Portanto, é possível oferecer uma experiência personalizada no aplicativo, por exemplo, mostrando informações contextuais para os usuários, como suas imagens de perfil ou seus próximos compromissos no calendário. Para saber mais sobre como fazer chamadas de API para serviços do Azure AD e do Office 365, como Exchange, SharePoint, OneDrive, OneNote e muito mais, visite [API do Microsoft Graph][MSFT-Graph-overview].
 

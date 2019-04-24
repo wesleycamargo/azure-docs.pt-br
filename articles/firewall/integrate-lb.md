@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 4/1/2019
 ms.author: victorh
 ms.openlocfilehash: 7ee92a7508918635849caafab4632bbba81ee628
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784816"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193742"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integrar o Firewall do Azure com o Azure Standard Load Balancer
 
@@ -59,6 +59,6 @@ Por exemplo, você pode criar um NSG na sub-rede de back-end em que se encontram
 
 Para obter mais informações sobre os NSGs, confira [Grupos de segurança](../virtual-network/security-overview.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Aprenda a [Implantar e configurar um Firewall do Azure](tutorial-firewall-deploy-portal.md).

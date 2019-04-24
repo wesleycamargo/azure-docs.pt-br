@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
 ms.openlocfilehash: 672b06dda41edb18cbf31352188b0fdd2a155782
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649622"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60400999"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Fluxos de dispositivos do Hub IoT (versão prévia)
 
@@ -201,7 +201,7 @@ Use os links abaixo para obter instruções sobre como executar os programas de 
 | NodeJS | [Link](quickstart-device-streams-proxy-nodejs.md)         | -                                                 |
 | C      | -                                                         | [Link](quickstart-device-streams-proxy-c.md)      |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Use os links abaixo para saber mais sobre fluxos de dispositivos:
 

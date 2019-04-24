@@ -2,17 +2,18 @@
 title: Práticas recomendadas do operador – recursos do agendador básico no Serviço de Kubernetes do Azure (AKS)
 description: Conheça as práticas recomendadas de operador do cluster para usar os recursos básicos do Agendador, como cotas de recursos e orçamentos de interrupção de pod no Serviço de Kubernetes do Azure (AKS)
 services: container-service
-author: iainfoulds
+author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/26/2018
-ms.author: iainfou
+origin.date: 11/26/2018
+ms.date: 04/08/2019
+ms.author: v-yeche
 ms.openlocfilehash: 8233330973946e552e36a85a11bdbbfb06c739f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58178128"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60463873"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para recursos do Agendador básico no serviço de Kubernetes do Azure (AKS)
 
@@ -128,7 +129,7 @@ O [kube advisor] [ kube-advisor] ferramenta é um projeto de código-fonte abert
 
 Em um cluster AKS que hospeda várias equipes de desenvolvimento e aplicativos, pode ser difícil de controlar os pods sem solicitações desses recursos e limita o conjunto. Como prática recomendada, executar regularmente `kube-advisor` em seus clusters AKS, especialmente se você não atribuir as cotas de recursos para namespaces.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo se concentra nos recursos básicos de agendador Kubernetes. Para obter mais informações sobre as operações de cluster do AKS, consulte as seguintes práticas recomendadas:
 

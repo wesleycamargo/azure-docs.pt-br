@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: ergreenl
 ms.openlocfilehash: 637ad62744affa37630df9c841f3c7529674e788
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122902"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60418145"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Habilite o Azure Active Directory Domain Services usando o portal do Azure
 Este artigo mostra como habilitar o Azure AD DS (Azure Active Directory Domain Services) usando o portal do Azure.
@@ -64,7 +64,7 @@ Na página **Básico** do assistente, especifique o nome de domínio DNS para o 
    > * **Nome de domínio interno:** Por padrão, o assistente especifica o nome de domínio padrão/interno do diretório (com um sufixo **.onmicrosoft.com**) para você. Se você optar por habilitar o acesso LDAP seguro para o domínio gerenciado pela Internet, espere ter problemas ao criar um registro DNS público ou ao obter um certificado LDAP seguro de uma CA pública para esse nome de domínio. A Microsoft possui o domínio *.onmicrosoft.com* e as CAs não emitirão certificados para atestar esse domínio.
    > * **Nomes de domínio personalizados:** Você também pode inserir um nome de domínio personalizado. Neste exemplo, o nome de domínio personalizado é *contoso100.com*.
    > * **Sufixos de domínio não roteáveis:** Geralmente é recomendável evitar um sufixo de nome de domínio que não possa ser roteado. Por exemplo, é melhor evitar a criação de um domínio com o nome de domínio DNS 'contoso.local'. O sufixo DNS '.local' não é roteável e pode causar problemas com a resolução DNS.
-   > * **Restrições do prefixo do domínio:** O prefixo do nome do domínio especificado (por exemplo, contoso100 no nome de domínio *contoso100.com*) deve conter 15 caracteres ou menos. Você não pode criar um domínio gerenciado com um prefixo de mais de 15 caracteres.
+   > * **Restrições do prefixo do domínio:** O prefixo do nome do domínio especificado (por exemplo, *contoso100* no nome de domínio *contoso100.com*) deve conter 15 caracteres ou menos. Você não pode criar um domínio gerenciado com um prefixo de mais de 15 caracteres.
    > * **Conflitos de nome de rede:** Garanta que o nome de domínio DNS escolhido para o domínio gerenciado ainda não exista na rede virtual. Especificamente, verifique se:
    >     * Você já tiver um domínio do Active Directory com o mesmo nome de domínio DNS na rede virtual.
    >     * A rede virtual em que você planeja habilitar o domínio gerenciado tem uma conexão VPN com sua rede local. Nesse cenário, verifique se você não tem um domínio com o mesmo nome de domínio DNS na rede local.

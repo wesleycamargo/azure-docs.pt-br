@@ -9,11 +9,11 @@ ms.date: 08/01/2016
 ms.author: jeconnoc
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 23379e9d9bb29efb7fb026260e8245e8eb8a2d71
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468515"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60395060"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Armazenar e exibir dados de diagnóstico no Armazenamento do Azure
 Os dados de diagnóstico não são armazenados permanentemente, a menos que sejam transferidos para o emulador de armazenamento do Microsoft Azure ou para o armazenamento do Azure. Quando estiverem no armazenamento, eles poderão ser exibidos com uma das várias ferramentas disponíveis.
@@ -37,7 +37,7 @@ Dependendo do tipo de dados de diagnóstico que estejam sendo coletados, o diagn
 | Logs do IIS 7.0 |Blob |
 | Logs de infraestrutura do Diagnóstico do Azure |Tabela |
 | Logs de Rastreamento de Solicitação com Falha |Blob |
-| Logs de Eventos do Windows |Tabela |
+| Log de eventos do Windows |Tabela |
 | contadores de desempenho |Tabela |
 | Despejos de falhas |Blob |
 | Logs de erros personalizados |Blob |

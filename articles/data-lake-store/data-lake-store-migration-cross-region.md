@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: stewu
 ms.openlocfilehash: 0bf0843314f38c0de28820c82e95b7921297bf40
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233041"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60518447"
 ---
 # <a name="migrate-azure-data-lake-storage-gen1-across-regions"></a>Migrar o Gen1 do Armazenamento de Dados do Azure pelas regiões
 
@@ -50,5 +50,5 @@ Outros detalhes importantes a considerar no planejamento da migração são:
 
 * **Localização dos serviços de análise**. Para obter o melhor desempenho, os serviços de análise, como o Azure Data Lake Analytics ou o Azure HDInsight, devem estar na mesma região dos dados.  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 * [Visão Geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)

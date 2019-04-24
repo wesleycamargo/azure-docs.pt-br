@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 01/30/2019
 tags: connectors
 ms.openlocfilehash: 24963a35bc3e54b2d140bf4ed1d169b213bd9b2a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673675"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60448039"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Melhore a proteção contra ameaças integrando as operações de segurança com a Segurança do Microsoft Graph e os Aplicativos Lógicos do Azure
 
@@ -36,7 +36,7 @@ Para saber mais sobre a Segurança do Microsoft Graph, confira a [Visão geral d
 
 * Para usar o conector da Segurança do Microsoft Graph, você precisa ter *dado explicitamente* seu consentimento de administrador do locatário do Azure AD (Active Directory), o que faz parte dos [requisitos de autenticação da Segurança do Microsoft Graph](https://aka.ms/graphsecurityauth). Esse consentimento requer o nome e a ID do aplicativo do conector da Segurança do Microsoft Graph, que você também pode encontrar no [portal do Azure](https://portal.azure.com):
 
-   | Propriedade | Valor |
+   | Propriedade | Value |
    |----------|-------|
    | **Nome do Aplicativo** | `MicrosoftGraphSecurityConnector` |
    | **ID do Aplicativo** | `c4829704-0edc-4c3d-a347-7c4a67586f3c` |
@@ -113,7 +113,7 @@ O Microsoft Graph dá suporte a [*inscrições*](https://docs.microsoft.com/grap
 
 Para obter detalhes técnicos sobre gatilhos, ações e limites, que são explicados na descrição da OpenAPI do conector (anteriormente conhecido como Swagger), veja a [página de referência](https://aka.ms/graphsecurityconnectorreference) do conector.
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).

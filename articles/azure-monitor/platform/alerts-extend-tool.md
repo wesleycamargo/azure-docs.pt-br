@@ -9,11 +9,11 @@ ms.date: 06/04/2018
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 9d734f74c4e12b369e46c15dcb9d01a8185dddd6
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103370"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60431018"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Estender alertas do Log Analytics para os Alertas do Azure
 O recurso de alertas no portal do OMS está sendo substituído pelos Alertas do Azure na nuvem do Azure Governamental. Como parte dessa transição, os alertas que você configurou originalmente no Log Analytics serão estendidos para o Azure. Caso não queira aguardar até que os alertas sejam movidos automaticamente para o Azure, você poderá iniciar o processo:
@@ -237,7 +237,7 @@ A seguir são apresentadas as etapas de correção para cada erro:
     Quando você resolve o erro usando as etapas ilustradas no artigo, o Operations Management Suite estenderá os alertas para o Azure na execução agendada do dia seguinte. Não será necessário tomar mais nenhuma ação nem iniciar nada.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre a nova [experiência de Alertas do Azure](../../azure-monitor/platform/alerts-overview.md).
 * Saiba mais sobre os [Alertas de log nos Alertas do Azure](alerts-unified-log.md).

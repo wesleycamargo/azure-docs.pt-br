@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: ea625a61ed600dbaa22fef85987e9570a6fb7dbc
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337406"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371438"
 ---
 # <a name="get-started-with-your-billing-account-for-a-microsoft-customer-agreement"></a>Introdução à sua conta de cobrança para um contrato de cliente da Microsoft
 
@@ -30,7 +30,7 @@ Este artigo se aplicam a uma conta de cobrança para um contrato de cliente da M
 
 Sua conta de cobrança para o contrato de cliente da Microsoft contém um ou mais perfis de cobrança que permitem que você gerencie seus métodos de pagamento e notas fiscais. Cada perfil de cobrança contém um ou mais seções de nota fiscal que permitem que você organize os custos de fatura de cobrança do perfil.
 
-O diagrama a seguir mostra a relação entre uma conta de cobrança, a cobrança de perfis e seções de nota fiscal.
+O diagrama a seguir mostra os relacionamentos entre uma conta de cobrança, os perfis de cobrança e as seções da fatura.
 
 ![Diagrama que mostra a hierarquia de cobrança para o contrato de cliente da Microsoft](./media/billing-mca-overview/mca-billing-hierarchy.png)
 

@@ -18,11 +18,11 @@ ms.custom: it-pro
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eeb3ff27ba7dc8ea59eb67b2589964fb4333e889
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191700"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516227"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Tutoriais para a integração de aplicativos SaaS ao Azure Active Directory
 
@@ -45,6 +45,6 @@ Para obter a lista de todos os aplicativos SaaS que foram pré-integrados ao Azu
 
 Para localizar mais tutoriais, use o sumário à esquerda. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre o gerenciamento de aplicativo, confira [O que é o gerenciamento de aplicativo](../manage-apps/what-is-application-management.md).
 

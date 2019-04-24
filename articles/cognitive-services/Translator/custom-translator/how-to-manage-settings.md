@@ -10,11 +10,11 @@ ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
 ms.openlocfilehash: 6e8406cdd265063622bc5dcebbb9f22549b3633a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766794"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60513919"
 ---
 # <a name="how-to-manage-settings"></a>Como gerenciar configurações
 
@@ -101,6 +101,6 @@ Quando uma área de trabalho é compartilhada, a seção “Configurações de c
 
     ![Configurações de permissão de compartilhamento](media/how-to/sharing-permission-settings.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Aprenda [como migrar sua área de trabalho e projeto](how-to-migrate.md) de [Microsoft Translator Hub](https://hub.microsofttranslator.com)

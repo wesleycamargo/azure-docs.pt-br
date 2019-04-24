@@ -15,11 +15,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3cb8944578caf00fac5ca430e411f044a875f6af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492270"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60288659"
 ---
 # <a name="configure-azure-ad-role-settings-in-pim"></a>Definir configurações de função do AD do Azure no PIM
 
@@ -115,7 +115,7 @@ Se você quiser exigir aprovação para ativar uma função, siga estas etapas.
 
 <!--PLACEHOLDER: Need an explanation of what the temporary Global Administrator setting is for.-->
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Atribuir funções do Azure AD no PIM](pim-how-to-add-role-to-user.md)
 - [Configurar alertas de segurança para funções do Azure AD no PIM](pim-how-to-configure-security-alerts.md)

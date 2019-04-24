@@ -17,11 +17,11 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 21e101dee878a48cce1005d51ad5e59166b0cfa1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193111"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60293248"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Como habilitar aplicativos clientes nativos para interagir com aplicativos de proxy
 
@@ -95,7 +95,7 @@ As variáveis no exemplo de código devem ser substituídas da seguinte maneira:
 
 Quando a ADAL é editada com esses parâmetros, os usuários devem ser capazes de autenticar para aplicativos cliente nativos, mesmo quando eles estão fora da rede corporativa. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o fluxo do aplicativo nativo, confira [Aplicativo nativo para API Web](../develop/native-app.md)
 

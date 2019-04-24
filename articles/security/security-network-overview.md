@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
 ms.openlocfilehash: 2aabe3d1fa8a6034c2dab38c8d6fa6da4b00ac1b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080332"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60444258"
 ---
 # <a name="azure-network-security-overview"></a>Visão geral da segurança de rede do Azure
 
@@ -320,7 +320,7 @@ A Microsoft fornece proteção contra DDoS conhecido como **Básico** como parte
 * **Proteção imediata:** a configuração simplificada protege de maneira imediata todos os recursos em uma rede virtual assim que a Proteção contra DDoS Standard é habilitada. Nenhuma definição ou intervenção do usuário é necessária. A Proteção contra DDoS Standard atenua o ataque de maneira instantânea e automática, assim que ele é detectado.
 * **Monitoramento de tráfego Always On:** seus padrões de tráfego do aplicativo são monitorados 24 horas por dia, 7 dias por semana, procurando indicadores de ataques de DDoS. A mitigação é realizada quando as políticas de proteção são excedidas.
 * **Relatórios de Mitigação de Ataque** Os Relatórios de Mitigação de Ataques usam dados de fluxo de rede agregados para fornecer informações detalhadas sobre ataques direcionados a seus recursos.
-* **Registros de Fluxo de Mitigação de Ataque** Os Registros de Fluxo de Mitigação de Ataque permitem que você revise o tráfego perdido, o tráfego encaminhado e outros dados de ataque quase em tempo real durante um ataque DDoS ativo.
+* **Logs de Fluxo de Mitigação de Ataque** Os Logs de Fluxo de Mitigação de Ataque permitem que você revise o tráfego perdido, o tráfego encaminhado e outros dados de ataque quase em tempo real durante um ataque DDoS ativo.
 * **Ajuste adaptável:** a criação de perfis de tráfego inteligente aprende sobre o tráfego do seu aplicativo ao longo do tempo e seleciona e atualiza o perfil mais adequado para seu serviço. O perfil se ajusta conforme o tráfego é alterado ao longo do tempo. Proteção das camadas 3 a 7: fornece proteção contra DDoS de pilha completa, quando usado com um firewall do aplicativo Web.
 * **Escala de mitigação ampla:** mais de 60 tipos de ataques diferentes podem ser atenuados, com capacidade global, para proteger contra os maiores ataques de DDoS conhecidos.
 * **Métricas de ataque:** as métricas resumidas de cada ataque são acessíveis por meio do Azure Monitor.

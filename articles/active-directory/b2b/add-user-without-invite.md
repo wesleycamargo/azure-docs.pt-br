@@ -13,11 +13,11 @@ manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1dca03f84b821d20ee6fecbaec24a1aa840836b5
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294970"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60357130"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Adicionar os usuários convidados de colaboração B2B sem um link de convite ou um email
 
@@ -33,7 +33,7 @@ Esse método original ainda funciona. No entanto, há uma pequena diferença no 
 
 Se você convidar um usuário para o diretório, o convidado deverá acessar o portal do Azure do recurso específico do locatário diretamente na URL (como https://portal.azure.com/*resourcetenant*.onmicrosoft.com) para exibir e aceitar os termos de privacidade.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [O que é a colaboração B2B do AD do Azure?](what-is-b2b.md)
 - [Resgate de convite de colaboração B2B](redemption-experience.md)

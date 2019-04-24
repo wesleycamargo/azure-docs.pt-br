@@ -5,18 +5,18 @@ services: billing
 author: dhirajgandhi
 manager: dhgandhi
 ms.author: banders
-ms.date: 03/12/2018
+ms.date: 03/12/2019
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: ecbdf182fe2da7413e6d27ef5775dbaa7ad60806
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6bf61e2afd96e3923938ac4f815d34ae08f7c618
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270176"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371252"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Vincular ID de parceiro a suas contas do Azure
 
@@ -57,29 +57,29 @@ Quando você tem acesso aos recursos do cliente, use o portal do Azure, o PowerS
 1. Instalar o módulo [AzureRM.ManagementPartner](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner) do PowerShell.
 
 2. Entre no locatário do cliente com a conta de usuário ou a entidade de serviço. Para obter mais informações, veja [Entrar com o PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
- 
+
    ```azurepowershell-interactive
-    C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
+    C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
    ```
 
 3. Vincular a nova ID de parceiro. A ID do parceiro é a ID do [Microsoft Partner Network](https://partner.microsoft.com/) da sua organização.
 
     ```azurepowershell-interactive
-    C:\> new-AzureRmManagementPartner -PartnerId 12345 
+    C:\> new-AzManagementPartner -PartnerId 12345
     ```
 
 #### <a name="get-the-linked-partner-id"></a>Obter a ID de parceiro vinculada
 ```azurepowershell-interactive
-C:\> get-AzureRmManagementPartner 
+C:\> get-AzManagementPartner
 ```
 
 #### <a name="update-the-linked-partner-id"></a>Atualizar a ID de parceiro vinculada
 ```azurepowershell-interactive
-C:\> Update-AzureRmManagementPartner -PartnerId 12345 
+C:\> Update-AzManagementPartner -PartnerId 12345
 ```
 #### <a name="delete-the-linked-partner-id"></a>Excluir a ID de parceiro vinculada
 ```azurepowershell-interactive
-C:\> remove-AzureRmManagementPartner -PartnerId 12345 
+C:\> remove-AzManagementPartner -PartnerId 12345
 ```
 
 ### <a name="use-the-azure-cli-to-link-to-a-new-partner-id"></a>Use a CLI do Azure para vincular a uma nova ID de parceiro
@@ -87,13 +87,13 @@ C:\> remove-AzureRmManagementPartner -PartnerId 12345
 
     ```azurecli-interactive
     C:\ az extension add --name managementpartner
-    ``` 
+    ```
 
 2. Entre no locatário do cliente com a conta de usuário ou a entidade de serviço. Para obter mais informações, veja [Entrar com a CLI do Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
     ```azurecli-interactive
     C:\ az login --tenant <tenant>
-    ``` 
+    ```
 
 3. Vincular a nova ID de parceiro. A ID do parceiro é a ID do [Microsoft Partner Network](https://partner.microsoft.com/) da sua organização.
 
@@ -104,19 +104,19 @@ C:\> remove-AzureRmManagementPartner -PartnerId 12345
 #### <a name="get-the-linked-partner-id"></a>Obter a ID de parceiro vinculada
 ```azurecli-interactive
 C:\ az managementpartner show
-``` 
+```
 
 #### <a name="update-the-linked-partner-id"></a>Atualizar a ID de parceiro vinculada
 ```azurecli-interactive
 C:\ az managementpartner update --partner-id 12345
-``` 
+```
 
 #### <a name="delete-the-linked-partner-id"></a>Excluir a ID de parceiro vinculada
 ```azurecli-interactive
 C:\ az managementpartner delete --partner-id 12345
-``` 
+```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Participe da discussão da [Comunidade de Parceiros da Microsoft](https://aka.ms/PALdiscussion) para receber atualizações ou enviar comentários.
 
@@ -136,12 +136,12 @@ A vinculação entre a ID de parceiro e a conta é feita para cada locatário do
 
 **Outros parceiros ou clientes podem editar ou remover a vinculação à ID de parceiro?**
 
-A vinculação está associada no nível da conta de usuário. Só você pode editar ou remover a vinculação à ID de parceiro. O cliente e outros parceiros não podem alterar a vinculação à ID de parceiro. 
+A vinculação está associada no nível da conta de usuário. Só você pode editar ou remover a vinculação à ID de parceiro. O cliente e outros parceiros não podem alterar a vinculação à ID de parceiro.
 
 
 **Qual ID MPN devo usar se a minha empresa possui vários?**
 
-Você pode usar qualquer ID MPN válida, exceto virtual orgnization(v-org) ID MPN. A maioria dos parceiros optar por usar a ID do MPN para a localização geográfica em que o cliente baseia-se ou serviços estão sendo entregues.
+Você pode usar qualquer ID MPN válida, exceto organization(v-org) virtual ID MPN. A maioria dos parceiros optar por usar a ID do MPN para a localização geográfica em que o cliente baseia-se ou serviços estão sendo entregues.
 
 **Onde posso encontrar relatórios para a ID de parceiro vinculada de receita influenciou?**
 
@@ -158,4 +158,3 @@ Não é possível ver o cliente nos relatórios seguintes motivos
 **Vincular a parceiro que ID funciona com o Azure Stack?**
 
 Sim, você pode vincular sua ID de parceiro para o Azure Stack.
-

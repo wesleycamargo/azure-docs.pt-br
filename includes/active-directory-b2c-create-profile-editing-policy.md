@@ -2,14 +2,15 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/30/2018
-ms.author: patricka
+origin.date: 11/30/2018
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: 0d9f0a24d84bd18bdf1fac84c744cc34a7d89ab3
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "58115980"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60456021"
 ---
 Se quiser habilitar a edição de perfil no aplicativo, use um fluxo de usuário de **edição de perfil**. Esse luxo de usuário descreve as experiências pelas quais os clientes passarão durante a edição de perfil e o conteúdo dos tokens que o aplicativo receberá após a conclusão com êxito.
 
@@ -17,7 +18,7 @@ Se quiser habilitar a edição de perfil no aplicativo, use um fluxo de usuário
 
 Em **Gerenciar**, selecione **Fluxos dos usuários** e clique em +**Novo fluxo de usuário**.
 
-![Selecionar novo fluxo de usuário](media/active-directory-b2c-create-profile-editing-policy/add-b2c-new-user-flow.png)
+![Selecionar novo fluxo de usuário](./media/active-directory-b2c-create-profile-editing-policy/add-b2c-new-user-flow.png)
 
 Na guia **Recomendado**, clique em **Edição de perfil**.
 
@@ -25,7 +26,7 @@ Insira um **Nome** de fluxo de usuário para referência do seu aplicativo. Por 
 
 Clique em **Provedores de identidade** e marque **Conectar à Conta Local**. Opcionalmente, você também pode selecionar provedores de identidade social, se já configurado.
 
-![Selecione Inscrição na Conta Local como provedor de identidade e clique no botão OK](media/active-directory-b2c-create-profile-editing-policy/add-b2c-profile-editing-identity-providers.png)
+![Selecione Inscrição na Conta Local como provedor de identidade e clique no botão OK](./media/active-directory-b2c-create-profile-editing-policy/add-b2c-profile-editing-identity-providers.png)
 
 Em **Atributos de usuário**, clique em **Mostrar mais**. Na coluna **Coletar atributo**, escolha os atributos que o consumidor pode exibir e editar no perfil dele. Por exemplo, marque **País/Região**, **Nome de Exibição** e **CEP**.
 
@@ -33,15 +34,15 @@ Na coluna **Retornar declaração**, escolha as declarações que você quer ret
 
 Clique em **OK**.
 
-![Selecione algumas declarações de aplicativo e clique no botão OK](media/active-directory-b2c-create-profile-editing-policy/add-b2c-user-attributes.png)
+![Selecione algumas declarações de aplicativo e clique no botão OK](./media/active-directory-b2c-create-profile-editing-policy/add-b2c-user-attributes.png)
 
 Clique em **Criar** para adicionar o fluxo de usuário. O fluxo de usuário é listado como **B2C_1_SiPe**. O prefixo **B2C_1_** está anexado ao nome.
 
 Selecione **Executar fluxo de usuário**. Verifique as configurações especificadas na tabela e, em seguida, clique em **Executar fluxo de usuário**.
 
-![Selecionar e executar o fluxo de usuário](media/active-directory-b2c-create-profile-editing-policy/add-b2c-profile-editing-run-user-flow.png)
+![Selecionar e executar o fluxo de usuário](./media/active-directory-b2c-create-profile-editing-policy/add-b2c-profile-editing-run-user-flow.png)
 
-| Configuração      | Valor  |
+| Configuração      | Value  |
 | ------------ | ------ |
 | **Aplicativo** | Aplicativo B2C da Contoso |
 | **URL de Resposta** | `https://localhost:44316/` |
@@ -51,3 +52,4 @@ Uma nova guia do navegador é aberta e você poderá verificar a experiência de
 > [!NOTE]
 > Leva até um minuto para que a criação do fluxo de usuário e as atualizações entrem em vigor.
 >
+

@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: ergreenl
 ms.openlocfilehash: f18d3409d53123733d7f423c77864cd0739765eb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900583"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359895"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Ingressar uma máquina virtual do Windows Server em um domínio gerenciado
 Este artigo mostra como implantar uma máquina virtual do Windows Server usando o Portal do Azure. Então, mostra como ingressar a máquina virtual em um domínio gerenciado do Azure Active Directory Domain Services (Azure AD DS).

@@ -19,11 +19,11 @@ ms.custom: aaddev
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b5c296f14fd9fdc3a7555412555ea1a851f9a7b8
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563822"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60410035"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokens de ID do Microsoft identity platform
 
@@ -100,7 +100,7 @@ Para validar o token manualmente, consulte os detalhes das etapas em [validar um
 * Público-alvo: a declaração `aud` deve corresponder à ID do aplicativo do seu aplicativo.
 * Nonce: a declaração `nonce` no conteúdo deve corresponder ao parâmetro nonce passado para o ponto de extremidade /authorize durante a solicitação inicial.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre [tokens de acesso](access-tokens.md)
 * Personalizar as declarações em seu usando id_token [declarações opcionais](active-directory-optional-claims.md).

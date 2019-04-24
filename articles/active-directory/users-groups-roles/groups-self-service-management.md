@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5122c9142eccf12193e7e429a3af5ac44fbb8fd6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b860257fd1b3f0897152dc3d48bff0c7e1d3d994
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111320"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60469854"
 ---
 # <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Configurar o gerenciamento de grupo de autoatendimento no Azure Active Directory 
 
-Você pode permitir que os usuários criar e gerenciar seus próprios grupos de segurança ou grupos do Office 365 no Azure Active Directory (Azure AD). O proprietário do grupo pode aprovar ou negar solicitações de associação e pode delegar o controle de associação de grupo. Recursos de gerenciamento de grupo de autoatendimento não estão disponíveis para grupos de segurança habilitados por email ou listas de distribuição. 
+Você pode permitir que os usuários criar e gerenciar seus próprios grupos de segurança ou grupos do Office 365 no Azure Active Directory (Azure AD). O proprietário do grupo pode aprovar ou negar solicitações de associação e pode delegar o controle de associação de grupo. Recursos de gerenciamento de grupo de autoatendimento não estão disponíveis para grupos de segurança habilitados por email ou listas de distribuição.
 
 ## <a name="self-service-group-membership-defaults"></a>Padrões de associação de grupo de autoatendimento
 
@@ -42,6 +42,7 @@ Grupos criados no | Comportamento padrão de segurança de grupo | Comportamento
 * **Gerenciamento de grupo de autoatendimento** Um exemplo deste cenário consiste em dois usuários que têm sites do SharePoint Online que eles configuram de forma independente. Eles desejam fornecer às equipes um do outro acesso a seus sites. Para isso, eles podem criar um grupo no Azure AD e, no SharePoint Online, cada um seleciona esse grupo para fornecer acesso a seus sites. Quando alguém deseja acesso, solicita do painel de acesso, e depois da aprovação obtêm acesso a ambos os sites do SharePoint Online automaticamente. Posteriormente, um deles decide que todas as pessoas que acessam o site também devem obter acesso a determinado aplicativo SaaS. O administrador do aplicativo SaaS pode adicionar direitos de acesso ao aplicativo para o site do SharePoint Online. Depois, as solicitações que forem aprovadas darão acesso aos dois sites do SharePoint Online e também ao aplicativo SaaS.
 
 ## <a name="make-a-group-available-for-user-self-service"></a>Disponibilização de um grupo para autoatendimento do usuário
+
 1. Entre no [centro de administração do Azure AD](https://aad.portal.azure.com) com uma conta que seja um administrador global para o diretório.
 2. Selecione **Usuários e grupos** e depois **Configurações de grupo**.
 3. Defina **Gerenciamento de grupo de autoatendimento habilitado** como **Sim**.
@@ -49,11 +50,14 @@ Grupos criados no | Comportamento padrão de segurança de grupo | Comportamento
    * Quando essas configurações forem habilitadas, todos os usuários em seu diretório terão permissão para criar novos grupos de segurança e adicionar membros a esses grupos. Esses novos grupos também aparecem no Painel de Acesso para todos os outros usuários. Se a configuração de política de grupo permitir isso, outros usuários poderão criar solicitações para ingressar nesses grupos. 
    * Quando essas configurações estiverem desabilitadas, os usuários não poderão criar grupos nem alterar grupos existentes dos quais são proprietários. No entanto, ainda podem gerenciar as associações desses grupos e aprovar solicitações de outros usuários para ingressar em seus grupos.
 
-Você também pode usar **Usuários que podem gerenciar grupos de segurança** e **Usuários que podem gerenciar grupos do Office 365** para alcançar um controle de acesso mais granular sobre o gerenciamento de grupo de autoatendimento para seus usuários. Quando **Usuários podem criar grupos** estiver habilitada, todos os usuários em seu locatário terão permissão para criar novos grupos e adicionar membros a esses grupos. Ao defini-los como **Alguns**, você está restringindo grupo de gerenciamento a apenas um grupo limitado de usuários. Quando essa opção é definida como **Alguns**, você deve adicionar usuários ao grupo SSGMSecurityGroupsUsers para que eles possam criar novos grupos e adicionar membros a eles. A definição de **Usuários que podem usar autoatendimento para grupos de segurança** e de **Usuários que podem gerenciar grupos do Office 365** como **Todos**, você habilita todos os usuários em seu diretório a criar novos grupos.
+Você também pode usar **Usuários que podem gerenciar grupos de segurança** e **Usuários que podem gerenciar grupos do Office 365** para alcançar um controle de acesso mais granular sobre o gerenciamento de grupo de autoatendimento para seus usuários. Quando **Usuários podem criar grupos** estiver habilitada, todos os usuários em seu locatário terão permissão para criar novos grupos e adicionar membros a esses grupos. Não é possível especificar os indivíduos que podem criar seus próprios grupos. Você pode especificar os indivíduos apenas para tornar um proprietário do grupo de outro membro do grupo.
+
+Definindo **os usuários que podem usar autoatendimento para grupos de segurança** e **usuários que podem gerenciar grupos do Office 365** para **Sim**, você habilita todos os usuários em seu locatário para criar um novo grupos.
 
 Você também pode usar **Grupo que pode gerenciar grupos de segurança** ou **Grupo que pode gerenciar os grupos do Office 365** para especificar um único grupo cujos membros podem usar o autoatendimento.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 
 * [Gerenciar o acesso a recursos com Grupos do Azure Active Directory](../fundamentals/active-directory-manage-groups.md)

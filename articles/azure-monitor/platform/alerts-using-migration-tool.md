@@ -8,11 +8,11 @@ ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
 ms.openlocfilehash: 58c664beee942fe7115c7fff38a039c23bed6ac3
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58631968"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60346004"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Use a ferramenta de migração voluntária para migrar suas regras de alerta clássicas
 
@@ -95,7 +95,7 @@ Para a maioria das assinaturas, a migração completa normalmente menos de uma h
 
 Siga as [solução de problemas para ver as etapas de correção de problemas que você poderá enfrentar durante a migração](alerts-understand-migration.md#common-issues-and-remediations). Se nenhuma ação é necessária para concluir a migração, você será notificado sobre os endereços de email fornecido durante a migração.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Preparar para a migração](alerts-prepare-migration.md)
 - [Entender como funciona a ferramenta de migração](alerts-understand-migration.md)

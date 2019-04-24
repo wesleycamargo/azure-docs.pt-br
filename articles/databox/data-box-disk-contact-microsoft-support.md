@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: alkohli
 ms.openlocfilehash: d62ad37e6bbe9c89ef803cefc43f373e287a7af7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100438"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60462282"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Abrir um tíquete de suporte para o Azure Data Box 
 
@@ -81,6 +81,6 @@ Depois de criar um tíquete de suporte, você pode gerenciar o ciclo de vida do 
 3. Selecione e clique em uma solicitação de suporte. Você pode exibir o status e os detalhes para esta solicitação. Clique em **+ Nova mensagem** se desejar acompanhar esta solicitação.
 
    
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como [Solucionar problemas relacionados ao serviço de Data Box Disk](data-box-disk-troubleshoot.md).

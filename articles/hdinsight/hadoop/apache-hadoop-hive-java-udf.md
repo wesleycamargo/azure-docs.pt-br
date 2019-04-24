@@ -2,19 +2,26 @@
 title: Função Definida pelo Usuário (UDF) Java com o Apache Hive no HDInsight - Azure
 description: Saiba como criar uma baseado em Java-função definida pelo usuário (UDF) que funciona com o Apache Hive. Este UDF de exemplo converte uma tabela de cadeias de caracteres de texto em minúsculas.
 services: hdinsight
-author: hrasheed-msft
-ms.reviewer: jasonh
+documentationcenter: ''
+author: Blackmist
+manager: jhubbard
+editor: cgronlun
+ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
+ms.devlang: java
 ms.topic: conceptual
-ms.date: 03/21/2019
-ms.author: hrasheed
+ms.tgt_pltfrm: na
+ms.workload: big-data
+origin.date: 03/21/2019
+ms.date: 04/29/2019
+ms.author: v-yiso
 ms.openlocfilehash: b8417fe4c15259a7fd485254cf9edd2c8c082e92
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629708"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60537625"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Usar um Java UDF com Apache Hive no HDInsight
 
@@ -24,7 +31,7 @@ Saiba como criar uma baseado em Java-função definida pelo usuário (UDF) que f
 
 * Um cluster de Hadoop no HDInsight. Ver [Introdução ao HDInsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * [JDK (Java Developer Kit) versão 8](https://aka.ms/azure-jdks)
-* [Apache Maven](https://maven.apache.org/download.cgi) corretamente [instalado](https://maven.apache.org/install.html) acordo com o Apache.  O Maven é um sistema de construção de projetos para projetos Java.
+* [Apache Maven](https://maven.apache.org/download.cgi) corretamente [instalado](https://maven.apache.org/install.html) de acordo com o Apache.  O Maven é um sistema de construção de projetos para projetos Java.
 * O [esquema de URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) para seu armazenamento primário de clusters. Isso seria wasb: / / para o armazenamento do Azure, abfs: / / para o armazenamento do Azure Data Lake Gen2 ou adl: / / para o Azure Data Lake armazenamento Gen1. Se a transferência segura é habilitada para o armazenamento do Azure ou Data Lake armazenamento Gen2, o URI seria wasbs: / / ou abfss: / /, respectivamente, consulte também [transferência segura](../../storage/common/storage-require-secure-transfer.md).
 
 * Um editor de texto ou Java IDE
@@ -194,13 +201,13 @@ Os comandos a seguir, substitua `sshuser` com o nome de usuário real se elas fo
 2. Use o `scp` comando para copiar o arquivo para o cluster HDInsight, digitando o seguinte comando:
 
     ```cmd
-    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight.net:
+    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight
     ```
 
 3. Conecte-se ao cluster usando SSH, digitando o seguinte comando:
 
     ```cmd
-    ssh sshuser@mycluster-ssh.azurehdinsight.net
+    ssh sshuser@mycluster-ssh.azurehdinsight.cn
     ```
 
 4. Na sessão SSH aberta, copie o arquivo jar para o armazenamento do HDInsight.

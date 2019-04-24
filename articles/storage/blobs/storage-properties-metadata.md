@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
-ms.openlocfilehash: 86bb7e736754cbc6a93bba5fff5d8d1877b1e3b4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e85cfb6d7b44924ce7f17fdedb7f1b52350ab598
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916573"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392391"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Definir e recuperar as propriedades e os metadados
 
@@ -27,7 +27,7 @@ Recuperar os valores da propriedade e dos metadados para um recurso de armazenam
 > [!IMPORTANT]
 > Se você achar que a propriedade ou os valores de metadados de um recurso de armazenamento não foram preenchidos, verifique se o código chama o método **FetchAttributes** ou **FetchAttributesAsync**.
 >
-> Pares de nome/valor de metadados são cabeçalhos HTTP válidos e portanto devem cumprir todas as restrições que regem cabeçalhos HTTP. Os nomes de metadados devem ser nomes de cabeçalho HTTP válidos, podem conter apenas caracteres ASCII e devem ser tratados como diferencia maiusculas de minúsculas. Os valores de metadados que contém caracteres não ASCII devem ser codificada em Base64 ou codificado de URL.
+> Pares de nome/valor de metadados são cabeçalhos HTTP válidos e portanto devem cumprir todas as restrições que regem cabeçalhos HTTP. Nomes de metadados devem ser nomes válidos de cabeçalho HTTP válido e C# identificadores, pode conter apenas caracteres ASCII e devem ser tratados como diferencia maiusculas de minúsculas. Os valores de metadados que contém caracteres não ASCII devem ser codificada em Base64 ou codificado de URL.
 
 ## <a name="setting-and-retrieving-properties"></a>Configurando e recuperando as propriedades
 Para recuperar os valores da propriedade, chame o método **FetchAttributesAsync** no blob ou no contêiner para preencher as propriedades e leia os valores.
@@ -98,6 +98,6 @@ public static async Task ListContainerMetadataAsync(CloudBlobContainer container
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Biblioteca do cliente de armazenamento do Azure para a referência do .NET](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
 * [Biblioteca do cliente de armazenamento do Azure para o pacote NuGet do .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)

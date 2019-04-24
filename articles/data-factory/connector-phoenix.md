@@ -3,21 +3,22 @@ title: Copiar dados do Phoenix usando o Azure Data Factory | Microsoft Docs
 description: Saiba como copiar dados do Phoenix para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: jingwang
+origin.date: 12/07/2018
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: 012057c7d01924ab1998a010b6ea0c7d83651a4d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017796"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405912"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Copiar dados do Phoenix usando o Azure Data Factory 
 
@@ -41,11 +42,11 @@ As propriedades a seguir têm suporte para o serviço vinculado do Phoenix:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Phoenix** | SIM |
-| host | O endereço IP ou nome do host do servidor Phoenix. (ou seja, 192.168.222.160)  | SIM |
+| type | A propriedade type deve ser definida como: **Phoenix** | Sim |
+| host | O endereço IP ou nome do host do servidor Phoenix. (ou seja, 192.168.222.160)  | Sim |
 | porta | A porta TCP usada pelo servidor Phoenix para ouvir conexões de cliente. O valor padrão é 8765. Se você conectar ao Microsoft Azure HDInsights, especifique a porta como 443. | Não  |
 | httpPath | A URL parcial correspondente ao servidor do Phoenix. (ou seja, /gateway/sandbox/phoenix/version). Especifique `/hbasephoenix0` se estiver usando cluster HDInsights.  | Não  |
-| authenticationType | O mecanismo de autenticação usado para se conectar ao servidor do Phoenix. <br/>Valores permitidos são: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | SIM |
+| authenticationType | O mecanismo de autenticação usado para se conectar ao servidor do Phoenix. <br/>Valores permitidos são: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sim |
 | Nome de Usuário | O nome de usuário usado para se conectar ao servidor do Phoenix.  | Não  |
 | Senha | A senha correspondente ao nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não  |
 | enableSsl | Especifica se as conexões com o servidor são criptografadas usando SSL. O valor padrão é falso.  | Não  |
@@ -66,7 +67,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Phoenix:
     "properties": {
         "type": "Phoenix",
         "typeProperties": {
-            "host" : "<cluster>.azurehdinsight.net",
+            "host" : "<cluster>.azurehdinsight.cn",
             "port" : "443",
             "httpPath" : "/hbasephoenix0",
             "authenticationType" : "WindowsAzureHDInsightService",
@@ -88,7 +89,7 @@ Para copiar dados do Phoenix, defina a propriedade type do conjunto de dados com
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **PhoenixObject** | SIM |
+| type | A propriedade type do conjunto de dados deve ser definida como: **PhoenixObject** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -117,7 +118,7 @@ Para copiar dados de Phoenix, defina o tipo de fonte na atividade de cópia como
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **PhoenixSource** | SIM |
+| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **PhoenixSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**
@@ -152,5 +153,5 @@ Para copiar dados de Phoenix, defina o tipo de fonte na atividade de cópia como
 ]
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

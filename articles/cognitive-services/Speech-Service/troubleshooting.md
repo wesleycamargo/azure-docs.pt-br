@@ -8,15 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: wolfma
+origin.date: 12/06/2018
+ms.date: 04/01/2019
+ms.author: v-biyu
 ms.custom: seodec18
 ms.openlocfilehash: a3741cb351b11b8cfd7c5d38713bb71232cf010e
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446521"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60515445"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>Solucionar Problemas do SDK de Fala
 
@@ -124,6 +125,6 @@ Geralmente, esse problema é causado por dados de áudio. Você poderá ver esse
 
 * O áudio usa um formato de codec sem suporte, fazendo com que os dados de áudio sejam tratados como silêncio.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Examinar as notas de versão](releasenotes.md)

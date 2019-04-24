@@ -5,15 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 12/26/2018
-author: sivethe
-ms.author: sivethe
+origin.date: 12/26/2018
+ms.date: 01/21/2019
+author: rockboyfor
+ms.author: v-yeche
 ms.openlocfilehash: de037316efa50dd25ea04c370fa0e5878fb52ba1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040397"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60448496"
 ---
 # <a name="indexing-using-azure-cosmos-dbs-api-for-mongodb"></a>Indexação usando a API do Azure Cosmos DB para MongoDB
 
@@ -79,14 +80,14 @@ No exemplo acima, se a cláusula ```"university":1``` for omitida, um erro com a
 ## <a name="ttl-indexes"></a>Índices TTL
 
 Para habilitar a validade de documento em determinada coleção, um ["Índice TTL" (índice de vida útil)](../cosmos-db/time-to-live.md) precisará ser criado. Um TTL é um índice no campo _ts com um valor de "expireAfterSeconds".
- 
+
 Exemplo:
 ```JavaScript
 globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
 ```
 
 O comando anterior causará a exclusão de todos os documentos na coleção ```db.coll``` que não foram modificados nos últimos 10 segundos. 
- 
+
 > [!NOTE]
 > **_ts** é um campo específico do Azure Cosmos DB e não pode ser acessado por clientes do MongoDB. É uma propriedade reservada (sistema) que contém o carimbo de data/hora da última modificação do documento.
 >
@@ -98,3 +99,5 @@ Atualmente, a criação de índices exclusivos é possível apenas quando a cole
 ## <a name="next-steps"></a>Próximas etapas
 * [Indexação no Azure Cosmos DB](../cosmos-db/index-policy.md)
 * [Expirar os dados no Azure Cosmos DB automaticamente com a vida útil](../cosmos-db/time-to-live.md)
+
+<!-- Update_Description: update meta properties  -->

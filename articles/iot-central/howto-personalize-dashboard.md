@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: fb74669dcaa802ad06a9c4dff3ffdf25726f518c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316046"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60518609"
 ---
 # <a name="create-and-manage-personal-dashboards"></a>Criar e gerenciar painéis pessoais
 
@@ -49,7 +49,7 @@ Você pode editar seus painéis pessoais e excluir os que não são mais necess�
 
 ![Excluir painel](media/howto-personalize-dashboard/managedashboards.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você aprendeu como criar e gerenciar painéis pessoais, você pode:
 

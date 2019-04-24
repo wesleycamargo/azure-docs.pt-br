@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
 ms.openlocfilehash: 050e3032d47b8215ae1aef8492c247031275ab86
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094636"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237613"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Matriz de proteção do Servidor de Backup do Azure
 
@@ -22,7 +22,7 @@ Este artigo lista os vários servidores e as cargas de trabalho que você pode p
 
 ## <a name="protection-support-matrix"></a>Matriz de suporte de proteção
 
-|Carga de Trabalho|Versão|Servidor de Backup do Azure</br> instalação|Backup do Azure</br> Servidor V3|Backup do Azure</br> Servidor V2|Proteção e recuperação|
+|Carga de trabalho|Version|Servidor de Backup do Azure</br> instalação|Serviço de Backup do Azure</br> Servidor V3|Serviço de Backup do Azure</br> Servidor V2|Proteção e recuperação|
 |------------|-----------|---------------|--------------|---------------|-----------------|
 |Computadores cliente (64 bits e 32 bits)|Windows 10|Servidor físico<br /><br />Máquina virtual do Hyper-V<br /><br />Máquinas Virtuais VMware|S|S|Volume, compartilhamento, pasta, arquivos, volumes com duplicados eliminados<br /><br />Os volumes protegidos devem ser NTFS. FAT e FAT32 não têm suporte.<br /><br />Os volumes devem ter no mínimo 1 GB. O DPM usa o Serviço de cópias de sombra de volume (VSS) para capturar o instantâneo de dados e o instantâneo só funcionará se o volume tiver pelo menos 1 GB.|
 |Computadores cliente (64 bits e 32 bits)|Windows 8.1|Servidor físico<br /><br />Máquina virtual do Hyper-V|S|S|Arquivos<br /><br />Os volumes protegidos devem ser NTFS. FAT e FAT32 não têm suporte.<br /><br />Os volumes devem ter no mínimo 1 GB. O DPM usa o Serviço de cópias de sombra de volume (VSS) para capturar o instantâneo de dados e o instantâneo só funcionará se o volume tiver pelo menos 1 GB.|
@@ -43,7 +43,7 @@ Este artigo lista os vários servidores e as cargas de trabalho que você pode p
 |Servidores (32 bits e 64 bits)|Windows Server 2008 SP2|Servidor físico<br /><br />Máquina virtual local do Hyper-V<br /> <br /> Azure Stack|N|N|Volume, compartilhamento, pasta, arquivo, estado do sistema/bare metal|
 |Servidores (32 bits e 64 bits)|Windows Server 2008 SP2|Máquina virtual Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual Windows no VMWare)<br /> <br /> Azure Stack|S|S|Volume, compartilhamento, pasta, arquivo, estado do sistema/bare metal|
 |Servidores (32 bits e 64 bits)|Windows Storage Server 2008|Servidor físico<br /><br />Máquina virtual local do Hyper-V<br /> <br /> Azure Stack|S|S|Volume, compartilhamento, pasta, arquivo, estado do sistema/bare metal|
-|SQL Server|SQL Server 2017|Servidor físico <br /><br /> Máquina virtual local do Hyper-V <br /> <br /> Máquina virtual do Azure <br /><br /> Máquina virtual Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual Windows no VMWare)<br /> <br /> Azure Stack|S|N|Todos os cenários de implantação: banco de dados|
+|SQL Server|Microsoft SQL Server 2017|Servidor físico <br /><br /> Máquina virtual local do Hyper-V <br /> <br /> Máquina virtual do Azure <br /><br /> Máquina virtual Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual Windows no VMWare)<br /> <br /> Azure Stack|S|N|Todos os cenários de implantação: banco de dados|
 |SQL Server|Microsoft SQL Server 2016 SP2|Servidor físico <br /><br /> Máquina virtual local do Hyper-V <br /> <br /> Máquina virtual do Azure <br /><br /> Máquina virtual Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual Windows no VMWare)<br /> <br /> Azure Stack|S|S|Todos os cenários de implantação: banco de dados|
 |SQL Server|SQL Server 2016 SP1|Servidor físico <br /><br /> Máquina virtual local do Hyper-V <br /> <br /> Máquina virtual do Azure <br /><br /> Máquina virtual Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual Windows no VMWare)<br /> <br /> Azure Stack|S|S|Todos os cenários de implantação: banco de dados|
 |SQL Server|SQL Server 2016|Servidor físico <br /><br /> Máquina virtual local do Hyper-V <br /> <br /> Máquina virtual do Azure <br /><br /> Máquina virtual Windows no VMWare (protege as cargas de trabalho em execução na máquina virtual Windows no VMWare)<br /> <br /> Azure Stack|S|S |Todos os cenários de implantação: banco de dados|

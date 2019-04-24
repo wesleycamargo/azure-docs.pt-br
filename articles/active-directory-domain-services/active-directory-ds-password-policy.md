@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: ergreenl
 ms.openlocfilehash: 513cccb8b83eb4a69df1bc6172f1f02485215e35
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085996"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60416905"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Políticas de senha e de bloqueio de conta em domínios gerenciados
 Este artigo explica as políticas de senha padrão em domínios gerenciados. Ele também aborda como configurar essas políticas.

@@ -17,11 +17,11 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7bb9fc806779565581fa7667749402f5608edd80
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438067"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60292735"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considerações de segurança para acessar aplicativos remotamente com o Proxy de Aplicativo do Azure AD
 
@@ -182,7 +182,7 @@ Depois de receber a resposta, o conector faz uma conexão de saída com o servi�
 Algum processamento do aplicativo pode ocorrer aqui. Se você configurou o Proxy de Aplicativo para converter cabeçalhos ou URLs em seu aplicativo, esse processamento ocorre conforme necessário durante esta etapa.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Considerações de topologia de rede ao usar o Proxy de Aplicativo do Azure AD](application-proxy-network-topology.md)
 

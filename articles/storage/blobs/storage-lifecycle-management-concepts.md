@@ -9,11 +9,11 @@ ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
 ms.openlocfilehash: 2de194e501c05ba0bdb9971ca6045e67a42b0fd9
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681719"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392459"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerenciar o ciclo de vida do armazenamento de BLOBs do Azure
 
@@ -113,11 +113,11 @@ Uma política é uma coleção de regras:
 
 Cada regra na política tem vários parâmetros:
 
-| Nome do parâmetro | Tipo de parâmetro | Observações | Obrigatório |
+| Nome do parâmetro | Tipo de parâmetro | Observações | Necessário |
 |----------------|----------------|-------|----------|
 | Nome           | Cadeia de caracteres |Um nome de regra pode incluir até 256 caracteres alfanuméricos. A regra de nome diferencia maiúsculas de minúsculas.  Ela deve ser exclusiva em uma política. | True |
-| Habilitado | BOOLEAN | Um booliano opcional para permitir que uma regra para ser temporário desabilitado. Valor padrão é true se não for definido. | Falso | 
-| tipo           | Um valor de enumeração | O tipo atual de válido é `Lifecycle`. | True |
+| Habilitado | Boolean | Um booliano opcional para permitir que uma regra para ser temporário desabilitado. Valor padrão é true se não for definido. | Falso | 
+| Tipo           | Um valor de enumeração | O tipo atual de válido é `Lifecycle`. | True |
 | definição     | Um objeto que define a regra de ciclo de vida | Cada definição é composta por um conjunto de filtros e um conjunto de ações. | True |
 
 ## <a name="rules"></a>Regras
@@ -182,7 +182,7 @@ Gerenciamento de ciclo de vida dá suporte a disposição em camadas e exclusão
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Dá suporte aos blobs atualmente presentes na camada frequente         | Sem suporte |
 | tierToArchive | Dá suporte aos blobs atualmente presentes na camada frequente ou esporádica | Sem suporte |
-| excluir        | Suportado                                   | Suportado     |
+| excluir        | Com suporte                                   | Com suporte     |
 
 >[!NOTE] 
 >Se você definir mais de uma ação no mesmo blob, o gerenciamento do ciclo de vida aplicará a ação mais barata ao blob. Por exemplo, a ação `delete` é mais barata do que a ação `tierToArchive`. A ação `tierToArchive` é mais barata do que a ação `tierToCool`.
@@ -309,7 +309,7 @@ Para dados que são modificados e acessados regularmente durante seu ciclo de vi
 
 A plataforma executa a política de ciclo de vida uma vez por dia. Depois de configurar uma política, ele pode levar até 24 horas para algumas ações (como disposição em camadas e exclusão) para ser executado pela primeira vez.  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como recuperar dados após uma exclusão acidental:
 

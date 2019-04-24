@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 90f832319fa2343003af58bd99eb64c0cbd94dd8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894539"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371667"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurar sua conta de cobrança para um contrato de cliente da Microsoft
 
@@ -225,7 +225,7 @@ Assinaturas do Azure que são transferidas da sua inscrição de Enterprise Agre
 
    ![Captura de tela que mostra a pesquisa do portal do Azure](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
-3. Selecione uma seção de nota fiscal. Dependendo do seu acesso, você precisa selecionar uma conta de cobrança ou de um perfil de cobrança.  Do perfil de cobrança ou conta de cobrança, selecione **seções de nota fiscal** e, em seguida, uma seção de nota fiscal.
+3. Selecione uma seção de nota fiscal. Dependendo de seu acesso, você precisa selecionar uma conta de cobrança ou de um perfil de cobrança.  Do perfil de cobrança ou conta de cobrança, selecione **seções de nota fiscal** e, em seguida, uma seção de nota fiscal.
 
     ![Captura de tela que mostra a lista de transição de postagem de seção de nota fiscal](./media/billing-mca-setup-account/billing-mca-invoice-sections-post-transition.png)
 
@@ -271,7 +271,7 @@ Os administradores de empresa são listados como proprietários de perfil ao mes
 
 Os administradores de empresa e administradores de departamento são listados como proprietários da seção de nota fiscal ou leitores de seção de nota fiscal, enquanto os proprietários de conta do departamento são listados como criadores de assinatura do Azure. Repita a etapa para todas as seções de nota fiscal verificar o acesso a todos os departamentos em seu registro de Enterprise Agreement. Os proprietários de conta que não eram parte de qualquer departamento receberá permissão em uma seção de nota fiscal denominada **seção de fatura padrão**. Se você acredita que o acesso para os administradores está ausente, você possa lhe fornecer acesso no portal do Azure. Para obter mais informações, consulte [gerenciar funções de cobrança no portal do Azure](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contatar o suporte
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 
 Se precisar de ajuda, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
 

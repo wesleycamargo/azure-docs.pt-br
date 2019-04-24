@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: ee6317f61f95b19effd64308b88f53c027582b63
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883002"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371372"
 ---
 # <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Compreender os termos na sua fatura de contrato de cliente da Microsoft
 
@@ -107,7 +107,7 @@ Se você tiver serviços de terceiros em sua fatura, o nome e endereço de cada 
 
 Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Entender os encargos na fatura do seu perfil de cobrança](billing-mca-understand-your-bill.md)
 - [Como obter sua fatura de cobrança e dados de uso diário do Azure](billing-download-azure-invoice-daily-usage-date.md)

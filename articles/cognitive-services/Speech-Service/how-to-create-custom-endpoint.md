@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: panosper
 ms.openlocfilehash: 1f7a84d187ba6279caad4926d54bfc56254152af
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862991"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60539019"
 ---
 # <a name="create-a-custom-speech-to-text-endpoint"></a>Criar um ponto de extremidade de conversão de fala em texto personalizado 
 
@@ -41,7 +41,7 @@ Depois de selecionar os modelos acústico e de linguagem, selecione **Criar**. E
 
 Quando a implantação estiver pronta, o nome de ponto de extremidade se tornará um link. Selecionar o link exibe a página **Informações de ponto de extremidade**, que exibe as URLs de seu ponto de extremidade personalizado para usar com uma solicitação HTTP ou a Biblioteca de Clientes de Fala dos Serviços Cognitivos da Microsoft, que usa soquetes da Web.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para ver mais tutoriais, consulte:
 - [Obter sua assinatura de avaliação de Serviços de Fala](https://azure.microsoft.com/try/cognitive-services/)

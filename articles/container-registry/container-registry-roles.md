@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: danlep
 ms.openlocfilehash: b6e26bfa476c5c13e6e478f40c39978af61d83e7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894261"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60427013"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Funções e permissões do Registro de Contêiner do Azure
 
@@ -73,7 +73,7 @@ A capacidade de configurar políticas em um registro. Políticas incluem a limpe
 
 A capacidade de imagens de entrada normalmente é atribuída a um processo automatizado, que usaria uma entidade de serviço. Normalmente, essa permissão é combinada com [imagem por push](#push-image) para permitir o envio de uma imagem confiável para um registro. Para obter detalhes, consulte [Confiança de conteúdo no Registro de Contêiner do Azure](container-registry-content-trust.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre como atribuir funções RBAC para uma identidade do Azure usando o [portal do Azure](../role-based-access-control/role-assignments-portal.md), [CLI do Azure](../role-based-access-control/role-assignments-cli.md), ou outras ferramentas do Azure.
 

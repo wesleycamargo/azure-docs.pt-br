@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/21/2019
 ms.author: srrengar
 ms.openlocfilehash: ba4923edbc59f0e6650fda1a71e1c4f79b884cf2
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662152"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60393351"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Visualização e análise de eventos com os logs do Azure Monitor
  O Azure Monitor coleta e analisa a telemetria dos aplicativos e serviços hospedados na nuvem e fornece as ferramentas de análise para ajudar a maximizar sua disponibilidade e desempenho. Este artigo descreve como executar consultas nos logs do Azure Monitor para obter insights e solucionar problemas que está acontecendo em seu cluster. As seguintes perguntas comuns são abordadas:
@@ -109,7 +109,7 @@ A linguagem de consulta Kusto é eficiente. Outra consulta valiosa que você pod
 
 ![Eventos de Consulta por nó](media/service-fabric-diagnostics-event-analysis-oms/oms_kusto_query.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para habilitar o monitoramento de infraestrutura, ou seja, contadores de desempenho, vá para [Adicionando o agente do Log Analytics](service-fabric-diagnostics-oms-agent.md). O agente coleta contadores de desempenho e os adiciona ao workspace existente.
 * Para clusters locais, os logs do Azure Monitor oferece um Gateway (HTTP Forward Proxy) que pode ser usado para enviar dados para os logs do Azure Monitor. Leia mais sobre isso na [conectar computadores sem acesso à Internet para os logs do Azure Monitor usando o gateway do Log Analytics](../azure-monitor/platform/gateway.md).

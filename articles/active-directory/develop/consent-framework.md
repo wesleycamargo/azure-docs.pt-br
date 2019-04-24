@@ -18,11 +18,11 @@ ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f01555933ca8b3d0c48a956d3deb4b3356b4e1a2
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564949"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60410770"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Estrutura de consentimento do Azure Active Directory
 
@@ -67,7 +67,7 @@ As etapas a seguir mostram como a experiência de consentimento funciona para o 
    > [!IMPORTANT]
    > A concessão explícita de consentimento usando o botão **Conceder permissões** é necessária atualmente para SPAs (aplicativos de página única) que usam o ADAL.js. Caso contrário, o aplicativo falhará quando o token de acesso for solicitado.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Veja [como converter um aplicativo em multilocatário](howto-convert-app-to-be-multi-tenant.md)
 * Para se aprofundar, veja [como o consentimento tem suporte na camada de protocolo OAuth 2.0 durante o fluxo de concessão de código de autorização.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code)

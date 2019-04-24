@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a8fefc2eb2e642b5c7ac93b8a1cfc25a54c3b646
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996162"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437120"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de erro do relatório de atividade de login 
 
@@ -180,7 +180,7 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |500133| A declaração não está dentro de seu intervalo de tempo válido. Certifique-se de que o token de acesso não expirou antes de usá-lo para a declaração de usuário ou antes de solicitar um novo token.|
 |530021|Aplicativo não atende os requisitos de aplicativo de acesso condicional aprovado.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Visão geral de relatórios de entradas](concept-sign-ins.md)
 * [Acesso programático aos relatórios do Microsoft Azure Active Directory](concept-reporting-api.md)

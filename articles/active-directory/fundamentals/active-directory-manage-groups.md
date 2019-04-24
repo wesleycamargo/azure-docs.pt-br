@@ -14,11 +14,11 @@ ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5c2bffad4254815d2ed51d9bbc14b32a521b5537
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193859"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60248467"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Gerenciar o acesso de aplicativo e recursos usando grupos do Microsoft Azure Active Directory
 O Azure Active Directory (Azure AD) ajuda você a gerenciar aplicativos baseados em nuvem, aplicativos locais e recursos usando grupos da sua organização. Os recursos podem fazer parte do diretório, como permissões para gerenciar objetos por meio de funções no diretório, ou ser externos ao diretório, como aplicativos SaaS (Software como Serviço), serviços do Azure, sites do SharePoint, bem em recursos locais.
@@ -53,7 +53,7 @@ O proprietário do grupo pode permitir que os usuários localizem seus próprios
 
 Depois que um usuário solicitar o ingresso em um grupo, a solicitação será encaminhada para o proprietário do grupo. Se ela for necessária, o proprietário poderá aprovar a solicitação e o usuário será notificado sobre a associação de grupo. No entanto, se você tiver vários proprietários e um deles não aprovar, o usuário será notificado, mas não será adicionado ao grupo. Para obter mais informações e instruções sobre como permitir que os usuários solicitem o ingresso em grupos, veja [Configurar o Azure AD para que os usuários possam solicitar o ingresso em grupos](../users-groups-roles/groups-self-service-management.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Agora que você tem algum conhecimento de gerenciamento de acesso usando grupos, começará a gerenciar seus aplicativos e recursos.
 
 - [Criar um novo grupo usando o Azure Active Directory](active-directory-groups-create-azure-portal.md) ou [Criar e gerenciar um novo grupo usando cmdlets do PowerShell](../users-groups-roles/groups-settings-v2-cmdlets.md)

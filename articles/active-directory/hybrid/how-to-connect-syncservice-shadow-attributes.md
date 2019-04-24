@@ -12,16 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/13/2017
+origin.date: 07/13/2017
+ms.date: 04/09/2019
 ms.subservice: hybrid
-ms.author: billmath
+ms.author: v-junlch
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10a4078f49abbdf431f42c6cde7cf882112e5848
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839161"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384691"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Atributos sombra do serviço de sincronização do Azure AD Connect
 A maioria dos atributos é representada da mesma maneira no Azure AD e no Active Directory local. Mas alguns atributos têm tratamentos especiais, e o valor do atributo no Azure AD pode ser diferente do que é sincronizado no Azure AD Connect.
@@ -38,11 +39,11 @@ Eles têm vários sufixos UPN no Active Directory local, mas verificaram apenas 
 ### <a name="userprincipalname"></a>userPrincipalName
 Um usuário tem os seguintes valores de atributo em um domínio não verificado:
 
-| Atributo | Valor |
+| Atributo | Value |
 | --- | --- |
 | userPrincipalName local | lee.sperry@fabrikam.com |
 | shadowUserPrincipalName do Azure AD | lee.sperry@fabrikam.com |
-| userPrincipalName do Azure AD | lee.sperry@fabrikam.onmicrosoft.com |
+| userPrincipalName do Azure AD | lee.sperry@fabrikam.partner.onmschina.cn |
 
 O atributo userPrincipalName é o valor que você vê ao usar o PowerShell.
 
@@ -53,7 +54,7 @@ O mesmo processo para incluir somente os domínios verificados também ocorre pa
 
 Para um usuário de caixa de correio, no local ou no Exchange Online, somente os valores de domínios verificados são exibidos. O resultado pode ser este:
 
-| Atributo | Valor |
+| Atributo | Value |
 | --- | --- |
 | proxyAddresses local | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | proxyAddresses do Exchange Online | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
@@ -77,3 +78,5 @@ Os atributos sombra também são usados quando há valores de atributo duplicado
 ## <a name="see-also"></a>Consulte também
 * [Sincronização do Azure AD Connect](how-to-connect-sync-whatis.md)
 * [Integração de suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md).
+
+<!-- Update_Description: wording update -->

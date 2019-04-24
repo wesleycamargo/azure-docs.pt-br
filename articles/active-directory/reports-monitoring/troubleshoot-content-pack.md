@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 78676ac2f2dcff74a27e0260a5d83e924f7c246f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434816"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60284952"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Solução de erros do pacote de conteúdo dos Logs de atividades do Azure Active Directory 
 
@@ -69,7 +69,7 @@ Este artigo fornece informações sobre as possíveis causas e como corrigir ess
 | ---   | ---        |
 | Dependendo do tamanho do locatário, essa etapa poderá demorar de alguns minutos a 30 minutos. | Se a mensagem não for alterada para mostrar o painel dentro de uma hora, [registre um ticket de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md).|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Instalar o pacote de conteúdo do Power BI para relatórios do Azure AD](quickstart-install-power-bi-content-pack.md).
 * [Usar o pacote de conteúdo do Power BI para relatórios do Azure AD para visualizar os dados](howto-power-bi-content-pack.md)

@@ -12,11 +12,11 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: c22c75b4fe900ecb96d016251c09e9ad6ec31f7c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474013"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306217"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Estágio de modelagem do ciclo de vida do Processo de Ciência de Dados da Equipe
 
@@ -78,7 +78,7 @@ Os artefatos produzidos neste estágio incluem:
      * O modelo responde à pergunta com confiança suficiente, considerando os dados de teste? 
      * Você deve experimentar abordagens alternativas? Você deve coletar dados adicionais, realizar mais engenharia de recursos ou fazer experimentos com outros algoritmos?
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Aqui estão os links para cada etapa do ciclo de vida do TDSP:
 

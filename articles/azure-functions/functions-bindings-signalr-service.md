@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: cshoe
 ms.openlocfilehash: f0d4a607676285ed4f0f91d8ce8c83ddf1313b89
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437791"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306801"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Associações do Serviço SignalR para o Azure Functions
 
@@ -48,7 +48,7 @@ Para usar as anotações SignalR Service em funções do Java, você precisará 
 ```
 
 > [!NOTE]
-> Para usar as associações de SignalR Service em Java, verifique se que você estiver usando a versão 2.4.419 ou posterior das ferramentas básicas do Azure Functions (versão 2.0.12332 do host).
+> Para usar as associações do Serviço do SignalR em Java, verifique se você está usando a versão 2.4.419 ou posterior do Azure Functions Core Tools (versão do host 2.0.12332).
 
 ## <a name="using-signalr-service-with-azure-functions"></a>Usando o serviço SignalR com o Azure Functions
 
@@ -595,7 +595,7 @@ public SignalRGroupAction removeFromGroup(
 
 ### <a name="signalrconnectioninfo"></a>SignalRConnectionInfo
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `SignalRConnectionInfo`.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `SignalRConnectionInfo` atributo.
 
 |Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
@@ -608,7 +608,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 ### <a name="signalr"></a>SignalR
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `SignalR`.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `SignalR` atributo.
 
 |Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|

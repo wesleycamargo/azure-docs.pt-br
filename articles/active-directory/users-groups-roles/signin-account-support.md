@@ -14,11 +14,11 @@ ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2d26ff0f9259e3531259673f94fe477444cc786b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59491588"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60468192"
 ---
 # <a name="sign-in-options-for-microsoft-accounts-in-azure-active-directory"></a>Opções de entrada para contas da Microsoft no Azure Active Directory
 
@@ -34,6 +34,6 @@ Você pode informar se a página de que sua organização usa dá suporte a cont
 
 [Opções adicionais de entrada funcionam apenas para contas pessoais da Microsoft](https://azure.microsoft.com/updates/microsoft-account-signin-options/ ) , mas não podem ser usados para entrar ou de estudante da conta de recursos.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Personalizar a entrada identidade Visual](../fundamentals/add-custom-domain.md)

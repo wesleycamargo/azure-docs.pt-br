@@ -15,11 +15,11 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f828ff83e6b9c60eb08edef7f47e88185fb5aef8
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199674"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60472099"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Criar um grupo dinâmico e verificar o status
 
@@ -48,9 +48,9 @@ Para obter exemplos de sintaxe, propriedades com suporte, operadores e valores p
 
 Se a regra que você inseriu não é válida, uma explicação de por que a regra não pôde ser processada é exibida no canto superior direito do portal. Leia com atenção para entender como corrigir a regra.
 
-## <a name="turn-on-or-off-welcome-email"></a>Ativar ou desativar o email de boas-vinda
+## <a name="turn-on-or-off-welcome-email"></a>Ativar ou desativar email de boas-vindas
 
-Quando é criado um novo grupo do Office 365, uma notificação de boas-vinda é enviada os usuários que são adicionados ao grupo. Posteriormente, se os atributos de um usuário ou dispositivo são alterados, todas as regras de grupo dinâmico na organização são processadas para alterações de associação. Os usuários que são adicionados, em seguida, também receberem a notificação de boas-vinda. Você pode desativar esse comportamento na [do Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
+Quando é criado um novo grupo do Office 365, uma notificação de boas-vinda é enviada os usuários que são adicionados ao grupo. Posteriormente, se os atributos de um usuário ou dispositivo são alterados, todas as regras de grupo dinâmico na organização são processadas para alterações de associação. Os usuários que são adicionados também recebem a notificação de boas-vindas. Você pode desativar esse comportamento na [do Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
 
 ## <a name="check-processing-status-for-a-rule"></a>Verificar o status de processamento para uma regra
 
@@ -69,7 +69,7 @@ As seguintes mensagens de status podem ser mostradas para o status **Processamen
 As seguintes mensagens de status podem ser mostradas para o status da **Última atualização da associação**:
 
 * &lt;**Data e hora**&gt;: a última vez em que a associação foi atualizada.
-* **Em andamento**: as atualizações estão em andamento no momento.
+* **Em Andamento**: as atualizações estão em andamento no momento.
 * **Desconhecido**: Não é possível recuperar a hora da última atualização. O grupo pode ser novo.
 
 Se ocorrer um erro ao processar a regra de associação de um grupo específico, um alerta será mostrado na parte superior da **página Visão Geral** do grupo. Se nenhuma atualização de associação dinâmica pendente puder ser processada de nenhum dos grupos do locatário por mais de 24 horas, um alerta será mostrado na parte superior da **Todos os grupos**.

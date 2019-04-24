@@ -3,18 +3,18 @@ title: Monitorar os serviços e aplicativos do Azure usando Grafana
 description: Encaminhe dados do Azure Monitor e do Application Insights para que você possa exibi-los no Grafana.
 services: azure-monitor
 keywords: ''
-author: rboucher
-ms.author: robb
-ms.date: 11/06/2017
+author: lingliw
+ms.author: v-lingwu
+ms.date: 04/12/19
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
 ms.openlocfilehash: 6ea8f4e591399e23b103871da115dbb937227ca9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850681"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60395888"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorar os serviços do Azure no Grafana
 Agora você pode monitorar os serviços e aplicativos do Azure do [Grafana](https://grafana.com/) usando o [plug-in da fonte de dados do Monitor do Azure](https://grafana.com/plugins/grafana-azure-monitor-datasource). O plug-in reúne os dados de desempenho do aplicativo coletados pelo Azure Monitor, incluindo vários logs e métricas. Em seguida, exiba esses dados no painel do Grafana.
@@ -168,4 +168,3 @@ Se você configurou um ambiente do Grafana no Azure, você será cobrado quando 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Visão geral das métricas do Azure Monitor](data-platform.md)
-

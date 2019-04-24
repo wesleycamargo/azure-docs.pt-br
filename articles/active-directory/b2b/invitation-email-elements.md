@@ -13,22 +13,22 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7015abcfe3c53e2180d617bd2c78ecd44c42af7a
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295616"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60412727"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Os elementos do email de convite para colaboração B2B – Azure Active Directory
 
 Emails de convite são um componente essencial para ingressar parceiros como usuários de colaboração B2B no Azure AD. Você pode usá-los para aumentar a confiança do destinatário. Você pode adicionar a legitimidade e a comprovação social ao email, para certificar-se de que o destinatário sinta-se confortável com a seleção do botão **Introdução** para aceitar o convite. Essa confiança é uma maneira importante de reduzir o atrito de compartilhamento. E o email fica ótimo dessa maneira!
 
-![Captura de tela mostrando o email de convite B2B](media/invitation-email-elements/invitation-email.png)
+![Captura de tela mostrando o email do convite B2B](media/invitation-email-elements/invitation-email.png)
 
 ## <a name="explaining-the-email"></a>Explicação do email
 Vamos examinar alguns elementos do email para que você conheça a melhor maneira de usar esses recursos.
 
-### <a name="subject"></a>Assunto
+### <a name="subject"></a>Subject
 O assunto do email segue o seguinte padrão: Você foi convidado para a organização &lt;tenantname&gt;
 
 ### <a name="from-address"></a>Do endereço

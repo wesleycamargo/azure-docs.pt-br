@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
 ms.openlocfilehash: ed98d40987645fdadff8cc628cfd08feca41d01f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768256"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60336024"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Início Rápido: enviar uma consulta para a API de Pesquisa do Bing Local Business usando o Java
 
@@ -163,7 +163,7 @@ public class LocalSearchCls {
 
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - [ Início Rápido da Pesquisa de empresa local ](local-quickstart.md)
 - [Início rápido de negócios o nó de pesquisa local](local-search-node-quickstart.md)
 - [Início rápido do Python para negócios de pesquisa local](local-search-python-quickstart.md)

@@ -12,11 +12,11 @@ ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: 92adcf40d008a94a2fd81846cf9aa712474beacc
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995928"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60498833"
 ---
 # <a name="computer-vision-86-category-taxonomy"></a>Taxonomia de categoria de 86 de visão do computador
 

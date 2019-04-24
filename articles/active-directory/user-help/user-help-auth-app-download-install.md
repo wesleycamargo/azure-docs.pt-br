@@ -14,11 +14,11 @@ ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 67393e19a72777d105f1f35a16986c52f52133be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58079789"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60473814"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Baixar e instalar o aplicativo Microsoft Authenticator
 >[!Important]
@@ -35,7 +35,7 @@ Você pode usar o aplicativo Microsoft Authenticator de várias maneiras, entre 
 - **Geração de código.** Como um gerador de código para outras contas que dão suporte a aplicativos de autenticador.
 
 > [!Important]
-> O aplicativo Microsoft Authenticator funciona com qualquer conta que usa a verificação de dois fatores e oferece suporte os padrões com base no tempo de uso único TOTP (senha).
+> O aplicativo Microsoft Authenticator funciona com qualquer conta que use a verificação de dois fatores e dê suporte a padrões de Senhas Avulsas por Tempo Limitado (TOTP).
 > 
 > Sua organização pode exigir que você use um aplicativo autenticador para entrar e acessar seus dados e documentos organizacionais. Embora seu nome de usuário possa ser exibido no aplicativo, a conta, na verdade, não está configurada para funcionar como um método de verificação até você concluir o processo de registro. Para obter mais informações, confira [Adicionar sua conta corporativa ou de estudante](user-help-auth-app-add-work-school-account.md).
 > 

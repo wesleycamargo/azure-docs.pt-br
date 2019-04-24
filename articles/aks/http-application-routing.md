@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
 ms.openlocfilehash: d6e1cc033416c90e27b5caf4bba310400e55b3a5
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312269"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60466269"
 ---
 # <a name="http-application-routing"></a>Roteamento de aplicativo HTTP
 
@@ -207,7 +207,7 @@ kubectl delete configmaps addon-http-application-routing-nginx-configuration --n
 
 Repita a etapa `kubectl delete` anterior para todos os recursos *addon-http-application-routing* que permaneceram no cluster.
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solução de problemas
 
 Use o comando [kubectl logs][kubectl-logs] para exibir os logs de aplicativo para o aplicativo de DNS externo. Os logs devem confirmar que um registro DNS A e TXT foi criado com êxito.
 

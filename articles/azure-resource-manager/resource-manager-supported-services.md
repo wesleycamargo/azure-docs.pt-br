@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 03/25/2019
 ms.author: tomfitz
 ms.openlocfilehash: 520aeb8e47b5e94e6346e682f21f46cb0814f8f3
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445453"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60389593"
 ---
 # <a name="azure-resource-providers-and-types"></a>Provedores e tipos de recursos do Azure
 
@@ -287,7 +287,7 @@ West US
 ...
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre a criação de modelos do Gerenciador de Recursos, confira [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md). 
 * Para exibir os esquemas de modelo de provedor de recursos, confira [Referência de modelo](/azure/templates/).

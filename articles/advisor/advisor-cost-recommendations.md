@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
 ms.openlocfilehash: 188a79df99a174436808acd3d964abf9357cf4c0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699314"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60467929"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Reduza os custos de serviço usando o Assistente do Azure
 
@@ -51,7 +51,7 @@ O Advisor identifica os endereços IP públicos que não estão atualmente assoc
 
 2.  No painel do Assistente, clique na guia **Custo**.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as recomendações do Assistente, consulte:
 * [Introdução ao Advisor](advisor-overview.md)

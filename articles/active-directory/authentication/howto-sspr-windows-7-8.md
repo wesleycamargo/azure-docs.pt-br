@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 57d3e955059724756eb7102c1b9fbbf55ed203ab
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370437"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60414644"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Como: habilitar a redefinição de senha do Windows 7, 8 e 8.1
 
@@ -78,6 +78,6 @@ Se for necessário outro registro em log, uma chave do Registro no computador po
 
 Se os seus computadores com Windows 7, 8 e 8.1 estiverem atrás de um servidor proxy ou firewall, o tráfego HTTPS (443) para passwordreset.microsoftonline.com deverá ter permissão.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Habilitar os usuários do Windows 10 a redefinir sua senha na tela de logon](tutorial-sspr-windows.md)

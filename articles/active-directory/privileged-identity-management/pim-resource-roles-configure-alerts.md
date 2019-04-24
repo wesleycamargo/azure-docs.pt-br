@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 09e04e6b61d3387cb8c50c2af4eef2cfb4bec196
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575497"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437759"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>Configurar alertas de segurança para funções de recurso do Azure no PIM
 Azure Active Directory (Azure AD) PIM Privileged Identity Management () gera alertas quando há atividade suspeita ou não segura em seu ambiente. Quando um alerta é disparado, ele aparece na página Alertas. 
@@ -52,6 +52,6 @@ Na página Alertas, vá para **Configurações**.
 Personalize configurações nos diferentes alertas para trabalhar com seu ambiente e as metas de segurança.
 ![Personalizar as configurações](media/azure-pim-resource-rbac/rbac-alert-settings.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Configurar alertas de segurança para funções de recurso do Azure no PIM](pim-resource-roles-configure-alerts.md)

@@ -9,11 +9,11 @@ ms.date: 02/22/2019
 ms.author: nikiest
 ms.subservice: logs
 ms.openlocfilehash: b6009471048232b52020e4bef6272ed8cb1bd35b
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497747"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345800"
 ---
 # <a name="archive-the-azure-activity-log"></a>Arquivar o Log de Atividades do Azure
 Neste artigo, mostraremos como você pode usar o portal do Azure, os cmdlets do PowerShell ou a CLI de Plataforma Cruzada para arquivar seu [**Log de Atividades do Azure**](../../azure-monitor/platform/activity-logs-overview.md) em uma conta de armazenamento. Essa opção será útil se você quiser manter seu Log de Atividades por mais de 90 dias (com controle total sobre a política de retenção) para auditoria, análise estática ou backup. Se você só precisar manter seus eventos por 90 dias ou menos, não será necessário configurar o arquivamento em uma conta de armazenamento, já que os eventos de Log de Atividades são mantidos na plataforma do Azure por 90 dias sem habilitar o arquivamento.
@@ -61,7 +61,7 @@ Para arquivar o Log de Atividades usando qualquer um dos métodos abaixo, você 
 | StorageAccountId |Sim |A ID de Recurso da Conta de Armazenamento na qual os Logs de Atividades devem ser salvos. |
 | Locais |Sim |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. É possível exibir uma lista de todas as regiões para a assinatura usando `(Get-AzLocation).Location`. |
 | RetentionInDays |Não  |Número de dias para quais eventos devem ser mantidos, entre 1 e 365. Um valor de zero armazena os logs indefinidamente (para sempre). |
-| Categorias |Não  |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são Gravação, Exclusão e Ação.  Se não for fornecido, todos os valores possíveis são assumidos |
+| Categories |Não  |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são Gravação, Exclusão e Ação.  Se não for fornecido, todos os valores possíveis são assumidos |
 
 ## <a name="archive-the-activity-log-via-cli"></a>Arquivar o Log de Atividades por meio da CLI
 
@@ -154,10 +154,10 @@ No arquivo PT1H.json, cada evento é armazenado na matriz de "registros", seguin
 
 | Nome do elemento | DESCRIÇÃO |
 | --- | --- |
-| tempo real |Carimbo de hora quando o evento foi gerado pelo serviço do Azure que está processando a solicitação correspondente ao evento. |
-| ResourceId |ID de recurso do recurso afetado. |
+| time |Carimbo de hora quando o evento foi gerado pelo serviço do Azure que está processando a solicitação correspondente ao evento. |
+| resourceId |ID de recurso do recurso afetado. |
 | operationName |Nome da operação. |
-| categoria |Categoria da ação, por exemplo, Gravação, Leitura e Ação. |
+| category |Categoria da ação, por exemplo, Gravação, Leitura e Ação. |
 | resultType |O tipo do resultado, por exemplo, Êxito, Falha e Início |
 | resultSignature |Depende do tipo de recurso. |
 | durationMs |Duração da operação em milissegundos |

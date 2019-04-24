@@ -18,11 +18,11 @@ ms.date: 01/30/2019
 ms.author: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6c80ee5d2a4d72be131c6a781cf793d1981e780
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521067"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60353206"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referência de configurações de roaming do Windows 10
 A seguir, uma lista completa de todas as configurações que serão ser movidas ou armazenadas em backup no Windows 10. 
@@ -181,7 +181,7 @@ As configurações que não forem movidas ou sincronizadas não pertencerão a u
 ###### <a name="footnote-1"></a>Nota de rodapé 1
 Versão mínima do SO com suporte da Atualização do Windows para Criadores (Build 15063). 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter uma visão geral, confira [visão geral do Enterprise State Roaming](enterprise-state-roaming-overview.md).
 

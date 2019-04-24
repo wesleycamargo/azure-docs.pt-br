@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: f3bc1789d0b521b0d91ca42ebe472fed0225d87b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 0996c64acaa5e65061d80974fc428bad2dd8d4ad
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752374"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360262"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Tutorial: Personalizar a interface das experiências do usuário no Azure Active Directory B2C
 
@@ -155,7 +155,7 @@ Neste tutorial, você armazena os arquivos criados na conta de armazenamento par
 
     ![Resultados do fluxo de usuário](./media/tutorial-customize-ui/run-now.png) 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu a:
 

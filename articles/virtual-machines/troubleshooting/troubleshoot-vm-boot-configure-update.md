@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: c6d9f46582e1c618de6bfccea9328fb35aea7875
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: c3592529d20680c6920e569887effee4ffe38344
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485808"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60443818"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>A inicialização da VM está parada em “Preparando o Windows. Não desligue o computador” no Azure
 
 Este artigo ajuda você a resolver o problema quando a máquina virtual (VM) fica parada no estágio “Preparando o Windows. Não desligue o computador” durante a inicialização.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="symptoms"></a>Sintomas
 

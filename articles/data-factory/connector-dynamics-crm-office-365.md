@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
 ms.openlocfilehash: 772b9b191a2e6464ff481ff6661308e00ef6033a
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545426"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60535313"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para Dynamics 365 (Common Data Service) ou Dynamics CRM usando o Azure Data Factory
 
@@ -156,7 +156,7 @@ Para copiar dados de e para Dynamics, defina o tipo da propriedade do conjunto d
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como **DynamicsEntity**. |Sim |
+| tipo | A propriedade type do conjunto de dados deve ser definida como **DynamicsEntity**. |Sim |
 | entityName | O nome lógico da entidade a ser recuperada. | Não para fonte (se "query" na fonte da atividade for especificada), Sim para coletor |
 
 > [!IMPORTANT]
@@ -329,7 +329,7 @@ Configure o tipo de dados do Data Factory correspondente em uma estrutura do con
 | Tipo de dados do Dynamics | Tipo de dados provisório do Data Factory | Tem suporte como origem | Tem suporte como coletor |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | long | ✓ | ✓ |
-| AttributeTypeCode.Boolean | BOOLEAN | ✓ | ✓ |
+| AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
 | AttributeType.Customer | Guid | ✓ | | 
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
@@ -337,7 +337,7 @@ Configure o tipo de dados do Data Factory correspondente em uma estrutura do con
 | AttributeType.EntityName | Cadeia de caracteres | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | Guid | ✓ | ✓ (com o único destino associado) |
-| AttributeType.ManagedProperty | BOOLEAN | ✓ | |
+| AttributeType.ManagedProperty | Boolean | ✓ | |
 | AttributeType.Memo | Cadeia de caracteres | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | Guid | ✓ | |
@@ -351,5 +351,5 @@ Configure o tipo de dados do Data Factory correspondente em uma estrutura do con
 > [!NOTE]
 > Não há suporte para os tipo de dados do Dynamics AttributeType.CalendarRules e AttributeType.PartyList.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

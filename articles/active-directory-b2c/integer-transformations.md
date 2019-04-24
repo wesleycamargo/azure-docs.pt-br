@@ -7,15 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: davidmu
+origin.date: 09/10/2018
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.subservice: B2C
 ms.openlocfilehash: 358ee07b8fd32edded084d406e490cae9f557fdd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159498"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397134"
 ---
 # <a name="integer-claims-transformations"></a>Transformações de declarações de inteiros
 
@@ -30,7 +31,7 @@ Converte um tipo de dados Long em um tipo de dados String.
 | item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | InputClaim | longo | O ClaimType para converter em uma cadeia de caracteres. |
-| OutputClaim | outputClaim | string | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
+| OutputClaim | outputClaim | cadeia de caracteres | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
 
 Neste exemplo, a declaração `numericUserId` com um tipo de valor Long é convertido em uma declaração `UserId` com um tipo de valor String.
 
@@ -51,4 +52,5 @@ Neste exemplo, a declaração `numericUserId` com um tipo de valor Long é conve
     - **inputClaim**: 12334 (long)
 - Declarações de saída: 
     - **outputClaim**: "12334" (string)
+
 

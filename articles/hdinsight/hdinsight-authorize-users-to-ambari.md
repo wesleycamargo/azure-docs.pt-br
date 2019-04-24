@@ -1,7 +1,6 @@
 ---
 title: Autorizar usuários para o Ambari Views – Azure HDInsight
 description: Como gerenciar permissões de usuários e grupos do Ambari para clusters do HDInsight com o ESP habilitado.
-services: hdinsight
 author: maxluk
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,11 +9,11 @@ ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
 ms.openlocfilehash: cf001d86356f4dd5fd3735803f0e329aa1e0940d
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224015"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60255055"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Autorizar usuários para o Apache Ambari Views
 
@@ -88,7 +87,7 @@ Há cinco funções de segurança para usuários e grupos, listados em ordem dec
 
 * Administrador do cluster
 * Operador do cluster
-* Administrador de Serviço
+* Administrador de serviços
 * Operador de serviço
 * Usuário do cluster
 
@@ -134,7 +133,7 @@ Atribuímos a função de *Usuário de Cluster* ao usuário de domínio do Azure
 
 ![Usuário com função de Usuário de Cluster](./media/hdinsight-authorize-users-to-ambari/user-cluster-user-role.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Configurar políticas do Apache Hive no HDInsight com ESP](./domain-joined/apache-domain-joined-run-hive.md)
 * [Gerenciar clusters HDInsight ESP](./domain-joined/apache-domain-joined-manage.md)

@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ba5455680647b90b113d31c55816a2e0b0131b33
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617794"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60243619"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticação de passagem do Azure Active Directory: Início rápido
 
@@ -157,7 +157,7 @@ Segundo, você pode criar e executar um script de implantação autônomo. Isso 
 
 Bloqueio inteligente ajuda a bloquear atores ruins que estão tentando adivinhar as senhas dos usuários ou usando métodos de força bruta para entrar. Ao configurar as configurações de bloqueio inteligente no Azure AD e / ou as configurações de bloqueio apropriado no Active Directory no local, ataques podem ser filtradas antes que elas atinjam o Active Directory. Leia [deste artigo](../authentication/howto-password-smart-lockout.md) para saber mais sobre como definir as configurações de bloqueio inteligente em seu locatário para proteger suas contas de usuário.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - [Migrar do AD FS para Autenticação de Passagem](https://aka.ms/adfstoptadp) – um guia detalhado para migrar do AD FS (ou outras tecnologias de federação) para Autenticação de Passagem.
 - [Bloqueio Inteligente](../authentication/howto-password-smart-lockout.md): saiba como configurar o recurso Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
 - [Limitações atuais](how-to-connect-pta-current-limitations.md): saiba quais cenários têm suporte na Autenticação de passagem e quais não têm.

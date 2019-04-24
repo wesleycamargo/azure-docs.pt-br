@@ -16,11 +16,11 @@ ms.date: 06/29/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 21056663252ac5a41a529c3d8443efa888fbde9d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188470"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60272327"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-innotas"></a>Tutorial: Integração do Azure Active Directory com o Innotas
 
@@ -71,7 +71,7 @@ Para configurar a integração do Innotas ao Azure AD, você precisará adiciona
     
 1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![APLICATIVOS][3]
+    ![Aplicativos][3]
 
 1. Na caixa de pesquisa, digite **Innotas**.
 

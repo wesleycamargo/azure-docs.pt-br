@@ -11,11 +11,11 @@ ms.date: 12/21/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: b0d1722df2bfe5116de2676dfc930d6050731bbd
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005019"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60418211"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico SAML em uma política personalizada do Azure Active Directory B2C
 

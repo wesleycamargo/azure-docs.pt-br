@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.openlocfilehash: 8947d235894ffc021243a64244b4904c5ca7f128
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990421"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60453086"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Perguntas comuns sobre a transição do portal do OMS para o Portal do Azure para usuários do Log Analytics
 Inicialmente, o Log Analytics usava seu próprio portal, o portal do OMS, para gerenciar as configurações e analisar os dados coletados.  Todas as funcionalidades desse portal foram transferidas para o Portal do Azure, onde continuarão a ser desenvolvidas.
@@ -25,7 +25,7 @@ Inicialmente, o Log Analytics usava seu próprio portal, o portal do OMS, para g
 Este artigo responde às perguntas comuns dos usuários que estão fazendo essa transição.  Se você usou o Log Analytics no portal do OMS, encontrará aqui as respostas sobre como executar as mesmas tarefas no Portal do Azure.
 
 ## <a name="do-i-need-to-migrate-anything"></a>É necessário migrar alguma coisa?
- Não. Não há alterações feitas no próprio Log Analytics, portanto, não há nada que precise ser migrado. A única coisa que está alterando é a interface que você usa para acessá-lo. Na verdade, agora é possível usar o portal do Azure para acessar os mesmos workspaces, soluções, exibições e pesquisas de logs que você atualmente usa no portal do OMS.
+Não. Não há alterações feitas no próprio Log Analytics, portanto, não há nada que precise ser migrado. A única coisa que está alterando é a interface que você usa para acessá-lo. Na verdade, agora é possível usar o portal do Azure para acessar os mesmos workspaces, soluções, exibições e pesquisas de logs que você atualmente usa no portal do OMS.
 
 ## <a name="where-do-i-find-log-analytics-in-azure"></a>Onde está o Log Analytics no Azure?
 Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).  Clique em **Todos os serviços** e, na lista de recursos, digite **Log Analytics**. Selecione **Log Analytics** e selecione seu workspace. A página de resumo do workspace será exibida.

@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 01/22/2019
 ms.author: cwatson
 ms.openlocfilehash: fe0d0f0baa2b3d1c08e871541dce1511e00f7f87
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917049"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370195"
 ---
 # <a name="understand-how-the-red-hat-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Entender como o Red Hat Linux Enterprise software plano o desconto de reserva é aplicado para o Azure
 
@@ -154,7 +154,7 @@ Nomes do marketplace no portal do Azure:
 |Licença de VM de vCPU 96|b13895fc-0d06-4de9-b860-627c471cd247|2.166666667||
 |128 vCPU VM licença|6e67ac0b-19d3-4289-96df-05d0093d4b3b|2.166666667| M128ms|
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as reservas, consulte os seguintes artigos:
 

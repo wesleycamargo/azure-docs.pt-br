@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3fe2013ff84dd0451fed7d108539606520cb9403
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576302"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384457"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Examinar o acesso a grupos por conta própria ou revisões de acesso de aplicativos no Azure AD
 
@@ -79,6 +79,6 @@ Depois que você abriu a revisão de acesso, você poderá ver seu acesso.
     > [!NOTE]
     > Se você indicou que você não precisa mais acesso, você não é removidos imediatamente. Você é removidos quando a análise foi concluída ou quando um administrador parar a revisão.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Concluir uma revisão de acesso de aplicativos ou grupos](complete-access-review.md)

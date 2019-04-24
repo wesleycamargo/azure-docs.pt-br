@@ -7,15 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/07/2019
-ms.author: davidmu
+origin.date: 02/07/2019
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.subservice: B2C
 ms.openlocfilehash: 5102755c9e830f43fa92e8546e5125960e0a2f9a
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401550"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360209"
 ---
 # <a name="about-using-javascript-and-page-contract-versions-in-a-user-flow"></a>Sobre como usar JavaScript e a página de versões de contrato em um fluxo de usuário
 
@@ -30,13 +31,14 @@ O Azure AD B2C fornece um conjunto de conteúdo empacotado que contém HTML, CSS
 
 Nas propriedades de fluxo de usuário, você pode habilitar o JavaScript, o que também impõe o uso de um contrato de página. Em seguida, você pode definir a versão do contrato de página conforme descrito na próxima seção.
 
-![Habilitar configuração de JavaScript](media/user-flow-javascript-overview/javascript-settings.PNG)
+![Habilitar configuração de JavaScript](./media/user-flow-javascript-overview/javascript-settings.PNG)
 
 ## <a name="specify-a-page-contract-version"></a>Especificar uma versão de contrato de página
 
 Independentemente de pretender ou não habilitar o JavaScript nas propriedades do um fluxo de usuário, você poderá especificar uma versão de contrato de página para as páginas desse fluxo. Abra o fluxo de usuário e selecione **Layouts de página**. Em **Nome do Layout**, selecione uma página de fluxo de usuário e escolha o **Página de Versão do Contrato**.
 
-![Habilitar configuração de JavaScript](media/user-flow-javascript-overview/page-contract-version.PNG)
+![Habilitar configuração de JavaScript](./media/user-flow-javascript-overview/page-contract-version.PNG)
 
 ## <a name="next-steps"></a>Próximas etapas
 Confira os [Exemplos de JavaScript para uso no Azure Active Directory B2C](javascript-samples.md).
+

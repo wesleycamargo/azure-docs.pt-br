@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/21/2018
 ms.author: aschhab
 ms.openlocfilehash: 0d15aa4d7b8a922f7606b7c4d1b357a80b3cbfab
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359115"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311039"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Use o módulo do PowerShell para gerenciar recursos do Barramento de Serviço
 
@@ -162,7 +162,7 @@ Set-AzServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -Queu
 
 Você pode usar o [Módulo do PowerShell do Barramento de Serviço](/powershell/module/az.servicebus) para provisionar outras entidades, como tópicos e assinaturas. Esses cmdlets são sintaticamente semelhantes aos cmdlets de criação de fila demonstrados na seção anterior.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a documentação completa sobre o módulo do PowerShell do Resource Manager do Barramento de Serviço [aqui](/powershell/module/az.servicebus). Esta página lista todos os cmdlets disponíveis.
 - Para obter informações sobre o uso de modelos do Azure Resource Manager, consulte o artigo [Criar recursos do Barramento de Serviço usando modelos do Azure Resource Manager](service-bus-resource-manager-overview.md).

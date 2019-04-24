@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.openlocfilehash: 188cb310cfc13fe2fc41ba3e01deb01068c0184d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048309"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60446769"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualizar dados do Azure Data Explorer no Grafana
 
@@ -154,7 +154,7 @@ Com a entidade de serviço atribuída à função *visualizadores*, agora você 
     | UI do Grafana | Portal do Azure | CLI do Azure |
     | --- | --- | --- |
     | ID da assinatura | ID DA ASSINATURA | SubscriptionId |
-    | ID do locatário | ID do Diretório | locatário |
+    | ID do locatário | ID do Diretório | tenant |
     | Id do Cliente | ID do aplicativo | appId |
     | Segredo do cliente | Senha | Senha |
     | | | |

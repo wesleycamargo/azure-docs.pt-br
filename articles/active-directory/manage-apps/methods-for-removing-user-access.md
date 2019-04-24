@@ -16,11 +16,11 @@ ms.date: 10/17/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: db9ac671b616e2b5af59c033d08768c9e572876f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105362"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60442141"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Como remover o acesso de um usuário a um aplicativo
 
@@ -71,6 +71,6 @@ Para **desabilitar todas as futuras operações de consentimento do usuário no 
 6.  Defina a alternância de **Usuários podem permitir que aplicativos acessem dados empresariais em seu nome** como **Não** e clique no botão Salvar.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Gerenciamento do acesso aos aplicativos](what-is-access-management.md)

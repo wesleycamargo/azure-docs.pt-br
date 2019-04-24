@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f80ecf02a7e517300c41e84986659a66cfa11c90
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313423"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60414929"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolver mensagens de erro da extensão NPS da Autenticação Multifator do Azure
 
@@ -24,7 +24,7 @@ Caso você encontre erros na extensão NPS da Autenticação Multifator do Azure
 
 ## <a name="troubleshooting-steps-for-common-errors"></a>Etapas de solução de problemas para erros comuns
 
-| Código de erro | Etapas de solução de problemas |
+| Código do erro | Etapas para solucionar problemas |
 | ---------- | --------------------- |
 | **CONTACT_SUPPORT** | [Contate o suporte](#contact-microsoft-support) e mencione a lista de etapas para a coleta de logs. Forneça o máximo de informações possíveis sobre o que aconteceu antes do erro, incluindo a ID de locatário e o nome UPN. |
 | **CLIENT_CERT_INSTALL_ERROR** | Pode haver um problema com a forma como o certificado do cliente foi instalado ou associado ao locatário. Siga as instruções em [Solução de problemas da extensão NPS do MFA](howto-mfa-nps-extension.md#troubleshooting) para investigar problemas de certificado do cliente. |
@@ -39,7 +39,7 @@ Caso você encontre erros na extensão NPS da Autenticação Multifator do Azure
 
 ### <a name="alternate-login-id-errors"></a>Erros de ID de logon alternativo
 
-| Código de erro | Mensagem de erro | Etapas de solução de problemas |
+| Código do erro | Mensagem de erro | Etapas para solucionar problemas |
 | ---------- | ------------- | --------------------- |
 | **ALTERNATE_LOGIN_ID_ERROR** | Erro: falha na pesquisa do userObjectSid | Verifique se o usuário existe na instância do Active Directory local. Se estiver usando relações de confiança entre florestas, [contate o suporte](#contact-microsoft-support) para obter mais ajuda. |
 | **ALTERNATE_LOGIN_ID_ERROR** | Erro: Falha na pesquisa de LoginId alternativa | Verifique se LDAP_ALTERNATE_LOGINID_ATTRIBUTE está definido como um [atributo válido do Active Directory](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx). <br><br> Se LDAP_FORCE_GLOBAL_CATALOG for definido como True ou LDAP_LOOKUP_FORESTS for configurado com um valor não vazio, verifique se você configurou um Catálogo Global e que o atributo AlternateLoginId está adicionado a ele. <br><br> Se LDAP_LOOKUP_FORESTS estiver configurado com um valor não vazio, verifique se o valor está correto. Se houver mais de um nome de floresta, os nomes deverão ser separados por pontos e vírgulas, não espaços. <br><br> Se essas etapas não corrigirem o problema, [entre em contato com o suporte](#contact-microsoft-support) para obter mais ajuda. |
@@ -47,7 +47,7 @@ Caso você encontre erros na extensão NPS da Autenticação Multifator do Azure
 
 ## <a name="errors-your-users-may-encounter"></a>Erros que os usuários podem ver
 
-| Código de erro | Mensagem de erro | Etapas de solução de problemas |
+| Código do erro | Mensagem de erro | Etapas para solucionar problemas |
 | ---------- | ------------- | --------------------- |
 | **AccessDenied** | O locatário chamador não tem permissões de acesso para fazer a autenticação do usuário | Verifique se o domínio do locatário e o domínio do nome UPN são os mesmos. Por exemplo, verifique se user@contoso.com está tentando se autenticar no locatário da Contoso. O UPN representa um usuário válido para o locatário no Azure. |
 | **AuthenticationMethodNotConfigured** | O método de autenticação especificado não foi configurado para o usuário | Solicite ao usuário para adicionar ou verificar seus métodos de verificação de acordo com as instruções em [Gerenciar as configurações da verificação em duas etapas](../user-help/multi-factor-authentication-end-user-manage-settings.md). |
@@ -66,7 +66,7 @@ Caso você encontre erros na extensão NPS da Autenticação Multifator do Azure
 
 Às vezes, os usuários podem receber mensagens da Autenticação Multifator, pois sua solicitação de autenticação falhou. Elas não são erros no produto de configuração, mas são avisos intencionais que explicam por que uma solicitação de autenticação foi negada.
 
-| Código de erro | Mensagem de erro | Etapas recomendadas | 
+| Código do erro | Mensagem de erro | Etapas recomendadas | 
 | ---------- | ------------- | ----------------- |
 | **OathCodeIncorrect** | Código incorreto inserido\Código OATH incorreto | O usuário inseriu o código incorreto. Solicite a ele para que repita a solicitação de um novo código ou entre novamente. | 
 | **SMSAuthFailedMaxAllowedCodeRetryReached** | Repetição de código máxima permitida atingida | O usuário não passou no desafio de verificação várias vezes. Dependendo das configurações, ele pode precisar ser desbloqueado por um administrador nesse momento.  |
@@ -76,7 +76,7 @@ Caso você encontre erros na extensão NPS da Autenticação Multifator do Azure
 
 Se você encontrar um desses erros, recomendamos que [contate o suporte](#contact-microsoft-support) para obter ajuda de diagnóstico. Não há nenhum conjunto padrão de etapas que pode corrigir esses erros. Ao contatar o suporte, lembre-se de incluir o máximo de informações possíveis sobre as etapas que levaram a um erro, bem como as informações de locatário.
 
-| Código de erro | Mensagem de erro |
+| Código do erro | Mensagem de erro |
 | ---------- | ------------- |
 | **InvalidParameter** | A solicitação não pode ser nula |
 | **InvalidParameter** | ObjectId não deve ser nulo nem vazio para ReplicationScope:{0} |

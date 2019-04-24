@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: b5e0336a290090ed6bd7f5af508e691677780a80
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789420"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60420233"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>Criar e gerenciar réplicas de leitura da CLI do Azure
 
@@ -88,5 +88,5 @@ Ao excluir um servidor mestre, a replicação para todas as réplicas de leitura
 az postgres server delete --name myserver --resource-group myresourcegroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [réplicas de leitura no Banco de Dados do Azure para PostgreSQL](concepts-read-replicas.md).

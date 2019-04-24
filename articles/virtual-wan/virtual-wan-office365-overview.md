@@ -7,12 +7,12 @@ services: virtual-wan
 ms.topic: article
 ms.date: 9/24/2018
 ms.author: cherylmc
-ms.openlocfilehash: 815b91295540e93f8f0ffbc002fcf02ce1c13365
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: cb91c1364a91c101ecf8362acd7aab01440143fc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992662"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60458570"
 ---
 # <a name="office-365-control-plane-in-virtual-wan"></a>Plano de controle do Office 365 na WAN Virtual
 

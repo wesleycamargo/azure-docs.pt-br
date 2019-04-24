@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pbutlerm
 ms.openlocfilehash: 3bbcf5c2b6fb0939c47e24f25c1d5d834eb07dfb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004264"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397730"
 ---
 # <a name="bring-your-microsoft-dynamics-365-business-central-app-into-microsoft-appsource"></a>Traga seu aplicativo Microsoft Dynamics 365 Business Central para o Microsoft AppSource
 
@@ -47,7 +47,7 @@ O processo típico de aplicativo e a linha do tempo é ilustrado no diagrama a s
 ![Sequência de publicação para um aplicativo do Dynamics 365 Business Central](./media/d365-financials/image001.png)
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre esse tipo de aplicativo, consulte [Anunciando o Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central/finance-and-operations-business-edition-to-business-central/).  Além disso, se você ainda não fez isso, examine o [do Office 365, Dynamics 365, PowerApps e Power BI oferecem guia de publicação](../appsource-offer-publishing-guide.md)
 

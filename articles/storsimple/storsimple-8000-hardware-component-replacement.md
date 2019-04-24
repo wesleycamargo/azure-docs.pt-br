@@ -16,11 +16,11 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433647"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60321651"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Substituir um componente de hardware no dispositivo StorSimple série 8000
 
@@ -34,7 +34,7 @@ Os tutoriais de substituição de componentes de hardware descrevem os component
 ### <a name="safety-icon-conventions"></a>Convenções de ícones de segurança
 A tabela a seguir descreve os ícones de segurança usados nestes tutoriais. Preste muita atenção a esses ícones de segurança ao percorrer as etapas para remover e substituir componentes do dispositivo.
 
-| Ícone | Texto | Informações adicionais |
+| ícone | Text | Informações adicionais |
 |:--- |:--- |:--- |
 | ![Ícone de aviso](./media/storsimple-hardware-component-replacement/Warning.png) |**PERIGO!** |Indica uma situação perigosa que, se não for evitada, resultará em morte ou lesões graves. Essa palavra de sinalização limita-se às situações mais graves. |
 | ![Ícone de aviso](./media/storsimple-hardware-component-replacement/Warning.png) |**AVISO!** |Indica uma situação perigosa que, se não for evitada, pode causar lesões graves ou de morte. |
@@ -67,7 +67,7 @@ Os principais componentes de hardware do dispositivo são resumidos nas tabelas 
 
 | Componentes | Quantidade presente | Módulo plug-in? | Procedimento de substituição |
 |:--- |:--- |:--- |:--- |
-| Chassi |1 |Não |[Substituir o chassi em seu dispositivo StorSimple](storsimple-8000-chassis-replacement.md) |
+| Chassi |1 |Não  |[Substituir o chassi em seu dispositivo StorSimple](storsimple-8000-chassis-replacement.md) |
 | Controladores principais |2 |Sim |[Substituir um módulo de controlador em seu dispositivo StorSimple](storsimple-8000-controller-replacement.md) |
 | Módulos de energia e resfriamento (PCMs) de 764W |2 |Sim |[Substituir um módulo de energia e resfriamento em seu dispositivo StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
 | Bateria de backup |2 |Sim |[Substituir o módulo de bateria de backup em seu dispositivo StorSimple](storsimple-8000-battery-replacement.md) |
@@ -79,7 +79,7 @@ O compartimento primário e o compartimento EBOD têm módulos de E/S diferentes
 
 | Componentes | Quantidade presente | Módulo plug-in? | Procedimento de substituição |
 |:--- |:--- |:--- |:--- |
-| Chassi |1 |Não |[Substituir o chassi em seu dispositivo StorSimple](storsimple-8000-chassis-replacement.md) |
+| Chassi |1 |Não  |[Substituir o chassi em seu dispositivo StorSimple](storsimple-8000-chassis-replacement.md) |
 | Controladores do EBOD |2 |Sim |[Substituir um controlador EBOD em seu dispositivo StorSimple](storsimple-8000-ebod-controller-replacement.md) |
 | Módulos de energia e resfriamento (PCMs) de 580W |2 |Sim |[Substituir um módulo de energia e resfriamento em seu dispositivo StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
 | Unidades de disco |12 |Sim |[Substituir uma unidade de disco em seu dispositivo StorSimple](storsimple-8000-disk-drive-replacement.md) |
@@ -92,7 +92,7 @@ Os módulos plug-in no dispositivo são realçados nos diagramas frontal e trase
 
 **Figura 1** Parte frontal do dispositivo
 
-| Rótulo | Descrição |
+| Rótulo | DESCRIÇÃO |
 |:--- |:--- |
 | 0 - 11 |Unidades de disco (total de 12) |
 
@@ -102,7 +102,7 @@ Tanto compartimento primário como o compartimento EBOD têm módulos de suporte
 
 **Figura 2** Parte posterior do compartimento primário
 
-| Rótulo | Descrição |
+| Rótulo | DESCRIÇÃO |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |
@@ -113,7 +113,7 @@ Tanto compartimento primário como o compartimento EBOD têm módulos de suporte
 
 **Figura 3** Parte posterior do compartimento EBOD
 
-| Rótulo | Descrição |
+| Rótulo | DESCRIÇÃO |
 |:--- |:--- |
 | 1 |PCM 0 |
 | 2 |PCM 1 |
@@ -134,6 +134,6 @@ As seguintes unidades renováveis (FRUs) estão disponíveis para seu dispositiv
 
 [Entre em contato com o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) para pedir qualquer uma dessas unidades de reposição.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Examine todas as [informações de segurança](storsimple-safety.md) antes de tentar substituir um componente de hardware do StorSimple.
 

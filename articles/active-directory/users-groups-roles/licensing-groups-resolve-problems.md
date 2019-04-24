@@ -16,11 +16,11 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c92969015910cc5bd72e2d9339d5c15c1f7af48b
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201527"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60470140"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificar e resolver problemas de atribuição de licenças para um grupo no Azure Active Directory
 
@@ -62,7 +62,7 @@ Para ver quais usuários e grupos estão consumindo licenças, selecione um prod
 
 **PowerShell:** Os cmdlets do PowerShell relatam esse erro como _CountViolation_.
 
-## <a name="conflicting-service-plans"></a>Planos de serviço conflitantes
+## <a name="conflicting-service-plans"></a>Planos de serviço conflitante
 
 **Problema:** Um dos produtos especificados no grupo contém um plano de serviço que está em conflito com outro plano de serviço já está atribuído ao usuário por meio de um produto diferente. Alguns planos de serviço são configurados de uma maneira que não possam ser atribuídos ao mesmo usuário que outro plano de serviço relacionado.
 
@@ -166,7 +166,7 @@ Dependendo de quais etapas você executou para resolver os erros, talvez seja ne
 
 Por exemplo, depois de resolver o problema de endereço proxy duplicado para um usuário afetado, você precisará disparar o processamento do usuário. Para reprocessar um usuário, vá para o painel de usuário, abra **Licenças** e, em seguida, selecione o botão **Reprocessar** na barra de ferramentas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre outros cenários de gerenciamento de licenças por meio de grupos, leia o seguinte:
 

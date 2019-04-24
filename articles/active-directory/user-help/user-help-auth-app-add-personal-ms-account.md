@@ -13,11 +13,11 @@ ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bcb49048fa9200b8970f37a4f187ca995d208cc2
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961577"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60474054"
 ---
 # <a name="add-your-personal-microsoft-accounts"></a>Adicionar suas contas Microsoft pessoais
 Adicione suas contas Microsoft pessoais, tais como para o Outlook.com ou o Xbox LIVE, ao aplicativo Microsoft Authenticator para verificação de dois fatores e o método de entrada por celular sem senha.
@@ -64,7 +64,7 @@ Você pode adicionar sua conta Microsoft pessoal ativando primeiro a verificaç�
 
     Sua conta pessoal é adicionada ao aplicativo Microsoft Authenticator.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - Depois de adicionar as contas ao aplicativo, você poderá entrar usando o aplicativo Authenticator em seu dispositivo. Para obter mais informações, confira [Entrar usando o aplicativo](user-help-auth-app-sign-in.md).
 

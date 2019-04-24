@@ -16,11 +16,11 @@ ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 45f48b6d8ef29d14606f18d4ccee77bd742a670a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58175991"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60470065"
 ---
 # <a name="understand-how-multiple-azure-active-directory-tenants-interact"></a>Entender como interagem vários locatários do Azure Active Directory
 
@@ -50,5 +50,5 @@ Para adicionar um locatário do Azure AD no Portal do Azure, entre no [Portal do
 > Ao contrário de outros recursos do Azure, os locatários não são recursos filho de uma assinatura do Azure. Se sua assinatura do Azure é cancelada ou expirada, você ainda pode acessar os dados de locatário usando o Azure PowerShell, a API do Graph do Azure ou o Centro de administração do Microsoft 365. Você também pode [associar outra assinatura ao locatário](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
 >
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para obter uma visão geral ampla dos problemas de licenciamento e as melhores práticas do Azure AD, consulte [O que é o licenciamento de locatário do Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md).

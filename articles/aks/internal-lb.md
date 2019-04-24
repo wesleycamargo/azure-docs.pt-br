@@ -2,17 +2,18 @@
 title: Criar um balanceador de carga interno no Azure Kubernetes Service (AKS)
 description: Saiba como criar e usar um balanceador de carga interno para expor seus serviços com o AKS (Serviço de Kubernetes do Azure).
 services: container-service
-author: iainfoulds
+author: rockboyfor
 ms.service: container-service
 ms.topic: article
-ms.date: 03/04/2019
-ms.author: iainfou
+origin.date: 03/04/2019
+ms.date: 04/08/2019
+ms.author: v-yeche
 ms.openlocfilehash: a26eab83f567a46f613e3bfda95fd99aba2b79c0
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404307"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60465539"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Usar um balanceador de carga interno com o AKS (Serviço de Kubernetes do Azure)
 
@@ -134,7 +135,7 @@ Quando todos os serviços que usam o balanceador de carga interno são excluído
 
 Você também pode excluir diretamente um serviço como qualquer recurso do Kubernetes, como `kubectl delete service internal-app`, que também exclui o balanceador de carga do Azure subjacente.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre os serviços do Kubernetes na [documentação dos serviços do Kubernetes][kubernetes-services].
 
@@ -144,10 +145,10 @@ Saiba mais sobre os serviços do Kubernetes na [documentação dos serviços do 
 
 <!-- LINKS - Internal -->
 [advanced-networking]: configure-azure-cni.md
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
+[az-role-assignment-create]: https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create
 [azure-lb-comparison]: ../load-balancer/load-balancer-overview.md#skus
 [use-kubenet]: configure-kubenet.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[install-azure-cli]: /cli/azure/install-azure-cli
+[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest

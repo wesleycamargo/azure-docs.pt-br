@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
 ms.openlocfilehash: 9d54cff81f39f41b60800e9b33f3b4da1a735d85
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794974"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60196228"
 ---
 # <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>Planeje seu aplicativo LUIS com o domínio do assunto, intenções e entidades
 
@@ -47,7 +47,7 @@ Nos exemplos de declarações, identifique as entidades que você deseja extrair
 
 Quando você determina quais entidades usar em seu aplicativo, tenha em mente que há diferentes tipos de entidades para capturar relacionamentos entre tipos de objetos. [Entidades no LUIS](luis-concept-entity-types.md) oferece mais detalhes sobre os tipos diferentes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Depois que seu aplicativo for treinado, publicado e receber declarações de ponto final, planeje implementar melhorias de previsão com [aprendizado ativo](luis-how-to-review-endpoint-utterances.md), [listas de frases](luis-concept-feature.md) e [padrões](luis-concept-patterns.md). 
 

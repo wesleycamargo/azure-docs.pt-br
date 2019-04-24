@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 7440a08bd8ceb85cc569e1bb6d7c4ee1e52178a4
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352148"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405895"
 ---
 # <a name="copy-data-from-oracle-responsys-using-azure-data-factory-preview"></a>Copiar dados do Oracle Responsys usando o Azure Data Factory (Visualização)
 
@@ -44,10 +44,10 @@ As propriedades a seguir têm suporte para o serviço Oracle Responsys vinculado
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Responsys** | SIM |
-| endpoint | O ponto de extremidade do servidor Respopnsys  | SIM |
-| clientId | A ID do cliente associada ao aplicativo Responsys.  | SIM |
-| clientSecret | O segredo do cliente associado ao aplicativo Responsys. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou então armazenar a senha no Azure Key Vault e permitir que o ADF copie o pull de atividade desse local ao executar a cópia de dados – saiba mais sobre como [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | SIM |
+| type | A propriedade type deve ser definida como: **Responsys** | Sim |
+| endpoint | O ponto de extremidade do servidor Respopnsys  | Sim |
+| clientId | A ID do cliente associada ao aplicativo Responsys.  | Sim |
+| clientSecret | O segredo do cliente associado ao aplicativo Responsys. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou então armazenar a senha no Azure Key Vault e permitir que o ADF copie o pull de atividade desse local ao executar a cópia de dados – saiba mais sobre como [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não  |
 | useHostVerification | Especifica se é necessário o nome do host no certificado do servidor para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é true.  | Não  |
 | usePeerVerification | Especifica se deve verificar a identidade do servidor quando se conecta por meio de SSL. O valor padrão é true.  | Não  |
@@ -83,7 +83,7 @@ Para copiar dados de Oracle Responsys, defina a propriedade type do conjunto de 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **ResponsysObject** | SIM |
+| type | A propriedade type do conjunto de dados deve ser definida como: **ResponsysObject** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -113,7 +113,7 @@ Para copiar dados de Oracle Responsys, defina o tipo de fonte na atividade de c�
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **ResponsysSource** | SIM |
+| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **ResponsysSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**

@@ -9,12 +9,12 @@ ms.reviewer: klam
 ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.topic: article
 ms.date: 08/15/2016
-ms.openlocfilehash: 88f2fe0781bad4b652826b6a8d1961dd39b063e1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 42d6ec93a3382f494b49fb574c4aee5e8eec142a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993313"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344340"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Autenticação de saída para Agendador do Azure
 
@@ -44,12 +44,12 @@ O Agendador oferece suporte a esses modelos de autenticação:
 
 Ao adicionar a autenticação usando o modelo `ClientCertificate`, especifique estes elementos adicionais no corpo da solicitação.  
 
-| Elemento | Obrigatório | DESCRIÇÃO |
+| Elemento | Necessário | DESCRIÇÃO |
 |---------|----------|-------------|
 | **autenticação (elemento pai)** | Objeto de autenticação para usar um certificado de cliente SSL |
-| **tipo** | SIM | O tipo de autenticação. Para certificados de cliente SSL, o valor é `ClientCertificate`. |
-| **pfx** | SIM | Conteúdo codificado na base64 do arquivo PFX |
-| **password** | SIM | A senha para acessar o arquivo PFX |
+| **tipo** | Sim | O tipo de autenticação. Para certificados de cliente SSL, o valor é `ClientCertificate`. |
+| **pfx** | Sim | Conteúdo codificado na base64 do arquivo PFX |
+| **password** | Sim | A senha para acessar o arquivo PFX |
 ||| 
 
 ### <a name="response-body---client-certificate"></a>Corpo da resposta – certificado do cliente 
@@ -164,12 +164,12 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 
 Ao adicionar a autenticação usando o modelo `Basic`, especifique estes elementos adicionais no corpo da solicitação.
 
-| Elemento | Obrigatório | DESCRIÇÃO |
+| Elemento | Necessário | DESCRIÇÃO |
 |---------|----------|-------------|
 | **autenticação (elemento pai)** | O objeto de autenticação para usar a autenticação básica | 
-| **tipo** | SIM | O tipo de autenticação. Para a autenticação básica, o valor é `Basic`. | 
-| **username** | SIM | Nome de usuário para autenticação | 
-| **password** | SIM | Senha para autenticação |
+| **tipo** | Sim | O tipo de autenticação. Para a autenticação básica, o valor é `Basic`. | 
+| **username** | Sim | Nome de usuário para autenticação | 
+| **password** | Sim | Senha para autenticação |
 |||| 
 
 ### <a name="response-body---basic"></a>Corpo da resposta - Básico
@@ -282,14 +282,14 @@ Date: Wed, 16 Mar 2016 19:05:06 GMT
 
 Ao adicionar a autenticação usando o modelo `ActiveDirectoryOAuth`, especifique estes elementos adicionais no corpo da solicitação.
 
-| Elemento | Obrigatório | DESCRIÇÃO |
+| Elemento | Necessário | DESCRIÇÃO |
 |---------|----------|-------------|
-| **autenticação (elemento pai)** | SIM | Objeto de autenticação para usar a autenticação ActiveDirectoryOAuth |
-| **tipo** | SIM | O tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. |
-| **tenant** | SIM | O identificador do locatário para o locatário do Azure AD. Para encontrar o identificador do locatário para o locatário do Azure AD executando `Get-AzureAccount` no Azure PowerShell. |
-| **audience** | SIM | Esse valor é configurado para `https://management.core.windows.net/`. | 
-| **clientId** | SIM | O identificador de cliente para o aplicativo do Azure AD | 
-| **secret** | SIM | O segredo para o cliente que está solicitando o token | 
+| **autenticação (elemento pai)** | Sim | Objeto de autenticação para usar a autenticação ActiveDirectoryOAuth |
+| **tipo** | Sim | O tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. |
+| **tenant** | Sim | O identificador do locatário para o locatário do Azure AD. Para encontrar o identificador do locatário para o locatário do Azure AD executando `Get-AzureAccount` no Azure PowerShell. |
+| **audience** | Sim | Esse valor é configurado para `https://management.core.windows.net/`. | 
+| **clientId** | Sim | O identificador de cliente para o aplicativo do Azure AD | 
+| **secret** | Sim | O segredo para o cliente que está solicitando o token | 
 |||| 
 
 ### <a name="response-body---active-directory-oauth"></a>Corpo de resposta - Active Directory OAuth

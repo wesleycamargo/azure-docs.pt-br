@@ -16,11 +16,11 @@ ms.workload: media
 ms.date: 10/15/2018
 ms.author: juliako
 ms.openlocfilehash: d4592c93cb7969c45a107d7365a1b9dabf11f412
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884028"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326491"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Criar e monitorar eventos do Media Services com o Event Grid usando o portal do Azure
 
@@ -86,6 +86,6 @@ Você pode acionar eventos para a conta do Media Services executando uma tarefa 
 
 ![Exibição do evento de assinatura](./media/monitor-events-portal/view-subscription-event.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 [Carregar, codificar e transmitir](stream-files-tutorial-with-api.md)

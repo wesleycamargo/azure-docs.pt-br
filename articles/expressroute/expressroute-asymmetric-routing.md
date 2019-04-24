@@ -10,11 +10,11 @@ ms.date: 10/10/2016
 ms.author: osamam
 ms.custom: seodec18
 ms.openlocfilehash: 6ece48d892f46a4f8bbeb66d3ebda9f532b621b8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076639"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60367740"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Roteamento assimétrico com vários caminhos de rede
 Este artigo explica como o encaminhamento e o retorno do tráfego de rede podem adotar rotas diferentes quando há vários caminhos disponíveis entre a origem e o destino da rede.

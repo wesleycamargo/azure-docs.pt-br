@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 66dd017e8f78f1e93c96262b42dc084c165cdef7
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437673"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60285481"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referência das atividades de auditoria do Azure AD
 
@@ -599,7 +599,7 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 |Termos de Uso|Cancelar a publicação dos Termos de Uso|
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 - [Visão geral dos relatórios do Azure AD](overview-reports.md).
 - [Relatório de logs de auditoria](concept-audit-logs.md). 

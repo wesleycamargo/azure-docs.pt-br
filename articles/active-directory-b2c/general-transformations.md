@@ -7,15 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: davidmu
+origin.date: 09/10/2018
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.subservice: B2C
 ms.openlocfilehash: 6a9a819e75e487999a2b50ae758b8d9c6c716a4f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084888"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397151"
 ---
 # <a name="general-claims-transformations"></a>Transformações de declarações gerais
 
@@ -30,7 +31,7 @@ Verifica se a **inputClaim** existe ou não e define **outputClaim** como true o
 | item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | InputClaim |Qualquer | A declaração de entrada cuja existência deve ser verificada. |
-| OutputClaim | outputClaim | booleano | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
+| OutputClaim | outputClaim | boolean | O ClaimType produzido depois de invocar esta ClaimsTransformation. |
 
 Use essa transformação de declarações para verificar se uma declaração existe ou se contém algum valor. O valor retornado é um valor booliano que indica se a declaração existe. O exemplo a seguir verifica se o endereço de email existe.
 
@@ -86,6 +87,7 @@ Transforme o texto sem formatação fornecido em hash usando o sal e um segredo.
     - **randomizerSecret**: B2C_1A_AccountTransformSecret
 - Declarações de saída: 
     - **outputClaim**: CdMNb/KTEfsWzh9MR1kQGRZCKjuxGMWhA5YQNihzV6U=
+
 
 
 

@@ -20,11 +20,11 @@ ms.reviewer: tanning
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cce60769ffae399062a50e1b2c28c1cd6e49a47e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904246"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60353169"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Solucionando problemas de configurações do Enterprise State Roaming no Azure Active Directory
 
@@ -185,6 +185,6 @@ No Visualizador de Eventos em AAD/logs operacionais, esse erro pode ser visto co
 **Ação recomendada**  
 Prossiga com as etapas listadas em [KB3196528](https://support.microsoft.com/kb/3196528).  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para obter uma visão geral, confira [visão geral do Enterprise State Roaming](enterprise-state-roaming-overview.md).

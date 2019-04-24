@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: zarhoads
 ms.openlocfilehash: aebade14f3a8a1095925d17325ce99b78031dc32
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757255"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60466608"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para os desenvolvedores de aplicativos gerenciarem os recursos no serviço de Kubernetes do Azure (AKS)
 
@@ -90,7 +90,7 @@ O [kube advisor] [ kube-advisor] ferramenta é um projeto de código-fonte abert
 
 Em um cluster AKS que hospeda várias equipes de desenvolvimento e aplicativos, pode ser difícil de controlar os pods sem solicitações desses recursos e limita o conjunto. Como prática recomendada, executar regularmente `kube-advisor` em seus clusters AKS.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo sobre práticas recomendadas se concentra em como executar suas cargas de trabalho de uma perspectiva do operador de cluster. Para obter informações sobre as melhores práticas administrativas, consulte [Práticas recomendadas de operador de cluster para isolamento e gerenciamento de recursos no serviço de Kubernetes do Azure (AKS)][operator-best-practices-isolation].
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: alkohli
 ms.openlocfilehash: 067bb6b806ddd9b83d4ea755876a980ca45d76e9
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407614"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387461"
 ---
 # <a name="azure-data-box-disk-system-requirements"></a>Requisitos do sistema do Azure Data Box Disk
 
@@ -62,7 +62,7 @@ Aqui está uma lista dos tipos de armazenamento compatíveis com o Data Box Disk
 | --- | --- |
 | Clássico | Standard |
 | Uso geral  |Standard; tanto V1 quanto V2 são compatíveis. Tanto a camada de acesso frequente quanto a camada de acesso esporádico são compatíveis. |
-| Conta de armazenamento de blob | |
+| Conta de armazenamento de blobs | |
 
 >[!NOTE]
 > Não há suporte para contas do Azure Data Lake Storage Gen2.

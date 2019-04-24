@@ -12,11 +12,11 @@ ms.date: 05/18/2018
 ms.author: v-jansko
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 3493f6d25461836d8f6e48ce4213b0f5b78b6372
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675102"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60539172"
 ---
 # <a name="translator-speech-api"></a>API de Tradução de Fala
 
@@ -70,7 +70,7 @@ Quando a conexão é estabelecida, o cliente começa a transmitir áudio por str
 
 A entrada de áudio está em WAVE (Formato de Arquivo de Áudio de Forma de Onda, mais comumente conhecido como WAV devido à sua extensão de nome de arquivo). O aplicativo cliente deve transmitir por streaming um áudio PCM de 16 bits de um único canal amostrado a 16 kHz. O primeiro conjunto de bytes transmitidos por streaming pelo cliente incluirá o cabeçalho WAV. Um cabeçalho de 44 bytes para um único fluxo PCM de 16 bits de canal assinado amostrado a 16 kHz é:
 
-|Deslocamento|Valor|
+|Offset|Value|
 |:---|:---|
 |0 a 3|"RIFF"|
 |4 a 7|0|
@@ -166,7 +166,7 @@ Quando um aplicativo cliente tiver terminado de transmitir por streaming um áud
 
 ### <a name="parameters"></a>parâmetros
 
-|Parâmetro|Valor|DESCRIÇÃO|Tipo de Parâmetro|Tipo de Dados|
+|Parâmetro|Value|DESCRIÇÃO|Tipo de Parâmetro|Tipo de Dados|
 |:---|:---|:---|:---|:---|
 |api-version|1.0|Versão da API solicitada pelo cliente. Os valores permitidos são: `1.0`.|query   |cadeia de caracteres|
 |de|(vazio)   |Especifica o idioma da fala recebida. O valor é um dos identificadores de idioma do escopo de `speech` na resposta da API de idiomas.|query|cadeia de caracteres|

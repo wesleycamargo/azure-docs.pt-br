@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2ddf0885ce7615e06b78eccbd6424e63cc6103c2
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546998"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60358665"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Configurar o Servidor de Autenticação Multifator do Azure para alta disponibilidade
 
@@ -69,6 +69,6 @@ Observe os itens a seguir em relação à área numerada correspondente do diagr
    ![Servidor do MFA do Azure – HA do Portal do Usuário e do Serviço de Aplicativo Móvel](./media/howto-mfaserver-deploy-ha/mfaportal.png)
 3. O farm de Servidores do AD FS tem balanceamento de carga e é publicado na Internet por meio de proxies do AD FS com balanceamento de carga na rede de perímetro. Cada Servidor do AD FS usa o agente do AD FS para se comunicar com os Servidores MFA do Azure usando uma única URL com balanceamento de carga (mfaapp.contoso.com) pela porta TCP 443.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Instalar e configurar o Servidor MFA do Azure](howto-mfaserver-deploy.md)

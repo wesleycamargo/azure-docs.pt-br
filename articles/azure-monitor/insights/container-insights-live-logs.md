@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: magoedte
 ms.openlocfilehash: c8baa4d2355adf99ce188d632ac50901db29a758
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997692"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60497620"
 ---
 # <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Como exibir logs de contêiner em tempo real com o Azure Monitor para contêineres (versão prévia)
 Esse recurso, que está atualmente em versão prévia, fornece uma exibição em tempo real nos logs de contêiner do AKS (Serviço de Kubernetes do Azure) (stdout/stderr) sem ter de executar comandos kubectl. Quando você seleciona essa opção, o novo painel aparece abaixo da tabela de dados de desempenho de contêineres na exibição **Contêineres**.  Ela mostra o log em tempo real gerado pelo mecanismo de contêiner para auxiliar mais ainda na solução de problemas em tempo real. **Colaborador** acesso para o recurso de cluster é necessário para esse recurso funcione.
@@ -91,6 +91,6 @@ Para suspender a rolagem automática e controlar o comportamento do painel, perm
 
 ![Pausar exibição em tempo real no painel de logs em tempo real](./media/container-insights-live-logs/live-logs-pane-pause-01.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Para continuar aprendendo a usar o Azure Monitor e monitorar outros aspectos do cluster do AKS, confira [Exibir integridade do Serviço de Kubernetes do Azure](container-insights-analyze.md).
 - Modo de exibição [exemplos de consulta de log](container-insights-log-search.md#search-logs-to-analyze-data) para ver consultas predefinidas e exemplos para avaliar ou personalizar para alertas, visualizar ou analisar seus clusters.

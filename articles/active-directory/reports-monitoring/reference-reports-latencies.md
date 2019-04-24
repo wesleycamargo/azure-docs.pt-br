@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 64bd2247a3437a2cc960da1820d9be417eedff8e
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438642"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60285175"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latências de relatórios do Azure Active Directory
 
@@ -80,7 +80,7 @@ A tabela a seguir lista as informações de latência para eventos de risco.
 | Entradas de endereços IP com atividade suspeita |2 horas |4 horas |8 horas  |
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Visão geral dos relatórios do Azure AD](overview-reports.md)
 * [Acesso programático aos relatórios do Microsoft Azure Active Directory](concept-reporting-api.md)

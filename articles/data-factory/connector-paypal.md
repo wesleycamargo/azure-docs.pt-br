@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: dcc54b0f67b9bf08df602c3eb9a4bcb0ea699ee7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023423"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405878"
 ---
 # <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>Copiar dados do PayPal utilizando o Azure Data Factory (versão prévia)
 
@@ -44,10 +44,10 @@ As propriedades a seguir têm suporte para o serviço vinculado do PayPal:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **PayPal** | SIM |
-| host | A URL da instância PayPal. (ou seja, api.sandbox.paypal.com)  | SIM |
-| clientId | A ID de cliente associada ao seu aplicativo PayPal.  | SIM |
-| clientSecret | O segredo de cliente associado ao seu aplicativo PayPal. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | SIM |
+| type | A propriedade type deve ser definida como: **PayPal** | Sim |
+| host | A URL da instância PayPal. (ou seja, api.sandbox.paypal.com)  | Sim |
+| clientId | A ID de cliente associada ao seu aplicativo PayPal.  | Sim |
+| clientSecret | O segredo de cliente associado ao seu aplicativo PayPal. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não  |
 | useHostVerification | Especifica se é necessário o nome do host no certificado do servidor para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é true.  | Não  |
 | usePeerVerification | Especifica se deve verificar a identidade do servidor quando se conecta por meio de SSL. O valor padrão é true.  | Não  |
@@ -79,7 +79,7 @@ Para copiar dados do PayPal, defina a propriedade type do conjunto de dados como
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **PayPalObject** | SIM |
+| type | A propriedade type do conjunto de dados deve ser definida como: **PayPalObject** | Sim |
 | tableName | Nome da tabela. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -108,7 +108,7 @@ Para copiar dados do PayPal, defina o tipo de origem na atividade de cópia como
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **PayPalSource** | SIM |
+| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **PayPalSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Payment_Experience"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**

@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
 ms.openlocfilehash: 44ff08c84b3e95a5b598ebf4279fc2ffc46313e3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863433"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60369467"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Inscreva-se para obter uma assinatura do Azure com sua conta do Office 365
 Se você tiver uma assinatura do Office 365, você pode usar sua conta do Office 365 para criar uma assinatura do Azure. Entre no [Portal do Azure](https://portal.azure.com/) usando seu nome de usuário e a senha do Office 365. No entanto, se você desejar configurar máquinas virtuais ou usar outros serviços do Azure, deverá inscrever-se para uma assinatura do Azure. Você pode compartilhar sua assinatura do Azure com outras pessoas e [usar o controle de acesso baseado em função para gerenciar o acesso à sua assinatura e recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)

@@ -10,17 +10,17 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh
 ms.openlocfilehash: fb3b375a66ac9b05ad26287b7c39ce8e748ad699
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780313"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60336704"
 ---
 # <a name="what-is-bing-local-business-search"></a>O que é o Bing Local Business Search?
 A API da Pesquisa de empresa local do Bing é um serviço RESTful que permite que seus aplicativos localizem informações sobre empresas locais com base em consultas de pesquisa. Por exemplo, `q=<business-name> in Redmond, Washington`, ou `q=Italian restaurants near me`. 
 
 ## <a name="features"></a>Recursos
-| Recurso | Descrição |  
+| Recurso | DESCRIÇÃO |  
 | -- | -- | 
 | [Encontre empresas e locais](quickstarts/local-quickstart.md) | A API da Pesquisa de empresa local do Bing obtém resultados localizados de uma consulta. Os resultados incluem uma URL para o site da empresa e exibem texto, número de telefone e localização geográfica, incluindo: Coordenadas de GPS, cidade, endereço |  
 | [Filtre resultados locais com limites geográficos](specify-geographic-search.md) | Adicione coordenadas como parâmetros de pesquisa para limitar os resultados a uma área geográfica específica, especificada por uma área delimitadora circular ou quadrada. | 
@@ -39,7 +39,7 @@ Chame a API de Pesquisa de Empresa Local do Bing em qualquer linguagem de progra
 > [!NOTE]
 > Atualmente, a Pesquisa de empresa local não suporta a sugestão automática. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - [Consulta e resposta](local-search-query-response.md)
 - [Início rápido de negócios pesquisa local](quickstarts/local-quickstart.md)
 - [Referência de API de pesquisa de negócios local](local-search-reference.md)

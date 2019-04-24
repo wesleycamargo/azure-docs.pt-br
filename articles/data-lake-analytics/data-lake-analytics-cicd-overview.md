@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
 ms.openlocfilehash: b035be727df2dfecb613da79681affd740c69bec
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544811"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60333805"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Como configurar um pipeline de IC / CD para o Azure Data Lake Analytics  
 
@@ -483,7 +483,7 @@ Execute as etapas a seguir para configurar uma tarefa de implantação de banco 
 |CertFile|O arquivo salva a certificação X.509 para autenticação não interativa. O padrão é usar a autenticação de segredo do cliente.|nulo|falso|
 | JobPrefix | O prefixo para a implementação do banco de dados de um trabalho DDL do U-SQL. | Deploy_ + DateTime.Now | falso |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Como testar seu código do Azure Data Lake Analytics](data-lake-analytics-cicd-test.md).
 - [Execute o script U-SQL em sua máquina local](data-lake-analytics-data-lake-tools-local-run.md).

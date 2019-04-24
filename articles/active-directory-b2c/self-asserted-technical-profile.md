@@ -7,15 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: davidmu
+origin.date: 09/10/2018
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.subservice: B2C
 ms.openlocfilehash: dcc94daeb19174b85fface05222f8842e9544adf
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188857"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419485"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico autodeclarado em uma política personalizada do Azure Active Directory B2C
 
@@ -127,12 +128,12 @@ Também é possível chamar um perfil técnico da API REST com a lógica de neg�
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | setting.showContinueButton | Não  | Mostra o botão continuar. Valores possíveis: `true` (padrão) ou `false` |
 | setting.showCancelButton | Não  | Mostra o botão cancelar. Valores possíveis: `true` (padrão) ou `false` |
 | setting.operatingMode | Não  | Em uma página de entrada, essa propriedade controla o comportamento do campo nome de usuário, como validação de entradas e mensagens de erro. Valores esperados: `Username` ou `Email`. |
-| ContentDefinitionReferenceId | SIM | O identificador da [definição de conteúdo](contentdefinitions.md) associada com este perfil técnico. |
+| ContentDefinitionReferenceId | Sim | O identificador da [definição de conteúdo](contentdefinitions.md) associada com este perfil técnico. |
 | EnforceEmailVerification | Não  | Na inscrição ou edição de perfil, reforça a verificação de email. Valores possíveis: `true` (padrão) ou `false`. | 
 | setting.showSignupLink | Não  | Mostra o botão de inscrição. Valores possíveis: `true` (padrão) ou `false` |
 | setting.retryLimit | Não  | Controla a quantidade de vezes que um usuário pode tentar fornecer os dados verificados pelo perfil técnico de validação. Por exemplo, quanto um usuário tenta se inscrever com uma conta que já existe e continua tentando até alcançar o limite.
@@ -141,6 +142,7 @@ Também é possível chamar um perfil técnico da API REST com a lógica de neg�
 ## <a name="cryptographic-keys"></a>Chaves de criptografia
 
 O elemento **CryptographicKeys** não será usado.
+
 
 
 

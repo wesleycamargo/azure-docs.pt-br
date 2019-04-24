@@ -16,11 +16,11 @@ ms.date: 06/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e5b1fa6284979a8c0bd0698f85b119117dd27a05
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172265"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60261842"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kudos"></a>Tutorial: Integração do Azure Active Directory com o Kudos
 
@@ -70,7 +70,7 @@ Para configurar a integração do Kudos ao Azure AD, você precisará adicionar 
     
 1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![APLICATIVOS][3]
+    ![Aplicativos][3]
 
 1. Na caixa de pesquisa, digite **Kudos**.
 

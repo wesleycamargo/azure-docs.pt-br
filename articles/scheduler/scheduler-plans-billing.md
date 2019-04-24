@@ -9,17 +9,17 @@ ms.reviewer: klam
 ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 74f13628b62d53a84b4d19255a30a6bc4a7367ec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 3a8664497d3d082ec1c7f584188854991e872d50
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974282"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344301"
 ---
 # <a name="plans-and-billing-for-azure-scheduler"></a>Planos e Cobrança do Agendador do Azure
 
 > [!IMPORTANT]
-> [Aplicativo Lógico do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Microsoft Azure, que está sendo desativado. Para agendar trabalhos, [experimente os Aplicativos Lógicos do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) está substituindo o Agendador do Azure, que está sendo desativado. Para agendar trabalhos, [experimente os Aplicativos Lógicos do Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
 ## <a name="job-collection-plans"></a>Planos de coleção de trabalhos
 

@@ -16,11 +16,11 @@ ms.date: 05/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec0cfaaf0d4ae692581d63c7745660ffeacfb11f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175737"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60439335"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-23-video"></a>Tutorial: Integração do Azure Active Directory com o 23 Video
 
@@ -70,7 +70,7 @@ Para configurar a integração do 23 Video ao AD do Azure, você precisa adicion
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![APLICATIVOS][3]
+    ![Aplicativos][3]
 
 4. Na caixa de pesquisa, digite **23 Video**.
 

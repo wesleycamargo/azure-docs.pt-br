@@ -11,13 +11,13 @@ ms.reviewer: klam, deli, LADocs
 ms.suite: integration
 ms.date: 10/05/2018
 ms.openlocfilehash: 0fec590523fa130af2e5670a92914c056df289d1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229610"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60512068"
 ---
-# <a name="quickstart-create-and-manage-automated-logic-app-workflows---visual-studio-code"></a>Início rápido: Criar e gerenciar fluxos de trabalho de aplicativos lógicos automatizados – Visual Studio Code
+# <a name="quickstart-create-and-manage-automated-logic-app-workflows---visual-studio-code"></a>Início Rápido: Crie e gerencie fluxos de trabalho de aplicativos lógicos automatizados - Visual Studio Code
 
 Com o [Azure Logic Apps](../logic-apps/logic-apps-overview.md) e o Visual Studio Code, você pode criar e gerenciar aplicativos lógicos que ajudam a automatizar tarefas, fluxos de trabalho e processos para integrar aplicativos, dados, sistemas e serviços em organizações e empresas. Este início rápido mostra como criar e editar definições de fluxo de trabalho de aplicativo lógico trabalhando com o esquema de definição de fluxo de trabalho em JSON (JavaScript Object Notation) por meio de uma experiência baseada em código. Também é possível trabalhar em aplicativos lógicos existentes já implantados no <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> na nuvem. 
 
@@ -220,7 +220,7 @@ Para trabalhar em um aplicativo lógico existente que já está implantado no Az
 
    ![Carregue suas edições](./media/create-logic-apps-visual-studio-code/upload-logic-app-changes.png)
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 * Em caso de dúvidas, visite o <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Fórum dos Aplicativos Lógicos do Azure</a>.
 * Para enviar ou votar em ideias de recurso, visite o <a href="https://aka.ms/logicapps-wish" target="_blank">site de comentários do usuário de Aplicativos Lógicos</a>.

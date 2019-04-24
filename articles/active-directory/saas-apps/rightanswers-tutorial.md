@@ -16,11 +16,11 @@ ms.date: 06/09/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7a4f7fef8a1f73bb7c3e19ae32756d13273ddf2d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208530"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60255193"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightanswers"></a>Tutorial: Integração do Azure Active Directory com o RightAnswers
 
@@ -70,7 +70,7 @@ Para configurar a integração do RightAnswers ao Azure AD, você precisará adi
     
 1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![APLICATIVOS][3]
+    ![Aplicativos][3]
 
 1. Na caixa de pesquisa, digite **RightAnswers**.
 

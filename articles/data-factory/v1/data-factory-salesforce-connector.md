@@ -14,11 +14,11 @@ ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: aac1ed82a01477b081f4bc146f199eba87d97859
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312131"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309126"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Mover dados do Salesforce usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -67,12 +67,12 @@ As seções que se seguem fornecem detalhes sobre as propriedades JSON que são 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir fornece descrições dos elementos JSON específicos para o serviço vinculado Salesforce.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| tipo |A propriedade type deve ser definida como: **Salesforce**. |Sim |
-| environmentUrl | Especifica a URL da instância do Salesforce. <br><br> – O padrão é "https:\//login.salesforce.com". <br> – Para copiar dados da área restrita, especifique “https://test.salesforce.com”. <br> – Para copiar dados do domínio personalizado, especifique, por exemplo, "https://[domínio].my.salesforce.com". |Não |
-| nome de usuário |Especifique um nome de usuário para a conta de usuário. |Sim |
-| senha |Especifique um senha para a conta de usuário. |Sim |
+| type |A propriedade type deve ser definida como: **Salesforce**. |Sim |
+| environmentUrl | Especifica a URL da instância do Salesforce. <br><br> – O padrão é "https:\//login.salesforce.com". <br> – Para copiar dados da área restrita, especifique “https://test.salesforce.com”. <br> – Para copiar dados do domínio personalizado, especifique, por exemplo, "https://[domínio].my.salesforce.com". |Não  |
+| Nome de Usuário |Especifique um nome de usuário para a conta de usuário. |Sim |
+| Senha |Especifique um senha para a conta de usuário. |Sim |
 | securityToken |Especifique um token de segurança para a conta de usuário. Veja [Obter token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) para ver instruções sobre como redefinir/obter o token de segurança. Para saber mais sobre os tokens de segurança em geral, veja [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) (Segurança e a API). |Sim |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
@@ -80,7 +80,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre o local dos dados no armazenamento de dados. A seção typeProperties para um conjunto de dados do tipo **RelationalTable** tem as propriedades a seguir:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
 | tableName |Nome da tabela no Salesforce. |Não (se uma **consulta** de **RelationalSource** for especificada) |
 
@@ -96,9 +96,9 @@ As propriedades que estão disponíveis na seção typeProperties da atividade, 
 
 Em Atividade de Cópia, quando a origem for do tipo **RelationalSource** (que inclui Salesforce), as seguintes propriedades estarão disponíveis na seção typeProperties:
 
-| Propriedade | Descrição | Valores permitidos | Necessário |
+| Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| consultar |Utiliza a consulta personalizada para ler os dados. |Uma consulta SQL-92 ou uma consulta [SOQL (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) . Por exemplo: `select * from MyTable__c`. |Não (se **tableName** do **conjunto de dados** for especificado) |
+| query |Utiliza a consulta personalizada para ler os dados. |Uma consulta SQL-92 ou uma consulta [SOQL (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) . Por exemplo: `select * from MyTable__c`. |Não (se **tableName** do **conjunto de dados** for especificado) |
 
 > [!IMPORTANT]
 > A parte "__c" do Nome da API é necessária para qualquer objeto personalizado.
@@ -107,7 +107,7 @@ Em Atividade de Cópia, quando a origem for do tipo **RelationalSource** (que in
 
 ## <a name="query-tips"></a>Dicas de consulta
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Recuperando dados usando a cláusula where na coluna DateTime
-Ao especificar a consulta SQL ou SOQL, preste atenção à diferença de formato DateTime. Por exemplo:
+Ao especificar a consulta SQL ou SOQL, preste atenção à diferença de formato DateTime. Por exemplo: 
 
 * **Exemplo de SOQL**:`$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
 * **Exemplo de SQL**:
@@ -286,25 +286,25 @@ Veja [Propriedades do tipo RelationalSource](#copy-activity-properties) para obt
 
 | Tipo Salesforce | Tipo baseado no .NET |
 | --- | --- |
-| Numeração automática |Cadeia |
-| Caixa de seleção |Booliano |
-| Conversor de Moedas |Decimal |
-| Data |DateTime |
-| Data/Hora |DateTime |
-| Email |Cadeia |
-| ID |Cadeia |
-| Relação de pesquisa |Cadeia |
-| Lista de seleção múltipla |Cadeia |
+| Numeração automática |Cadeia de caracteres |
+| Caixa de seleção |Boolean |
+| Moeda |Decimal |
+| Data |Datetime |
+| Data/hora |Datetime |
+| Email |Cadeia de caracteres |
+| ID |Cadeia de caracteres |
+| Relação de pesquisa |Cadeia de caracteres |
+| Lista de seleção múltipla |Cadeia de caracteres |
 | Número |Decimal |
-| Percentual |Decimal |
-| Telefone |Cadeia |
-| Lista de seleção |Cadeia |
-| Enviar SMS |Cadeia |
-| Área de texto |Cadeia |
-| Área de texto (longo) |Cadeia |
-| Área de texto (Rich) |Cadeia |
-| Texto (criptografado) |Cadeia |
-| URL |Cadeia |
+| Porcentagem |Decimal |
+| Telefone |Cadeia de caracteres |
+| Lista de seleção |Cadeia de caracteres |
+| Text |Cadeia de caracteres |
+| Área de texto |Cadeia de caracteres |
+| Área de texto (longo) |Cadeia de caracteres |
+| Área de texto (Rich) |Cadeia de caracteres |
+| Texto (criptografado) |Cadeia de caracteres |
+| URL |Cadeia de caracteres |
 
 > [!NOTE]
 > Para mapear colunas de conjunto de dados de origem para colunas do conjunto de dados de coletor, confira [Mapeando colunas de conjunto de dados no Azure Data Factory](data-factory-map-columns.md).

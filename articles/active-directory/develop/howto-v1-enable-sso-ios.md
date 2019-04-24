@@ -17,11 +17,11 @@ ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e79b73123b33a012c062a89fb9748fa101fabcea
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448672"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60299610"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Como: Habilitar o SSO entre aplicativos no iOS usando o ADAL
 
@@ -38,7 +38,7 @@ Estas instruções se aplicam a:
 * Azure Active Directory (Azure Active Directory)
 * Azure Active Directory B2C
 * Azure Active Directory B2B
-* Acesso Condicional do Active Directory do Azure
+* Acesso condicional ao Azure Active Directory
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -240,7 +240,7 @@ defaultKeychainSharingGroup=@"com.myapp.mycache";
 > [!WARNING]
 > Quando você compartilha um conjunto de chaves em seus aplicativos, qualquer aplicativo pode excluir usuários, ou pior, excluir todos os tokens em seu aplicativo. Isso é particularmente desastroso se você tiver aplicativos que dependem dos tokens para o trabalho em segundo plano. O compartilhamento do conjunto de chaves significa que você deve ter muito cuidado com toda e qualquer operação de remoção por meio dos SDKs de identidade.
 
-É só isso! O SDK agora compartilhará as credenciais om todos os seus aplicativos. A lista de usuários também será compartilhada entre instâncias do aplicativo.
+É isso! O SDK agora compartilhará as credenciais om todos os seus aplicativos. A lista de usuários também será compartilhada entre instâncias do aplicativo.
 
 ### <a name="turning-on-sso-for-broker-assisted-sso"></a>Ativar o SSO assistido por agente
 

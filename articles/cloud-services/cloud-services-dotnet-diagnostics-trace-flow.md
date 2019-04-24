@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/20/2016
 ms.author: jeconnoc
 ms.openlocfilehash: f597bc760a3f3825416912642ee66a53dfb91696
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525554"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60336857"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Rastrear o fluxo de um aplicativo de Serviços de Nuvem com o Diagnóstico do Azure
 O rastreamento é uma maneira de você monitorar a execução de seu aplicativo enquanto ele é executado. Você pode usar as classes [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace), [System.Diagnostics.Debug](/dotnet/api/system.diagnostics.debug) e [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource) para registrar informações sobre erros e execução do aplicativo em logs, arquivos de texto ou outros dispositivos para análise posterior. Para obter mais informações sobre rastreamento, consulte [Rastreamento e instrumentação de aplicativos](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications).
@@ -29,7 +29,7 @@ Implemente o rastreamento em seu aplicativo de Serviços de Nuvem adicionando [D
 
 Para obter informações sobre como colocar instruções de rastreamento, consulte [como: Adicionar instruções de rastreamento ao código do aplicativo](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code).
 
-Incluindo [Opções de Rastreamento](/dotnet/framework/debug-trace-profile/trace-switches) em seu código, você pode controlar se o rastreamento ocorre e qual a sua extensão. Isso permite monitorar o status do aplicativo em um ambiente de produção. Isso é particularmente importante em um aplicativo de negócios que usa vários componentes executados em vários computadores. Para obter mais informações, consulte [Como: Configurar opções de rastreamento](/dotnet/framework/debug-trace-profile/how-to-create-initialize-and-configure-trace-switches).
+Incluindo [Opções de Rastreamento](/dotnet/framework/debug-trace-profile/trace-switches) em seu código, você pode controlar se o rastreamento ocorre e qual a sua extensão. Isso permite monitorar o status do aplicativo em um ambiente de produção. Isso é particularmente importante em um aplicativo de negócios que usa vários componentes executados em vários computadores. Para obter mais informações, confira [Como: Configurar opções de rastreamento](/dotnet/framework/debug-trace-profile/how-to-create-initialize-and-configure-trace-switches).
 
 ## <a name="configure-the-trace-listener-in-an-azure-application"></a>Configurar o ouvinte de rastreamento em um aplicativo do Azure
 Rastreamento, depuração e TraceSource exigem que você configure "ouvintes" para coletar e registrar as mensagens que são enviadas. Os ouvintes coletam, armazenam e roteiam mensagens de rastreamento. Eles direcionam a saída de rastreamento para um destino apropriado, como um log, uma janela ou um arquivo de texto. O Diagnóstico do Azure usa a classe [DiagnosticMonitorTraceListener](/previous-versions/azure/reference/ee758610(v=azure.100)) .
@@ -74,6 +74,6 @@ Depois de concluir as etapas para adicionar o ouvinte, você pode adicionar inst
     ```
         using System.Diagnostics;
     ```
-3. Adicione instruções Trace em que você deseja capturar informações sobre o estado do aplicativo. Você pode usar diversos métodos para formatar a saída da instrução Trace. Para obter mais informações, consulte [Como: Adicionar instruções de rastreamento ao código do aplicativo](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code).
+3. Adicione instruções Trace em que você deseja capturar informações sobre o estado do aplicativo. Você pode usar diversos métodos para formatar a saída da instrução Trace. Para obter mais informações, confira [Como: Adicionar instruções de rastreamento ao código do aplicativo](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code).
 4. Salve o arquivo de origem.
 

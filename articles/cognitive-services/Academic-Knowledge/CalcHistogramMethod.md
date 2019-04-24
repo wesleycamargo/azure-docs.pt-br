@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: a228c5b90e47c9c24c5da70484a1a28f9a3054b1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100472"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60498815"
 ---
 # <a name="calchistogram-method"></a>Método CalcHistogram
 
@@ -30,7 +30,7 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
 
 ## <a name="request-parameters"></a>Parâmetros de solicitação
 
-NOME  |Valor | Obrigatório?  |DESCRIÇÃO
+NOME  |Value | Obrigatório?  |DESCRIÇÃO
 -----------|----------|--------|----------
 **expr**    |Cadeia de caracteres de texto | Sim  |Uma expressão de consulta que especifica as entidades sobre as quais calcular histogramas.
 **modelo** |Cadeia de caracteres de texto | Não  |Selecione o nome do modelo que você deseja consultar.  Atualmente, o valor padrão é o *mais recente*.

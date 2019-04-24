@@ -2,17 +2,18 @@
 title: Limitar o acesso a kubeconfig no AKS (Serviço de Kubernetes do Azure)
 description: Aprenda a controlar o acesso ao arquivo de configuração Kubernetes (kubeconfig) para os administradores de cluster e os usuários de cluster
 services: container-service
-author: iainfoulds
+author: rockboyfor
 ms.service: container-service
 ms.topic: article
-ms.date: 01/03/2019
-ms.author: iainfou
+origin.date: 01/03/2019
+ms.date: 03/04/2019
+ms.author: v-yeche
 ms.openlocfilehash: 141aacc71d129bb45dc53774af876d5b07b7fc86
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004271"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60466437"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Usar os controles de acesso baseado em função do Azure para definir o acesso ao arquivo de configuração do Kubernetes no AKS (Serviço de Kubernetes do Azure)
 
@@ -51,7 +52,7 @@ Para atribuir uma das funções do Azure a um usuário, você precisa obter a ID
 
 O exemplo a seguir atribui a *Função de Administrador do Cluster do Serviço de Kubernetes do Azure*:
 
-```azurecli-interactive
+```azurecli
 # Get the resource ID of your AKS cluster
 AKS_CLUSTER=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query id -o tsv)
 
@@ -87,7 +88,7 @@ A saída de exemplo a seguir mostra que a atribuição de função foi criada co
 
 Com as funções RBAC atribuídas, use o comando [az aks get-credentials][az-aks-get-credentials] para obter a definição *kubeconfig* para o cluster do AKS. O exemplo a seguir obtém as credenciais *-- admin*, que funcionarão corretamente se a *função de administrador do cluster* tiver sido concedida ao usuário:
 
-```azurecli-interactive
+```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
@@ -100,7 +101,7 @@ apiVersion: v1
 clusters:
 - cluster:
     certificate-authority-data: DATA+OMITTED
-    server: https://myaksclust-myresourcegroup-19da35-4839be06.hcp.eastus.azmk8s.io:443
+    server: https://myaksclust-myresourcegroup-19da35-4839be06.hcp.chinaeast.azmk8s.io:443
   name: myAKSCluster
 contexts:
 - context:
@@ -122,11 +123,11 @@ users:
 
 Para remover uma atribuição de função, use o comando [az role assignment delete][az-role-assignment-delete]. Especifique a ID da conta e a ID de recurso de cluster, conforme obtidas nos comandos anteriores:
 
-```azurecli-interactive
+```azurecli
 az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para segurança aprimorada no acesso aos clusters do AKS, [integre a autenticação do Azure Active Directory][aad-integration].
 
@@ -137,14 +138,14 @@ Para segurança aprimorada no acesso aos clusters do AKS, [integre a autenticaç
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[az-aks-get-credentials]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-get-credentials
 [azure-rbac]: ../role-based-access-control/overview.md
-[api-cluster-admin]: /rest/api/aks/managedclusters/listclusteradmincredentials
-[api-cluster-user]: /rest/api/aks/managedclusters/listclusterusercredentials
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-account-show]: /cli/azure/account#az-account-show
-[az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
-[az-role-assignment-delete]: /cli/azure/role/assignment#az-role-assignment-delete
-[aad-integration]: azure-ad-integration.md
+[api-cluster-admin]: https://docs.microsoft.com/rest/api/aks/managedclusters/listclusteradmincredentials
+[api-cluster-user]: https://docs.microsoft.com/rest/api/aks/managedclusters/listclusterusercredentials
+[az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
+[az-account-show]: https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az-account-show
+[az-ad-user-show]: https://docs.azure.cn/zh-cn/cli/ad/user?view=azure-cli-latest#az-ad-user-show
+[az-role-assignment-create]: https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create
+[az-role-assignment-delete]: https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-delete
+[aad-integration]: aad-integration.md

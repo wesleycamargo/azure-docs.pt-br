@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
 ms.openlocfilehash: 85bce59563cf0424816661c97406060bcbb423ec
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460435"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60402796"
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Conectar-se ao SQL Data Warehouse do Azure
 Conecte-se ao SQL Data Warehouse do Azure.
@@ -61,14 +61,14 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 ## <a name="connection-settings"></a>Configurações de conexão
 O SQL Data Warehouse padroniza algumas configurações durante a conexão e a criação do objeto. Essas configurações não podem ser substituídas e incluem:
 
-| Configuração de banco de dados | Valor |
+| Configuração de banco de dados | Value |
 |:--- |:--- |
 | [ANSI_NULLS][ANSI_NULLS] |ATIVADO |
 | [QUOTED_IDENTIFIERS][QUOTED_IDENTIFIERS] |ATIVADO |
 | [DATEFORMAT][DATEFORMAT] |mdy |
 | [DATEFIRST][DATEFIRST] |7 |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Para se conectar e consultar com o Visual Studio, confira [Consultar com o Visual Studio][Query with Visual Studio]. Para saber mais sobre as opções de autenticação, confira [Autenticação no SQL Data Warehouse do Azure][Authentication to Azure SQL Data Warehouse].
 
 <!--Articles-->

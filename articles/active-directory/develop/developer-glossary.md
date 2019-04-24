@@ -19,11 +19,11 @@ ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma, dadobali
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 968da9212b52c1e7ea09d1472b312671c7a73449
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565496"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60410377"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossário de desenvolvedor do Microsoft identity platform
 
@@ -192,7 +192,7 @@ A função de entrada de um aplicativo normalmente é usada para implementar o S
 
 O processo de cancelamento de autenticação de um usuário final, desanexando o estado do usuário associado à sessão do [aplicativo cliente](#client-application) durante a [entrada](#sign-in)
 
-## <a name="tenant"></a>locatário
+## <a name="tenant"></a>tenant
 
 Uma instância de um diretório do Azure AD é chamada de locatário do Azure AD. Ele fornece vários recursos, incluindo:
 

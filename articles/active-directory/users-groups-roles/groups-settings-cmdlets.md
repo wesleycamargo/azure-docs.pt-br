@@ -16,11 +16,11 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5773924e98b7ea13c180979dba1325eb8919ff3a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090620"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60469888"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets do Azure Active Directory para definir configurações de grupo
 Este artigo contém instruções sobre como usar cmdlets do PowerShell do Azure Active Directory (Azure AD) para criar e atualizar grupos. Este conteúdo aplica-se somente aos Grupos do Office 365 (às vezes chamados de grupos unificados). 
@@ -95,18 +95,18 @@ Aqui estão as configurações definidas no Group.Unified SettingsTemplate. A me
 
 | **Configuração** | **Descrição** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>Digite: BOOLEAN<li>Padrão: True |O sinalizador indicando se a criação do Grupo do Office 365 é permitida no diretório pelos usuários não administradores. Essa configuração não requer uma licença do Azure Active Directory Premium P1.|
+|  <ul><li>EnableGroupCreation<li>Digite: Boolean<li>Padrão: True |O sinalizador indicando se a criação do Grupo do Office 365 é permitida no diretório pelos usuários não administradores. Essa configuração não requer uma licença do Azure Active Directory Premium P1.|
 |  <ul><li>GroupCreationAllowedGroupId<li>Digite: Cadeia de caracteres<li>Padrão: “” |GUID do grupo de segurança para o qual os membros podem criar Grupos do Office 365 mesmo quando EnableGroupCreation == falso. |
 |  <ul><li>UsageGuidelinesUrl<li>Digite: Cadeia de caracteres<li>Padrão: “” |Um link para as Diretrizes de Uso do Grupo. |
 |  <ul><li>ClassificationDescriptions<li>Digite: Cadeia de caracteres<li>Padrão: “” | Uma lista delimitada por vírgulas de descrições de classificação. O valor de ClassificationDescriptions somente é válido neste formato:<br>$setting[“ClassificationDescriptions”] ="Classification:Description,Classification:Description"<br>em que a classificação coincide com cadeias de caracteres a ClassificationList.|
 |  <ul><li>DefaultClassification<li>Digite: Cadeia de caracteres<li>Padrão: “” | A classificação que deve ser usada como a classificação padrão para um grupo, se nenhuma for especificada.|
 |  <ul><li>PrefixSuffixNamingRequirement<li>Digite: Cadeia de caracteres<li>Padrão: “” | Cadeia de caracteres de um comprimento máximo de 64 caracteres que define a convenção de nomenclatura configurada para Grupos do Office 365. Para obter mais informações, confira [Impor uma política de nomenclatura para grupos do Office 365](groups-naming-policy.md). |
 | <ul><li>CustomBlockedWordsList<li>Digite: Cadeia de caracteres<li>Padrão: “” | Cadeia de caracteres de frases separadas por vírgulas que os usuários não serão autorizados a usar em nomes de grupos ou alias. Para obter mais informações, confira [Impor uma política de nomenclatura para grupos do Office 365](groups-naming-policy.md). |
-| <ul><li>EnableMSStandardBlockedWords<li>Digite: BOOLEAN<li>Padrão: “False” | Não use
-|  <ul><li>AllowGuestsToBeGroupOwner<li>Digite: BOOLEAN<li>Padrão: Falso | Booliano que indica se um usuário convidado pode ser um proprietário de grupos. |
-|  <ul><li>AllowGuestsToAccessGroups<li>Digite: BOOLEAN<li>Padrão: True | Booliano que indica se um usuário convidado pode ter acesso ao conteúdo dos Grupos do Office 365.  Essa configuração não requer uma licença do Azure Active Directory Premium P1.|
+| <ul><li>EnableMSStandardBlockedWords<li>Digite: Boolean<li>Padrão: “False” | Não use
+|  <ul><li>AllowGuestsToBeGroupOwner<li>Digite: Boolean<li>Padrão: Falso | Booliano que indica se um usuário convidado pode ser um proprietário de grupos. |
+|  <ul><li>AllowGuestsToAccessGroups<li>Digite: Boolean<li>Padrão: True | Booliano que indica se um usuário convidado pode ter acesso ao conteúdo dos Grupos do Office 365.  Essa configuração não requer uma licença do Azure Active Directory Premium P1.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Digite: Cadeia de caracteres<li>Padrão: “” | A url de um link para as diretrizes de uso do convidado. |
-|  <ul><li>AllowToAddGuests<li>Digite: BOOLEAN<li>Padrão: True | Um booliano que indica se há permissão para adicionar convidados a este diretório.|
+|  <ul><li>AllowToAddGuests<li>Digite: Boolean<li>Padrão: True | Um booliano que indica se há permissão para adicionar convidados a este diretório.|
 |  <ul><li>ClassificationList<li>Digite: Cadeia de caracteres<li>Padrão: “” |Uma lista delimitada por vírgulas de valores de classificação válidos que podem ser aplicados aos Grupos do Office 365. |
 
 ## <a name="read-settings-at-the-directory-level"></a>Ler configurações no nível do diretório

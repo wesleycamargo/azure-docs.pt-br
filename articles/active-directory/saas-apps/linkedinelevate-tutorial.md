@@ -16,11 +16,11 @@ ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6ca8e537f261b59fb4e069d47d24e21abbdeca46
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202003"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60259589"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Tutorial: Integração do Azure Active Directory com o LinkedIn Elevate
 
@@ -67,11 +67,11 @@ Para configurar a integração do LinkedIn Elevate ao Azure AD, é necessário a
 
 1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![APLICATIVOS][2]
+    ![Aplicativos][2]
 
 1. Clique em **adicionar** botão na parte superior da caixa de diálogo.
 
-    ![APLICATIVOS][3]
+    ![Aplicativos][3]
 
 1. Na caixa de pesquisa, digite **LinkedIn Elevate**. No painel de resultados, clique em **LinkedIn Elevate** para adicionar o aplicativo.
 

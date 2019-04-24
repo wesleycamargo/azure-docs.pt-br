@@ -18,11 +18,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ff2caae7cb387f4f0d88cf059d01ad28861b9ad
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191979"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60348347"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Sincronização do Azure AD Connect: Executando o assistente de instalação uma segunda vez
 Na primeira vez que você executa o assistente de instalação do Azure AD Connect, ele explica como configurar a instalação. Se você executar o assistente de instalação novamente, ele oferecerá opções para manutenção.
@@ -81,7 +81,7 @@ A opção mostra se o teste está habilitado ou desabilitado atualmente:
 Para alterar o estado, selecione essa opção e marque ou desmarque a caixa de seleção.  
 ![Opção que também está mostrando o estado atual do modo de preparo](./media/how-to-connect-installation-wizard/stagingmodeenable.png)
 
-## <a name="change-user-sign-in"></a>Alterar entrada de usuário
+## <a name="change-user-sign-in"></a>Alterar a entrada do usuário
 Essa opção permite que você altere o método de entrada do usuário de e para sincronização de hash de senha, autenticação de passagem ou federação. Você não pode alterar para **não configurar**.
 
 Para obter mais informações sobre essa opção, consulte [entrada do usuário](plan-connect-user-signin.md#changing-the-user-sign-in-method).

@@ -11,11 +11,11 @@ ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 67db13c8a36977f2614ba7b0e263919bd0405bc7
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585586"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316945"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Fluxos dos usuários no Azure Active Directory B2C
 
@@ -83,7 +83,7 @@ Não há garantia de que o endereço de email seja verificado em nenhum desses c
  
 Somente as propriedades **otherMails** e **signInNames** são expostas por meio da API do Graph do Active Directory. O endereço de email na propriedade de detalhe de autenticação forte não está disponível.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Para criar os fluxos dos usuários recomendados, siga as instruções no [Tutorial: Criar um fluxo de usuário](tutorial-create-user-flows.md).
 

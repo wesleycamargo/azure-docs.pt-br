@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74ba9b8d0ce86a5c663eb9fbb6190e2bcf4513d7
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.openlocfilehash: f510a111a6c8846b300c09f368a3a2a05b2bb7ad
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47411078"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306962"
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Solucionar problemas de implantação ao reiniciar ou redimensionar uma VM Windows existente no Azure
 Ao tentar iniciar uma VM (Máquina Virtual) do Azure parada ou redimensionar uma VM do Azure existente, o erro comum encontrado é uma falha de alocação. Esse erro ocorre quando o cluster ou a região não tem recursos disponíveis ou quando não dá suporte ao tamanho de VM solicitado.
@@ -32,7 +32,7 @@ Para iniciar a solução de problemas, colete os logs de atividades para identif
 
 [Exibir logs de atividades para gerenciar recursos do Azure](../../resource-group-audit.md)
 
-## <a name="issue-error-when-starting-a-stopped-vm"></a>Problema: erro ao iniciar uma VM parada
+## <a name="issue-error-when-starting-a-stopped-vm"></a>Problema: Erro ao iniciar uma VM parada
 Você tenta iniciar uma VM parada, mas ocorre uma falha de alocação.
 
 ### <a name="cause"></a>Causa
@@ -45,7 +45,7 @@ Deve-se tentar fazer a solicitação de início da VM parada no cluster original
   2. Depois que todas as VMs pararem, selecione cada uma das VMs paradas e clique em Iniciar.
 * Repita a solicitação de reinicialização mais tarde.
 
-## <a name="issue-error-when-resizing-an-existing-vm"></a>Problema: erro ao redimensionar uma VM existente
+## <a name="issue-error-when-resizing-an-existing-vm"></a>Problema: Erro ao redimensionar uma VM existente
 Você tenta redimensionar uma VM existente, mas ocorre uma falha de alocação.
 
 ### <a name="cause"></a>Causa

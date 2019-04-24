@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e734b932976896b2fb4d86e2627b7827d40a2545
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189882"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60454852"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>Planejar para aumentar a segurança de dados usando uma solução de identidade forte
 A primeira etapa na proteção dos dados é identificar quem pode acessá-los. Além disso, é necessário ter uma solução de identidade que possa se integrar com o sistema para fornecer funcionalidades de autenticação e autorização. Autenticação e autorização são frequentemente confundidos um com o outro e suas funções são mal compreendidas. Na verdade, são diferentes, como mostrado na seguinte figura:
@@ -84,7 +84,7 @@ A legislação e a conformidade regulatória variará de acordo com a indústria
 > 
 > 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
  [Determinar requisitos de gerenciamento de conteúdo](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)
 
 ## <a name="see-also"></a>Veja também

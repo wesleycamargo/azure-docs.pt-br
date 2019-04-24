@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec2018
 ms.openlocfilehash: 645f3177913b903e8262c1fec08c452130e2a671
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337860"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60308206"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Criar um índice básico no Azure Search
 
@@ -137,7 +137,7 @@ A [*coleção de campos*](#fields-collection) normalmente é a maior parte de um
 Quando você define o esquema, deve especificar o nome, tipo e atributos de cada campo no índice. O tipo de campo classifica os dados armazenados nesse campo. Os atributos são definidos em campos individuais para especificar como o campo será usado. A tabela a seguir enumera os tipos e atributos que você pode especificar.
 
 ### <a name="data-types"></a>Tipos de dados
-| Digite | Descrição |
+| Type | DESCRIÇÃO |
 | --- | --- |
 | *Edm.String* |O texto que opcionalmente pode ser indexado para a pesquisa de texto completo (separação de palavras, derivação e assim por diante). |
 | *Collection(Edm.String)* |Uma lista de cadeias de caracteres que opcionalmente podem ser indexadas para a pesquisa de texto completo. Não há nenhum limite teórico superior no número de itens em uma coleção, mas o limite superior de 16 MB no tamanho da carga se aplica às coleções. |
@@ -151,7 +151,7 @@ Quando você define o esquema, deve especificar o nome, tipo e atributos de cada
 Você pode encontrar informações mais detalhadas sobre os [tipos de dados com suporte](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types) do Azure Search.
 
 ### <a name="index-attributes"></a>Atributos de índice
-| Atributo | Descrição |
+| Atributo | DESCRIÇÃO |
 | --- | --- |
 | *Chave* |Uma cadeia de caracteres que fornece a ID exclusiva de cada documento, usada para pesquisar documentos. Todos os índices devem ter uma chave. Somente um campo pode ser a chave e seu tipo deve ser definido para Edm.String. |
 | *Recuperável* |Especifica se um campo pode ser retornado em um resultado da pesquisa. |
@@ -170,7 +170,7 @@ O índice é baseado na fonte de dados [exemplo de realestate interno](search-ge
 
 ![Indexar tamanho com base na seleção de atributo](./media/search-what-is-an-index/realestate-index-size.png "Indexar tamanho com base na seleção de atributo")
 
-Embora essas variantes de índice sejam artificiais, podemos referenciá-las para obter amplas comparações de como os atributos afetam o armazenamento. A configuração **recuperável** aumenta o tamanho do índice? Nº. A adição de campos a um **Sugestor** aumenta o tamanho do índice? Sim.
+Embora essas variantes de índice sejam artificiais, podemos referenciá-las para obter amplas comparações de como os atributos afetam o armazenamento. A configuração **recuperável** aumenta o tamanho do índice? Não. A adição de campos a um **Sugestor** aumenta o tamanho do índice? Sim.
 
 Os índices que dão suporte à filtragem e à classificação são proporcionalmente maiores do que os índices que dão suporte apenas à pesquisa de texto completo. O motivo é que isso filtra e classifica consultas em correspondências exatas, assim os documentos são armazenados intactos. Por outro lado, os campos pesquisáveis que dão suporte à pesquisa de texto completo e difusa usam índices invertidos, populados com termos indexados que consomem menos espaço do que documentos inteiros.
 

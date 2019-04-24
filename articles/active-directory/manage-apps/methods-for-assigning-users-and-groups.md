@@ -15,11 +15,11 @@ ms.date: 10/01/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1cbd40f2ab91f854f46dc3e62bccbc8a3264f97f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087458"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60291272"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Atribuir usuários e grupos a um aplicativo no Azure Active Directory
 Este artigo mostra como atribuir usuários ou grupos a um aplicativo no Azure AD (Azure Active Directory). Primeiro os usuários devem ser atribuídos a um aplicativo para que um administrador possa conceder a eles acesso para fazer o seguinte:

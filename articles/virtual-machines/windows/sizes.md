@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 11/14/2018
 ms.author: jonbeck
 ms.openlocfilehash: 45fc4655d8afd2127c2f3057eb8a42ee80be4021
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009830"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60539648"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Tamanhos das máquinas virtuais do Windows no Azure
 
@@ -61,7 +61,7 @@ Saiba mais sobre como as [ACUs (unidade de computação do Azure)](acu.md) podem
 
 Saiba mais sobre desempenho de computação para VMs do Windows usando as [pontuações de parâmetro de comparação CoreMark](compute-benchmark-scores.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre os diferentes tamanhos de VM que estão disponíveis:
 - [Propósito geral](sizes-general.md)

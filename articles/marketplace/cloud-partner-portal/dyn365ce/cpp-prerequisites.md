@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pbutlerm
 ms.openlocfilehash: b08312040f9702b8a9100886c198138431012e3f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007386"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60308664"
 ---
 # <a name="dynamics-365-for-customer-engagement-prerequisites"></a>Pré-requisitos do Dynamics 365 for Customer Engagement
 
@@ -58,6 +58,6 @@ Os requisitos comerciais incluem as seguintes obrigações contratuais, legais e
 * Você deve ter criado o manual e os acessórios de marketing associados, como um nome de aplicativo oficial, uma descrição (no formato HTML), imagens de logotipo no formato PNG (40 x 40, 90 x 90, 115 x 115 e 255 x 115 pixels), bem como Termos de Uso e uma Política de Privacidade.  
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Depois de atender a esses requisitos, você poderá [criar uma oferta do Dynamics 365 Customer Engagement](./cpp-create-offer.md) 

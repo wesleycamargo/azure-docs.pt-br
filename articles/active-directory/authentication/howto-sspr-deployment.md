@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb9333845a78204ea1c6e56e17b3b6f9e5513c9c
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370663"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60357981"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Como distribuir com sucesso a redefinição de senha de autoatendimento
 
@@ -78,7 +78,7 @@ Considere [preencher previamente alguns dados de autenticação dos usuários](h
 
 Se a organização decidir desabilitar a redefinição de senha de autoatendimento, será um processo simples. Abra o seu locatário do Azure AD e vá para **Redefinição de senha** > **Propriedades** e, em seguida, selecione **Nenhum** em **Redefinição de senha do serviço de autoatendimento habilitada**. Os usuários ainda manterão seus métodos de autenticação registrado para uso futuro.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 * [Redefinir ou alterar sua senha](../user-help/active-directory-passwords-update-your-own-password.md)
 * [Registro de redefinição de senha de autoatendimento](../user-help/active-directory-passwords-reset-register.md)

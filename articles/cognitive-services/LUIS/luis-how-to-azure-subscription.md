@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: diberry
 ms.openlocfilehash: 7315c80ad74eae07e41577fb2ac13742002e729e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781690"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60198506"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Usando chaves de assinatura com seu aplicativo LUIS
 
@@ -122,7 +122,7 @@ Para fins de automação, como um pipeline de CI/CD, você talvez queira automat
 
     Essa API POST requer as seguintes configurações:
 
-    |Cabeçalho|Valor|
+    |Cabeçalho|Value|
     |--|--|
     |`Authorization`|O valor de `Authorization` é `Bearer {token}`. Observe que o valor do token deve ser precedido pela palavra `Bearer` e um espaço.| 
     |`Ocp-Apim-Subscription-Key`|Sua [chave de criação](luis-how-to-account-settings.md).|
@@ -133,7 +133,7 @@ Para fins de automação, como um pipeline de CI/CD, você talvez queira automat
 
     Essa API POST requer as seguintes configurações:
 
-    |Type|Configuração|Valor|
+    |Type|Configuração|Value|
     |--|--|--|
     |Cabeçalho|`Authorization`|O valor de `Authorization` é `Bearer {token}`. Observe que o valor do token deve ser precedido pela palavra `Bearer` e um espaço.|
     |Cabeçalho|`Ocp-Apim-Subscription-Key`|Sua [chave de criação](luis-how-to-account-settings.md).|

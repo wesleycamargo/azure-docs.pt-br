@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: be8d4172476ca0613e80e62739b9ab36f8ab4c3b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881147"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60197725"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticação de serviço a serviço com o Armazenamento de dados do Windows Azure Gen1 usando o .NET SDK
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Neste artigo, você aprende sobre como usar o .NET SDK para fazer a autenticaç�
 2. No menu **Arquivo**, clique em **Novo** e em **Projeto**.
 3. Em **Novo Projeto**, digite ou selecione os seguintes valores:
 
-   | Propriedade | Valor |
+   | Propriedade | Value |
    | --- | --- |
    | Categoria |Modelos/Visual C#/Windows |
    | Modelo |Aplicativo de console |

@@ -12,11 +12,11 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d6601f57d87b518b2061df64174818432b822755
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076183"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60515333"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Protocolo WebSocket da Fala do Bing
 
@@ -150,7 +150,7 @@ As principais mensagens enviadas pelo cliente para os serviços são `speech.con
 
 Os cabeçalhos a seguir são necessários para todas as mensagens de origem de cliente.
 
-| Cabeçalho | Valor |
+| Cabeçalho | Value |
 |----|----|
 | Caminho | Caminho da mensagem conforme especificado neste documento |
 | X-RequestId | UUID no formato de "não-traço" |
@@ -174,12 +174,12 @@ Os clientes *devem* enviar uma `speech.config` mensagem imediatamente depois de 
 
 | Campo | DESCRIÇÃO |
 |----|----|
-| Codificação de mensagem WebSocket | Texto |
+| Codificação de mensagem WebSocket | Text |
 | Corpo | O conteúdo útil como uma estrutura JSON |
 
 #### <a name="required-message-headers"></a>Cabeçalhos de mensagem necessários
 
-| Nome do cabeçalho | Valor |
+| Nome do cabeçalho | Value |
 |----|----|
 | Caminho | `speech.config` |
 | X-Timestamp | Carimbo de hora do relógio cliente UTC no formato ISO 8601 |
@@ -219,17 +219,17 @@ O elemento system.version da `speech.config` mensagem contém a versão de fala 
 
 | Campo | DESCRIÇÃO | Uso |
 |-|-|-|
-| os.platform | A plataforma OS que hospeda o aplicativo, por exemplo, Windows, Android, iOS ou SO Linux |Obrigatório |
-| os.name | Nome de produto do sistema operacional, por exemplo, Debian ou Windows 10 | Obrigatório |
-| os.version | A versão do sistema operacional no formulário *major.minor.build.branch* | Obrigatório |
+| os.platform | A plataforma OS que hospeda o aplicativo, por exemplo, Windows, Android, iOS ou SO Linux |Necessário |
+| os.name | Nome de produto do sistema operacional, por exemplo, Debian ou Windows 10 | Necessário |
+| os.version | A versão do sistema operacional no formulário *major.minor.build.branch* | Necessário |
 
 ##### <a name="device-element"></a>Elemento de dispositivo
 
 | Campo | DESCRIÇÃO | Uso |
 |-|-|-|
-| device.manufacturer | O fabricante de hardware do dispositivo | Obrigatório |
-| device.model | O modelo do dispositivo. | Obrigatório |
-| device.version | A versão do software do dispositivo fornecida pelo fabricante do dispositivo. Esse valor especifica uma versão do dispositivo que pode ser acompanhado pelo fabricante. | Obrigatório |
+| device.manufacturer | O fabricante de hardware do dispositivo | Necessário |
+| device.model | O modelo do dispositivo. | Necessário |
+| device.version | A versão do software do dispositivo fornecida pelo fabricante do dispositivo. Esse valor especifica uma versão do dispositivo que pode ser acompanhado pelo fabricante. | Necessário |
 
 ### <a name="message-audio"></a>Mensagem `audio`
 
@@ -250,7 +250,7 @@ O serviço de fala usa a primeira `audio` mensagem que contém um identificador 
 
 Os cabeçalhos a seguir são necessários `audio` para todas as mensagens.
 
-| Cabeçalho         |  Valor     |
+| Cabeçalho         |  Value     |
 | ------------- | ---------------- |
 | Caminho | `audio` |
 | X-RequestId | UUID no formato de "não-traço" |
@@ -307,7 +307,7 @@ Os clientes devem reconhecer o fim de uma curva, enviando uma `telemetry` mensag
 
 | Campo | DESCRIÇÃO |
 | ------------- | ---------------- |
-| Codificação de mensagem WebSocket | Texto |
+| Codificação de mensagem WebSocket | Text |
 | Caminho | `telemetry` |
 | X-Timestamp | Carimbo de hora do relógio cliente UTC no formato ISO 8601 |
 | Tipo de conteúdo | `application/json` |
@@ -329,7 +329,7 @@ A `speech.startDetected` mensagem indica que o Serviço de Fala detectado fala n
 
 | Campo | DESCRIÇÃO |
 | ------------- | ---------------- |
-| Codificação de mensagem WebSocket | Texto |
+| Codificação de mensagem WebSocket | Text |
 | Caminho | `speech.startDetected` |
 | Tipo de conteúdo | application/json; charset=utf-8 |
 | Corpo | Estrutura JSON que contém informações sobre as condições quando o início da fala foi detectado. O campo de *deslocamento* nessa estrutura especifica o deslocamento (em unidades de 100 nanossegundos) quando a fala for detectada no fluxo de áudio, em relação ao início do fluxo. |
@@ -354,7 +354,7 @@ Durante o reconhecimento de fala, o serviço de fala gera periodicamente hipóte
 
 | Campo | DESCRIÇÃO |
 | ------------- | ---------------- |
-| Codificação de mensagem WebSocket | Texto |
+| Codificação de mensagem WebSocket | Text |
 | Caminho | `speech.hypothesis` |
 | X-RequestId | UUID no formato de "não-traço" |
 | Tipo de conteúdo | aplicativo/json |
@@ -386,7 +386,7 @@ Quando o serviço de fala determina que ele tem informações suficientes para p
 
 | Campo | DESCRIÇÃO |
 | ------------- | ---------------- |
-| Codificação de mensagem WebSocket | Texto |
+| Codificação de mensagem WebSocket | Text |
 | Caminho | `speech.phrase` |
 | Tipo de conteúdo | aplicativo/json |
 | Corpo | Estrutura JSON de frase de fala |
@@ -414,7 +414,7 @@ A `speech.endDetected` mensagem especifica que o aplicativo cliente deve parar o
 
 | Campo | DESCRIÇÃO |
 | ------------- | ---------------- |
-| Codificação de mensagem WebSocket | Texto |
+| Codificação de mensagem WebSocket | Text |
 | Caminho | `speech.endDetected` |
 | Corpo | A estrutura JSON que contém o deslocamento ao final da fala foi detectado. O deslocamento é representado no deslocamento de unidades de 100 nanossegundos desde o início de áudio que é usado para o reconhecimento. |
 | Tipo de conteúdo | application/json; charset=utf-8 |
@@ -439,7 +439,7 @@ O `turn.start` sinaliza o início de uma curva da perspectiva do serviço. A `tu
 
 | Campo | DESCRIÇÃO |
 | ------------- | ---------------- |
-| Codificação de mensagem WebSocket | Texto |
+| Codificação de mensagem WebSocket | Text |
 | Caminho | `turn.start` |
 | Tipo de conteúdo | application/json; charset=utf-8 |
 | Corpo | Estrutura JSON |
@@ -466,7 +466,7 @@ O `turn.end` sinaliza o início de uma curva da perspectiva do serviço. A `turn
 
 | Campo | DESCRIÇÃO |
 | ------------- | ---------------- |
-| Codificação de mensagem WebSocket | Texto |
+| Codificação de mensagem WebSocket | Text |
 | Caminho | `turn.end` |
 | Corpo | Nenhum |
 
@@ -508,10 +508,10 @@ A `Connection` métrica especifica detalhes sobre as tentativas de conexão pelo
 
 | Campo | DESCRIÇÃO | Uso |
 | ----- | ----------- | ----- |
-| NOME | `Connection` | Obrigatório |
-| ID | O valor do identificador de conexão que foi usado no cabeçalho *X ConnectionId* para esta solicitação de conexão | Obrigatório |
-| Iniciar | A hora em que o cliente enviou a solicitação de conexão | Obrigatório |
-| End | A hora quando o cliente recebe a notificação de que a conexão foi estabelecida com êxito, em casos de erro, rejeitada, recusada ou com falha | Obrigatório |
+| NOME | `Connection` | Necessário |
+| ID | O valor do identificador de conexão que foi usado no cabeçalho *X ConnectionId* para esta solicitação de conexão | Necessário |
+| Iniciar | A hora em que o cliente enviou a solicitação de conexão | Necessário |
+| End | A hora quando o cliente recebe a notificação de que a conexão foi estabelecida com êxito, em casos de erro, rejeitada, recusada ou com falha | Necessário |
 | Erro | Uma descrição do erro que ocorreu, se houver. Se a operação de gatilho for bem-sucedida, os clientes devem omitir esse campo. O comprimento máximo deste campo é de 50 caracteres. | Necessário para casos de erro, caso contrário omitidos |
 
 A descrição do erro deve ser no máximo de 50 caracteres e idealmente deve ser um dos valores listados na tabela a seguir. Se a condição de erro não coincidir com um desses valores, os clientes podem usar uma descrição sucinta da condição de erro usando [CamelCasing](https://en.wikipedia.org/wiki/Camel_case) sem espaço em branco. A capacidade de enviar uma mensagem de *telemetria* requer uma conexão para o serviço, portanto apenas transitório ou condições de erro temporárias podem ser relatadas na mensagem de *telemetria*. As condições de erro que *permanentemente* bloqueiam um cliente de estabelecer uma conexão para o serviço evitam que o cliente envie uma mensagem para o serviço, incluindo mensagens de *telemetria*.
@@ -548,9 +548,9 @@ O valor de tempo *Final* para a `Microphone` métrica registra a hora em que o a
 
 | Campo | DESCRIÇÃO | Uso |
 | ----- | ----------- | ----- |
-| NOME | Microfone | Obrigatório |
-| Iniciar | A hora de quando o cliente iniciou usando a entrada de áudio do microfone ou outro fluxo de áudio ou recebeu um gatilho de spotter a palavra-chave | Obrigatório |
-| End | A hora em que o cliente interrompeu usando o fluxo de áudio ou microfone | Obrigatório |
+| NOME | Microfone | Necessário |
+| Iniciar | A hora de quando o cliente iniciou usando a entrada de áudio do microfone ou outro fluxo de áudio ou recebeu um gatilho de spotter a palavra-chave | Necessário |
+| End | A hora em que o cliente interrompeu usando o fluxo de áudio ou microfone | Necessário |
 | Erro | Uma descrição do erro que ocorreu, se houver. Se as operações de microfone forem bem-sucedidas, os clientes devem omitir esse campo. O comprimento máximo deste campo é de 50 caracteres. | Necessário para casos de erro, caso contrário omitidos |
 
 ### <a name="metric-listeningtrigger"></a>Métrica `ListeningTrigger`
@@ -569,8 +569,8 @@ Use os exemplos a seguir como diretrizes para valores de tempo de gravação *In
 | Campo | DESCRIÇÃO | Uso |
 | ----- | ----------- | ----- |
 | NOME | ListeningTrigger | Opcional |
-| Iniciar | A hora de início do gatilho de escuta do cliente | Obrigatório |
-| End | A hora de início do gatilho de escuta do cliente | Obrigatório |
+| Iniciar | A hora de início do gatilho de escuta do cliente | Necessário |
+| End | A hora de início do gatilho de escuta do cliente | Necessário |
 | Erro | Uma descrição do erro que ocorreu, se houver. Se a operação de gatilho for bem-sucedida, os clientes devem omitir esse campo. O comprimento máximo deste campo é de 50 caracteres. | Necessário para casos de erro, caso contrário omitidos |
 
 #### <a name="sample-message"></a>Mensagem de exemplo

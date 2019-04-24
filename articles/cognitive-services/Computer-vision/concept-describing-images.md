@@ -8,15 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 02/11/2019
-ms.author: pafarley
+origin.date: 02/11/2019
+ms.date: 02/27/2019
+ms.author: v-junlch
 ms.custom: seodec18
 ms.openlocfilehash: 91618b211fdd869daf74491b175d6359ffa3f30c
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312184"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60368367"
 ---
 # <a name="describe-images-with-human-readable-language"></a>Descrever imagens com linguagem legível por humanos
 
@@ -59,3 +60,5 @@ A resposta JSON a seguir ilustra o que o Computer Vision retorna ao descrever a 
 ## <a name="next-steps"></a>Próximas etapas
 
 Aprenda conceitos sobre [marcando imagens](concept-tagging-images.md) e [categorizando imagens](concept-categorizing-images.md).
+
+<!-- Update_Description: wording update -->

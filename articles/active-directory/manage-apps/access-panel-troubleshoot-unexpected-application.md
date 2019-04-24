@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewr: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fccf671edbc121501a17975be303453a798837e4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122192"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60442821"
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>Como aplicativos aparecem no painel de acesso
 
@@ -153,5 +153,5 @@ Abra um tíquete de suporte com as informações a seguir, se estiverem disponí
 
 -   Rastreamentos do Fiddler
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Gerenciando aplicativos com o Azure Active Directory](what-is-application-management.md)

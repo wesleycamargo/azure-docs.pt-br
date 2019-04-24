@@ -1,7 +1,6 @@
 ---
 title: Use C# com o Apache Hive e Apache Pig em Apache Hadoop no HDInsight – Azure
 description: Aprenda a usar as funções definidas pelo usuário (UDF) do C# com o Apache Hive e o streaming do Apache Pig no Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
 ms.openlocfilehash: ac2edb4c12e95a915790c1fadfb2dcdcce554aad
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545566"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60536792"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Use as funções definidas pelo usuário do C# com o Apache Hive e o Apache Pig em streaming no Apache Hadoop no HDInsight
 
@@ -250,7 +249,7 @@ Para obter mais informações sobre a versão do .NET Framework e do Mono inclu�
         (2012-02-03 20:11:56 SampleClass5 [TRACE] verbose detail for id 1737534798)
         (2012-02-03 20:11:56 SampleClass7 [DEBUG] detail for id 1475865947)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste documento, você aprendeu a usar um aplicativo do .NET Framework do Hive e do Pig no HDInsight. Caso deseje saber como usar o Python com o Hive e o Pig, confira [Usar o Python com o Apache Hive e o Apache Pig no HDInsight](python-udf-hdinsight.md).
 

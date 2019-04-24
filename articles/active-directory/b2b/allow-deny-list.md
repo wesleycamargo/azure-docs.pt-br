@@ -13,11 +13,11 @@ ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8f1121b72bf631cbcee4c8d9502fd8a439c26fbf
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440107"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60357200"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Permitir ou bloquear convites para usuários B2B de organizações específicas
 
@@ -44,7 +44,7 @@ Adicionar uma lista de negações:
 2. Selecione **Azure Active Directory** > **Usuários** > **Configurações de usuário**.
 3. Em **Usuários externos**, selecione **Gerenciar configurações de colaboração externa**.
 4. Em **Restrições de colaboração**, selecione **Negar convites para os domínios especificados**.
-5. Em **DOMÍNIOS DE DESTINO**, insira o nome de um dos domínios que você deseja bloquear. Para vários domínios, insira cada domínio em uma nova linha. Por exemplo:
+5. Em **DOMÍNIOS DE DESTINO**, insira o nome de um dos domínios que você deseja bloquear. Para vários domínios, insira cada domínio em uma nova linha. Por exemplo: 
 
    ![Mostra a opção de negar com domínios adicionados](./media/allow-deny-list/DenyListSettings.png)
  
@@ -65,7 +65,7 @@ Para adicionar uma lista de permissões:
 2. Selecione **Azure Active Directory** > **Usuários** > **Configurações de usuário**.
 3. Em **Usuários externos**, selecione **Gerenciar configurações de colaboração externa**.
 4. Em **Restrições de colaboração**, selecione **Permitir convites somente para os domínios especificados (mais restritivos)**.
-5. Em **DOMÍNIOS DE DESTINO**, insira o nome de um dos domínios que você deseja permitir. Para vários domínios, insira cada domínio em uma nova linha. Por exemplo:
+5. Em **DOMÍNIOS DE DESTINO**, insira o nome de um dos domínios que você deseja permitir. Para vários domínios, insira cada domínio em uma nova linha. Por exemplo: 
 
    ![Mostra a opção de permitir com domínios adicionados](./media/allow-deny-list/AllowListSettings.png)
  
@@ -136,19 +136,19 @@ O mesmo exemplo é exibido a seguir, mas com de definição da política embutid
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
 ```
 
-Para definir uma lista de permissão ou negação, use o cmdlet [AzureADPolicy conjunto](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview). Por exemplo:
+Para definir uma lista de permissão ou negação, use o cmdlet [AzureADPolicy conjunto](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview). Por exemplo: 
 
 ```powershell   
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ```
 
-Para obter a política, use o cmdlet [AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview). Por exemplo:
+Para obter a política, use o cmdlet [AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview). Por exemplo: 
 
 ```powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
 ```
 
-Para remover a política, use o cmdlet [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview). Por exemplo:
+Para remover a política, use o cmdlet [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview). Por exemplo: 
 
 ```powershell
 Remove-AzureADPolicy -Id $currentpolicy.Id 
