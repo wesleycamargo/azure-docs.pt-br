@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1c24ec49652cfe9105aa66fd1d5e26c81afcd14
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904620"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60414811"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implantar proteção de senha do Azure AD
 
@@ -285,7 +285,7 @@ A preocupação principal de disponibilidade para proteção por senha é a disp
 
 O design do software agente DC minimiza os problemas comuns que estão associados com alta disponibilidade. O agente do DC mantém um cache local da política de senha baixado mais recentemente. Mesmo se todos os registrados servidores proxy se tornar indisponíveis, os agentes de controlador de domínio continuam a impor sua política de senha armazenada em cache. Uma frequência de atualização razoável para políticas de senha em uma grande implantação costuma *dias*, não em horas ou menos. Assim, interrupções breves dos servidores proxy não afetam significativamente a proteção por senha do Azure AD.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que você instalou os serviços que você precisa para a proteção de senha do AD do Azure em seus servidores locais, [executar configuração pós-instalação e reunir informações de relatório](howto-password-ban-bad-on-premises-operations.md) para concluir a implantação.
 

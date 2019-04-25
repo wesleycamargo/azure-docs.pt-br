@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 77b64f09b7fd1429eb23c4407c729dfc0aafdf2b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842349"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60460938"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurar a recuperação de desastre do VMware em um ambiente multilocatário com o programa CSP (Provedor de Solução de Nuvem)
 
@@ -97,7 +97,7 @@ Há três modelos principais de multilocatários:
 
 Ao configurar assinaturas de locatários, conforme descrito neste artigo, você pode iniciar rapidamente permitindo os clientes em qualquer um dos modelos de multilocatários relevantes. Você pode aprender mais sobre os diferentes modelos de multilocatários e habilitar o controles de acesso no local [aqui](vmware-azure-multi-tenant-overview.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [o controle de acesso baseado em função](site-recovery-role-based-linked-access-control.md) para gerenciar implantações do Azure Site Recovery.
 - Saiba mais sobre [a arquitetura de replicação](vmware-azure-architecture.md) de VMware para o Azure.
 - [Revise o tutorial](vmware-azure-tutorial.md) para replicar VMs VMware no Azure.

@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: 145960db27247a8535eb96640000b86d810619c0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838401"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419677"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Expor um serviço WCF local a um aplicativo Web na nuvem usando a Retransmissão do Azure 
 Este artigo mostra como criar um aplicativo de nuvem híbrida com o Microsoft Azure e o Visual Studio. Crie um aplicativo que usa vários recursos do Azure em funcionamento na nuvem.
@@ -185,7 +185,7 @@ Primeiro, você criará um sistema de catálogo de produtos local simulado.  Est
         }
     }
     ```
-12. No Gerenciador de Soluções, clique duas vezes no arquivo **App.config** para abri-lo no editor do Visual Studio. Na parte inferior a `<system.ServiceModel>` elemento (mas ainda dentro `<system.ServiceModel>`), adicione o seguinte código XML: Substitua seuNamespaceDeServiço pelo nome do seu namespace e *suaChave* pela chave SAS recuperada anteriormente no portal:
+12. No Gerenciador de Soluções, clique duas vezes no arquivo **App.config** para abri-lo no editor do Visual Studio. Na parte inferior a `<system.ServiceModel>` elemento (mas ainda dentro `<system.ServiceModel>`), adicione o seguinte código XML: Substitua *seuNamespaceDeServiço* pelo nome do seu namespace e *suaChave* pela chave SAS recuperada anteriormente no portal:
 
     ```xml
     <system.serviceModel>
@@ -350,7 +350,7 @@ A próxima etapa é vincular o servidor de produtos local com o aplicativo ASP.N
 
    ![Adicionar como um link][24]
 
-6. Agora, abra o **HomeController.cs** no editor do Visual Studio e substitua a definição do namespace pelo código a seguir: Substitua seuNamespaceDeServiço pelo nome do seu namespace de serviço e *suaChave* pela sua chave SAS. Isso permite que o cliente chame o serviço local, retornando o resultado da chamada.
+6. Agora, abra o **HomeController.cs** no editor do Visual Studio e substitua a definição do namespace pelo código a seguir: Substitua *seuNamespaceDeServiço* pelo nome do seu namespace de serviço e *suaChave* pela sua chave SAS. Isso permite que o cliente chame o serviço local, retornando o resultado da chamada.
 
    ```csharp
    namespace ProductsWeb.Controllers
