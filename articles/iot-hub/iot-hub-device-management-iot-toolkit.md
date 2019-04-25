@@ -5,14 +5,16 @@ author: formulahendry
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/04/2019
-ms.author: junhan
+ms.tgt_pltfrm: arduino
+origin.date: 01/04/2019
+ms.date: 04/29/2019
+ms.author: v-yiso
 ms.openlocfilehash: 03df2ceb2df4d857e48f1790703a1d87647e43d0
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445276"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60401163"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Use as Ferramentas IoT do Azure para Visual Studio Code para gerenciar dispositivos Hub IoT do Azure
 
@@ -22,8 +24,8 @@ As [Ferramentas IoT do Azure](https://marketplace.visualstudio.com/items?itemNam
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-| Opção de gerenciamento          | Tarefa                    |
-|----------------------------|--------------------------------|
+| Opção de gerenciamento          | Tarefa                                                                                                                            |
+|----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
 | Métodos diretos             | Faça com que um dispositivo comece ou pare de enviar mensagens ou seja reinicializado.                                        |
 | Leitura de dispositivo gêmeo           | Obtenha o estado relatado de um dispositivo. Por exemplo, o dispositivo relata que o LED está piscando no momento.                                    |
 | Atualizar dispositivo gêmeo         | Coloque um dispositivo em alguns estados, como definir um LED como verde ou definir o intervalo de envio de telemetria como 30 minutos.         |
@@ -53,14 +55,10 @@ Execute as Ferramentas IoT do Azure para o Visual Studio Code com várias opçõ
 ## <a name="sign-in-to-access-your-iot-hub"></a>Entre para acessar o Hub IoT
 
 1. Na exibição do **Explorer** do VS Code, expanda a seção **Dispositivos do Hub IoT do Azure** no canto inferior esquerdo.
-
-2. Clique no menu de contexto **Selecionar Hub IoT**.
-
-3. Um pop-up aparecerá no canto inferior direito para permitir que você entre no Azure pela primeira vez.
-
-4. Depois de entrar, sua lista de Assinatura do Azure será mostrada, então selecione a Assinatura do Azure e o Hub IoT.
-
-5. A lista de dispositivos será mostrada na guia **Dispositivos do Hub IoT do Azure** em poucos segundos.
+1. Clique no menu de contexto **Selecionar Hub IoT**.
+1. Um pop-up aparecerá no canto inferior direito para permitir que você entre no Azure pela primeira vez.
+1. Depois de entrar, sua lista de Assinatura do Azure será mostrada, então selecione a Assinatura do Azure e o Hub IoT.
+1. A lista de dispositivos será mostrada na guia **Dispositivos do Hub IoT do Azure** em poucos segundos.
 
    > [!Note]
    > Você também pode concluir a configuração escolhendo **Definir cadeia de conexão do Hub IoT**. Insira a cadeia de conexão para o hub IoT ao qual seu dispositivo IoT se conecta na janela pop-up.
@@ -68,33 +66,26 @@ Execute as Ferramentas IoT do Azure para o Visual Studio Code com várias opçõ
 ## <a name="direct-methods"></a>Métodos diretos
 
 1. Clique com o botão direito no seu dispositivo e selecione **Invocação de Método Direto**. 
-
-2. Insira o nome do método e a carga na caixa de entrada.
-
+1. Insira o nome do método e a carga na caixa de entrada.
 3. Os resultados serão mostrados na exibição **SAÍDA** > **Kit de Ferramentas do Hub IoT do Azure**.
 
 ## <a name="read-device-twin"></a>Leitura de dispositivo gêmeo
 
 1. Clique com o botão direito e selecione **Editar Gêmeo de Dispositivo**. 
-
-2. Um arquivo **azure-iot-dispositivo-twin.json** será aberto com o conteúdo do dispositivo gêmeo.
+1. Um arquivo **azure-iot-dispositivo-twin.json** será aberto com o conteúdo do dispositivo gêmeo.
 
 ## <a name="update-device-twin"></a>Atualizar dispositivo gêmeo
 
 1. Faça algumas edições de **marcas** ou campo **properties.desired**.
-
-2. Clique com botão direito no arquivo **azure-iot-dispositivo-twin.json**.
-
-3. Selecione **Atualizar Dispositivo Gêmeo** para atualizar o dispositivo gêmeo.
+1. Clique com botão direito no arquivo **azure-iot-dispositivo-twin.json**.
+1. Selecione **Atualizar Dispositivo Gêmeo** para atualizar o dispositivo gêmeo.
 
 ## <a name="send-cloud-to-device-messages"></a>Envie mensagens da nuvem para o dispositivo
 
 Para enviar uma mensagem do Hub IoT para o dispositivo, siga estas etapas:
  
 1. Clique com o botão direito do mouse no seu dispositivo e selecione **Enviar Mensagem de C2D para Dispositivo**. 
-
-2. Insira a mensagem na caixa de entrada.
-
+1. Insira a mensagem na caixa de entrada.
 3. Os resultados serão mostrados na exibição **SAÍDA** > **Kit de Ferramentas do Hub IoT do Azure**.
 
 ## <a name="next-steps"></a>Próximas etapas

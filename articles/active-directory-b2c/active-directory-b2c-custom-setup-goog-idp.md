@@ -3,7 +3,7 @@ title: Configurar entrada com uma conta do Google no Azure Active Directory B2C 
 description: Configure a entrada com uma conta do Google no Azure Active Directory B2C usando políticas personalizadas.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -12,7 +12,7 @@ ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 30f3301fd404f23705e8ba04dc750cb82eed89b7
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60387091"

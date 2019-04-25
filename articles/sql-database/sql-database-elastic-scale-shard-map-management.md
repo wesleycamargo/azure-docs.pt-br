@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: a9c857ab9e9a3cfc0d1314600b612c4e6293173d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476784"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60332258"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Escale horizontalmente os bancos de dados com o gerenciador do mapa de fragmentos
 
@@ -58,7 +58,7 @@ A Escala Elástica dá suporte aos tipos a seguir, como chaves de fragmentação
 | longo |longo |
 | GUID |uuid |
 | byte[]  |byte[] |
-| Datetime |  timestamp |
+| datetime |  timestamp |
 | TimeSpan | duration|
 | datetimeoffset |offsetdatetime |
 

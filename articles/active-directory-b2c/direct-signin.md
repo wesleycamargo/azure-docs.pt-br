@@ -3,7 +3,7 @@ title: Entrada direta usando o Microsoft Azure Active Directory B2C | Microsoft 
 description: Saiba como preencher previamente o nome de usuário ou redirecionar diretamente para um provedor de identidade social.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -12,7 +12,7 @@ ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: c66fc9ecb608d211c839bab720e8f3f37b96fd5d
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60389809"

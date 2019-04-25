@@ -3,17 +3,16 @@ title: Habilitar a restrição etária no Azure Active Directory B2C | Microsoft
 description: Saiba mais sobre como identificar menores de idade usando seu aplicativo.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 11/13/2018
-ms.date: 04/03/2019
-ms.author: v-junlch
+ms.date: 11/13/2018
+ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: f8309424b8e1eed97d66fbd168444418cc1f98fd
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60383925"
@@ -105,7 +104,6 @@ Depois que seu locatário estiver configurado para usar a restrição etária, v
 2. Depois de criar o fluxo de usuário, selecione **Propriedades** no menu.
 3. Na seção **Restrição etária**, selecione **Habilitado**.
 4. Você pode, então, decidir como deseja gerenciar os usuários identificados como menores. Para **Inscrever-se ou entrar**, selecione `Allow minors to access your application` ou `Block minors from accessing your application`. Se os menores de bloqueio for selecionado, selecione `Send a JSON back to the application` ou `Show an error message`. 
-
 
 
 

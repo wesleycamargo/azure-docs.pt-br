@@ -9,7 +9,7 @@ ms.author: snmuvva
 ms.subservice: alerts
 ms.openlocfilehash: 58c664beee942fe7115c7fff38a039c23bed6ac3
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60346004"

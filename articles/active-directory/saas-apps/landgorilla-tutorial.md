@@ -16,11 +16,11 @@ ms.date: 03/13/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b2e1288885476aeeba01f966b615c23c5fe51081
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199503"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60260781"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>Tutorial: Integração do Azure Active Directory com o Land Gorilla Client
 
@@ -71,11 +71,11 @@ Para configurar a integração do Land Gorilla Client com o Azure AD, é necess�
 
 1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![APLICATIVOS][2]
+    ![Aplicativos][2]
     
 1. Clique em **adicionar** botão na parte superior da caixa de diálogo.
 
-    ![APLICATIVOS][3]
+    ![Aplicativos][3]
 
 1. Na caixa de pesquisa, digite **Land Gorilla Client**.
 

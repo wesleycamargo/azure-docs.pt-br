@@ -3,17 +3,16 @@ title: Exemplos de transformação de declarações de inteiros para o esquema d
 description: Exemplos de transformação de declarações de inteiros para o esquema da Estrutura de Experiência de Identidade do Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-origin.date: 09/10/2018
-ms.date: 04/04/2019
-ms.author: v-junlch
+ms.date: 09/10/2018
+ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 358ee07b8fd32edded084d406e490cae9f557fdd
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60397134"
@@ -52,5 +51,4 @@ Neste exemplo, a declaração `numericUserId` com um tipo de valor Long é conve
     - **inputClaim**: 12334 (long)
 - Declarações de saída: 
     - **outputClaim**: "12334" (string)
-
 

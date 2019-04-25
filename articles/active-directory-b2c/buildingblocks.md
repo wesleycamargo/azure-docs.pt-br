@@ -3,17 +3,16 @@ title: BuildingBlocks – Azure Active Directory B2C | Microsoft Docs
 description: Especifica o elemento BuildingBlocks de uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-origin.date: 09/10/2018
-ms.date: 04/03/2019
-ms.author: v-junlch
+ms.date: 09/10/2018
+ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: afa064232c10d3e84e9c301d44b82faae4904253
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60383942"
@@ -30,9 +29,9 @@ O elemento **BuildingBlocks** é adicionado dentro do elemento [TrustFrameworkPo
   xmlns:xsd="https://www.w3.org/2001/XMLSchema"
   xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
   PolicySchemaVersion="0.3.0.0"
-  TenantId="mytenant.partner.onmschina.cn"
+  TenantId="mytenant.onmicrosoft.com"
   PolicyId="B2C_1A_TrustFrameworkBase"
-  PublicPolicyUri="http://mytenant.partner.onmschina.cn/B2C_1A_TrustFrameworkBase">
+  PublicPolicyUri="http://mytenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
 
   <BuildingBlocks>
     <ClaimsSchema>
@@ -72,6 +71,5 @@ O elemento **BuildingBlocks** contém os seguintes elementos que precisam ser es
 - [ContentDefinitions](contentdefinitions.md) – contém URLs de modelos HTML5 a serem usado em seu percurso do usuário. Em uma política personalizada, uma definição de conteúdo define o URI da página HTML5 que é usado para uma etapa especificada no percurso do usuário. Por exemplo, a redefinição de senha de entrada ou de inscrição ou páginas de erro. Você pode modificar a aparência substituindo o LoadUri pelo arquivo HTML5. Ou você pode criar definições de conteúdo de acordo com suas necessidades. Esse elemento pode conter uma referência de recursos localizados usando uma ID de localização.
 
 - [Localização](localization.md) – permite que você dê suporte a vários idiomas. O suporte de localização nas políticas permite que você configure a lista de idiomas com suporte em uma política e escolha um idioma padrão. Também há suporte para coleções e cadeias de caracteres específicas a um idioma.
-
 
 
