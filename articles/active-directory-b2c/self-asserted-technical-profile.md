@@ -3,17 +3,16 @@ title: Definir um perfil técnico autodeclarado em uma política personalizada n
 description: Defina um perfil técnico autodeclarado em uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-origin.date: 09/10/2018
-ms.date: 04/04/2019
-ms.author: v-junlch
+ms.date: 09/10/2018
+ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: dcc94daeb19174b85fface05222f8842e9544adf
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60419485"
@@ -142,7 +141,6 @@ Também é possível chamar um perfil técnico da API REST com a lógica de neg�
 ## <a name="cryptographic-keys"></a>Chaves de criptografia
 
 O elemento **CryptographicKeys** não será usado.
-
 
 
 

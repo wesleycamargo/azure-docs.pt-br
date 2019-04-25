@@ -3,6 +3,7 @@ title: Soluções e treinamento para o Azure Active Directory B2C | Microsoft Do
 description: Este artigo fornece links para soluções e informações de treinamento que podem ajudar você a entender e usar o Azure Active Directory B2C para soluções de comerciais de ponta a ponta.
 services: active-directory-b2c
 author: davidmu1
+manager: celestedg
 ms.author: davidmu
 ms.date: 11/05/2018
 ms.topic: conceptual
@@ -10,7 +11,7 @@ ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 08a5e288d58d86cdad18561cb8a08a31f44ae498
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60360105"

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: f09d768c0c6c1d351f737b053da9fd3282867099
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58861682"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60505335"
 ---
 # <a name="azure-security-center-for-iot-prerequisites"></a>Central de segurança do Azure para pré-requisitos de IoT
 
@@ -61,7 +61,7 @@ Verifique seu local de IoT Hub para verificar a disponibilidade de serviço ante
 
 ASC para agentes do IoT dá suporte a uma lista crescente de dispositivos e plataformas. Consulte a [suporte para a lista de plataformas](how-to-deploy-agent.md) para verificar sua biblioteca de dispositivo existente ou planejada.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - [Visão geral](overview.md)
 - [Habilitar o serviço](quickstart-onboard-iot-hub.md)
 - [ASC para perguntas Frequentes de IoT](resources-frequently-asked-questions.md)

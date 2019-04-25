@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 01da06ca55199989a3a27012bec101580f5ef853
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442198"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60447533"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Chamar pontos de extremidade HTTP ou HTTPS com os Aplicativos Lógicos do Azure
 
@@ -81,7 +81,7 @@ Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é 
 
 Para definir a autenticação, escolha **Mostrar opções avançadas** dentro da ação ou do gatilho. Para obter mais informações sobre os tipos de autenticação disponíveis para ações e gatilhos HTTP, consulte [Referência de tipos de gatilho e ação](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).

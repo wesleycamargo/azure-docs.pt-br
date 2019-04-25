@@ -16,11 +16,11 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 22bf80c13ef3b18ab3119b6b35e529c8ad32f504
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285087"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60248079"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Encontrar ajuda e abrir um tíquete de suporte para o Azure Active Directory
 A Microsoft fornece suporte técnico global, de pré-vendas, cobrança e assinatura para o Azure AD (Azure Active Directory). O suporte está disponível online e por telefone para versões de avaliação e assinaturas pagas do Microsoft Azure. O suporte via telefone e o suporte de cobrança online estão disponíveis em outros idiomas. 
@@ -86,7 +86,7 @@ Se não for possível encontrar respostas usando os recursos de autoatendimento,
 
 Consulte a página [Contate a Microsoft para obter suporte](https://portal.office.com/Support/ContactUs.aspx) para obter números de telefone de suporte.
 
-##  <a name="next-steps"></a>Próximas etapas
+##  <a name="next-steps"></a>Próximos passos
 
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/)
 

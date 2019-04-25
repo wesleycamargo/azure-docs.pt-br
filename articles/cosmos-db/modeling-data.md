@@ -9,11 +9,11 @@ ms.date: 04/08/2019
 ms.author: rimman
 ms.custom: rimman
 ms.openlocfilehash: e8581cb130c8b2d7ac044838f0ae922b9b5e86cd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792108"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60446681"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modelagem de dados no Azure Cosmos DB
 
@@ -408,7 +408,7 @@ Em alguns cenários, você talvez queira combinar diferentes tipos de documento 
         "type": "review"
     }
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 O principal aspecto deste artigo é entender que modelar dados em um ambiente sem esquemas é tão importante como sempre foi.
 
