@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ergreenl
 ms.openlocfilehash: 03cbf5dd466af5413aee5e0f5f285bc53de292ad
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160128"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60417501"
 ---
 # <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Verificar a integridade de um domínio gerenciado do Azure AD Domain Services
 
@@ -78,7 +78,7 @@ Os alertas são categorizados em três níveis de severidade diferentes: crític
  * **Alertas de aviso** notificam você de problemas que podem afetar o domínio gerenciado no futuro. Esses alertas oferecem recomendações para proteger o domínio gerenciado.
  * **Alertas informativos** são notificações que não estão afetando negativamente o domínio. Os alertas informativos foram projetados para que você fique por dentro do que está acontecendo no domínio e no Azure AD Domain Services.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 - [Resolver alertas no domínio gerenciado](active-directory-ds-troubleshoot-alerts.md)
 - [Ler mais sobre o Azure AD Domain Services](active-directory-ds-overview.md)
 - [Entrar em contato com a equipe do produto](active-directory-ds-contact-us.md)
