@@ -9,11 +9,11 @@ ms.date: 12/05/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 555a8e3e92dc1d12cb7c6d6e06d2511f15a2c862
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52973112"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60679350"
 ---
 |**SKU**   | **S2S/VNet para VNet<br>Túneis** | **P2S<br> Conexões SSTP** | **P2S<br> Conexões IKEv2** | **Parâmetro de comparação<br>de taxa de transferência total** | **BGP** |
 |---       | ---        | ---       | ---            | ---       | --- |
