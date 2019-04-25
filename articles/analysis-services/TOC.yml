@@ -1,168 +1,161 @@
-items:
 - name: Documentação do Analysis Services
   href: index.md
 - name: Visão geral
   items:
-  - name: O que é Analysis Services?
-    href: analysis-services-overview.md
+    - name: O que é Analysis Services?
+      href: analysis-services-overview.md
 - name: Guia de início rápido
   items:
-  - name: Criar um servidor – Portal
-    href: analysis-services-create-server.md
-  - name: Criar um servidor – PowerShell
-    href: analysis-services-create-powershell.md
-  - name: Configurar firewall do servidor – Portal
-    href: analysis-services-qs-firewall.md
+    - name: Criar um servidor – Portal
+      href: analysis-services-create-server.md
+    - name: Criar um servidor – PowerShell
+      href: analysis-services-create-powershell.md
+    - name: Configurar firewall do servidor – Portal
+      href: analysis-services-qs-firewall.md
 - name: Tutoriais
   items:
-  - name: 1 – Adicionar um modelo de exemplo do portal
-    href: analysis-services-create-sample-model.md
-  - name: 2 – Configurar funções de administrador do servidor e usuário
-    href: tutorials/analysis-services-tutorial-roles.md
-  - name: 3 – Conectar-se com o Power BI Desktop
-    href: tutorials/analysis-services-tutorial-pbid.md
+    - name: 1 – Adicionar um modelo de exemplo do portal
+      href: analysis-services-create-sample-model.md
+    - name: 2 – Configurar funções de administrador do servidor e usuário
+      href: tutorials/analysis-services-tutorial-roles.md
+    - name: 3 – Conectar-se com o Power BI Desktop
+      href: tutorials/analysis-services-tutorial-pbid.md
 - name: Conceitos
   items:
-  - name: Autenticação e permissões de usuário
-    href: analysis-services-manage-users.md
-  - name: Automação com entidades de serviço
-    href: analysis-services-service-principal.md
-  - name: Bibliotecas de cliente
-    href: analysis-services-data-providers.md
-  - name: Nível de compatibilidade
-    href: analysis-services-compat-level.md
-  - name: Conectando-se a fontes de dados locais
-    href: analysis-services-gateway.md
-  - name: Conectando-se a servidores
-    href: analysis-services-connect.md
-  - name: Alta disponibilidade
-    href: analysis-services-bcdr.md
-  - name: Fontes de dados com suporte
-    href: analysis-services-datasource.md
+    - name: Autenticação e permissões de usuário
+      href: analysis-services-manage-users.md
+    - name: Automação com entidades de serviço
+      href: analysis-services-service-principal.md
+    - name: Bibliotecas de cliente
+      href: analysis-services-data-providers.md
+    - name: Nível de compatibilidade
+      href: analysis-services-compat-level.md
+    - name: Conectando-se a fontes de dados locais
+      href: analysis-services-gateway.md
+    - name: Conectando-se a servidores
+      href: analysis-services-connect.md
+    - name: Alta disponibilidade
+      href: analysis-services-bcdr.md
+    - name: Fontes de dados com suporte
+      href: analysis-services-datasource.md
 - name: Instruções
   items:
-  - name: Servidor
-    items:
-    - name: Backup e restauração
-      href: analysis-services-backup.md
-    - name: Configurar um alias de nome do servidor
-      href: analysis-services-server-alias.md
-    - name: Configurar a escala horizontal
-      href: analysis-services-scale-out.md
-    - name: Instalar e configurar um gateway de dados local
-      href: analysis-services-gateway-install.md
-    - name: Usar gateway para fontes de dados em uma Rede Virtual do Azure
-      href: analysis-services-vnet-gateway.md
-    - name: Gerenciar um servidor
-      href: analysis-services-manage.md
-    - name: Monitorar métricas do servidor
-      href: analysis-services-monitor.md
-    - name: Configurar o log de diagnósticos
-      href: analysis-services-logging.md
-    - name: Criar entidade de serviço – portal do Azure
-      href: ../active-directory/develop/howto-create-service-principal-portal.md
-    - name: Criar entidade de serviço – PowerShell
-      href: ../active-directory/develop/howto-authenticate-service-principal-powershell.md
-    - name: Adicionar uma entidade de serviço à função de administrador do servidor
-      href: analysis-services-addservprinc-admins.md
-  - name: Modelo
-    items:
-    - name: Implantar pelo Visual Studio (SSDT)
-      href: analysis-services-deploy.md
-    - name: Atualizar com a API REST
-      href: analysis-services-async-refresh.md
-    - name: Modelagem de dados no Visual Studio – Tutorial do Adventure Works (1400)
-      href: tutorials/aas-adventure-works-tutorial.md
+    - name: Servidor
       items:
-      - name: 1 – Criar um projeto de modelo de tabela
-        href: tutorials/aas-lesson-1-create-a-new-tabular-model-project.md
-      - name: 2 – Obter dados
-        href: tutorials/aas-lesson-2-get-data.md
-      - name: 3 – Marcar como tabela de data
-        href: tutorials/aas-lesson-3-mark-as-date-table.md
-      - name: 4 – Criar relações
-        href: tutorials/aas-lesson-4-create-relationships.md
-      - name: 5 – Criar colunas calculadas
-        href: tutorials/aas-lesson-5-create-calculated-columns.md
-      - name: 6 – Criar medidas
-        href: tutorials/aas-lesson-6-create-measures.md
-      - name: 7 – Criar indicadores chave de desempenho
-        href: tutorials/aas-lesson-7-create-key-performance-indicators.md
-      - name: 8 – Criar perspectivas
-        href: tutorials/aas-lesson-8-create-perspectives.md
-      - name: 9 – Criar hierarquias
-        href: tutorials/aas-lesson-9-create-hierarchies.md
-      - name: 10 – Criar partições
-        href: tutorials/aas-lesson-10-create-partitions.md
-      - name: 11 – Criar funções
-        href: tutorials/aas-lesson-11-create-roles.md
-      - name: 12 – Analisar no Excel
-        href: tutorials/aas-lesson-12-analyze-in-excel.md
-      - name: 13 – Implantar
-        href: tutorials/aas-lesson-13-deploy.md
-      - name: Lição suplementar – Linhas de Detalhes
-        href: tutorials/aas-supplemental-lesson-detail-rows.md
-      - name: Lição suplementar – segurança dinâmica
-        href: tutorials/aas-supplemental-lesson-dynamic-security.md
-      - name: Lição suplementar – hierarquias desbalanceadas
-        href: tutorials/aas-supplemental-lesson-ragged-hierarchies.md
-  - name: Segurança
-    items:
-    - name: Gerenciar usuários de banco de dados
-      href: analysis-services-database-users.md
-    - name: Gerenciar administradores de servidor
-      href: analysis-services-server-admins.md
-  - name: Connect
-    items:
-    - name: Conectar com o Excel
-      href: analysis-services-connect-excel.md
-    - name: Conectar com Power BI
-      href: analysis-services-connect-pbi.md
-    - name: Criar um arquivo .odc
-      href: analysis-services-odc.md
+        - name: Backup e restauração
+          href: analysis-services-backup.md
+        - name: Configurar um alias de nome do servidor
+          href: analysis-services-server-alias.md
+        - name: Configurar a escala horizontal
+          href: analysis-services-scale-out.md
+        - name: Instalar e configurar um gateway de dados local
+          href: analysis-services-gateway-install.md
+        - name: Usar gateway para fontes de dados em uma Rede Virtual do Azure
+          href: analysis-services-vnet-gateway.md
+        - name: Gerenciar um servidor
+          href: analysis-services-manage.md
+        - name: Monitorar métricas do servidor
+          href: analysis-services-monitor.md
+        - name: Configurar o log de diagnósticos
+          href: analysis-services-logging.md
+        - name: Criar entidade de serviço – portal do Azure
+          href: ../active-directory/develop/howto-create-service-principal-portal.md
+        - name: Criar entidade de serviço – PowerShell
+          href: ../active-directory/develop/howto-authenticate-service-principal-powershell.md
+        - name: Adicionar uma entidade de serviço à função de administrador do servidor
+          href: analysis-services-addservprinc-admins.md
+    - name: Modelo
+      items:
+        - name: Implantar pelo Visual Studio (SSDT)
+          href: analysis-services-deploy.md
+        - name: Atualizar com a API REST
+          href: analysis-services-async-refresh.md
+        - name: Modelagem de dados no Visual Studio – Tutorial do Adventure Works (1400)
+          href: tutorials/aas-adventure-works-tutorial.md
+          items:
+            - name: 1 – Criar um projeto de modelo de tabela
+              href: tutorials/aas-lesson-1-create-a-new-tabular-model-project.md
+            - name: 2 – Obter dados
+              href: tutorials/aas-lesson-2-get-data.md
+            - name: 3 – Marcar como tabela de data
+              href: tutorials/aas-lesson-3-mark-as-date-table.md
+            - name: 4 – Criar relações
+              href: tutorials/aas-lesson-4-create-relationships.md
+            - name: 5 – Criar colunas calculadas
+              href: tutorials/aas-lesson-5-create-calculated-columns.md
+            - name: 6 – Criar medidas
+              href: tutorials/aas-lesson-6-create-measures.md
+            - name: 7 – Criar indicadores chave de desempenho
+              href: tutorials/aas-lesson-7-create-key-performance-indicators.md
+            - name: 8 – Criar perspectivas
+              href: tutorials/aas-lesson-8-create-perspectives.md
+            - name: 9 – Criar hierarquias
+              href: tutorials/aas-lesson-9-create-hierarchies.md
+            - name: 10 – Criar partições
+              href: tutorials/aas-lesson-10-create-partitions.md
+            - name: 11 – Criar funções
+              href: tutorials/aas-lesson-11-create-roles.md
+            - name: 12 – Analisar no Excel
+              href: tutorials/aas-lesson-12-analyze-in-excel.md
+            - name: 13 – Implantar
+              href: tutorials/aas-lesson-13-deploy.md
+            - name: Lição suplementar – Linhas de Detalhes
+              href: tutorials/aas-supplemental-lesson-detail-rows.md
+            - name: Lição suplementar – segurança dinâmica
+              href: tutorials/aas-supplemental-lesson-dynamic-security.md
+            - name: Lição suplementar – hierarquias desbalanceadas
+              href: tutorials/aas-supplemental-lesson-ragged-hierarchies.md
+    - name: Segurança
+      items:
+        - name: Gerenciar usuários de banco de dados
+          href: analysis-services-database-users.md
+        - name: Gerenciar administradores de servidor
+          href: analysis-services-server-admins.md
+    - name: Connect
+      items:
+        - name: Conectar com o Excel
+          href: analysis-services-connect-excel.md
+        - name: Conectar com Power BI
+          href: analysis-services-connect-pbi.md
+        - name: Criar um arquivo .odc
+          href: analysis-services-odc.md
 - name: Referência
   items:
-  - name: PowerShell
-    href: analysis-services-powershell.md
-  - name: REST
-    href: /rest/api/analysisservices
-  - name: Modelo do Resource Manager
-    href: /azure/templates/microsoft.analysisservices/servers
-  - name: DAX
-    href: https://msdn.microsoft.com/library/gg413422.aspx
-  - name: Power Query M
-    href: https://msdn.microsoft.com/library/mt211003.aspx
-  - name: TMSL (Linguagem de Scripts do Modelo de Tabela)
-    href: https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference
-  - name: TOM (Modelo de Objeto Tabular)
-    href: https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo
-  - name: Limites de recursos e objetos
-    href: analysis-services-capacity-limits.md
+    - name: PowerShell
+      href: analysis-services-powershell.md
+    - name: REST
+      href: /rest/api/analysisservices
+    - name: Modelo do Resource Manager
+      href: /azure/templates/microsoft.analysisservices/servers
+    - name: DAX
+      href: 'https://msdn.microsoft.com/library/gg413422.aspx'
+    - name: Power Query M
+      href: 'https://msdn.microsoft.com/library/mt211003.aspx'
+    - name: TMSL (Linguagem de Scripts do Modelo de Tabela)
+      href: 'https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference'
+    - name: TOM (Modelo de Objeto Tabular)
+      href: 'https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo'
+    - name: Limites de recursos e objetos
+      href: analysis-services-capacity-limits.md
 - name: Recursos
   items:
-  - name: Exemplos
-    href: analysis-services-samples.md
-  - name: Blog da equipe do Analysis Services
-    href: https://blogs.msdn.microsoft.com/analysisservices/
-  - name: Fórum do Azure Analysis Services
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices
-  - name: Roteiro do Azure
-    href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
-  - name: Status do Azure
-    href: https://azure.microsoft.com/status/
-  - name: Comentários
-    href: https://feedback.azure.com/forums/556165-azure-analysis-services
-  - name: Preços
-    href: https://azure.microsoft.com/pricing/details/analysis-services/
-  - name: Calculadora de preço
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-analysis-services
-  - name: vídeos
-    href: https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest
-ms.openlocfilehash: 4d3a592d4d0d9bd0a75dcd1cc76deb2a273bdf09
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525255"
+    - name: Exemplos
+      href: analysis-services-samples.md
+    - name: Blog da equipe do Analysis Services
+      href: 'https://blogs.msdn.microsoft.com/analysisservices/'
+    - name: Fórum do Azure Analysis Services
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices'
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
+    - name: Status do Azure
+      href: 'https://azure.microsoft.com/status/'
+    - name: Comentários
+      href: 'https://feedback.azure.com/forums/556165-azure-analysis-services'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/analysis-services/'
+    - name: Calculadora de preço
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-analysis-services'
+    - name: vídeos
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest'

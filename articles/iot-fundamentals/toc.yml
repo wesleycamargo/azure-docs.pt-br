@@ -1,25 +1,18 @@
-items:
 - name: Azure Internet das Coisas
   href: index.md
 - name: Visão geral
   items:
-  - name: Introdução
-    href: iot-introduction.md
-  - name: Tecnologias e serviços do Azure IoT
-    href: iot-services-and-technologies.md
+    - name: Introdução
+      href: iot-introduction.md
+    - name: Tecnologias e serviços do Azure IoT
+      href: iot-services-and-technologies.md
 - name: Segurança
   items:
-  - name: Arquitetura de segurança
-    href: iot-security-architecture.md
-  - name: Práticas recomendadas de segurança
-    href: iot-security-best-practices.md
-  - name: Implantação segura
-    href: iot-security-deployment.md
-  - name: Segurança desde o início
-    href: iot-security-ground-up.md
-ms.openlocfilehash: dc5c08ea2a3376b4213e83495ff1dce697338d82
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336696"
+    - name: Arquitetura de segurança
+      href: iot-security-architecture.md
+    - name: Práticas recomendadas de segurança
+      href: iot-security-best-practices.md
+    - name: Implantação segura
+      href: iot-security-deployment.md
+    - name: Segurança desde o início
+      href: iot-security-ground-up.md

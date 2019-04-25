@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b9f4cd78288d1b9868a823c5e0ccd0b68b324229
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400242"
 documentType: LandingData
 title: Documentação da Versão Prévia da Área de Trabalho Virtual do Windows
 metadata:
-  title: Documentação da Versão Prévia da Área de Trabalho Virtual do Windows – Tutoriais, guias de início rápido, referências de API | Microsoft Docs
+  title: 'Documentação da Versão Prévia da Área de Trabalho Virtual do Windows – Tutoriais, guias de início rápido, referências de API | Microsoft Docs'
   description: A Versão Prévia da Área de Trabalho Virtual do Windows para Azure é uma experiência multiusuário virtualizada do Windows 10 Enterprise na nuvem.
   author: Heidilohr
   manager: daveba
@@ -20,28 +14,28 @@ metadata:
 abstract:
   description: Forneça uma experiência de área de trabalho virtual e aplicativos remotos para qualquer dispositivo. Reúna o Microsoft 365 e o Azure para fornecer aos usuários a única experiência de sessão múltipla do Windows 10 – com escala excepcional e custos de TI reduzidos.
 sections:
-- title: Visão geral
-  items:
-  - type: paragraph
-    text: Conheça a Versão Prévia da Área de Trabalho Virtual do Windows e saiba como usá-la. Tutoriais, guias de instruções, conteúdo de referência e muito mais mostram como configurar locatários e pools de host e atribuir funções aos usuários para o seu ambiente de Área de Trabalho Virtual do Windows.
-  - type: list
-    style: unordered
+  - title: Visão geral
     items:
-    - html: <a href="/azure/virtual-desktop/overview">O que é a Versão Prévia da Área de Trabalho Virtual do Windows?</a>
-- title: Tutoriais Passo a Passo
-  items:
-  - type: paragraph
-    text: Saiba como instalar e configurar a Área de Trabalho Virtual do Windows e como se conectar ao cliente quando estiver pronto.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Conheça a Versão Prévia da Área de Trabalho Virtual do Windows e saiba como usá-la. Tutoriais, guias de instruções, conteúdo de referência e muito mais mostram como configurar locatários e pools de host e atribuir funções aos usuários para o seu ambiente de Área de Trabalho Virtual do Windows.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/virtual-desktop/overview">O que é a Versão Prévia da Área de Trabalho Virtual do Windows?</a>
+  - title: Tutoriais Passo a Passo
     items:
-    - html: <a href="/azure/virtual-desktop/tenant-setup-azure-active-directory">Criar um locatário na Área de Trabalho Virtual do Windows</a>
-    - html: <a href="/azure/virtual-desktop/create-host-pools-azure-marketplace">Criar um pool de host com o Azure Marketplace</a>
-    - html: <a href="/azure/virtual-desktop/manage-app-groups">Gerenciar grupos de aplicativos para a Área de Trabalho Virtual do Windows</a>
-    - html: <a href="/azure/virtual-desktop/create-service-principal-role-powershell">Criar entidades de serviço e atribuições de função com o PowerShell</a>
-- title: Referência
-  items:
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Saiba como instalar e configurar a Área de Trabalho Virtual do Windows e como se conectar ao cliente quando estiver pronto.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/virtual-desktop/tenant-setup-azure-active-directory">Criar um locatário na Área de Trabalho Virtual do Windows</a>
+          - html: <a href="/azure/virtual-desktop/create-host-pools-azure-marketplace">Criar um pool de host com o Azure Marketplace</a>
+          - html: <a href="/azure/virtual-desktop/manage-app-groups">Gerenciar grupos de aplicativos para a Área de Trabalho Virtual do Windows</a>
+          - html: <a href="/azure/virtual-desktop/create-service-principal-role-powershell">Criar entidades de serviço e atribuições de função com o PowerShell</a>
+  - title: Referência
     items:
-    - html: <a href="/powershell/windows-virtual-desktop/overview">PowerShell</a>
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/powershell/windows-virtual-desktop/overview">PowerShell</a>

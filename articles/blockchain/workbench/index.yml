@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: a42db3dd4af0e02e001b3a4fbcc5f3b126606a6f
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239750"
 documentType: LandingData
 title: Documentação do Azure Blockchain Workbench
 metadata:
-  title: Documentação do Azure Blockchain Workbench - Tutoriais, Referência de API | Microsoft Docs
-  description: Saiba como criar aplicativos de blockchain. Tutoriais, referências de API e outras documentações mostram como implantar o Azure Blockchain Workbench, criar e gerenciar aplicativos de blockchain no Azure.
+  title: 'Documentação do Azure Blockchain Workbench - Tutoriais, Referência de API | Microsoft Docs'
+  description: 'Saiba como criar aplicativos de blockchain. Tutoriais, referências de API e outras documentações mostram como implantar o Azure Blockchain Workbench, criar e gerenciar aplicativos de blockchain no Azure.'
   services: blockchain-workbench
   author: patricka
   manager: femila
@@ -20,23 +14,23 @@ metadata:
   ms.date: 04/17/2018
   ms.author: patricka
 abstract:
-  description: Saiba como criar aplicativos de blockchain. Tutoriais, referências de API e outras documentações mostram como implantar o Azure Blockchain Workbench para criar e usar aplicativos de blockchain no Azure.
+  description: 'Saiba como criar aplicativos de blockchain. Tutoriais, referências de API e outras documentações mostram como implantar o Azure Blockchain Workbench para criar e usar aplicativos de blockchain no Azure.'
 sections:
-- title: Tutoriais Passo a Passo
-  items:
-  - type: paragraph
-    text: Saiba como implantar, criar e usar aplicativos de blockchain no Azure.
-  - type: list
-    style: ordered
+  - title: Tutoriais Passo a Passo
     items:
-    - html: <a href="/azure/blockchain-workbench/blockchain-workbench-deploy">Implantar o Azure Blockchain Workbench</a>
-    - html: <a href="/azure/blockchain-workbench/blockchain-workbench-create-app">Criar um aplicativo de blockchain</a>
-    - html: <a href="/azure/blockchain-workbench/blockchain-workbench-use">Usar um aplicativo de blockchain</a>
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Saiba como implantar, criar e usar aplicativos de blockchain no Azure.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/blockchain-workbench/blockchain-workbench-deploy">Implantar o Azure Blockchain Workbench</a>
+          - html: <a href="/azure/blockchain-workbench/blockchain-workbench-create-app">Criar um aplicativo de blockchain</a>
+          - html: <a href="/azure/blockchain-workbench/blockchain-workbench-use">Usar um aplicativo de blockchain</a>
+  - title: Referência
     items:
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/azure-blockchain-workbench">API REST</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/azure-blockchain-workbench">API REST</a></p>'

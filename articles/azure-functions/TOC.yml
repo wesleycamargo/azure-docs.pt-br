@@ -1,309 +1,302 @@
-items:
 - name: Documentação do Functions
   href: index.yml
 - name: Visão geral
   items:
-  - name: Sobre o Azure Functions
-    href: functions-overview.md
-  - name: Funções duráveis
-    href: durable/durable-functions-overview.md
-  - name: Comparação sem servidor
-    href: functions-compare-logic-apps-ms-flow-webjobs.md
+    - name: Sobre o Azure Functions
+      href: functions-overview.md
+    - name: Funções duráveis
+      href: durable/durable-functions-overview.md
+    - name: Comparação sem servidor
+      href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Guia de início rápido
-  items:
-  - name: Criar função - Visual Studio
-    href: functions-create-your-first-function-visual-studio.md
-  - name: Criar função - Visual Studio Code
-    href: functions-create-first-function-vs-code.md
-  - name: Criar função - Java/Maven
-    href: functions-create-first-java-maven.md
-  - name: Criar função - Python
-    href: functions-create-first-function-python.md
-  - name: Criar função - CLI do Azure
-    href: functions-create-first-azure-function-azure-cli.md
-  - name: Criar função - portal
-    href: functions-create-first-azure-function.md
-  - name: Criar função - Linux
-    href: functions-create-first-azure-function-azure-cli-linux.md
-  - name: Gatilhos
-    items:
-    - name: Azure Cosmos DB
-      href: functions-create-cosmos-db-triggered-function.md
-    - name: Armazenamento de blob
-      href: functions-create-storage-blob-triggered-function.md
-    - name: Armazenamento de filas
-      href: functions-create-storage-queue-triggered-function.md
-    - name: Timer
-      href: functions-create-scheduled-function.md
-  - name: Integração
-    items:
-    - name: Azure Cosmos DB
-      href: functions-integrate-store-unstructured-data-cosmosdb.md
-    - name: Armazenamento
-      href: functions-integrate-storage-queue-output-binding.md
   expanded: true
+  items:
+    - name: Criar função - Visual Studio
+      href: functions-create-your-first-function-visual-studio.md
+    - name: Criar função - Visual Studio Code
+      href: functions-create-first-function-vs-code.md
+    - name: Criar função - Java/Maven
+      href: functions-create-first-java-maven.md
+    - name: Criar função - Python
+      href: functions-create-first-function-python.md
+    - name: Criar função - CLI do Azure
+      href: functions-create-first-azure-function-azure-cli.md
+    - name: Criar função - portal
+      href: functions-create-first-azure-function.md
+    - name: Criar função - Linux
+      href: functions-create-first-azure-function-azure-cli-linux.md
+    - name: Gatilhos
+      items:
+        - name: Azure Cosmos DB
+          href: functions-create-cosmos-db-triggered-function.md
+        - name: Armazenamento de blob
+          href: functions-create-storage-blob-triggered-function.md
+        - name: Armazenamento de filas
+          href: functions-create-storage-queue-triggered-function.md
+        - name: Timer
+          href: functions-create-scheduled-function.md
+    - name: Integração
+      items:
+        - name: Azure Cosmos DB
+          href: functions-integrate-store-unstructured-data-cosmosdb.md
+        - name: Armazenamento
+          href: functions-integrate-storage-queue-output-binding.md
 - name: Tutoriais
   items:
-  - name: Functions com Aplicativos Lógicos
-    href: functions-twitter-email.md
-  - name: Criar uma API sem servidor
-    href: functions-create-serverless-api.md
-  - name: Criar uma definição da OpenAPI
-    href: functions-openapi-definition.md
-  - name: Redimensionamento de imagem com a Grade de Eventos
-    href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
-  - name: Criar um aplicativo web sem servidor
-    href: https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database
-  - name: Criar uma imagem personalizada do Linux
-    href: functions-create-function-linux-custom-image.md
-  - name: Funções no dispositivo do IoT Edge
-    href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Functions com Aplicativos Lógicos
+      href: functions-twitter-email.md
+    - name: Criar uma API sem servidor
+      href: functions-create-serverless-api.md
+    - name: Criar uma definição da OpenAPI
+      href: functions-openapi-definition.md
+    - name: Redimensionamento de imagem com a Grade de Eventos
+      href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Criar um aplicativo web sem servidor
+      href: 'https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database'
+    - name: Criar uma imagem personalizada do Linux
+      href: functions-create-function-linux-custom-image.md
+    - name: Funções no dispositivo do IoT Edge
+      href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Exemplos
   items:
-  - name: Exemplos de código
-    href: https://azure.microsoft.com/resources/samples/?service=functions
-  - name: CLI do Azure
-    href: functions-cli-samples.md
+    - name: Exemplos de código
+      href: 'https://azure.microsoft.com/resources/samples/?service=functions'
+    - name: CLI do Azure
+      href: functions-cli-samples.md
 - name: Conceitos
   items:
-  - name: Comparar versões 1.x e 2.x
-    displayName: migrate, migration
-    href: functions-versions.md
-  - name: Plano Premium
-    href: functions-premium-plan.md
-  - name: Escala e hospedagem
-    href: functions-scale.md
-  - name: Gatilhos e associações
-    items:
-    - name: Sobre gatilhos e associações
-      href: functions-triggers-bindings.md
-    - name: Exemplo de associação
-      href: functions-bindings-example.md
-    - name: Registrar as extensões de associação
-      href: functions-bindings-register.md
-    - name: Padrões de expressões de associação
-      href: functions-bindings-expressions-patterns.md
-    - name: Usar valores de retorno de associação
-      href: functions-bindings-return-value.md
-    - name: Tratar erros de associação
-      href: functions-bindings-errors.md
-  - name: Languages
-    items:
-    - name: Idiomas com suporte
-      href: supported-languages.md
-    - name: C# (biblioteca de classes)
-      href: functions-dotnet-class-library.md
-    - name: Script do C# (.csx)
-      href: functions-reference-csharp.md
-    - name: F#
-      href: functions-reference-fsharp.md
-    - name: JavaScript
-      href: functions-reference-node.md
-    - name: Java
-      href: functions-reference-java.md
-    - name: Python
-      href: functions-reference-python.md
-  - name: Diagnósticos
-    href: ../app-service/overview-diagnostics.md
-  - name: Considerações sobre o desempenho
-    href: functions-best-practices.md
-  - name: Proxies de Funções
-    href: functions-proxies.md
-  - name: Opções de rede
-    href: functions-networking-options.md
-  - name: Endereços IP
-    href: ip-addresses.md
-  - name: Funções locais
-    href: functions-runtime-overview.md
+    - name: Comparar versões 1.x e 2.x
+      href: functions-versions.md
+      displayName: 'migrate, migration'
+    - name: Plano Premium
+      href: functions-premium-plan.md
+    - name: Escala e hospedagem
+      href: functions-scale.md
+    - name: Gatilhos e associações
+      items:
+        - name: Sobre gatilhos e associações
+          href: functions-triggers-bindings.md
+        - name: Exemplo de associação
+          href: functions-bindings-example.md
+        - name: Registrar as extensões de associação
+          href: functions-bindings-register.md
+        - name: Padrões de expressões de associação
+          href: functions-bindings-expressions-patterns.md
+        - name: Usar valores de retorno de associação
+          href: functions-bindings-return-value.md
+        - name: Tratar erros de associação
+          href: functions-bindings-errors.md
+    - name: Languages
+      items:
+        - name: Idiomas com suporte
+          href: supported-languages.md
+        - name: 'C# (biblioteca de classes)'
+          href: functions-dotnet-class-library.md
+        - name: 'Script do C# (.csx)'
+          href: functions-reference-csharp.md
+        - name: 'F#'
+          href: functions-reference-fsharp.md
+        - name: JavaScript
+          href: functions-reference-node.md
+        - name: Java
+          href: functions-reference-java.md
+        - name: Python
+          href: functions-reference-python.md
+    - name: Diagnósticos
+      href: ../app-service/overview-diagnostics.md
+    - name: Considerações sobre o desempenho
+      href: functions-best-practices.md
+    - name: Proxies de Funções
+      href: functions-proxies.md
+    - name: Opções de rede
+      href: functions-networking-options.md
+    - name: Endereços IP
+      href: ip-addresses.md
+    - name: Funções locais
+      href: functions-runtime-overview.md
 - name: Guias de instruções
   items:
-  - name: Desenvolver
-    items:
-    - name: Guia do desenvolvedor
-      href: functions-reference.md
-    - name: Funções de teste
-      href: functions-test-a-function.md
-    - name: Desenvolver e depurar localmente
-      href: functions-develop-local.md
-    - name: Desenvolvimento do Visual Studio
-      href: functions-develop-vs.md
-    - name: Desenvolvimento das Principais Ferramentas
-      href: functions-run-local.md
-    - name: Desenvolvimento do IntelliJ IDEA
-      href: functions-create-maven-intellij.md
-    - name: Desenvolvimento em Eclipse
-      href: functions-create-maven-eclipse.md
-    - name: Criar aplicativo de funções do Linux
-      href: create-function-app-linux-app-service-plan.md
-    - name: Gerenciar conexões
-      href: manage-connections.md
-    - name: Tratamento de erros
-      href: functions-bindings-error-pages.md
-    - name: Executar manualmente uma função não disparada por HTTP
-      href: functions-manually-run-non-http.md
-    - name: Depurar gatilho da Grade de Eventos localmente
-      href: functions-debug-event-grid-trigger-local.md
-    - name: Azure for Students Starter
-      href: functions-create-student-starter.md
-  - name: Implantar
-    items:
-    - name: Implantação contínua
-      href: functions-continuous-deployment.md
-    - name: implantação do Zip
-      href: deployment-zip-push.md
-    - name: Execução a partir do pacote
-      href: run-functions-from-deployment-package.md
-    - name: Automatizar implantação de recursos
-      href: functions-infrastructure-as-code.md
-    - name: Funções locais
-      href: functions-runtime-install.md
-    - name: Implantar usando o plug-in do Jenkins
-      href: /azure/jenkins/jenkins-azure-functions-deploy
-      maintainContext: true
-  - name: Configurar
-    items:
-    - name: Gerenciar um aplicativo de funções
-      href: functions-how-to-use-azure-function-app-settings.md
-    - name: Defina a versão de tempo de execução
-      href: set-runtime-version.md
-    - name: Registrar manualmente uma extensão
-      href: install-update-binding-extensions-manual.md
-    - name: Desabilitar uma função
-      href: disable-function.md
-  - name: Monitoramento
-    href: functions-monitoring.md
-  - name: Segurança
-    items:
-    - name: Comprar certificado SSL
-      href: ../app-service/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: Autenticar usuários
+    - name: Desenvolver
       items:
-      - name: Autenticar com o Azure AD
-        href: ../app-service/configure-authentication-provider-aad.md?toc=%2fazure%2fazure-functions%2ftoc.json
-      - name: Autenticar com o Facebook
-        href: ../app-service/configure-authentication-provider-facebook.md?toc=%2fazure%2fazure-functions%2ftoc.json
-      - name: Autenticar com o Google
-        href: ../app-service/configure-authentication-provider-google.md?toc=%2fazure%2fazure-functions%2ftoc.json
-      - name: Autenticar com a conta da Microsoft
-        href: ../app-service/configure-authentication-provider-microsoft.md?toc=%2fazure%2fazure-functions%2ftoc.json
-      - name: Autenticar com o Twitter
-        href: ../app-service/configure-authentication-provider-twitter.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: Autenticação avançada
-      href: ../app-service/app-service-authentication-how-to.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: Restringir IPs
-      href: ../app-service/app-service-ip-restrictions.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: Usar uma identidade gerenciada
-      href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: Referenciar segredos do Key Vault
-      href: ../app-service/app-service-key-vault-references.md?toc=%2fazure%2fazure-functions%2ftoc.json
-  - name: Integração
-    items:
-    - name: Conectar-se ao Banco de Dados SQL
-      href: functions-scenario-database-table-cleanup.md
-    - name: Conectar-se a uma rede virtual
-      href: functions-create-vnet.md
-    - name: Criar uma definição Open API 2.0
-      href: functions-api-definition-getting-started.md
-    - name: Exportar para o PowerApps e para o Microsoft Flow
-      href: app-service-export-api-to-powerapps-and-flow.md
-    - name: Chamar uma função do PowerApps
-      href: functions-powerapps-scenario.md
-    - name: Chamar uma função do Microsoft Flow
-      href: functions-flow-scenario.md
-    - name: Usar uma identidade gerenciada
-      href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
-  - name: Solucionar problemas
-    items:
-    - name: Solucionar problemas de armazenamento
-      href: functions-recover-storage-account.md
+        - name: Guia do desenvolvedor
+          href: functions-reference.md
+        - name: Funções de teste
+          href: functions-test-a-function.md
+        - name: Desenvolver e depurar localmente
+          href: functions-develop-local.md
+        - name: Desenvolvimento do Visual Studio
+          href: functions-develop-vs.md
+        - name: Desenvolvimento das Principais Ferramentas
+          href: functions-run-local.md
+        - name: Desenvolvimento do IntelliJ IDEA
+          href: functions-create-maven-intellij.md
+        - name: Desenvolvimento em Eclipse
+          href: functions-create-maven-eclipse.md
+        - name: Criar aplicativo de funções do Linux
+          href: create-function-app-linux-app-service-plan.md
+        - name: Gerenciar conexões
+          href: manage-connections.md
+        - name: Tratamento de erros
+          href: functions-bindings-error-pages.md
+        - name: Executar manualmente uma função não disparada por HTTP
+          href: functions-manually-run-non-http.md
+        - name: Depurar gatilho da Grade de Eventos localmente
+          href: functions-debug-event-grid-trigger-local.md
+        - name: Azure for Students Starter
+          href: functions-create-student-starter.md
+    - name: Implantar
+      items:
+        - name: Implantação contínua
+          href: functions-continuous-deployment.md
+        - name: implantação do Zip
+          href: deployment-zip-push.md
+        - name: Execução a partir do pacote
+          href: run-functions-from-deployment-package.md
+        - name: Automatizar implantação de recursos
+          href: functions-infrastructure-as-code.md
+        - name: Funções locais
+          href: functions-runtime-install.md
+        - name: Implantar usando o plug-in do Jenkins
+          href: /azure/jenkins/jenkins-azure-functions-deploy
+          maintainContext: true
+    - name: Configurar
+      items:
+        - name: Gerenciar um aplicativo de funções
+          href: functions-how-to-use-azure-function-app-settings.md
+        - name: Defina a versão de tempo de execução
+          href: set-runtime-version.md
+        - name: Registrar manualmente uma extensão
+          href: install-update-binding-extensions-manual.md
+        - name: Desabilitar uma função
+          href: disable-function.md
+    - name: Monitoramento
+      href: functions-monitoring.md
+    - name: Segurança
+      items:
+        - name: Comprar certificado SSL
+          href: ../app-service/web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Autenticar usuários
+          items:
+            - name: Autenticar com o Azure AD
+              href: ../app-service/configure-authentication-provider-aad.md?toc=%2fazure%2fazure-functions%2ftoc.json
+            - name: Autenticar com o Facebook
+              href: ../app-service/configure-authentication-provider-facebook.md?toc=%2fazure%2fazure-functions%2ftoc.json
+            - name: Autenticar com o Google
+              href: ../app-service/configure-authentication-provider-google.md?toc=%2fazure%2fazure-functions%2ftoc.json
+            - name: Autenticar com a conta da Microsoft
+              href: ../app-service/configure-authentication-provider-microsoft.md?toc=%2fazure%2fazure-functions%2ftoc.json
+            - name: Autenticar com o Twitter
+              href: ../app-service/configure-authentication-provider-twitter.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Autenticação avançada
+          href: ../app-service/app-service-authentication-how-to.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Restringir IPs
+          href: ../app-service/app-service-ip-restrictions.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Usar uma identidade gerenciada
+          href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Referenciar segredos do Key Vault
+          href: ../app-service/app-service-key-vault-references.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Integração
+      items:
+        - name: Conectar-se ao Banco de Dados SQL
+          href: functions-scenario-database-table-cleanup.md
+        - name: Conectar-se a uma rede virtual
+          href: functions-create-vnet.md
+        - name: Criar uma definição Open API 2.0
+          href: functions-api-definition-getting-started.md
+        - name: Exportar para o PowerApps e para o Microsoft Flow
+          href: app-service-export-api-to-powerapps-and-flow.md
+        - name: Chamar uma função do PowerApps
+          href: functions-powerapps-scenario.md
+        - name: Chamar uma função do Microsoft Flow
+          href: functions-flow-scenario.md
+        - name: Usar uma identidade gerenciada
+          href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: Solucionar problemas
+      items:
+        - name: Solucionar problemas de armazenamento
+          href: functions-recover-storage-account.md
 - name: Referência
   items:
-  - name: Referências de API
-    items:
-    - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/functions/runtime?view=azure-java-stable
-    - name: Python
-      href: https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python
-  - name: Referência de configurações do aplicativo
-    href: functions-app-settings.md
-  - name: Associações
-    items:
-    - name: Armazenamento de blob
-      href: functions-bindings-storage-blob.md
-    - name: Azure Cosmos DB
+    - name: Referências de API
       items:
-      - name: Funções 1.x
-        href: functions-bindings-cosmosdb.md
-      - name: Funções 2.x
-        href: functions-bindings-cosmosdb-v2.md
-    - name: Grade de Eventos
-      href: functions-bindings-event-grid.md
-    - name: Hubs de Eventos
-      href: functions-bindings-event-hubs.md
-    - name: Hub IoT
-      href: functions-bindings-event-iot.md
-    - name: HTTP e webhooks
-      href: functions-bindings-http-webhook.md
-    - name: Microsoft Graph
-      href: functions-bindings-microsoft-graph.md
-    - name: Aplicativos Móveis
-      href: functions-bindings-mobile-apps.md
-    - name: Hubs de Notificação
-      href: functions-bindings-notification-hubs.md
-    - name: Armazenamento de filas
-      href: functions-bindings-storage-queue.md
-    - name: SendGrid
-      href: functions-bindings-sendgrid.md
-    - name: Barramento de Serviço
-      href: functions-bindings-service-bus.md
-    - name: Serviço SignalR
-      href: functions-bindings-signalr-service.md
-    - name: Armazenamento de tabela
-      href: functions-bindings-storage-table.md
-    - name: Timer
-      href: functions-bindings-timer.md
-    - name: Twilio
-      href: functions-bindings-twilio.md
-  - name: Referência de host.JSON
-    href: functions-host-json.md
-    items:
-    - name: Funções 2.x
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/functions/runtime?view=azure-java-stable'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python'
+    - name: Referência de configurações do aplicativo
+      href: functions-app-settings.md
+    - name: Associações
+      items:
+        - name: Armazenamento de blob
+          href: functions-bindings-storage-blob.md
+        - name: Azure Cosmos DB
+          items:
+            - name: Funções 1.x
+              href: functions-bindings-cosmosdb.md
+            - name: Funções 2.x
+              href: functions-bindings-cosmosdb-v2.md
+        - name: Grade de Eventos
+          href: functions-bindings-event-grid.md
+        - name: Hubs de Eventos
+          href: functions-bindings-event-hubs.md
+        - name: Hub IoT
+          href: functions-bindings-event-iot.md
+        - name: HTTP e webhooks
+          href: functions-bindings-http-webhook.md
+        - name: Microsoft Graph
+          href: functions-bindings-microsoft-graph.md
+        - name: Aplicativos Móveis
+          href: functions-bindings-mobile-apps.md
+        - name: Hubs de Notificação
+          href: functions-bindings-notification-hubs.md
+        - name: Armazenamento de filas
+          href: functions-bindings-storage-queue.md
+        - name: SendGrid
+          href: functions-bindings-sendgrid.md
+        - name: Barramento de Serviço
+          href: functions-bindings-service-bus.md
+        - name: Serviço SignalR
+          href: functions-bindings-signalr-service.md
+        - name: Armazenamento de tabela
+          href: functions-bindings-storage-table.md
+        - name: Timer
+          href: functions-bindings-timer.md
+        - name: Twilio
+          href: functions-bindings-twilio.md
+    - name: Referência de host.JSON
       href: functions-host-json.md
-    - name: Funções 1.x
-      href: functions-host-json-v1.md
-  - name: Perguntas frequentes sobre a rede
-    href: functions-networking-faq.md
-  - name: Referência do OpenAPI
-    href: functions-api-definition.md
+      items:
+        - name: Funções 2.x
+          href: functions-host-json.md
+        - name: Funções 1.x
+          href: functions-host-json-v1.md
+    - name: Perguntas frequentes sobre a rede
+      href: functions-networking-faq.md
+    - name: Referência do OpenAPI
+      href: functions-api-definition.md
 - name: Recursos
   items:
-  - name: Desenvolva suas habilidades com o Microsoft Learn
-    href: /learn/browse/?products=azure-functions
-  - name: Roteiro do Azure
-    href: https://azure.microsoft.com/roadmap/?category=compute
-  - name: Preços
-    href: https://azure.microsoft.com/pricing/details/functions/
-  - name: Calculadora de preço
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Disponibilidade regional
-    href: https://azure.microsoft.com/regions/services/
-  - name: vídeos
-    href: https://www.youtube.com/c/AzureFunctions
-  - name: Fórum do MSDN
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-functions
-  - name: Twitter
-    href: https://twitter.com/azurefunctions
-  - name: Fornecer comentários sobre o produto
-    href: https://feedback.azure.com/forums/355860-azure-functions
-  - name: Repositório de GitHub do Azure Functions
-    href: https://github.com/Azure/Azure-Functions/
-  - name: Atualizações de serviço
-    href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: b8f86a7da1e083e222c20c49af4f66add8790cda
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564934"
+    - name: Desenvolva suas habilidades com o Microsoft Learn
+      href: /learn/browse/?products=azure-functions
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/functions/'
+    - name: Calculadora de preço
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Disponibilidade regional
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: vídeos
+      href: 'https://www.youtube.com/c/AzureFunctions'
+    - name: Fórum do MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-functions'
+    - name: Twitter
+      href: 'https://twitter.com/azurefunctions'
+    - name: Fornecer comentários sobre o produto
+      href: 'https://feedback.azure.com/forums/355860-azure-functions'
+    - name: Repositório de GitHub do Azure Functions
+      href: 'https://github.com/Azure/Azure-Functions/'
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=functions&updatetype=&platform='

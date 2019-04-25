@@ -1,251 +1,244 @@
-items:
 - name: Banco de dados do Azure para Documentos do PostgreSQL
   href: index.yml
 - name: Visão geral
   items:
-  - name: O que é o Banco de Dados do Azure para PostgreSQL?
-    href: overview.md
+    - name: O que é o Banco de Dados do Azure para PostgreSQL?
+      href: overview.md
 - name: Guia de início rápido
-  items:
-  - name: Criar Banco de dados - Portal
-    href: quickstart-create-server-database-portal.md
-  - name: Criar Banco de dados - CLI do Azure
-    href: quickstart-create-server-database-azure-cli.md
-  - name: Criar BD – CLI do Azure (comando para cima)
-    href: quickstart-create-server-up-azure-cli.md
-  - name: Conectar e consultar
-    items:
-    - name: Python
-      href: connect-python.md
-    - name: Node.js
-      href: connect-nodejs.md
-    - name: Java
-      href: connect-java.md
-    - name: Ruby
-      href: connect-ruby.md
-    - name: PHP
-      href: connect-php.md
-    - name: .NET
-      href: connect-csharp.md
-    - name: Go
-      href: connect-go.md
   expanded: true
+  items:
+    - name: Criar Banco de dados - Portal
+      href: quickstart-create-server-database-portal.md
+    - name: Criar Banco de dados - CLI do Azure
+      href: quickstart-create-server-database-azure-cli.md
+    - name: Criar BD – CLI do Azure (comando para cima)
+      href: quickstart-create-server-up-azure-cli.md
+    - name: Conectar e consultar
+      items:
+        - name: Python
+          href: connect-python.md
+        - name: Node.js
+          href: connect-nodejs.md
+        - name: Java
+          href: connect-java.md
+        - name: Ruby
+          href: connect-ruby.md
+        - name: PHP
+          href: connect-php.md
+        - name: .NET
+          href: connect-csharp.md
+        - name: Go
+          href: connect-go.md
 - name: Tutoriais
   items:
-  - name: 1 - Criar um banco de dados
-    items:
-    - name: Portal do Azure
-      href: tutorial-design-database-using-azure-portal.md
-    - name: CLI do Azure
-      href: tutorial-design-database-using-azure-cli.md
-  - name: 2 - Criar aplicativo Web - Python
-    href: ../app-service/containers/tutorial-python-postgresql-app.md
-    maintainContext: true
-  - name: 3 - Monitorar e ajustar
-    href: tutorial-monitor-and-tune.md
+    - name: 1 - Criar um banco de dados
+      items:
+        - name: Portal do Azure
+          href: tutorial-design-database-using-azure-portal.md
+        - name: CLI do Azure
+          href: tutorial-design-database-using-azure-cli.md
+    - name: 2 - Criar aplicativo Web - Python
+      href: ../app-service/containers/tutorial-python-postgresql-app.md
+      maintainContext: true
+    - name: 3 - Monitorar e ajustar
+      href: tutorial-monitor-and-tune.md
 - name: Exemplos
   items:
-  - name: CLI do Azure
-    href: sample-scripts-azure-cli.md
+    - name: CLI do Azure
+      href: sample-scripts-azure-cli.md
 - name: Conceitos
   items:
-  - name: Banco de dados e Servidores
-    items:
-    - name: Servidores
-      href: concepts-servers.md
-    - name: Versões com suporte
-      href: concepts-supported-versions.md
-    - name: Extensões do PostgreSQL
-      href: concepts-extensions.md
-    - name: Alta disponibilidade
-      href: concepts-high-availability.md
-  - name: Recursos
-    items:
-    - name: Tipos de preço
-      href: concepts-pricing-tiers.md
-    - name: limites
-      href: concepts-limits.md
-  - name: Acesso a dados e segurança
-    items:
-    - name: Regras de firewall
-      href: concepts-firewall-rules.md
-    - name: Configurar SSL
-      href: concepts-ssl-connection-security.md
-    - name: Proteção Avançada contra Ameaças
-      href: concepts-data-access-and-security-threat-protection.md
-    - name: VNET
-      href: concepts-data-access-and-security-vnet.md
-  - name: Continuidade dos negócios
-    items:
-    - name: Visão geral
-      href: concepts-business-continuity.md
-    - name: Backup e restauração
-      href: concepts-backup.md
-  - name: Monitorar e ajustar
-    items:
+    - name: Banco de dados e Servidores
+      items:
+        - name: Servidores
+          href: concepts-servers.md
+        - name: Versões com suporte
+          href: concepts-supported-versions.md
+        - name: Extensões do PostgreSQL
+          href: concepts-extensions.md
+        - name: Alta disponibilidade
+          href: concepts-high-availability.md
+    - name: Recursos
+      items:
+        - name: Tipos de preço
+          href: concepts-pricing-tiers.md
+        - name: limites
+          href: concepts-limits.md
+    - name: Acesso a dados e segurança
+      items:
+        - name: Regras de firewall
+          href: concepts-firewall-rules.md
+        - name: Configurar SSL
+          href: concepts-ssl-connection-security.md
+        - name: Proteção Avançada contra Ameaças
+          href: concepts-data-access-and-security-threat-protection.md
+        - name: VNET
+          href: concepts-data-access-and-security-vnet.md
+    - name: Continuidade dos negócios
+      items:
+        - name: Visão geral
+          href: concepts-business-continuity.md
+        - name: Backup e restauração
+          href: concepts-backup.md
     - name: Monitorar e ajustar
-      href: concepts-monitoring.md
-    - name: Logs do servidor
-      href: concepts-server-logs.md
-    - name: Repositório de Consultas
       items:
-      - name: Repositório de Consultas
-        href: concepts-query-store.md
-      - name: Cenários de uso do Repositório de Consultas
-        href: concepts-query-store-scenarios.md
-      - name: Práticas recomendadas para o Repositório de Consultas
-        href: concepts-query-store-best-practices.md
-    - name: Análise de Desempenho de Consultas
-      href: concepts-query-performance-insight.md
-    - name: Recomendações de desempenho
-      href: concepts-performance-recommendations.md
-  - name: Desenvolvimento
-    items:
-    - name: Bibliotecas de conexão
-      href: concepts-connection-libraries.md
-    - name: Resiliência de conexão
-      href: concepts-connectivity.md
-    - name: Desenvolver com o Serviço de Kubernetes do Azure (AKS)
-      href: concepts-aks.md
-    - name: Java
+        - name: Monitorar e ajustar
+          href: concepts-monitoring.md
+        - name: Logs do servidor
+          href: concepts-server-logs.md
+        - name: Repositório de Consultas
+          items:
+            - name: Repositório de Consultas
+              href: concepts-query-store.md
+            - name: Cenários de uso do Repositório de Consultas
+              href: concepts-query-store-scenarios.md
+            - name: Práticas recomendadas para o Repositório de Consultas
+              href: concepts-query-store-best-practices.md
+        - name: Análise de Desempenho de Consultas
+          href: concepts-query-performance-insight.md
+        - name: Recomendações de desempenho
+          href: concepts-performance-recommendations.md
+    - name: Desenvolvimento
       items:
-      - name: Configurar JDBC de dados de Spring
-        href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-postgresql
-      - name: Configurar JPA de dados de Spring
-        href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-postgresql
-  - name: Replicação
-    items:
-    - name: Réplicas de leitura
-      href: concepts-read-replicas.md
+        - name: Bibliotecas de conexão
+          href: concepts-connection-libraries.md
+        - name: Resiliência de conexão
+          href: concepts-connectivity.md
+        - name: Desenvolver com o Serviço de Kubernetes do Azure (AKS)
+          href: concepts-aks.md
+        - name: Java
+          items:
+            - name: Configurar JDBC de dados de Spring
+              href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-postgresql
+            - name: Configurar JPA de dados de Spring
+              href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-postgresql
+    - name: Replicação
+      items:
+        - name: Réplicas de leitura
+          href: concepts-read-replicas.md
 - name: Guias de instruções
   items:
-  - name: Criar usuários
-    href: howto-create-users.md
-  - name: Otimizar
-    items:
-    - name: Inserções em massa
-      href: howto-optimize-bulk-inserts.md
-    - name: Vácuo automático
-      href: howto-optimize-autovacuum.md
-    - name: Coleta das estatísticas de consulta
-      href: howto-optimize-query-stats-collection.md
-    - name: Estratégia da tabela de notificação do sistema
-      href: howto-optimize-query-time-with-toast-table-storage-strategy.md
-  - name: Gerenciar o firewall
-    items:
-    - name: Portal do Azure
-      href: howto-manage-firewall-using-portal.md
-    - name: CLI do Azure
-      href: howto-manage-firewall-using-cli.md
-  - name: Restaurar um servidor
-    items:
-    - name: Portal do Azure
-      href: howto-restore-server-portal.md
-    - name: CLI do Azure
-      href: howto-restore-server-cli.md
-  - name: Migrar um banco de dados
-    items:
-    - name: Despejar e restaurar
-      href: howto-migrate-using-dump-and-restore.md
-    - name: Importação e exportação
-      href: howto-migrate-using-export-and-import.md
-    - name: Migração com inatividade mínima
-      href: howto-migrate-online.md
-  - name: Configurar parâmetros do servidor
-    items:
-    - name: Portal do Azure
-      href: howto-configure-server-parameters-using-portal.md
-    - name: CLI do Azure
-      href: howto-configure-server-parameters-using-cli.md
-  - name: Acessar logs do servidor
-    items:
-    - name: Portal do Azure
-      href: howto-configure-server-logs-in-portal.md
-    - name: CLI do Azure
-      href: howto-configure-server-logs-using-cli.md
-  - name: Monitoramento
-    items:
-    - name: Criar alertas nas métricas
-      href: howto-alert-on-metric.md
-  - name: Solucionar problemas
-    items:
-    - name: Solucionar erros de conexão
-      href: howto-troubleshoot-common-connection-issues.md
-  - name: Proteção Avançada contra Ameaças
-    items:
-    - name: Portal do Azure
-      href: howto-database-threat-protection-portal.md
-  - name: Rede Virtual
-    items:
-    - name: Portal do Azure
-      href: howto-manage-vnet-using-portal.md
-    - name: CLI do Azure
-      href: howto-manage-vnet-using-cli.md
-  - name: Reiniciar servidor
-    items:
-    - name: Portal do Azure
-      href: howto-restart-server-portal.md
-    - name: CLI do Azure
-      href: howto-restart-server-cli.md
-  - name: Replicação
-    items:
-    - name: Gerenciar réplicas de leitura no portal do Azure
-      href: howto-read-replicas-portal.md
-    - name: Gerenciar réplicas de leitura na CLI do Azure
-      href: howto-read-replicas-cli.md
+    - name: Criar usuários
+      href: howto-create-users.md
+    - name: Otimizar
+      items:
+        - name: Inserções em massa
+          href: howto-optimize-bulk-inserts.md
+        - name: Vácuo automático
+          href: howto-optimize-autovacuum.md
+        - name: Coleta das estatísticas de consulta
+          href: howto-optimize-query-stats-collection.md
+        - name: Estratégia da tabela de notificação do sistema
+          href: howto-optimize-query-time-with-toast-table-storage-strategy.md
+    - name: Gerenciar o firewall
+      items:
+        - name: Portal do Azure
+          href: howto-manage-firewall-using-portal.md
+        - name: CLI do Azure
+          href: howto-manage-firewall-using-cli.md
+    - name: Restaurar um servidor
+      items:
+        - name: Portal do Azure
+          href: howto-restore-server-portal.md
+        - name: CLI do Azure
+          href: howto-restore-server-cli.md
+    - name: Migrar um banco de dados
+      items:
+        - name: Despejar e restaurar
+          href: howto-migrate-using-dump-and-restore.md
+        - name: Importação e exportação
+          href: howto-migrate-using-export-and-import.md
+        - name: Migração com inatividade mínima
+          href: howto-migrate-online.md
+    - name: Configurar parâmetros do servidor
+      items:
+        - name: Portal do Azure
+          href: howto-configure-server-parameters-using-portal.md
+        - name: CLI do Azure
+          href: howto-configure-server-parameters-using-cli.md
+    - name: Acessar logs do servidor
+      items:
+        - name: Portal do Azure
+          href: howto-configure-server-logs-in-portal.md
+        - name: CLI do Azure
+          href: howto-configure-server-logs-using-cli.md
+    - name: Monitoramento
+      items:
+        - name: Criar alertas nas métricas
+          href: howto-alert-on-metric.md
+    - name: Solucionar problemas
+      items:
+        - name: Solucionar erros de conexão
+          href: howto-troubleshoot-common-connection-issues.md
+    - name: Proteção Avançada contra Ameaças
+      items:
+        - name: Portal do Azure
+          href: howto-database-threat-protection-portal.md
+    - name: Rede Virtual
+      items:
+        - name: Portal do Azure
+          href: howto-manage-vnet-using-portal.md
+        - name: CLI do Azure
+          href: howto-manage-vnet-using-cli.md
+    - name: Reiniciar servidor
+      items:
+        - name: Portal do Azure
+          href: howto-restart-server-portal.md
+        - name: CLI do Azure
+          href: howto-restart-server-cli.md
+    - name: Replicação
+      items:
+        - name: Gerenciar réplicas de leitura no portal do Azure
+          href: howto-read-replicas-portal.md
+        - name: Gerenciar réplicas de leitura na CLI do Azure
+          href: howto-read-replicas-cli.md
 - name: Referência
   items:
-  - name: CLI do Azure
-    href: /cli/azure/postgres
-  - name: API REST
-    href: /rest/api/postgresql
-  - name: Modelo do Resource Manager
-    href: /azure/templates/microsoft.dbforpostgresql/allversions
+    - name: CLI do Azure
+      href: /cli/azure/postgres
+    - name: API REST
+      href: /rest/api/postgresql
+    - name: Modelo do Resource Manager
+      href: /azure/templates/microsoft.dbforpostgresql/allversions
 - name: Recursos
   items:
-  - name: Desenvolva suas habilidades com o Microsoft Learn
-    href: /learn/browse/
-  - name: Modelos de implantação
-    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql
-  - name: Roteiro do Azure
-    href: https://azure.microsoft.com/roadmap/?category=databases
-  - name: Preços
-    href: https://azure.microsoft.com/pricing/details/postgresql/
-  - name: Fórum do MSDN
-    href: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-database-postgresql
-  - name: vídeos
-    items:
-    - name: Vídeos do produto
-      href: videos.md
-    - name: Como fazer uma série de vídeos
+    - name: Desenvolva suas habilidades com o Microsoft Learn
+      href: /learn/browse/
+    - name: Modelos de implantação
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql'
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=databases'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/postgresql/'
+    - name: Fórum do MSDN
+      href: 'https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-database-postgresql'
+    - name: vídeos
       items:
-      - name: Saiba mais sobre os benefícios e recursos do produto
-        href: https://aka.ms/postg-intro-vid
-      - name: Migrar seu aplicativo PostgreSQL para o Azure
-        href: https://aka.ms/postg-migrate-vid
-      - name: Compilar aplicativos inteligentes com Serviços Cognitivos
-        href: https://aka.ms/postg-cogsvs-vid
-      - name: Conectar contêineres usando OSBA
-        href: https://aka.ms/postg-osba-vid
-      - name: Conectar dados do aplicativo ao Power BI
-        href: https://aka.ms/postg-powerbi-vid
-  - name: Fórum de comentários
-    href: https://feedback.azure.com/forums/597976-azure-database-for-postgresql
-  - name: Disponibilidade de região
-    href: https://azure.microsoft.com/regions/services/
-  - name: Opções de suporte
-    href: https://azure.microsoft.com/support/options/
-  - name: Relatos de clientes
-    href: https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL"
-  - name: Parceiros
-    href: partners-migration-postgresql.md
-  - name: Guia de migração de banco de dados
-    href: https://datamigration.microsoft.com/
-ms.openlocfilehash: 5958953a879a84a3a0b78b91ca276ad4bf48fc00
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629185"
+        - name: Vídeos do produto
+          href: videos.md
+        - name: Como fazer uma série de vídeos
+          items:
+            - name: Saiba mais sobre os benefícios e recursos do produto
+              href: 'https://aka.ms/postg-intro-vid'
+            - name: Migrar seu aplicativo PostgreSQL para o Azure
+              href: 'https://aka.ms/postg-migrate-vid'
+            - name: Compilar aplicativos inteligentes com Serviços Cognitivos
+              href: 'https://aka.ms/postg-cogsvs-vid'
+            - name: Conectar contêineres usando OSBA
+              href: 'https://aka.ms/postg-osba-vid'
+            - name: Conectar dados do aplicativo ao Power BI
+              href: 'https://aka.ms/postg-powerbi-vid'
+    - name: Fórum de comentários
+      href: 'https://feedback.azure.com/forums/597976-azure-database-for-postgresql'
+    - name: Disponibilidade de região
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Opções de suporte
+      href: 'https://azure.microsoft.com/support/options/'
+    - name: Relatos de clientes
+      href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL"'
+    - name: Parceiros
+      href: partners-migration-postgresql.md
+    - name: Guia de migração de banco de dados
+      href: 'https://datamigration.microsoft.com/'

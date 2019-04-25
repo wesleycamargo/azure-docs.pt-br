@@ -1,288 +1,281 @@
-items:
 - name: Documentação de Backup do Azure
   href: index.yml
 - name: Visão geral
   items:
-  - name: O que é o Backup do Azure?
-    href: backup-overview.md
+    - name: O que é o Backup do Azure?
+      href: backup-overview.md
 - name: Guia de início rápido
-  items:
-  - name: Fazer backup de uma VM – Portal
-    href: quick-backup-vm-portal.md
-  - name: Fazer backup de uma VM – PowerShell
-    href: quick-backup-vm-powershell.md
-  - name: Fazer backup de uma VM – CLI
-    href: quick-backup-vm-cli.md
   expanded: true
+  items:
+    - name: Fazer backup de uma VM – Portal
+      href: quick-backup-vm-portal.md
+    - name: Fazer backup de uma VM – PowerShell
+      href: quick-backup-vm-powershell.md
+    - name: Fazer backup de uma VM – CLI
+      href: quick-backup-vm-cli.md
 - name: Tutoriais
   items:
-  - name: Fazer backup de VMs do Azure em escala
-    href: tutorial-backup-vm-at-scale.md
-  - name: Restaurar um disco
-    href: tutorial-restore-disk.md
-  - name: Restaurar arquivos individuais
-    href: tutorial-restore-files.md
-  - name: Fazer backup do Windows Server
-    href: tutorial-backup-windows-server-to-azure.md
-  - name: Restaurar arquivos para o Windows Server
-    href: tutorial-backup-restore-files-windows-server.md
+    - name: Fazer backup de VMs do Azure em escala
+      href: tutorial-backup-vm-at-scale.md
+    - name: Restaurar um disco
+      href: tutorial-restore-disk.md
+    - name: Restaurar arquivos individuais
+      href: tutorial-restore-files.md
+    - name: Fazer backup do Windows Server
+      href: tutorial-backup-windows-server-to-azure.md
+    - name: Restaurar arquivos para o Windows Server
+      href: tutorial-backup-restore-files-windows-server.md
 - name: Exemplos
   items:
-  - name: Azure PowerShell
-    href: powershell-backup-samples.md
-  - name: Modelos do Gerenciador de Recursos
-    href: backup-rm-template-samples.md
+    - name: Azure PowerShell
+      href: powershell-backup-samples.md
+    - name: Modelos do Gerenciador de Recursos
+      href: backup-rm-template-samples.md
 - name: Conceitos
   items:
-  - name: Matrizes de suporte
-    items:
-    - name: Matriz de suporte do Backup do Azure
-      href: backup-support-matrix.md
-    - name: Matriz de suporte de backup de VM do Azure
-      href: backup-support-matrix-iaas.md
-    - name: Matriz de suporte do DPM/MABS (Servidor de Backup do Azure)
-      href: backup-support-matrix-mabs-dpm.md
-    - name: Matriz de suporte do agente do MARS
-      href: backup-support-matrix-mars-agent.md
-  - name: Perguntas frequentes (FAQ)
-    items:
-    - name: Perguntas frequentes – cofres dos Serviços de Recuperação
-      href: backup-azure-backup-faq.md
-    - name: Perguntas frequentes – backup de VM do Azure
-      href: backup-azure-vm-backup-faq.md
-    - name: Perguntas frequentes – agente do MARS
-      href: backup-azure-file-folder-backup-faq.md
-    - name: Perguntas frequentes – fazer backup de Arquivos do Azure
-      href: backup-azure-files-faq.md
-    - name: Perguntas frequentes – fazer backup de bancos de dados do SQL Server em VMs do Azure
-      href: faq-backup-sql-server.md
-  - name: Arquitetura de backup
-    href: backup-architecture.md
-  - name: Controle de Acesso Baseado em Função
-    href: backup-rbac-rs-vault.md
-  - name: Segurança para backups híbridos
-    href: backup-azure-security-feature.md
-  - name: Configurar o backup offline
-    href: backup-azure-backup-import-export.md
-  - name: Backup offline do DPM e do Servidor de Backup do Azure
-    href: backup-azure-backup-server-import-export-.md
-  - name: Substitua sua biblioteca de fitas
-    href: backup-azure-backup-cloud-as-tape.md
-  - name: Atributos de segurança comuns do Azure
-    href: backup-security-attributes.md
+    - name: Matrizes de suporte
+      items:
+        - name: Matriz de suporte do Backup do Azure
+          href: backup-support-matrix.md
+        - name: Matriz de suporte de backup de VM do Azure
+          href: backup-support-matrix-iaas.md
+        - name: Matriz de suporte do DPM/MABS (Servidor de Backup do Azure)
+          href: backup-support-matrix-mabs-dpm.md
+        - name: Matriz de suporte do agente do MARS
+          href: backup-support-matrix-mars-agent.md
+    - name: Perguntas frequentes (FAQ)
+      items:
+        - name: Perguntas frequentes – cofres dos Serviços de Recuperação
+          href: backup-azure-backup-faq.md
+        - name: Perguntas frequentes – backup de VM do Azure
+          href: backup-azure-vm-backup-faq.md
+        - name: Perguntas frequentes – agente do MARS
+          href: backup-azure-file-folder-backup-faq.md
+        - name: Perguntas frequentes – fazer backup de Arquivos do Azure
+          href: backup-azure-files-faq.md
+        - name: Perguntas frequentes – fazer backup de bancos de dados do SQL Server em VMs do Azure
+          href: faq-backup-sql-server.md
+    - name: Arquitetura de backup
+      href: backup-architecture.md
+    - name: Controle de Acesso Baseado em Função
+      href: backup-rbac-rs-vault.md
+    - name: Segurança para backups híbridos
+      href: backup-azure-security-feature.md
+    - name: Configurar o backup offline
+      href: backup-azure-backup-import-export.md
+    - name: Backup offline do DPM e do Servidor de Backup do Azure
+      href: backup-azure-backup-server-import-export-.md
+    - name: Substitua sua biblioteca de fitas
+      href: backup-azure-backup-cloud-as-tape.md
+    - name: Atributos de segurança comuns do Azure
+      href: backup-security-attributes.md
 - name: Como
   items:
-  - name: Servidor de Backup do Azure
-    items:
-    - name: Matriz de proteção do Servidor de Backup do Azure
-      href: backup-mabs-protection-matrix.md
-    - name: Instalar ou atualizar
-      items:
-      - name: Instalar o Servidor de Backup do Azure
-        href: backup-azure-microsoft-azure-backup.md
-      - name: Adicionar armazenamento
-        href: backup-mabs-add-storage.md
-      - name: O que há de novo no MABS
-        href: backup-mabs-whats-new-mabs.md
-      - name: Notas de versão MABS V3
-        href: backup-mabs-release-notes-v3.md
-      - name: Instalação autônoma
-        href: backup-mabs-unattended-install.md
-    - name: Proteger as cargas de trabalho
-      items:
-      - name: Servidor do VMware
-        href: backup-azure-backup-server-vmware.md
-      - name: Exchange
-        href: backup-azure-exchange-mabs.md
-      - name: Farm do SharePoint
-        href: backup-azure-backup-sharepoint-mabs.md
-      - name: SQL Server
-        href: backup-azure-sql-mabs.md
-      - name: Proteger o estado do sistema e recuperação bare-metal
-        href: backup-mabs-system-state-and-bmr.md
-    - name: Recuperar dados do Servidor de Backup do Azure
-      href: backup-azure-alternate-dpm-server.md
-  - name: Servidor de Backup do Azure no Azure Stack
-    items:
-    - name: Instalar o Servidor de Backup do Azure
-      href: backup-mabs-install-azure-stack.md
-    - name: Proteger arquivos e aplicativos
-      href: backup-mabs-files-applications-azure-stack.md
-    - name: Proteger o farm do SharePoint
-      href: backup-mabs-sharepoint-azure-stack.md
-    - name: Proteger o banco de dados do SQL Server
-      href: backup-mabs-sql-azure-stack.md
-  - name: Compartilhamentos de Arquivos do Azure
-    items:
-    - name: Backup de compartilhamentos de Arquivos do Azure
-      href: backup-azure-files.md
-  - name: Fazer backup de VMs do Azure
-    items:
-    - name: Sobre o backup de VM do Azure
-      href: backup-azure-vms-introduction.md
-    - name: Fazer backup e restaurar VMs do Azure com a restauração instantânea do Backup do Azure
-      href: backup-instant-restore-capability.md
-    - name: Fazer backup de VMs do Azure
-      items:
-      - name: Habilitar o backup ao criar uma VM do Azure
-        href: backup-during-vm-creation.md
-      - name: Fazer backup de uma VM do Azure por meio das configurações da VM
-        href: backup-azure-vms-first-look-arm.md
-      - name: Configurar um cofre e habilitar o backup para VMs do Azure
-        href: backup-azure-arm-vms-prepare.md
-      - name: Fazer backup de VMs do Azure criptografadas
-        href: backup-azure-vms-encryption.md
-      - name: Configurar backups consistentes com o aplicativo de VMs do Azure que executam o Linux
-        href: backup-azure-linux-app-consistent.md
-    - name: Gerenciar e monitorar o backup de VM do Azure
-      items:
-      - name: Gerenciar backups de VM do Azure
-        href: backup-azure-manage-vms.md
-      - name: Monitorar alertas de backups de VM do Azure
-        href: backup-azure-monitor-vms.md
-    - name: Restaurar VMs do Azure
-      items:
-      - name: Restaurar VMs do Azure no portal
-        href: backup-azure-arm-restore-vms.md
-      - name: Recuperar arquivos de backups de VM do Azure
-        href: backup-azure-restore-files-from-vm.md
-      - name: Restaurar VMs criptografadas
-        href: backup-azure-vms-encryption.md
-      - name: Restaurar as chaves e o segredo das VMs criptografadas
-        href: backup-azure-restore-key-secret.md
-  - name: Configurar relatórios de Backup do Azure
-    items:
-    - name: Configurar relatórios de Backup do Azure
-      href: backup-azure-configure-reports.md
-    - name: Modelo de dados para relatórios de Backup do Azure
-      href: backup-azure-reports-data-model.md
-    - name: Modelo de dados do Log Analytics para o Backup do Azure
-      href: backup-azure-log-analytics-data-model.md
-    - name: Atualizando o Pacote do Conteúdo de Relatório Central do Backup do Azure
-      href: backup-azure-central-reporting-updates.md
-  - name: Data Protection Manager
-    items:
-    - name: Preparar as cargas de trabalho do DPM no portal do Azure
-      href: backup-azure-dpm-introduction.md
-    - name: Usar o DPM para fazer backup do Exchange Server
-      href: backup-azure-backup-exchange-server.md
-    - name: Recuperar dados em um servidor DPM alternativo
-      href: backup-azure-alternate-dpm-server.md
-    - name: Usar o DPM para fazer backup de cargas de trabalho do SQL Server
-      href: backup-azure-backup-sql.md
-    - name: Usar o DPM para fazer backup de um farm do SharePoint
-      href: backup-azure-backup-sharepoint.md
-  - name: Usar PowerShell do Azure
-    items:
-    - name: Restaurar VMs no portal do Azure
-      href: backup-azure-vms-automation.md
-    - name: DPM no portal do Azure
-      href: backup-dpm-automation.md
-    - name: Windows Server no portal do Azure
-      href: backup-client-automation.md
-    - name: Compartilhamentos de arquivos do Azure no portal do Azure
-      href: backup-azure-afs-automation.md
-    - name: SQL nos backups de VM do Azure
-      href: backup-azure-sql-automation.md
-  - name: Usar API REST do Backup do Azure
-    items:
-    - name: Criar cofre de Serviços de Recuperação
-      href: backup-azure-arm-userestapi-createorupdatevault.md
-    - name: Criar e atualizar a política de backup
-      href: backup-azure-arm-userestapi-createorupdatepolicy.md
-    - name: Fazer backup de VMs do Azure
-      href: backup-azure-arm-userestapi-backupazurevms.md
-    - name: Restaurar VMs do Azure
-      href: backup-azure-arm-userestapi-restoreazurevms.md
-    - name: Gerenciar trabalhos do Backup do Azure
-      href: backup-azure-arm-userestapi-managejobs.md
-  - name: Fazer backup de bancos de dados do SQL Server em VMs do Azure
-    items:
-    - name: Sobre o Backup do SQL Server nas VMs do Azure
-      href: backup-azure-sql-database.md
-    - name: Fazer backup de bancos de dados do SQL Server nas VMs do Azure
-      href: backup-sql-server-database-azure-vms.md
-    - name: Restaurar bancos de dados do SQL Server nas VMs do Azure
-      href: restore-sql-database-azure-vm.md
-    - name: Gerenciar o backup de bancos de dados do SQL Server
-      href: manage-monitor-sql-database-backup.md
-  - name: Windows Server
-    items:
-    - name: Fazer backup de pastas e arquivos do Windows Server
-      href: backup-configure-vault.md
-    - name: Fazer backup do Estado do Sistema do Windows Server
-      href: backup-azure-system-state.md
-    - name: Recuperar arquivos do Azure para o Windows Server
-      href: backup-azure-restore-windows-server.md
-    - name: Restaurar o Estado do Sistema do Windows Server
-      href: backup-azure-restore-system-state.md
-    - name: Monitorar e gerenciar cofres dos Serviços de Recuperação
-      href: backup-azure-manage-windows-server.md
-  - name: Cofre dos Serviços de Recuperação
-    items:
-    - name: Visão geral de cofres de Serviços de Recuperação
-      href: backup-azure-recovery-services-vault-overview.md
-    - name: Atualizando um cofre de Backup para um cofre de Serviços de Recuperação
-      href: backup-azure-upgrade-backup-to-recovery-services.md
-    - name: Excluir um cofre dos Serviços de Recuperação
-      href: backup-azure-delete-vault.md
-    - name: Mover um cofre dos Serviços de Recuperação
-      href: backup-azure-move-recovery-services-vault.md
-  - name: Solucionar problemas
-    items:
-    - name: VM do Azure
-      href: backup-azure-vms-troubleshoot.md
-    - name: O agente de Backup do Azure ou a extensão de VM atingiu o tempo limite
-      href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
-    - name: O backup de pastas e arquivos está lento
-      href: backup-azure-troubleshoot-slow-backup-performance-issue.md
     - name: Servidor de Backup do Azure
-      href: backup-azure-mabs-troubleshoot.md
-    - name: System Center DPM
-      href: backup-azure-scdpm-troubleshooting.md
-    - name: Agente de Backup do Azure
-      href: backup-azure-mars-troubleshoot.md
-    - name: Compartilhamento de arquivos do Azure
-      href: troubleshoot-azure-files.md
-    - name: SQL Server
-      href: backup-sql-server-azure-troubleshoot.md
-  - name: Monitorar cargas de trabalho de Backup do Azure
-    items:
-    - name: Usando o portal do Azure
-      href: backup-azure-monitoring-built-in-monitor.md
-    - name: Como usar o Azure Monitor
-      href: backup-azure-monitoring-use-azuremonitor.md
+      items:
+        - name: Matriz de proteção do Servidor de Backup do Azure
+          href: backup-mabs-protection-matrix.md
+        - name: Instalar ou atualizar
+          items:
+            - name: Instalar o Servidor de Backup do Azure
+              href: backup-azure-microsoft-azure-backup.md
+            - name: Adicionar armazenamento
+              href: backup-mabs-add-storage.md
+            - name: O que há de novo no MABS
+              href: backup-mabs-whats-new-mabs.md
+            - name: Notas de versão MABS V3
+              href: backup-mabs-release-notes-v3.md
+            - name: Instalação autônoma
+              href: backup-mabs-unattended-install.md
+        - name: Proteger as cargas de trabalho
+          items:
+            - name: Servidor do VMware
+              href: backup-azure-backup-server-vmware.md
+            - name: Exchange
+              href: backup-azure-exchange-mabs.md
+            - name: Farm do SharePoint
+              href: backup-azure-backup-sharepoint-mabs.md
+            - name: SQL Server
+              href: backup-azure-sql-mabs.md
+            - name: Proteger o estado do sistema e recuperação bare-metal
+              href: backup-mabs-system-state-and-bmr.md
+        - name: Recuperar dados do Servidor de Backup do Azure
+          href: backup-azure-alternate-dpm-server.md
+    - name: Servidor de Backup do Azure no Azure Stack
+      items:
+        - name: Instalar o Servidor de Backup do Azure
+          href: backup-mabs-install-azure-stack.md
+        - name: Proteger arquivos e aplicativos
+          href: backup-mabs-files-applications-azure-stack.md
+        - name: Proteger o farm do SharePoint
+          href: backup-mabs-sharepoint-azure-stack.md
+        - name: Proteger o banco de dados do SQL Server
+          href: backup-mabs-sql-azure-stack.md
+    - name: Compartilhamentos de Arquivos do Azure
+      items:
+        - name: Backup de compartilhamentos de Arquivos do Azure
+          href: backup-azure-files.md
+    - name: Fazer backup de VMs do Azure
+      items:
+        - name: Sobre o backup de VM do Azure
+          href: backup-azure-vms-introduction.md
+        - name: Fazer backup e restaurar VMs do Azure com a restauração instantânea do Backup do Azure
+          href: backup-instant-restore-capability.md
+        - name: Fazer backup de VMs do Azure
+          items:
+            - name: Habilitar o backup ao criar uma VM do Azure
+              href: backup-during-vm-creation.md
+            - name: Fazer backup de uma VM do Azure por meio das configurações da VM
+              href: backup-azure-vms-first-look-arm.md
+            - name: Configurar um cofre e habilitar o backup para VMs do Azure
+              href: backup-azure-arm-vms-prepare.md
+            - name: Fazer backup de VMs do Azure criptografadas
+              href: backup-azure-vms-encryption.md
+            - name: Configurar backups consistentes com o aplicativo de VMs do Azure que executam o Linux
+              href: backup-azure-linux-app-consistent.md
+        - name: Gerenciar e monitorar o backup de VM do Azure
+          items:
+            - name: Gerenciar backups de VM do Azure
+              href: backup-azure-manage-vms.md
+            - name: Monitorar alertas de backups de VM do Azure
+              href: backup-azure-monitor-vms.md
+        - name: Restaurar VMs do Azure
+          items:
+            - name: Restaurar VMs do Azure no portal
+              href: backup-azure-arm-restore-vms.md
+            - name: Recuperar arquivos de backups de VM do Azure
+              href: backup-azure-restore-files-from-vm.md
+            - name: Restaurar VMs criptografadas
+              href: backup-azure-vms-encryption.md
+            - name: Restaurar as chaves e o segredo das VMs criptografadas
+              href: backup-azure-restore-key-secret.md
+    - name: Configurar relatórios de Backup do Azure
+      items:
+        - name: Configurar relatórios de Backup do Azure
+          href: backup-azure-configure-reports.md
+        - name: Modelo de dados para relatórios de Backup do Azure
+          href: backup-azure-reports-data-model.md
+        - name: Modelo de dados do Log Analytics para o Backup do Azure
+          href: backup-azure-log-analytics-data-model.md
+        - name: Atualizando o Pacote do Conteúdo de Relatório Central do Backup do Azure
+          href: backup-azure-central-reporting-updates.md
+    - name: Data Protection Manager
+      items:
+        - name: Preparar as cargas de trabalho do DPM no portal do Azure
+          href: backup-azure-dpm-introduction.md
+        - name: Usar o DPM para fazer backup do Exchange Server
+          href: backup-azure-backup-exchange-server.md
+        - name: Recuperar dados em um servidor DPM alternativo
+          href: backup-azure-alternate-dpm-server.md
+        - name: Usar o DPM para fazer backup de cargas de trabalho do SQL Server
+          href: backup-azure-backup-sql.md
+        - name: Usar o DPM para fazer backup de um farm do SharePoint
+          href: backup-azure-backup-sharepoint.md
+    - name: Usar PowerShell do Azure
+      items:
+        - name: Restaurar VMs no portal do Azure
+          href: backup-azure-vms-automation.md
+        - name: DPM no portal do Azure
+          href: backup-dpm-automation.md
+        - name: Windows Server no portal do Azure
+          href: backup-client-automation.md
+        - name: Compartilhamentos de arquivos do Azure no portal do Azure
+          href: backup-azure-afs-automation.md
+        - name: SQL nos backups de VM do Azure
+          href: backup-azure-sql-automation.md
+    - name: Usar API REST do Backup do Azure
+      items:
+        - name: Criar cofre de Serviços de Recuperação
+          href: backup-azure-arm-userestapi-createorupdatevault.md
+        - name: Criar e atualizar a política de backup
+          href: backup-azure-arm-userestapi-createorupdatepolicy.md
+        - name: Fazer backup de VMs do Azure
+          href: backup-azure-arm-userestapi-backupazurevms.md
+        - name: Restaurar VMs do Azure
+          href: backup-azure-arm-userestapi-restoreazurevms.md
+        - name: Gerenciar trabalhos do Backup do Azure
+          href: backup-azure-arm-userestapi-managejobs.md
+    - name: Fazer backup de bancos de dados do SQL Server em VMs do Azure
+      items:
+        - name: Sobre o Backup do SQL Server nas VMs do Azure
+          href: backup-azure-sql-database.md
+        - name: Fazer backup de bancos de dados do SQL Server nas VMs do Azure
+          href: backup-sql-server-database-azure-vms.md
+        - name: Restaurar bancos de dados do SQL Server nas VMs do Azure
+          href: restore-sql-database-azure-vm.md
+        - name: Gerenciar o backup de bancos de dados do SQL Server
+          href: manage-monitor-sql-database-backup.md
+    - name: Windows Server
+      items:
+        - name: Fazer backup de pastas e arquivos do Windows Server
+          href: backup-configure-vault.md
+        - name: Fazer backup do Estado do Sistema do Windows Server
+          href: backup-azure-system-state.md
+        - name: Recuperar arquivos do Azure para o Windows Server
+          href: backup-azure-restore-windows-server.md
+        - name: Restaurar o Estado do Sistema do Windows Server
+          href: backup-azure-restore-system-state.md
+        - name: Monitorar e gerenciar cofres dos Serviços de Recuperação
+          href: backup-azure-manage-windows-server.md
+    - name: Cofre dos Serviços de Recuperação
+      items:
+        - name: Visão geral de cofres de Serviços de Recuperação
+          href: backup-azure-recovery-services-vault-overview.md
+        - name: Atualizando um cofre de Backup para um cofre de Serviços de Recuperação
+          href: backup-azure-upgrade-backup-to-recovery-services.md
+        - name: Excluir um cofre dos Serviços de Recuperação
+          href: backup-azure-delete-vault.md
+        - name: Mover um cofre dos Serviços de Recuperação
+          href: backup-azure-move-recovery-services-vault.md
+    - name: Solucionar problemas
+      items:
+        - name: VM do Azure
+          href: backup-azure-vms-troubleshoot.md
+        - name: O agente de Backup do Azure ou a extensão de VM atingiu o tempo limite
+          href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
+        - name: O backup de pastas e arquivos está lento
+          href: backup-azure-troubleshoot-slow-backup-performance-issue.md
+        - name: Servidor de Backup do Azure
+          href: backup-azure-mabs-troubleshoot.md
+        - name: System Center DPM
+          href: backup-azure-scdpm-troubleshooting.md
+        - name: Agente de Backup do Azure
+          href: backup-azure-mars-troubleshoot.md
+        - name: Compartilhamento de arquivos do Azure
+          href: troubleshoot-azure-files.md
+        - name: SQL Server
+          href: backup-sql-server-azure-troubleshoot.md
+    - name: Monitorar cargas de trabalho de Backup do Azure
+      items:
+        - name: Usando o portal do Azure
+          href: backup-azure-monitoring-built-in-monitor.md
+        - name: Como usar o Azure Monitor
+          href: backup-azure-monitoring-use-azuremonitor.md
 - name: Referência
   items:
-  - name: .NET
-    href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
-  - name: CLI do Azure
-    href: /cli/azure/backup?view=azure-cli-latest
-  - name: PowerShell
-    href: /powershell/module/az.recoveryservices
-  - name: REST - Backup
-    href: /rest/api/backup/
-  - name: REST - Cofre dos Serviços de Recuperação
-    href: /rest/api/recoveryservices/
-  - name: Modelo do Resource Manager
-    href: /azure/templates/microsoft.recoveryservices/allversions
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
+    - name: CLI do Azure
+      href: /cli/azure/backup?view=azure-cli-latest
+    - name: PowerShell
+      href: /powershell/module/az.recoveryservices
+    - name: REST - Backup
+      href: /rest/api/backup/
+    - name: REST - Cofre dos Serviços de Recuperação
+      href: /rest/api/recoveryservices/
+    - name: Modelo do Resource Manager
+      href: /azure/templates/microsoft.recoveryservices/allversions
 - name: Recursos
   items:
-  - name: Roteiro do Azure
-    href: https://azure.microsoft.com/roadmap/
-  - name: Fórum do MSDN
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup
-  - name: Preços
-    href: https://azure.microsoft.com/pricing/details/backup/
-  - name: Calculadora de preço
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Atualizações de serviço
-    href: https://azure.microsoft.com/updates/?product=backup
-  - name: vídeos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=backup
-ms.openlocfilehash: b9fa6548951ca06a8568a00bbafe5c24518923ab
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681073"
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Fórum do MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/backup/'
+    - name: Calculadora de preço
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=backup'
+    - name: vídeos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=backup'

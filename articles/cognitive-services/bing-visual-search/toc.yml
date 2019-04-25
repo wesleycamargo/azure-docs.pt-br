@@ -1,99 +1,92 @@
-items:
 - name: Documentação da Pesquisa Visual do Bing
   href: index.yml
 - name: Visão geral
   items:
-  - name: O que é a API da Pesquisa Visual do Bing?
-    href: overview.md
-  - name: Comparar as APIs de Pesquisa do Bing
-    href: ../Bing-Web-Search/bing-api-comparison.md
-    maintainContext: true
+    - name: O que é a API da Pesquisa Visual do Bing?
+      href: overview.md
+    - name: Comparar as APIs de Pesquisa do Bing
+      href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
 - name: Guia de início rápido
   items:
-  - name: API REST
-    items:
-    - name: Usando C#
-      href: quickstarts/csharp.md
-    - name: Usando Java
-      href: quickstarts/java.md
-    - name: Usando o Node.js
-      href: quickstarts/nodejs.md
-    - name: Usando Python
-      href: quickstarts/python.md
-    - name: Usando o Ruby
-      href: quickstarts/ruby.md
-    - name: Usando o Go
-      href: quickstarts/go.md
-    expanded: true
-  - name: .
-    items:
-    - name: Usando C#
-      href: visual-search-sdk-c-sharp.md
-    - name: Usando o Node.js
-      href: visual-search-sdk-node.md
-    - name: Usando Python
-      href: visual-search-sdk-python.md
-    expanded: true
+    - name: API REST
+      expanded: true
+      items:
+        - name: 'Usando C#'
+          href: quickstarts/csharp.md
+        - name: Usando Java
+          href: quickstarts/java.md
+        - name: Usando o Node.js
+          href: quickstarts/nodejs.md
+        - name: Usando Python
+          href: quickstarts/python.md
+        - name: Usando o Ruby
+          href: quickstarts/ruby.md
+        - name: Usando o Go
+          href: quickstarts/go.md
+    - name: .
+      expanded: true
+      items:
+        - name: 'Usando C#'
+          href: visual-search-sdk-c-sharp.md
+        - name: Usando o Node.js
+          href: visual-search-sdk-node.md
+        - name: Usando Python
+          href: visual-search-sdk-python.md
 - name: Tutoriais
   items:
-  - name: Carregar uma imagem
-    href: tutorial-visual-search-image-upload.md
-  - name: Cortar e pesquisar uma área de uma imagem
-    href: tutorial-visual-search-crop-area-results.md
+    - name: Carregar uma imagem
+      href: tutorial-visual-search-image-upload.md
+    - name: Cortar e pesquisar uma área de uma imagem
+      href: tutorial-visual-search-crop-area-results.md
 - name: Exemplos
   items:
-  - name: Exemplos de código
-    href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Visual+Search
+    - name: Exemplos de código
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Visual+Search'
 - name: Conceitos
   items:
-  - name: Envio de consultas
-    href: concepts/sending-queries.md
-  - name: Insights de imagens padrão
-    href: default-insights-tag.md
-  - name: Uso de insights do Bing
-    href: bing-insights-usage.md
-  - name: Análise de API de pesquisa Visual
-    href: bing-visual-search-stats.md
+    - name: Envio de consultas
+      href: concepts/sending-queries.md
+    - name: Insights de imagens padrão
+      href: default-insights-tag.md
+    - name: Uso de insights do Bing
+      href: bing-insights-usage.md
+    - name: Análise de API de pesquisa Visual
+      href: bing-visual-search-stats.md
 - name: Guias de instruções
   items:
-  - name: Obter insights usando tokens
-    href: use-insights-token.md
-  - name: Miniaturas de redimensionamento e corte
-    href: resize-and-crop-thumbnails.md
-  - name: Procurar por uma imagem usando tokens de insight de imagem
-    href: tutorial-visual-search-insights-token.md
-  - name: Criar um aplicativo Web de página única
-    href: tutorial-bing-visual-search-single-page-app.md
+    - name: Obter insights usando tokens
+      href: use-insights-token.md
+    - name: Miniaturas de redimensionamento e corte
+      href: resize-and-crop-thumbnails.md
+    - name: Procurar por uma imagem usando tokens de insight de imagem
+      href: tutorial-visual-search-insights-token.md
+    - name: Criar um aplicativo Web de página única
+      href: tutorial-bing-visual-search-single-page-app.md
 - name: Referência
   items:
-  - name: API REST v7
-    href: https://aka.ms/bingvisualsearchreferencedoc
-  - name: SDKs
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-dotnet
-    - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/visualsearch?view=azure-java-stable
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python
-  - name: Requisitos de uso e exibição
-    href: ../Bing-Web-Search/use-display-requirements.md
-    maintainContext: true
+    - name: API REST v7
+      href: 'https://aka.ms/bingvisualsearchreferencedoc'
+    - name: SDKs
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-dotnet'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/visualsearch?view=azure-java-stable'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python'
+    - name: Requisitos de uso e exibição
+      href: ../Bing-Web-Search/use-display-requirements.md
+      maintainContext: true
 - name: Recursos
   items:
-  - name: Suporte de idioma e região
-    href: language-support.md
-  - name: Obter chave de acesso gratuito
-    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api
-  - name: Experimente!
-    href: https://aka.ms/bingvisualsearchtryforfree
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/bing-search
-  - name: Voz do Usuário
-    href: https://cognitive.uservoice.com/forums/555907-bing-search
-ms.openlocfilehash: 13e61130d7cd1225b00251991540a963c61b0b83
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314884"
+    - name: Suporte de idioma e região
+      href: language-support.md
+    - name: Obter chave de acesso gratuito
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api'
+    - name: Experimente!
+      href: 'https://aka.ms/bingvisualsearchtryforfree'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/bing-search'
+    - name: Voz do Usuário
+      href: 'https://cognitive.uservoice.com/forums/555907-bing-search'

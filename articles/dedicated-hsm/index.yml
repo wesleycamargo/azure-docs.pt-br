@@ -1,20 +1,14 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6acffc5056f916f2e05c7a0fd3eb325fd89a9e4b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117044"
 documentType: LandingData
 title: Documentação de HSM dedicado do Azure
 metadata:
-  title: Documentação de HSM dedicado do Azure - Tutoriais, referência de API | Microsoft Docs
-  meta.description: Learn how to use Azure Dedicated HSM to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
+  title: 'Documentação de HSM dedicado do Azure - Tutoriais, referência de API | Microsoft Docs'
+  meta.description: 'Learn how to use Azure Dedicated HSM to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.'
   services: dedicated-hsm
   author: barclayn
   manager: barbkess
   layout: LandingPage
-  ms.assetid: 
+  ms.assetid: null
   ms.service: dedicated-hsm
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -24,42 +18,42 @@ metadata:
 abstract:
   description: Saiba mais sobre a funcionalidade de HSM Dedicado e se ele se aplica ao seu ambiente.
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/dedicated-hsm/overview
+            html: <p>Saiba tudo sobre os HSM Dedicados do Azure.</p>
+            image:
+              src: media/index/hsm.svg
+            title: Visão geral do HSM Dedicado do Azure
+          - href: /azure/dedicated-hsm/faq
+            html: <p>Considerações de design ao usar um HSM Dedicado</p>
+            image:
+              src: media/index/guide.svg
+            title: Decidir a arquitetura de implantação
+  - title: Tutoriais Passo a Passo
     items:
-    - href: /azure/dedicated-hsm/overview
-      html: <p>Saiba tudo sobre os HSM Dedicados do Azure.</p>
-      image:
-        src: media/index/hsm.svg
-      title: Visão geral do HSM Dedicado do Azure
-    - href: /azure/dedicated-hsm/faq
-      html: <p>Considerações de design ao usar um HSM Dedicado</p>
-      image:
-        src: media/index/guide.svg
-      title: Decidir a arquitetura de implantação
-- title: Tutoriais Passo a Passo
-  items:
-  - type: paragraph
-    text: ''
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: ''
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/cli.svg
+            text: CLI do Azure
+            href: /azure/dedicated-hsm/tutorial-deploy-hsm-cli
+          - image:
+              src: media/index/logo_powershell.svg
+            text: PowerShell
+            href: /azure/dedicated-hsm/tutorial-deploy-hsm-powershell
+  - title: Referência
     items:
-    - image:
-        src: media/index/cli.svg
-      text: CLI do Azure
-      href: /azure/dedicated-hsm/tutorial-deploy-hsm-cli
-    - image:
-        src: media/index/logo_powershell.svg
-      text: PowerShell
-      href: /azure/dedicated-hsm/tutorial-deploy-hsm-powershell
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Perguntas frequentes
-      html: <p><a href="/azure/dedicated-hsm/faq/">Perguntas frequentes</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Perguntas frequentes
+            html: <p><a href="/azure/dedicated-hsm/faq/">Perguntas frequentes</a></p>

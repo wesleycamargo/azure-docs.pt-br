@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4bfb09a9a0d50c3259d942bc60e0c35046a11254
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56989722"
 documentType: LandingData
 title: Banco de Dados do Azure para obter a documentação do MySQL
 metadata:
   document_id: 8d915ae6-9101-ad37-0736-3eaa59c2dd34
-  title: Documentação do Azure MySQL - Tutoriais, Referência de API | Microsoft Docs
+  title: 'Documentação do Azure MySQL - Tutoriais, Referência de API | Microsoft Docs'
   description: O Banco de Dados do Azure para MySQL é um serviço de banco de dados relacional na nuvem da Microsoft que é projetado para desenvolvedores com base no mecanismo de banco de dados MySQL de software livre.
   author: ajlam
   ms.author: andrela
@@ -17,50 +11,50 @@ metadata:
   ms.topic: landing-page
   ms.date: 02/25/2019
 abstract:
-  description: O Banco de Dados do Azure para MySQL é um serviço de banco de dados relacional com base no mecanismo de banco de dados MySQL de software livre.  Trata-se de um banco de dados totalmente gerenciado como uma oferta de serviço que pode lidar com cargas de trabalho críticas com desempenho previsível e escalabilidade dinâmica. Desenvolva aplicativos com o Banco de Dados do Azure para MySQL utilizando a plataforma e as ferramentas de software livre de sua escolha. Saiba como usar o Banco de Dados do Azure para MySQL com nossos guias de início rápido, tutoriais e exemplos.
+  description: 'O Banco de Dados do Azure para MySQL é um serviço de banco de dados relacional com base no mecanismo de banco de dados MySQL de software livre.  Trata-se de um banco de dados totalmente gerenciado como uma oferta de serviço que pode lidar com cargas de trabalho críticas com desempenho previsível e escalabilidade dinâmica. Desenvolva aplicativos com o Banco de Dados do Azure para MySQL utilizando a plataforma e as ferramentas de software livre de sua escolha. Saiba como usar o Banco de Dados do Azure para MySQL com nossos guias de início rápido, tutoriais e exemplos.'
 sections:
-- title: Guia de início rápido de 5 minutos
-  items:
-  - type: paragraph
-    text: 'Aprenda como criar um banco de dados MySQL no Azure com:'
-  - type: list
-    style: icon48
+  - title: Guia de início rápido de 5 minutos
     items:
-    - image:
-        src: /azure/virtual-machines/linux/media/index/portal.svg
-      text: Portal do Azure
-      href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-portal
-    - image:
-        src: /azure/virtual-machines/linux/media/index/cli.svg
-      text: CLI do Azure
-      href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-cli
-- title: Tutoriais Passo a Passo
-  items:
-  - type: paragraph
-    text: 'Aprenda a estruturar seu banco de dados e desenvolver aplicativos:'
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Aprenda como criar um banco de dados MySQL no Azure com:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/virtual-machines/linux/media/index/portal.svg
+            text: Portal do Azure
+            href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-portal
+          - image:
+              src: /azure/virtual-machines/linux/media/index/cli.svg
+            text: CLI do Azure
+            href: /azure/mysql/quickstart-create-mysql-server-database-using-azure-cli
+  - title: Tutoriais Passo a Passo
     items:
-    - html: Estruturar um Banco de Dados &#58; <a href="/azure/mysql/tutorial-design-database-using-portal">Portal do Azure</a> | <a href="/azure/mysql/tutorial-design-database-using-cli">CLI do Azure</a>
-    - html: Criar um aplicativo Web &#58; <a href="https://portal.azure.com/#create/hub">Wordpress - Portal</a> | <a href="../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json">PHP - CLI do Azure</a>
-- title: Exemplos
-  items:
-  - type: paragraph
-    text: Encontre scripts para gerenciar tarefas comuns.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 'Aprenda a estruturar seu banco de dados e desenvolver aplicativos:'
+      - type: list
+        style: ordered
+        items:
+          - html: 'Estruturar um Banco de Dados &#58; <a href="/azure/mysql/tutorial-design-database-using-portal">Portal do Azure</a> | <a href="/azure/mysql/tutorial-design-database-using-cli">CLI do Azure</a>'
+          - html: 'Criar um aplicativo Web &#58; <a href="https://portal.azure.com/#create/hub">Wordpress - Portal</a> | <a href="../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json">PHP - CLI do Azure</a>'
+  - title: Exemplos
     items:
-    - html: <a href="/azure/mysql/sample-scripts-azure-cli">CLI do Azure</a>
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Encontre scripts para gerenciar tarefas comuns.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/mysql/sample-scripts-azure-cli">CLI do Azure</a>
+  - title: Referência
     items:
-    - title: Linha de comando
-      html: <p><a href="/cli/azure/mysql">CLI do Azure</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/mysql">API REST</a></p>
-    - title: Azure Resource Manager
-      html: <p><a href="/azure/templates/microsoft.dbformysql/allversions">Modelos do Gerenciador de Recursos</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Linha de comando
+            html: <p><a href="/cli/azure/mysql">CLI do Azure</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/mysql">API REST</a></p>
+          - title: Azure Resource Manager
+            html: <p><a href="/azure/templates/microsoft.dbformysql/allversions">Modelos do Gerenciador de Recursos</a></p>
