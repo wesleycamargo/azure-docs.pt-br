@@ -3,17 +3,16 @@ title: Exemplos de transformação de declarações gerais do esquema do Identit
 description: Exemplos de transformação de declarações gerais do esquema do Identity Experience Framework do Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-origin.date: 09/10/2018
-ms.date: 04/04/2019
-ms.author: v-junlch
+ms.date: 09/10/2018
+ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 6a9a819e75e487999a2b50ae758b8d9c6c716a4f
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60397151"
@@ -87,7 +86,6 @@ Transforme o texto sem formatação fornecido em hash usando o sal e um segredo.
     - **randomizerSecret**: B2C_1A_AccountTransformSecret
 - Declarações de saída: 
     - **outputClaim**: CdMNb/KTEfsWzh9MR1kQGRZCKjuxGMWhA5YQNihzV6U=
-
 
 
 

@@ -3,7 +3,7 @@ title: Complexidade de senha - Azure Active Directory B2C | Microsoft Docs
 description: Como configurar os requisitos de complexidade de senhas fornecidas pelos consumidores no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -12,7 +12,7 @@ ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 1d7874d7c8d04e3d3565cdfe2e52e49c538b3091
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60316979"

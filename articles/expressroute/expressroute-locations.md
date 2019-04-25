@@ -78,7 +78,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/cloud-services-applications/azure-expressroute/)** |Com suporte |Com suporte |Melbourne, Sydney |
 | **[Airtel](https://www.airtel.in/creatingsmiles/)** | Com suporte | Com suporte | Chennai2, Mumbai2 |
-| **[Aryaka Networks](https://www.aryaka.com/)** |Com suporte |Com suporte |Amsterdã, Chicago, Dallas, Hong Kong SAR, são Paulo, Seattle, vale do Silício, Cingapura, Tóquio, Washington, D.C. |
+| **[Aryaka Networks](https://www.aryaka.com/)** |Com suporte |Com suporte |Amsterdã, Chicago, Dallas, RAE de Hong Kong, são Paulo, Seattle, vale do Silício, Cingapura, Tóquio, Washington, D.C. |
 | **[Data centers Ascenty](https://ascenty.com/servicos/cloud-connect/microsoft-expressroute/)** |Com suporte |Com suporte |São Paulo |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Com suporte |Com suporte |Amsterdã, Chicago, Dallas, Londres, Vale do Silício, Singapura, Sydney, Tóquio, Toronto, Washington, D.C. |
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Com suporte |Com suporte |Montreal, Toronto, Cidade de Quebec |

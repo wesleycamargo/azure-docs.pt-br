@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 12d11cddf077d4d07732490255d44e89ddaf3217
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527108"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60531043"
 ---
 # <a name="storsimple-8000-series-update-22-release-notes"></a>Notas de versão da Atualização 2.2 do StorSimple Série 8000
 
@@ -63,7 +63,7 @@ A tabela a seguir fornece um resumo dos problemas que foram corrigidos nas Atual
 ## <a name="known-issues-in-update-22"></a>Problemas conhecidos na Atualização 2.2
 A tabela a seguir fornece um resumo dos problemas conhecidos nesta versão.
 
-|  Não. | Recurso | Problema | Comentários/solução alternativa | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
+| Não. | Recurso | Problema | Comentários/solução alternativa | Aplica-se ao dispositivo físico | Aplica-se ao dispositivo virtual |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Quorum de disco |Em casos raros, se a maioria dos discos no invólucro de EBOD de um dispositivo 8600 for desconectada, fazendo com que não haja quórum de disco, o pool de armazenamento ficará offline. Permanecerá offline, mesmo que os discos sejam reconectados. |Você precisará reiniciar o dispositivo. Se o problema persistir, entre em contato com o Suporte da Microsoft para as próximas etapas. |Sim |Não  |
 | 2 |ID de controlador incorreta |Quando a substituição do controlador é executada, o controlador 0 pode aparecer como controlador 1. Durante a substituição do controlador, quando a imagem é carregada a partir do nó par, a ID do controlador pode ser exibida inicialmente como a ID do controlador de pares. Em casos raros, esse comportamento pode ser percebido após uma reinicialização do sistema. |Nenhuma ação do usuário é necessária. Esta situação se resolverá depois que a substituição do controlador for concluída. |Sim |Não  |

@@ -3,7 +3,7 @@ title: Migrar usuários com identidades sociais no Azure Active Directory B2C | 
 description: Descreve os principais conceitos sobre a migração de usuários com identidades sociais no Azure AD B2C usando uma API do Graph.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -12,7 +12,7 @@ ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 12b464d9b6bd09acb9c93ab1de0ba178f28a778a
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60316095"

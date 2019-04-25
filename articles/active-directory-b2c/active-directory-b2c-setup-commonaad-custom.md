@@ -3,7 +3,7 @@ title: Configurar a entrada para um provedor de identidade multilocatário do Az
 description: Adicionar um provedor de identidade multilocatário do Azure AD usando políticas personalizadas – Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -12,7 +12,7 @@ ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 41b170ea66b1cb4c830ad0327ac2e1e3d2922b04
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60316809"

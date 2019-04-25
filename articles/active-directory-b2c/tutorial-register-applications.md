@@ -3,7 +3,7 @@ title: Tutorial – Registrar um aplicativo – Azure Active Directory B2C | Mic
 description: Saiba como registrar seus aplicativo Web no Azure Active Directory B2C usando o portal do Azure.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
@@ -12,7 +12,7 @@ ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 849bcfe2b5ee177d06b8e4cf62fd29459d2e59ce
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60359731"

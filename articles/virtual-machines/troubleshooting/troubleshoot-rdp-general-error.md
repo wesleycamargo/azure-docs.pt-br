@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f290a7e16938c66d45fab9b78086f77bfdfe4839
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100404"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60319506"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Solucionar um problema de erro geral de protocolo RDP em uma VM do Azure
 
@@ -242,6 +242,6 @@ Para obter mais informações, confira [Os Serviços de Área de Trabalho Remota
 
 Para obter mais informações, confira [A Área de Trabalho Remota se desconecta com frequência na VM do Azure](troubleshoot-rdp-intermittent-connectivity.md).
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contatar o suporte
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 
 Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.

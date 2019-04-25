@@ -11,11 +11,11 @@ ms.date: 03/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: b485b6b7f6ddbdb45d3ca6170c29a9af3c5b63dc
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407979"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60321920"
 ---
 # <a name="indexers-in-azure-search"></a>Indexadores no Azure Search
 
@@ -127,7 +127,7 @@ A resposta contém o status geral do indexador, a última invocação (ou em and
 
 O histórico de execução contém até as 50 execuções mais recentes, que são classificadas em ordem cronológica inversa (de modo que a execução mais recente fique em primeiro lugar).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 Agora que você tem as noções básicas, a próxima etapa é examinar os requisitos e as tarefas específicas para cada tipo de fonte de dados.
 
 * [Banco de Dados SQL do Azure ou SQL Server em uma máquina virtual do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

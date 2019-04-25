@@ -3,7 +3,7 @@ title: Fluxos dos usuários no Azure Active Directory B2C | Microsoft Docs
 description: Saiba mais sobre a estrutura de política extensível do Azure Active Directory B2C e como criar diversos fluxos dos usuários.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -12,7 +12,7 @@ ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 67db13c8a36977f2614ba7b0e263919bd0405bc7
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60316945"

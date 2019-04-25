@@ -3,17 +3,16 @@ title: Versões no fluxo de usuário no Azure Active Directory B2C | Microsoft D
 description: Saiba mais sobre as versões de fluxos de usuário disponíveis no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 11/09/2018
-ms.date: 04/04/2019
-ms.author: v-junlch
+ms.date: 11/09/2018
+ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: b3750768eb7346938faec7e3c1ead232923a68bd
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60359748"
@@ -46,4 +45,3 @@ Novos fluxos de usuário são adicionados como novas versões. Como fluxos dos u
 | Entrar v2 | Não  | Permite que um usuário entre em sua conta. Usando este fluxo de usuário, você pode configurar: <ul><li>[Autenticação multifator](active-directory-b2c-reference-mfa.md)</li><li>[Tempo de vida do token](active-directory-b2c-reference-tokens.md)</li><li>Configurações de compatibilidade de token</li><li>Comportamento da sessão</li><li>[Restrição de idade](basic-age-gating.md)</li><li>Personalização da página de entrada</li></ul> |
 | Inscrever v2 | Não  | Permite que um usuário crie uma conta. Usando este fluxo de usuário, você pode configurar: <ul><li>[Autenticação multifator](active-directory-b2c-reference-mfa.md)</li><li>[Tempo de vida do token](active-directory-b2c-reference-tokens.md)</li><li>Configurações de compatibilidade de token</li><li>Comportamento da sessão</li><li>[Restrição de idade](basic-age-gating.md)</li><li>[Requisitos de complexidade de senha](active-directory-b2c-reference-password-complexity.md)</li></ul> |
 | Inscrever-se e entrar v2 | Não  | Permite que um usuário crie uma conta ou entre em sua conta. Usando este fluxo de usuário, você pode configurar: <ul><li>[Autenticação multifator](active-directory-b2c-reference-mfa.md)</li><li>[Restrição de idade](basic-age-gating.md)</li><li>[Requisitos de complexidade de senha](active-directory-b2c-reference-password-complexity.md)</li></ul> |
-
