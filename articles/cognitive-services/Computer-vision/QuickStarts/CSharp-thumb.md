@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Gerar uma miniatura – REST, C#'
+title: 'Início Rápido: Gerar uma miniatura – REST, C#'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você gerará uma miniatura de uma imagem usando a API da Pesquisa Visual Computacional com C#.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 05d48c67876b02c1909243eaa86a57fd4ab8d5c1
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 5915aa522fe06b432ca036553c7dd7da63836c9e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312830"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995108"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-c-in-computer-vision"></a>Início Rápido: Gerar uma miniatura usando a API REST e o C# na Pesquisa Visual Computacional
 
@@ -27,7 +27,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - É necessário ter o [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) ou posterior.
-- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. Para obter uma chave de assinatura, confira [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. É possível obter uma chave de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar a Pesquisa Visual Computacional e obter sua chave.
 
 ## <a name="create-and-run-the-sample-application"></a>Criar e executar o aplicativo de exemplo
 

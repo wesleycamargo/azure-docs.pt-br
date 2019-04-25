@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: tamram
-ms.openlocfilehash: 6f3aa81f0fa2497db02d069e93e007b43c37beb9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b6add3c2402df9c0db2284945269d3fbaa1c65e1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250445"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995465"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>Início Rápido: usar o Gerenciador de Armazenamento do Azure para gerenciar dados em uma conta do Azure Data Lake Storage Gen2
 
@@ -26,7 +26,7 @@ Neste início rápido, você aprenderá como usar o [Gerenciador de Armazenament
 
 Este início rápido requer que você instale o Gerenciador de Armazenamento do Azure. Para instalar o Gerenciador de Armazenamento do Azure para Windows, Macintosh ou Linux, confira o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
 
-## <a name="log-in-to-storage-explorer"></a>Fazer logon no Gerenciador de Armazenamento
+## <a name="sign-in-to-storage-explorer"></a>Conectar-se ao Gerenciador de Armazenamento
 
 Na primeira inicialização, é exibida a janela **Gerenciador de Armazenamento do Microsoft Azure – Conectar**. Embora o Gerenciador de Armazenamento forneça várias maneiras de se conectar às contas de armazenamento, apenas uma maneira tem suporte atualmente para gerenciar ACLs.
 
@@ -38,15 +38,15 @@ Selecione **Adicionar uma Conta do Azure** e clique em **Entrar...**. Siga os av
 
 ![Gerenciador de Armazenamento do Microsoft Azure – Janela Conexão](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
-Ao concluir a conexão, o Gerenciador de Armazenamento do Azure carrega exibindo a guia **Explorer**. Essa exibição lhe dá informações de todas suas contas de armazenamento do Azure e do armazenamento local, configuradas por meio do [Emulador de Armazenamento do Azure](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), das contas do [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ou dos ambientes do [Azure Stack](../../azure-stack/user/azure-stack-storage-connect-se.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Ao concluir a conexão, o Gerenciador de Armazenamento do Azure carrega exibindo a guia **Explorer**. Essa exibição lhe dá informações de todas suas contas de armazenamento do Azure e do armazenamento local, configuradas por meio do [Emulador de Armazenamento do Azure](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), das contas do [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ou dos ambientes do [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ![Gerenciador de Armazenamento do Microsoft Azure – Janela Conexão](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 
-## <a name="create-a-filesystem"></a>Criar um sistema de arquivos
+## <a name="create-a-file-system"></a>Criar um sistema de arquivos
 
 Os blobs são sempre carregados em um diretório. Isso permite que você organize grupos de blobs da mesma forma que organiza os arquivos em pastas no seu computador.
 
-Para criar um diretório, expanda a conta de armazenamento criada por você na etapa a seguir. Selecione **Contêiner de blobs**, clique com o botão direito do mouse e selecione **Criar contêiner de Blobs**. Insira o nome do seu sistema de arquivos. Ao concluir, pressione **Enter** para criar o sistema de arquivos. Após a criação com êxito do diretório de blobs, ele será exibido na pasta **Contêiner de blobs** da conta de armazenamento selecionada.
+Para criar um diretório, expanda a conta de armazenamento criada por você na etapa a seguir. Selecione **Contêiner de blobs**, clique com o botão direito do mouse e selecione **Criar contêiner de Blobs**. Insira o nome do sistema de arquivos. Ao concluir, pressione **Enter** para criar o sistema de arquivos. Após a criação com êxito do diretório de blobs, ele será exibido na pasta **Contêiner de blobs** da conta de armazenamento selecionada.
 
 ![Gerenciador de Armazenamento do Microsoft Azure – criar um sistema de arquivos](media/storage-quickstart-blobs-storage-explorer/creating-a-filesystem.png)
 

@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 69e6797e91fc645e3bd3e3b300cea6852a662214
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59007398"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Tutorial: Criar um aplicativo Flask com os serviços Cognitivos do Azure
@@ -42,14 +42,14 @@ Flask é uma microestrutura para criar aplicativos web. Isso significa que Flask
 Para aqueles que desejam aprofundamento após este tutorial, aqui estão alguns links úteis:
 
 * [Documentação do Flask](http://flask.pocoo.org/)
-* [Flask for Dummies - Um guia para iniciantes no Flask](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1)
+* [Flask for Dummies – Um guia para iniciantes no Flask](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Vamos analisar as chaves de software e assinatura que você precisará para este tutorial.
 
 * [Python 3.5.2 ou posterior](https://www.python.org/downloads/)
-* [Obter ferramentas](https://git-scm.com/downloads)
+* [Ferramentas do Git](https://git-scm.com/downloads)
 * Um IDE ou editor de códigos, como o [Visual Studio Code](https://code.visualstudio.com/) ou [Atom](https://atom.io/)  
 * [Chrome](https://www.google.com/chrome/browser/) ou [Firefox](https://www.mozilla.org/firefox)
 * Uma chave de assinatura de **tradução de texto** (observe que não é necessário selecionar uma região).

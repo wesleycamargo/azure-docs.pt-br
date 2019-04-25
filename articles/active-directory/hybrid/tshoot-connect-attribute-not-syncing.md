@@ -16,11 +16,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a639b14c9313179816f6376aa0c5642a645ea344
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180818"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60455873"
 ---
 # <a name="troubleshoot-an-attribute-not-synchronizing-in-azure-ad-connect"></a>Solucionar problemas de um atributo que não está sincronizando no Azure AD Connect
 
@@ -43,7 +43,7 @@ Antes de investigar problemas de sincronização de atributo, vamos entender o p
 
 * Importar do AAD: Objetos do Azure Active Directory são trazidos para o AAD CS.
 
-* Sincronização: **Regras de Sincronização de Entrada** e Regras de Sincronização de Saída são executadas na ordem de número de precedência da menor para maior. Para exibir as Regras de Sincronização, você pode ir para **Editor de Regras de Sincronização** dos aplicativos da área de trabalho. As **Regras de Sincronização de Entrada** trazem dados de CS para MV. As **Regras de Sincronização de Saída** movem dados de MV para CS.
+* Sincronização: **Regras de Sincronização de Entrada** e **Regras de Sincronização de Saída** são executadas na ordem de número de precedência da menor para maior. Para exibir as Regras de Sincronização, você pode ir para **Editor de Regras de Sincronização** dos aplicativos da área de trabalho. As **Regras de Sincronização de Entrada** trazem dados de CS para MV. As **Regras de Sincronização de Saída** movem dados de MV para CS.
 
 * Exportar para o AD: depois de executar a sincronização, os objetos são exportados do AD CS para o **Active Directory**.
 
@@ -91,4 +91,4 @@ Antes de investigar problemas de sincronização de atributo, vamos entender o p
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Sincronização do Azure AD Connect](how-to-connect-sync-whatis.md).
-- [O que é identidade híbrida?](whatis-hybrid-identity.md).
+- [O que é a identidade híbrida?](whatis-hybrid-identity.md).

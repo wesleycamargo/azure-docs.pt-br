@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/03/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: ba75d196bdb53fab104ab6c01391e762b4a3841b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: ce870bfb8d29f7a808962e4d273388ab31186f10
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270516"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997387"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introdução aos registros de contêiner do Docker privado no Azure
 
@@ -48,7 +48,7 @@ O Azure fornece ferramentas, incluindo a interface de linha de comando do Azure,
   * `myregistry.azurecr.io/warrantydept/dotnet-build` representa uma imagem usada para criar aplicativos .NET, compartilhados no departamento de garantia
   * `myregistry.azurecr.io/warrantydept/customersubmissions/web` representa uma imagem da Web, agrupada no aplicativo de envios do cliente, pertencente ao departamento de garantia
 
-* **Imagem** - armazenada em um repositório, cada imagem é um instantâneo somente leitura de um contêiner compatível com o Docker. Registros de contêiner do Azure podem incluir imagens do Windows e Linux. Você controla os nomes de imagem para todas as implantações de contêiner. Use [comandos do Docker](https://docs.docker.com/engine/reference/commandline/) padrão para envio de imagens em um repositório ou extraia uma imagem de um repositório. Além de imagens de contêiner, o Registro de Contêiner do Azure armazena [relacionadas a formatos de conteúdo](container-registry-image-formats.md) tais como [gráficos do Helm](container-registry-helm-repos.md), usado para implantar aplicativos no Kubernetes.
+* **Imagem** - armazenada em um repositório, cada imagem é um instantâneo somente leitura de um contêiner compatível com o Docker. Registros de contêiner do Azure podem incluir imagens do Windows e Linux. Você controla os nomes de imagem para todas as implantações de contêiner. Use [comandos do Docker](https://docs.docker.com/engine/reference/commandline/) padrão para envio de imagens em um repositório ou extraia uma imagem de um repositório. Além de imagens de contêiner do Docker, o Registro de Contêiner do Azure armazena [formatos de conteúdo relacionados](container-registry-image-formats.md), como [Gráficos do Helm](container-registry-helm-repos.md) e imagens criadas conforme a [Especificação de Formato de Imagem da OCI (Iniciativa de Contêiner Aberto)](https://github.com/opencontainers/image-spec/blob/master/spec.md).
 
 * **Contêiner** - um contêiner define um aplicativo de software e suas dependências encapsuladas em um sistema de arquivos completo, incluindo código, tempo de execução, ferramentas do sistema e bibliotecas. Execute os contêineres do Docker com base nas imagens do Windows ou Linux que você obtém de um registro de contêiner. Contêineres em execução em um único computador compartilham o kernel do sistema operacional. Contêineres do Docker são totalmente portáteis para todas as principais distribuições Linux, macOS e Windows.
 
@@ -62,4 +62,4 @@ As [tarefas de várias etapas](container-registry-tasks-overview.md#multi-step-t
 
 * [Criar um registro de contêiner usando o portal do Azure](container-registry-get-started-portal.md)
 * [Criar um registro de contêiner usando a CLI do Azure](container-registry-get-started-azure-cli.md)
-* [Automatizar a aplicação de patches no sistema operacional e na estrutura com as Tarefas de ACR](container-registry-tasks-overview.md)
+* [Automatizar o sistema operacional e a aplicação de patches de estrutura com as Tarefas de ACR](container-registry-tasks-overview.md)

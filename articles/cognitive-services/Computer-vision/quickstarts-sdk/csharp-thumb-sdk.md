@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Gerar uma miniatura – SDK, C#'
+title: 'Início Rápido: Gerar uma miniatura – SDK, C#'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você gera uma miniatura de uma imagem usando a biblioteca de clientes C# do Windows da Pesquisa Visual Computacional.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/12/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: fc6657af66adffbf4c702f50a7934efc56fb7acf
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: ea03aa8242358833d32029918ce2e381182f6ba2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309381"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998321"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Início Rápido: Gerar uma miniatura usando C# e o SDK de Pesquisa Visual Computacional
 
@@ -24,7 +24,7 @@ Neste Início Rápido, você gerará uma miniatura de corte inteligente de uma i
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Para usar a Pesquisa Visual Computacional, você precisa de uma chave de assinatura. Veja [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
+* Uma chave de assinatura da Pesquisa Visual Computacional. É possível obter uma chave de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar a Pesquisa Visual Computacional e obter sua chave.
 * Qualquer edição do [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
 * O pacote NuGet da biblioteca de clientes [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision). Não é necessário baixar o pacote. As instruções de instalação são fornecidas abaixo.
 

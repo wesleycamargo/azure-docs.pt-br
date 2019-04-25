@@ -10,14 +10,17 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 06/21/2018
 ms.author: alehall
-ms.openlocfilehash: bc712885169730aa9cbbd8de35b96e645ff1cea2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1265a97b8902d69dd260d8e9e0191180f2eb4379
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087118"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004832"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Tutorial: Transmitir dados para o Azure Databricks usando Hubs de Eventos
+
+> [!IMPORTANT]
+> A criação do aplicativo Twitter não está mais disponível por meio de [apps.twitter.com](https://apps.twitter.com/). Este tutorial está em processo de atualização para inclusão da nova API do Twitter.
 
 Neste tutorial, você conectará um sistema de ingestão de dados do Azure Databricks para transmitir dados a um cluster do Apache Spark em tempo quase real. Configure o sistema de ingestão de dados usando Hubs de Eventos do Azure, depois conecte-o ao Azure Databricks para processar as mensagens sendo recebidas. Para acessar uma transmissão de dados em tempo real, use APIs do Twitter para incluir tweets nos Hubs de Eventos. Assim que tiver os dados no Azure Databricks, é possível executar trabalhos analíticos para analisar melhor os dados. 
 

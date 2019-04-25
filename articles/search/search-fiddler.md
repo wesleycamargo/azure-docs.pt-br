@@ -11,15 +11,15 @@ ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 0e14131ce45d20b99c1b5d5885cb1eb24c975d03
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269105"
 ---
 # <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>Início Rápido: Explorar as APIs REST do Azure Search usando o Postman
 > [!div class="op_single_selector"]
-> * [postman](search-fiddler.md)
+> * [Postman](search-fiddler.md)
 > * [C#](search-create-index-dotnet.md)
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
@@ -85,7 +85,7 @@ A URL é estendida para incluir o nome do índice `hotel`.
 Para fazer isso no Postman:
 
 1. Altere o verbo para **POST**
-2. Copie esta URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2017-11-11`
+2. Copie nesta URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2017-11-11`
 3. Indique a definição de índice (mostrada abaixo) no corpo da solicitação
 4. Clique em **Enviar**
 
@@ -129,7 +129,7 @@ A URL é estendida para incluir as coleções `docs` e a operação `index`.
 Para fazer isso no Postman:
 
 1. Altere o verbo para **POST**
-2. Copie esta URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11`
+2. Copie nesta URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11`
 3. Indique os documentos JSON (mostrados abaixo) no corpo da solicitação
 4. Clique em **Enviar**
 
@@ -219,7 +219,7 @@ A URL é estendida para incluir uma cadeia de caracteres de consulta, especifica
 Para fazer isso no Postman:
 
 + Altere o verbo para **GET**
-+ Copie esta URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
++ Copie nesta URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
 + Clique em **Enviar**
 
 Essa consulta pesquisa o termo "hotel" e retorna uma contagem dos documentos nos resultados da pesquisa. A solicitação e resposta devem ser semelhantes à captura de tela a seguir para Postman depois de clicar em **Enviar**. O código de status deve ser 200.
@@ -247,7 +247,7 @@ Esta seção é equivalente a seções anteriores, apenas com o capturas de tela
 
 Formule uma solicitação semelhante à captura de tela a seguir. Escolha **GET** como o verbo. O Fiddler adiciona `User-Agent=Fiddler`. Você pode colar os dois cabeçalhos de solicitação adicionais em novas linhas abaixo dele. Inclua o tipo de conteúdo e a chave de API para seu serviço, usando a chave de acesso de administrador para seu serviço.
 
-Para o destino, copie em uma versão modificada dessa URL: `https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2017-11-11`
+Para o destino, copie em uma versão modificada desta URL: `https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2017-11-11`
 
 ![Cabeçalho da solicitação do Fiddler][1]
 

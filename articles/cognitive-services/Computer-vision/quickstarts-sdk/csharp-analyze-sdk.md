@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 636072b011c258e8e5ecb05b761bfab8d67e439a
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: a88f1d0b2290bc4f5f52827960ea3bed94053c62
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609380"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997216"
 ---
 # <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Início Rápido: Analisar uma imagem usando o SDK da Pesquisa Visual Computacional e C#
 
@@ -24,7 +24,7 @@ Neste Início Rápido, você analisará uma imagem local e uma imagem remota par
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Para usar a Pesquisa Visual Computacional, você precisa de uma chave de assinatura. Veja [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
+* Uma chave de assinatura da Pesquisa Visual Computacional. É possível obter uma chave de assinatura de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar a Pesquisa Visual Computacional e obter sua chave.
 * Qualquer edição do [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
 * O pacote NuGet da biblioteca de clientes [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision). Não é necessário baixar o pacote. As instruções de instalação são fornecidas abaixo.
 

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 43f8af4f2afc0f7210e49dc5b483a8d2757e6aba
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 80c98bea08018780ba1d439e369ab42343d1e615
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215347"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680318"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Hubs de Eventos do Azure – uma plataforma de streaming de Big Data e um serviço de ingestão de eventos
 Os Hubs de Eventos do Azure são uma plataforma de streaming de Big Data e um serviço de ingestão de eventos. Ele pode receber e processar milhões de eventos por segundo. Os dados enviados para um hub de eventos podem ser transformados e armazenados usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento.
@@ -77,11 +77,16 @@ A figura a seguir mostra a arquitetura de processamento de fluxo dos Hubs de Eve
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para começar a usar os Hubs de Eventos, consulte os artigos a seguir:
+Para começar a usar os Hubs de Eventos, consulte os tutoriais **Enviar e receber eventos**: 
 
-1. **Criar um hub de eventos**: [Portal do Azure](event-hubs-create.md), [CLI do Azure](event-hubs-quickstart-cli.md), [Azure PowerShell](event-hubs-quickstart-powershell.md), [modelo do Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md)
-2. **Enviar eventos para um hub de eventos**: [.NET Core](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
-3. **Receber eventos para um hub de eventos**: [.NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)   
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [Node.js](event-hubs-node-get-started-send.md)
+- [Go](event-hubs-go-get-started-send.md)
+- [C (somente enviar)](event-hubs-c-getstarted-send.md)
+- [Apache Storm (somente receber)](event-hubs-storm-getstarted-receive.md)
 
 Para saber mais sobre os Hubs de Eventos, consulte os artigos a seguir:
 

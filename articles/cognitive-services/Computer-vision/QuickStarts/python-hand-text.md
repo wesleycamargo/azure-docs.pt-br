@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: aa2c29a5b2becad75bae0f9ca9f88ab25a35d17f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 1863cabeecd425386597be7b76d6a3438c2b4a80
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883251"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000735"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-python-in-computer-vision"></a>Início Rápido: Extrair textos manuscritos usando a API REST e o Python na Pesquisa Visual Computacional
 
@@ -27,14 +27,14 @@ Neste início rápido, você extrairá um texto manuscrito de uma imagem usando 
 
 Você pode executar este início rápido passo a passo usando um Jupyter Notebook em [MyBinder](https://mybinder.org). Para inicializar o Associador, selecione o botão a seguir:
 
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
+[![O botão iniciar Associador](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/try/cognitive-services/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Será necessário ter o [Python](https://www.python.org/downloads/) instalado se quiser executar o exemplo localmente.
-- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. Para obter uma chave de assinatura, confira [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. É possível obter uma chave de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar a Pesquisa Visual Computacional e obter sua chave.
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
@@ -410,4 +410,4 @@ Uma resposta com êxito é retornada em JSON. A página da Web de exemplo analis
 Explore um aplicativo Python que use Pesquisa Visual Computacional para executar OCR (reconhecimento óptico de caracteres), crie miniaturas com recorte inteligente e detecte, categorize, marque e descreva recursos visuais, incluindo rostos, em uma imagem. Para testar rapidamente a API da Pesquisa Visual Computacional, experimente o [Abrir o console de teste de API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Tutorial da API da Pesquisa Visual Computacional no Python](../Tutorials/PythonTutorial.md)
+> [Tutorial do Python da API da Pesquisa Visual Computacional](../Tutorials/PythonTutorial.md)

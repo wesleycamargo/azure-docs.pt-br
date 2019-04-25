@@ -1,6 +1,6 @@
 ---
-title: Tutorial – Stream de logs do Azure Active Directory para um hub de eventos do Azure (versão prévia) | Microsoft Docs
-description: Saiba como configurar o Diagnóstico do Azure para enviar logs do Active Directory do Azure por push para um hub de eventos (versão prévia)
+title: Tutorial – Stream de logs do Azure Active Directory para um hub de eventos do Azure | Microsoft Docs
+description: Saiba como configurar o Diagnóstico do Azure para enviar logs do Azure Active Directory por push para um hub de eventos
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e85a3c43054aeb758eb1e0da9ce1086bfa653180
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 906da7ac6b0086e4efca7c38171668a08f687d19
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436924"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995584"
 ---
-# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub-preview"></a>Tutorial: Transmitir logs do Azure Active Directory para um hub de eventos do Azure (versão prévia)
+# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Tutorial: Transmitir logs do Azure Active Directory para um hub de eventos do Azure
 
 Neste tutorial, saiba como definir as configurações de diagnóstico do Azure Monitor para transmitir logs do Azure AD (Azure Active Directory) para um hub de eventos do Azure. Use esse mecanismo para integrar os logs com as ferramentas SIEM (gerenciamento de eventos e informações de segurança) de terceiros, como Splunk e QRadar.
 
@@ -89,5 +89,5 @@ Depois que os dados são exibidos no hub de eventos, você pode acessar e ler os
 
 * [Integrar logs do Azure AD com o Splunk usando o Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md)
 * [Integrar logs do Azure AD ao SumoLogic usando o Azure Monitor](howto-integrate-activity-logs-with-sumologic.md)
-* [Interpretar o esquema de trilhas de auditoria no Azure Monitor](reference-azure-monitor-audit-log-schema.md)
+* [Interpretar o esquema de logs de auditoria no Azure Monitor](reference-azure-monitor-audit-log-schema.md)
 * [Interpretar o esquema de logs de entrada no Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)

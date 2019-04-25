@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 42528038b5744f001422620031a1e5300bb4146d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7a9eedfe851bb8b5519d0831f47cf6787345a1f8
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898254"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996281"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>Início Rápido: Criar um aplicativo do HoloLens com Âncoras Espaciais do Azure no C++/WinRT e DirectX
 
@@ -47,7 +47,7 @@ Abra o `HoloLens\DirectX\SampleHoloLens.sln` no Visual Studio.
 
 ## <a name="configure-account-identifier-and-key"></a>Configurar a chave e o identificador da conta
 
-A próxima etapa é configurar o aplicativo para usar o identificador de conta e a chave de conta. Você os copiou em um editor de texto ao [configurar o recurso Âncoras Espaciais](#create-a-spatial-anchors-resource).
+A próxima etapa é configurar o aplicativo para usar o identificador e a chave de conta. Você os copiou em um editor de texto ao [configurar o recurso Âncoras Espaciais](#create-a-spatial-anchors-resource).
 
 Abra `HoloLens\DirectX\SampleHoloLens\ViewController.cpp`.
 
@@ -58,6 +58,8 @@ Localize o campo `SpatialAnchorsAccountId` e substitua `Set me` pelo identificad
 ## <a name="deploy-the-app-to-your-hololens"></a>Implantar o aplicativo no HoloLens
 
 Altere a **Configuração da Solução** para **Lançamento**, altere **Plataforma da Solução** para **x86** e selecione **Dispositivo** entre as opções de destino de implantação.
+
+Se estiver usando o HoloLens 2, use o **ARM** como a **Plataforma de Solução**, em vez de **x86**.
 
 ![Configuração do Visual Studio](./media/get-started-hololens/visual-studio-configuration.png)
 

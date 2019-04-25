@@ -279,7 +279,7 @@ A tabela a seguir fornece exemplos de como especificar a propriedade **tableName
 | dbo |MyTable |MyTable ou dbo.MyTable ou [dbo].[MyTable] |
 | dbo1 |MyTable |dbo1.MyTable ou [dbo1].[MyTable] |
 | dbo |My.Table |[My.Table] ou [dbo].[My.Table] |
-| dbo1 |My.Table |[dbo1]. [My.Table] |
+| dbo1 |My.Table |[dbo1].[My.Table] |
 
 Se você vir o erro a seguir, pode ser um problema com o valor especificado para a propriedade tableName. Consulte a tabela para ver a maneira correta de especificar os valores para a propriedade JSON tableName.
 

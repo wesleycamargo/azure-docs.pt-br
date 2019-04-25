@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: adfe0af646fae79bc9a954cd5d654626880915d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894080"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326696"
 ---
 <a name="create-a-microsoft-developer-account"></a>Criar uma conta de Desenvolvedor da Microsoft
 ====================================
@@ -77,7 +77,7 @@ O Centro de Desenvolvimento da Microsoft é usada para registrar as informaçõe
 >[!IMPORTANT]
 >Você deve completar os seguintes componentes de perfil do Desenvolvedor para prosseguir pelas diversas fases da criação e implantação da oferta.
 
-| Perfil do desenvolvedor     | Para iniciar o rascunho    | Preparo       | Publicar modelo gratuito e de solução   | Publicar comercial   |
+| Perfil do desenvolvedor     | Para iniciar o rascunho    | Staging       | Publicar modelo gratuito e de solução   | Publicar comercial   |
 |---------------------- |----------------   |-----------    |-------------------------------------  |---------------------  |
 | Registro da empresa  | Imprescindível         | Imprescindível     | Imprescindível                             | Imprescindível             |
 | ID do perfil fiscal        | Opcional          | Opcional      | Opcional                              | Imprescindível             |
@@ -221,6 +221,6 @@ Se você for adicionado como colaborador/proprietário no Portal do Cloud Partne
 [Etapas para gerenciar usuários no Portal do Cloud Partner](./cloud-partner-portal-manage-users.md)
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Agora que sua conta está criada e registrada, inicie o processo de publicação no Azure Marketplace.

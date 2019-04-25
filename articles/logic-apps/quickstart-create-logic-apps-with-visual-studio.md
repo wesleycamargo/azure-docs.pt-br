@@ -12,10 +12,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 04/02/2019
 ms.openlocfilehash: 10ed3ec8b29048a7ede51a6d98e9f1ebb7f44cf6
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862972"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Início Rápido: Criar tarefas automatizadas, processos e fluxos de trabalho com Aplicativos Lógicos do Azure – Visual Studio
@@ -45,7 +45,7 @@ Antes de começar, verifique se você tem esses itens para seguir este início r
 
   * O <a href="https://azure.microsoft.com/downloads/" target="_blank">SDK do Microsoft Azure para .NET (2.9.1 ou posterior)</a>. Saiba mais sobre o <a href="https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet">SDK do Azure para .NET</a>.
 
-  * <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
+  * <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">PowerShell do Azure</a>
 
   * Ferramentas de Aplicativos Lógicos do Azure para as versões do Visual Studio que você deseja:
 
@@ -119,7 +119,7 @@ Depois de criar seu projeto do Grupo de Recursos do Azure, crie e compile o apli
    | Lista de perfis do usuário | Contoso <br> jamalhartnett@contoso.com | Por padrão, a conta que você usou para entrar |
    | **Assinatura** | Pré-paga <br> (jamalhartnett@contoso.com) | O nome para sua assinatura do Azure e a conta associada |
    | **Grupo de recursos** | MyLogicApp-RG <br> (Oeste dos EUA) | O grupo de recursos do Azure e o local para armazenar e implantar recursos para seu aplicativo lógico |
-   | **Local padrão** | MyLogicApp-RG2 <br> (Oeste dos EUA) | Um local diferente, se você não quiser usar o local do grupo de recursos |
+   | **Localidade** | MyLogicApp-RG2 <br> (Oeste dos EUA) | Um local diferente, se você não quiser usar o local do grupo de recursos |
    ||||
 
 1. O Designer de Aplicativos Lógicos é exibido e mostra uma página com um vídeo de introdução e os gatilhos normalmente usados. 
@@ -213,5 +213,5 @@ Selecione o grupo de recursos para seu aplicativo lógico e selecione **Visão g
 Neste artigo, você criou, implantou e executou seu aplicativo lógico com o Visual Studio. Para saber mais sobre como gerenciar e executar a implantação avançada para aplicativos lógicos com o Visual Studio, confira estes artigos:
 
 > [!div class="nextstepaction"]
-> * [Gerenciar aplicativos lógicos com Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
+> * [Gerenciar aplicativos lógicos no Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
 > * [Criar modelos de implantação para aplicativos lógicos com o Visual Studio](../logic-apps/logic-apps-create-deploy-template.md)

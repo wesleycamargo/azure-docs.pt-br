@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0522311c12da8416504a6d502e1e2247ff8ce15b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 256ca5c2f26a6bac6bdfd09e4dd6294ec5a569ca
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104141"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60292190"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas ao entrar em um aplicativo Microsoft
 
@@ -31,7 +31,7 @@ Há três principais maneiras que um usuário pode obter acesso a um aplicativo 
 
 -   Para aplicativos no Office 365 ou em outros conjuntos de aplicativos pagos, os usuários têm acesso através de **atribuição de licença** diretamente à sua conta de usuário ou através de um grupo que usa nosso recurso de atribuição de licenças baseada em grupo.
 
--   Para aplicativos que a Microsoft ou terceiros publicam livremente para uso de qualquer pessoa, os usuários podem ter o acesso concedido através do **consentimento do usuário**. Isso significa que o usuário se conecte ao aplicativo usando a conta de Estudante ou do Azure AD Work e permite acesso a um conjunto limitado de dados em sua conta.
+-   Para aplicativos que a Microsoft ou terceiros publicam livremente para uso de qualquer pessoa, os usuários podem ter o acesso concedido através do **consentimento do usuário**. Isso significa que eles entram aplicativo com sua conta do Azure AD ou de estudante e permitir que ele tem acesso a um conjunto limitado de dados em sua conta.
 
 -   Para aplicativos que Microsoft ou uma 3ª terceiros publicam livremente para qualquer pessoa que usar, os usuários também podem ser concedidos acesso por meio **consentimento do administrador**. Isso significa que um administrador determinou que o aplicativo pode ser usado por todos na organização, portanto, entram no aplicativo com uma conta de Administrador Global e concedem acesso a todos na organização.
 
@@ -528,6 +528,6 @@ O acesso do aplicativo pode ser bloqueado porque a operação de consentimento d
 
 -   É possível impor que esse consentimento de nível de administrador ocorra, seguindo as instruções na seção **Solicitar permissões de um administrador de diretório** de [Usando o ponto de extremidade de consentimento do administrado](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 [Usando o ponto de extremidade de consentimento do administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)
 

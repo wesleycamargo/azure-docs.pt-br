@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
 ms.openlocfilehash: a2eff2ca2e72ad263e3e23d0827e7603bca3fdcb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917469"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60521363"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução aos Serviços de Nuvem do Azure e ao ASP.NET
 
@@ -232,7 +232,7 @@ As cadeias de conexão da conta de armazenamento do Azure do projeto de função
 1. No **Gerenciador de Soluções**, clique com o botão direito do mouse em **ContosoAdsWeb** em **Funções** no projeto **ContosoAdsCloudService**; depois, clique em **Propriedades**.
 
     ![Propriedades da função](./media/cloud-services-dotnet-get-started/roleproperties.png)
-2. Clique na guia **Configurações** . Na caixa suspensa Configuração de Serviço selecione **Nuvem**.
+2. Clique na guia **Configurações** . Na caixa suspensa **Configuração de Serviço** selecione **Nuvem**.
 
     ![Configuração de nuvem](./media/cloud-services-dotnet-get-started/sccloud.png)
 3. Selecione a entrada **StorageConnectionString** e você verá um botão de reticências (**...**) na extremidade direita da linha. Clique no botão para abrir a caixa de diálogo **Criar cadeia de conexão da conta de armazenamento** .
@@ -761,7 +761,7 @@ Para alterar o projeto a fim de usar o emulador completo, clique com o botão di
 
 Para executar o aplicativo com o emulador completo, abra o Visual Studio com privilégios de administrador.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Os aplicativo Contoso Ads foi, intencionalmente, mantido simples para este tutorial de introdução. Por exemplo, ele não implementa [injeção de dependência](https://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) ou os [padrões de unidade de trabalho e repositório](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), ele não [usa uma interface para registro em log](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), não usa [Migrações Iniciais de Código de EF](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) para gerenciar as alterações de modelo de dados ou [Resiliência de Conexão de EF](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) para gerenciar erros de rede transitórios, e assim por diante.
 
 Estes são alguns aplicativos função Web de serviço de nuvem que demonstram práticas mais reais de codificação, listados do menos para o mais complexo:

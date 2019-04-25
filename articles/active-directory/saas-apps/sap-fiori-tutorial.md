@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: jeedes
 ms.openlocfilehash: e94fe3156677a507eab91eee339ed29bf7b4ad2e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257630"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-fiori"></a>Tutorial: Integração do Azure Active Directory ao SAP Fiori
@@ -175,8 +175,7 @@ Para configurar o logon único do Azure AD com o SAP Fiori, execute as seguintes
 
     ![Informações de logon único de Domínio e URLs do SAP Fiori](common/sp-identifier-reply.png)
 
-    d. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão:
-    `https://<your company instance of SAP Fiori>`
+    d. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<your company instance of SAP Fiori>`
 
     > [!NOTE]
     > Já observamos que alguns clientes relataram um erro de URL de Resposta incorreta configurada para suas instâncias. Se você receber um erro desse tipo, use o seguinte script do PowerShell como uma solução alternativa para definir a URL de Resposta correta para a instância:

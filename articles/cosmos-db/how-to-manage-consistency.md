@@ -1,17 +1,17 @@
 ---
 title: Saiba como gerenciar a consistência no Azure Cosmos DB
 description: Saiba como gerenciar a consistência no Azure Cosmos DB
-author: christopheranderson
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 10/17/2018
-ms.author: chrande
-ms.openlocfilehash: 7dfc299c32b25ddf939aa3efcb927697307887a2
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.date: 04/17/2019
+ms.author: rimman
+ms.openlocfilehash: a93bf9a9f43a0929aeb5f3d3121092739396c6a8
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904314"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678438"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gerenciar os níveis de coerência no Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Este artigo explica como gerenciar os níveis de consistência no Azure Cosmos D
 
 ## <a name="configure-the-default-consistency-level"></a>Configurar o nível de consistência padrão
 
-O nível de consistência padrão é o nível de coerência que os clientes usam por padrão. Os clientes podem substituí-lo.
+O [nível de consistência padrão](consistency-levels.md) é o nível de coerência que os clientes usam por padrão. Os clientes sempre podem substituí-lo.
 
 ### <a name="cli"></a>CLI
 
@@ -35,7 +35,7 @@ az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource
 
 ### <a name="powershell"></a>PowerShell
 
-Este exemplo cria uma nova conta do Azure Cosmos DB com vários mestres habilitados nas regiões Leste dos EUA e Oeste dos EUA. A política de consistência padrão é definida como Sessão.
+Este exemplo cria uma nova conta do Azure Cosmos com várias regiões de gravação habilitadas, nas regiões Leste dos EUA e Oeste dos EUA. O nível de consistência padrão é definido como consistência de *Sessão*.
 
 ```azurepowershell-interactive
 $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
@@ -59,15 +59,15 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
   -Properties $CosmosDBProperties
 ```
 
-### <a name="portal"></a>Portal
+### <a name="azure-portal"></a>Portal do Azure
 
-Para exibir ou modificar o nível de consistência padrão, entre no portal do Azure. Localize a conta do Azure Cosmos DB e abra o painel **Consistência Padrão**. Escolha o nível de consistência que você gostaria de ter como o novo padrão e escolha **Salvar**.
+Para exibir ou modificar o nível de consistência padrão, entre no portal do Azure. Localize a conta do Azure Cosmos e abra o painel **Consistência padrão**. Escolha o nível de consistência que você gostaria de ter como o novo padrão e escolha **Salvar**.
 
 ![Menu de consistência no portal do Azure](./media/how-to-manage-consistency/consistency-settings.png)
 
 ## <a name="override-the-default-consistency-level"></a>Substituir o nível de consistência padrão
 
-Os clientes podem substituir o nível de consistência padrão que é definido pelo serviço. Essa opção pode ser definida para todos os clientes ou por solicitação.
+Os clientes podem substituir o nível de consistência padrão que é definido pelo serviço. O nível de consistência pode ser definido por solicitação, o que substitui o nível de consistência padrão definido no nível da conta.
 
 ### <a id="override-default-consistency-dotnet"></a>SDK .NET
 
@@ -131,6 +131,8 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 ```
 
 ## <a name="utilize-session-tokens"></a>Utilizar tokens de sessão
+
+Um dos níveis de consistência no Azure Cosmos DB é a consistência de *Sessão*. Esse é o nível padrão aplicado a contas do Cosmos por padrão. Ao trabalhar com a consistência de *Sessão*, o cliente usará um token de sessão internamente com cada solicitação de leitura/consulta para garantir que o nível de consistência definido seja mantido.
 
 Para gerenciar os tokens de sessão manualmente, obtenha o token de sessão na resposta e configure-os por solicitação. Se não for necessário gerenciar manualmente os tokens de sessão, você não precisa usar esses exemplos. O SDK controla os tokens de sessão automaticamente. Se você não definir o token de sessão manualmente, por padrão, o SDK usará o token de sessão mais recente.
 
@@ -209,15 +211,18 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Monitorar métrica PBS (Desatualização Limitada Probabilística)
 
-Para exibir a métrica PBS, vá para a conta do Azure Cosmos DB no portal do Azure. Abra o painel **Métricas** e escolha a guia **Consistência**. Examine o gráfico chamado **Probabilidade de leituras altamente consistentes com base em sua carga de trabalho (confira PBS)**.
+Quão eventual é a consistência eventual? Para o caso médio, podemos oferecer limites de desatualização com relação ao histórico de versão e à hora. A métrica [**PBS (desatualização limitada probabilística)**](http://pbs.cs.berkeley.edu/) tenta quantificar a probabilidade de desatualização e mostra-a como uma métrica. Para exibir a métrica PBS, vá para a conta do Azure Cosmos no portal do Azure. Abra o painel **Métricas** e escolha a guia **Consistência**. Examine o gráfico chamado **Probabilidade de leituras altamente consistentes com base em sua carga de trabalho (confira PBS)**.
 
 ![Gráfico PBS no portal do Azure](./media/how-to-manage-consistency/pbs-metric.png)
 
-Use o menu de métricas do Azure Cosmos DB para ver essa métrica. Ele não será exibida na experiência de métrica de Monitoramento do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre como gerenciar conflitos de dados ou passar para o próximo conceito fundamental no Azure Cosmos DB. Confira os seguintes artigos:
 
+* [Níveis de coerência no Azure Cosmos DB](consistency-levels.md)
 * [Gerenciar conflitos entre regiões](how-to-manage-conflicts.md)
 * [Particionamento e distribuição de dados](partition-data.md)
+* [Consistency tradeoffs in modern distributed database systems design](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k) (Compensações de coerência no projeto de sistemas de bancos de dados modernos distribuídos)
+* [Alta disponibilidade](high-availability.md)
+* [SLA do Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

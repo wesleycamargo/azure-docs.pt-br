@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 12/13/2018
 ms.author: crtreasu
-ms.openlocfilehash: dc8d3c2d400204f53b05bb5536af95679541f3f6
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 32f4545a45eda8acddd7c93cc4917dbadca9ad4d
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305110"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632799"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Criar um recurso Âncoras Espaciais
 
@@ -25,7 +25,7 @@ Selecione **Âncoras Espaciais**. Na caixa de diálogo, selecione **Criar**.
 
 No caixa de diálogo **Conta de Âncoras Espaciais**:
 
-- Insira um nome de recurso exclusivo.
+- Insira um nome de recurso exclusivos, usando caracteres alfanuméricos regulares.
 - Selecione a assinatura que você deseja anexar o recurso.
 - Crie um grupo de recursos, selecionando **Criar novo**. Denomine-o como **myResourceGroup** e selecione **OK**.
       [!INCLUDE [resource group intro text](resource-group.md)]
@@ -34,7 +34,11 @@ No caixa de diálogo **Conta de Âncoras Espaciais**:
 
    ![Criar um recurso](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
 
-Depois que o recurso for criado, você pode exibir as propriedades do recurso. Copiar o valor de **ID da conta** em um editor de texto, pois você precisará dele mais tarde.
+Depois que o recurso é criado, o portal do Azure mostra que a implantação foi concluída. Clique em **Ir para o recurso**.
+
+![Implantação concluída](./media/spatial-anchors-get-started-create-resource/deployment-complete.png)
+
+Em seguida, você pode exibir as propriedades do recurso. Copiar o valor de **ID da conta** em um editor de texto, pois você precisará dele mais tarde.
 
    ![Propriedades de recurso](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
 

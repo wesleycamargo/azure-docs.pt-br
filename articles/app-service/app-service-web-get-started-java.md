@@ -15,21 +15,19 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: cephalin;robmcm
 ms.custom: seodec18
-ms.openlocfilehash: 6bf0562d222bce07f74ef5355ad0e3d6b8844c33
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3af585ede27536dfb644dd374e54183c3539d585
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096615"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007348"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Criar seu primeiro aplicativo Web Java no Azure
 
 O [Serviço de Aplicativo do Azure](overview.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches. Este guia de início rápido mostra como implantar um aplicativo Web Java no Serviço de Aplicativo usando o [IDE do Eclipse para desenvolvedores Java EE](https://www.eclipse.org/).
 
-> [!NOTE]
->
-> As etapas neste início rápido mostram como usar o IDE do Eclipse para publicar um aplicativo Web Java no Serviço de Aplicativo, mas você pode usar a Ultimate Edition ou a Community Edition do IntelliJ IDEA. Para mais informações, consulte [Criar um aplicativo Web Olá, Mundo para o Azure usando o IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app).
->
+> [!IMPORTANT]
+> O Serviço de Aplicativo do Azure no Linux também é uma opção para hospedar aplicativos Web Java nativamente no Linux usando as ofertas gerenciadas de WildFly, Java SE e Tomcat. Se você estiver interessado em começar a usar o Serviço de Aplicativo no Linux, consulte o [Início Rápido: Criar um aplicativo Java no Serviço de Aplicativo no Linux](containers/quickstart-java.md).
 
 Após a conclusão deste guia de início rápido, seu aplicativo será semelhante à ilustração a seguir quando exibido em um navegador da Web:
 
@@ -37,7 +35,12 @@ Após a conclusão deste guia de início rápido, seu aplicativo será semelhant
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+> [!NOTE]
+>
+> As etapas neste início rápido mostram como usar o IDE do Eclipse para publicar um aplicativo Web Java no Serviço de Aplicativo, mas você pode usar a Ultimate Edition ou a Community Edition do IntelliJ IDEA. Para mais informações, consulte [Criar um aplicativo Web Olá, Mundo para o Azure usando o IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app).
+>
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este guia de início rápido, instale:
 

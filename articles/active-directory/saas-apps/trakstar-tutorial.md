@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
 ms.openlocfilehash: ac21071b958942d7d689f1e9c2c49f02a3599ac4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257885"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trakstar"></a>Tutorial: Integração do Azure Active Directory com o Trakstar
@@ -53,7 +53,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Trakstar ao AD do Azure, você precisará adicionar o Trakstar da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Trakstar por meio da galeria, execute as seguintes etapas:**
+**Para adicionar o Trakstar da galeria, realize as seguintes etapas:**
 
 1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o Trakstar, execute as seguintes 
 
     ![Informações de logon único de Domínio e URLs do Trakstar](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, copie o valor encontrado na **URL do ACS (Consumidor)** no Trakstar (Configurações > Autenticação e SSO) no formato: `https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>`
+     a. Na caixa de texto **URL de Logon**, copie o valor encontrado em **URL do ACS (Consumidor)** em Trakstar (Configurações > Autenticação e SSO) no formato: `https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>`
 
     b. Na caixa de texto **Identificador (ID da Entidade)**, mantenha o padrão: `https://app.trakstar.com`
 

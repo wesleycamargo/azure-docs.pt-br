@@ -13,17 +13,17 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/29/2019
+ms.date: 04/18/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: c65c797612e179a9f3c02696d827131f5c830b3c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6876ffd76c5a7ba5745e8014bca2abdc5e5264a2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755914"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999817"
 ---
-# <a name="what-is-azure-media-services-v3"></a>O que são os Serviços de Mídia v3 do Azure?
+# <a name="azure-media-services-v3-overview"></a>Visão geral dos Serviços de Mídia do Azure v3
 
 Os Serviços de Mídia do Azure são uma plataforma baseada em nuvem que permite a criação de soluções que apresentem uma transmissão de vídeo com qualidade de difusão, aumentem a acessibilidade e a distribuição, analisem o conteúdo e muito mais. Se você for um desenvolvedor de aplicativos, call center, órgão governamental, empresa de entretenimento, os Serviços de Mídia podem ajudar a criar aplicativos que oferecem experiências de mídia de qualidade superior para um público amplo nos dispositivos móveis e navegadores mais populares da atualidade. 
 
@@ -79,6 +79,10 @@ Os artigos contêm exemplos de código que demonstram como concluir uma tarefa. 
 * [Monitorar eventos – Portal](monitor-events-portal-how-to.md)
 * [Criptografar dinamicamente com vários DRM – .NET](protect-with-drm.md) 
 * [Como codificar com uma transformação personalizada – CLI](custom-preset-cli-howto.md)
+
+## <a name="provide-feedback"></a>Fornecer comentários
+
+Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
 
 ## <a name="next-steps"></a>Próximas etapas
 

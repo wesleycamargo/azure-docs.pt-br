@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: b4cb571653cbe69939a1cbdc92338663e4e7125f
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 33deea0805ffa89bcc6a64f34a97a4e080690da9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576065"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008810"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Início Rápido: Criar um aplicativo .NET Framework com a Configuração de Aplicativo do Azure
 
@@ -36,6 +36,14 @@ Para este início rápido, instale o [Visual Studio 2017](https://visualstudio.m
 ## <a name="create-an-app-configuration-store"></a>Criar um repositório de configurações de aplicativo
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. Selecione **Explorador de Chave/Valor** > **+ Criar** para adicionar os pares chave-valor a seguir:
+
+    | Chave | Valor |
+    |---|---|
+    | TestApp:Settings:Message | Dados da Configuração de Aplicativo do Azure |
+
+    Deixe **Rótulo** e **Tipo de Conteúdo** vazios por enquanto.
 
 ## <a name="create-a-net-console-app"></a>Criar um aplicativo de console do .NET
 
@@ -103,7 +111,7 @@ Para este início rápido, instale o [Visual Studio 2017](https://visualstudio.m
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou um novo repositório de configurações de aplicativo e o utilizou com um aplicativo do console do .NET Framework. Para saber mais sobre como usar a Configuração de Aplicativo, consulte o próximo tutorial que demonstra a autenticação.
+Neste início rápido, você criou um novo repositório de configurações de aplicativo e o utilizou com um aplicativo do console do .NET Framework. Para saber mais sobre como usar a Configuração de Aplicativo, vá para o próximo tutorial que demonstra a autenticação.
 
 > [!div class="nextstepaction"]
-> [Identidades gerenciadas para a integração de recursos do Azure](./integrate-azure-managed-service-identity.md)
+> [Integração de identidade gerenciada](./howto-integrate-azure-managed-service-identity.md)

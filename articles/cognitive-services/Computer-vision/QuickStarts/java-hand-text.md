@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Extrair texto manuscrito – REST, Java'
+title: 'Início Rápido: Extrair texto manuscrito – REST, Java'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você extrairá um texto manuscrito de uma imagem usando a API da Pesquisa Visual Computacional com o Java.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: fb039f58a9a13cf3241c50d6cf31e777a654dcdb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 929e9c1e53354832db9e3b73f5596cd4b0fdd774
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435143"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997029"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-java-in-computer-vision"></a>Início Rápido: Extrair textos manuscritos usando a API REST e o Java na Pesquisa Visual Computacional
 
@@ -30,7 +30,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - É preciso ter a [Java&trade; Platform e o Standard Edition Development Kit 7 ou 8](https://aka.ms/azure-jdks) (JDK 7 ou 8) instalados.
-- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. Para obter uma chave de assinatura, confira [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. É possível obter uma chave de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar a Pesquisa Visual Computacional e obter sua chave.
 
 ## <a name="create-and-run-the-sample-application"></a>Criar e executar o aplicativo de exemplo
 

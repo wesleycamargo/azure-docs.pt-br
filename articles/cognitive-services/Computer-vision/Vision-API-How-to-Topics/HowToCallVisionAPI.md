@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: e6ebd4ff465565be49d98162cd9ca67c194593a4
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 0e2767660edf2a9dbcb8617b07a6b9f71fedb743
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563363"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011224"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Exemplo: Como chamar a API da Pesquisa Visual Computacional
 
@@ -47,8 +47,7 @@ Os recursos são divididos em:
 
 Toda chamada à API da Pesquisa Visual Computacional requer uma chave de assinatura. Essa chave precisa ser passada por um parâmetro de cadeia de caracteres de consulta ou especificada no cabeçalho da solicitação.
 
-Para obter uma chave de assinatura, consulte [Como obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md
-).
+Para obter uma chave de avaliação gratuita, veja [Experimentar os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar a Pesquisa Visual Computacional e obter sua chave.
 
 1. Passando a chave de assinatura por meio de uma cadeia de consulta, veja abaixo como um exemplo da API da Pesquisa Visual Computacional:
 

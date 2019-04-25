@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Analisar uma imagem local – REST, cURL'
+title: 'Início Rápido: Analisar uma imagem local – REST, cURL'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você analisa uma imagem local usando a API da Pesquisa Visual Computacional com cURL.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: d2591bf4aeb3ec0accf322e5fb77841fb68df3dc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f76b61d3cc39f8ae35e1bf03316e7618b7136380
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889311"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003778"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-curl-in-computer-vision"></a>Início Rápido: Analisar uma imagem local usando a API REST e o cURL na Pesquisa Visual Computacional
 
@@ -27,7 +27,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - É necessário ter [cURL](https://curl.haxx.se/windows).
-- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. Para obter uma chave de assinatura, confira [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. É possível obter uma chave de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar a Pesquisa Visual Computacional e obter sua chave.
 
 ## <a name="create-and-run-the-sample-command"></a>Criar e executar o comando de exemplo
 

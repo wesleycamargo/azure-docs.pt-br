@@ -97,9 +97,9 @@ O diagnóstico da automação do Azure cria dois tipos de registros em logs do A
 | Tenant_g | GUID que identifica o locatário para o Chamador. |
 | JobId_g |GUID que é a Id do trabalho de runbook. |
 | ResultType |O status do trabalho de runbook. Os valores possíveis são:<br>- Novo<br>- Iniciado<br>- Parado<br>- Suspenso<br>- Com falha<br>– Concluído |
-| Categoria | Classificação do tipo de dados. Para a Automação, o valor é JobLogs. |
+| Category | Classificação do tipo de dados. Para a Automação, o valor é JobLogs. |
 | OperationName | Especifica o tipo de operação realizada no Azure. Para a Automação, o valor é Job. |
-| Recurso | Nome da Conta de automação |
+| Resource | Nome da Conta de automação |
 | SourceSystem | Como o Azure Monitor registra os dados coletados. Sempre *Azure* para o Diagnóstico do Azure. |
 | ResultDescription |Descreve o estado de resultado do trabalho de runbook. Os valores possíveis são:<br>- O trabalho foi iniciado<br>- O trabalho falhou<br>- Trabalho Concluído |
 | CorrelationId |O GUID que é a Id de correlação do trabalho de runbook. |
@@ -120,9 +120,9 @@ O diagnóstico da automação do Azure cria dois tipos de registros em logs do A
 | Tenant_g | GUID que identifica o locatário para o Chamador. |
 | JobId_g |GUID que é a Id do trabalho de runbook. |
 | ResultType |O status do trabalho de runbook. Os valores possíveis são:<br>- em andamento |
-| Categoria | Classificação do tipo de dados. Para a Automação, o valor é JobStreams. |
+| Category | Classificação do tipo de dados. Para a Automação, o valor é JobStreams. |
 | OperationName | Especifica o tipo de operação realizada no Azure. Para a Automação, o valor é Job. |
-| Recurso | Nome da Conta de automação |
+| Resource | Nome da Conta de automação |
 | SourceSystem | Como o Azure Monitor registra os dados coletados. Sempre *Azure* para o Diagnóstico do Azure. |
 | ResultDescription |Inclui o fluxo de saída do runbook. |
 | CorrelationId |O GUID que é a Id de correlação do trabalho de runbook. |

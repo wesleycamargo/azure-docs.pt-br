@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 35b4777c7de4db1f8514b24e7b1e4d11775d0ca0
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 14d4bf6d7e1d1f474e2388c4e2ce232574ebf0d8
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247895"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682790"
 ---
 # <a name="add-an-api-manually"></a>Adicionar uma API manualmente
 
-As etapas neste artigo mostram como usar o Portal do Azure para adicionar uma API manualmente à instância de APIM (Gerenciamento de API). Um cenário comum quando você deseja criar uma API em branco e defini-la manualmente é quando deseja simular a API. Para obter detalhes sobre a simulação de uma API, consulte [Simular respostas de API](mock-api-responses.md).
+As etapas neste artigo mostram como usar o portal do Azure para adicionar uma API manualmente à instância de APIM (Gerenciamento de API). Um cenário comum quando você deseja criar uma API em branco e defini-la manualmente é quando deseja simular a API. Para obter detalhes sobre a simulação de uma API, consulte [Simular respostas de API](mock-api-responses.md).
 
 Se você deseja importar uma API existente, consulte a seção de [tópicos relacionados](#related-topics).
 
-Neste artigo, criamos uma API em branco e especificamos [httpbin.org](http://httpbin.org) (um serviço de teste público) como a API de back-end.
+Neste artigo, criamos uma API em branco e especificamos [httpbin.org](https://httpbin.org) (um serviço de teste público) como a API de back-end.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua o seguinte guia de início rápido: [Criar uma nova instância do serviço de Gerenciamento de API do Azure](get-started-create-service-instance.md)
+Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -48,10 +48,10 @@ Conclua o seguinte guia de início rápido: [Criar uma nova instância do servi�
     |**Nome**|**Valor**|**Descrição**|
     |---|---|---|
     |**Nome de exibição**|"*API em Branco*" |Esse nome é exibido no Portal do desenvolvedor.|
-    |**URL do Serviço Web** (opcional)| "*http://httpbin.org*"| Se você quiser simular uma API, não poderá inserir nada. <br/>Neste caso, usamos [http://httpbin.org](http://httpbin.org). Este é um serviço de teste público. <br/>Se você deseja importar uma API mapeada para um back-end automaticamente, consulte um dos tópicos na seção de [tópicos relacionados](#related-topics).|
+    |**URL do Serviço Web** (opcional)| "*https://httpbin.org*"| Se você quiser simular uma API, não poderá inserir nada. <br/>Neste caso, usamos [https://httpbin.org](https://httpbin.org). Este é um serviço de teste público. <br/>Se você deseja importar uma API mapeada para um back-end automaticamente, consulte um dos tópicos na seção de [tópicos relacionados](#related-topics).|
     |**Esquema de URL**|"*HTTPS*"|Nesse caso, embora o back-end tenha acesso HTTP não seguro especificamos um acesso de APIM de HTTPS seguro para o back-end. <br/>Esse tipo de cenário (HTTPS para HTTP) é chamado de terminação HTTPS. Você pode fazer isso se sua API existe em uma rede virtual (em que você sabe que o acesso é seguro, mesmo se o HTTPS não é usado). <br/>Talvez você queira usar a "Terminação HTTPS" para economizar em alguns ciclos de CPU.|
     |**Sufixo da URL**|"*hbin*"| O sufixo é um nome que identifica essa API específica nesta instância do APIM. Ele deve ser exclusivo nesta instância de APIM.|
-    |**Produtos**|"*Ilimitado*" |Publica a API associando-a a um produto. Se você deseja que a API seja publicada e fique disponível para os desenvolvedores, adicione-a a um produto. Você pode fazer isso durante a criação da API ou configurá-lo mais tarde.<br/><br/>Os produtos são associações de uma ou mais APIs. Você pode incluir várias APIs e oferecê-las aos desenvolvedores por meio do portal do desenvolvedor. <br/>Primeiro, os desenvolvedores devem assinar um produto para obter acesso à API. Com a assinatura, eles obtêm uma chave de assinatura que funciona para qualquer API no produto. Se você criou a instância do APIM, já é um administrador e, portanto, está inscrito em cada produto por padrão.<br/><br/> Por padrão, cada instância de gerenciamento de API vem com dois produtos de exemplo: **Inicial** e **Ilimitado**.| 
+    |**Produtos**|"*Ilimitado*" |Publica a API associando-a a um produto. Se você deseja que a API seja publicada e fique disponível para os desenvolvedores, adicione-a a um produto. Você pode fazer isso durante a criação da API ou configurá-lo mais tarde.<br/><br/>Os produtos são associações de uma ou mais APIs. Você pode incluir várias APIs e oferecê-las aos desenvolvedores por meio do portal do desenvolvedor. <br/>Primeiro, os desenvolvedores devem assinar um produto para obter acesso à API. Com a assinatura, eles obtêm uma chave de assinatura que funciona para qualquer API no produto. Se você criou a instância do APIM, já é um administrador e, portanto, está inscrito em cada produto por padrão.<br/><br/> Por padrão, cada instância de Gerenciamento de API é fornecida com dois produtos função Web: **Starter** e **Ilimitado**.| 
 5. Selecione **Criar**.
 
 Neste ponto, você não tem nenhuma operação no APIM mapeada para operações em sua API de back-end. Se você chamar uma operação que é exposta por meio de back-end, mas não por meio de APIM, receberá um **404**.

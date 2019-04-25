@@ -16,10 +16,10 @@ ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
 ms.openlocfilehash: 0c267b2fbe639d08396d8773e077483b41b9747e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58886362"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Início Rápido: Criar um aplicativo Web ASP .NET 
@@ -116,7 +116,7 @@ Como o arquivo *CacheSecrets.config* não está implantado no Azure com seu apli
 2. No arquivo *web.config*, localize o elemento `<appSetting>`. Depois adicione o atributo `file`. Se você usou um nome de arquivo ou local diferente, substitua esses valores pelos mostrados no exemplo.
 
 * Antes: `<appSettings>`
-* Depois:  `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
+* Depois: `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
 O tempo de execução do ASP.NET mescla o conteúdo do arquivo externo com a marcação no elemento `<appSettings>` . O tempo de execução ignora o atributo de arquivo se o arquivo especificado não puder ser encontrado. Seus segredos (a cadeia de conexão do cache) não são incluídos como parte do código-fonte do aplicativo. Quando você implantar o aplicativo Web no Azure, o arquivo *CacheSecrets.config* não será implantado.
 

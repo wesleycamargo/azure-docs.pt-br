@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: 944a111ac0c31e755b3991f9ea101ba652c676d3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268749"
 ---
 # <a name="what-is-azure-maps"></a>O que é o Azure Mapas?
@@ -139,7 +139,7 @@ Verifique se a localização de seu endereço IP atual não está em um dos paí
 Para obter mais informações sobre os novos recursos dos Mapas do Azure:
 
 > [!div class="nextstepaction"]
-> [Matriz de rota, isócronos, pesquisa de IP, entre outros](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/)
+> [Matriz de roteiro, Isócronas, Pesquisa de IP e muito mais](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/)
 
 Teste um aplicativo de exemplo que mostra os Azure Mapas:
 

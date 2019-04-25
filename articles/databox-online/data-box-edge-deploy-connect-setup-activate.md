@@ -5,18 +5,18 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: ad288067fdd40dbfa84352916e84fa1e3ab9af8e
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: b97334ae60715f021cce387f9d73b5ea69eea7fc
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629152"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998100"
 ---
-# <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>Tutorial: Conectar-se, configurar e ativar a borda de caixa de dados do Azure 
+# <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>Tutorial: Conectar, configurar e ativar o Azure Data Box Edge 
 
 Este tutorial descreve como conectar-se, configurar e ativar seu dispositivo Azure Data Box Edge usando a interface do usuário Web local.
 
@@ -37,9 +37,9 @@ Antes de configurar e configurar seu dispositivo Data Box Edge, verifique o segu
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>Conectar-se para a configuração de interface do usuário da web local 
 
-1. Configure o adaptador Ethernet no computador para conectar-se para o dispositivo de borda da caixa de dados com um endereço IP estático de 192.168.100.5 e a sub-rede 255.255.255.0.
+1. Configure o adaptador Ethernet no computador usado para conectar-se ao dispositivo Data Box Edge com um endereço IP estático de 192.168.100.5 e sub-rede 255.255.255.0.
 
-2. Conecte o computador à porta 1 do seu dispositivo. Use a ilustração a seguir para identificar a porta 1 em seu dispositivo.
+2. Conecte o computador à porta 1 do seu dispositivo. Use a ilustração a seguir para identificar a PORTA 1 em seu dispositivo.
 
     ![Backplane de um dispositivo cabeado](./media/data-box-edge-deploy-install/backplane-cabled.png)
 
@@ -67,17 +67,17 @@ Você está agora no painel do seu dispositivo.
  
 O painel exibe as várias configurações necessárias para configurar e registrar o dispositivo físico com o serviço do Data Box Edge. O **nome do dispositivo**, **configurações de rede**, **configurações de proxy Web**, e **configurações de hora** são opcionais. São as únicas configurações obrigatórias **configurações de nuvem**.
    
-![Web local da interface do usuário "Painel" página](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-1.png)
+![Página "Painel" da IU da Web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-1.png)
 
 1. No painel esquerdo, selecione **Nome do dispositivo** e, em seguida, insira um nome amigável para seu dispositivo.  
     O nome amigável deve conter de 1 a 15 caracteres e ter letras, números e hifens.
 
-    ![Página de "Nome do dispositivo" de interface do usuário da web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
+    ![Página "Nome do dispositivo" da IU da Web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
 
 2. (Opcional) No painel esquerdo, selecione **Configurações de rede** e, em seguida, defina as configurações.  
-    Em seu dispositivo físico, há seis interfaces de rede. PORT 1 e PORT 2 são interfaces de rede de 1 Gbps. A porta 3, 4 de porta, porta 5 e 6 de porta são todas as interfaces de rede de 25 Gbps também podem servir como interfaces de rede de 10 Gbps. A PORTA 1 é configurada automaticamente como porta somente de gerenciamento, enquanto as PORTA 2 a 6 são portas de dados. O **as configurações de rede** página é conforme mostrado abaixo.
+    No dispositivo físico, há seis adaptadores de rede. PORT 1 e PORT 2 são interfaces de rede de 1 Gbps. A PORTA 3, a PORTA 4, a PORTA 5 e a PORTA 6 são todas interfaces de rede de 25 Gbps que também podem servir como interfaces de rede de 10 Gbps. A PORTA 1 é configurada automaticamente como porta somente de gerenciamento, enquanto as PORTA 2 a 6 são portas de dados. A página **Configurações de rede** conforme mostrado abaixo.
     
-    ![Página de "Configurações de rede" de interface do usuário da web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
+    ![Página "Configurações de rede" da IU da Web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
    
     Conforme você define as configurações de rede, tenha em mente:
 
@@ -90,7 +90,7 @@ O painel exibe as várias configurações necessárias para configurar e registr
 
 3. (Opcional) No painel esquerdo, selecione **Configurações de proxy Web** e, em seguida, configure seu servidor proxy Web. Embora a configuração do proxy Web seja opcional, se você usar um proxy Web, poderá configurá-lo apenas nesta página.
    
-   ![Página de "Configurações de proxy da Web" de interface do usuário da web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-4.png)
+   ![Página "Configurações de proxy da Web" da IU da Web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-4.png)
    
    Na página **Configurações de proxy Web**, faça o seguinte:
    
@@ -115,33 +115,33 @@ O painel exibe as várias configurações necessárias para configurar e registr
 
     3. Opcionalmente, na caixa **Servidor NTP secundário**, digite um servidor secundário para seu dispositivo.
 
-    4. Para validar e aplicar as configurações de tempo configurado, selecione **aplicar configurações**.
+    4. Para validar e aplicar as configurações de hora configuradas, selecione **Aplicar configurações**.
 
-        ![Página de "Configurações de tempo" de interface do usuário da web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
+        ![Página "Configurações de tempo" da IU da Web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
 
-5. (Opcional) No painel esquerdo, selecione **configurações de armazenamento** para configurar a resiliência de armazenamento em seu dispositivo. Esse recurso está atualmente na visualização. Por padrão, o armazenamento no dispositivo não é resiliente e há perda de dados se um disco de dados falhar no dispositivo. Quando você habilita a opção resiliente, o armazenamento do dispositivo será reconfigurado e o dispositivo pode suportar a falha de um disco de dados sem perda de dados. Configurando o armazenamento como resiliente reduzirá a capacidade utilizável do seu dispositivo.
+5. (Opcional) No painel esquerdo, selecione **Configurações de armazenamento** para configurar a resiliência do armazenamento em seu dispositivo. Esse recurso está atualmente na visualização. Por padrão, o armazenamento no dispositivo não é resiliente e há perda de dados se um disco de dados falha no dispositivo. Quando você habilita a opção resiliente, o armazenamento do dispositivo é reconfigurado e o dispositivo pode suportar a falha de um disco de dados sem perda de dados. Configurar o armazenamento como resiliente reduzirá a capacidade utilizável do seu dispositivo.
 
     > [!IMPORTANT] 
     > A resiliência só pode ser configurada antes de ativar o dispositivo. 
 
-    ![Página de "Configurações de armazenamento" de interface do usuário da web local](./media/data-box-edge-deploy-connect-setup-activate/storage-settings.png)
+    ![Página "Configurações de armazenamento" da IU da Web local](./media/data-box-edge-deploy-connect-setup-activate/storage-settings.png)
 
 6. No painel esquerdo, selecione **Configurações de nuvem** e, em seguida, ative seu dispositivo com o serviço do Data Box Edge no portal do Azure.
     
     1. Na caixa **Chave de ativação**, digite a chave de ativação recebida em [Obter chave de ativação](data-box-edge-deploy-prep.md#get-the-activation-key) para o Data Box Edge.
     2. Escolha **Aplicar**.
        
-        ![Página de "Configurações de nuvem" da interface do usuário da web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-6.png)
+        ![Página "Configurações de nuvem" da IU da Web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-6.png)
 
-    3. O dispositivo é ativado pela primeira vez. O dispositivo é então verificado para todas as atualizações críticas e se estiver disponível, as atualizações são aplicadas automaticamente. Você verá uma notificação para esse efeito.
+    3. Primeiro, o dispositivo é ativado. O dispositivo é então verificado para todas as atualizações críticas e, se houver atualizações disponíveis, elas serão aplicadas automaticamente. Você verá uma notificação nesse sentido.
 
-        A caixa de diálogo também tem uma chave de recuperação que você deve copiar e salve-o em um local seguro. Essa chave é usada para recuperar os dados no caso do dispositivo não é inicializado.
+        A caixa de diálogo também tem uma chave de recuperação que você deve copiar e salvar em um local seguro. Essa chave é usada para recuperar os dados no caso de o dispositivo não poder ser inicializado.
 
-        ![Página de "Configurações de nuvem" de interface do usuário da web local atualizada](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)
+        ![Página de "Configurações de nuvem" da IU da Web local atualizada](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)
 
-    4. Talvez você precise aguardar alguns minutos após a atualização for concluída com êxito. A página é atualizada para indicar que o dispositivo é ativado com êxito.
+    4. Talvez você precise aguardar alguns minutos após a atualização ser concluída com êxito. A página será atualizada para indicar que o dispositivo foi ativado com êxito.
 
-        ![Página de "Configurações de nuvem" de interface do usuário da web local atualizada](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-8.png)
+        ![Página de "Configurações de nuvem" da IU da Web local atualizada](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-8.png)
 
 A configuração do dispositivo foi concluída. Agora você pode adicionar compartilhamentos em seu dispositivo.
 

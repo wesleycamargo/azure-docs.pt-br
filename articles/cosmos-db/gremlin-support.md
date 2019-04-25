@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.openlocfilehash: fd49cc6810f4a3a479748180ddb0c44aedf04e89
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275548"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Suporte do Azure Cosmos DB para grafo do Gremlin
@@ -173,7 +173,7 @@ Agora, vejamos as etapas do Gremlin com suporte do BD Cosmos do Azure. Para obte
 | `limit` | Usada para limitar o número de itens na passagem| [Etapa limit](https://tinkerpop.apache.org/docs/current/reference/#limit-step) |
 | `local` | A etapa local encapsula uma seção de uma passagem, de forma semelhante a uma subconsulta | [Etapa local](https://tinkerpop.apache.org/docs/current/reference/#local-step) |
 | `not` | Usada para produzir a negação de um filtro | [Etapa not](https://tinkerpop.apache.org/docs/current/reference/#not-step) |
-| `optional` | Retorna o resultado da passagem especificada se ela produzir um resultado. Caso contrário, retorna o elemento de chamada | [Etapa opcional](https://tinkerpop.apache.org/docs/current/reference/#optional-step) |
+| `optional` | Retorna o resultado da passagem especificada se ela produzir um resultado. Caso contrário, retorna o elemento de chamada | [Etapa optional](https://tinkerpop.apache.org/docs/current/reference/#optional-step) |
 | `or` | Garante que pelo menos uma das passagens retorne um valor | [Etapa or](https://tinkerpop.apache.org/docs/current/reference/#or-step) |
 | `order` | Retorna os resultados na ordem de classificação especificada | [Etapa order](https://tinkerpop.apache.org/docs/current/reference/#order-step) |
 | `path` | Retorna o caminho completo da passagem | [Etapa path](https://tinkerpop.apache.org/docs/current/reference/#path-step) |

@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: fb684a59362e0f7b6ccdc2ca05fda1b89def2835
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: feafb983a7b9e4aea6091753842b03a65ccd3ca5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351840"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001551"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>Como analisar vídeos em tempo real
 
@@ -216,7 +216,7 @@ As funcionalidades de reconhecimento de imagem, voz, vídeo ou texto do VideoFra
 
 ## <a name="summary"></a>Resumo
 
-Neste guia, você aprendeu a executar análises quase em tempo real em fluxos de vídeo ao vivo usando as APIs de Detecção Facial, de Pesquisa Visual Computacional e de Detecção de Emoções, e como é possível usar nosso código de exemplo para começar. Comece compilando o aplicativo com as chaves de API gratuitas na [página de entrada dos Serviços Cognitivos da Microsoft](https://azure.microsoft.com/try/cognitive-services/). 
+Neste guia, você aprendeu a executar análises quase em tempo real em fluxos de vídeo ao vivo usando as APIs de Detecção Facial, de Pesquisa Visual Computacional e de Detecção de Emoções, e como é possível usar nosso código de exemplo para começar. Comece compilando o aplicativo com as chaves de API gratuitas na [página de entrada dos Serviços Cognitivos do Azure](https://azure.microsoft.com/try/cognitive-services/). 
 
 Fique à vontade para fornecer comentários e sugestões no [repositório GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) ou comentários mais abrangentes sobre a API em nosso [site UserVoice](https://cognitive.uservoice.com/).
 

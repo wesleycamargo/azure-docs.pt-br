@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Conteúdo de imagem específico do domínio – REST, Python'
+title: 'Início Rápido: Conteúdo específico do domínio – REST, Python'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você pode usar modelos de domínio para identificar celebridades e pontos de referência em uma imagem usando a API da Pesquisa Visual Computacional com Python.
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: bdbff3777949298fbefec80ecb6608d6af10037b
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: e4ba3ee0b2138cb83796be50efe129a993d07a8a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651644"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996485"
 ---
-# <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Início rápido: Usar um modelo de domínio usando a API REST e o Python na Pesquisa Visual Computacional
+# <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Início Rápido: Usar um modelo de domínio usando a API REST e o Python na Pesquisa Visual Computacional
 
 Neste início rápido, você usa um modelo de domínio para identificar pontos de referência ou, opcionalmente, celebridades em uma imagem armazenada remotamente usando a API REST da Pesquisa Visual Computacional. Com o método [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200), você pode aplicar um modelo específico do domínio para reconhecer o conteúdo dentro de uma imagem.
 
@@ -31,7 +31,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Será necessário ter o [Python](https://www.python.org/downloads/) instalado se quiser executar o exemplo localmente.
-- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. Para obter uma chave de assinatura, confira [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. É possível obter uma chave de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar a Pesquisa Visual Computacional e obter sua chave.
 
 ## <a name="create-and-run-the-landmarks-sample"></a>Criar e executar o exemplo de pontos de referência
 

@@ -1,7 +1,6 @@
 ---
 title: Extrair, transformar e carregar (ETL) em escala - Azure HDInsight
 description: Saiba como o ETL é usado no HDInsight com o Apache Hadoop.
-services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
 ms.openlocfilehash: c200ca98f2a5ea32886ec12d3e732af6598254f7
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337605"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60535822"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extrair, transformar e carregar (ETL) em escala
 
@@ -38,7 +37,7 @@ Apache Oozie é um sistema de coordenação do fluxo de trabalho que gerencia tr
 
 Para obter mais informações, confira [Usar o Apache Oozie com o Apache Hadoop para definir e executar um fluxo de trabalho no HDInsight](../hdinsight-use-oozie-linux-mac.md). Para obter um aprofundamento que mostra como usar o Oozie para impulsionar um pipeline de ponta a ponta, confira [Operacionalizar o pipeline de dados](../hdinsight-operationalize-data-pipeline.md). 
 
-### <a name="azure-data-factory"></a>Azure Data Factory
+### <a name="azure-data-factory"></a>Fábrica de dados do Azure
 
 O Azure Data Factory fornece recursos de orquestração na forma de plataforma como serviço. É um serviço de integração de dados baseado em nuvem que permite que você crie fluxos de trabalho orientados a dados na nuvem para orquestrar e automatizar a movimentação de dados e a transformação de dados. 
 
@@ -66,7 +65,7 @@ O Armazenamento do Azure também tem uma camada de API WebHDFS para o armazename
 
 Os dados são normalmente incluídos no Armazenamento do Azure usando o PowerShell, o SDK do Armazenamento do Azure ou AZCopy.
 
-### <a name="azure-data-lake-storage"></a>Azure Data Lake Storage
+### <a name="azure-data-lake-storage"></a>Armazenamento do Azure Data Lake
 
 O ADLS (Azure Data Lake Storage) é um repositório de hiperescala gerenciado para dados de análise que são compatíveis com o HDFS.  O ADLS usa um paradigma de design que é semelhante ao HDFS e oferece escalabilidade ilimitada em termos de capacidade total e o tamanho dos arquivos individuais. O ADLS é muito bom ao trabalhar com arquivos grandes, uma vez que um arquivo grande pode ser armazenado em vários nós.  O particionamento de dados em ADLS é feito em segundo plano.  Você obtém uma enorme taxa de transferência para executar trabalhos analíticos com milhares de executores simultâneos que leem e gravam centenas de terabytes de dados com eficiência.
 

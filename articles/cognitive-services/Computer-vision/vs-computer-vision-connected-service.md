@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: 6a576f2817069d7095ea863198168be083d0c6b5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3e83c1629848083ae4d899ae01ae32c2c946b2b3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450934"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995057"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Usar serviços conectados no Visual Studio para se conectar à API da Pesquisa Visual Computacional
 
@@ -38,15 +38,15 @@ Este artigo e os artigos complementares fornecem detalhes sobre como usar o recu
 1. No **Gerenciador de Soluções**, selecione **Adicionar** > **Serviço Conectado**.
    A página do Serviço Conectado aparece com os serviços que você pode adicionar ao seu projeto.
 
-   ![Captura de tela de um menu aberto clicando com o botão direito do mouse em um projeto do Visual Studio: Adicionar > Serviço Conectado](../media/vs-common/Connected-Service-Menu.PNG)
+   ![menu aberto clicando com o botão direito do mouse em um projeto do Visual Studio: Adicionar > Serviço Conectado](../media/vs-common/Connected-Service-Menu.PNG)
 
 1. No menu de serviços disponíveis, escolha **API da Pesquisa Visual Computacional dos Serviços Cognitivos**.
 
-   ![o menu Serviços Conectados, realçando Analisar Imagens com a Pesquisa Visual Computacional](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
+   ![Menu de Serviços Conectados: O item Analisar Imagens... está delineado](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
 
    Se você tiver entrado no Visual Studio e tiver uma assinatura do Azure associada à sua conta, será exibida uma página com uma lista suspensa com suas assinaturas.
 
-   ![Uma janela "API da Pesquisa Visual Computacional" do Visual Studio com o menu suspenso Assinatura realçado](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
+   ![Janela de API da Pesquisa Visual Computacional com o menu suspenso Assinatura realçado](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
 
 1. Selecione a assinatura que você quer usar e, em seguida, escolha um nome para a API da Pesquisa Visual Computacional ou escolha o link Editar para modificar o nome gerado automaticamente, escolha o grupo de recursos e Tipo de Preço.
 
@@ -98,7 +98,7 @@ Este artigo e os artigos complementares fornecem detalhes sobre como usar o recu
 
 1. Clique com o botão direito do mouse no arquivo de imagem, escolha Propriedades e, em seguida, escolha **Copiar se mais recente**. 
 
-   ![Uma janela Propriedades da imagem; a opção Copiar para Diretório de Saída está definida como Copiar se Mais Recente](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
+   ![Janela propriedades da imagem; opção Copiar para Diretório de Saída está definida como Copiar se mais recente](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
  
 1. Substitua o método Configurar pelo seguinte código para acessar a API da Pesquisa Visual Computacional testar uma imagem.
 

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 0879f9026276eb7149ae44906377a7b369e05116
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267065"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Tutorial: Integração do Azure Active Directory com o Vodeclic
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o Vodeclic, execute as seguintes 
 
     ![Informações de logon único de Domínio e URLs do Vodeclic](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<companyname>.lms.vodeclic.net/auth/saml`
+     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<companyname>.lms.vodeclic.net/auth/saml`
 
-    b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://<companyname>.lms.vodeclic.net/auth/saml/callback`
+    b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<companyname>.lms.vodeclic.net/auth/saml/callback`
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 

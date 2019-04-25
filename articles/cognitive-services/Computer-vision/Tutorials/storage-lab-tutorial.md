@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Gerar metadados para imagens do Armazenamento do Azure'
+title: 'Tutorial: Gerar metadados de imagens do Azure'
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, você aprenderá a integrar o serviço de Pesquisa Visual Computacional do Azure a um aplicativo Web para gerar metadados para imagens.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: e5124b07a5aff67d53213149565ddae4ea6dda33
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a755a0bada0dbf6797465ea40ddbb30a84e3f289
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447992"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005971"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Tutorial: Use a Pesquisa Visual Computacional para gerar metadados de imagem no Armazenamento do Azure
 
@@ -52,11 +52,11 @@ Você precisará criar um recurso da Pesquisa Visual Computacional para sua cont
 
 1. Retorne ao menu do grupo de recursos e clique na assinatura da API da Pesquisa Visual Computacional recém-criada. Copie a URL em **Ponto de extremidade** para algum lugar em que poderá recuperá-la com facilidade em pouco tempo. Em seguida, clique em **Mostrar chaves de acesso**.
 
-    ![Exibindo as chaves de acesso](../Images/copy-vision-endpoint.png)
+    ![Página do portal do Azure a URL de ponto de extremidade e o link de chaves de acesso delineados](../Images/copy-vision-endpoint.png)
 
 1. Na próxima janela, copie o valor de **KEY 1** para a área de transferência.
 
-    ![Copiando a chave de acesso](../Images/copy-vision-key.png)
+    ![Caixa de diálogo Gerenciar chaves, com o botão de cópia delineado](../Images/copy-vision-key.png)
 
 ## <a name="add-computer-vision-credentials"></a>Adicionar credenciais da Pesquisa Visual Computacional
 
@@ -136,7 +136,7 @@ Salve as alterações no Visual Studio e pressione **Ctrl+F5** para iniciar o ap
 
 Para exibir todos os metadados anexados, use o Gerenciador de Armazenamento do Azure para exibir o contêiner de armazenamento que você está usando para imagens. Clique com o botão direito do mouse em um dos blobs do contêiner e selecione **Propriedades**. Na caixa de diálogo, você verá uma lista de pares chave-valor. A descrição da imagem gerada por computador é armazenada no item "Caption", e as palavras-chave de pesquisa são armazenadas em "Tag0", "Tag1" e assim por diante. Quando terminar, clique em **Cancelar** para fechar a caixa de diálogo.
 
-![Metadados de blob](../Images/blob-metadata.png)
+![Janela de caixa de diálogo Propriedades de imagem, com marcas de metadados listadas](../Images/blob-metadata.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

@@ -13,10 +13,10 @@ ms.date: 09/07/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
 ms.openlocfilehash: cbe4dbd2ae741f4225cfdc628c31508956cbb95c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490526"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Criar sua primeira função usando o Visual Studio Code
@@ -27,7 +27,7 @@ Neste artigo, você aprenderá a usar a [extensão Azure Functions para Visual S
 
 ![Código do Azure Functions em um projeto do Visual Studio](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-No momento, a extensão é totalmente compatível com as funções C#, JavaScript e Java. Com o Python ela é compatível na versão prévia. As etapas neste artigo podem variar dependendo de sua escolha de linguagem de programação para o seu projeto do Azure Functions. Atualmente, a extensão está em versão prévia. Para obter mais informações, consulte a página da extensão [Extensão do Azure Functions para Visual Studio Code].
+No momento, a extensão é totalmente compatível com as funções C#, JavaScript e Java. Com o Python ela é compatível na versão prévia. As etapas neste artigo podem variar dependendo de sua escolha de linguagem de programação para o seu projeto do Azure Functions. Atualmente, a extensão está em versão prévia. Para obter mais informações, consulte a página da extensão [Extensão Azure Functions para Visual Studio Code].
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

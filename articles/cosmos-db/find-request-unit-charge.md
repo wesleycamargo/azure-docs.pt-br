@@ -4,20 +4,20 @@ description: Saiba como localizar o encargo de unidades de solicitação para qu
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 03/21/2019
+ms.date: 04/15/2019
 ms.author: thweiss
-ms.openlocfilehash: e3175ee136057c695ceef3cd1976b447a529c803
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 833f815f0c84584f084e4d4637c0318f7c2daec0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59053036"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683827"
 ---
 # <a name="find-the-request-unit-ru-charge-in-azure-cosmos-db"></a>Localizar o encargo de RU (Unidade de Solicitação) no Azure Cosmos DB
 
 Este artigo apresenta as diferentes maneiras de localizar o consumo de [unidades de solicitação](request-units.md) para qualquer operação executada em um contêiner do Azure Cosmos. Atualmente, é possível medir esse consumo usando o portal do Azure ou inspecionando a resposta enviada do Azure Cosmos DB por meio de um dos SDKs.
 
-## <a name="core-api"></a>API principal
+## <a name="sql-core-api"></a>API de SQL (Core)
 
 ### <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
@@ -25,7 +25,7 @@ No momento, o portal do Azure permite localizar o encargo de solicitação somen
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 
-1. [Crie uma conta do Azure Cosmos DB](create-sql-api-dotnet.md#create-account) e alimente-a com alguns dados ou selecione uma conta existente que já contenha dados.
+1. [Crie uma conta do Azure Cosmos](create-sql-api-dotnet.md#create-account) e alimente-a com alguns dados ou selecione uma conta do Azure Cosmos existente que já contenha dados.
 
 1. Abra o painel do **Data Explorer** e selecione o contêiner no qual deseja trabalhar.
 
@@ -102,7 +102,7 @@ feedResponse.forEach(result -> {
 
 ### <a name="use-the-nodejs-sdk"></a>Usar o SDK do Node.js
 
-Os objetos retornados do [SDK do Node.js](https://www.npmjs.com/package/@azure/cosmos) (confira [este Início Rápido](create-sql-api-nodejs.md) sobre seu uso) expõem um subobjeto `headers` que mapeia todos os cabeçalhos retornados pela API HTTP subjacente. O encargo de solicitação está disponível na chave `x-ms-request-charge`.
+Os objetos retornados do [SDK do Node.js](https://www.npmjs.com/package/@azure/cosmos) (confira [este Início Rápido](create-sql-api-nodejs.md) sobre seu uso) expõem um sub-objeto `headers` que mapeia todos os cabeçalhos retornados pela API HTTP subjacente. O encargo de solicitação está disponível na chave `x-ms-request-charge`.
 
 ```javascript
 const item = await client
@@ -147,7 +147,7 @@ request_charge = client.last_response_headers['x-ms-request-charge']
 
 ## <a name="azure-cosmos-dbs-api-for-mongodb"></a>API do Azure Cosmos DB para MongoDB
 
-O encargo de unidades de solicitação é exposto por um [comando de banco de dados](https://docs.mongodb.com/manual/reference/command/) personalizado chamado `getLastRequestStatistics`. Esse comando retorna um documento que contém o nome da última operação executada, seu encargo de solicitação e sua duração.
+O encargo pela unidade de solicitação é exposto por um [comando de banco de dados](https://docs.mongodb.com/manual/reference/command/) personalizado chamado `getLastRequestStatistics.` Esse comando retorna um documento que contém o nome da última operação executada, seu encargo de solicitação e sua duração.
 
 ### <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
@@ -155,7 +155,7 @@ No momento, o portal do Azure permite localizar o encargo de solicitação somen
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 
-1. [Crie uma conta do Azure Cosmos DB](create-mongodb-dotnet.md#create-a-database-account) e alimente-a com alguns dados ou selecione uma conta existente que já contenha dados.
+1. [Crie uma conta do Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account) e alimente-a com alguns dados ou selecione uma conta existente que já contenha dados.
 
 1. Abra o painel do **Data Explorer** e selecione a coleção na qual deseja trabalhar.
 
@@ -195,7 +195,7 @@ Double requestCharge = stats.getDouble("RequestCharge");
 
 ### <a name="use-the-mongodb-nodejs-driver"></a>Usar o driver do Node.js do MongoDB
 
-Ao usar o [driver oficial do Node.js do MongoDB](https://mongodb.github.io/node-mongodb-native/) (confira [este Início Rápido](create-mongodb-nodejs.md) sobre seu uso), os comandos podem ser executados por meio da chamada do método `command` em um objeto `Db`.
+Ao usar o [driver oficial do Node.js do MongoDB](https://mongodb.github.io/node-mongodb-native/) (confira [este Início Rápido](create-mongodb-nodejs.md) sobre seu uso), os comandos podem ser executados por meio da chamada do método `command` em um objeto `db`.
 
 ```javascript
 db.command({ getLastRequestStatistics: 1 }, function(err, result) {
@@ -230,7 +230,7 @@ Double requestCharge = resultSet.getExecutionInfo().getIncomingPayload().get("Re
 
 ### <a name="use-drivers-and-sdk"></a>Usar drivers e o SDK
 
-Os cabeçalhos retornados pela API do Gremlin são mapeados para atributos de status personalizados que atualmente são exibidos pelo SDK do Java e do .NET do Gremlin. O encargo de solicitação está disponível na chave `x-ms-request-charge`.
+Os cabeçalhos retornados pela API do Gremlin são mapeados para atributos de status personalizados, que atualmente são exibidos pelo SDK do Java e do .NET do Gremlin. O encargo de solicitação está disponível na chave `x-ms-request-charge`.
 
 ### <a name="use-the-net-sdk"></a>Usar o SDK .NET
 
@@ -267,5 +267,9 @@ if (tableResult.RequestCharge.HasValue) // would be false when using Azure Stora
 
 Confira os seguintes artigos para saber mais sobre como otimizar o consumo de unidades de solicitação:
 
+* [Unidades de solicitação e taxa de transferência no Azure Cosmos DB](request-units.md)
 * [Otimizar a taxa de transferência provisionada no Azure Cosmos DB](optimize-cost-throughput.md)
 * [Otimizar o custo de consulta no Azure Cosmos DB](optimize-cost-queries.md)
+* [Taxa de transferência provisionada para dimensionamento global](scaling-throughput.md)
+* [Provisionar a taxa de transferência para contêineres e bancos de dados](set-throughput.md)
+* [Como provisionar a taxa de transferência para um contêiner](how-to-provision-container-throughput.md)

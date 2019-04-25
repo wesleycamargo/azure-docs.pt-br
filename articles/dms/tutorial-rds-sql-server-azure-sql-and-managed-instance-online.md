@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Usar o Serviço de Migração de Banco de Dados do Azure para executar uma migração online do SQL Server do RDS para o Banco de Dados SQL do Azure ou uma instância gerenciada do Banco de Dados SQL do Azure | Microsoft Docs'
-description: Saiba como executar uma migração online do SQL Server do RDS para o Banco de Dados SQL do Azure ou uma instância gerenciada do Banco de Dados SQL do Azure usando o Serviço de Migração de Banco de Dados do Azure.
+title: 'Tutorial: Usar o Serviço de Migração de Banco de Dados do Azure para uma migração online do SQL Server do RDS para o Banco de Dados SQL do Azure ou uma instância gerenciada do Banco de Dados SQL do Azure | Microsoft Docs'
+description: Saiba como executar uma migração online do SQL Server do RDS para o Banco de Dados SQL do Azure ou para uma instância gerenciada do Banco de Dados SQL do Azure usando o Serviço de Migração de Banco de Dados do Azure.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: 4990b5f42291856c3695b4bf0eb6ec4084e9214e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.date: 04/20/2019
+ms.openlocfilehash: 7294236a7b79ad093480e9063d886dd30ccf7fc1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886396"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998967"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: Migrar o SQL Server do RDS para o Banco de Dados SQL do Azure ou uma instância gerenciada do Banco de Dados SQL do Azure online usando DMS
 É possível usar o Serviço de Migração de Banco de Dados do Azure para migrar os bancos de dados de uma instância do SQL Server do RDS para o [Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/) ou uma [instância gerenciada do Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) com tempo de inatividade mínimo. Neste tutorial, você migra o banco de dados **Adventureworks2012** restaurado para uma instância do SQL Server do RDS do SQL Server 2012 (ou posterior) para o Banco de Dados SQL do Azure ou uma instância gerenciada do Banco de Dados SQL do Azure, usando o Serviço de Migração de Banco de Dados do Azure.
@@ -187,7 +187,14 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
  
 3. Selecione + **Novo Projeto de Migração**.
 4. Na tela **Novo projeto de migração**, especifique um nome para o projeto; na caixa de texto **Tipo de servidor de origem**, selecione **AWS RDS para SQL Server** e, na caixa de texto **Tipo de servidor de destino**, selecione **Banco de Dados SQL do Azure**.
+
+    > [!NOTE]
+    > Para o tipo de servidor de Destino, selecione **Banco de Dados SQL do Azure** para migrar para um banco de dados singleton do Banco de Dados SQL do Azure e para uma instância gerenciada do Banco de Dados SQL do Azure.
+
 5. Na seção **Escolher o tipo de atividade**, selecione **Migração de dados online**.
+
+    > [!IMPORTANT]
+    > Verifique se você selecionou **Migração de dados online**; não há suporte para migrações offline para esse cenário.
 
     ![Criar o Serviço de migração de banco de dados do Azure](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-create-project4.png)
 
@@ -235,7 +242,7 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
     
     | Configuração | DESCRIÇÃO |
     | ------------- | ------------- |
-    | **Número máximo de tabelas a ser carregado em paralelo** | Especifica o número de tabelas que o DMS executa em paralelo durante a migração. O valor padrão é 5, mas pode ser definido como um valor ideal para atender às necessidades de migração específicas com base em quaisquer migrações de POC. |
+    | **Número máximo de tabelas a serem carregadas em paralelo** | Especifica o número de tabelas que o DMS executa em paralelo durante a migração. O valor padrão é 5, mas pode ser definido como um valor ideal para atender às necessidades de migração específicas com base em quaisquer migrações de POC. |
     | **Quando a tabela de origem é truncada** | Especifica se o DMS trunca a tabela de destino durante a migração. Essa configuração poderá ser útil se uma ou mais tabelas forem truncadas como parte do processo de migração. |
     | **Definir configurações para dados LOB (objetos grandes)** | Especifica se o DMS migra dados LOB ilimitados ou limita os dados LOB migrados a um tamanho específico.  Quando houver um limite nos dados LOB migrados, todos os dados LOB além desse limite serão truncados. Para migrações de produção, é recomendável selecionar **Permitir tamanho de LOB ilimitado** para impedir a perda de dados. Ao especificar essa opção para permitir o tamanho ilimitado de LOB, marque a caixa de seleção **Migrar dados LOB em um único bloco quando o tamanho do LOB for menor que (KB) especificado** para melhorar o desempenho. |
     

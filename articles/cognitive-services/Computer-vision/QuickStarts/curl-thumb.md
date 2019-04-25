@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 20a438f4eb932596647002bf9d3072c651ac969c
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: af303544be7b4e7686105b7d57a71c33c0a6a314
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630647"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009018"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-curl-in-computer-vision"></a>Início Rápido: Gerar uma miniatura usando a API REST e cURL na Pesquisa Visual Computacional
 
@@ -27,7 +27,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - É necessário ter [cURL](https://curl.haxx.se/windows).
-- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. Para obter uma chave de assinatura, confira [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. É possível obter uma chave de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar a Pesquisa Visual Computacional e obter sua chave.
 
 ## <a name="get-thumbnail-request"></a>Solicitação Obter Miniatura
 

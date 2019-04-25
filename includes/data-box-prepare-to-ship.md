@@ -2,19 +2,19 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 01/07/2019
+ms.date: 04/16/2019
 ms.author: alkohli
-ms.openlocfilehash: c7e5231650ec1afb97a72ec0cf26cb8f80088b63
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a8070d25e2606d8ad72ac231a0a208072c612c5c
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440466"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59736853"
 ---
 Etapa final é preparar o dispositivo para o envio. Nesta etapa, todos os compartilhamentos do dispositivo são colocados offline. As ações não poderão ser acessadas depois que você iniciar esse processo.
 
 > [!IMPORTANT]
-> A preparação para o envio é obrigatória, pois sinaliza os dados que não estão em conformidade com as convenções de nomenclatura do Azure. Ignorar essa etapa pode causar eventuais falhas no upload dos dados devido a dados fora de conformidade.
+> A preparação para o envio é obrigatória, pois sinaliza os dados que não estão em conformidade com as convenções de nomenclatura do Azure. Ignorar essa etapa pode causar eventuais falhas no upload dos dados provocadas por dados fora de conformidade.
 
 1. Vá para **Preparar para enviar** e clique em **Iniciar preparação**. Por padrão, as somas de verificação são computadas embutidas ao preparar para o envio. O cálculo da soma de verificação pode levar de horas a dias dependendo do tamanho dos seus dados. 
    

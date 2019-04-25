@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 6a4e9a0c33b227716227213e94948df430566065
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: c3148adc42cb4f899a87d894909eedff4c798575
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622188"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680223"
 ---
 # <a name="monitor-published-apis"></a>Monitorar APIs publicadas
 
@@ -185,15 +185,15 @@ No momento, o Gerenciamento de API oferece logs de diagnóstico (agrupados por h
 | isRequestSuccess | booleano | True se a solicitação HTTP foi concluída com código de status de resposta dentro do intervalo 2xx a 3xx |
 | time | date-time | Carimbo de data/hora de recebimento da solicitação HTTP pelo gateway |
 | operationName | string | Valor de constante 'Microsoft.ApiManagement/GatewayLogs' |
-| category | string | Valor da constante 'GatewayLogs' |
+| categoria | string | Valor da constante 'GatewayLogs' |
 | durationMs | inteiro | Número de milissegundos do momento em que o gateway recebeu a solicitação até o momento em que a resposta foi enviada por completo |
 | callerIpAddress | string | Endereço IP do chamador imediato do Gateway (pode ser um intermediário) |
 | correlationId | string | Identificador da solicitação HTTP exclusivo atribuído pelo Gerenciamento de API |
 | location | string | Nome da região do Azure em que o gateway que processou a solicitação está localizado |
 | httpStatusCodeCategory | string | Categoria do código de status da resposta HTTP: Bem-sucedido (301 ou menos, 304 ou 307), Não Autorizado (401, 403 e 429) Incorreto (400, entre 500 e 600) e Outros |
-| resourceId | string | ID do recurso de Gerenciamento de API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
-| properties | objeto | Propriedades da solicitação atual |
-| method | string | Método HTTP da solicitação de entrada |
+| ResourceId | string | ID do recurso de Gerenciamento de API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
+| propriedades | objeto | Propriedades da solicitação atual |
+| estático | string | Método HTTP da solicitação de entrada |
 | url | string | URL da solicitação de entrada |
 | clientProtocol | string | Versão do protocolo HTTP da solicitação de entrada |
 | responseCode | inteiro | Código de status de resposta HTTP enviada a um cliente |
@@ -213,13 +213,13 @@ No momento, o Gerenciamento de API oferece logs de diagnóstico (agrupados por h
 | userId | string | Identificador da entidade de usuário para a solicitação atual | 
 | apimSubscriptionId | string | Identificador da entidade de assinatura para a solicitação atual | 
 | backendId | string | Identificador da entidade de back-end para a solicitação atual | 
-| lastError | objeto | Erro de processamento da última solicitação | 
-| elapsed | inteiro | Número de milissegundos decorridos desde que o gateway recebeu a solicitação até o momento em que ocorreu o erro | 
-| source | string | Nome da política ou do manipulador interno de processamento que causou o erro | 
+| LastError | objeto | Erro de processamento da última solicitação | 
+| decorrido | inteiro | Número de milissegundos decorridos desde que o gateway recebeu a solicitação até o momento em que ocorreu o erro | 
+| fonte | string | Nome da política ou do manipulador interno de processamento que causou o erro | 
 | scope | string | Escopo do documento de política que contém a política que causou o erro | 
-| section | string | Seção do documento de política que contém a política que causou o erro | 
+| seção | string | Seção do documento de política que contém a política que causou o erro | 
 | reason | string | Motivo do erro | 
-| message | string | Mensagem de erro | 
+| Message | string | Mensagem de erro | 
 
 ## <a name="next-steps"></a>Próximas etapas
 

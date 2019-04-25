@@ -9,10 +9,10 @@ ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 2ba48e2a21bdee0c5698bdfa314dd3bf462c1c7e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267762"
 ---
 # <a name="starter-resource-graph-queries"></a>Consultas do Microsoft Azure Active Directory Graph
@@ -22,16 +22,16 @@ A primeira etapa para consultas de reconhecimento com o Microsoft Azure Resource
 Vamos percorrer as seguintes consultas iniciais:
 
 > [!div class="checklist"]
-> - [Contar recursos do Azure](#count-resources)
+> - [Recursos do Count Azure](#count-resources)
 > - [Listar recursos classificados por nome](#list-resources)
-> - [Mostrar todas as máquinas virtuais ordenadas por nome em ordem decrescente](#show-vms)
-> - [Mostrar as cinco primeiras máquinas virtuais por nome e tipo de sistema operacional](#show-sorted)
-> - [Contar máquinas virtuais por tipo de sistema operacional](#count-os)
-> - [Mostrar recursos que contêm armazenamento](#show-storage)
-> - [Listar todos os endereços IP públicos](#list-publicip)
-> - [Contar recursos que têm endereços IP configurados por assinatura](#count-resources-by-ip)
-> - [Listar recursos com um valor de marca específico](#list-tag)
-> - [Listar todas as contas de armazenamento com um valor de marca específico](#list-specific-tag)
+> - [Mostrar todas as máquinas virtuais, ordenadas por nome em ordem decrescente](#show-vms)
+> - [Mostrar as primeiras cinco máquinas virtuais por nome e tipo do sistema operacional](#show-sorted)
+> - [Contagem de máquinas virtuais por tipo de sistema operacional](#count-os)
+> - [Mostrar recursos que contêm o armazenamento](#show-storage)
+> - [Listar todos os endereços de IP](#list-publicip)
+> - [Recursos de contagem que têm endereços IP configurados por assinatura](#count-resources-by-ip)
+> - [Listar de recursos com um valor de marca específica](#list-tag)
+> - [Listar todas as contas de armazenamento com o valor de marca específica](#list-specific-tag)
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
@@ -94,7 +94,7 @@ Search-AzGraph -Query "project name, location, type| where type =~ 'Microsoft.Co
 
 ## <a name="show-sorted"></a>Mostrar as primeiras cinco máquinas virtuais por nome e tipo do sistema operacional
 
-Essa consulta usará `limit` para recuperar apenas os cinco registros correspondentes que são ordenados pelo nome. O tipo de recurso do Azure é `Microsoft.Compute/virtualMachines`. `project` instrui o Azure Resource Graph sobre quais propriedades incluir.
+Essa consulta usará `limit` para recuperar apenas os cinco registros correspondentes que são ordenados pelo nome. O tipo de recurso do Azure é `Microsoft.Compute/virtualMachines`. `project` informa quais propriedades do Gráfico de Recurso do Azure incluir.
 
 ```Query
 where type =~ 'Microsoft.Compute/virtualMachines'
@@ -251,7 +251,7 @@ Search-AzGraph -Query "where type =~ 'Microsoft.Storage/storageAccounts' | where
 ```
 
 > [!NOTE]
-> Este exemplo usa `==` para a correspondência em vez do `=~` condicional. `==` é uma correspondência que diferencia maiúsculas de minúsculas.
+> Este exemplo usa `==` para a correspondência em vez do `=~` condicional. `==` é uma correspondência que diferencia maiusculas de minúsculas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

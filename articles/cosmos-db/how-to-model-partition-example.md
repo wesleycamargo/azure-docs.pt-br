@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 3/27/2019
 ms.author: thweiss
 ms.openlocfilehash: ac1b94de4b439aab202d53b23b0d0da616a9f851
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58919889"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Como modelar e particionar dados no Azure Cosmos DB usando um exemplo do mundo real
@@ -124,7 +124,7 @@ Essa solicitação é muito fácil de implementar, podemos simplesmente criar ou
 
 ![Gravar um único item no contêiner de usuários](./media/how-to-model-partition-example/V1-C1.png)
 
-| **Latency** | **Preço da RU** | **Desempenho** |
+| **Latência** | **Preço da RU** | **Desempenho** |
 | --- | --- | --- |
 | 7 ms | 5,71 RU | ✅ |
 
@@ -134,7 +134,7 @@ A recuperação de um usuário é realizada lendo-se o item correspondente do co
 
 ![Recuperar um único item do contêiner de usuários](./media/how-to-model-partition-example/V1-Q1.png)
 
-| **Latency** | **Preço da RU** | **Desempenho** |
+| **Latência** | **Preço da RU** | **Desempenho** |
 | --- | --- | --- |
 | 2 ms | 1 RU | ✅ |
 
@@ -144,7 +144,7 @@ Da mesma forma que **[C1]**, temos apenas que gravar o contêiner `posts`.
 
 ![Gravar um único item no contêiner de posts](./media/how-to-model-partition-example/V1-C2.png)
 
-| **Latency** | **Preço da RU** | **Desempenho** |
+| **Latência** | **Preço da RU** | **Desempenho** |
 | --- | --- | --- |
 | 9 ms | 8,76 RU | ✅ |
 
@@ -156,7 +156,7 @@ Começamos recuperando o documento correspondente do contêiner `posts`. Mas iss
 
 Cada uma das consultas adicionais filtra a chave de partição de seu respectivo contêiner, que é exatamente o que queremos para maximizar o desempenho e a escalabilidade. Mas eventualmente precisamos executar quatro operações para retornar um único post, portanto, melhoraremos isso em uma próxima iteração.
 
-| **Latency** | **Preço da RU** | **Desempenho** |
+| **Latência** | **Preço da RU** | **Desempenho** |
 | --- | --- | --- |
 | 9 ms | 19,54 RU | ⚠ |
 
@@ -171,7 +171,7 @@ Essa implementação apresenta várias desvantagens:
 - as consultas de agregação as contagens de comentários e curtidas precisam ser emitidos para cada post retornado pela primeira consulta,
 - a consulta principal não filtra a chave de partição do contêiner `posts`, levando a um fan-out e a uma verificação de partição pelo contêiner.
 
-| **Latency** | **Preço da RU** | **Desempenho** |
+| **Latência** | **Preço da RU** | **Desempenho** |
 | --- | --- | --- |
 | 130 ms | 619,41 RU | ⚠ |
 
@@ -181,7 +181,7 @@ Um comentário é criado escrevendo-se o item correspondente no contêiner `post
 
 ![Gravar um único item no contêiner de posts](./media/how-to-model-partition-example/V1-C2.png)
 
-| **Latency** | **Preço da RU** | **Desempenho** |
+| **Latência** | **Preço da RU** | **Desempenho** |
 | --- | --- | --- |
 | 7 ms | 8,57 RU | ✅ |
 
@@ -193,7 +193,7 @@ Vamos começar com uma consulta que busca todos os comentários para esse post e
 
 Embora a consulta principal filtre na chave de partição do contêiner, agregar os nomes de usuário separadamente causa prejuízo ao desempenho em geral. Aprimoraremos isso mais tarde.
 
-| **Latency** | **Preço da RU** | **Desempenho** |
+| **Latência** | **Preço da RU** | **Desempenho** |
 | --- | --- | --- |
 | 23 ms | 27,72 RU | ⚠ |
 
@@ -203,7 +203,7 @@ Assim como **[C3]**, criamos o item correspondente no contêiner `posts`.
 
 ![Gravar um único item no contêiner de posts](./media/how-to-model-partition-example/V1-C2.png)
 
-| **Latency** | **Preço da RU** | **Desempenho** |
+| **Latência** | **Preço da RU** | **Desempenho** |
 | --- | --- | --- |
 | 6 ms | 7,05 RU | ✅ |
 
@@ -213,7 +213,7 @@ Assim como em **[Q4]**, podemos consultar as curtidas desse post e, em seguida, 
 
 ![Recuperar todas as curtidas de um post e agregar os respectivos dados adicionais](./media/how-to-model-partition-example/V1-Q5.png)
 
-| **Latency** | **Preço da RU** | **Desempenho** |
+| **Latência** | **Preço da RU** | **Desempenho** |
 | --- | --- | --- |
 | 59 ms | 58,92 RU | ⚠ |
 
@@ -225,7 +225,7 @@ Buscamos os posts mais recentes consultando o contêiner `posts` classificado po
 
 Mais uma vez, nossa consulta inicial não filtra na chave de partição do contêiner `posts`, que dispara um fan-out oneroso. Esse é ainda pior, pois direcionamos a um conjunto de resultados muito maior e classificamos os resultados com uma cláusula `ORDER BY`, o que o torna mais dispendioso em termos de unidades de solicitação.
 
-| **Latency** | **Preço da RU** | **Desempenho** |
+| **Latência** | **Preço da RU** | **Desempenho** |
 | --- | --- | --- |
 | 306 ms | 2063,54 RU | ⚠ |
 
@@ -370,7 +370,7 @@ Agora que nossa desnormalização está em vigor, precisamos apenas buscar um ú
 
 ![Recuperar um único item do contêiner de posts](./media/how-to-model-partition-example/V2-Q2.png)
 
-| **Latency** | **Preço da RU** | **Desempenho** |
+| **Latência** | **Preço da RU** | **Desempenho** |
 | --- | --- | --- |
 | 2 ms | 1 RU | ✅ |
 
@@ -380,7 +380,7 @@ Aqui, novamente, podemos economizar as solicitações extras que buscaram os nom
 
 ![Recuperando todos os comentários para um post](./media/how-to-model-partition-example/V2-Q4.png)
 
-| **Latency** | **Preço da RU** | **Desempenho** |
+| **Latência** | **Preço da RU** | **Desempenho** |
 | --- | --- | --- |
 | 4 ms | 7,72 RU | ✅ |
 
@@ -390,7 +390,7 @@ Exatamente a mesma situação ao listar as curtidas.
 
 ![Recuperar todas as curtidas de um post](./media/how-to-model-partition-example/V2-Q5.png)
 
-| **Latency** | **Preço da RU** | **Desempenho** |
+| **Latência** | **Preço da RU** | **Desempenho** |
 | --- | --- | --- |
 | 4 ms | 8,92 RU | ✅ |
 
@@ -450,7 +450,7 @@ Agora podemos encaminhar nossa consulta para o contêiner `users`, filtrando na 
 
 ![Recuperar todos os posts de um usuário](./media/how-to-model-partition-example/V3-Q3.png)
 
-| **Latency** | **Preço da RU** | **Desempenho** |
+| **Latência** | **Preço da RU** | **Desempenho** |
 | --- | --- | --- |
 | 4 ms | 6,46 RU | ✅ |
 
@@ -534,7 +534,7 @@ A etapa final é redirecionar a nossa consulta ao nosso novo contêiner `feed`:
 
 ![Recuperar os posts mais recentes](./media/how-to-model-partition-example/V3-Q6.png)
 
-| **Latency** | **Preço da RU** | **Desempenho** |
+| **Latência** | **Preço da RU** | **Desempenho** |
 | --- | --- | --- |
 | 9 ms | 16,97 RU | ✅ |
 
@@ -574,5 +574,5 @@ O feed de alterações que usamos para distribuir atualizações para outros con
 Após esta introdução ao particionamento e à modelagem de dados de caráter prático, você talvez queira verificar os artigos a seguir para analisar os conceitos abordados:
 
 - [Como trabalhar com bancos de dados, contêineres e itens](databases-containers-items.md)
-- [Particionamento no BD Cosmos do Azure](partitioning-overview.md)
+- [Particionamento no Azure Cosmos DB](partitioning-overview.md)
 - [Feed de alterações no Azure Cosmos DB](change-feed.md)

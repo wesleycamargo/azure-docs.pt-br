@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e0f131c7363a608962910f2cf0e5794972bf6208
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 9962874600e259a639c70b7b180e5fc2a940461f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56648924"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999545"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-python-in-computer-vision"></a>Início Rápido: Gerar uma miniatura usando a API REST e Python na Pesquisa Visual Computacional
 
@@ -26,7 +26,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. Para obter uma chave de assinatura, confira [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. É possível obter uma chave de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar a Pesquisa Visual Computacional e obter sua chave.
 - Um editor de códigos como o [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo

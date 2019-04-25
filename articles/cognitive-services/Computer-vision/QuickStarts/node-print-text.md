@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: f7623c126e47a05b5a4be0c23baa191c4de8a766
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7ba747c5333ea3966969360f45a51b10a890aa53
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57856304"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998491"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-nodejs-in-computer-vision"></a>Início rápido: Extrair texto impresso (OCR) usando a API REST e o Node.js na Pesquisa Visual Computacional
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-nodejs-in-computer-vision"></a>Início Rápido: Extrair texto impresso (OCR) usando a API REST e o Node.js na Pesquisa Visual Computacional
 
 Neste início rápido, você extrairá texto impresso, com OCR (reconhecimento óptico de caracteres) de uma imagem usando a API REST da Pesquisa Visual Computacional. Com o método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), você pode detectar texto impresso em uma imagem e extrair os caracteres reconhecidos em um fluxo de caracteres utilizável por computador.
 
@@ -28,7 +28,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 - É necessário ter o [Node.js](https://nodejs.org) 4.x ou posterior instalado.
 - É necessário ter o [npm](https://www.npmjs.com/) instalado.
-- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. Para obter uma chave de assinatura, confira [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. É possível obter uma chave de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar a Pesquisa Visual Computacional e obter sua chave.
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 

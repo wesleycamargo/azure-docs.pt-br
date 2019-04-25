@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8f2a5fdaf2222de7a802e8ff2a1f6fdb37dae4c3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 003e9beb3a319802754397efae3b636f51de9e52
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880021"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995890"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Início Rápido: Criar um aplicativo para Android com as Âncoras Espaciais do Azure
 
@@ -37,7 +37,7 @@ Para concluir este início rápido, certifique-se de que:
   - Se estiver executando no macOS, instale o Git por meio do HomeBrew. Digite o comando a seguir em uma única linha do Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Em seguida, execute `brew install git`.
   - Para compilar o exemplo NDK, você também precisará instalar o NDK e o CMake 3.6 SDK Tools no Android Studio.
 - Um dispositivo Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">habilitado para desenvolvedor</a> e <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">compatível com ARCore</a>.
-- Seu aplicativo deve ter como destino 1.5 ARCore (suporte para ARCore 1.6+ estará disponível em breve)
+- Seu aplicativo deve ter como destino o ARCore 1.7.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -45,7 +45,7 @@ Para concluir este início rápido, certifique-se de que:
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-Se você estiver criando a amostra do NDK para Android, precisará baixar `arcore_c_api.h` [daqui](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.5.0/libraries/include/arcore_c_api.h) e colocá-lo em `Android\NDK\libraries\include`.
+Se você estiver criando a amostra do NDK para Android, precisará baixar `arcore_c_api.h` [daqui](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.7.0/libraries/include/arcore_c_api.h) e colocá-lo em `Android\NDK\libraries\include`.
 
 Abra o Android Studio.
 
@@ -61,7 +61,7 @@ Selecione **Abrir um projeto existente do Android Studio** e selecione o projeto
 
 ## <a name="configure-account-identifier-and-key"></a>Configurar a chave e o identificador da conta
 
-A próxima etapa é configurar o aplicativo para usar o identificador de conta e a chave de conta. Você os copiou em um editor de texto ao [configurar o recurso Âncoras Espaciais](#create-a-spatial-anchors-resource).
+A próxima etapa é configurar o aplicativo para usar o identificador e a chave de conta. Você os copiou em um editor de texto ao [configurar o recurso Âncoras Espaciais](#create-a-spatial-anchors-resource).
 
 # <a name="javatabopenproject-java"></a>[Java](#tab/openproject-java)
 

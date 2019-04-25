@@ -14,18 +14,20 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 7c84a5c39b1a3b4a52505c053fdcfc92030237c3
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 34eafe8a13d126ebdbb08084d8820646ca43534a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575495"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998083"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Início Rápido: Criar um aplicativo .NET Core com a Configuração de Aplicativo
 
 A Configuração de Aplicativo do Azure é um serviço de configuração gerenciada no Azure. É possível utilizá-lo para armazenar e gerenciar facilmente todas as configurações de aplicativo em um local separado do código. Este Início Rápido mostra como incorporar o serviço em um aplicativo de console .NET Core.
 
 Você pode usar qualquer editor de código para executar as etapas deste início rápido. O [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção disponível nas plataformas Windows, macOS e Linux.
+
+![Execução do aplicativo do Início Rápido](./media/quickstarts/dotnet-core-app-run.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,6 +38,14 @@ Para fazer este início rápido, instale o [SDK do .NET Core](https://dotnet.mic
 ## <a name="create-an-app-configuration-store"></a>Criar um repositório de configurações de aplicativo
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. Selecione **Explorador de Chave/Valor** > **+ Criar** para adicionar os pares chave-valor a seguir:
+
+    | Chave | Valor |
+    |---|---|
+    | TestApp:Settings:Message | Dados da Configuração de Aplicativo do Azure |
+
+    Deixe **Rótulo** e **Tipo de Conteúdo** vazios por enquanto.
 
 ## <a name="create-a-net-core-console-app"></a>Criar um aplicativo de console .NET Core
 
@@ -99,8 +109,6 @@ Você usará a [CLI (interface de linha de comando) do .NET Core](https://docs.m
 
         dotnet run
 
-    ![Execução do aplicativo do Início Rápido](./media/quickstarts/dotnet-core-app-run.png)
-
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
@@ -110,4 +118,4 @@ Você usará a [CLI (interface de linha de comando) do .NET Core](https://docs.m
 Neste início rápido, você criou um repositório de configurações de aplicativos e o usou com um aplicativo de console .NET Core por meio do [Provedor de Configuração de Aplicativos](https://go.microsoft.com/fwlink/?linkid=2074664). Para saber mais sobre como usar a Configuração de Aplicativo, vá para o próximo tutorial que demonstra a autenticação.
 
 > [!div class="nextstepaction"]
-> [Identidades gerenciadas para a integração de recursos do Azure](./integrate-azure-managed-service-identity.md)
+> [Integração de identidade gerenciada](./howto-integrate-azure-managed-service-identity.md)

@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: ba9f1b3d-a4a0-4ff7-b0e7-428e0ed92142
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 04/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e86ae61a6aec6c546b36c52f3f3875cbebdc838e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b46135366c76abf8da5387ff0698b4dc7634d79c
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861920"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698535"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Tutorial: Integração do Azure Active Directory ao Absorb LMS
 
@@ -38,7 +39,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para configurar a integração do Azure AD ao Absorb LMS, você precisará dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/)
 * Uma assinatura do Absorb LMS com logon único habilitado
 
 ## <a name="scenario-description"></a>Descrição do cenário
@@ -120,17 +121,21 @@ Para configurar o logon único do Azure AD com o Absorb LMS, execute as seguinte
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Contate a [equipe de suporte do cliente Absorb LMS](https://support.absorblms.com/hc/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Download** para baixar o **XML de metadados** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+5. A captura de tela a seguir mostra a lista de atributos padrão, em que **nameidentifier** é mapeado com **user.userprincipalname**.
+
+    ![image](common/edit-attribute.png)
+
+6. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-6. Na seção **Configurar o Absorb LMS**, copie a URL apropriada, de acordo com suas necessidades.
+7. Na seção **Configurar o Absorb LMS**, copie a URL apropriada, de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
     a. URL de logon
 
-    b. Identificador do Azure Ad
+    b. Identificador do Azure AD
 
     c. URL de logoff
 
@@ -162,7 +167,7 @@ Para configurar o logon único do Azure AD com o Absorb LMS, execute as seguinte
 
     d. Na caixa **Modo**, selecione **Provedor de Identidade Iniciado**.
 
-    e. Na caixa **Propriedade de ID**, selecione o atributo que você configurou como o identificador de usuário no Azure AD. Por exemplo, se *userPrincipalName* estiver selecionado no Azure AD, selecione **Nome de Usuário**.
+    e. Na caixa **Propriedade de ID**, selecione o atributo que você configurou como o identificador de usuário no Azure AD. Por exemplo, se *nameidentifier* estiver selecionado no Azure AD, selecione **Nome de Usuário**.
 
     f. Selecione **Sha256** como um **Tipo de Assinatura**.
 
@@ -194,7 +199,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite `brittasimon\@yourcompanydomain.extension`  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

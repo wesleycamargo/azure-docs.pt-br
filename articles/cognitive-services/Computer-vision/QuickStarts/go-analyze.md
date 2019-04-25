@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e783181e737a235a83149b1f22d699fe0aef0bfb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 693dd25b1fdd3757cbd9c77e974c6818f59a915f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848653"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004441"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-go-in-computer-vision"></a>Início rápido: Analisar uma imagem remota usando a API REST e o Go na Pesquisa Visual Computacional
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-go-in-computer-vision"></a>Início Rápido: Analisar uma imagem remota usando a API REST e o Go na Pesquisa Visual Computacional
 
 Neste início rápido, você analisará uma imagem armazenada remotamente para extrair recursos visuais usando a API REST de Pesquisa Visual Computacional. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), é possível extrair recursos visuais com base no conteúdo de imagem.
 
@@ -27,7 +27,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Você deve ter o [Go](https://golang.org/dl/) instalado.
-- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. Para obter uma chave de assinatura, confira [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. É possível obter uma chave de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar a Pesquisa Visual Computacional e obter sua chave.
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 

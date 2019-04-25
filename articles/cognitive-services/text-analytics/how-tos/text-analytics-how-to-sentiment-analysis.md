@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 7287a9ddbd84960dcde790d813a6204e9e790094
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 0c42e7f8b1fffb9cf998f4cee8d30405a8df74a4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887413"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011292"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Exemplo: Como detectar o sentimento com Análise de Texto
 
-A [API de análise de sentimento](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) avalia a entrada de texto e retorna uma pontuação de sensibilidade para cada documento, variando de 0 (negativo) a 1 (positivo).
+A [API de análise de sentimento](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) avalia a entrada de texto e retorna uma pontuação de sensibilidade para cada documento, variando de 0 (negativo) a 1 (positivo).
 
 Esse recurso é útil para detectar o sentimento positivo e negativo em fóruns de discussão, mídia social e revisões de cliente. O conteúdo é fornecido por você, modelos e dados de treinamento são fornecidos pelo serviço.
 
@@ -37,7 +37,7 @@ A análise de sentimento é executada em todo o documento, em vez de extrair o s
 
 Análise de sentimento produz um resultado de qualidade superior quando você concede partes menores de texto para trabalhar. Este é o oposto da extração de frase-chave que executa melhor em grandes blocos de texto. Para obter os melhores resultados de ambas as operações, considere a reestruturação de entradas adequadamente.
 
-Você deve ter documentos JSON neste formato: id, texto, idioma
+Você deve ter documentos JSON neste formato: ID, texto, idioma
 
 O tamanho do documento precisa ter menos de 5.120 caracteres por documento, e você pode ter até 1.000 itens (IDs) por coleção. A coleção é enviada no corpo da solicitação. Este é um exemplo de conteúdo que você pode enviar para a detecção de sentimento.
 
@@ -77,16 +77,16 @@ O tamanho do documento precisa ter menos de 5.120 caracteres por documento, e vo
 
 Detalhes sobre a definição de solicitação podem ser encontrados em [Como chamar a API de Análise de Texto](text-analytics-how-to-call-api.md). Os seguintes pontos são redeclarados para conveniência:
 
-+ Criar uma solicitação de **Postagem**. Examine a documentação da API para esta solicitação: [API de Análise de Sentimento](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
++ Criar uma solicitação de **Postagem**. Examine a documentação da API para esta solicitação: [API de Análise de Sentimento](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 
-+ Defina o ponto de extremidade HTTP para a análise de sentimentos, usando um recurso de análise de texto no Azure ou um instanciado [contêiner de Análise de Texto](text-analytics-how-to-install-containers.md). Deve incluir o recurso `/sentiment`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
++ Defina o ponto de extremidade HTTP para a análise de sentimentos, usando um recurso de análise de texto no Azure ou um instanciado [contêiner de Análise de Texto](text-analytics-how-to-install-containers.md). Deve incluir o recurso `/sentiment`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
 
 + Defina um cabeçalho de solicitação para incluir a chave de acesso para operações de Análises de Texto do Azure Machine Learning. Para obter mais informações, consulte [Como localizar pontos de extremidade e chaves de acesso](text-analytics-how-to-access-key.md).
 
 + No corpo da solicitação, forneça a coleção de documentos JSON preparada para esta análise
 
 > [!Tip]
-> Use o [Postman](text-analytics-how-to-call-api.md) ou abra o **console de teste da API** na [documentação](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) para estruturar uma solicitação e POSTAR no serviço.
+> Use o [Postman](text-analytics-how-to-call-api.md) ou abra o **console de teste da API** na [documentação](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) para estruturar uma solicitação e POSTAR no serviço.
 
 ## <a name="step-2-post-the-request"></a>Etapa 2: Postar a solicitação
 
@@ -135,8 +135,8 @@ O exemplo a seguir mostra a resposta para o conjunto de documentos neste artigo.
 
 Neste artigo, você aprendeu os conceitos e fluxo de trabalho para detecção de idioma usando a análise de texto em Serviços Cognitivos. Em resumo:
 
-+ [API de análise de sentimento](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) está disponível para os idiomas selecionados.
-+ Documentos JSON no corpo da solicitação incluem um código de idioma, texto e id.
++ [API de análise de sentimento](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) está disponível para os idiomas selecionados.
++ Documentos JSON no corpo da solicitação incluem um código de idioma, texto e ID.
 + A solicitação POST é um `/sentiment` ponto de extremidade, usando uma [chave de acesso personalizada e um ponto de extremidade](text-analytics-how-to-access-key.md) que é válido para sua assinatura.
 + Saída de resposta, que pontuação de sentimento para cada ID do documento, pode ser transmitida para qualquer aplicativo que aceita JSON, incluindo o Excel e Power BI, para citar alguns.
 

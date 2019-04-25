@@ -1,22 +1,22 @@
 ---
 title: 'Exemplo: Explorar um aplicativo de processamento de imagens no C#'
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Explore um aplicativo Windows básico que usa a API da Pesquisa Visual Computacional nos Serviços Cognitivos da Microsoft. Execute o OCR, crie miniaturas e trabalhe com recursos visuais em uma imagem.
+titleSuffix: Azure Cognitive Services
+description: Explore um aplicativo Windows básico que usa a API da Pesquisa Visual Computacional nos Serviços Cognitivos do Azure. Execute o OCR, crie miniaturas e trabalhe com recursos visuais em uma imagem.
 services: cognitive-services
 author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
-ms.date: 02/08/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a23e45cb1e75305f41c81077c90282352327b72d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 63b5130e3cade54a2fbc432b2391ad3ee1ea8a1a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310927"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004016"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Exemplo: Explorar um aplicativo de processamento de imagens com o C#
 
@@ -33,7 +33,7 @@ Explore um aplicativo básico do Windows que usa o Computer Vision para executar
 Antes de explorar o aplicativo de amostra, verifique se você atendeu aos seguintes pré-requisitos:
 
 * Você deve ter o [Visual Studio 2015 ](https://visualstudio.microsoft.com/downloads/) ou posterior.
-* Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. Para obter uma chave de assinatura, confira [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
+* Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. É possível obter uma chave de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar a Pesquisa Visual Computacional e obter sua chave.
 
 ## <a name="get-the-sample-app"></a>Obter o aplicativo de exemplo
 

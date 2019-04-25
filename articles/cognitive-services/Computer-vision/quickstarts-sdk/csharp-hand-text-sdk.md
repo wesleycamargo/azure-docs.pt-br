@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2ae5cd0fd177f64bed5ed0705207c6a3e81a1b24
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 539d80310f07031f7a92bb5c1d6155e5948c2653
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878189"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997437"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-computer-vision-c-sdk"></a>Início Rápido: Extrair um texto manuscrito usando o SDK do C# da Pesquisa Visual Computacional
 
@@ -24,7 +24,7 @@ Neste Início Rápido, você extrairá um texto manuscrito ou impresso de uma im
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Para usar a Pesquisa Visual Computacional, você precisa de uma chave de assinatura. Veja [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
+* Uma chave de assinatura da Pesquisa Visual Computacional. É possível obter uma chave de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar a Pesquisa Visual Computacional e obter sua chave.
 * Qualquer edição do [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
 * O pacote NuGet da biblioteca de clientes [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision). Não é necessário baixar o pacote. As instruções de instalação são fornecidas abaixo.
 

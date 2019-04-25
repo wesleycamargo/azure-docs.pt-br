@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 04/03/2019
 ms.author: erhopf
 ms.openlocfilehash: 61f22568aa6e6cf04963b40ad7c47163e87b9800
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010185"
 ---
 # <a name="what-are-the-speech-services"></a>O que é o Serviço de Fala?
@@ -31,7 +31,7 @@ Esses recursos compõem o Serviço de Fala do Azure. Use os links nesta tabela p
 | [Conversão de fala em texto](speech-to-text.md) | Conversão de fala em texto | A conversão de fala em texto transcreve, em tempo real, fluxos de áudio em texto que seus aplicativos, ferramentas ou dispositivos podem consumir ou exibir. Use a conversão de fala em texto com o [LUIS (Reconhecimento vocal)](https://docs.microsoft.com/azure/cognitive-services/luis/) para derivar intenções do usuário de dados de fala transcrita e agir com base em comandos de voz. | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Transcrição em lote](batch-transcription.md) | A Transcrição em lote permite a transcrição de fala em texto assíncrona de grandes volumes de dados. Trata-se de um serviço baseado em REST que usa o mesmo ponto de extremidade que o gerenciamento de modelos e a personalização. | Não  | [Sim](https://westus.cris.ai/swagger/ui/index) |
 | | [Personalização](#customize-your-speech-experience) | Se estiver usando a conversão de fala em texto para funcionalidades de reconhecimento e transcrição em um ambiente exclusivo, você poderá criar e treinar modelos acústicos, de idioma e de pronúncia personalizados para lidar com o ruído ambiente ou vocabulário específico do setor. | Não  | [Sim](https://westus.cris.ai/swagger/ui/index) |
-| [Conversão de texto em fala](text-to-speech.md) | Conversão de texto em fala | A conversão de texto em fala converte o texto de entrada em uma fala sintetizada semelhante à humana. Escolha entre as vozes padrão e vozes neurais (consulte [Suporte para idiomas](language-support.md)). | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Conversão de Texto em Fala](text-to-speech.md) | Conversão de texto em fala | A conversão de texto em fala converte o texto de entrada em uma fala sintetizada semelhante à humana. Escolha entre as vozes padrão e vozes neurais (consulte [Suporte para idiomas](language-support.md)). | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Personalização](#customize-your-speech-experience) | Crie fontes de voz personalizadas exclusivas para sua marca ou produto. | Não  | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Tradução de Fala](speech-translation.md) | Tradução de fala | A tradução de fala possibilita a tradução em tempo real e em vários idiomas de fala para seus aplicativos, suas ferramentas e seus dispositivos. Use esse serviço para tradução de fala em fala e fala em texto. | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Não  |
 
@@ -51,7 +51,7 @@ Nós oferecemos guias de início rápido nas linguagens de programação mais po
 | Conversão de fala em texto (SDK) | Tradução (SDK) | Texto em fala (REST) | Conversão de texto em fala (SDK) |
 |-------------------|-------------------|-----------------------|-----------------------|
 | [C#, .NET Core (Windows)](quickstart-csharp-dotnet-windows.md) | [Java (Windows, Linux)](quickstart-translate-speech-java-jre.md) | [Python (Windows, Linux, macOS)](quickstart-python-text-to-speech.md) | [C#, .NET Framework (Windows)](quickstart-text-to-speech-dotnet-windows.md) |
-| [JavaScript (Browser)](quickstart-js-browser.md) | [C#, .NET Core (Windows)](quickstart-translate-speech-dotnetcore-windows.md) | [C#, .NET Core (Windows, Linux, macOS)](quickstart-dotnet-text-to-speech.md) | [C++ (Windows)](quickstart-text-to-speech-cpp-windows.md) |
+| [JavaScript (Navegador)](quickstart-js-browser.md) | [C#, .NET Core (Windows)](quickstart-translate-speech-dotnetcore-windows.md) | [C#, .NET Core (Windows, Linux, macOS)](quickstart-dotnet-text-to-speech.md) | [C++ (Windows)](quickstart-text-to-speech-cpp-windows.md) |
 | [Python (Windows, Linux, macOS)](quickstart-python.md) | [C#, .NET Framework (Windows)](quickstart-translate-speech-dotnetframework-windows.md) | [Node.js (Windows, Linux, macOS)](quickstart-nodejs-text-to-speech.md) | [C++ (Linux)](quickstart-text-to-speech-cpp-linux.md) |
 | [Java (Windows, Linux)](quickstart-java-jre.md) | [C++ (Windows)](quickstart-translate-speech-cpp-windows.md) | |
 
@@ -64,8 +64,8 @@ Depois que tiver a oportunidade de usar o Serviço de Fala, experimente nosso tu
 Há um código de exemplo disponível no GitHub para cada um dos Serviços de Fala do Azure. Esses exemplos abordam cenários comuns, como ler áudio de um arquivo ou fluxo, reconhecimento contínuo e único e trabalho com modelos personalizados. Use estes links para exibir exemplos de SDK e REST:
 
 * [Amostras de conversão de fala em texto, conversão de texto em fala e tradução de fala (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
-* [Amostras de transcrição em lote (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
-* [Amostras de conversão de texto em fala (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+* [Exemplos de transcrição em lote (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
+* [Exemplos de conversão de texto em fala (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
 ## <a name="customize-your-speech-experience"></a>Personalize sua experiência de fala
 
@@ -80,13 +80,13 @@ O Serviço de Fala do Azure funciona bem com modelos internos, no entanto, talve
 
 ## <a name="reference-docs"></a>Documentos de Referência
 
-* [SDK de fala](speech-sdk-reference.md)
+* [SDK da fala](speech-sdk-reference.md)
 * [SDK de Dispositivos de Fala](speech-devices-sdk.md)
-* [API REST: Conversão de fala em texto](rest-speech-to-text.md)
-* [API REST: Conversão de texto em fala](rest-text-to-speech.md)
-* [API REST: Transcrição e personalização em lote](https://westus.cris.ai/swagger/ui/index)
+* [API REST: conversão de fala em texto](rest-speech-to-text.md)
+* [API REST: conversão de texto em fala](rest-text-to-speech.md)
+* [API REST: transcrição e personalização em lote](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](get-started.md)
+> [Obter gratuitamente uma chave de assinatura do Serviço de Fala](get-started.md)

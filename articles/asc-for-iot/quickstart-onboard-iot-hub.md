@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 04/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 59021d09f2af9d430b118acdeb8aa977094e683e
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: cac2f740c1b2ae109f29ce44cd035fc6a83dd148
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862379"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010553"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>Início Rápido: Habilitar o serviço no Hub IoT
 
@@ -45,7 +45,7 @@ Este artigo fornece uma explicação de como habilitar o serviço de versão pr�
 Para habilitar perguntas de segurança no seu Hub IoT, faça o seguinte: 
 
 1. Abra o **Hub IoT** no portal do Azure. 
-2. No menu à esquerda, selecione e abra **Segurança**. 
+2. No menu **Segurança**, clique em **Visão geral** e, em seguida, clique em **Iniciar visualização**. 
 3. Escolha **Habilitar a segurança de IoT**. 
 4. Fornecer os detalhes do seu espaço de trabalho do Log Analytics. 
    - Opte por armazenar **eventos brutos** além dos tipos de informações padrão de armazenamento, deixando o **evento bruto** alternado em **Ativar**. 

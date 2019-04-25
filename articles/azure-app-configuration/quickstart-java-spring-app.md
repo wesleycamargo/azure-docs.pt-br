@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: 6df44531e8879783bba6b49a0db44f87af71fb5f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: d023c6ec9c3d24400fd2b7b9fcce9568aa851214
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59050502"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000006"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Início Rápido: Criar um aplicativo Java Spring com a Configuração de Aplicativo
 
@@ -35,26 +35,7 @@ Para realizar este início rápido, instale um [JDK (Java Development Kit)](http
 
 ## <a name="create-an-app-configuration-store"></a>Criar um repositório de configurações de aplicativo
 
-1. Para criar um novo repositório de configurações de aplicativo, entre no [portal do Azure](https://aka.ms/azconfig/portal). No canto superior esquerdo da página, selecione **+ Criar um recurso**. Na caixa **Pesquisar no Marketplace**, insira **Configuração de Aplicativo** e pressione Enter.
-
-    ![Pesquisar a Configuração de Aplicativo](./media/quickstarts/azure-app-configuration-new.png)
-
-2. Selecione **Configuração de Aplicativo** nos resultados da pesquisa e, em seguida, selecione **Criar**.
-
-3. Na página **Configuração de Aplicativo** > **Criar**, insira as configurações a seguir.
-
-    | Configuração | Valor sugerido | DESCRIÇÃO |
-    |---|---|---|
-    | **Nome do recurso** | Nome globalmente exclusivo | Insira um nome exclusivo do recurso a ser usado para o recurso do repositório de configurações de aplicativo. O nome deve ser uma cadeia de caracteres com 1 a 63 caracteres e deve conter somente números, letras e o caractere `-`. O nome não pode iniciar ou terminar com o caractere `-` e caracteres `-` consecutivos não são válidos.  |
-    | **Assinatura** | Sua assinatura | Selecione a assinatura do Azure que deseja usar para testar a Configuração de Aplicativo. Se a conta tiver apenas uma assinatura, ela será selecionada automaticamente e a lista suspensa **Assinatura** não será exibida. |
-    | **Grupo de recursos** | *AppConfigTestResources* | Selecione ou crie um grupo de recursos para o recurso do repositório de configurações de aplicativo. Esse grupo é útil para organizar vários recursos que você pode querer excluir ao mesmo tempo, excluindo o grupo de recursos. Para saber mais, veja [Usar os grupos de recursos para gerenciar seus recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
-    | **Local padrão** | *Centro dos EUA* | Use **Local** para especificar a localização geográfica em que o recurso do SignalR está hospedado. Para obter o melhor desempenho, crie o recurso na mesma região que outros componentes do aplicativo. |
-
-    ![Criar um repositório de configurações de aplicativo](./media/quickstarts/azure-app-configuration-create.png)
-
-4. Selecione **Criar**. A implantação pode levar alguns minutos para ser concluída.
-
-5. Após a conclusão da implantação, selecione **Configurações** > **Chaves de acesso**. Anote a cadeia de conexão de chave de leitura/gravação primária ou somente leitura primária. Você usará essa cadeia de conexão posteriormente para configurar o aplicativo a comunicar-se com o repositório de configurações do aplicativo que você criou.
+[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
 6. Selecione **Explorador de Chave/Valor** > **+ Criar** para adicionar os pares chave-valor a seguir:
 
@@ -172,4 +153,4 @@ Neste início rápido, você criou um novo repositório de configurações de ap
 Para saber mais sobre como usar a Configuração de Aplicativo, vá para o próximo tutorial que demonstra a autenticação.
 
 > [!div class="nextstepaction"]
-> [Identidades gerenciadas para a integração de recursos do Azure](./integrate-azure-managed-service-identity.md)
+> [Integração de identidade gerenciada](./howto-integrate-azure-managed-service-identity.md)

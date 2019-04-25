@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Conteúdo de imagem específico do domínio – REST, PHP'
+title: 'Início Rápido: Conteúdo específico do domínio – REST, PHP'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você usa um modelo de domínio para identificar pontos de referência em uma imagem usando a API de Pesquisa Visual Computacional com PHP.
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2c1801296247ace081a34a137fe3f3bea7a55974
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 902894ccce28ee1ba05430c7e697c3ca47887795
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877013"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011105"
 ---
-# <a name="quickstart-recognize-domain-specific-content-using-the-rest-api-and-php-with-computer-vision"></a>Início rápido: Reconhecer conteúdo específico do domínio usando a API REST e o PHP com Pesquisa Visual Computacional
+# <a name="quickstart-recognize-domain-specific-content-using-the-rest-api-and-php-with-computer-vision"></a>Início Rápido: Reconhecer conteúdo específico do domínio usando a API REST e o PHP com Pesquisa Visual Computacional
 
 Neste início rápido, você usa um modelo de domínio para identificar pontos de referência ou, opcionalmente, celebridades em uma imagem armazenada remotamente usando a API REST da Pesquisa Visual Computacional. Com o método [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200), você pode aplicar um modelo específico do domínio para reconhecer o conteúdo dentro de uma imagem.
 
@@ -28,7 +28,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 - É necessário ter o [PHP](https://secure.php.net/downloads.php) instalado.
 - É necessário ter o [Pear](https://pear.php.net) instalado.
-- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. Para obter uma chave de assinatura, confira [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. É possível obter uma chave de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar a Pesquisa Visual Computacional e obter sua chave.
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 

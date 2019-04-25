@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 2eb57268aece081423b6b0beaa314a244b6fdd8f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 50cd039395b477a93d050458c2a014e768fc5f0a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455999"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995669"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Início Rápido: Criar uma conta de armazenamento do Azure Data Lake Storage Gen2
 
-O Azure Data Lake Storage Gen2 [dá suporte a um serviço de namespace hierárquico](data-lake-storage-introduction.md) que fornece um sistema de arquivos baseado em diretórios nativo sob medida para funcionar com o HDFS (Sistema de Arquivos Distribuído Hadoop). O acesso aos dados do Armazenamento do Data Lake Gen2 pelo HDFS está disponível por meio do [driver ABFS](data-lake-storage-abfs-driver.md).
+O Azure Data Lake Storage Gen2 [dá suporte a um namespace hierárquico](data-lake-storage-introduction.md) que fornece um sistema de arquivos baseado em diretórios nativo sob medida para funcionar com o HDFS (Sistema de Arquivos Distribuído Hadoop). O acesso aos dados do Armazenamento do Data Lake Gen2 pelo HDFS está disponível por meio do [driver ABFS](data-lake-storage-abfs-driver.md).
 
 Este guia de início rápido demonstra como criar uma conta com o [portal do Azure](https://portal.azure.com/), o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ou a [CLI do Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
@@ -29,7 +29,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 |-----------|--------------|
 |Portal     | Nenhum         |
 |PowerShell | Este início rápido requer o módulo PowerShell Az.Storage versão **0.7** ou posterior. Para localizar a versão atual, execute o comando `Get-Module -ListAvailable Az.Storage`. Se, após executar esse comando, nenhum resultado for exibido ou se uma versão diferente da **0.7** for exibida, será necessário atualizar seu módulo PowerShell. Confira a seção [Atualizar seu módulo PowerShell](#upgrade-your-powershell-module) deste guia.
-|CLI        | Você pode fazer logon no Azure e executar comandos da CLI do Azure de uma das duas formas a seguir: <ul><li>Você pode executar comandos da CLI de dentro do portal do Azure, no Azure Cloud Shell </li><li>Você pode instalar a CLI e executar comandos da CLI localmente</li></ul>|
+|CLI        | Você pode entrar no Azure e executar comandos da CLI do Azure de uma das duas formas a seguir: <ul><li>Você pode executar comandos da CLI de dentro do portal do Azure, no Azure Cloud Shell </li><li>Você pode instalar a CLI e executar comandos da CLI localmente</li></ul>|
 
 Ao trabalhar na linha de comando, você tem a opção de executar o Azure Cloud Shell ou instalar a CLI localmente.
 
@@ -63,7 +63,7 @@ Ao nomear sua conta de armazenamento, lembre-se dessas regras:
 
 ## <a name="create-an-account-using-the-azure-portal"></a>Criar uma conta usando o portal do Azure
 
-Faça logon no [Portal do Azure](https://portal.azure.com).
+Entre no [Portal do Azure](https://portal.azure.com).
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -112,7 +112,7 @@ Para remover um grupo de recursos usando o portal do Azure:
 
 Primeiro, instale a última versão do módulo [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget) do PowerShell.
 
-Em seguida, atualize seu módulo PowerShell, faça logon em sua assinatura do Azure, crie um grupo de recursos e, em seguida, crie uma conta de armazenamento.
+Em seguida, atualize seu módulo PowerShell, entre em sua assinatura do Azure, crie um grupo de recursos e, em seguida, crie uma conta de armazenamento.
 
 ### <a name="upgrade-your-powershell-module"></a>Atualizar seu módulo do powershell
 
@@ -128,7 +128,7 @@ Instalar o módulo Az.Storage
 Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
 ```
 
-### <a name="log-in-to-your-azure-subscription"></a>Fazer logon na Assinatura do Azure
+### <a name="sign-in-to-your-azure-subscription"></a>Entre em sua Assinatura do Azure
 
 Use o comando `Login-AzAccount` e siga as instruções na tela para fazer a autenticação.
 
@@ -176,9 +176,9 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="create-an-account-using-azure-cli"></a>Criar uma conta usando a CLI do Azure
 
-Para iniciar o Azure Cloud Shell, faça logon no [portal do Azure](https://portal.azure.com).
+Para iniciar o Azure Cloud Shell, entre no [portal do Azure](https://portal.azure.com).
 
-Se desejar fazer logon na instalação local da CLI, execute o comando de logon:
+Se desejar entrar na instalação local da CLI, execute o comando de logon:
 
 ```cli
 az login

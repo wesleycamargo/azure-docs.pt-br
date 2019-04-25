@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Analisar uma imagem remota – REST, Node.js'
+title: 'Início Rápido: Analisar uma imagem remota – REST, Node.js'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você analisará uma imagem usando a API da Pesquisa Visual Computacional com Node.js.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 96a2e9f2f6e114c9a4b74111cd6a6d085022a4c8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f8b89b9a1354345235bacd227270c214f1a65799
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57872658"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007417"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-with-nodejs-in-computer-vision"></a>Início Rápido: Analisar uma imagem remota usando a API REST com Node.js na Pesquisa Visual Computacional
 
@@ -28,7 +28,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 - É necessário ter o [Node.js](https://nodejs.org) 4.x ou posterior instalado.
 - É necessário ter o [npm](https://www.npmjs.com/) instalado.
-- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. Para obter uma chave de assinatura, confira [Obter chaves de assinatura](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Você precisa ter uma chave de assinatura para a Pesquisa Visual Computacional. É possível obter uma chave de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [Criar uma conta dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar a Pesquisa Visual Computacional e obter sua chave.
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
