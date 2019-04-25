@@ -2,7 +2,7 @@
 - name: Visão geral
   expanded: true
   items:
-    - name: O que é o Localizador de Anomalia?
+    - name: O que é Localizador de Anomalias?
       href: overview.md
 - name: Guias de instruções
   items:

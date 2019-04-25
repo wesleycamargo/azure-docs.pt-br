@@ -11,7 +11,7 @@ ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 82baef7ce0d91713c8bef202ab0ea0925d290f3a
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496583"
@@ -97,9 +97,9 @@ O diagnóstico da automação do Azure cria dois tipos de registros em logs do A
 | Tenant_g | GUID que identifica o locatário para o Chamador. |
 | JobId_g |GUID que é a Id do trabalho de runbook. |
 | ResultType |O status do trabalho de runbook. Os valores possíveis são:<br>- Novo<br>- Iniciado<br>- Parado<br>- Suspenso<br>- Com falha<br>– Concluído |
-| Category | Classificação do tipo de dados. Para a Automação, o valor é JobLogs. |
+| Categoria | Classificação do tipo de dados. Para a Automação, o valor é JobLogs. |
 | OperationName | Especifica o tipo de operação realizada no Azure. Para a Automação, o valor é Job. |
-| Resource | Nome da Conta de automação |
+| Recurso | Nome da Conta de automação |
 | SourceSystem | Como o Azure Monitor registra os dados coletados. Sempre *Azure* para o Diagnóstico do Azure. |
 | ResultDescription |Descreve o estado de resultado do trabalho de runbook. Os valores possíveis são:<br>- O trabalho foi iniciado<br>- O trabalho falhou<br>- Trabalho Concluído |
 | CorrelationId |O GUID que é a Id de correlação do trabalho de runbook. |
@@ -120,9 +120,9 @@ O diagnóstico da automação do Azure cria dois tipos de registros em logs do A
 | Tenant_g | GUID que identifica o locatário para o Chamador. |
 | JobId_g |GUID que é a Id do trabalho de runbook. |
 | ResultType |O status do trabalho de runbook. Os valores possíveis são:<br>- em andamento |
-| Category | Classificação do tipo de dados. Para a Automação, o valor é JobStreams. |
+| Categoria | Classificação do tipo de dados. Para a Automação, o valor é JobStreams. |
 | OperationName | Especifica o tipo de operação realizada no Azure. Para a Automação, o valor é Job. |
-| Resource | Nome da Conta de automação |
+| Recurso | Nome da Conta de automação |
 | SourceSystem | Como o Azure Monitor registra os dados coletados. Sempre *Azure* para o Diagnóstico do Azure. |
 | ResultDescription |Inclui o fluxo de saída do runbook. |
 | CorrelationId |O GUID que é a Id de correlação do trabalho de runbook. |

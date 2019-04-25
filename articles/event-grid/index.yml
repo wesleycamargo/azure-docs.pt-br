@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 53f9fbdf06958189a40f78b1b8d68b8fb02b7133
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176745"
 documentType: LandingData
 title: Documentação da Grade de Eventos do Azure
 metadata:
-  title: Documentação da Grade de Eventos do Azure - Tutoriais, Referência da API
+  title: 'Documentação da Grade de Eventos do Azure - Tutoriais, Referência da API'
   description: Use a Grade de Eventos do Azure para reagir a eventos relevantes nos serviços do Azure e não do Azure quase em tempo real.
   services: event-grid
   author: czeumault
@@ -20,72 +14,72 @@ metadata:
   ms.date: 08/10/2017
   ms.author: carolz
 abstract:
-  description: A Grade de Eventos do Azure é um serviço de roteamento de eventos inteligente totalmente gerenciado que permite um consumo de eventos uniforme usando um modelo do tipo publicar-assinar. Use a Grade de Eventos do Azure para reagir a eventos relevantes nos serviços do Azure e não do Azure quase em tempo real. Saiba como usar a Grade de Eventos do Azure com nossos guias de início rápido, tutoriais e exemplos.
+  description: 'A Grade de Eventos do Azure é um serviço de roteamento de eventos inteligente totalmente gerenciado que permite um consumo de eventos uniforme usando um modelo do tipo publicar-assinar. Use a Grade de Eventos do Azure para reagir a eventos relevantes nos serviços do Azure e não do Azure quase em tempo real. Saiba como usar a Grade de Eventos do Azure com nossos guias de início rápido, tutoriais e exemplos.'
 sections:
-- title: Guia de início rápido de 5 minutos
-  items:
-  - type: paragraph
-    text: Saiba como criar e assinar eventos personalizados.
-  - type: list
-    style: icon48
+  - title: Guia de início rápido de 5 minutos
     items:
-    - image:
-        src: /azure/event-grid/media/index/cli.svg
-      text: CLI do Azure
-      href: /azure/event-grid/custom-event-quickstart
-    - image:
-        src: /azure/event-grid/media/index/logo_powershell.svg
-      text: Azure PowerShell
-      href: /azure/event-grid/custom-event-quickstart-powershell
-    - image:
-        src: /azure/event-grid/media/index/portal.svg
-      text: Portal do Azure
-      href: /azure/event-grid/custom-event-quickstart-portal
-  - type: paragraph
-    text: Saiba como rotear os eventos de armazenamento de Blobs.
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: Saiba como criar e assinar eventos personalizados.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/event-grid/media/index/cli.svg
+            text: CLI do Azure
+            href: /azure/event-grid/custom-event-quickstart
+          - image:
+              src: /azure/event-grid/media/index/logo_powershell.svg
+            text: Azure PowerShell
+            href: /azure/event-grid/custom-event-quickstart-powershell
+          - image:
+              src: /azure/event-grid/media/index/portal.svg
+            text: Portal do Azure
+            href: /azure/event-grid/custom-event-quickstart-portal
+      - type: paragraph
+        text: Saiba como rotear os eventos de armazenamento de Blobs.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/event-grid/media/index/cli.svg
+            text: CLI do Azure
+            href: /azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fevent-grid%2ftoc.json
+          - image:
+              src: /azure/event-grid/media/index/logo_powershell.svg
+            text: Azure PowerShell
+            href: /azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fevent-grid%2ftoc.json
+  - title: Tutoriais Passo a Passo
     items:
-    - image:
-        src: /azure/event-grid/media/index/cli.svg
-      text: CLI do Azure
-      href: /azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fevent-grid%2ftoc.json
-    - image:
-        src: /azure/event-grid/media/index/logo_powershell.svg
-      text: Azure PowerShell
-      href: /azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fevent-grid%2ftoc.json
-- title: Tutoriais Passo a Passo
-  items:
-  - type: paragraph
-    text: Saiba como desenvolver aplicativos que reagem a eventos.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: Saiba como desenvolver aplicativos que reagem a eventos.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Monitorar as alterações nas VMs com aplicativos lógicos</a>
+          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Redimensionar imagens carregadas</a>
+          - html: <a href="/azure/event-grid/ensure-tags-exists-on-new-virtual-machines">Integrando a Automação do Azure com a Grade de Eventos</a>
+  - title: Desenvolva suas habilidades com o Microsoft Learn
     items:
-    - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Monitorar as alterações nas VMs com aplicativos lógicos</a>
-    - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Redimensionar imagens carregadas</a>
-    - html: <a href="/azure/event-grid/ensure-tags-exists-on-new-virtual-machines">Integrando a Automação do Azure com a Grade de Eventos</a>
-- title: Desenvolva suas habilidades com o Microsoft Learn
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Escolha um modelo de sistema de mensagens no Azure para se conectar livremente aos serviços
+            href: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
+            image:
+              src: /learn/achievements/choose-a-messaging-model-in-azure-to-connect-your-services.svg
+              href: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
+      - type: paragraph
+        text: <a href="/learn/browse/?products=azure-event-grid">Mais aprendizado interativo...</a>
+  - title: Referência
     items:
-    - title: Escolha um modelo de sistema de mensagens no Azure para se conectar livremente aos serviços
-      href: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
-      image:
-        src: /learn/achievements/choose-a-messaging-model-in-azure-to-connect-your-services.svg
-        href: /learn/modules/choose-a-messaging-model-in-azure-to-connect-your-services/
-  - type: paragraph
-    text: <a href="/learn/browse/?products=azure-event-grid">Mais aprendizado interativo...</a>
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Linha de comando
-      html: <p><a href="/cli/azure/eventgrid">CLI do Azure</a></p><p><a href="/powershell/module/az.eventgrid">PowerShell</a></p>
-    - title: APIs REST
-      html: <p><a href="/rest/api/eventgrid">REST</a></p>
-    - title: Esquemas
-      html: <p><a href="/azure/event-grid/subscription-creation-schema ">Esquema da Assinatura</a></p><p><a href="/azure/event-grid/event-schema">Esquema do evento</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Linha de comando
+            html: <p><a href="/cli/azure/eventgrid">CLI do Azure</a></p><p><a href="/powershell/module/az.eventgrid">PowerShell</a></p>
+          - title: APIs REST
+            html: <p><a href="/rest/api/eventgrid">REST</a></p>
+          - title: Esquemas
+            html: <p><a href="/azure/event-grid/subscription-creation-schema ">Esquema da Assinatura</a></p><p><a href="/azure/event-grid/event-schema">Esquema do evento</a></p>

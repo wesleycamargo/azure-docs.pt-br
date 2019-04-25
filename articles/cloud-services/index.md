@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 300762cd98f66af80dd6fd7079005ef17ece2ade
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 80f28d5f42dfacd2fa5d553b545bff5708eb09ca
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24101875"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60629064"
 ---
 # <a name="cloud-services-documentation"></a>Documentação dos Serviços de Nuvem
 
@@ -107,7 +107,7 @@ Saiba como usar os Serviços de Nuvem para hospedar e executar aplicativos de nu
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Linguagens</h3>
+                        <h3>Languages</h3>
                         <p><a href="/azure/cloud-services/schema-csdef-file">Esquema XML .csdef</a></p>
                         <p><a href="/azure/cloud-services/schema-csdef-loadbalancerprobe">Esquema LoadBalancerProbe</a></p>
                         <p><a href="/azure/cloud-services/schema-csdef-webrole">Esquema WebRole</a></p>

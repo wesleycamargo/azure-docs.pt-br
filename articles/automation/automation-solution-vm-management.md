@@ -11,7 +11,7 @@ ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 6d7b99da3e8e81973c51bbd68a15517828c9736d
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "58762932"
@@ -248,8 +248,8 @@ A Automação cria dois tipos de registros no espaço de trabalho do Log Analyti
 
 |Propriedade | DESCRIÇÃO|
 |----------|----------|
-|Caller |  Quem iniciou a operação. Os valores possíveis são um endereço de email ou o sistema para trabalhos agendados.|
-|Category | Classificação do tipo de dados. Para a Automação, o valor é JobLogs.|
+|Chamador |  Quem iniciou a operação. Os valores possíveis são um endereço de email ou o sistema para trabalhos agendados.|
+|Categoria | Classificação do tipo de dados. Para a Automação, o valor é JobLogs.|
 |CorrelationId | O GUID que é a ID de correlação do trabalho de runbook.|
 |JobId | GUID que é a ID do trabalho de runbook.|
 |operationName | Especifica o tipo de operação realizada no Azure. Para a Automação, o valor é Job.|
@@ -263,14 +263,14 @@ A Automação cria dois tipos de registros no espaço de trabalho do Log Analyti
 |SourceSystem | Especifica o sistema de origem dos dados enviados. Para a Automação, o valor é OpsManager|
 |StreamType | Especifica o tipo de evento. Os valores possíveis são:<br>- Detalhado<br>- Saída<br>- Erro<br>- Aviso|
 |SubscriptionId | Especifica a ID da assinatura do trabalho.
-|Time | Data e hora da execução do trabalho de runbook.|
+|Hora | Data e hora da execução do trabalho de runbook.|
 
 ### <a name="job-streams"></a>Transmissões de trabalho
 
 |Propriedade | DESCRIÇÃO|
 |----------|----------|
-|Caller |  Quem iniciou a operação. Os valores possíveis são um endereço de email ou o sistema para trabalhos agendados.|
-|Category | Classificação do tipo de dados. Para a Automação, o valor é JobStreams.|
+|Chamador |  Quem iniciou a operação. Os valores possíveis são um endereço de email ou o sistema para trabalhos agendados.|
+|Categoria | Classificação do tipo de dados. Para a Automação, o valor é JobStreams.|
 |JobId | GUID que é a ID do trabalho de runbook.|
 |operationName | Especifica o tipo de operação realizada no Azure. Para a Automação, o valor é Job.|
 |ResourceGroup | Especifica o nome do grupo de recursos do trabalho do runbook.|
@@ -282,7 +282,7 @@ A Automação cria dois tipos de registros no espaço de trabalho do Log Analyti
 |RunbookName | O nome do runbook.|
 |SourceSystem | Especifica o sistema de origem dos dados enviados. Para a Automação, o valor é OpsManager.|
 |StreamType | O tipo de fluxo de trabalho. Os valores possíveis são:<br>- Andamento<br>- Saída<br>- Aviso<br>- Erro<br>- Depurar<br>- Detalhado|
-|Time | Data e hora da execução do trabalho de runbook.|
+|Hora | Data e hora da execução do trabalho de runbook.|
 
 Quando você executa uma pesquisa de logs que retorna registros da categoria de **JobLogs** ou **JobStreams**, pode selecionar a exibição **JobLogs** ou **JobStreams**, que exibe um conjunto de blocos resumindo as atualizações retornadas pela pesquisa.
 

@@ -1,4 +1,3 @@
-items:
 - name: Serviço do Azure Machine Learning
   href: service/index.yml
 - name: Azure Machine Learning Studio
@@ -6,9 +5,3 @@ items:
 - name: Comparar produtos de Machine Learning na Microsoft
   href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
   maintainContext: true
-ms.openlocfilehash: 59852fe858e9b4796fec476c1bfe41c0e0d0381e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58175855"

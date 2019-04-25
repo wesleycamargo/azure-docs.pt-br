@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1ed169d248fce28a668c1c93fe2d9796b59547bd
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619213"
 documentType: LandingData
 title: Documentação do portal do Azure
 metadata:
@@ -23,29 +17,29 @@ metadata:
   ms.date: 10/08/2018
   ms.author: kfollis
 abstract:
-  description: O portal do Azure é um console unificado e baseado na Web que permite compilar, gerenciar e monitorar tudo, desde aplicativos Web simples até aplicativos complexos na nuvem. Ele inclui um painel personalizável e opções de acessibilidade.
+  description: 'O portal do Azure é um console unificado e baseado na Web que permite compilar, gerenciar e monitorar tudo, desde aplicativos Web simples até aplicativos complexos na nuvem. Ele inclui um painel personalizável e opções de acessibilidade.'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
-    items:
-    - href: /azure/azure-preview-portal-supported-browsers-devices
-      html: <p>Execute o portal do Azure em todos os desktops modernos, tablets e navegadores.</p>
-      title: Navegadores e dispositivos com suporte
-    - href: /azure/azure-portal/azure-portal-change-theme-high-contrast
-      html: <p>Altere o esquema de cores ou contraste no portal do Azure.</p>
-      title: Ativar o alto contraste
-    - href: /azure/azure-portal/azure-portal-keyboard-shortcuts
-      html: <p>Saiba mais sobre os atalhos de teclado que funcionam no portal do Azure.</p>
-      title: Atalhos do teclado
-    - href: /azure/azure-portal/azure-portal-dashboards
-      html: <p>Crie vários painéis e compartilhe-os com outras pessoas que têm acesso às assinaturas do Azure.</p>
-      title: Criar e compartilhar painéis do Azure
-    - href: /azure/azure-portal/azure-portal-dashboard-share-access
-      html: <p>Publique e compartilhe um painel com outros usuários em sua organização.</p>
-      title: Compartilhar painéis usando o RBAC
-    - href: /azure/azure-portal/azure-portal-dashboards-create-programmatically
-      html: <p>Criar e publicar programaticamente os painéis de sua organização</p>
-      title: Criar programaticamente os painéis do Azure
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/azure-preview-portal-supported-browsers-devices
+            html: '<p>Execute o portal do Azure em todos os desktops modernos, tablets e navegadores.</p>'
+            title: Navegadores e dispositivos com suporte
+          - href: /azure/azure-portal/azure-portal-change-theme-high-contrast
+            html: <p>Altere o esquema de cores ou contraste no portal do Azure.</p>
+            title: Ativar o alto contraste
+          - href: /azure/azure-portal/azure-portal-keyboard-shortcuts
+            html: <p>Saiba mais sobre os atalhos de teclado que funcionam no portal do Azure.</p>
+            title: Atalhos do teclado
+          - href: /azure/azure-portal/azure-portal-dashboards
+            html: <p>Crie vários painéis e compartilhe-os com outras pessoas que têm acesso às assinaturas do Azure.</p>
+            title: Criar e compartilhar painéis do Azure
+          - href: /azure/azure-portal/azure-portal-dashboard-share-access
+            html: <p>Publique e compartilhe um painel com outros usuários em sua organização.</p>
+            title: Compartilhar painéis usando o RBAC
+          - href: /azure/azure-portal/azure-portal-dashboards-create-programmatically
+            html: <p>Criar e publicar programaticamente os painéis de sua organização</p>
+            title: Criar programaticamente os painéis do Azure

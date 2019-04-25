@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: cc30c4552cfa672121a5e7fc520fb4412237b7e9
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56591682"
 documentType: LandingData
 title: Documentação do Lote
 metadata:
-  title: Documentação do Lote - Tutoriais, Referência de API | Microsoft Docs
-  description: Use o Lote para executar com eficiência aplicativos HPC (computação de alto desempenho) e paralelos em grande escala na nuvem. Defina os recursos de computação do Azure para executar seus aplicativos em paralelo ou em escala sem configurar manualmente ou gerenciar a infraestrutura. Agende as tarefas que requerem muita computação e adicione ou remova dinamicamente os recursos de computação com base em seus requisitos. Saiba como usar o Lote do Azure com nossos guias de início rápido, tutoriais e exemplos.
+  title: 'Documentação do Lote - Tutoriais, Referência de API | Microsoft Docs'
+  description: 'Use o Lote para executar com eficiência aplicativos HPC (computação de alto desempenho) e paralelos em grande escala na nuvem. Defina os recursos de computação do Azure para executar seus aplicativos em paralelo ou em escala sem configurar manualmente ou gerenciar a infraestrutura. Agende as tarefas que requerem muita computação e adicione ou remova dinamicamente os recursos de computação com base em seus requisitos. Saiba como usar o Lote do Azure com nossos guias de início rápido, tutoriais e exemplos.'
   services: batch
   author: czeumault
   manager: carolz
@@ -20,58 +14,58 @@ metadata:
   ms.date: 11/30/2017
   ms.author: carolz
 abstract:
-  description: Use o Lote para executar com eficiência aplicativos HPC (computação de alto desempenho) e paralelos em grande escala na nuvem. Defina os recursos de computação do Azure para executar seus aplicativos em paralelo ou em escala sem configurar manualmente ou gerenciar a infraestrutura. Agende as tarefas que requerem muita computação e adicione ou remova dinamicamente os recursos de computação com base em seus requisitos. Saiba como usar o Lote do Azure com nossos guias de início rápido, tutoriais e exemplos.
+  description: 'Use o Lote para executar com eficiência aplicativos HPC (computação de alto desempenho) e paralelos em grande escala na nuvem. Defina os recursos de computação do Azure para executar seus aplicativos em paralelo ou em escala sem configurar manualmente ou gerenciar a infraestrutura. Agende as tarefas que requerem muita computação e adicione ou remova dinamicamente os recursos de computação com base em seus requisitos. Saiba como usar o Lote do Azure com nossos guias de início rápido, tutoriais e exemplos.'
 sections:
-- title: Guia de início rápido de 5 minutos
-  items:
-  - type: paragraph
-    text: Saiba como executar seu primeiro trabalho em lotes no Azure.
-  - type: list
-    style: icon48
+  - title: Guia de início rápido de 5 minutos
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
-      text: CLI do Azure
-      href: quick-create-cli
-    - image:
-        src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Portal do Azure
-      href: quick-create-portal
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_NET.svg
-      text: .NET
-      href: quick-run-dotnet
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_python.svg
-      text: Python
-      href: quick-run-python
-- title: Tutoriais Passo a Passo
-  items:
-  - type: paragraph
-    text: Saiba como executar as cargas de trabalho que requerem muita computação no Lote.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: Saiba como executar seu primeiro trabalho em lotes no Azure.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
+            text: CLI do Azure
+            href: quick-create-cli
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Portal do Azure
+            href: quick-create-portal
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_NET.svg'
+            text: .NET
+            href: quick-run-dotnet
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_python.svg'
+            text: Python
+            href: quick-run-python
+  - title: Tutoriais Passo a Passo
     items:
-    - html: <a href="tutorial-parallel-dotnet">Processamento de arquivo paralelo com SDK do .NET </a>
-    - html: <a href="tutorial-parallel-python">Processamento de arquivo paralelo com SDK do Python</a>
-    - html: <a href="tutorial-rendering-cli">Renderização de cena com Arnold</a>
-    - html: <a href="tutorial-r-doazureparallel">Simulação R paralela</a>
-- title: Exemplos
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: Saiba como executar as cargas de trabalho que requerem muita computação no Lote.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-parallel-dotnet">Processamento de arquivo paralelo com SDK do .NET </a>
+          - html: <a href="tutorial-parallel-python">Processamento de arquivo paralelo com SDK do Python</a>
+          - html: <a href="tutorial-rendering-cli">Renderização de cena com Arnold</a>
+          - html: <a href="tutorial-r-doazureparallel">Simulação R paralela</a>
+  - title: Exemplos
     items:
-    - html: <a href="cli-samples">CLI do Azure</a>
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="cli-samples">CLI do Azure</a>
+  - title: Referência
     items:
-    - title: Linha de comando
-      html: <p><a href="/cli/azure/batch">CLI do Azure</a></p><p><a href="/powershell/module/az.batch">PowerShell do Azure</a></p>
-    - title: Languages
-      html: <p><a href="/dotnet/api/overview/azure/batch">.NET</a></p><p><a href="/java/api/overview/azure/batch">Java</a></p><p><a href="/javascript/api/overview/azure/batch">Node.js</a></p><p><a href="/python/api/overview/azure/batch">Python</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/batchservice">API REST do Serviço em Lotes</a></p><p><a href="/rest/api/batchmanagement/">API REST do Gerenciamento em Lotes</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Linha de comando
+            html: <p><a href="/cli/azure/batch">CLI do Azure</a></p><p><a href="/powershell/module/az.batch">PowerShell do Azure</a></p>
+          - title: Languages
+            html: <p><a href="/dotnet/api/overview/azure/batch">.NET</a></p><p><a href="/java/api/overview/azure/batch">Java</a></p><p><a href="/javascript/api/overview/azure/batch">Node.js</a></p><p><a href="/python/api/overview/azure/batch">Python</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/batchservice">API REST do Serviço em Lotes</a></p><p><a href="/rest/api/batchmanagement/">API REST do Gerenciamento em Lotes</a></p>

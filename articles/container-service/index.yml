@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 64d2ad6990b41c7c9ff28a667b4fd51729877670
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986924"
 documentType: LandingData
 title: Documentação do Serviço de Contêiner
 metadata:
-  document_id: 
-  title: Documentação do Serviço de Contêiner do Azure - Tutoriais, Referência de API | Microsoft Docs
-  meta.description: Azure Container Service allows you to quickly deploy a production ready Kubernetes, DC/OS, or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.
+  document_id: null
+  title: 'Documentação do Serviço de Contêiner do Azure - Tutoriais, Referência de API | Microsoft Docs'
+  meta.description: 'Azure Container Service allows you to quickly deploy a production ready Kubernetes, DC/OS, or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.'
   services: container-service
   author: czeumault
   manager: carolz
@@ -21,44 +15,44 @@ metadata:
   ms.date: 07-21-2017
   ms.author: carolz
 abstract:
-  description: O Serviço de Contêiner do Azure permite implantar rapidamente um cluster Kubernetes, DC/SO ou o Docker Swarm pronto para produção. Saiba como usar o Serviço de Contêiner do Azure com esses guias de início rápido, tutoriais e exemplos.
+  description: 'O Serviço de Contêiner do Azure permite implantar rapidamente um cluster Kubernetes, DC/SO ou o Docker Swarm pronto para produção. Saiba como usar o Serviço de Contêiner do Azure com esses guias de início rápido, tutoriais e exemplos.'
 sections:
-- title: 
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+  - title: null
     items:
-    - title: Introdução aos clusters Kubernetes
-      href: /azure/container-service/kubernetes
-      image:
-        src: media/index/get-started.svg
-        href: /azure/container-service/kubernetes
-    - title: Introdução ao controlador de domínio/sistema operacional e aos clusters do Docker Swarm
-      href: /azure/container-service/dcos-swarm
-      image:
-        src: media/index/get-started.svg
-        href: /azure/container-service/dcos-swarm
-- title: Desenvolva suas habilidades com o Microsoft Learn
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Introdução aos clusters Kubernetes
+            href: /azure/container-service/kubernetes
+            image:
+              src: media/index/get-started.svg
+              href: /azure/container-service/kubernetes
+          - title: Introdução ao controlador de domínio/sistema operacional e aos clusters do Docker Swarm
+            href: /azure/container-service/dcos-swarm
+            image:
+              src: media/index/get-started.svg
+              href: /azure/container-service/dcos-swarm
+  - title: Desenvolva suas habilidades com o Microsoft Learn
     items:
-    - title: Introdução aos contêineres no Azure
-      href: /learn/modules/intro-to-containers/
-      image:
-        src: /learn/achievements/intro-to-containers.svg
-        href: /learn/modules/intro-to-containers/
-    - title: Executar contêineres do Docker com Instâncias de Contêiner do Azure
-      href: /learn/modules/run-docker-with-azure-container-instances/
-      image:
-        src: /learn/achievements/run-docker-with-azure-container-instances.svg
-        href: /learn/modules/run-docker-with-azure-container-instances/
-    - title: Criar e armazenar imagens de contêiner com o Registro de Contêiner do Azure
-      href: /learn/modules/build-and-store-container-images/
-      image:
-        src: /learn/achievements/build-and-store-container-images.svg
-        href: /learn/modules/build-and-store-container-images/
-  - type: paragraph
-    text: <a href="/learn/browse/?products=azure-container-registry%2Cazure-container-instances">Mais aprendizado interativo...</a>
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Introdução aos contêineres no Azure
+            href: /learn/modules/intro-to-containers/
+            image:
+              src: /learn/achievements/intro-to-containers.svg
+              href: /learn/modules/intro-to-containers/
+          - title: Executar contêineres do Docker com Instâncias de Contêiner do Azure
+            href: /learn/modules/run-docker-with-azure-container-instances/
+            image:
+              src: /learn/achievements/run-docker-with-azure-container-instances.svg
+              href: /learn/modules/run-docker-with-azure-container-instances/
+          - title: Criar e armazenar imagens de contêiner com o Registro de Contêiner do Azure
+            href: /learn/modules/build-and-store-container-images/
+            image:
+              src: /learn/achievements/build-and-store-container-images.svg
+              href: /learn/modules/build-and-store-container-images/
+      - type: paragraph
+        text: <a href="/learn/browse/?products=azure-container-registry%2Cazure-container-instances">Mais aprendizado interativo...</a>

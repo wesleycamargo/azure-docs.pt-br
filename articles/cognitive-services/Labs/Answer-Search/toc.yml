@@ -2,7 +2,7 @@
 - name: Visão geral
   expanded: true
   items:
-    - name: O que é a pesquisa de resposta do projeto?
+    - name: O que é a Pesquisa de Resposta de Projeto?
       href: overview.md
 - name: Guia de início rápido
   expanded: true
