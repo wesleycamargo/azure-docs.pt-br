@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/27/2018
 ms.author: iainfou
 ms.openlocfilehash: 56b13a0ba6a93f1acd8edf1ce6c95561f63758c8
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002193"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61217047"
 ---
 > [!WARNING]
 >  **O ACS (Serviço de Contêiner do Azure) está sendo preterido. Não estão sendo adicionados novos recursos ou funcionalidades ao ACS. Todas as APIs, a experiência do portal, os comandos da CLI e a documentação estão marcados como preteridos.**

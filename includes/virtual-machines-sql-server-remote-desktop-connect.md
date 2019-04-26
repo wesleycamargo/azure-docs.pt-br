@@ -1,15 +1,16 @@
 ---
-author: rothja
+author: rockboyfor
 ms.service: virtual-machines-sql
 ms.topic: include
-ms.date: 10/26/2018
-ms.author: jroth
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
 ms.openlocfilehash: fe5daa38c43723c85fb464e191ee4a3e85700e0b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226612"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130799"
 ---
 1. Após a criação e execução da máquina virtual do Azure, clique no ícone de Máquinas Virtuais no Portal do Azure para exibir suas VMs.
 
@@ -28,3 +29,5 @@ ms.locfileid: "50226612"
    ![Autenticação de área de trabalho remota](./media/virtual-machines-sql-server-remote-desktop-connect/remote-desktop-connect.png)
 
 1. Clique em **OK** para conectar.
+
+<!--Update_Description: wording update, update link-->
