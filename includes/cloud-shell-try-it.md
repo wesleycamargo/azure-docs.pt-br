@@ -9,7 +9,7 @@ ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188896"
+ms.locfileid: "62087222"
 ---
 ## <a name="open-azure-cloud-shell"></a>Abrir o Azure Cloud Shell
 
