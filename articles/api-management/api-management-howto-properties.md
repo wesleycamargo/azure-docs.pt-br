@@ -27,10 +27,10 @@ Cada instância de serviço do Gerenciamento de API tem uma coleção de proprie
 
 | Atributo | Type | DESCRIÇÃO |
 | --- | --- | --- |
-| Nome de exibição |cadeia de caracteres |Cadeia de caracteres alfanuméricos usada para referenciar a propriedade nas políticas. |
-| Valor |cadeia de caracteres |O valor da propriedade. Ele não pode ficar vazio ou conter apenas espaços em branco. |
-|Segredo|booleano|Determina se o valor é um segredo e se deve ser criptografado ou não.|
-| Marcas |matriz de cadeias de caracteres |Marcas opcionais que, quando fornecidas, podem ser usadas para filtrar a lista de propriedades. |
+| `Display name` |cadeia de caracteres |Cadeia de caracteres alfanuméricos usada para referenciar a propriedade nas políticas. |
+| `Value` |cadeia de caracteres |O valor da propriedade. Ele não pode ficar vazio ou conter apenas espaços em branco. |
+| `Secret` |booleano|Determina se o valor é um segredo e se deve ser criptografado ou não.|
+| `Tags` |matriz de cadeias de caracteres |Marcas opcionais que, quando fornecidas, podem ser usadas para filtrar a lista de propriedades. |
 
 ![Valores nomeados](./media/api-management-howto-properties/named-values.png)
 
