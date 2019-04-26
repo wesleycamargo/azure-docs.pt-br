@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: daveba
 ms.custom: include file
-ms.openlocfilehash: 4ae995e69d1241d94584529572df3ffd3fe59144
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: MT
+ms.openlocfilehash: 4311cd2174500df51e5006ff8f274d0737cc74d1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "58113874"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60293499"
 ---
 |  |
 |--|
-|Usuário atribuído identidades gerenciadas são um recurso de visualização do Azure Active Directory. Examine os [problemas conhecidos](~/articles/active-directory/managed-identities-azure-resources/known-issues.md) antes de começar. Para saber mais, veja [Termos de uso complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+|As identidades gerenciadas atribuídas são uma versão prévia do recurso do Azure Active Directory. Examine os [problemas conhecidos](~/articles/active-directory/managed-identities-azure-resources/known-issues.md) antes de começar. Para saber mais, veja [Termos de uso complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |
 
 
