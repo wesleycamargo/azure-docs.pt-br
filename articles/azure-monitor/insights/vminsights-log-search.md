@@ -52,13 +52,13 @@ Para gerenciar o custo e a complexidade, os registros de conexão não represent
 
 | Propriedade | DESCRIÇÃO |
 |:--|:--|
-|Direção |Direção da conexão, o valor é *entrada* ou *saída* |
-|Computador |O FQDN do computador |
-|Processo |Identidade do processo ou grupos de processos, iniciando/aceitando a conexão |
+|Direction |Direção da conexão, o valor é *entrada* ou *saída* |
+|Machine |O FQDN do computador |
+|Process |Identidade do processo ou grupos de processos, iniciando/aceitando a conexão |
 |SourceIp |Endereço IP da origem |
 |DestinationIp |Endereço IP do destino |
 |DestinationPort |Número da porta de destino |
-|Protocolo |Protocolo usado para a conexão.  O valor é *tcp*. |
+|Protocol |Protocolo usado para a conexão.  O valor é *tcp*. |
 
 Para levar em conta o impacto do agrupamento, são fornecidas informações sobre o número de conexões físicas agrupadas nas seguintes propriedades do registro:
 
@@ -77,7 +77,7 @@ Além das métricas de contagem de conexões, as informações sobre o volume de
 |:--|:--|
 |BytesSent |Número total de bytes enviados durante o intervalo de tempo de geração de relatórios |
 |BytesReceived |Número total de bytes recebidos durante o intervalo de tempo de geração de relatórios |
-|Respostas |O número de respostas observadas durante o intervalo de tempo de geração de relatórios. 
+|Responses |O número de respostas observadas durante o intervalo de tempo de geração de relatórios. 
 |ResponseTimeMax |O maior tempo de resposta (milissegundos) observado durante o intervalo de tempo de geração de relatórios. Se não houve valor, a propriedade ficará em branco.|
 |ResponseTimeMin |O menor tempo de resposta (milissegundos) observado durante o intervalo de tempo de geração de relatórios. Se não houve valor, a propriedade ficará em branco.|
 |ResponseTimeSum |A soma de todos os tempos de resposta (milissegundos) observados durante o intervalo de tempo de geração de relatórios. Se não houve valor, a propriedade ficará em branco.|
@@ -110,11 +110,11 @@ Todas as propriedades RemoteIp na tabela *VMConnection* são verificadas em um c
 
 | Propriedade | DESCRIÇÃO |
 |:--|:--|
-|MaliciousIP |Endereço de RemoteIp |
+|MaliciousIp |Endereço de RemoteIp |
 |IndicatorThreadType |O indicador de ameaça detectado é um dos seguintes valores, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
-|DESCRIÇÃO |Descrição da ameaça observada. |
+|Description |Descrição da ameaça observada. |
 |TLPLevel |O TLP (Traffic Light Protocol) é um dos valores definidos, *Branco*, *Verde*, *Âmbar*, *Vermelho*. |
-|Confiança |Os valores são *0 – 100*. |
+|Confidence |Os valores são *0 – 100*. |
 |Severity |Os valores são *0 – 5*, onde *5* é o mais grave e *0* não é grave. O valor padrão é *3*.  |
 |FirstReportedDateTime |A primeira vez que o provedor relatou o indicador. |
 |LastReportedDateTime |A última vez que o indicador foi visto pelo Interflow. |
@@ -136,10 +136,10 @@ Todos os registros VMBoundPort é identificado pelos seguintes campos:
 
 | Propriedade | DESCRIÇÃO |
 |:--|:--|
-|Processo | Identidade do processo (ou grupos de processos) com o qual a porta está associada.|
-|IP | Endereço IP da porta (pode ser o IP de curinga *0.0.0.0*) |
-|Porta |O número da porta |
-|Protocolo | O protocolo.  O exemplo, *tcp* ou *udp* (somente *tcp* é suportado no momento).|
+|Process | Identidade do processo (ou grupos de processos) com o qual a porta está associada.|
+|Ip | Endereço IP da porta (pode ser o IP de curinga *0.0.0.0*) |
+|Port |O número da porta |
+|Protocol | O protocolo.  O exemplo, *tcp* ou *udp* (somente *tcp* é suportado no momento).|
  
 A identidade de uma porta é derivada de cinco campos acima e é armazenada na propriedade PortId. Essa propriedade pode ser usada para localizar rapidamente os registros para uma porta específica longo do tempo. 
 
