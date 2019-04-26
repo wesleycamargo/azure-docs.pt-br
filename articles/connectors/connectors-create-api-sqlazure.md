@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: dccb91c782408a5fed5c3ef1b68f9918823ce402
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 29d53c7fbd26d3c8e2356ce82ff25c7e1b165728
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38544016"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60540692"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Conectar-se ao SQL Server ou ao Banco de Dados SQL do Azure dos Aplicativos Lógicos do Azure
 
@@ -24,9 +24,9 @@ Este artigo mostra como você pode acessar dados no banco de dados SQL de dentro
 
 Você pode criar Aplicativos Lógicos que são executados quando disparados por eventos no Banco de Dados SQL ou em outros sistemas, como Dynamics CRM Online. Seus aplicativos lógicos também podem obter, inserir e excluir dados, além de executar consultas SQL e procedimentos armazenados. Por exemplo, você pode criar um aplicativo lógico que verifica automaticamente se há novos registros Dynamics CRM Online, adiciona itens ao banco de dados SQL para quaisquer novos registros e envia alertas de email.
 
-Se você não tiver uma assinatura do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se em uma conta gratuita do Azure</a>. Se você não estiver familiarizado com os Aplicativos Lógicos, examine [O que são Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Início rápido: crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para obter informações técnicas específicas do conector, consulte a <a href="https://docs.microsoft.com/connectors/sql/" target="blank">Referência do conector do SQL Server</a>.
+Se você não tiver uma assinatura do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se em uma conta gratuita do Azure</a>. Se ainda não estiver familiarizado com aplicativo lógicos, consulte [O que são os Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e [Início Rápido: criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para obter informações técnicas específicas do conector, consulte a <a href="https://docs.microsoft.com/connectors/sql/" target="blank">Referência do conector do SQL Server</a>.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * O aplicativo lógico em que você precisa de acesso ao banco de dados SQL. Para iniciar seu aplicativo lógico com um gatilho SQL, é necessário um [aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
@@ -56,7 +56,7 @@ Nos Aplicativos Lógicos do Azure, cada aplicativo lógico deve começar com um 
 
 2. Na caixa de pesquisa, insira "sql server" como filtro. Na lista de gatilhos, selecione o gatilho SQL desejado. 
 
-   Neste exemplo, selecione este gatilho: **SQL Server – Quando um item é criado**
+   Neste exemplo, selecione este gatilho: **SQL Server - quando um item é criado.**
 
    ![Selecione o gatilho “SQL Server – Quando um item é criado”](./media/connectors-create-api-sqlazure/sql-server-trigger.png)
 
@@ -94,7 +94,7 @@ Em Aplicativos Lógicos do Azure, uma [ação](../logic-apps/logic-apps-overview
 
 2. Na caixa de pesquisa, insira "sql server" como filtro. Na lista de ações, selecione qualquer ação SQL que desejar. 
 
-   Para este exemplo, selecione essa ação, que obtém um único registro: **SQL Server – Obter linha**
+   Neste exemplo, selecione esta ação, que obtém um único registro: **SQL Server - obter linha**
 
    ![Insira "sql server", selecione "SQL Server – Obter linha"](./media/connectors-create-api-sqlazure/select-sql-get-row.png) 
 
