@@ -54,7 +54,7 @@ As propriedades a seguir têm suporte para o serviço vinculado de tabela da Web
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **Web** |SIM |
+| type | A propriedade type deve ser definida como: **Web** |SIM |
 | url | URL para a origem da Web |SIM |
 | authenticationType | O valor permitido é: **Anônimo**. |SIM |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |SIM |
@@ -86,9 +86,9 @@ Para copiar dados da tabela web, defina a propriedade type do conjunto de dados 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **WebTable** | SIM |
-| caminho |Uma URL relativa para o recurso que contém a tabela. | Não. Quando o caminho não for especificado, apenas a URL especificada na definição do serviço vinculado será usada. |
-| índice |O índice da tabela no recurso. Confira a seção [Obter índice de uma tabela em uma página HTML](#get-index-of-a-table-in-an-html-page) a fim de ver as etapas para obter o índice de uma tabela em uma página HTML. |SIM |
+| type | A propriedade type do conjunto de dados deve ser definida como: **WebTable** | SIM |
+| path |Uma URL relativa para o recurso que contém a tabela. | Não. Quando o caminho não for especificado, apenas a URL especificada na definição do serviço vinculado será usada. |
+| index |O índice da tabela no recurso. Confira a seção [Obter índice de uma tabela em uma página HTML](#get-index-of-a-table-in-an-html-page) a fim de ver as etapas para obter o índice de uma tabela em uma página HTML. |SIM |
 
 **Exemplo:**
 
