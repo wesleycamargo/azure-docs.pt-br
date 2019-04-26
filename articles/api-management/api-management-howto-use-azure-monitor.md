@@ -185,15 +185,15 @@ No momento, o Gerenciamento de API oferece logs de diagnóstico (agrupados por h
 | isRequestSuccess | booleano | True se a solicitação HTTP foi concluída com código de status de resposta dentro do intervalo 2xx a 3xx |
 | time | date-time | Carimbo de data/hora de recebimento da solicitação HTTP pelo gateway |
 | operationName | string | Valor de constante 'Microsoft.ApiManagement/GatewayLogs' |
-| categoria | string | Valor da constante 'GatewayLogs' |
+| category | string | Valor da constante 'GatewayLogs' |
 | durationMs | inteiro | Número de milissegundos do momento em que o gateway recebeu a solicitação até o momento em que a resposta foi enviada por completo |
 | callerIpAddress | string | Endereço IP do chamador imediato do Gateway (pode ser um intermediário) |
 | correlationId | string | Identificador da solicitação HTTP exclusivo atribuído pelo Gerenciamento de API |
 | location | string | Nome da região do Azure em que o gateway que processou a solicitação está localizado |
 | httpStatusCodeCategory | string | Categoria do código de status da resposta HTTP: Bem-sucedido (301 ou menos, 304 ou 307), Não Autorizado (401, 403 e 429) Incorreto (400, entre 500 e 600) e Outros |
-| ResourceId | string | ID do recurso de Gerenciamento de API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
-| propriedades | objeto | Propriedades da solicitação atual |
-| estático | string | Método HTTP da solicitação de entrada |
+| resourceId | string | ID do recurso de Gerenciamento de API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
+| properties | objeto | Propriedades da solicitação atual |
+| method | string | Método HTTP da solicitação de entrada |
 | url | string | URL da solicitação de entrada |
 | clientProtocol | string | Versão do protocolo HTTP da solicitação de entrada |
 | responseCode | inteiro | Código de status de resposta HTTP enviada a um cliente |
@@ -213,13 +213,13 @@ No momento, o Gerenciamento de API oferece logs de diagnóstico (agrupados por h
 | userId | string | Identificador da entidade de usuário para a solicitação atual | 
 | apimSubscriptionId | string | Identificador da entidade de assinatura para a solicitação atual | 
 | backendId | string | Identificador da entidade de back-end para a solicitação atual | 
-| LastError | objeto | Erro de processamento da última solicitação | 
-| decorrido | inteiro | Número de milissegundos decorridos desde que o gateway recebeu a solicitação até o momento em que ocorreu o erro | 
-| fonte | string | Nome da política ou do manipulador interno de processamento que causou o erro | 
+| lastError | objeto | Erro de processamento da última solicitação | 
+| elapsed | inteiro | Número de milissegundos decorridos desde que o gateway recebeu a solicitação até o momento em que ocorreu o erro | 
+| source | string | Nome da política ou do manipulador interno de processamento que causou o erro | 
 | scope | string | Escopo do documento de política que contém a política que causou o erro | 
-| seção | string | Seção do documento de política que contém a política que causou o erro | 
+| section | string | Seção do documento de política que contém a política que causou o erro | 
 | reason | string | Motivo do erro | 
-| Message | string | Mensagem de erro | 
+| message | string | Mensagem de erro | 
 
 ## <a name="next-steps"></a>Próximas etapas
 
