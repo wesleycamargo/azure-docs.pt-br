@@ -9,11 +9,11 @@ ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: b49c6733fd148fc6fb8b9fe535ac839f5b7402f9
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60150159"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60255846"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatíveis com o Azure Monitor
 
@@ -1607,7 +1607,7 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 |CpuPercentage|Percentual de CPU|Porcentagem|Média|Percentual de CPU|Instância|
 |MemoryPercentage|Porcentagem de Memória|Porcentagem|Média|Porcentagem de Memória|Instância|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Leia sobre as métricas no Azure Monitor](data-platform.md)
 * [Criar alertas para métricas](alerts-overview.md)
 * [Exportar as métricas de armazenamento, Hub de eventos ou Log Analytics](diagnostic-logs-overview.md)
