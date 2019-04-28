@@ -78,11 +78,11 @@
   items:
     - name: Linux
       href: redeploy-to-new-node-linux.md
-    - name: ' Windows'
+    - name: Windows
       href: redeploy-to-new-node-windows.md
 - name: Redefinir senha da VM
   items:
-    - name: ' Windows'
+    - name: Windows
       href: reset-local-password-without-agent.md
     - name: Linux
       href: reset-password.md
@@ -120,19 +120,19 @@
   items:
     - name: Linux
       href: troubleshoot-deployment-new-vm-linux.md
-    - name: ' Windows'
+    - name: Windows
       href: troubleshoot-deployment-new-vm-windows.md
 - name: Solucionar problemas das implantações
   items:
     - name: Linux
       href: troubleshoot-deploy-vm-linux.md
-    - name: ' Windows'
+    - name: Windows
       href: troubleshoot-deploy-vm-windows.md
 - name: Nomes de dispositivo são alterados
   href: troubleshoot-device-names-problems.md
 - name: Acesso de recuperação da VM
   items:
-    - name: ' Windows'
+    - name: Windows
       items:
         - name: PowerShell
           href: troubleshoot-recovery-disks-windows.md
