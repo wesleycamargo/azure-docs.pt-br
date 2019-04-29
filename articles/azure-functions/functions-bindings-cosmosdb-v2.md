@@ -12,11 +12,11 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 5762e934d7735dd9617cefc1f56105823d74312f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782183"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61342843"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Associações do Azure Cosmos DB para o Azure Functions 2.x
 
@@ -258,7 +258,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 |Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
-|**type** || Deve ser definido como `cosmosDBTrigger`. |
+|**tipo** || Deve ser definido como `cosmosDBTrigger`. |
 |**direction** || Deve ser definido como `in`. Esse parâmetro é definido automaticamente quando você cria o gatilho no portal do Azure. |
 |**name** || O nome da variável usado no código de função que representa a lista de documentos com alterações. |
 |**connectionStringSetting**|**ConnectionStringSetting** | O nome de uma configuração de aplicativo que contém a cadeia de conexão usada para conectar-se à conta do Azure Cosmos DB que está sendo monitorada. |
@@ -1711,12 +1711,12 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 |Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
-|**type**     || Deve ser definido como `cosmosDB`.        |
+|**tipo**     || Deve ser definido como `cosmosDB`.        |
 |**direction**     || Deve ser definido como `in`.         |
 |**name**     || Nome do parâmetro de associação que representa o documento na função.  |
 |**databaseName** |**DatabaseName** |O banco de dados que contém o documento.        |
 |**collectionName** |**CollectionName** | O nome da coleção que contém o documento. |
-|**id**    | **Id** | A ID do documento a ser recuperado. Essa propriedade dá suporte a [expressões de associação](./functions-bindings-expressions-patterns.md). Não defina ambas as propriedades **id** e **sqlQuery**. Se você não definir uma ou outra, toda a coleção é recuperada. |
+|**ID**    | **Id** | A ID do documento a ser recuperado. Essa propriedade dá suporte a [expressões de associação](./functions-bindings-expressions-patterns.md). Não defina ambas as propriedades **id** e **sqlQuery**. Se você não definir uma ou outra, toda a coleção é recuperada. |
 |**sqlQuery**  |**SqlQuery**  | Uma consulta SQL do Azure Cosmos DB usada para recuperar vários documentos. A propriedade dá suporte a associações de tempo de execução, como neste exemplo: `SELECT * FROM c where c.departmentId = {departmentId}`. Não defina ambas as propriedades **id** e **sqlQuery**. Se você não definir uma ou outra, toda a coleção é recuperada.|
 |**connectionStringSetting**     |**ConnectionStringSetting**|O nome da configuração do aplicativo que contém a cadeia de conexão do Azure Cosmos DB.        |
 |**partitionKey**|**PartitionKey**|Especifica o valor da chave de partição para a pesquisa. Pode incluir parâmetros de associação.|
@@ -2296,14 +2296,14 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 |Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
-|**type**     || Deve ser definido como `cosmosDB`.        |
+|**tipo**     || Deve ser definido como `cosmosDB`.        |
 |**direction**     || Deve ser definido como `out`.         |
 |**name**     || Nome do parâmetro de associação que representa o documento na função.  |
 |**databaseName** | **DatabaseName**|O banco de dados que contém a coleção na qual o documento será criado.     |
 |**collectionName** |**CollectionName**  | O nome da coleção na qual o documento será criado. |
 |**createIfNotExists**  |**CreateIfNotExists**    | É um valor booliano para indicar se a coleção será criada quando não existir. O padrão é *false* porque as novas coleções são criadas com a taxa de transferência reservada, o que tem implicações de preço. Para saber mais, confira a [página de preço](https://azure.microsoft.com/pricing/details/cosmos-db/).  |
 |**partitionKey**|**PartitionKey** |Quando `CreateIfNotExists` for true, define o caminho da chave de partição para a coleção criada.|
-|**collectionThroughput**|**CollectionThroughput**| Quando `CreateIfNotExists` for true, define a [taxa de transferência](../cosmos-db/set-throughput.md) da coleção criada.|
+|**CollectionThroughput**|**CollectionThroughput**| Quando `CreateIfNotExists` for true, define a [taxa de transferência](../cosmos-db/set-throughput.md) da coleção criada.|
 |**connectionStringSetting**    |**ConnectionStringSetting** |O nome da configuração do aplicativo que contém a cadeia de conexão do Azure Cosmos DB.        |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -2345,7 +2345,7 @@ Esta seção descreve as definições de configuração globais disponíveis par
 |Propriedade  |Padrão | DESCRIÇÃO |
 |---------|---------|---------| 
 |GatewayMode|Gateway|O modo de conexão usado pela função ao se conectar ao serviço do Azure Cosmos DB. As opções são `Direct` e `Gateway`|
-|Protocol|Https|O protocolo de conexão usado pela função ao se conectar ao serviço do Azure Cosmos DB.  Leia [aqui para obter uma explicação de ambos os modos](../cosmos-db/performance-tips.md#networking)| 
+|Protocolo|Https|O protocolo de conexão usado pela função ao se conectar ao serviço do Azure Cosmos DB.  Leia [aqui para obter uma explicação de ambos os modos](../cosmos-db/performance-tips.md#networking)| 
 |leasePrefix|n/d|Prefixo de concessão a ser usado em todas as funções em um aplicativo.| 
 
 ## <a name="next-steps"></a>Próximas etapas
