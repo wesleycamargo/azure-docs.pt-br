@@ -17,11 +17,11 @@ ms.date: 04/02/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8240308b3e0955b1d4d3ef2e82cad215daf95b00
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009361"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61482080"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Controle do HANA em Instâncias Grandes do Azure por meio do portal do Azure
 Este documento aborda a maneira como [instâncias grandes do HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) são apresentados na [portal do Azure](https://portal.azure.com) e as atividades podem ser realizadas por meio do portal do Azure com as unidades de instância grande do HANA que são implantados para você. Visibilidade do HANA em instâncias grandes no portal do Azure é fornecida por meio de um provedor de recursos do Azure para instâncias grandes HANA, que está atualmente em visualização pública

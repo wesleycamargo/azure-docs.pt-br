@@ -1,7 +1,6 @@
 ---
 title: Migrar clusters do Apache Hadoop local para o Azure HDInsight – motivação e benefícios
 description: Aprenda a motivação e os benefícios de migrar clusters do Hadoop local para o Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 73a2f0754cafaa5da09ebd437ecd62813296ffd9
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: b45fb5cbfbef334b40ccadecd32f65fa9a59a610
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890072"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62095533"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrar clusters do Apache Hadoop local para o Azure HDInsight – motivação e benefícios
 
@@ -139,10 +138,10 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 |Destinos de dados|HDFS, RDBMS, Kafka, MPP ||
 |**Tópico**: **Metadados**|||
 |Tipo de banco de dados do Hive|Mysql, Postgres||
-| Não. de metastores do Hive|2||
-| Não. de tabelas do Hive|100||
-| Não. de políticas do Ranger|20||
-| Não. de fluxos de trabalho do Oozie|100||
+|Não. de metastores do Hive|2||
+|Não. de tabelas do Hive|100||
+|Não. de políticas do Ranger|20||
+|Não. de fluxos de trabalho do Oozie|100||
 |**Tópico**: **Escala**|||
 |Volume de dados incluindo Replicação|100 TB||
 |Volume diário de ingestão|50 GB||
@@ -154,11 +153,11 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 |Espaço em disco usado|75%||
 |% média de rede usada|25%
 |**Tópico**: **Equipe**|||
-| Não. de Administradores|2||
-| Não. de Desenvolvedores|10||
-| Não. de usuários finais|100||
+|Não. de Administradores|2||
+|Não. de Desenvolvedores|10||
+|Não. de usuários finais|100||
 |Habilidades|Hadoop, Spark||
-| Não. de recursos disponíveis para esforços de Migração|2||
+|Não. de recursos disponíveis para esforços de Migração|2||
 |**Tópico**: **Limitações**|||
 |Limitações atuais|A latência é alta||
 |Desafios atuais|Problema de simultaneidade||
@@ -182,7 +181,7 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 |Pipeline de dados privados e protegidos?|Sim||
 |Cluster de domínio ingressado (ESP)?|     Sim||
 |Sincronização do AD Local com a Nuvem?|     Sim||
-| Não. de usuários do AD a sincronizar?|          100||
+|Não. de usuários do AD a sincronizar?|          100||
 |OK sincronizar senhas com a nuvem?|    Sim||
 |Somente usuários de nuvem?|                 Sim||
 |MFA necessária?|                       Não || 

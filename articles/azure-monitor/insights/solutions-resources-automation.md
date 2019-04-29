@@ -15,11 +15,11 @@ ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1c9b13f44dae068597cb82a0aa803283ad5e67bc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763599"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62110354"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Adicionar recursos de Automação do Azure a uma solução de gerenciamento (versão prévia)
 > [!NOTE]
@@ -145,7 +145,7 @@ As propriedades dos recursos de Certificado são descritas na tabela a seguir.
 | Propriedade | DESCRIÇÃO |
 |:--- |:--- |
 | base64Value |O valor de base 64 do certificado. |
-| thumbprint |A impressão digital do certificado. |
+| impressão digital |A impressão digital do certificado. |
 
 
 
@@ -172,7 +172,7 @@ As propriedades dos recursos de Credencial são descritas na tabela a seguir.
 | Propriedade | DESCRIÇÃO |
 |:--- |:--- |
 | userName |Nome de usuário da credencial. |
-| password |Senha da credencial. |
+| Senha |Senha da credencial. |
 
 
 ## <a name="schedules"></a>Agendas
@@ -202,8 +202,8 @@ As propriedades de recursos de agendamento são descritas na tabela a seguir.
 | description |Descrição opcional para o agendamento. |
 | startTime |Especifica a hora de início de uma agenda como um objeto DateTime. Uma cadeia de caracteres pode ser fornecida se ele for convertido em um DateTime válido. |
 | isEnabled |Especifica se o agendamento está habilitado. |
-| interval |O tipo de intervalo para o agendamento.<br><br>dia<br>hora |
-| frequency |Frequência em que o agendamento deve ser disparado em número de dias ou horas. |
+| intervalo |O tipo de intervalo para o agendamento.<br><br>dia<br>hora |
+| frequência |Frequência em que o agendamento deve ser disparado em número de dias ou horas. |
 
 Os agendamentos devem ter um horário de início com um valor posterior ao horário atual.  Você não pode fornecer esse valor com uma variável, uma vez que não teria como saber quando ele vai ser instalado.
 
@@ -271,7 +271,7 @@ As propriedades dos recursos de variáveis são descritas na tabela a seguir.
 |:--- |:--- |
 | description | Descrição opcional para a variável. |
 | isEncrypted | Especifica se a variável deve ser criptografada. |
-| type | Essa propriedade atualmente está sem efeito.  O tipo de dados da variável será determinado pelo valor inicial. |
+| Tipo | Essa propriedade atualmente está sem efeito.  O tipo de dados da variável será determinado pelo valor inicial. |
 | value | Valor da variável. |
 
 > [!NOTE]
@@ -281,8 +281,8 @@ Se você definir o valor inicial da variável, ele deverá ser definido como o t
 
 | Tipo de dados | DESCRIÇÃO | Exemplo | É resolvido desta forma |
 |:--|:--|:--|:--|
-| string   | Coloque o valor entre aspas duplas.  | "\"Olá, Mundo\"" | "Olá, Mundo" |
-| numeric  | Valor numérico com aspas simples.| "64" | 64 |
+| cadeia de caracteres   | Coloque o valor entre aspas duplas.  | "\"Olá, Mundo\"" | "Olá, Mundo" |
+| numérico  | Valor numérico com aspas simples.| "64" | 64 |
 | boolean  | **true** ou **false** entre aspas.  Observe que esse valor deve estar em minúsculas. | "true" | verdadeiro |
 | datetime | Valor de data serializada.<br>Você pode usar o cmdlet ConvertTo-Json no PowerShell para gerar esse valor para uma determinada data.<br>Exemplo: get-date "24/5/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 

@@ -14,11 +14,11 @@ ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 4ff7f92d1d13966be5d17f37210bef961f64faf2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084599"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61462372"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiar dados de ou para o Oracle local usando o Azure Data Factory
 
@@ -102,7 +102,7 @@ A tabela a seguir descreve elementos JSON que são específicos para o serviço 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| Tipo |A propriedade **type** deve ser definida como **OnPremisesOracle**. |Sim |
+| tipo |A propriedade **type** deve ser definida como **OnPremisesOracle**. |Sim |
 | driverType | Especifique qual driver a ser usado para copiar dados de ou para um Oracle Database. Os valores permitidos são **Microsoft** ou **ODP** (padrão). Confira [Versão e instalação com suporte](#supported-versions-and-installation) para obter detalhes do driver. | Não  |
 | connectionString | Especifique as informações necessárias para se conectar à instância do Oracle Database para a propriedade **connectionString**. | Sim |
 | gatewayName | O nome do gateway usado para conectar-se ao servidor Oracle local. |Sim |

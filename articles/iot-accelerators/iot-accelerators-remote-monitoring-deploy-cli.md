@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: ea96b2b996ea79efacdcda50c6370f25e26e0aa2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793747"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447005"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implantar o acelerador de solução de Monitoramento Remoto usando a CLI
 
@@ -68,7 +68,7 @@ Implantação Basic é voltada para a apresentação da solução. Para reduzir 
 
 Uma implantação básica cria os seguintes serviços em sua assinatura do Azure:
 
-| Contagem | Recurso                       | Type         | Usadas para |
+| Contagem | Resource                       | Type         | Usadas para |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Máquina Virtual Linux](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Hospedar microsserviços |
 | 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                  | S1 – Camada Padrão | Comunicação e gerenciamento de dispositivo |
@@ -89,7 +89,7 @@ Uma implantação padrão é uma implantação pronta para produção que um des
 
 Uma implantação padrão cria os seguintes serviços em sua assinatura do Azure:
 
-| Contagem | Recurso                                     | SKU / Tamanho      | Usadas para |
+| Contagem | Resource                                     | SKU / Tamanho      | Usadas para |
 |-------|----------------------------------------------|-----------------|----------|
 | 1     | [Serviço de Kubernetes do Azure](https://azure.microsoft.com/services/kubernetes-service)| Use um serviço de orquestração de contêineres do Kubernetes totalmente gerenciado, o padrão é de três agentes|
 | 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                     | S2 – Camada Padrão | Controle, comando e gerenciamento de dispositivos |

@@ -2,7 +2,6 @@
 title: Conecte o Excel ao Apache Hadoop com o driver ODBC do Hive - Azure HDInsight
 description: Saiba como configurar e usar o driver ODBC do Microsoft Hive para Excel para consultar dados em clusters HDInsight no Microsoft Excel.
 keywords: hadoop excel,hive excel,hive odbc
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3a47b18051036e925e54b9507bf2cb4e40aad844
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: 37fed781629351475b384ac843a588bdaf7b5b66
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202514"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121836"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Conecte o Excel ao Apache Hadoop no HDInsight do Azure com o driver ODBC do Microsoft Hive
 
@@ -49,7 +48,7 @@ As etapas a seguir mostram como criar uma fonte de dados ODBC do Hive.
 
 4. Digite ou selecione os valores a seguir:
    
-   | Propriedade | Descrição |
+   | Propriedade | DESCRIÇÃO |
    | --- | --- |
    |  Nome da fonte de dados |Forneça um nome para a sua fonte de dados |
    |  Hosts |Insira &lt;HDInsightClusterName&gt;.azurehdinsight.net. Por exemplo, meu_Cluster_HDI.azurehdinsight.net |
@@ -62,7 +61,7 @@ As etapas a seguir mostram como criar uma fonte de dados ODBC do Hive.
    
 5. Opcional: Selecione **Opções Avançadas...**  
    
-   | Parâmetro | Descrição |
+   | Parâmetro | DESCRIÇÃO |
    | --- | --- |
    |  Use Consulta Nativa |Quando selecionado, o driver ODBC NÃO tenta converter TSQL em HiveQL. Você deverá usar essa opção somente se estiver 100% certo de que está enviando instruções HiveQL puras. Ao conectar-se ao SQL Server ou ao Banco de Dados SQL do Azure, deixe-a desmarcada. |
    |  Linhas buscadas por bloco |Ao buscar uma grande quantidade de registros, o ajuste desse parâmetro poderá ser necessário para garantir o desempenho ideal. |

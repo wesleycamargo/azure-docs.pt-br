@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 81adf643541b5a4486694026acec49129ef8e5a6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: e03fa427227bed745b53d43aaebc4dc58ad5bb9d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000616"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097888"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Dicas de desempenho para o Azure Cosmos DB e .NET
 
@@ -57,7 +57,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
      ```csharp
      var serviceEndpoint = new Uri("https://contoso.documents.net");
-     var authKey = new "your authKey from the Azure portal";
+     var authKey = "your authKey from the Azure portal";
      DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
      new ConnectionPolicy
      {
@@ -220,7 +220,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
     O custo da solicitação (ou seja, o custo de processamento da solicitação) de uma determinada operação está correlacionado diretamente com o tamanho do documento. As operações em documentos grandes custam mais que as operações de documentos pequenos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter um aplicativo de exemplo usado para avaliar o Azure Cosmos DB para cenários de alto desempenho em alguns computadores cliente, consulte [Teste de desempenho e escala com o Azure Cosmos DB](performance-testing.md).
 
 Além disso, para saber mais sobre como projetar seu aplicativo para escala e alto desempenho, consulte [Particionamento e escala no Azure Cosmos DB](partition-data.md).

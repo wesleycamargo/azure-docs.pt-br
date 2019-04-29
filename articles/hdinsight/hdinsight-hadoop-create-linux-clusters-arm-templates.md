@@ -1,7 +1,6 @@
 ---
 title: Criar clusters Apache Hadoop usando modelos – Azure HDInsight
 description: Aprenda a criar clusters para o HDInsight usando modelos do Resource Manager
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e3757e94dcd8ccc39613b9a6fff8bf491812866a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 73402421a87d2cf14719ff34201890ea96c90519
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59044973"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097395"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Criar clusters Apache Hadoop no HDInsight usando modelos do Resource Manager
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]

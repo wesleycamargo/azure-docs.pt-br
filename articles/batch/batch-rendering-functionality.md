@@ -8,11 +8,11 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: be6c0f9a8874507433606903bcbd58c7723d6a8a
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791793"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62118680"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Recursos de renderização de Lote do Azure
 
@@ -30,7 +30,7 @@ Há uma imagem do Windows 2016 e uma imagem do CentOS.  No [Azure Marketplace](h
 
 Para um exemplo de configuração do pool, consulte o [tutorial de renderização de CLI do Azure](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli).  O portal do Azure e o Explorador de lotes fornecem ferramentas de GUI para selecionar uma imagem de VM de renderização quando você cria um pool.  Se você estiver usando uma API de lotes, especifique os seguintes valores de propriedade para [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) ao criar um pool:
 
-| Publicador | Oferta | Sku | Versão |
+| Publicador | Oferta | Sku | Version |
 |---------|---------|---------|--------|
 | lote | rendering-centos73 | renderização | mais recente |
 | lote | rendering-windows2016 | renderização | mais recente |

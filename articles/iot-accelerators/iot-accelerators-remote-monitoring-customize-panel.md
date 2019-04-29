@@ -1,19 +1,20 @@
 ---
-title: Adicionar um painel à interface do usuário da solução de Monitoramento Remoto – Azure | Microsoft Docs
+title: Adicionar um painel para a solução de monitoramento remoto da interface do usuário - Azure | Microsoft Docs
 description: Este artigo mostra como adicionar um novo painel ao dashboard na interface do usuário da Web do acelerador de solução de Monitoramento Remoto.
 author: dominicbetts
 manager: timlt
-ms.author: dobett
+ms.author: v-yiso
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/05/2018
+origin.date: 10/05/2018
+ms.date: 11/26/2018
 ms.topic: conceptual
 ms.openlocfilehash: 3b855c3bed75945f44b55463bdacd049b7930aa7
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165871"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447056"
 ---
 # <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicionar um painel personalizado ao dashboard na interface do usuário da Web do acelerador de solução de Monitoramento Remoto
 
@@ -45,7 +46,6 @@ Para começar, a pasta **src/walkthrough/components/pages/dashboard/panels/examp
 
 **examplePanel.js**
 
-[!code-javascript[Example panel](~/remote-monitoring-webui/src/walkthrough/components/pages/dashboard/panels/examplePanel/examplePanel.js?name=panel "Example panel")]
 
 Copie a pasta **src/walkthrough/components/pages/dashboard/panels/examplePanel** para a pasta **src/components/pages/dashboard/panels**.
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
 ms.openlocfilehash: 4f093251ce3c711cc060369abb27770157024d91
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238685"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61488545"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Implantar seu dispositivo StorSimple local no Portal Governamental
 
@@ -48,13 +48,13 @@ Execute estas etapas necessárias para configurar o dispositivo StorSimple e con
 |  | |
 | **IMPLANTAÇÃO PASSO A PASSO** |Essas etapas são necessárias para implantar o dispositivo StorSimple na produção. |
 | [Etapa 1: Criar um novo serviço](#step-1-create-a-new-service) |Configure o armazenamento e o gerenciamento de nuvem para o dispositivo StorSimple. *Ignore esta etapa se você tem um serviço existente para outros dispositivos StorSimple*. |
-| [Etapa 2: Obter a chave de registro do serviço](#step-2-get-the-service-registration-key) |Use essa chave para registrar e conectar o dispositivo StorSimple ao serviço de gerenciamento. |
+| [Etapa 2: Obter a chave de registro de serviço](#step-2-get-the-service-registration-key) |Use essa chave para registrar e conectar o dispositivo StorSimple ao serviço de gerenciamento. |
 | [Etapa 3: Configurar e registrar o dispositivo por meio do Windows PowerShell para StorSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |Conecte o dispositivo à sua rede e registre-o com o Azure para concluir a instalação usando o serviço de gerenciamento. |
-| [Etapa 4: Concluir a instalação mínima do dispositivo](#step-4-complete-minimum-device-setup) </br>Opcional: atualizar o dispositivo StorSimple. |Use o serviço de gerenciamento para concluir a instalação do dispositivo e habilitá-lo para fornecer armazenamento. |
+| [Etapa 4: Concluir a configuração mínima do dispositivo](#step-4-complete-minimum-device-setup) </br>Opcional: Atualize o dispositivo StorSimple. |Use o serviço de gerenciamento para concluir a instalação do dispositivo e habilitá-lo para fornecer armazenamento. |
 | [Etapa 5: Criar um contêiner de volume](#step-5-create-a-volume-container) |Crie um contêiner para provisionar volumes. Um contêiner de volume tem a conta de armazenamento, largura de banda e configurações de criptografia para todos os volumes contidos nele. |
 | [Etapa 6: Criar um volume](#step-6-create-a-volume) |Provisione volumes de armazenamento no dispositivo StorSimple para seus servidores. |
-| [Etapa 7: Montar, inicializar e formatar um volume](#step-7-mount-initialize-and-format-a-volume) </br>Opcional: configurar o MPIO. |Conecte os servidores ao armazenamento iSCSI fornecido pelo dispositivo. Opcionalmente, configure o MPIO para garantir que os servidores possam tolerar a falha de link, rede e interface. |
-| [Etapa 8: Fazer um backup](#step-8-take-a-backup) |Configure a política de backup para proteger seus dados |
+| [Etapa 7: Montar, inicializar e formatar um volume](#step-7-mount-initialize-and-format-a-volume) </br>Opcional: Configurar o MPIO. |Conecte os servidores ao armazenamento iSCSI fornecido pelo dispositivo. Opcionalmente, configure o MPIO para garantir que os servidores possam tolerar a falha de link, rede e interface. |
+| [Etapa 8: Faça um backup](#step-8-take-a-backup) |Configure a política de backup para proteger seus dados |
 |  | |
 | **OUTROS PROCEDIMENTOS** |Talvez seja necessário consultar esses procedimentos conforme você implantar sua solução. |
 | [Configurar uma nova conta de armazenamento para o serviço](#configure-a-new-storage-account-for-the-service) | |
@@ -105,10 +105,10 @@ Um serviço do gerenciador de dispositivos StorSimple e pode gerenciar vários d
 > Se você não ativou a criação automática de uma conta de armazenamento com seu serviço, você precisará criar pelo menos uma conta de armazenamento depois que você criou com êxito um serviço. Esta conta de armazenamento será usada quando você criar um contêiner de volume.
 > 
 > * Se você não tiver criado uma conta de armazenamento automaticamente, vá para [Configurar uma nova conta de armazenamento para o serviço](#configure-a-new-storage-account-for-the-service) para obter instruções detalhadas.
-> * Se você habilitou a criação automática de uma conta de armazenamento, vá para [Etapa 2: Obter a chave de registro do serviço](#step-2-get-the-service-registration-key).
+> * Se você habilitou a criação automática de uma conta de armazenamento, vá para [Etapa 2: obter a chave de registro do serviço](#step-2-get-the-service-registration-key).
 
 
-## <a name="step-2-get-the-service-registration-key"></a>Etapa 2: Obter a chave de registro do serviço
+## <a name="step-2-get-the-service-registration-key"></a>Etapa 2: Obtenha a chave de registro do serviço
 Depois que o serviço Gerenciador de Dispositivos StorSimple estiver em execução, será necessário obter a chave de registro do serviço. Essa chave é usada para registrar e conectar o seu dispositivo StorSimple ao serviço.
 
 Execute as etapas a seguir no Portal Governamental.
@@ -120,7 +120,7 @@ Use o Windows PowerShell para StorSimple para concluir a configuração inicial 
 
 [!INCLUDE [storsimple-8000-configure-and-register-device-gov](../../includes/storsimple-8000-configure-and-register-device-gov-u2.md)]
 
-## <a name="step-4-complete-minimum-device-setup"></a>Etapa 4: Concluir a instalação mínima do dispositivo
+## <a name="step-4-complete-minimum-device-setup"></a>Etapa 4: Instalação mínima do dispositivo concluída
 Para a configuração mínima de dispositivo do seu dispositivo StorSimple, é necessário:
 
 * Forneça um nome amigável para seu dispositivo.
@@ -158,7 +158,7 @@ Se você decidir não configurar o MPIO, execute as etapas a seguir para montar,
 
 [!INCLUDE [storsimple-mount-initialize-format-volume](../../includes/storsimple-mount-initialize-format-volume.md)]
 
-## <a name="step-8-take-a-backup"></a>Etapa 8: Fazer um backup
+## <a name="step-8-take-a-backup"></a>Etapa 8: Faça um backup
 Backups oferecem proteção pontual de volumes e melhoram a capacidade de recuperação, minimizando os tempos de restauração. Você pode executar dois tipos de backup em seu dispositivo StorSimple: instantâneos locais e instantâneos em nuvem. Cada um desses tipos de backup pode ser **Agendado** ou **Manual**.
 
 Execute as etapas a seguir no Portal Governamental para criar um backup agendado.

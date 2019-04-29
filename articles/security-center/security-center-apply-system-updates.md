@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: ebd9939128d1f2b870541e82710792d13b69728e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098994"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62095432"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Aplicar atualizações do sistema na Central de Segurança do Azure
 A Central de Segurança do Azure monitora diariamente VMs (máquinas virtuais) e computadores Windows e Linux para saber se faltam atualizações do sistema operacional. A Central de Segurança recupera uma lista de atualizações críticas e de segurança disponíveis no Windows Update ou no WSUS (Windows Server Update Services), dependendo de qual serviço está configurado em um computador Windows. A Central de Segurança também verifica as atualizações mais recentes em sistemas Linux. Se faltar uma atualização do sistema em sua VM ou seu computador, a Central de Segurança recomendará que você aplique as atualizações do sistema.

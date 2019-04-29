@@ -16,11 +16,11 @@ ms.date: 12/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 99c4f0f99af61196cf1a12f2f68a7d10d8b2e6c7
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481273"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477154"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>O que é o SQL Server nas Máquinas Virtuais do Azure? (Windows)
 
@@ -58,7 +58,7 @@ Para começar, escolha uma imagem de máquina virtual do SQL Server com a versã
 ### <a id="payasyougo"></a> Pré-pagas
 A tabela a seguir fornece uma matriz de imagens do SQL Server pré-pagas.
 
-| Versão | Sistema operacional | Edição |
+| Version | Sistema operacional | Edição |
 | --- | --- | --- |
 | **SQL Server 2017** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseWindowsServer2016), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonWindowsServer2016), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonWindowsServer2016), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonWindowsServer2016), [Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonWindowsServer2016) |
 | **SQL Server 2016 SP2** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2016SP2EnterpriseWindowsServer2016), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2016SP2StandardWindowsServer2016), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2016SP2WebWindowsServer2016), [Express](https://portal.azure.com/#create/Microsoft.FreeLicenseSQLServer2016SP2ExpressWindowsServer2016), [Developer](https://portal.azure.com/#create/Microsoft.FreeLicenseSQLServer2016SP2DeveloperWindowsServer2016) |
@@ -76,7 +76,7 @@ Também é possível usar sua própria licença (BYOL). Nesse cenário, você pa
 
 Para usar sua própria licença, converta uma VM existente do SQL de pagamento por uso, ou implante uma imagem com **{BYOL}** prefixado. Para saber mais sobre como alternar seu modelo de licenciamento entre o pagamento por uso e BYOL, confira [Como alterar o modelo de licenciamento para uma VM do SQL](virtual-machines-windows-sql-ahb.md). 
 
-| Versão | Sistema operacional | Edição |
+| Version | Sistema operacional | Edição |
 | --- | --- | --- |
 | **SQL Server 2017** |Windows Server 2016 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017EnterpriseWindowsServer2016), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017StandardonWindowsServer2016) |
 | **SQL Server 2016 SP2** |Windows Server 2016 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP2EnterpriseWindowsServer2016), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP2StandardWindowsServer2016) |

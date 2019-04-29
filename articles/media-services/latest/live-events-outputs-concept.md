@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/30/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: 00dab8381c26a6331dd325eacd4a550892bd3411
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a36ca880387ee1a3c5f749dbd6b9d7dcb9e6d79d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325826"
+ms.locfileid: "62103773"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventos ao Vivo e Saídas Dinâmicas
 
@@ -144,6 +144,10 @@ Caso tenha publicado o **Ativo** da **Saída ao vivo** usando um **Localizador d
 
 Para saber mais, confira [Usar o DVR na nuvem](live-event-cloud-dvr.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="provide-feedback"></a>Fornecer comentários
+
+Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
+
+## <a name="next-steps"></a>Próximas etapas
 
 [Tutorial de live streaming](stream-live-tutorial-with-api.md)

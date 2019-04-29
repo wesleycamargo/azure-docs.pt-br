@@ -1,6 +1,6 @@
 ---
 title: Executar scripts do U-SQL do Azure Data Lake em seu computador local
-description: Saiba como usar as Ferramentas do Azure Data Lake para Visual Studio para executar trabalhos de U-SQL em seu computador local.
+description: Saiba como usar as Ferramentas do Azure Data Lake para Visual Studio para executar trabalhos de U-SQL no computador local.
 services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 8f110a88558b4479d8fdadb2967c7dedeca60ce9
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 42e58125fcbc3ab411c0d7503c42c14c28178428
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43043550"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62113928"
 ---
 # <a name="run-u-sql-scripts-on-your-local-machine"></a>Execute scripts do U-SQL em sua máquina local
 
@@ -28,7 +28,7 @@ O gráfico a seguir mostra os componentes para execução local e como esses com
 |Componente|Execução local|Execução de nuvem|
 |---------|---------|---------|
 |Armazenamento|Pasta raiz de dados local|Conta padrão do Azure Data Lake Store|
-|Computação|Mecanismo de execução local de U-SQL|Serviço de Azure Data Lake Analytics|
+|Computação|Mecanismo de execução local de U-SQL|Serviço do Azure Data Lake Analytics|
 |Ambiente de execução|Diretório de trabalho no computador local|Cluster do Azure Data Lake Analytics|
 
 As seções a seguir fornecem mais informações sobre componentes de execução locais.

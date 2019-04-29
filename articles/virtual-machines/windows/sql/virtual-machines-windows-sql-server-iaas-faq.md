@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
 ms.openlocfilehash: 5299437dea18510fa5f85ee27240c8afc434d125
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680797"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477256"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Perguntas freqüentes sobre o SQL Server em execução em máquinas virtuais do Windows no Azure
 
@@ -60,7 +60,7 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre como 
 
 1. **É possível definir configurações não mostradas na galeria de máquinas virtuais (por exemplo, Windows 2008 R2 + SQL Server 2012)?**
 
-    Não. Para imagens da galeria de máquinas virtuais que incluem o SQL Server, você deve selecionar uma das imagens fornecidas, seja pelo portal do Azure ou via [PowerShell](virtual-machines-windows-ps-sql-create.md). 
+   Não. Para imagens da galeria de máquinas virtuais que incluem o SQL Server, você deve selecionar uma das imagens fornecidas, seja pelo portal do Azure ou via [PowerShell](virtual-machines-windows-ps-sql-create.md). 
 
 
 ## <a name="creation"></a>Criação
@@ -97,7 +97,7 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre como 
 
 1. **Modelos de licenciamento de comutação exigirá nenhum tempo de inatividade para o SQL Server?**
 
-    Não. [A alteração do modelo de licenciamento](virtual-machines-windows-sql-ahb.md) não requer tempo de inatividade para o SQL Server, pois a alteração entrará em vigor imediatamente e não exige a reinicialização da VM. No entanto, para registrar sua VM do SQL Server com o provedor de recursos da VM do SQL, a [extensão IaaS do SQL](virtual-machines-windows-sql-server-agent-extension.md) é um pré-requisito e a instalação da extensão IaaS do SQL reinicia o serviço do SQL Server. Portanto, se a extensão IaaS do SQL precisa ser instalada, isso deve ser feito durante uma janela de manutenção. 
+   Não. [A alteração do modelo de licenciamento](virtual-machines-windows-sql-ahb.md) não requer tempo de inatividade para o SQL Server, pois a alteração entrará em vigor imediatamente e não exige a reinicialização da VM. No entanto, para registrar sua VM do SQL Server com o provedor de recursos da VM do SQL, a [extensão IaaS do SQL](virtual-machines-windows-sql-server-agent-extension.md) é um pré-requisito e a instalação da extensão IaaS do SQL reinicia o serviço do SQL Server. Portanto, se a extensão IaaS do SQL precisa ser instalada, isso deve ser feito durante uma janela de manutenção. 
 
 1. **Assinaturas de CSP podem ativar o benefício híbrido do Azure?**
 
@@ -105,7 +105,7 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre como 
 
 1. **Registrar minha VM com o novo provedor de recursos de VM do SQL trará custos adicionais?**
 
-    Não. O provedor de recursos de VM de SQL apenas habilita a capacidade de gerenciamento adicional do SQL Server na VM do Azure sem custos adicionais. 
+   Não. O provedor de recursos de VM de SQL apenas habilita a capacidade de gerenciamento adicional do SQL Server na VM do Azure sem custos adicionais. 
 
 1. **O provedor de recursos da VM do SQL está disponível para todos os clientes?**
  

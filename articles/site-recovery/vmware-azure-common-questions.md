@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/18/2019
+ms.date: 04/23/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: d0e39f9e24b3c486eccd71eb1c19823cfd33391a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: dffbb2c52b4e43eefe6b4f377bd7af529bae8cc5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004764"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125552"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Perguntas comuns - replicação do VMware para Azure
 
@@ -200,7 +200,7 @@ Analise os [pré-requisitos](vmware-azure-deploy-configuration-server.md#prerequ
 É recomendável que você [criar VM do servidor de configuração](vmware-azure-deploy-configuration-server.md) com a versão mais recente do modelo de OVF. Se por alguma razão você não pode, por exemplo você não tiver acesso ao servidor do VMware, você pode [baixar](physical-azure-set-up-source.md) o arquivo de instalação do portal e configurar o servidor de configuração.
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>Um servidor de configuração pode replicar para mais de uma região?
- Não. Para fazer isso, você precisa de um servidor de configuração em cada região.
+Não. Para fazer isso, você precisa de um servidor de configuração em cada região.
 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>É possível hospedar um servidor de configuração no Azure?
 Embora seja possível, a VM do Azure em execução no servidor de configuração precisa comunicar-se com a infraestrutura VMware e VMs locais. Isso aumenta a latência e afeta a replicação em andamento.
@@ -233,7 +233,7 @@ Não, você só deve usar a VM para o servidor de configuração.
 Não, você deve configurar um servidor de configuração atualizados para evitar problemas de registro.
 
 ### <a name="can-i-change-the-vault-in-which-the-configuration-server-is-registered"></a>Posso alterar o cofre no qual o servidor de configuração está registrado?
- Não. Depois que um cofre está associado com o servidor de configuração, ele não pode ser alterado. Revisão [deste artigo](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) para saber mais sobre como registrar novamente.
+Não. Depois que um cofre está associado com o servidor de configuração, ele não pode ser alterado. Revisão [deste artigo](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) para saber mais sobre como registrar novamente.
 
 ### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>Posso usar o mesmo servidor de configuração para recuperação de desastres de VMs VMware e servidores físicos
 Sim, mas observe que esse computador físico pode ser feito apenas para uma VM do VMware.
@@ -245,11 +245,15 @@ Sim, mas observe que esse computador físico pode ser feito apenas para uma VM d
 
 No cofre de serviços de recuperação, clique em **servidores de configuração** na **infraestrutura do Site Recovery** > **gerenciar**. Em seguida, na **servidores**, selecione **baixar a chave de registro** para baixar o arquivo de credenciais do cofre.
 
+## <a name="process-server"></a>Servidor de processo
 
+### <a name="unable-to-select-process-server-during-enable-replication"></a>Não é possível selecionar o servidor de processo durante a habilitar a replicação
 
+Da versão 9.24, os aprimoramentos foram feitos para fornecer [orientação no produto](vmware-azure-manage-process-server.md#process-server-selection-guidance) sobre quando configurar um servidor de processo de escalonamento horizontal. Isso é para evitar a limitação do servidor de processo e evitar o uso do servidor de processo não íntegro.
 
+### <a name="what-should-i-do-to-obtain-accurate-health-status-of-process-server"></a>O que devo fazer para obter o status de integridade precisa de servidor de processo?
 
-
+Atualizar os componentes do Site Recovery para o [versões mais recentes](service-updates-how-to.md#links-to-currently-supported-update-rollups) (pelo menos 9.24 ou superior).
 
 ## <a name="failover-and-failback"></a>Failover e failback
 ### <a name="can-i-use-the-process-server-at-on-premises-for-failback"></a>Posso usar o servidor de processo no local para failback?
@@ -294,6 +298,6 @@ Sim. Você pode automatizar fluxos de trabalho do Site Recovery, utilizando a AP
 Sim. [Saiba mais](site-recovery-plan-capacity-vmware.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Analisar](vmware-physical-azure-support-matrix.md) os requisitos de suporte.
 * [Configurar](vmware-azure-tutorial.md) replicação de VMware para o Azure.

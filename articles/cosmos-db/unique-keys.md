@@ -1,18 +1,19 @@
 ---
 title: Chaves exclusivas no Azure Cosmos DB
 description: Saiba como usar chaves exclusivas no banco de dados do Azure Cosmos
-author: rimman
-ms.author: rimman
+author: rockboyfor
+ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+origin.date: 04/08/2019
+ms.date: 04/15/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 3c5e8a2c85898175772dc353258e77fc8e0a74f2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799109"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115716"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Restrições de chaves exclusivas no Azure Cosmos DB
 
@@ -26,14 +27,14 @@ Para criar itens com o mesmo endereço de email, mas não com o mesmo nome, sobr
 
 Por exemplo, o contêiner pode conter itens com os valores a seguir, em que cada item respeita a restrição de chave exclusiva.
 
-|CompanyID|Nome|Sobrenome|Endereço de email|
-|---|---|---|---|
-|Contoso|Gaby|Duperre|gaby@contoso.com |
-|Contoso|Gaby|Duperre|gaby@fabrikam.com|
-|Fabrikam|Gaby|Duperre|gaby@fabrikam.com|
-|Fabrikam|Ivan|Duperre|gaby@fabrikam.com|
-|Fabrikam|   |Duperre|gaby@fabraikam.com|
-|Fabrikam|   |   |gaby@fabraikam.com|
+| CompanyID | Nome | Sobrenome |   Endereço de email    |
+|-----------|------------|-----------|--------------------|
+|  Contoso  |    Gaby    |  Duperre  |  gaby@contoso.com  |
+|  Contoso  |    Gaby    |  Duperre  | gaby@fabrikam.com  |
+| Fabrikam  |    Gaby    |  Duperre  | gaby@fabrikam.com  |
+| Fabrikam  |    Ivan    |  Duperre  | gaby@fabrikam.com  |
+|  Fabrikam  |            |  Duperre  | gaby@fabraikam.com |
+|  Fabrikam  |            |           | gaby@fabraikam.com |
 
 Se você tentar inserir outro item com as combinações listadas na tabela anterior, um erro será exibido. O erro indica que a restrição de chave exclusiva não foi atendida. Recebê-las `Resource with specified ID or name already exists` ou `Resource with specified ID, name, or unique index already exists` como uma mensagem de retorno. 
 
@@ -53,6 +54,8 @@ Se você tentar inserir outro item com as combinações listadas na tabela anter
 
 * Nomes exclusivos de chave diferenciam maiúsculas de minúsculas. Por exemplo, considere um contêiner com a restrição de chave exclusiva definida como `/address/zipcode`. Se os dados tiverem um campo chamado `ZipCode`, do Azure Cosmos DB insere "null" como a chave exclusiva porque `zipcode` não é o mesmo que `ZipCode`. Devido a essa diferenciação de maiúsculas e minúsculas, todos os outros registros com ZipCode não poderão ser inseridos porque o "null" duplicado violará a restrição de chave exclusiva.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre [partições lógicas](partition-data.md).
+
+<!-- Update_Description: update meta propreties, wording update -->

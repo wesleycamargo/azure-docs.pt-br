@@ -8,11 +8,11 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.openlocfilehash: 3e26365c4273611c81682a760695522575f3875d
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225035"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61483328"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas de Gerenciador de armazenamento do Azure
 
@@ -128,7 +128,7 @@ O conjunto de chaves do macOS, às vezes, pode entrar em um estado que causa pro
 3. Selecione o conjunto de chaves "logon".
 4. Clique no ícone de cadeado para bloquear o conjunto de chaves (o cadeado será animado para uma posição bloqueada quando concluído, pode levar alguns segundos, dependendo de quais aplicativos que você tiver aberto).
 
-    ![Imagem](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
+    ![image](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
 
 5. Inicie o Gerenciador de Armazenamento.
 6. Um pop-up deve aparecer dizendo algo como "O hub de serviços quer acessar o conjunto de chaves". Quando aparecer, insira sua senha de conta de administrador do Mac e clique em **Sempre Permitir** (ou **Permitir** se **Sempre Permitir** não estiver disponível).
@@ -159,7 +159,7 @@ Se não for possível recuperar as assinaturas após a entrada bem-sucedida, ten
 Se não for possível remover uma conta anexada ou um recurso de armazenamento por meio da interface do usuário, exclua manualmente todos os recursos anexados, excluindo as seguintes pastas:
 
 * Windows: `%AppData%/StorageExplorer`
-* macOS: `/Users/<your_name>/Library/Application Support/StorageExplorer`
+* macOS - `/Users/<your_name>/Library/Application Support/StorageExplorer`
 * Linux: `~/.config/StorageExplorer`
 
 > [!NOTE]
@@ -247,20 +247,20 @@ O Gerenciador de armazenamento é oficialmente suportado no Ubuntu 18.04, 16.04 
 
 1. Baixar o Gerenciador de armazenamento
 2. Instalar o tempo de execução do .NET Core, versão mais recente de verificado é: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-2.0.8) (se você já tiver instalado uma versão mais recente, você talvez precise corrigir o Gerenciador de armazenamento, consulte abaixo)
-3. Execute `sudo apt-get install libgconf-2-4`
-4. Execute `sudo apt install libgnome-keyring-common libgnome-keyring-dev`
+3. Execute o `sudo apt-get install libgconf-2-4`
+4. Execute o `sudo apt install libgnome-keyring-common libgnome-keyring-dev`
 
 # <a name="ubuntu-1604tab1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Baixar o Gerenciador de armazenamento
 2. Instalar o tempo de execução do .NET Core, versão mais recente de verificado é: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-2.0.8) (se você já tiver instalado uma versão mais recente, você talvez precise corrigir o Gerenciador de armazenamento, consulte abaixo)
-3. Execute `sudo apt install libgnome-keyring-dev`
+3. Execute o `sudo apt install libgnome-keyring-dev`
 
 # <a name="ubuntu-1404tab1404"></a>[Ubuntu 14.04](#tab/1404)
 
 1. Baixar o Gerenciador de armazenamento
 2. Instalar o tempo de execução do .NET Core, versão mais recente de verificado é: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-2.0.8) (se você já tiver instalado uma versão mais recente, você talvez precise corrigir o Gerenciador de armazenamento, consulte abaixo)
-3. Execute `sudo apt install libgnome-keyring-dev`
+3. Execute o `sudo apt install libgnome-keyring-dev`
 
 ---
 
@@ -286,4 +286,4 @@ Se o botão "Abrir no Explorer" no portal do Azure não funciona para você, ver
 
 Se nenhuma das soluções funcionar para então [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). Você pode também obter rapidamente GitHub, usando o botão "Relatar problema ao GitHub" no canto inferior esquerdo.
 
-![Comentário](./media/storage-explorer-troubleshooting/feedback-button.PNG)
+![Comentários](./media/storage-explorer-troubleshooting/feedback-button.PNG)

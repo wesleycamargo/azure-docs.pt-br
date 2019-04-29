@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
 ms.openlocfilehash: 867d061e46494e5ef65340ce325a71638acc8dfa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099620"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103892"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Implantar o Proxy de Aplicativo do Azure AD em um domínio gerenciado do Azure AD Domain Services
 O Proxy de Aplicativo do Active Directory (AD) do Azure o ajuda a dar suporte a funcionários remotos publicando aplicativos locais para serem acessados via Internet. Com o Azure AD Domain Services, agora você pode usar modelo lift-and-shift em aplicativos herdados executados localmente para os Serviços de Infraestrutura do Azure. Depois, publique esses aplicativos usando o Proxy de Aplicativo do Azure AD, a fim de fornecer acesso remoto seguro aos usuários em sua organização.

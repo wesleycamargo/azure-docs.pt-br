@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 04/16/2019
 ms.author: kumud;tyao
 ms.openlocfilehash: e0ad1e85a4cd47de823bc4f224b5a8834b1068b9
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59685690"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61459310"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configurar uma regra na web application firewall taxa limite usando o Azure PowerShell
 Regra de limite de taxa de WAF (firewall) do aplicativo web do Azure para frente do Azure controla o número de solicitações permitidas de um único cliente IP durante uma duração de um minuto.
@@ -110,7 +110,7 @@ O exemplo abaixo usa o nome do Grupo de Recursos *myResourceGroupFD1* supondo qu
 > [!NOTE]
 > Você só precisa definir *WebApplicationFirewallPolicyLink* propriedade uma vez para vincular uma política de segurança a uma porta da frente front-end. Atualizações de política subsequentes são aplicadas automaticamente para o front-end.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [da frente](front-door-overview.md) 
 

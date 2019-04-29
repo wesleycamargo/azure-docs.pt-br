@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 5d5dd7bc3f6b60c2f9d7c2179f2bd356ca101dc4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791852"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61471735"
 ---
 # <a name="manage-virtual-machine-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Gerenciar adaptadores de rede de máquina virtual para a recuperação de desastre do local para o Azure
 Uma VM (máquina virtual) no Azure deve ter pelo menos um adaptador de rede anexado. Ela pode ter tantos adaptadores de rede anexados quantos o tamanho da VM der suporte.
@@ -67,5 +67,5 @@ Você pode modificar a sub-rede e o endereço IP para adaptadores de rede de um 
 
 6. Selecione **Salvar** para salvar as alterações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
   [Saiba mais](../virtual-network/virtual-network-network-interface-vm.md) sobre adaptadores de rede para máquinas virtuais do Azure.

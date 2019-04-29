@@ -1,7 +1,6 @@
 ---
 title: Criar clusters do Apache Hadoop usando o .NET - Azure HDInsight
 description: Aprenda como criar clusters Apache Hadoop, Apache HBase, Apache Storm ou Apache Spark no Linux para HDInsight usando o SDK do HDInsight .NET.
-services: hdinsight
 author: mamccrea
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: mamccrea
-ms.openlocfilehash: 0106063cfe376f31040b5dcd6856282ee09ae5c9
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 04760ab570ffc213950c28c22c499d8e9252d574
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447947"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124774"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Criar clusters baseados em Linux no HDInsight usando o SDK do .NET
 
@@ -365,7 +364,7 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solução de problemas
 
 Se você tiver problemas com a criação de clusters HDInsight, confira os [requisitos de controle de acesso](hdinsight-hadoop-create-linux-clusters-portal.md).
 

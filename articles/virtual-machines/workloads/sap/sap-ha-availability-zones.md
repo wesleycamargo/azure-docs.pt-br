@@ -18,11 +18,11 @@ ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3772dbdc8582eea1b2eac368784878a8a36d34ad
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339475"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125298"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurações de carga de trabalho do SAP com Zonas de Disponibilidade do Azure
 As [Zonas de Disponibilidade do Azure](https://docs.microsoft.com/azure/availability-zones/az-overview) são um dos recursos de alta disponibilidade que o Azure oferece. Usar as Zonas de Disponibilidade melhora a disponibilidade geral das cargas de trabalho do SAP no Azure. Esse recurso já está disponível em algumas [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/). No futuro, ele estará disponível em mais regiões.

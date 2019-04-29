@@ -18,11 +18,11 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9cfa28cae87c8a9a97e1c64b96f75ae4c6eab08d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004934"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62112282"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Plataforma de identidade da Microsoft e a credencial de senha de proprietário de recurso do OAuth 2.0
 
@@ -66,10 +66,10 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parâmetro | Condição | DESCRIÇÃO |
 | --- | --- | --- |
-| `tenant` | Necessário | O locatário do diretório no qual você deseja fazer o login. Pode estar no formato de nome amigável ou de GUID. Este parâmetro não pode ser definido como `common` ou `consumers`, mas pode ser definido como `organizations`. |
-| `grant_type` | Necessário | Deve ser definido como `password`. |
-| `username` | Necessário | Endereço de email do usuário. |
-| `password` | Necessário | A senha do usuário. |
+| `tenant` | Obrigatório | O locatário do diretório no qual você deseja fazer o login. Pode estar no formato de nome amigável ou de GUID. Este parâmetro não pode ser definido como `common` ou `consumers`, mas pode ser definido como `organizations`. |
+| `grant_type` | Obrigatório | Deve ser definido como `password`. |
+| `username` | Obrigatório | Endereço de email do usuário. |
+| `password` | Obrigatório | A senha do usuário. |
 | `scope` | Recomendadas | Uma lista separada por espaço de [escopos](v2-permissions-and-consent.md) ou permissões que o aplicativo exige. Em um fluxo interativo, o administrador ou o usuário deve concordar com esses escopos antecipadamente. |
 
 ### <a name="successful-authentication-response"></a>Resposta de autenticação bem sucedida

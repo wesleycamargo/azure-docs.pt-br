@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Processar dados dos Hubs de Eventos do Azure com Apache Spark no Azure HDInsight '
 description: Conectar-se ao Apache Spark no HDInsight do Azure para Hubs de Eventos do Azure e processar dados de fluxo.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: conceptual
 ms.date: 12/28/2018
-ms.openlocfilehash: 81104c7b206d4fe158df1ae9d329084ad88c3bdd
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 02f7bbca127ba33fcfdd15d6f00d1660bf72970c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976623"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124349"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Tutorial: Processar tweets usando Hubs de Eventos do Azure e Apache Spark no HDInsight
 
@@ -82,7 +81,7 @@ Você pode usar esse hub de eventos para armazenar tweets.
 
     - **Grupo de recursos**: Selecione um grupo de recursos existente na lista suspensa ou selecione **Criar novo** para criar um novo grupo de recursos.
 
-    - **Local**: Selecione o mesmo **Local** como o cluster Apache Spark no HDInsight para reduzir latência e custos.
+    - **Localização**: Selecione o mesmo **Local** como o cluster Apache Spark no HDInsight para reduzir latência e custos.
 
     - **Habilitar Inflar Automaticamente**: (Opcional) A inflação automática dimensiona automaticamente o número de Unidades de Produtividade atribuídas ao Namespace de Hubs de Eventos quando o tráfego excede a capacidade das Unidades de Produtividade atribuídas a ele.  
 

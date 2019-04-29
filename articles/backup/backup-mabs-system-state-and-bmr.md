@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: raynew
 ms.openlocfilehash: 35ab150670cdc27efcedca233928e0c2184aeca6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880090"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116168"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Fazer backup de estado do sistema e restaurar bare-metal com o servidor de Backup do Azure
 

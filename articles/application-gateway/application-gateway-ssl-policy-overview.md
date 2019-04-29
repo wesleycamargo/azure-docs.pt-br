@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure services
-ms.date: 08/03/2017
-ms.author: amsriva
+origin.date: 08/03/2017
+ms.date: 02/26/2019
+ms.author: v-junlch
 ms.openlocfilehash: 46a823e4e230656b53a93a97f195d0879fd08bf2
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731949"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122227"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>Visão geral da política SSL do Gateway de Aplicativo
 
@@ -64,9 +65,9 @@ Se uma política SSL predefinida tiver de ser configurada para suas necessidades
  
 ### <a name="ssl-protocol-versions"></a>Versões de protocolo SSL
 
-* SSL 2.0 e 3.0 são desabilitados por padrão para todos os gateways do aplicativo. Essas versões de protocolo não são configuráveis.
-* Uma política SSL personalizada oferece a opção de selecionar qualquer um dos três protocolos a seguir como a versão mínima do protocolo SSL para seu gateway: TLSv1_0, TLSv1_1, and TLSv1_2.
-* Se nenhuma política SSL for definida, todos os três protocolos (TLSv1_0, TLSv1_1 e TLSv1_2) deverão ser habilitados.
+- SSL 2.0 e 3.0 são desabilitados por padrão para todos os gateways do aplicativo. Essas versões de protocolo não são configuráveis.
+- Uma política SSL personalizada oferece a opção de selecionar qualquer um dos três protocolos a seguir como a versão mínima do protocolo SSL para seu gateway: TLSv1_0, TLSv1_1, and TLSv1_2.
+- Se nenhuma política SSL for definida, todos os três protocolos (TLSv1_0, TLSv1_1 e TLSv1_2) deverão ser habilitados.
 
 ### <a name="cipher-suites"></a>Conjuntos de criptografia
 
@@ -105,3 +106,5 @@ O Gateway de Aplicativo dá suporte aos seguintes conjuntos de criptografia dos 
 ## <a name="next-steps"></a>Próximas etapas
 
 Se desejar aprender a configurar uma política SSL, confira [Configurar política SSL em um gateway de aplicativo](application-gateway-configure-ssl-policy-powershell.md).
+
+<!-- Update_Description: wording update -->

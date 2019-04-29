@@ -12,11 +12,11 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 688ef059387dc4c312873051c7c9d1eae259b1ae
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844776"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61429869"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Mover dados para ou do Armazenamento de Blobs do Azure usando conectores SSIS
 O [Feature Pack dos Serviços de Integração do SQL Server para Azure](https://msdn.microsoft.com/library/mt146770.aspx) fornece componentes para se conectar ao Azure, transferir dados entre o Azure e fontes de dados locais e processar os dados armazenados no Azure.
@@ -64,7 +64,7 @@ Para mover dados do local para o Armazenamento de Blobs do Azure usando o pacote
 
 Os parâmetros usados pela tarefa são descritos aqui:
 
-| Campo | Descrição |
+| Campo | DESCRIÇÃO |
 | --- | --- |
 | **AzureStorageConnection** |Especifica um Gerenciador de Conexão de Armazenamento do Azure existente ou cria um novo, que faz referência a uma conta de armazenamento do Azure, que aponta para onde os arquivos de blob estão hospedados. |
 | **BlobContainer** |Especifica o nome do contêiner de blob que contém os arquivos carregados como blobs. |

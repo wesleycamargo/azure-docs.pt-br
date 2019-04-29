@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: bd39b0aae5b76f37e2153f8e4c4502be994fa5b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58081824"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61461996"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Mover dados do PostgreSQL usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -74,7 +74,7 @@ A tabela a seguir fornece a descrição para elementos JSON específicas para o 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| Tipo |A propriedade type deve ser definida como: **OnPremisesPostgreSql** |Sim |
+| type |A propriedade type deve ser definida como: **OnPremisesPostgreSql** |Sim |
 | Servidor |Nome do servidor PostgreSQL. |Sim |
 | Banco de Dados |Nome do banco de dados PostgreSQL. |Sim |
 | schema |Nome do esquema no banco de dados. O nome do esquema diferencia maiúsculas de minúsculas. |Não  |
@@ -311,7 +311,7 @@ Ao mover os dados para o PostgreSQL os seguintes mapeamentos são usados do tipo
 | bigserial |serial8 |Int64 |
 | bit [(n)] | |Byte[], String |
 | bit varying [ (n) ] |varbit |Byte[], String |
-| booleano |bool |BOOLEAN |
+| boolean |bool |Boolean |
 | box | |Byte[], String |
 | bytea | |Byte[], String |
 | character [(n)] |char [(n)] |Cadeia de caracteres |
@@ -319,7 +319,7 @@ Ao mover os dados para o PostgreSQL os seguintes mapeamentos são usados do tipo
 | cid | |Cadeia de caracteres |
 | cidr | |Cadeia de caracteres |
 | circle | |Byte[], String |
-| data | |DateTime |
+| date | |DateTime |
 | daterange | |Cadeia de caracteres |
 | double precision |float8 |Double |
 | inet | |Byte[], String |

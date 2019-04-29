@@ -1,5 +1,5 @@
 ---
-title: Adicione uma página para a solução de monitoramento remoto da interface do usuário - Azure | Microsoft Docs
+title: Adicionar uma página para a solução de monitoramento remoto da interface do usuário - Azure | Microsoft Docs
 description: Este artigo mostra como adicionar uma nova página na interface do usuário web do acelerador de solução de Monitoramento Remoto.
 author: dominicbetts
 manager: timlt
@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: 95830cdffb232e16f9fbae51cfa11fbd18172c3c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094456"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447073"
 ---
 # <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicione uma página personalizada à interface da Web da web do acelerador de solução de monitoramento remoto
 

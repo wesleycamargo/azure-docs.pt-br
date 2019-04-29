@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
 ms.openlocfilehash: 8b6745a2b9afe8d3101585e3f7a13f2fc978c84a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492081"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122584"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Como consultar logs do Azure Monitor para VMs (versão prévia)
 O Azure Monitor para VMs coleta de desempenho e métricas de conexão, computador e dados de inventário do processo e informações de estado de integridade e a encaminha para o espaço de trabalho do Log Analytics no Azure Monitor.  Esses dados estão disponíveis para [consulta](../../azure-monitor/log-query/log-query-overview.md) no Azure Monitor. Você pode aplicar esses dados a cenários que incluem planejamento de migração, análise de capacidade, descoberta e solução de problemas de desempenho sob demanda.
@@ -52,13 +52,13 @@ Para gerenciar o custo e a complexidade, os registros de conexão não represent
 
 | Propriedade | DESCRIÇÃO |
 |:--|:--|
-|Direction |Direção da conexão, o valor é *entrada* ou *saída* |
-|Machine |O FQDN do computador |
-|Process |Identidade do processo ou grupos de processos, iniciando/aceitando a conexão |
+|Direção |Direção da conexão, o valor é *entrada* ou *saída* |
+|Computador |O FQDN do computador |
+|Processo |Identidade do processo ou grupos de processos, iniciando/aceitando a conexão |
 |SourceIp |Endereço IP da origem |
 |DestinationIp |Endereço IP do destino |
 |DestinationPort |Número da porta de destino |
-|Protocol |Protocolo usado para a conexão.  O valor é *tcp*. |
+|Protocolo |Protocolo usado para a conexão.  O valor é *tcp*. |
 
 Para levar em conta o impacto do agrupamento, são fornecidas informações sobre o número de conexões físicas agrupadas nas seguintes propriedades do registro:
 
@@ -77,7 +77,7 @@ Além das métricas de contagem de conexões, as informações sobre o volume de
 |:--|:--|
 |BytesSent |Número total de bytes enviados durante o intervalo de tempo de geração de relatórios |
 |BytesReceived |Número total de bytes recebidos durante o intervalo de tempo de geração de relatórios |
-|Responses |O número de respostas observadas durante o intervalo de tempo de geração de relatórios. 
+|Respostas |O número de respostas observadas durante o intervalo de tempo de geração de relatórios. 
 |ResponseTimeMax |O maior tempo de resposta (milissegundos) observado durante o intervalo de tempo de geração de relatórios. Se não houve valor, a propriedade ficará em branco.|
 |ResponseTimeMin |O menor tempo de resposta (milissegundos) observado durante o intervalo de tempo de geração de relatórios. Se não houve valor, a propriedade ficará em branco.|
 |ResponseTimeSum |A soma de todos os tempos de resposta (milissegundos) observados durante o intervalo de tempo de geração de relatórios. Se não houve valor, a propriedade ficará em branco.|
@@ -110,11 +110,11 @@ Todas as propriedades RemoteIp na tabela *VMConnection* são verificadas em um c
 
 | Propriedade | DESCRIÇÃO |
 |:--|:--|
-|MaliciousIp |Endereço de RemoteIp |
+|MaliciousIP |Endereço de RemoteIp |
 |IndicatorThreadType |O indicador de ameaça detectado é um dos seguintes valores, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
-|Description |Descrição da ameaça observada. |
+|DESCRIÇÃO |Descrição da ameaça observada. |
 |TLPLevel |O TLP (Traffic Light Protocol) é um dos valores definidos, *Branco*, *Verde*, *Âmbar*, *Vermelho*. |
-|Confidence |Os valores são *0 – 100*. |
+|Confiança |Os valores são *0 – 100*. |
 |Severity |Os valores são *0 – 5*, onde *5* é o mais grave e *0* não é grave. O valor padrão é *3*.  |
 |FirstReportedDateTime |A primeira vez que o provedor relatou o indicador. |
 |LastReportedDateTime |A última vez que o indicador foi visto pelo Interflow. |
@@ -136,10 +136,10 @@ Todos os registros VMBoundPort é identificado pelos seguintes campos:
 
 | Propriedade | DESCRIÇÃO |
 |:--|:--|
-|Process | Identidade do processo (ou grupos de processos) com o qual a porta está associada.|
-|Ip | Endereço IP da porta (pode ser o IP de curinga *0.0.0.0*) |
-|Port |O número da porta |
-|Protocol | O protocolo.  O exemplo, *tcp* ou *udp* (somente *tcp* é suportado no momento).|
+|Processo | Identidade do processo (ou grupos de processos) com o qual a porta está associada.|
+|IP | Endereço IP da porta (pode ser o IP de curinga *0.0.0.0*) |
+|Porta |O número da porta |
+|Protocolo | O protocolo.  O exemplo, *tcp* ou *udp* (somente *tcp* é suportado no momento).|
  
 A identidade de uma porta é derivada de cinco campos acima e é armazenada na propriedade PortId. Essa propriedade pode ser usada para localizar rapidamente os registros para uma porta específica longo do tempo. 
 

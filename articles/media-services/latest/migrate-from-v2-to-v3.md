@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 03/27/2019
 ms.author: juliako
-ms.openlocfilehash: 70e28377b19b682f2191e0a8fb95792101fa8ec7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ae094ddf1bfc55ce793995f60f1694be6eb19c1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326387"
+ms.locfileid: "62103774"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Orientação de migração para passar dos Serviços de Mídia v2 para v3
 
@@ -114,6 +114,10 @@ A tabela a seguir mostra as diferenças de código entre v2 e v3 para cenários 
 
 > [!NOTE]
 > Esta página será mantida à medida que a equipe de Serviços de Mídia fizer melhorias contínuas nas APIs da v3 e abordar as lacunas entre as versões.
+
+## <a name="provide-feedback"></a>Fornecer comentários
+
+Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
 
 ## <a name="next-steps"></a>Próximas etapas
 

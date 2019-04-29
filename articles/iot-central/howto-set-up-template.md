@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: db8c8de7a8047f7aa6a81f6a3b372d161408f1be
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679339"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097124"
 ---
 # <a name="set-up-a-device-template"></a>Configurar um modelo de dispositivo
 
@@ -275,7 +275,7 @@ Se você configurou uma propriedade de localização, visualize a localização 
 
 Você pode redimensionar o mapa para o tamanho desejado. Agora, quando um operador exibir o painel no **Device Explorer**, todos os blocos do painel configurados, incluindo um mapa de localização, ficarão visíveis.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu a configurar um modelo de dispositivo no aplicativo Central do IoT do Azure, é possível:
 

@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: 9c4ddb1375154fef3290008a7b981a4e9069ae94
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075195"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104809"
 ---
 # <a name="set-up-and-run-analytics-jobs-using-azure-stream-analytics-api-for-net"></a>Configurar e executar trabalhos de análise usando a API do Azure Stream Analytics para .NET
 Saiba como configurar e executar trabalhos de análise usando a API do Stream Analytics para .NET usando o SDK do .NET de Gerenciamento. Configurar um projeto, criar fontes de entrada e saídas, transformações e iniciar e parar trabalhos. Seus trabalhos de análise, você pode transmitir dados de armazenamento de Blob ou de um hub de eventos.
@@ -316,7 +316,7 @@ O método **Excluir** excluirá o trabalho, bem como os sub-recursos subjacentes
    LongRunningOperationResponse jobDeleteResponse = client.StreamingJobs.Delete(resourceGroupName, streamAnalyticsJobName);
    ```
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas

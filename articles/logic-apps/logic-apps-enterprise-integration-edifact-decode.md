@@ -4,18 +4,18 @@ description: Validar EDI e gerar confirmações com o decodificador de mensagem 
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+author: ecfan
+ms.author: estfan
+ms.reviewer: jonfan, divswa, LADocs
 ms.topic: article
 ms.assetid: 0e61501d-21a2-4419-8c6c-88724d346e81
 ms.date: 01/27/2017
-ms.openlocfilehash: b101922d15a3f90c29eff51c223d2ea7dc30ddf2
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: ccad6eab68fff0891ba287a076692f9437495a4c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125345"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097820"
 ---
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Decodificar mensagens EDIFACT para os Aplicativos Lógicos do Azure com o Enterprise Integration Pack
 
@@ -81,14 +81,14 @@ O conector EDIFACT de decodificação executa as seguintes tarefas:
   * Verifica o número de controle de grupo em relação a outros números de controle no intercâmbio. 
   * Verifica o número de controle do conjunto de transações em relação a outros números de controle de conjunto de transações nesse grupo.
 * Divide o intercâmbio em conjuntos de transações ou preserva todo o intercâmbio:
-  * Dividir o Intercâmbio como conjuntos de transações – suspender conjuntos de transações em caso de erro: divide o intercâmbio em conjuntos de transações e analisa cada conjunto de transações. 
+  * Dividir intercâmbio como conjuntos de transação – suspender conjuntos transação com erro: Divide o intercâmbio em transação conjuntos e analisa cada conjunto de transações. 
   A ação Decodificar X12 gera apenas os conjuntos de transações que falharam na validação em `badMessages` e gera os conjuntos de transações restantes em `goodMessages`.
-  * Dividir o Intercâmbio como conjuntos de transações – suspender o intercâmbio em caso de erro: divide o intercâmbio em conjuntos de transações e analisa cada conjunto de transações. 
+  * Dividir intercâmbio como conjuntos de transação - suspender intercâmbio no erro: Divide o intercâmbio em transação conjuntos e analisa cada conjunto de transações. 
   Se um ou mais conjuntos de transações no intercâmbio falharem na validação, a ação Decodificar X12 gerará todos os conjuntos de transações no intercâmbio em `badMessages`.
-  * Preservar intercâmbio – suspender conjuntos de transação em caso de erro: preserve o intercâmbio e processe todo o intercâmbio em lote. 
+  * Preservar intercâmbio - suspender conjuntos transação com erro: Preserve o intercâmbio e processe todo o intercâmbio em lote. 
   A ação Decodificar X12 gera apenas os conjuntos de transações que falharam na validação em `badMessages` e gera os conjuntos de transações restantes em `goodMessages`.
-  * Preservar intercâmbio – suspender intercâmbio em caso de erro: preserve o intercâmbio e processe todo o intercâmbio em lote. 
-  Se um ou mais conjuntos de transações no intercâmbio falharem na validação, a ação Decodificação X12 gerará todos os conjuntos de transações no intercâmbio em `badMessages`.
+  * Preservar intercâmbio - suspender intercâmbio no erro: Preserve o intercâmbio e processe todo o intercâmbio em lote. 
+  Se um ou mais conjuntos de transações no intercâmbio falharem na validação, a ação Decodificar X12 gerará todos os conjuntos de transações no intercâmbio em `badMessages`.
 * Gera uma confirmação técnica (controle) e/ou funcional (se configurado).
   * Uma confirmação técnica ou o CONTRL ACK reporta os resultados de uma verificação sintática do intercâmbio completo recebido.
   * Uma confirmação funcional confirma aceitar ou rejeitar um intercâmbio recebido ou um grupo

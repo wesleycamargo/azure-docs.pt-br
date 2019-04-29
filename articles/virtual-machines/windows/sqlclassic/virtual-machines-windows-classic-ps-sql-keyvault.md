@@ -17,11 +17,11 @@ ms.date: 02/17/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: e20e2a094e1fd88dfc2a25b586dc6c894f92b418
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312437"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108453"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Configurar a Integração do Azure Key Vault para SQL Server em Máquinas Virtuais do Azure (Clássicas)
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "58312437"
 > 
 > 
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Há vários recursos de criptografia do SQL Server, como [TDE (Transparent Data Encryption)](https://msdn.microsoft.com/library/bb934049.aspx), [CLE (criptografia de nível de coluna)](https://msdn.microsoft.com/library/ms173744.aspx) e [criptografia de backup](https://msdn.microsoft.com/library/dn449489.aspx). Essas formas de criptografia exigem o gerenciamento e armazenamento de chaves criptográficas usadas para a criptografia. O serviço Cofre da Chave do Azure (AKV) foi criado para melhorar a segurança e o gerenciamento dessas chaves em um local seguro e altamente disponível. O [SQL Server Connector](https://www.microsoft.com/download/details.aspx?id=45344) permite que o SQL Server use essas chaves do Cofre da Chave do Azure.
 
 > [!IMPORTANT] 
@@ -51,7 +51,7 @@ Primeiro, [instale a extensão IaaS do SQL Server](../classic/sql-server-agent-e
 ### <a name="understand-the-input-parameters"></a>Compreender os parâmetros de entrada
 A tabela a seguir lista os parâmetros necessários para executar o script do PowerShell na próxima seção.
 
-| Parâmetro | Descrição | Exemplo |
+| Parâmetro | DESCRIÇÃO | Exemplo |
 | --- | --- | --- |
 | **$akvURL** |**A URL do cofre da chave** |"https:\//contosokeyvault.vault.azure.net/" |
 | **$spName** |**Nome da Entidade de Serviço** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |

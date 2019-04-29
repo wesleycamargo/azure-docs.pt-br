@@ -1,7 +1,6 @@
 ---
 title: Gerenciar clusters do Apache Hadoop no HDInsight usando o portal do Azure
 description: Aprenda a criar e gerenciar clusters HDInsight usando o portal do Azure.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 80c27d588bb8b4c60ae8432fbd3a2ac3d2db1394
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 003aeadba1f4683af40f390d40dd3bbe32e02a83
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58802653"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62096344"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerenciar clusters do Apache Hadoop no HDInsight usando o portal do Azure
 
@@ -69,7 +68,7 @@ Selecione o nome do cluster do [ **clusters HDInsight** ](#showClusters) página
     |Secure Shell (SSH) + logon do Cluster|Mostra as instruções para se conectar ao cluster usando uma conexão Secure Shell (SSH). Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).|
     |Armazenamento do Data Lake Gen1|Configura o acesso ao Data Lake Storage Gen1.  Confira [Início Rápido: Configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).|
     |Contas de armazenamento|Exibe as contas de armazenamento e as chaves. As contas de armazenamento são configuradas durante o processo de criação do cluster.|
-    |APLICATIVOS|Adicionar/remove aplicativos do HDInsight.  Consulte [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md).|
+    |Aplicativos|Adicionar/remove aplicativos do HDInsight.  Consulte [Instalar aplicativos personalizados do HDInsight](hdinsight-apps-install-custom-applications.md).|
     |Ações de script|Execute scripts Bash no cluster. Confira [Personalizar clusters HDInsight baseados em Linux usando a Ação de Script](hdinsight-hadoop-customize-cluster-linux.md).|
     |Metastores externos|Exiba os metastores [Apache Hive](https://hive.apache.org/) e [Apache Oozie](https://oozie.apache.org/). Os metastores só podem ser configurados durante o processo de criação do cluster.|
     |Parceiro HDInsight|Adiciona/remove o parceiro do HDInsight atual.|
@@ -107,7 +106,7 @@ Na [página inicial do cluster](#homePage), em **Configurações**, selecione **
 |Data de criação|A data em que o cluster foi implantado.|
 |Sistema operacional|**Windows** ou **Linux**.|
 |Type|Hadoop, HBase, Storm, Spark.|
-|Versão|Consulte [HDInsight versions](hdinsight-component-versioning.md) (Versões do HDInsight).|
+|Version|Consulte [HDInsight versions](hdinsight-component-versioning.md) (Versões do HDInsight).|
 |Assinatura|Nome da assinatura.|
 |Fonte de dados padrão|O sistema de arquivos padrão do cluster.|
 |Tamanho de nós de trabalho|O tamanho selecionado da VM dos nós de trabalho.|
@@ -265,7 +264,7 @@ A senha é alterada em todos os nós no cluster.
 4. Na folha **Ações de Script**, selecione **Enviar Novo**. 
 5. Na folha **Enviar ação do script**, insira as seguintes informações:
 
-   | Campo | Valor |
+   | Campo | Value |
    | --- | --- |
    | Tipo de script | Selecione **- Personalizar** na lista suspensa.|
    | NOME |"Alterar senha ssh" |

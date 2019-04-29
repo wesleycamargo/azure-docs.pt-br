@@ -1,19 +1,20 @@
 ---
-title: Adicionar um submenu à interface do usuário da solução de monitoramento remoto - Azure | Microsoft Docs
+title: Adicionar um submenu para a solução de monitoramento remoto da interface do usuário - Azure | Microsoft Docs
 description: Este artigo mostra como adicionar um novo submenu em uma página na interface da Web da web do acelerador de solução de monitoramento remoto.
 author: dominicbetts
 manager: timlt
-ms.author: dobett
+ms.author: v-yiso
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/05/2018
+origin.date: 10/05/2018
+ms.date: 11/26/2018
 ms.topic: conceptual
 ms.openlocfilehash: ccb1a7ff6abbc68f42c7632a8ba7a392b2c48794
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167410"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447107"
 ---
 # <a name="add-a-custom-flyout-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicionar um desdobrável personalizado à interface de usuário da web do acelerador de solução de monitoramento remoto
 
@@ -26,7 +27,7 @@ O flyout de exemplo deste artigo é exibido na página com a grade que a seção
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir as etapas deste guia prático, você precisa do seguinte software instalado em sua máquina de desenvolvimento local:
+Para concluir as etapas neste guia de instruções, você precisa ter o seguinte software instalado em seu computador de desenvolvimento local:
 
 - [Git](https://git-scm.com/downloads)
 - [Node.js](https://nodejs.org/download/)
@@ -36,7 +37,7 @@ Para concluir as etapas deste guia prático, você precisa do seguinte software 
 Você deve concluir as etapas nos seguintes artigos antes de continuar:
 
 - [Adicione uma página personalizada à interface da Web da web do acelerador de solução de monitoramento remoto](iot-accelerators-remote-monitoring-customize-page.md).
-- [Adicionar um serviço personalizado para monitoramento remoto solution accelerator da IU da web](iot-accelerators-remote-monitoring-customize-service.md)
+- [Adicionar um serviço personalizado para o acelerador de solução de Monitoramento Remoto da IU da web](iot-accelerators-remote-monitoring-customize-service.md)
 - [Adicione uma grade personalizada à interface da Web da web do acelerador de solução de monitoramento remoto](iot-accelerators-remote-monitoring-customize-grid.md)
 
 ## <a name="add-a-flyout"></a>Adicionar um submenu
@@ -49,11 +50,11 @@ Para começar, o **src/passo a passo/componentes/páginas/pageWithFlyout/flyouts
 
 **exampleFlyout.container.js**
 
-[!code-javascript[Example flyout container](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.container.js?name=flyoutcontainer "Example flyout container")]
+
 
 **exampleFlyout.js**
 
-[!code-javascript[Example flyout](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.js?name=flyout "Example flyout")]
+
 
 Cópia de **src/passo a passo/componentes/páginas/pageWithFlyout/flyouts** pasta para o **src/componentes/páginas/exemplo** pasta.
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: crdun
 ms.openlocfilehash: 8c1c52790065015977add7e32a06063057b24dad
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445901"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128142"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Adicione autenticação ao seu aplicativo do iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -212,7 +212,7 @@ No Xcode, pressione **Executar** para iniciar o aplicativo. Uma exceção é cri
 
 5. Pressione *Executar* para iniciar o aplicativo e faça logon. Após ter feito o logon você poderá exibir a lista de Tarefas pendentes e fazer atualizações.
 
-A autenticação do Serviço de Aplicativo usa a comunicação interaplicativos da Apple.  Para obter mais detalhes sobre esse assunto, consulte o [documentação da Apple][2]
+A autenticação do Serviço de Aplicativo usa a comunicação interaplicativos da Apple.  Para obter mais detalhes sobre esse assunto, confira a [documentação da Apple][2]
 <!-- URLs. -->
 
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist

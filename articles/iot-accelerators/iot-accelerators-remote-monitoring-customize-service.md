@@ -1,19 +1,20 @@
 ---
-title: Adicione um serviço à solução de monitoramento remoto da interface do usuário – Azure | Microsoft Docs
+title: Adicionar um serviço para a solução de monitoramento remoto da interface do usuário - Azure | Microsoft Docs
 description: Este artigo mostra como adicionar um novo serviço na interface do usuário Web do acelerador de solução de Monitoramento Remoto.
 author: dominicbetts
 manager: timlt
-ms.author: dobett
+ms.author: v-yiso
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/02/2018
+origin.date: 10/02/2018
+ms.date: 11/26/2018
 ms.topic: conceptual
 ms.openlocfilehash: e44aa8ade512a6005959e795cb1d4ad861da1338
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094465"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447039"
 ---
 # <a name="add-a-custom-service-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicione um serviço personalizado à interface do usuário da Web do acelerador de solução de Monitoramento Remoto
 
@@ -47,13 +48,13 @@ Para começar, a pasta **src/walkthrough/services** contém os arquivos que defi
 
 **exampleService.js**
 
-[!code-javascript[Example service](~/remote-monitoring-webui/src/walkthrough/services/exampleService.js?name=service "Example service")]
+
 
 Para saber mais sobre como os serviços são implementados, confira [Introdução à Programação Reativa você está perdendo](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754).
 
 **model/exampleModels.js**
 
-[!code-javascript[Example model](~/remote-monitoring-webui/src/walkthrough/services/models/exampleModels.js?name=models "Example model")]
+
 
 Copie **exampleService.js** para a pasta **src/services** e copie **exampleModels.js** para a pasta **src/services/models**.
 
@@ -75,7 +76,7 @@ Para começar, a pasta **src/walkthrough/store/reducers** contém um redutor de 
 
 **exampleReducer.js**
 
-[!code-javascript[Example reducer](~/remote-monitoring-webui/src/walkthrough/store/reducers/exampleReducer.js?name=reducer "Example reducer")]
+
 
 Copie **exampleReducer.js** para a pasta **store/src/redutores**.
 

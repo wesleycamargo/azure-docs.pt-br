@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: kgremban
 ms.openlocfilehash: 3e703c999d57cf62064291cf91059a17a959a2c3
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608394"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61442575"
 ---
 # <a name="get-started-with-device-twins-python"></a>Introdução aos dispositivos gêmeos (Python)
 
@@ -268,7 +268,7 @@ Nesta seção, você criará um aplicativo de console Python que se conecta ao s
 
     ![segunda consulta](./media/iot-hub-python-twin-getstarted/3-device-twins-python-service-sample.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você configurou um novo hub IoT no portal do Azure e depois criou uma identidade do dispositivo no Registro de identidade do Hub IoT. Você adicionou os metadados do dispositivo como marcações de um aplicativo de back-end e criou um aplicativo de dispositivo simulado para relatar informações de conectividade no dispositivo gêmeo. Você também aprendeu a consultar essas informações usando o registro.
 

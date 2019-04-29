@@ -1,7 +1,6 @@
 ---
 title: Criar clusters Apache Hadoop usando um navegador da Web, Azure HDInsight
 description: Saiba como criar clusters Apache Hadoop, Apache HBase, Apache Storm ou Apache Spark no Linux para HDInsight, usando um navegador da Web e a Versão Prévia do Portal do Azure.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: hrasheed
-ms.openlocfilehash: 13d053c14b083390bfdd28fdad616caf13e7e4e0
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 9da9c6c438aac2c160a9ec7bc658e5d7b4ea207e
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911550"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124791"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Criar clusters baseados em Linux no HDInsight usando o portal do Azure
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -53,7 +52,7 @@ O portal do Azure expõe a maioria das propriedades do cluster. Usando modelos d
 
     * Na lista suspensa **Assinatura**, selecione a assinatura do Azure usada para o cluster.
 
-    * Selecione **Tipo de cluster**. Em seguida, selecione o tipo de cluster que você quer criar. Os exemplos são Hadoop e Apache Spark. O **Sistema operacional** será **Linux**. Em seguida, selecione uma versão do tipo de cluster. Use a versão padrão se não souber o que escolher. Para obter mais informações, consulte [Versões de cluster HDInsight](hdinsight-component-versioning.md).
+    * Selecione **Tipo de cluster**. Em seguida, selecione o tipo de cluster que você quer criar. Os exemplos são Hadoop e Apache Spark. O **Sistema operacional** será **Linux**. Em seguida, selecione uma versão do tipo de cluster. Use a versão padrão se não souber o que escolher. Para obter mais informações, consulte [Versões de cluster do HDInsight](hdinsight-component-versioning.md).
      
         > [!IMPORTANT]  
         > Os clusters HDInsight são fornecidos em vários tipos. Eles correspondem à carga de trabalho ou tecnologia para a qual o cluster está sintonizado. Não há nenhum método com suporte para criar um cluster que combine vários tipos. Exemplos são Storm e HBase em um cluster.
@@ -147,21 +146,21 @@ Se você tiver problemas com a criação de clusters HDInsight, confira os [requ
 ## <a name="next-steps"></a>Próximas etapas
 Você criou com êxito um cluster HDInsight. Saiba agora como trabalhar com o cluster.
 
-### <a name="apache-hadoop-clusters"></a>Clusters Apache Hadoop
+### <a name="apache-hadoop-clusters"></a>Clusters do Apache Hadoop
 * [Usar o Apache Hive com o HDInsight](hadoop/hdinsight-use-hive.md)
 * [Usar o Apache Pig com o HDInsight](hadoop/hdinsight-use-pig.md)
 * [Usar o MapReduce com o HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
-### <a name="apache-hbase-clusters"></a>Clusters Apache HBase
+### <a name="apache-hbase-clusters"></a>Clusters do Apache HBase
 * [Introdução ao Apache HBase no HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md)
 * [Desenvolvimento de aplicativos Java para Apache HBase no HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
-### <a name="apache-storm-clusters"></a>Clusters Apache Storm
+### <a name="apache-storm-clusters"></a>Clusters do Apache Storm
 * [Desenvolver topologias em Java para o Apache Storm no HDInsight](storm/apache-storm-develop-java-topology.md)
 * [Usar componentes de Python no Apache Storm no HDInsight](storm/apache-storm-develop-python-topology.md)
 * [Implantar e monitorar topologias com o Apache Storm no HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
 
-### <a name="apache-spark-clusters"></a>Clusters Apache Spark
+### <a name="apache-spark-clusters"></a>Clusters do Apache Spark
 * [Criar um aplicativo independente usando o Scala](spark/apache-spark-create-standalone-application.md)
 * [Executar trabalhos remotamente em um cluster Apache Spark usando Apache Livy](spark/apache-spark-livy-rest-interface.md)
 * [Apache Spark com BI: Executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](spark/apache-spark-use-bi-tools.md)

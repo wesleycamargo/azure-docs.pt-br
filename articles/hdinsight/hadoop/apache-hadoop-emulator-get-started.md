@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: 1da676787eeee1eb75095a5e3a6b3f40056567ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15152196e45265985c8abb409523982bd4c5d427
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60536195"
+ms.locfileid: "62129444"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Comece com uma área restrita Apache Hadoop, um emulador em uma máquina virtual
 
@@ -74,7 +74,7 @@ Para baixar uma área restrita da versão mais antiga do HDP, expanda o arquivam
 
         select * from sample_07 limit 10;
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Aprenda a usar o Visual Studio com a Hortonworks Sandbox](../hdinsight-hadoop-emulator-visual-studio.md)
 * [Learning the ropes of the Hortonworks Sandbox](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 * [Hadoop tutorial - Getting started with HDP](https://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)

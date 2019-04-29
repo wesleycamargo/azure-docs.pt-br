@@ -16,11 +16,11 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec88caafa9a6168860a8e9e2ff9e2abe0cfd0e77
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852937"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62096106"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Perguntas frequentes do Azure AD Connect Health
 Este artigo inclui respostas para FAQs (perguntas frequentes) sobre o Azure AD (Azure Active Directory) Connect Health. Essas perguntas frequentes abordam perguntas sobre como usar o serviço, o que inclui o modelo de cobrança, os recursos, as limitações e o suporte.
@@ -95,7 +95,7 @@ Os números a seguir são uma aproximação:
 
 **P: Será necessário reinicializar meus servidores durante a instalação dos agentes do Azure AD Connect Health?**
 
- Não. A instalação dos agentes não exigirá a reinicialização do servidor. No entanto, a instalação de algumas das etapas de pré-requisito pode exigir uma reinicialização do servidor.
+Não. A instalação dos agentes não exigirá a reinicialização do servidor. No entanto, a instalação de algumas das etapas de pré-requisito pode exigir uma reinicialização do servidor.
 
 Por exemplo, no Windows Server 2008 R2, a instalação do .NET Framework 4.5 requer a reinicialização do servidor.
 
@@ -112,7 +112,7 @@ Se precisar configurar um proxy durante o registro do agente, talvez seja necess
 
 **P: O Azure AD Connect Health dá suporte à autenticação básica ao se conectar a proxies HTTP?**
 
- Não. Um mecanismo para especificar o nome de usuário/senha arbitrariamente para fins de autenticação básica não tem suporte.
+Não. Um mecanismo para especificar o nome de usuário/senha arbitrariamente para fins de autenticação básica não tem suporte.
 
 **P: Quais portas de firewall eu preciso abrir para que o agente do Azure AD Connect Health funcione?**
 

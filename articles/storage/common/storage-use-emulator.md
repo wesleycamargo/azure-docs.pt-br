@@ -9,11 +9,11 @@ ms.date: 08/10/2018
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: bc78dade345c9f9c72cf936136d9969b79bc1398
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878580"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125502"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste
 
@@ -277,7 +277,7 @@ Corrigido um bug em que o emulador de armazenamento estava retornando o cabeçal
 * A interface gráfica do usuário do emulador de armazenamento é preterida por uma interface de linha de comando programável por script. Para obter detalhes sobre a interface de linha de comando consulte Referência da ferramenta de linha de comando do emulador de armazenamento. A interface gráfica continuará presente na versão 3.0, mas só poderá ser acessada quando o emulador de computação for instalado, clicando com o botão direito no ícone de bandeja do sistema e selecionando Mostrar IU do Emulador de Armazenamento.
 * A versão 2013-08-15 dos serviços de armazenamento do Azure agora tem total suporte. (Anteriormente nesta versão só tinha suporte do emulador de armazenamento versão 2.2.1 Preview.)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Avalie o emulador de armazenamento de código aberto baseado na comunidade, plataforma cruzada [Azurite](https://github.com/arafato/azurite). 
 * [Exemplos de Armazenamento do Azure usando .NET](../storage-samples-dotnet.md) contém links para vários exemplos de código que você pode usar ao desenvolver seu aplicativo.

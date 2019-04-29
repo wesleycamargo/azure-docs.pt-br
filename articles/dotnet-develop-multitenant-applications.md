@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
 ms.openlocfilehash: 342c7903e58a5c3bc41278152630187fa0c63b7b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425022"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119139"
 ---
 # <a name="multitenant-applications-in-azure"></a>Aplicativos multilocatários no Azure
 Um aplicativo multilocatário é um recurso compartilhado que permite que usuários distintos ou "locatários" exibam o aplicativo como se ele fosse de sua propriedade. Um cenário típico que pode ser usado como um aplicativo multilocatário é aquele em que todos os usuários do aplicativo talvez queiram personalizar a experiência do usuário, mas que, de outra forma, têm os mesmos requisitos de negócios básico. Exemplos de grandes aplicativos multilocatários são o Office 365, o Outlook.com e o visualstudio.com.
@@ -28,16 +28,16 @@ Da perspectiva de um provedor de um aplicativo, os benefícios da multilocação
 
 A lista a seguir fornece os objetivos e requisitos mais significativos de uma perspectiva de provedor.
 
-* **Provisionamento**: você precisa ser capaz de provisionar novos locatários para o aplicativo.  Para aplicativos multilocatários com um grande número de locatários, geralmente é necessário automatizar esse processo permitindo provisionamento por autoatendimento.
-* **Facilidade de manutenção**: você deve ser capaz de atualizar o aplicativo e executar outras tarefas de manutenção enquanto vários locatários estiverem usando-o.
-* **Monitoramento**: você deve ser capaz de monitorar o aplicativo em todos os momentos para identificar os problemas e solucioná-los. Isso inclui o monitoramento de como cada locatário está usando o aplicativo.
+* **Provisionamento**: Você deve ser capaz de provisionar novos locatários para o aplicativo.  Para aplicativos multilocatários com um grande número de locatários, geralmente é necessário automatizar esse processo permitindo provisionamento por autoatendimento.
+* **Facilidade de manutenção**: Você deve ser capaz de atualizar o aplicativo e executar outras tarefas de manutenção enquanto vários locatários são usá-lo.
+* **Monitoramento**: Você deve ser capaz de monitorar o aplicativo em todos os momentos para identificar problemas e solucioná-los. Isso inclui o monitoramento de como cada locatário está usando o aplicativo.
 
 Um aplicativo multilocatário implementado adequadamente oferece os seguintes benefícios aos usuários.
 
-* **Isolamento**: as atividades de locatários individuais não afetam o uso do aplicativo por outros locatários. Os locatários não podem acessar os dados uns dos outros. Ao locatário, parece que o aplicativo é de seu uso exclusivo.
-* **Disponibilidade**: locatários individuais querem que o aplicativo esteja constantemente disponível, talvez com garantias definidas em um Contrato de Nível de Serviço. Novamente, as atividades de outros locatários não devem afetar a disponibilidade do aplicativo.
-* **Escalabilidade**: o aplicativo é dimensionado para atender à demanda de locatários individuais. A presença e as ações de outros locatários não devem afetar o desempenho do aplicativo.
-* **Custos**: os custos são menores do que a execução de um aplicativo dedicado de único locatário, porque a multilocação permite o compartilhamento de recursos.
+* **Isolamento**: As atividades de locatários individuais não afetam o uso do aplicativo por outros locatários. Os locatários não podem acessar os dados uns dos outros. Ao locatário, parece que o aplicativo é de seu uso exclusivo.
+* **Disponibilidade**: Locatários individuais querem o aplicativo esteja constantemente disponível, talvez com garantias definidas em um SLA. Novamente, as atividades de outros locatários não devem afetar a disponibilidade do aplicativo.
+* **Escalabilidade**: O aplicativo é dimensionado para atender à demanda de locatários individuais. A presença e as ações de outros locatários não devem afetar o desempenho do aplicativo.
+* **Custos**: Os custos são menores do que a execução de um aplicativo dedicado de único locatário porque a multilocação permite o compartilhamento de recursos.
 * **Capacidade de personalização**. A capacidade de personalizar o aplicativo para um locatário individual de várias maneiras, como adicionar ou remover recursos, alterar cores e logotipos ou até mesmo adicionar seu próprio código ou script.
 
 Em resumo, existem muitas considerações que você deve levar em conta para fornecer um serviço altamente escalonável, também há vários objetivos e requisitos que são comuns a muitos aplicativos multilocatários. Alguns podem não ser relevantes em cenários específicos, e a importância de requisitos e metas individuais será diferente em cada cenário. Como um provedor do aplicativo multilocatário, você também terá metas e requisitos, como atender as metas e requisitos dos locatários, lucratividade, cobrança, vários níveis de serviço, provisionamento, capacidade de manutenção, monitoramento e automação.

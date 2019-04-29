@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 984c5d6b5e6e2010489533a3889501c5b524a6bd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 40e7ebcddb5cc215e071f1a34dfa8f3f4ea95141
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311315"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103704"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Proteção de conteúdo com criptografia dinâmica
 
@@ -102,7 +102,7 @@ O protocolo HLS suporta os seguintes formatos de contêiner e esquemas de cripto
 
 |Formato de contêiner|Esquema de criptografia|Exemplo de URL|
 |---|---|---|
-|Todas|AES|`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
+|Todos|AES|`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=m3u8-aapl,encryption=cbc)`|
 |MPG2-TS |CBCS (FairPlay) ||
 |CMAF(fmp4) |CBCS (FairPlay) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`|
 |MPG2-TS |CENC (PlayReady) ||
@@ -120,7 +120,7 @@ O protocolo de MPEG-DASH suporta os seguintes formatos de contêiner e esquemas 
 
 |Formato de contêiner|Esquema de criptografia|Exemplos de URL
 |---|---|---|
-|Todas|AES|`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
+|Todos|AES|`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=mpd-time-csf,encryption=cbc)`|
 |CSF(fmp4) |CENC (Widevine + PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(format=mpd-time-csf,encryption=cenc)`|
 |CMAF(fmp4)|CENC (Widevine + PlayReady)||
 
@@ -168,7 +168,7 @@ Use os modelos a seguir se você quiser especificar um diferentes licença e a c
 * StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate - mesmo que acima, somente para Widevine. 
 * StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate - mesmo que acima, somente para FairPlay.  
 
-Por exemplo:
+Por exemplo: 
 
 ```csharp
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
@@ -192,7 +192,7 @@ Os clientes normalmente usam um STS personalizado para incluir declarações per
 
 Para proteger os Ativos em repouso, os ativos devem ser criptografados pela criptografia do armazenamento. A tabela a seguir mostra como a criptografia do armazenamento funciona nos Serviços de Mídia v3:
 
-|Opção de criptografia|Descrição|Serviços de Mídia v3|
+|Opção de criptografia|DESCRIÇÃO|Serviços de Mídia v3|
 |---|---|---|
 |Criptografia do Armazenamento dos Serviços de Mídia| Criptografia AES-256, chave gerenciada pelos Serviços de Mídia|Não é compatível<sup>(1)</sup>|
 |[Criptografia do Serviço de Armazenamento para dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Criptografia do servidor oferecida pelo Armazenamento do Microsoft Azure, chave gerenciada pelo Azure ou pelo cliente|Com suporte|
@@ -200,12 +200,15 @@ Para proteger os Ativos em repouso, os ativos devem ser criptografados pela crip
 
 <sup>1</sup> Nos Serviços de Mídia v3, a criptografia de armazenamento (criptografia AES-256) somente terá suporte para compatibilidade com versões anteriores quando os Ativos tiverem sido criados com os Serviços de Mídia v2. Isso significa que o v3 funciona com recursos criptografados de armazenamento existentes, mas não permite a criação de novos recursos.
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solução de problemas
 
 Se você receber o `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` erro, verifique se você especificar a política de Streaming apropriada.
 
 Se você obtiver erros que terminam com `_NOT_SPECIFIED_IN_URL`, certifique-se de que você especifica o formato de criptografia na URL. Por exemplo, `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Ver [tipos de criptografia e protocolos de Streaming](#streaming-protocols-and-encryption-types).
 
+## <a name="provide-feedback"></a>Fornecer comentários
+
+Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
 
 ## <a name="next-steps"></a>Próximas etapas
 

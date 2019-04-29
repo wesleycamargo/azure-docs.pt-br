@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 11/07/2018
 ms.openlocfilehash: 4dbf53df4d3f34e80757f9575981b4b053587d97
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012681"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485112"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implantar e explorar um aplicativo autônomo de locatário único que usa o Banco de Dados SQL do Azure
 

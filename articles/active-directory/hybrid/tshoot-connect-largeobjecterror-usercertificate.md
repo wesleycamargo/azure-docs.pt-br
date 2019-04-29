@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c851b5ef024e6584e6f8c93995208b08a91fbb60
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096666"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62095482"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Sincronização do Azure AD Connect: tratar erros de LargeObject causados pelo atributo userCertificate
 
@@ -90,7 +90,7 @@ Deve haver uma regra de sincronização existente que é habilitada e configurad
 
 2. Configure os filtros de pesquisa com os seguintes valores:
 
-    | Atributo | Valor |
+    | Atributo | Value |
     | --- | --- |
     | Direção |**Saída** |
     | Tipo de Objeto de MV |**Pessoa** |
@@ -105,7 +105,7 @@ Deve haver uma regra de sincronização existente que é habilitada e configurad
 7. Na tela de edição, selecione a guia **Filtro de escopo**.
 8. Anote a configuração de filtro de escopo. Se você estiver usando a regra de sincronização OOB, deverá haver exatamente **um grupo de filtro de escopo que contém duas cláusulas**, incluindo:
 
-    | Atributo | Operador | Valor |
+    | Atributo | Operador | Value |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Usuário |
     | cloudMastered | NOTEQUAL | True |
@@ -115,7 +115,7 @@ A nova regra de sincronização deve ter o mesmo **filtro de escopo** e a mesma 
 1. No Editor de Regras de Sincronização, clique no botão **Adicionar nova regra**.
 2. Na **guia Descrição**, forneça a seguinte configuração:
 
-    | Atributo | Valor | Detalhes |
+    | Atributo | Value | Detalhes |
     | --- | --- | --- |
     | NOME | *Fornecer um nome* | Por exemplo, *“Saída para AAD – Substituição personalizado para userCertificate”* |
     | DESCRIÇÃO | *Fornecer uma descrição* | Por exemplo, *“Se o atributo userCertificate tiver mais de 15 valores, exportar NULL”.* |
@@ -129,7 +129,7 @@ A nova regra de sincronização deve ter o mesmo **filtro de escopo** e a mesma 
 4. Ignore a guia **Regras de junção**.
 5. Acesse a guia **Transformações** para adicionar uma nova transformação usando a seguinte configuração:
 
-    | Atributo | Valor |
+    | Atributo | Value |
     | --- | --- |
     | Tipo de Fluxo |**Expressão** |
     | Atributo de Destino |**userCertificate** |
