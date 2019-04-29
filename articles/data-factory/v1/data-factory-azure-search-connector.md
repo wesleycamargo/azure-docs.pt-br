@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7ad328eec7e16b5368b78a0dfccbf5c09adb5c13
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330000"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60567223"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Enviar dados para um índice do Azure Search usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,9 +58,9 @@ A tabela a seguir fornece descrições dos elementos JSON específicos para o se
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | -------- | ----------- | -------- |
-| Tipo | A propriedade type deve ser definida como: **AzureSearch**. | SIM |
-| URL | URL para o serviço Azure Search. | SIM |
-| chave | Chave de administração para o serviço Azure Search. | SIM |
+| type | A propriedade type deve ser definida como: **AzureSearch**. | Sim |
+| url | URL para o serviço Azure Search. | Sim |
+| chave | Chave de administração para o serviço Azure Search. | Sim |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
@@ -68,8 +68,8 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | -------- | ----------- | -------- |
-| Tipo | A propriedade type deve ser definida como: **AzureSearchIndex**.| SIM |
-| indexName | Nome do índice do Azure Search. O Data Factory não cria o índice. O índice deve existir no Azure Search. | SIM |
+| Tipo | A propriedade type deve ser definida como: **AzureSearchIndex**.| Sim |
+| indexName | Nome do índice do Azure Search. O Data Factory não cria o índice. O índice deve existir no Azure Search. | Sim |
 
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
@@ -100,13 +100,13 @@ A tabela a seguir especifica se um tipo de dados do Azure Search tem suporte ou 
 
 | Tipo de dados do Azure Search | Suporte no coletor do Azure Search |
 | ---------------------- | ------------------------------ |
-| Cadeia de caracteres | S |
+| String | S |
 | Int32 | S |
 | Int64 | S |
-| Duplo | S |
-| BOOLEAN | S |
+| Double | S |
+| Boolean | S |
 | DataTimeOffset | S |
-| Matriz de cadeia de caracteres | N |
+| String Array | N |
 | GeographyPoint | N |
 
 ## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-search-index"></a>Exemplo JSON: copiar dados do SQL Server local para o índice do Azure Search
