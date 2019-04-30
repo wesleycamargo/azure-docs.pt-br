@@ -1,15 +1,16 @@
 ---
-author: tamram
+author: WenJason
 ms.service: storage
 ms.topic: include
-ms.date: 10/26/2018
-ms.author: tamram
+origin.date: 10/26/2018
+ms.date: 01/14/2019
+ms.author: v-jay
 ms.openlocfilehash: 8c577db3e9f2bff9e86c3a7c37274630f90dd680
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164398"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125501"
 ---
 O emulador de armazenamento dá suporte a uma única conta fixa e uma chave de autenticação conhecida para a autenticação da Chave Compartilhada. Essa conta e a chave são as únicas credenciais de Chave Compartilhada permitidas para uso com o emulador de armazenamento. Eles são:
 

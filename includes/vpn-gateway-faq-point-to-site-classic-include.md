@@ -2,18 +2,19 @@
 title: Arquivo de inclusão
 description: Arquivo de inclusão
 services: vpn-gateway
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 12/06/2018
-ms.author: cherylmc
+origin.date: 12/06/2018
+ms.date: 12/24/2018
+ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: 0c0ad6ea5a687d066c78533b45a7f531561661bf
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323600"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845350"
 ---
 Estas perguntas frequentes se aplicam a conexões P2S que usam o modelo de implantação clássico.
 
@@ -31,7 +32,7 @@ Há suporte para os seguintes sistemas operacionais de cliente:
 
 ### <a name="can-i-use-any-software-vpn-client-that-supports-sstp-for-point-to-site"></a>Posso usar qualquer cliente de VPN de software com suporte para SSTP para ponto a site?
 
- Não. O suporte é limitado somente às versões do sistema operacional Windows listadas.
+Não. O suporte é limitado somente às versões do sistema operacional Windows listadas.
 
 ### <a name="how-many-vpn-client-endpoints-can-exist-in-my-point-to-site-configuration"></a>Quantos pontos de extremidade de cliente VPN posso ter em minha configuração ponto a site?
 
@@ -51,7 +52,7 @@ Por padrão, o computador cliente não restabelecerá a conexão VPN automaticam
 
 ### <a name="does-point-to-site-support-auto-reconnect-and-ddns-on-the-vpn-clients"></a>A opção de ponto para site é compatível com a reconexão automática e DDNS nos clientes de VPN?
 
- Não. A reconexão automática e o DDNS atualmente não são compatíveis em VPNs ponto a site.
+Não. A reconexão automática e o DDNS atualmente não são compatíveis em VPNs ponto a site.
 
 ### <a name="can-i-have-site-to-site-and-point-to-site-configurations-for-the-same-virtual-network"></a>Posso ter configurações site a site e ponto a site que na mesma rede virtual?
 

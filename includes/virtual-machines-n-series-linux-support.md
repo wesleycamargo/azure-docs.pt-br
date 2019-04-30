@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 3d4c58cd9e7ee0674f42d776c8df6e96faba1ab1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9f0d694badaa6f4484a13364c6a56aee2ad1dcfb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799483"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123924"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distribuições e drivers com suporte
 
@@ -34,7 +34,7 @@ A Microsoft redistribui os instaladores do driver NVIDIA GRID para VMs das séri
 
 | Distribuição | Driver |
 | --- | -- |
-| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/>Baseado em CentOS 7.3, 7.4, 7.5, 7.6 | NVIDIA GRID 7.1, branch do driver R410|
+| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/>Baseado em CentOS 7.3, 7.4, 7.5, 7.6 | NVIDIA grade 8.0, ramificação do driver R418|
 
 > [!WARNING] 
 > A instalação de software de terceiros em produtos do Red Hat pode afetar os termos de suporte do Red Hat. Consulte o [artigo da Base de conhecimento do Red Hat](https://access.redhat.com/articles/1067).

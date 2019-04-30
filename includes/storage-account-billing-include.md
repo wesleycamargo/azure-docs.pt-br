@@ -9,11 +9,11 @@ ms.date: 10/19/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: dfb76a14f7e177211e5e8891005544e20f19d3f3
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638436"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61483631"
 ---
 Você é cobrado pelo Armazenamento do Microsoft Azure com base no seu uso da conta de armazenamento. Todos os objetos em uma conta de armazenamento são cobrados juntos como um grupo. 
 
