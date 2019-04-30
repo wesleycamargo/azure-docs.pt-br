@@ -191,7 +191,7 @@ Há mais métodos de otimização que você pode considerar, por exemplo:
 * **Otimização de junção:** otimização do planejamento da execução de consultas do Hive para melhorar a eficiência de junções e reduzir a necessidade de dicas de usuário. Para obter mais informações, consulte [Otimização de junção](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
 * **Aumentar redutores**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu a vários métodos comuns de otimização de consultas do Hive. Para saber mais, consulte os seguintes artigos:
 
 * [Usar o Apache Hive no HDInsight](hadoop/hdinsight-use-hive.md)

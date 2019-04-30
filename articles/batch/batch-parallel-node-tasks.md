@@ -124,7 +124,7 @@ A segunda execução do exemplo mostra uma redução significativa na duração 
 >
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 ### <a name="batch-explorer-heat-map"></a>Mapa de Calor do Explorador do Lote
 [O Explorador de lotes][batch_labs] é uma ferramenta de cliente autônomo e gratuita para ajudar a criar, depurar e monitorar aplicativos em lote do Azure. O Batch Explorer contém um recurso de *Mapa de Calor* que fornece visualização da execução da tarefa. Ao executar o aplicativo de exemplo [ParallelTasks][parallel_tasks_sample], você pode usar o recurso Mapa de Calor para visualizar facilmente a execução das tarefas paralelas em cada nó.
 

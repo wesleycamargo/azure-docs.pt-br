@@ -88,5 +88,5 @@ Não há custo adicional para máquinas virtuais implantadas em uma Zona de Disp
 - [Criar um gateway de rede virtual com redundância de zona](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - [Modelos de início rápido](https://aka.ms/azqs)

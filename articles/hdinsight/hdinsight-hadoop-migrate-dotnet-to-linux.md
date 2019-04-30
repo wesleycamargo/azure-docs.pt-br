@@ -65,7 +65,7 @@ Para obter mais informações sobre como acessar logs, veja os documentos a segu
 
 * [Acessar logs do aplicativo Apache Hadoop YARN no HDInsight baseado em Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Usar C# com MapReduce no HDInsight](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
