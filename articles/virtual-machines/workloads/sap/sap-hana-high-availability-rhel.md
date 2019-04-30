@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
 ms.openlocfilehash: 1be3c411a208a2a9da1a4f6a319fdf37cc8aa2dd
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669037"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60637788"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Alta disponibilidade do SAP HANA em VMs do Azure no Red Hat Enterprise Linux
 
@@ -113,7 +113,7 @@ Para implantar o modelo, siga estas etapas:
 
 ### <a name="manual-deployment"></a>Implantação manual
 
-1. Crie um grupos de recursos.
+1. Crie um grupo de recursos.
 1. Crie uma rede virtual.
 1. Crie um conjunto de disponibilidade.  
    Defina o máximo de domínio de atualização.
