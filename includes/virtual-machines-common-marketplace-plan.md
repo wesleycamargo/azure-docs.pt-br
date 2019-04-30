@@ -2,18 +2,19 @@
 title: Arquivo de inclusão
 description: Arquivo de inclusão
 services: virtual-machines-windows, virtual-machines-linux
-author: dlepow
+author: rockboyfor
 ms.service: multiple
 ms.topic: include
-ms.date: 10/09/2018
-ms.author: danlep
+origin.date: 10/09/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 4d2235eaea457c89d01a632afa5dd5a862bec344
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49437039"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60880530"
 ---
 ## <a name="deploy-an-image-with-marketplace-terms"></a>Implantar uma imagem com termos do Marketplace
 
@@ -27,3 +28,4 @@ As seções a seguir mostram como:
 * Aceitar os termos de forma programática
 * Fornecer parâmetros de plano de compra quando você implantar uma VM de forma programática
 
+<!-- Update_Description: update meta properties, wording update -->

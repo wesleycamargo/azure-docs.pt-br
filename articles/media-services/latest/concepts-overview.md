@@ -9,22 +9,22 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8f21374ae5da76c9954acc5227f593ab4be19ce9
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: 74a4ee03562963c8a50159f085e4b76b6d461ed9
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630544"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103792"
 ---
 # <a name="media-services-concepts"></a>Conceitos de serviços de mídia
 
 Este tópico fornece uma visão geral dos conceitos de serviços de mídia do Azure e fornece links para artigos com a explicação detalhada sobre os serviços de mídia v3 conceitos e funcionalidade. Os conceitos fundamentais descritos nestes tópicos devem ser examinados antes do início do desenvolvimento.
 
 > [!NOTE]
-> Atualmente, você não pode usar o portal do Azure para gerenciar recursos da v3. Use o [API REST](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), ou um com suporte [SDKs](developers-guide.md).
+> Atualmente, você não pode usar o portal do Azure para gerenciar recursos da v3. Use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](developers-guide.md) com suporte.
 
 ## <a name="cloud-upload-and-storage"></a>Upload e armazenamento na nuvem
 
@@ -116,11 +116,15 @@ Você pode usar o Player de mídia do Azure para reproduzir conteúdo de mídia 
 
 - [Visão geral do Player de Mídia do Azure](use-azure-media-player.md)
 
+## <a name="provide-feedback"></a>Fornecer comentários
+
+Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Codificar o arquivo remoto e o fluxo de vídeo – REST](stream-files-tutorial-with-rest.md)
-* [Codificar o arquivo carregado e o fluxo de vídeo - .NET](stream-files-tutorial-with-api.md)
-* [Stream ao vivo - .NET](stream-live-tutorial-with-api.md)
-* [Analisar seu vídeo - .NET](analyze-videos-tutorial-with-api.md)
-* [Criptografia dinâmica AES-128 - .NET](protect-with-aes128.md)
-* [Criptografar dinamicamente com DRM múltiplo - .NET](protect-with-drm.md) 
+* [Codificar o arquivo carregado e o fluxo de vídeo – .NET](stream-files-tutorial-with-api.md)
+* [Transmitir ao vivo – .NET](stream-live-tutorial-with-api.md)
+* [Analisar vídeo – .NET](analyze-videos-tutorial-with-api.md)
+* [Criptografia dinâmica AES-128 – .NET](protect-with-aes128.md)
+* [Criptografar dinamicamente com vários DRM – .NET](protect-with-drm.md) 

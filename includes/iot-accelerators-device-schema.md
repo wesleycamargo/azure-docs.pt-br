@@ -9,11 +9,11 @@ ms.date: 07/26/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 414bb0183e68cb46e52c379ea3f7aceda5d4170e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701175"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61446089"
 ---
 ## <a name="the-parts-of-the-device-model-schema"></a>As partes do esquema de modelo do dispositivo
 
@@ -141,8 +141,8 @@ Atualmente, é possível usar somente os esquemas de mensagens JSON. Os campos l
 
 * Objeto - serializado usando JSON
 * Binário - serializado usando base64
-* Texto
-* BOOLEAN
+* Text
+* Boolean
 * Número inteiro
 * Double
 * DateTime

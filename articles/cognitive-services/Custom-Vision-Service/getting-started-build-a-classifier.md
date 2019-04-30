@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
 ms.openlocfilehash: d0f0f3b120187a7538989f219876a8c10569a98e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051455"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60606247"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Como compilar um classificador com Visão Personalizada
 
@@ -71,7 +71,7 @@ Para treinar o seu modelo com eficiência, use imagens com variedade de visual. 
 * estilo do visual
 * assuntos individuais/agrupados
 * tamanho
-* Tipo
+* tipo
 
 Além disso, certifique-se de que todas as suas imagens de treinamento atendam aos seguintes critérios:
 * formato .jpg, .png ou .bmp

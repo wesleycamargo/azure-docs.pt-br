@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/11/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 5169432af65a046465c9d1ced349687d6fdc8bb7
-ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
-ms.translationtype: HT
+ms.openlocfilehash: 020e59f029b09f3c7656f67039731e4141e68d31
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35394019"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61270184"
 ---
 Se o Python encontrar um erro ao iniciar seu aplicativo, apenas uma página simples de erro será retornada (por exemplo, "A página não pode ser exibida porque ocorreu um erro interno do servidor.").
 
@@ -23,6 +23,6 @@ Para capturar erros de aplicativo Python:
 2. Na guia **Configurações**, selecione **Configurações do aplicativo**.
 3. Em **Configurações do aplicativo**, digite o seguinte par de chave/valor:
     * Chave: WSGI_LOG
-    * Valor: D:\home\site\wwwroot\logs.txt (Insira o nome de arquivo da sua escolha)
+    * Valor: D:\home\site\wwwroot\logs.txt (Insira o nome do arquivo de sua escolha)
 
 Agora você verá erros no arquivo logs.txt na pasta wwwroot.

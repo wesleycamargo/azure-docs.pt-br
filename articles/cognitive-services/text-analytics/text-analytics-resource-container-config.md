@@ -152,7 +152,7 @@ Os seguintes exemplos de docker são para o contêiner de análise de sentimento
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel:Default=Information
   ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Reveja [Como instalar e executar contêineres](how-tos/text-analytics-how-to-install-containers.md)
 * Use mais [Contêineres de Serviços Cognitivos](../cognitive-services-container-support.md)
