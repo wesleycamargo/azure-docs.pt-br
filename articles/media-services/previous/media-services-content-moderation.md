@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
 ms.openlocfilehash: eb16f5e1e72e5a9379ad530ab9677adba2ccbbcd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899556"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61465670"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Usar o Azure Media Content Moderator para detectar possível conteúdo adulto e erótico 
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 O processador de mídia (MP) do **Azure Media Content Moderator** possibilita usar a moderação auxiliada por computador para seus vídeos. Por exemplo, você talvez queira detectar possível conteúdo adulto e erótico em vídeos e revisar o conteúdo sinalizado por suas equipes de moderação humanas.
 
 O MP do **Azure Media Content Moderator** está atualmente em fase de Visualização.
@@ -44,9 +44,9 @@ O JSON de saída contém os seguintes elementos:
 
 ### <a name="root-json-elements"></a>Elementos raiz JSON
 
-| Elemento | Descrição |
+| Elemento | DESCRIÇÃO |
 | --- | --- |
-| versão |A versão do Content Moderator. |
+| version |A versão do Content Moderator. |
 | escala de tempo |"Tiques" por segundo do vídeo. |
 | deslocamento |A diferença de tempo para carimbos de data/hora. Na versão 1.0 das APIs de Vídeo, este valor sempre será 0. Esse valor pode ser alterado no futuro. |
 | taxa de quadros |Quadros por segundo do vídeo. |
@@ -57,16 +57,16 @@ O JSON de saída contém os seguintes elementos:
 
 ### <a name="fragments-json-elements"></a>Elementos JSON de fragmentos
 
-|Elemento|Descrição|
+|Elemento|DESCRIÇÃO|
 |---|---|
 | iniciar |A hora de início do primeiro evento em "tiques". |
-| duração |A duração do fragmento, em “tiques”. |
+| duration |A duração do fragmento, em “tiques”. |
 | intervalo |O intervalo de cada entrada de evento dentro do fragmento, em “tiques”. |
 | [events](#events-json-elements) |Cada evento representa um clipe e cada clipe contém quadros-chave detectados e rastreados dentro dessa duração de tempo. É uma matriz de eventos. A matriz externa representa um intervalo de tempo. A matriz interna é composta por 0 ou mais eventos que ocorreram nesse ponto no tempo.|
 
 ### <a name="events-json-elements"></a>Elementos JSON de eventos
 
-|Elemento|Descrição|
+|Elemento|DESCRIÇÃO|
 |---|---|
 | reviewRecommended | `true` ou `false` dependendo de **adultScore** ou **racyScore** exceder os limites internos. |
 | adultScore | Pontuação de confiança para o possível conteúdo adulto, em uma escala de 0,00 a 0,99. |

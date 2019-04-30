@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako;anilmur
 ms.openlocfilehash: c168182f0b34329ed3e72e90ce86456dfbe210ca
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189845"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61217144"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits
 
 > [!NOTE]
 > A partir de 12 de maio de 2018, os canais ao vivo não darão mais suporte ao protocolo de ingestão de fluxo de transporte RTP/MPEG-2. Faça a migração de RTP/MPEG-2 para protocolos de ingestão RTMP ou MP4 fragmentado (Smooth Streaming).
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 No AMS (Serviços de Mídia do Azure), um **Canal** representa um pipeline para o processamento de conteúdo de transmissão ao vivo. Um **Canal** recebe transmissões de entrada ao vivo de uma das duas maneiras a seguir:
 
 * Um codificador dinâmico local envia um fluxo de taxa de bits única para o Canal que está habilitado para executar a codificação ativa com os Serviços de Mídia em um dos seguintes formatos: RTMP ou Smooth Streaming (MP4 fragmentado). O Canal então realiza a codificação ao vivo do fluxo de entrada com taxa de bits única em um fluxo de vídeo (adaptável) de múltiplas taxas de bits. Quando solicitado, os Serviços de Mídia transmitem o fluxo aos clientes.
@@ -70,9 +70,9 @@ A tabela a seguir mostra como os estados de canal são mapeados para o modo de c
 | Estado do Canal | Indicadores da interface do usuário do portal | Trata-se de cobrança? |
 | --- | --- | --- |
 | Iniciando |Iniciando |Nenhum (estado transitório) |
-| Em execução |Pronto (nenhum programa em execução)<br/>ou<br/>Streaming (há pelo menos um programa em execução) |SIM |
+| Executando |Pronto (nenhum programa em execução)<br/>ou o<br/>Streaming (há pelo menos um programa em execução) |SIM |
 | Parando |Parando |Nenhum (estado transitório) |
-| Parado |Parado |Não |
+| Parado |Parado |Não  |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>Desligamento automático para canais não usados
 A partir de 25 de janeiro de 2016, os Serviços de Mídia distribuíram uma atualização que interrompe automaticamente um canal (com codificação ativa desabilitada) depois que ele tiver sido executado em um estado não utilizado por um longo período. Isso se aplica aos canais que não tem programas ativos e que não receberam um feed de contribuição de entrada por um período de tempo estendido.
@@ -239,7 +239,7 @@ Quando o canal está com codificação ao vivo habilitada, você tem um componen
 
 A seguir estão as propriedades que você pode definir ao sinalizar anúncios. 
 
-### <a name="duration"></a>Duração
+### <a name="duration"></a>Duration
 A duração, em segundos, do intervalo comercial. Isso deve ser um valor positivo diferente de zero para iniciar o intervalo comercial. Quando um intervalo comercial está em andamento e a duração é definida como zero com o CueId correspondente ao intervalo comercial em curso, esse intervalo é cancelado.
 
 ### <a name="cueid"></a>CueId
@@ -255,7 +255,7 @@ O codificador ao vivo no canal pode ser sinalizado para alternar para uma imagem
 
 O codificador ao vivo pode ser configurado para alternar para uma imagem slate e ocultar o sinal de vídeo de entrada em determinadas situações – por exemplo, durante um intervalo comercial. Se um slate desse tipo não estiver configurado, o vídeo de entrada não é mascarado durante esse intervalo comercial.
 
-### <a name="duration"></a>Duração
+### <a name="duration"></a>Duration
 A duração do slate em segundos. Isso deve ser um valor positivo diferente de zero para iniciar o slate. Se houver um slate em andamento e uma duração de zero for especificada, esse slate será encerrado.
 
 ### <a name="insert-slate-on-ad-marker"></a>Inserir o slate no marcador de anúncio
@@ -313,9 +313,9 @@ A tabela a seguir mostra como os estados de canal são mapeados para o modo de c
 | Estado do Canal | Indicadores de interface do usuário do portal | Cobrado? |
 | --- | --- | --- |
 | Iniciando |Iniciando |Nenhum (estado transitório) |
-| Em execução |Pronto (nenhum programa em execução)<br/>ou<br/>Streaming (há pelo menos um programa em execução) |SIM |
+| Executando |Pronto (nenhum programa em execução)<br/>ou o<br/>Streaming (há pelo menos um programa em execução) |SIM |
 | Parando |Parando |Nenhum (estado transitório) |
-| Parado |Parado |Não |
+| Parado |Parado |Não  |
 
 > [!NOTE]
 > Atualmente, a média de início de Canal é de cerca de 2 minutos, mas às vezes pode levar até 20 minutos ou mais. A redefinição de canal pode levar até 5 minutos.

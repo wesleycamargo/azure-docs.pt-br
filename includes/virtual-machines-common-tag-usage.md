@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 17778b3edf1845d85302a0bcdf72a1ebc3919cea
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227389"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108282"
 ---
 ## <a name="viewing-your-tags-in-the-usage-details"></a>Exibindo suas marcas nos detalhes de uso
 As marcas colocadas nos recursos de Computação, Rede e Armazenamento por meio do modelo de implantação do Resource Manager serão populadas nos detalhes de uso no [portal de cobrança](https://account.windowsazure.com/).

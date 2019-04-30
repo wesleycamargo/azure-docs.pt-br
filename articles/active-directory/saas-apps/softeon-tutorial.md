@@ -16,11 +16,11 @@ ms.date: 05/15/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1e5dc81b8e4f761eb6288832b0e82e4484e0214f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176213"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108559"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-softeon-wms"></a>Tutorial: Integração do Azure Active Directory ao Softeon WMS
 
@@ -70,7 +70,7 @@ Para configurar a integração do Softeon WMS ao Azure AD, você precisará adic
     
 1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![APLICATIVOS][3]
+    ![Aplicativos][3]
 
 1. Na caixa de pesquisa, digite **Softeon WMS**.
 

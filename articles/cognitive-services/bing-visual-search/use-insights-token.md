@@ -473,7 +473,7 @@ if __name__ == '__main__':
     main()
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Criar um aplicativo Web de página única da Pesquisa Visual](tutorial-bing-visual-search-single-page-app.md)  
 [O que é a API de pesquisa Visual do Bing?](overview.md)  

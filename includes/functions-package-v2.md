@@ -6,15 +6,16 @@ author: ggailey777
 manager: jeconnoc
 ms.service: functions
 ms.topic: include
-ms.date: 09/04/2018
-ms.author: glenga
+origin.date: 09/04/2018
+ms.date: 03/25/2019
+ms.author: v-junlch
 ms.custom: include file
 ms.openlocfilehash: 4d03894ebc43cc4e76b73bd30eb6ef68bf6a71e6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58115780"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61342832"
 ---
 A tabela a seguir informa como adicionar suporte para essa associação em cada ambiente de desenvolvimento.
 
@@ -25,3 +26,4 @@ A tabela a seguir informa como adicionar suporte para essa associação em cada 
 |Desenvolvimento de portal| Instalar ao adicionar uma associação de saída    |
 
 Para saber como atualizar as extensões de associação existentes no portal sem precisar republicar o projeto de aplicativo de funções, consulte [Atualizar as extensões](../articles/azure-functions/install-update-binding-extensions-manual.md).
+

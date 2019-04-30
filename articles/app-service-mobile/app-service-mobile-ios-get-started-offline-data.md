@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435126"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62112643"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Habilitar a sincronização offline com aplicativos móveis do iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -198,7 +198,7 @@ Ao usar o recurso de sincronização offline, você define as três tabelas do s
 | Atributo | Type | Observação |
 | --- | --- | --- |
 | ID | Cadeia de caracteres, marcadas como obrigatórias |Chave primária no repositório remoto |
-| concluído | BOOLEAN | Campo To-do item |
+| concluído | Boolean | Campo To-do item |
 | text |string |Campo To-do item |
 | createdAt | Data | (opcional) É mapeado para a propriedade do sistema **createdAt** |
 | updatedAt | Data | (opcional) É mapeado para a propriedade do sistema **updatedAt** |

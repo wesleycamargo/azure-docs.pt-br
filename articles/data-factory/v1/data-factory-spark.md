@@ -15,11 +15,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 95c49eec6964984894f75ecd0a9e50c9c947683b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015807"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61257469"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocar programas Spark dos pipelines do Azure Data Factory
 
@@ -102,7 +102,7 @@ Nesta etapa, você vincula sua conta de armazenamento ao data factory. Um conjun
 
 1. Clique em **Novo armazenamento de dados** e escolha **Armazenamento do Azure**.
 
-   ![Novo armazenamento de dados](./media/data-factory-spark/new-data-store-azure-storage-menu.png)
+   ![Novo repositório de dados](./media/data-factory-spark/new-data-store-azure-storage-menu.png)
 
 1. O script JSON usado para criar um serviço vinculado do Armazenamento é exibido no editor.
 
@@ -224,12 +224,12 @@ Nesta etapa, você cria um pipeline com a atividade HDInsightSpark. Atualmente, 
 
     c. A propriedade **entryFilePath** é definida como **test.py**, que é o arquivo Python.
 
-    d. A propriedade **getDebugInfo** é definida como **Always**, o que significa que os arquivos de log são gerados sempre (êxito ou falha).
+    d. A propriedade **getDebugInfo** é definida como **Always**, o que significa que os arquivos de log são gerados sempre (sucesso ou falha).
 
     > [!IMPORTANT]
     > Recomendamos que você não defina essa propriedade como `Always` em um ambiente de produção, a menos que esteja solucionando um problema.
 
-    e. A seção de **saídas** tem um conjunto de dados de saída. É necessário especificar um conjunto de dados de saída, mesmo que o programa do Spark não produza nenhuma saída. O conjunto de dados de saída aciona o agendamento para o pipeline (por hora, diariamente, etc.). 
+    e. A seção **outputs** possui um conjunto de dados de saída. É necessário especificar um conjunto de dados de saída, mesmo que o programa do Spark não produza nenhuma saída. O conjunto de dados de saída aciona o agendamento para o pipeline (por hora, diariamente, etc.). 
 
     Para obter mais informações sobre as propriedades compatíveis com a atividade do Spark, consulte a seção [Propriedades da atividade do Spark](#spark-activity-properties).
 
@@ -267,7 +267,8 @@ Nesta etapa, você cria um pipeline com a atividade HDInsightSpark. Atualmente, 
 
     ![Resultados da consulta do Jupyter](media/data-factory-spark/jupyter-notebook-results.png)
 
-<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->Para obter instruções detalhadas, consulte a seção [Executar uma consulta SQL do Spark](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
+<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
+Para obter instruções detalhadas, consulte a seção [Executar uma consulta SQL do Spark](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
 ### <a name="troubleshooting"></a>solução de problemas
 Como getDebugInfo é definido como **Sempre**, você vê uma subpasta log na pasta pyFiles no contêiner de blob. O arquivo de log na pasta de log fornece informações adicionais. Esse arquivo de log é especialmente útil quando há um erro. Em um ambiente de produção, recomendamos defini-lo como **Falha**.
@@ -328,12 +329,12 @@ A tabela a seguir descreve as propriedades JSON usadas na definição de JSON.
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | -------- | ----------- | -------- |
-| Nome | Nome da atividade no pipeline. | SIM |
-| Descrição | Texto que descreve o que a atividade faz. | Não  |
-| Tipo | Essa propriedade deve ser definida como HDInsightSpark. | SIM |
-| linkedServiceName | Nome do serviço vinculado do HDInsight no qual o programa Spark é executado. | SIM |
-| rootPath | O contêiner de blobs e a pasta que contém o arquivo do Spark. O nome do arquivo diferencia maiúsculas de minúsculas. | SIM |
-| entryFilePath | Caminho relativo à pasta raiz do código/pacote Spark. | SIM |
+| Nome | Nome da atividade no pipeline. | Sim |
+| description | Texto que descreve o que a atividade faz. | Não  |
+| Tipo | Essa propriedade deve ser definida como HDInsightSpark. | Sim |
+| linkedServiceName | Nome do serviço vinculado do HDInsight no qual o programa Spark é executado. | Sim |
+| rootPath | O contêiner de blobs e a pasta que contém o arquivo do Spark. O nome do arquivo diferencia maiúsculas de minúsculas. | Sim |
+| entryFilePath | Caminho relativo à pasta raiz do código/pacote Spark. | Sim |
 | className | Classe principal de Java/Spark do aplicativo. | Não  |
 | argumentos | Uma lista de argumentos de linha de comando para o programa Spark. | Não  |
 | proxyUser | A conta de usuário a ser representada para execução do programa do Spark. | Não  |
@@ -346,10 +347,10 @@ A atividade do Spark não é compatível com um script embutido, como as ativida
 
 Crie a estrutura de pastas a seguir no armazenamento de blobs referenciado pelo serviço vinculado do HDInsight. Em seguida, carregue os arquivos dependentes nas subpastas apropriadas na pasta raiz representada por **entryFilePath**. Por exemplo, carregue arquivos do Python na subpasta pyFiles e arquivos jar na subpasta jars da pasta raiz. Em tempo de execução, o serviço Data Factory espera a seguinte estrutura de pastas no armazenamento de blobs: 
 
-| Caminho | DESCRIÇÃO | Obrigatório | Tipo |
+| Caminho | DESCRIÇÃO | Obrigatório | Type |
 | ---- | ----------- | -------- | ---- |
-| . | O caminho raiz do trabalho do Spark no serviço vinculado do armazenamento. | SIM | Pasta |
-| &lt;definido pelo usuário&gt; | O caminho que aponta para o arquivo de entrada do trabalho do Spark. | SIM | Arquivo |
+| . | O caminho raiz do trabalho do Spark no serviço vinculado do armazenamento. | Sim | Pasta |
+| &lt;definido pelo usuário&gt; | O caminho que aponta para o arquivo de entrada do trabalho do Spark. | Sim | Arquivo |
 | ./jars | Todos os arquivos nessa pasta são carregados e colocados no caminho de classe do Java do cluster. | Não  | Pasta |
 | ./pyFiles | Todos os arquivos nessa pasta são carregados e colocados no PYTHONPATH do cluster. | Não  | Pasta |
 | ./files | Todos os arquivos nessa pasta são carregados e colocados no diretório de trabalho executor. | Não  | Pasta |

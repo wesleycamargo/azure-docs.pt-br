@@ -9,15 +9,15 @@ ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 7add8c10fd3224b9c287ea4cc672191157f56a09
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124364"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60861881"
 ---
 A tabela a seguir lista informações sobre cotas específicas para mensagens do barramento de serviço do Azure. Para obter informações sobre preços e outras cotas do barramento de serviço, consulte [preços do barramento de serviço](https://azure.microsoft.com/pricing/details/service-bus/).
 
-| Nome da cota | Escopo | Observações | Valor |
+| Nome da cota | Escopo | Observações | Value |
 | --- | --- | --- | --- |
 | Número máximo de namespaces básico ou Standard por assinatura do Azure |Namespace |As solicitações subsequentes por namespaces básico ou Standard adicionais são rejeitadas pelo portal do Azure. |100|
 | Número máximo de namespaces Premium por assinatura do Azure |Namespace |As solicitações subsequentes para os namespaces adicionais Premium são rejeitadas pelo portal. |25 |

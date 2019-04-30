@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: magoedte
 ms.openlocfilehash: 3f3de81197b05d4f025a3fd8638cffe4b07cecad
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429509"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61424629"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unificar vários recursos do Application Insights do Azure Monitor 
 Este artigo descreve como consultar e exibir todos os seus dados de log de aplicativo do Application Insights em um só lugar, mesmo quando eles estiverem em diferentes assinaturas do Azure, como uma substituição para a desativação do Conector do Application Insights. O número de recursos do Application Insights que você pode incluir em uma única consulta está limitado a 100.  
@@ -104,7 +104,7 @@ A tabela a seguir mostra as diferenças de esquema entre o Log Analytics e o App
 | ApplicationTypeVersion | application_Version |
 | AvailabilityCount | itemCount |
 | AvailabilityDuration | duration |
-| AvailabilityMessage | Message |
+| AvailabilityMessage | message |
 | AvailabilityRunLocation | location |
 | AvailabilityTestId | ID |
 | AvailabilityTestName | Nome |
@@ -121,8 +121,8 @@ A tabela a seguir mostra as diferenças de esquema entre o Log Analytics e o App
 | DeviceType | client_Type | 
 | ExceptionCount | itemCount | 
 | ExceptionHandledAt | handledAt |
-| ExceptionMessage | Message | 
-| ExceptionType | Tipo |
+| ExceptionMessage | message | 
+| ExceptionType | tipo |
 | OperationID | operation_id |
 | OperationName | operation_Name | 
 | SO | client_OS | 
@@ -140,7 +140,7 @@ A tabela a seguir mostra as diferenças de esquema entre o Log Analytics e o App
 | RoleInstance | cloud_RoleInstance |
 | SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |
-| TelemetryTYpe | Tipo |
+| TelemetryTYpe | tipo |
 | URL | _url |
 | UserAccountId | user_AccountId |
 

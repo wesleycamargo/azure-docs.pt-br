@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: df12639aaafaf3df7ae2b755d635d4fba83d846e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905079"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648645"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Como executar as funções duráveis como WebJobs
 
@@ -275,6 +275,6 @@ A principal alteração apresentada é o uso do .NET Core em vez do .NET Framewo
    }
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre o SDK do WebJobs, consulte [como usar o SDK do WebJobs](../../app-service/webjobs-sdk-how-to.md).

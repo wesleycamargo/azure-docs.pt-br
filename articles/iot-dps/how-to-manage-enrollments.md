@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: 51b072bfd0827528a5504133dff8c1cdd7a7ca86
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089379"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122755"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Como gerenciar os registros de dispositivo com o Portal do Azure
 
@@ -29,8 +29,8 @@ Há duas maneiras em que você pode registrar seus dispositivos com o serviço d
     Você pode criar um grupo de registro no portal para um grupo de dispositivos usando as etapas a seguir:
 
   1. Faça logon no Portal do Azure e clique em **Todos os recursos** no menu à esquerda.  
-  1. Clique no serviço de provisionamento do dispositivo no qual você deseja registrar seu dispositivo na lista de recursos.  
-  1. No serviço de provisionamento:  
+  2. Clique no serviço de provisionamento do dispositivo no qual você deseja registrar seu dispositivo na lista de recursos.  
+  3. No serviço de provisionamento:  
       a. Clique em **Gerenciar registros** e, em seguida, selecione a guia **Grupos de Registros**.  
      b. Clique no botão **Adicionar** na parte superior.  
      c. Quando o painel "Adicionar Grupos de Registros" for exibido, insira as informações da entrada da lista de registro.  O **Nome de Grupo** é obrigatório. Selecione também "AC ou Intermediária" para **Tipo de certificado** e carregue o **Certificado principal** raiz para o grupo de dispositivos.  

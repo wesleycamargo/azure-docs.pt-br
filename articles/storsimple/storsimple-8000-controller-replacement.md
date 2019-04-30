@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 849eccff114c2fd6d952e44d095d0cc89a238675
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: dd2f6fcc9b2f5d716566e91e89487969613d1005
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109124"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61482740"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Substituir um módulo de controlador em seu dispositivo StorSimple
 ## <a name="overview"></a>Visão geral
@@ -90,7 +90,7 @@ Conclua as etapas a seguir se um dos controladores do dispositivo Microsoft Azur
    
     **Figura 1** Parte posterior do dispositivo StorSimple
    
-   | Rótulo | Descrição |
+   | Rótulo | DESCRIÇÃO |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
@@ -166,7 +166,7 @@ Use o procedimento a seguir para remover um módulo do controlador com falha do 
 1. Segure a trava do módulo entre o polegar e o dedo indicador.
 2. Aperte gentilmente o polegar e o dedo indicador para liberar a trava do controlador.
    
-    ![Liberando a trava do controlador](./media/storsimple-controller-replacement/IC741047.png)
+    ![ Liberando a trava do controlador](./media/storsimple-controller-replacement/IC741047.png)
    
     **Figura 2** Liberando a trava do controlador
 3. Use a trava como alça para deslizar o controlador para fora do chassi.
@@ -231,7 +231,7 @@ Se esse LED estiver piscando, o controlador estará ativo e o outro controlador 
 
 **Figura 8** Parte traseira do compartimento primário com portas de dados e LEDs de monitoramento
 
-| Rótulo | Descrição |
+| Rótulo | DESCRIÇÃO |
 |:--- |:--- |
 | 1-6 |Portas de rede DATA 0 – 5 |
 | 7 |LED azul |

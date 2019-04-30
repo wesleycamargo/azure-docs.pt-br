@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: srinathv
 ms.openlocfilehash: 6f10d8bc7f813245a66296988e4bb3792d898e08
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618185"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60550015"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Solucionar problemas de backup de máquinas virtuais do Azure
 Você pode solucionar os erros encontrados durante a utilização do Servidor de Backup do Azure com as informações listadas na tabela a seguir:
@@ -82,7 +82,7 @@ Reinicie os gravadores VSS que estão em um estado inválido. Em um prompt de co
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - Falha ao analisar a configuração da extensão de backup
 
 Código de erro: ExtensionConfigParsingFailure<br/>
-Mensagem de erro: Falha ao analisar a configuração da extensão de backup.
+Mensagem de erro: Falha na análise da configuração da extensão de backup.
 
 Esse erro acontece por causa das permissões alteradas no diretório **MachineKeys**: **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
 Execute o comando a seguir e verifique se que as permissões na **MachineKeys** diretório são aqueles por padrão:**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.

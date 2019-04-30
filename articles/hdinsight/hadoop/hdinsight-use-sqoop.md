@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.openlocfilehash: 6764d8d812789c9f54fa59e10b2a3e416e583a9c
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565845"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129392"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Usar Apache Sqoop com o Hadoop no HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -45,14 +45,14 @@ O cluster HDInsight é fornecido com alguns dados de exemplo. Você usa estas du
   
   | Campo | Tipo de dados |
   | --- | --- |
-  | clientid |cadeia de caracteres |
-  | querytime |cadeia de caracteres |
-  | market |cadeia de caracteres |
-  | deviceplatform |cadeia de caracteres |
-  | devicemake |cadeia de caracteres |
-  | devicemodel |cadeia de caracteres |
-  | state |cadeia de caracteres |
-  | country |cadeia de caracteres |
+  | clientid |string |
+  | querytime |string |
+  | market |string |
+  | deviceplatform |string |
+  | devicemake |string |
+  | devicemodel |string |
+  | state |string |
+  | country |string |
   | querydwelltime |double |
   | sessionid |bigint |
   | sessionpagevieworder |bigint |
@@ -76,7 +76,7 @@ O cluster, o banco de dados SQL e outros objetos são criados por meio do portal
 
 2. Insira as seguintes propriedades:
 
-    |Campo |Valor |
+    |Campo |Value |
     |---|---|
     |Assinatura |Selecione sua assinatura do Azure na lista suspensa.|
     |Grupo de recursos |Selecione o grupo de recursos na lista suspensa, ou crie um novo|
@@ -114,7 +114,7 @@ O HDInsight pode executar trabalhos do Sqoop usando vários métodos. Use a tabe
 * Exportação em massa — com HDInsight baseado em Linux, o conector Sqoop usado para exportar dados no Microsoft SQL Server ou no Banco de Dados SQL do Azure, atualmente, não permite inserções em massa.
 * Envio em lote — Com HDInsight baseado em Linux, ao usar o comutador `-batch` ao executar inserções, o Sqoop realizará várias inserções em vez de operações de inserção em lotes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Você aprendeu como usar Sqoop. Para obter mais informações, consulte:
 
 * [Usar o Apache Hive com o HDInsight](../hdinsight-use-hive.md)

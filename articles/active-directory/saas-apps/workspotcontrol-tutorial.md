@@ -16,11 +16,11 @@ ms.date: 10/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97f375c6f48d3dc497eb59e76f19fc64cf906b56
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886493"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098652"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutorial: Integração do Azure Active Directory com o Workspot Control
 
@@ -120,7 +120,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
      ![image](./media/workspotcontrol-tutorial/tutorial_workspotcontrol_url1.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://<INSTANCENAME>-saml.workspot.com/`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<INSTANCENAME>-saml.workspot.com/`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Entre em contato com a [equipe de suporte ao cliente do Workspot Control](mailto:support@workspot.com) para obter esses valores. 
@@ -179,7 +179,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
      a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No **nome de usuário** tipo de campo **brendafernandes\@yourcompanydomain.extension**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **Propriedades**, marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -206,7 +206,7 @@ Para permitir que os usuários do AD do Azure façam logon no Controle do Worksp
 
     b. Na **Sobrenome** texto, digite o sobrenome do usuário, como **simon**.
 
-    c. Na **E-mail** texto, digite o email do usuário, como **Brendafernandes\@contoso.com**.
+    c. Na caixa de texto **Email**, insira o email do usuário como **Brendafernandes\@contoso.com**.
 
     d. Selecione a função de usuário apropriada na lista suspensa **Função**.
 

@@ -9,11 +9,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 42e4b545a48bcbd0ad4b7faf077ebdbfe21648b1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006685"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61002653"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Conceitos de desenvolvedor do Catálogo de Dados do Azure
 O **Catálogo de Dados do Microsoft Azure** é um serviço de nuvem totalmente gerenciado que fornece recursos para descoberta de fonte de dados e metadados de fonte de dados de crowdsourcing. Os desenvolvedores podem usar o serviço por meio de suas APIs REST. Entender os conceitos implementados no serviço é importante para os desenvolvedores integrarem com êxito o **Catálogo de Dados do Azure**.
@@ -78,7 +78,7 @@ A UX pode escolher como exibir a combinação. Existem três padrões diferentes
 Como apresentado na seção Conceitos Principais, o modelo de objeto **Catálogo de Dados do Azure** inclui itens que podem ser ativos ou anotações. Itens têm propriedades que podem ser obrigatórias ou opcionais. Algumas propriedades se aplicam a todos os itens. Algumas propriedades se aplicam a todos os ativos. Algumas propriedades se aplicam somente alguns tipos específicos de ativo.
 
 ### <a name="system-properties"></a>Propriedades do sistema
-<table><tr><td><b>Nome da Propriedade</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr><tr><td> timestamp</td><td>Datetime</td><td>A hora da última modificação do item. Esse campo é gerado pelo servidor quando um item é inserido e sempre que um item é atualizado. O valor dessa propriedade é ignorado na entrada de operações de publicação.</td></tr><tr><td>ID</td><td>Uri</td><td>URL absoluta do item (somente leitura). É o URI endereçável exclusivo do item.  O valor dessa propriedade é ignorado na entrada de operações de publicação.</td></tr><tr><td>Tipo</td><td>Cadeia de caracteres</td><td>O tipo de ativo (somente leitura).</td></tr><tr><td>etag</td><td>Cadeia de caracteres</td><td>Uma cadeia de caracteres correspondente à versão do item que pode ser usado para controle de simultaneidade otimista ao executar operações que atualizam itens no catálogo. "*" pode ser usado para fazer correspondência com qualquer valor.</td></tr></table>
+<table><tr><td><b>Nome da Propriedade</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr><tr><td> timestamp</td><td>DateTime</td><td>A hora da última modificação do item. Esse campo é gerado pelo servidor quando um item é inserido e sempre que um item é atualizado. O valor dessa propriedade é ignorado na entrada de operações de publicação.</td></tr><tr><td>ID</td><td>Uri</td><td>URL absoluta do item (somente leitura). É o URI endereçável exclusivo do item.  O valor dessa propriedade é ignorado na entrada de operações de publicação.</td></tr><tr><td>Tipo</td><td>Cadeia de caracteres</td><td>O tipo de ativo (somente leitura).</td></tr><tr><td>etag</td><td>Cadeia de caracteres</td><td>Uma cadeia de caracteres correspondente à versão do item que pode ser usado para controle de simultaneidade otimista ao executar operações que atualizam itens no catálogo. "*" pode ser usado para fazer correspondência com qualquer valor.</td></tr></table>
 
 ### <a name="common-properties"></a>Propriedades comuns
 Essas propriedades se aplicam a todos os tipos de ativos de raiz e todos os tipos de anotação.
@@ -115,13 +115,13 @@ Tipos de anotação representam tipos de metadados que podem ser atribuídos a o
 <tr><td><b>Tipo de Anotação (nome de exibição aninhado)</b></td><td><b>Propriedades adicionais</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr>
 
 <tr><td>Descrição ("descrições")</td><td></td><td></td><td>Esta propriedade contém uma descrição de um ativo. Cada usuário do sistema pode adicionar sua própria descrição.  Somente o usuário pode editar o Objeto de descrição.  (Os Administradores e Proprietários de ativos podem excluir o objeto Descrição, mas não editá-lo). O sistema mantém as descrições dos usuários separadamente.  Desta maneira, há uma matriz de descrições de cada ativo (uma para cada usuário que contribuiu com seus conhecimentos sobre o ativo, além de possivelmente uma contendo informações derivadas da fonte de dados).</td></tr>
-<tr><td></td><td>description</td><td>cadeia de caracteres</td><td>Uma descrição resumida (duas a três linhas) do ativo</td></tr>
+<tr><td></td><td>description</td><td>string</td><td>Uma descrição resumida (duas a três linhas) do ativo</td></tr>
 
 <tr><td>Marca ("marcas")</td><td></td><td></td><td>Esta propriedade define uma marca de um ativo. Cada usuário do sistema pode adicionar várias marcas para um ativo.  Somente o usuário que criou os objetos Marca pode editá-los.  (Administradores e Proprietários de Ativos podem excluir o objeto Marca, mas não editá-lo). O sistema mantém as marcas dos usuários separadamente.  Portanto, há uma matriz de objetos de Marca em cada ativo.</td></tr>
-<tr><td></td><td>marca</td><td>cadeia de caracteres</td><td>Uma marca que descreve o ativo.</td></tr>
+<tr><td></td><td>marca</td><td>string</td><td>Uma marca que descreve o ativo.</td></tr>
 
 <tr><td>FriendlyName ("friendlyName")</td><td></td><td></td><td>Esta propriedade contém um nome amigável de um ativo. FriendlyName é uma anotação singleton: apenas um FriendlyName pode ser adicionado a um ativo.  Somente o usuário que criou o objeto FriendlyName pode editá-lo. (Proprietários de ativos e Administradores podem excluir o objeto FriendlyName, mas não editá-lo). O sistema mantém os nomes amigáveis dos usuários separadamente.</td></tr>
-<tr><td></td><td>friendlyName</td><td>cadeia de caracteres</td><td>Um nome amigável do ativo.</td></tr>
+<tr><td></td><td>friendlyName</td><td>string</td><td>Um nome amigável do ativo.</td></tr>
 
 <tr><td>Esquema ("esquema")</td><td></td><td></td><td>O Esquema descreve a estrutura dos dados.  Ela lista os nomes de atributo (coluna, atributo, campo etc.), tipos e também outros metadados.  Essa informação é derivada da fonte de dados.  Esquema é uma anotação singleton: somente um esquema pode ser adicionado a um ativo.</td></tr>
 <tr><td></td><td>colunas</td><td>Column[]</td><td>Uma matriz de objetos de coluna. Eles descrevem a coluna com informações derivadas da fonte de dados.</td></tr>
@@ -141,14 +141,14 @@ Tipos de anotação representam tipos de metadados que podem ser atribuídos a o
 <tr><td></td><td>preview</td><td>object[]</td><td>A matriz de objetos que representa uma coluna.  Cada objeto tem um mapeamento de propriedade para uma coluna com um valor para a linha da coluna.</td></tr>
 
 <tr><td>AccessInstruction ("accessInstructions")</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>Tipo MIME</td><td>cadeia de caracteres</td><td>O tipo mime do conteúdo.</td></tr>
-<tr><td></td><td>conteúdo</td><td>cadeia de caracteres</td><td>As instruções para obter acesso a esse ativo de dados. O conteúdo pode ser uma URL, um endereço de email ou um conjunto de instruções.</td></tr>
+<tr><td></td><td>Tipo MIME</td><td>string</td><td>O tipo mime do conteúdo.</td></tr>
+<tr><td></td><td>conteúdo</td><td>string</td><td>As instruções para obter acesso a esse ativo de dados. O conteúdo pode ser uma URL, um endereço de email ou um conjunto de instruções.</td></tr>
 
 <tr><td>TableDataProfile ("tableDataProfiles")</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>numberOfRows</td></td><td>int</td><td>O número de linhas no conjunto de dados</td></tr>
 <tr><td></td><td>tamanho</td><td>longo</td><td>O tamanho em bytes do conjunto de dados.  </td></tr>
-<tr><td></td><td>schemaModifiedTime</td><td>cadeia de caracteres</td><td>A hora da última modificação do esquema</td></tr>
-<tr><td></td><td>dataModifiedTime</td><td>cadeia de caracteres</td><td>A hora da última modificação do conjunto de dados (dados foram adicionados, modificados ou excluídos)</td></tr>
+<tr><td></td><td>schemaModifiedTime</td><td>string</td><td>A hora da última modificação do esquema</td></tr>
+<tr><td></td><td>dataModifiedTime</td><td>string</td><td>A hora da última modificação do conjunto de dados (dados foram adicionados, modificados ou excluídos)</td></tr>
 
 <tr><td>ColumnsDataProfile ("columnsDataProfiles")</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>colunas</td></td><td>ColumnDataProfile[]</td><td>Uma matriz de perfis de dados da coluna.</td></tr>
@@ -158,8 +158,8 @@ Tipos de anotação representam tipos de metadados que podem ser atribuídos a o
 <tr><td></td><td>classificação</td><td>Cadeia de caracteres</td><td>A classificação dos dados nesta coluna.</td></tr>
 
 <tr><td>Documentação ("documentação")</td><td></td><td></td><td>Um determinado ativo pode ter apenas uma documentação associada a ele.</td></tr>
-<tr><td></td><td>Tipo MIME</td><td>cadeia de caracteres</td><td>O tipo mime do conteúdo.</td></tr>
-<tr><td></td><td>conteúdo</td><td>cadeia de caracteres</td><td>O conteúdo da documentação.</td></tr>
+<tr><td></td><td>Tipo MIME</td><td>string</td><td>O tipo mime do conteúdo.</td></tr>
+<tr><td></td><td>conteúdo</td><td>string</td><td>O conteúdo da documentação.</td></tr>
 
 </table>
 
@@ -169,34 +169,34 @@ Tipos comuns podem ser usados como os tipos de propriedades, mas não são Itens
 <table>
 <tr><td><b>Tipo comum</b></td><td><b>Propriedades</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr>
 <tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>sourceType</td><td>cadeia de caracteres</td><td>Descreve o tipo de fonte de dados.  Por exemplo:  SQL Server, banco de dados Oracle, etc.  </td></tr>
-<tr><td></td><td>objectType</td><td>cadeia de caracteres</td><td>Descreve o tipo de objeto na fonte de dados. Por exemplo:  Tabela, exibição do SQL Server.</td></tr>
+<tr><td></td><td>sourceType</td><td>string</td><td>Descreve o tipo de fonte de dados.  Por exemplo:  SQL Server, banco de dados Oracle, etc.  </td></tr>
+<tr><td></td><td>objectType</td><td>string</td><td>Descreve o tipo de objeto na fonte de dados. Por exemplo:  Tabela, exibição do SQL Server.</td></tr>
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>protocol</td><td>cadeia de caracteres</td><td>Obrigatório. Descreve um protocolo usado para se comunicar com a fonte de dados. Por exemplo: "tds" para o SQl Server, "oracle" para Oracle etc. Confira <a href="https://docs.microsoft.com/azure/data-catalog/data-catalog-dsr">Especificação de referência de fonte de dados - Estrutura DSL</a> para obter a lista de protocolos com suporte no momento.</td></tr>
+<tr><td></td><td>protocol</td><td>string</td><td>Obrigatório. Descreve um protocolo usado para se comunicar com a fonte de dados. Por exemplo: "tds" para o SQl Server, "oracle" para Oracle etc. Confira <a href="https://docs.microsoft.com/azure/data-catalog/data-catalog-dsr">Especificação de referência de fonte de dados - Estrutura DSL</a> para obter a lista de protocolos com suporte no momento.</td></tr>
 <tr><td></td><td>endereço</td><td>Dicionário<string, object></td><td>Obrigatório. O endereço é um conjunto de dados específicos do protocolo que é usado para identificar a fonte de dados que está sendo referenciada. Os dados de endereço no escopo para um determinado protocolo, o que significa que ele é inútil sem o conhecimento do protocolo.</td></tr>
-<tr><td></td><td>Autenticação</td><td>cadeia de caracteres</td><td>Opcional. O esquema de autenticação usado para se comunicar com a fonte de dados. Por exemplo: windows, oauth etc.</td></tr>
+<tr><td></td><td>Autenticação</td><td>string</td><td>Opcional. O esquema de autenticação usado para se comunicar com a fonte de dados. Por exemplo: windows, oauth etc.</td></tr>
 <tr><td></td><td>connectionProperties</td><td>Dicionário<string, object></td><td>Opcional. Informações adicionais sobre como se conectar a uma fonte de dados.</td></tr>
 
 <tr><td>SecurityPrincipal</td><td></td><td></td><td>O back-end não executa nenhuma validação de propriedades fornecidas junto ao AAD durante a publicação.</td></tr>
-<tr><td></td><td>upn</td><td>cadeia de caracteres</td><td>Endereço de email exclusivo do usuário. Deverá ser especificado se a objectId não for fornecida ou no contexto da propriedade "lastRegisteredBy"; caso contrário, é opcional.</td></tr>
+<tr><td></td><td>upn</td><td>string</td><td>Endereço de email exclusivo do usuário. Deverá ser especificado se a objectId não for fornecida ou no contexto da propriedade "lastRegisteredBy"; caso contrário, é opcional.</td></tr>
 <tr><td></td><td>ID do objeto</td><td>Guid</td><td>Identidade do AAD do usuário ou grupo de segurança. Opcional. Deverá ser especificado se o upn não for fornecido; caso contrário, será opcional.</td></tr>
-<tr><td></td><td>firstName</td><td>cadeia de caracteres</td><td>Nome do usuário (para fins de exibição). Opcional. Válido somente no contexto da propriedade "lastRegisteredBy". Não pode ser especificado ao fornecer a entidade de segurança para "funções", "permissões" e "especialistas".</td></tr>
-<tr><td></td><td>lastName</td><td>cadeia de caracteres</td><td>Sobrenome do usuário (para fins de exibição). Opcional. Válido somente no contexto da propriedade "lastRegisteredBy". Não pode ser especificado ao fornecer a entidade de segurança para "funções", "permissões" e "especialistas".</td></tr>
+<tr><td></td><td>firstName</td><td>string</td><td>Nome do usuário (para fins de exibição). Opcional. Válido somente no contexto da propriedade "lastRegisteredBy". Não pode ser especificado ao fornecer a entidade de segurança para "funções", "permissões" e "especialistas".</td></tr>
+<tr><td></td><td>lastName</td><td>string</td><td>Sobrenome do usuário (para fins de exibição). Opcional. Válido somente no contexto da propriedade "lastRegisteredBy". Não pode ser especificado ao fornecer a entidade de segurança para "funções", "permissões" e "especialistas".</td></tr>
 
 <tr><td>Coluna</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>Nome</td><td>cadeia de caracteres</td><td>Nome da coluna ou do atributo.</td></tr>
-<tr><td></td><td>tipo</td><td>cadeia de caracteres</td><td>Tipo de dados da coluna ou do atributo. Os tipos permitidos dependem sourceType de dados do ativo.  Há suporte apenas para um subconjunto de tipos.</td></tr>
+<tr><td></td><td>Nome</td><td>string</td><td>Nome da coluna ou do atributo.</td></tr>
+<tr><td></td><td>tipo</td><td>string</td><td>Tipo de dados da coluna ou do atributo. Os tipos permitidos dependem sourceType de dados do ativo.  Há suporte apenas para um subconjunto de tipos.</td></tr>
 <tr><td></td><td>maxLength</td><td>int</td><td>O comprimento máximo permitido para a coluna ou atributo. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.</td></tr>
 <tr><td></td><td>precisão</td><td>byte</td><td>A precisão para a coluna ou atributo. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.</td></tr>
 <tr><td></td><td>isNullable</td><td>Boolean</td><td>Se a coluna tem permissão para ter um valor nulo ou não. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.</td></tr>
-<tr><td></td><td>expressão</td><td>cadeia de caracteres</td><td>Se o valor for uma coluna calculada, esse campo contém a expressão que expresse este valor. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.</td></tr>
+<tr><td></td><td>expressão</td><td>string</td><td>Se o valor for uma coluna calculada, esse campo contém a expressão que expresse este valor. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.</td></tr>
 
 <tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>columnName </td><td>cadeia de caracteres</td><td>O nome da coluna</td></tr>
-<tr><td></td><td>Tipo </td><td>cadeia de caracteres</td><td>O tipo da coluna</td></tr>
-<tr><td></td><td>min </td><td>cadeia de caracteres</td><td>O valor mínimo no conjunto de dados</td></tr>
-<tr><td></td><td>max </td><td>cadeia de caracteres</td><td>O valor máximo do conjunto de dados</td></tr>
+<tr><td></td><td>columnName </td><td>string</td><td>O nome da coluna</td></tr>
+<tr><td></td><td>Tipo </td><td>string</td><td>O tipo da coluna</td></tr>
+<tr><td></td><td>min </td><td>string</td><td>O valor mínimo no conjunto de dados</td></tr>
+<tr><td></td><td>max </td><td>string</td><td>O valor máximo do conjunto de dados</td></tr>
 <tr><td></td><td>avg </td><td>double</td><td>O valor médio do conjunto de dados</td></tr>
 <tr><td></td><td>stdev </td><td>double</td><td>O desvio padrão para o conjunto de dados</td></tr>
 <tr><td></td><td>nullCount </td><td>int</td><td>A contagem de valores nulos no conjunto de dados</td></tr>
@@ -216,19 +216,19 @@ O conjunto de protocolos com suporte pode ser estendido por meio de programaçã
 <tr><td><b>Tipo</b></td><td><b>Propriedades</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr>
 
 <tr><td>DataSourceProtocol</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>namespace</td><td>cadeia de caracteres</td><td>O namespace do protocolo. O namespace deve ter de 1 a 255 caracteres, conter uma ou mais partes não vazias separadas por ponto (.). Cada parte deve ter de 1 a 255 caracteres, começar com uma letra e conter somente letras e números.</td></tr>
-<tr><td></td><td>Nome</td><td>cadeia de caracteres</td><td>O nome do protocolo. O nome deve ter de 1 a 255 caracteres, começar com uma letra ou número e conter apenas letras, números e hífen (-).</td></tr>
+<tr><td></td><td>namespace</td><td>string</td><td>O namespace do protocolo. O namespace deve ter de 1 a 255 caracteres, conter uma ou mais partes não vazias separadas por ponto (.). Cada parte deve ter de 1 a 255 caracteres, começar com uma letra e conter somente letras e números.</td></tr>
+<tr><td></td><td>Nome</td><td>string</td><td>O nome do protocolo. O nome deve ter de 1 a 255 caracteres, começar com uma letra ou número e conter apenas letras, números e hífen (-).</td></tr>
 <tr><td></td><td>identityProperties</td><td>DataSourceProtocolIdentityProperty[]</td><td>Lista de propriedades de identidade, deve conter pelo menos uma, mas no máximo 20 propriedades. Por exemplo: “server”, “database”, “schema” e “object” são propriedades de identidade do protocolo “tds”.</td></tr>
 <tr><td></td><td>identitySets</td><td>DataSourceProtocolIdentitySet[]</td><td>Lista de conjuntos de identidade. Define conjuntos de propriedades de identidade que representam a identidade do ativo válido. Deve conter pelo menos um, mas no máximo 20 conjuntos. Por exemplo: {"server", "database", "schema" e "object"} é um conjunto de identidade para o protocolo "tds", que define a identidade do ativo de Tabela do SQL Server.</td></tr>
 
 <tr><td>DataSourceProtocolIdentityProperty</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>Nome</td><td>cadeia de caracteres</td><td>O nome da propriedade. Cada parte deve ter de 1 a 100 caracteres, começar com uma letra e conter somente letras e números.</td></tr>
-<tr><td></td><td>Tipo</td><td>cadeia de caracteres</td><td>O tipo da propriedade. Os valores com suporte são: “bool”, “boolean”, “byte”, “guid”, “int”, “integer”, “long”, “string” e “url”</td></tr>
+<tr><td></td><td>Nome</td><td>string</td><td>O nome da propriedade. Cada parte deve ter de 1 a 100 caracteres, começar com uma letra e conter somente letras e números.</td></tr>
+<tr><td></td><td>Tipo</td><td>string</td><td>O tipo da propriedade. Os valores com suporte são: “bool”, “boolean”, “byte”, “guid”, “int”, “integer”, “long”, “string” e “url”</td></tr>
 <tr><td></td><td>ignoreCase</td><td>bool</td><td>Indica se o caso deve ser ignorado ao usar o valor da propriedade. Só pode ser especificado para propriedades com o tipo "string". O valor padrão é falso.</td></tr>
 <tr><td></td><td>urlPathSegmentsIgnoreCase</td><td>bool[]</td><td>Indica se o caso deve ser ignorado para cada segmento do caminho da URL. Só pode ser especificado para propriedades com o tipo "url". O valor padrão é [falso].</td></tr>
 
 <tr><td>DataSourceProtocolIdentitySet</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>Nome</td><td>cadeia de caracteres</td><td>O nome do conjunto de identidade.</td></tr>
+<tr><td></td><td>Nome</td><td>string</td><td>O nome do conjunto de identidade.</td></tr>
 <tr><td></td><td>propriedades</td><td>string[]</td><td>A lista de propriedades de identidade incluída em um conjunto de identidades. Ele não pode conter duplicatas. Cada propriedade referenciada pelo conjunto de identidades deve ser definida na lista "identityProperties" do protocolo.</td></tr>
 
 </table>

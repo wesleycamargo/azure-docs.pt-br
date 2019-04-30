@@ -1,7 +1,6 @@
 ---
 title: 'Azure Toolkit for IntelliJ: Criar aplicativos Spark para o cluster HDInsight '
 description: Use o Kit de Ferramentas do Azure para IntelliJ a fim de desenvolver aplicativos Spark escritos em Scala e enviá-los a um cluster Spark do HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: maxluk
-ms.openlocfilehash: 8fa3cd79011ab31349ec44edf52b8fd9048d0d37
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 682b2266442f3aba6696385862844e1b4b93aa3d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077965"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124247"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Use o Azure Toolkit for IntelliJ para criar aplicativos do Apache Spark para um cluster do HDInsight
 
@@ -161,7 +160,7 @@ Você pode vincular um cluster HDInsight usando o nome de usuário gerenciado do
 
     * **Cluster do HDInsight**  
   
-        |Propriedade |Valor |
+        |Propriedade |Value |
         |----|----|
         |Tipo de Recurso de Link|Selecione **Cluster do HDInsight** na lista suspensa.|
         |Nome/URL do cluster| Insira o nome do cluster.|
@@ -173,7 +172,7 @@ Você pode vincular um cluster HDInsight usando o nome de usuário gerenciado do
 
     * **Serviço Livy**  
   
-        |Propriedade |Valor |
+        |Propriedade |Value |
         |----|----|
         |Tipo de Recurso de Link|Selecione **Serviço Livy** na lista suspensa.|
         |Ponto de Extremidade do Livy| Inserir o Ponto de Extremidade Livy|
@@ -204,7 +203,7 @@ Depois de criar um aplicativo Scala, você poderá enviá-lo ao cluster.
 
 3. Na janela **Editar configuração**, forneça os seguintes valores e, em seguida, selecione **OK**:
 
-    |Propriedade |Valor |
+    |Propriedade |Value |
     |----|----|
     |Clusters Spark (somente Linux)|Selecione o cluster HDInsight Spark no qual você deseja executar o aplicativo.|
     |Selecione um Artefato para enviar|Deixe a configuração padrão.|
@@ -284,7 +283,7 @@ Verifique se você atendeu ao pré-requisito WINUTILS.EXE.
 
 4. Forneça os seguintes valores e, em seguida, selecione **OK**:
 
-    |Propriedade |Valor |
+    |Propriedade |Value |
     |----|----|
     |Classe principal do trabalho|O valor padrão é a classe principal do arquivo selecionado. Você pode alterar a classe selecionando as reticências (**...** ) e escolhendo outra classe.|
     |Variáveis de ambiente|Garanta que o valor para HADOOP_HOME esteja correto.|
@@ -318,7 +317,7 @@ Ele tem suporte apenas no IntelliJ 2018.2 e 2018.3.
 
 4. Forneça os seguintes valores e, em seguida, selecione **OK**:
 
-    |Propriedade |Valor |
+    |Propriedade |Value |
     |----|----|
     |Clusters Spark (somente Linux)|Selecione o cluster HDInsight Spark no qual você deseja executar o aplicativo.|
     |Nome de classe principal|O valor padrão é a classe principal do arquivo selecionado. Você pode alterar a classe selecionando as reticências (**...** ) e escolhendo outra classe.|

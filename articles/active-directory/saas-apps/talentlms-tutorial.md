@@ -16,11 +16,11 @@ ms.date: 07/13/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8fa78ec2b5623dfd010a8fe5709916a47e221a9e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57902188"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60731906"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Tutorial: Integração do Azure Active Directory com o TalentLMS
 
@@ -70,7 +70,7 @@ Para configurar a integração do TalentLMS com o Azure AD, é necessário adici
     
 1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![APLICATIVOS][3]
+    ![Aplicativos][3]
 
 1. Na caixa de pesquisa, digite **TalentLMS**.
 
@@ -219,7 +219,7 @@ Para permitir que os usuários do Azure AD façam logon no TalentLMS, eles devem
 
     b. Na caixa de texto **Sobrenome**, digite o sobrenome do usuário como **Fernandes**.
  
-    c. No **endereço de Email** caixa de texto, insira o email do usuário, como **brendafernandes\@contoso.com**.
+    c. Na caixa de texto **Endereço de email**, insira o email do usuário como **brendafernandes\@contoso.com**.
 
     d. Clique em **Adicionar Usuário**.
 

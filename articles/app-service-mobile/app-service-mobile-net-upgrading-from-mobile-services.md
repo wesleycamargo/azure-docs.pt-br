@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: f5ffc795e6469971d1eaf335d6683f94d05f0807
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278587"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122431"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Atualizar o Serviço Móvel do Azure .NET existente para o Serviço de Aplicativo
 O Aplicativo Móvel do Serviço de Aplicativo é uma nova maneira de compilar aplicativos móveis usando o Microsoft Azure. Para saber mais, confira [O que são Aplicativos Móveis?].
@@ -160,7 +160,7 @@ Se um aplicativo cliente for atualizado de Serviços Móveis para Aplicativos M�
 
 No iOS, você deve alterar seu esquema de dados básicos para suas entidades de dados para que correspondam ao seguinte. Observe que as propriedades `createdAt`, `updatedAt` e `version` não têm mais um prefixo `ms_`:
 
-| Atributo | Tipo | Observação |
+| Atributo | Type | Observação |
 | --- | --- | --- |
 | ID |Cadeia de caracteres, marcadas como obrigatórias |chave primária no repositório remoto |
 | createdAt |Data |(opcional) é mapeado para a propriedade do sistema createdAt |

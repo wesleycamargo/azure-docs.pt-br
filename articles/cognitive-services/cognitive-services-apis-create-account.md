@@ -93,7 +93,7 @@ Em seu recurso de Serviços Cognitivos, você pode usar a URL e as chaves do Nó
 
 ![Tela de recursos](media/cognitive-services-apis-create-account/resourceScreen.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Autenticar solicitações para os Serviços Cognitivos do Azure](authentication.md)

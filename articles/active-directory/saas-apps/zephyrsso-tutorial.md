@@ -16,11 +16,11 @@ ms.date: 08/28/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3be3008367f5c405f65dfd37b4384726ab2456c5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209516"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60796708"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zephyrsso"></a>Tutorial: Integração do Azure Active Directory com o ZephyrSSO
 
