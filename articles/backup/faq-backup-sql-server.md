@@ -6,18 +6,22 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 8d6323c73e5313a29b7b0df09ebdd24a190879f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 649e50634d901ab48f1cb36c39d7331401c0cc51
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791886"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733541"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Perguntas Frequentes sobre bancos de dados do SQL Server que estão em execução em um backup de VM do Azure
 
 Este artigo responde a perguntas comuns sobre como fazer backup de bancos de dados do SQL Server que são executados em máquinas virtuais (VMs) e que usam o [Backup do Azure](backup-overview.md) service.
+
+## <a name="can-i-use-azure-backup-for-iaas-vm-as-well-as-sql-server-on-the-same-machine"></a>Posso usar o backup do Azure para VM de IaaS, bem como do SQL Server no mesmo computador?
+Sim, você pode ter o backup da VM e o backup do SQL na mesma VM. Nesse caso, estamos internamente disparar um backup completo somente cópia na VM não truncar os logs.
+
 
 ## <a name="does-the-solution-retry-or-auto-heal-the-backups"></a>A solução novamente ou restabelecimento automático os backups?
 
@@ -45,7 +49,8 @@ Sim. Você pode limitar a taxa com que a política de backup é executada para m
   `{"DefaultBackupTasksThreshold": 5}`
 
 3. Salve suas alterações e feche o arquivo.
-4. Na instância do SQL Server, abra **Gerenciador de Tarefas**. Reinicie o serviço **AzureWLBackupCoordinatorSvc**.
+4. Na instância do SQL Server, abra **Gerenciador de Tarefas**. Reinicie o serviço **AzureWLBackupCoordinatorSvc**.<br/> <br/>
+ Embora esse método ajuda a se o aplicativo de backup está consumindo muitos recursos, o SQL Server [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) é uma forma mais genérica, especifique os limites na quantidade de CPU, e/s física e memória que podem solicitações recebidas de aplicativos Use.
 
 > [!NOTE]
 > A experiência do usuário ainda pode prosseguir e agendar todos os backups em um determinado momento, no entanto, elas serão processadas em uma janela deslizante de, digamos, 5, de acordo com o exemplo acima.
@@ -54,13 +59,13 @@ Sim. Você pode limitar a taxa com que a política de backup é executada para m
 De acordo com as limitações do SQL, você pode executar copiar somente backup completo na réplica secundária; No entanto, não é permitido o backup completo.
 
 ## <a name="can-i-protect-availability-groups-on-premises"></a>Posso proteger grupos de disponibilidade no local?
- Não. O Backup do Azure protege os bancos de dados do SQL Server em execução no Azure. Se um grupo de disponibilidade (AG) é distribuído entre computadores locais e do Azure, o grupo de disponibilidade pode ser protegido somente se a réplica primária está em execução no Azure. Além disso, o Azure Backup protege apenas os nós que são executados na mesma região do Azure que o Cofre de serviços de recuperação.
+Não. O Backup do Azure protege os bancos de dados do SQL Server em execução no Azure. Se um grupo de disponibilidade (AG) é distribuído entre computadores locais e do Azure, o grupo de disponibilidade pode ser protegido somente se a réplica primária está em execução no Azure. Além disso, o Azure Backup protege apenas os nós que são executados na mesma região do Azure que o Cofre de serviços de recuperação.
 
 ## <a name="can-i-protect-availability-groups-across-regions"></a>Pode proteger grupos de disponibilidade entre regiões?
 O cofre dos serviços de recuperação de Backup do Azure pode detectar e proteger todos os nós que estão na mesma região que o cofre. Se seu grupo de disponibilidade Always On do SQL Server se estender por várias regiões do Azure, configure o backup da região que tem o nó primário. O Backup do Microsoft Azure poderá detectar e proteger todos os bancos de dados no grupo de disponibilidade, de acordo com a sua preferência de backup. Quando sua preferência de backup não for atendida, os backups falharão e você receber o alerta de falha.
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>Trabalhos de backup bem-sucedidos criam alertas?
- Não. Trabalhos de backup bem-sucedidos não geram alertas. Os alertas são enviados somente para trabalhos de backup com falha. Comportamento detalhado para alertas do portal está documentado [aqui](backup-azure-monitoring-built-in-monitor.md). No entanto, caso você esteja interessado têm alertas mesmo para trabalhos com êxito, você pode usar [monitoramento usando o Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+Não. Trabalhos de backup bem-sucedidos não geram alertas. Os alertas são enviados somente para trabalhos de backup com falha. Comportamento detalhado para alertas do portal está documentado [aqui](backup-azure-monitoring-built-in-monitor.md). No entanto, caso você esteja interessado têm alertas mesmo para trabalhos com êxito, você pode usar [monitoramento usando o Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Posso ver os trabalhos de backup agendados no menu trabalhos de Backup?
 O **trabalho de Backup** menu mostrará apenas ad-hoc trabalhos de backup. Para o trabalho agendado, use [monitoramento usando o Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
@@ -89,6 +94,6 @@ Um banco de dados que você [adicionar a uma instância de autoprotected](backup
   ![Descobrir manualmente um banco de dados adicionado recentemente](./media/backup-azure-sql-database/view-newly-added-database.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como [fazer backup de um banco de dados do SQL Server](backup-azure-sql-database.md) que é executado em uma VM do Azure.

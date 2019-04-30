@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
 ms.openlocfilehash: 5df4c9dfe18b02ade3a37717da9c68acbfcf1853
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106593"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61480853"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>Desenvolver funções definidas pelo usuário do .NET Standard para trabalhos do Edge do Azure Stream Analytics (versão prévia)
 
@@ -114,7 +114,7 @@ Expanda o **a configuração de código definidos pelo usuário** seção e, em 
  |**Configuração**  |**Valor sugerido**  |
  |---------|---------|
  |Origem do assembly  | Pacotes existentes do assembly da nuvem    |
- |Recurso  |  Escolha os dados da conta atual   |
+ |Resource  |  Escolha os dados da conta atual   |
  |Assinatura  |  Escolha sua assinatura.   |
  |Conta de armazenamento  |  Escolha sua conta de armazenamento.   |
  |Contêiner  |  Escolha o contêiner que você criou na sua conta de armazenamento.   |

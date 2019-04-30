@@ -12,11 +12,11 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 47a77def43a9577e5a3506899da47db2f684b495
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835105"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61429479"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Mover dados para o SQL Server em uma máquina virtual do Azure
 
@@ -42,7 +42,7 @@ Observe que este documento pressupõe que os comandos SQL sejam executados no SQ
 Este tutorial presume que você tenha:
 
 * Uma **assinatura do Azure**. Se você não tiver uma assinatura, você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Uma **conta de armazenamento do Azure**. Você usará uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md) . Depois de criar a conta de armazenamento, você precisará obter a chave de conta usada para acessar o armazenamento. Confira [Gerenciar as chaves de acesso de armazenamento](../../storage/common/storage-account-manage.md#access-keys).
+* Uma **conta de armazenamento do Azure**. Você usará uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md) . Depois de criar a conta de armazenamento, você precisará obter a chave de conta usada para acessar o armazenamento. Consulte [Manage your storage access keys (Gerenciar as chaves de acesso de armazenamento)](../../storage/common/storage-account-manage.md#access-keys).
 * **SQL Server em uma VM do Azure**provisionado. Para obter instruções, consulte [Configurar uma máquina virtual do SQL Server do Azure como um servidor do IPython Notebook para análises avançadas](../data-science-virtual-machine/setup-sql-server-virtual-machine.md).
 * **Azure PowerShell** instalado e configurado localmente. Para saber mais, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
 
