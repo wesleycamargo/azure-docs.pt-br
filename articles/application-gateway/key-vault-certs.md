@@ -51,6 +51,6 @@ Integração com o Key Vault requer um processo de configuração de três etapa
 
 ![Certificados do Key Vault](media/key-vault-certs/ag-kv.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Configura a terminação SSL com certificados do Key Vault usando o Azure PowerShell](configure-keyvault-ps.md).

@@ -279,7 +279,7 @@ Dispositivos do IoT Edge padrão não é necessário qualquer conectividade de e
 
 Para um cenário de gateway trabalhar, pelo menos um dos protocolos com suporte do hub IoT Edge deve estar aberto para tráfego de entrada de dispositivos downstream. Os protocolos com suporte são MQTT, AMQP e HTTPS.
 
-| Porta | Protocolo |
+| Porta | Protocol |
 | ---- | -------- |
 | 8883 | MQTT |
 | 5671 | AMQP |
@@ -305,6 +305,6 @@ Para saber mais sobre o roteamento de mensagens, consulte [Implantar módulos e 
 
 [!INCLUDE [iot-edge-extended-ofline-preview](../../includes/iot-edge-extended-offline-preview.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você tem um dispositivo IoT Edge funcionando como gateway transparente, você precisará configurar seus dispositivos downstream para confiar no gateway e enviar mensagens para ele. Para obter mais informações, consulte [Cnectar um dispositivo downstream a um gateway do Azure IoT Edge](how-to-connect-downstream-device.md).

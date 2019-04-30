@@ -648,7 +648,7 @@ Para executar o pipeline com um coordenador, faça mais ou menos como no caso do
 
     Cada ação nesta lista corresponde a uma instância do fluxo de trabalho que processa um dia inteiro de dados, em que o início do dia é indicado pelo tempo nominal.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Documentação do Apache Oozie](https://oozie.apache.org/docs/4.2.0/index.html)
 

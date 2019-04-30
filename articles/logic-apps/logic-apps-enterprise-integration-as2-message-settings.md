@@ -59,6 +59,6 @@ Esta referência descreve as propriedades que podem ser definidas para especific
 | **Formato de algoritmo SHA2** | Não  | Especifica o formato de algoritmo MIC usado para a assinatura nos cabeçalhos para as mensagens de saída AS2 ou MDN |
 ||||
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Trocar mensagens AS2](../logic-apps/logic-apps-enterprise-integration-as2.md)

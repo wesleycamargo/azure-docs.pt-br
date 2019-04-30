@@ -112,7 +112,7 @@ Você não deverá ver os seguintes valores:
 - *Ícone de calendário*: indica que o Time Series Insights está lendo os valores de dados como *datetime*.
 - *#*: indica que o Time Series Insights está lendo os valores de dados como um inteiro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter assistência, inicie uma conversa no [fórum do MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) ou no [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights).
 

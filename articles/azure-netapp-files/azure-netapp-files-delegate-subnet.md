@@ -46,7 +46,7 @@ ms.locfileid: "63763300"
     
 Também é possível criar e delegar uma sub-rede quando você [cria um volume do Azure NetApp Files](azure-netapp-files-create-volumes.md). 
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Próximas etapas  
 * [Criar um volume do Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Saiba mais sobre a integração de rede virtual para os serviços do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
 

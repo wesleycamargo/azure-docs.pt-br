@@ -104,7 +104,7 @@ Aqui estão as etapas detalhadas:
 
 Use a ID do aplicativo e a chave em seu aplicativo para autenticar como Azure Time Series Insight. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para código de exemplo que chama a API de análises de séries temporais, consulte [Consultar dados usando o C#](time-series-insights-query-data-csharp.md).
 

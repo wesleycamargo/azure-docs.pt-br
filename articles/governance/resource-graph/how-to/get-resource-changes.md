@@ -223,7 +223,7 @@ A resposta é semelhante a este exemplo:
 
 Para comparar os resultados por meio de programação, comparar os **conteúdo** parte de cada um para determinar a diferença. Se você comparar todo o instantâneo, o **carimbo de hora** sempre mostra como uma diferença, apesar de que está sendo esperada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Consulte o idioma em uso no [consultas Starter](../samples/starter.md).
 - Consulte avançada usa na [consultas avançadas](../samples/advanced.md).

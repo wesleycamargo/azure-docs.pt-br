@@ -290,7 +290,7 @@ Uma vez conectado ao cluster, use as etapas a seguir para verificar se você só
 * Deve conter pelo menos um caractere não alfanumérico.
 * Deve conter pelo menos uma letra maiúscula ou minúscula.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu a adicionar armazenamento de acesso limitado ao seu cluster HDInsight, conheça outras maneiras de trabalhar com dados no cluster:
 

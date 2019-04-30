@@ -172,7 +172,7 @@ Você também pode verificar se o log de depuração está habilitado para um ou
 
 Para coletar os logs de todos os nós para um local central, você pode criar um fluxo de dados, como a inclusão de todas as entradas de log em Solr.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Monitoramento e prática de registro em log para HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
 * [Logs de aplicativo do Apache Hadoop YARN de acesso no HDInsight baseado em Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)

@@ -143,7 +143,7 @@ Neste exemplo o certificado do cliente é identificado por nome de recurso.
   
 -   **Escopos de política:** global, produto, API, operação  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre como trabalhar com políticas, consulte:
 
 + [Políticas no Gerenciamento de API](api-management-howto-policies.md)

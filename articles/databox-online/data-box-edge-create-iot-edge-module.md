@@ -271,6 +271,6 @@ Na seção anterior, você criou uma solução do IoT Edge e adicionou o código
 
 4. Você pode conferir o endereço de imagem de contêiner completo com marca no terminal integrado do VS Code. O endereço da imagem é criado a partir de informações que estão no arquivo module.json com o formato `<repository>:<version>-<platform>`. Para este artigo, ele deve se parecer com `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64`.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para implantar e executar esse módulo na borda da caixa de dados, consulte as etapas em [adicionar um módulo](data-box-edge-deploy-configure-compute.md#add-a-module).

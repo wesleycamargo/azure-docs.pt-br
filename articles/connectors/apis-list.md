@@ -173,7 +173,7 @@ Para tornar Aplicativos de API personalizado ou conectores público disponíveis
 
 * Para enviar ou votar em ideias para os Aplicativos Lógicos do Azure e conectores, visite o [site de comentários do usuário dos Aplicativos Lógicos](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Encontrar a [lista completa de conectores](https://docs.microsoft.com/connectors)
 * [Criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md)

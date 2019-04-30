@@ -39,7 +39,7 @@ Com base em suas necessidades, você pode escolher entre quatro tipos de opçõe
 | Todas as VMs em uma vNet do modo clássico para o modo do Resource Manager em discos gerenciados     | [Migrar os recursos de IaaS do modo clássico para o modo do Resource Manager](migration-classic-resource-manager-ps.md) e [Converter uma VM de discos não gerenciados para discos gerenciados](convert-unmanaged-to-managed-disks.md) | 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [Managed Disks](managed-disks-overview.md)
 - Confira os [preços dos Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).

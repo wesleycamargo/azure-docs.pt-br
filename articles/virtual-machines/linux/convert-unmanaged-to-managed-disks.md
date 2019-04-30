@@ -98,5 +98,5 @@ Todas as VMs no conjunto de disponibilidade devem ser desalocadas antes de conve
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre as opções de armazenamento, confira a [Visão geral dos Azure Managed Disks](../windows/managed-disks-overview.md).

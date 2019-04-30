@@ -96,6 +96,6 @@ Os dados de referência não estão unidos retroativamente. Isso significa que s
 
     A página confirma o carregamento concluído e exibe a mensagem **Conjunto de dados carregado com êxito**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Gerenciar dados de referência](time-series-insights-manage-reference-data-csharp.md) programaticamente.
 * Para obter a referência completa de API, confira o documento [API de Dados de Referência](/rest/api/time-series-insights/ga-reference-data-api).

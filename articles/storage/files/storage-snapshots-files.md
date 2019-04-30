@@ -83,7 +83,7 @@ Antes de implantar o agendador de instantâneos de compartilhamento, leve em con
 
 Compartilhamentos de instantâneos fornecem apenas a proteção no nível de arquivo. Compartilhamentos de instantâneos não impedem exclusões de digitação acidental em uma conta de armazenamento ou compartilhamento de arquivos. Para ajudar a proteger a conta de armazenamento de exclusões acidentais, você pode bloquear a conta de armazenamento ou o grupo de recursos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Trabalhar com instantâneos de compartilhamento em:
     - [PowerShell](storage-how-to-use-files-powershell.md)
     - [CLI](storage-how-to-use-files-cli.md)
