@@ -7,15 +7,16 @@ ms.reviewer: jasonh
 keywords: apache storm, exemplo de apache storm, storm java, exemplo de topologia storm
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/14/2019
-ms.author: hrasheed
+origin.date: 03/14/2019
+ms.date: 04/29/2019
+ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 32a8c81cd7b2078f4866d4c7311ea5ac0d0b3439
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 43f68908c8549c2f1d8322b5c4ad3985618cfe6e
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448304"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125163"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Criar uma topologia Apache Storm em Java
 
@@ -30,7 +31,7 @@ Depois de concluir as etapas neste documento, você pode implantar a topologia p
 
 * [JDK (Java Developer Kit) versão 8](https://aka.ms/azure-jdks)
 
-* [Apache Maven](https://maven.apache.org/download.cgi) corretamente [instalado](https://maven.apache.org/install.html) acordo com o Apache.  O Maven é um sistema de construção de projetos para projetos Java.
+* [Apache Maven](https://maven.apache.org/download.cgi) corretamente [instalado](https://maven.apache.org/install.html) de acordo com o Apache.  O Maven é um sistema de construção de projetos para projetos Java.
 
 ## <a name="test-environment"></a>Ambiente de teste
 O ambiente usado para este artigo foi um computador executando o Windows 10.  Os comandos foram executados em um prompt de comando e os diversos arquivos foram editados com o bloco de notas.

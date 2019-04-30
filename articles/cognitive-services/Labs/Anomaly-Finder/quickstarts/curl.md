@@ -57,7 +57,7 @@ curl -v -X POST "https://api.labs.cognitive.microsoft.com/anomalyfinder/v1.0/ano
 ### <a name="example-response"></a>Exemplo de resposta
 Uma resposta com êxito é retornada em JSON. A seguir está a resposta de exemplo: [!INCLUDE [Response](../includes/response.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Referência da API REST](https://dev.labs.cognitive.microsoft.com/docs/services/anomaly-detection/operations/post-anomalydetection)

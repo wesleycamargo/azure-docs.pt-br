@@ -59,7 +59,7 @@ Se você ou sua organização tiver aplicativos em desenvolvimento ou em produç
 
 * Diferentemente da API de fala de tradução, os serviços de fala pode concluir as traduções em vários idiomas em uma única solicitação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Experimente gratuitamente o serviços de fala](get-started.md)
 * [Início Rápido: reconhecer a fala em um aplicativo UWP usando o SDK de Fala](quickstart-csharp-uwp.md)

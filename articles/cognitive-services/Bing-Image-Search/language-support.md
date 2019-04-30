@@ -12,7 +12,7 @@ ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: a4c315d2696b081a4f2ac646d097e76ff9562380
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60917189"
@@ -118,5 +118,5 @@ Como alternativa, é possível especificar o país/região usando o parâmetro d
 |Estados Unidos|Inglês|en-US|
 |Estados Unidos|Espanhol|es-US|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre os pontos de extremidade da Pesquisa de Notícias do Bing, confira [Referência da API de Pesquisa de Imagem v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference).

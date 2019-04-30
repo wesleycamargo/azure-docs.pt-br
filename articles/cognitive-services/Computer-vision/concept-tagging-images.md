@@ -84,7 +84,7 @@ A resposta JSON a seguir ilustra o que o Computer Vision retorna ao marcar recur
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Aprenda conceitos sobre [categorizar imagens](concept-categorizing-images.md) e [descrevendo imagens](concept-describing-images.md).
 

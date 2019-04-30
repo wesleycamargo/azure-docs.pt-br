@@ -29,6 +29,6 @@ Os endereços IP para api.cognitive.microsofttranslator.com – API de Traduçã
 * **América do Norte** 40.90.139.36, 40.90.139.2
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
 > [Traduzir atrás de firewalls de IP na chamada à API do Tradutor](reference/v3-0-translate.md)

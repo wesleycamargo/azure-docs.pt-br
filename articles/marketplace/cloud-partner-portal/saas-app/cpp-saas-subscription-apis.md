@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/17/2018
 ms.author: pbutlerm
 ms.openlocfilehash: d6ab18d68d6508a18f0b36ab5a39e15fa7c0555a
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311655"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60594503"
 ---
 # <a name="saas-sell-through-azure---apis"></a>Venda de SaaS por meio do Azure – APIs
 
@@ -93,7 +93,7 @@ Método HTTP
 
 |  **Nome do parâmetro**  | **Obrigatório**  | **Descrição**                               |
 |  ------------------  | ------------- | --------------------------------------------- |
-| tenantId             | Verdadeiro          | ID do locatário do aplicativo AAD registrado   |
+| tenantId             | True          | ID do locatário do aplicativo AAD registrado   |
 |  |  |  |
 
 
@@ -101,7 +101,7 @@ Método HTTP
 
 |  **Nome do cabeçalho**  | **Obrigatório** |  **Descrição**                                   |
 |  --------------   | ------------ |  ------------------------------------------------- |
-|  Tipo de Conteúdo     | Verdadeiro         | Tipo de conteúdo associado à solicitação. O valor padrão é `application/x-www-form-urlencoded`.  |
+|  Tipo de conteúdo     | True         | Tipo de conteúdo associado à solicitação. O valor padrão é `application/x-www-form-urlencoded`.  |
 |  |  |  |
 
 
@@ -109,10 +109,10 @@ Método HTTP
 
 | **Nome da propriedade**   | **Obrigatório** |  **Descrição**                                                          |
 | -----------------   | -----------  | ------------------------------------------------------------------------- |
-|  Grant_type         | Verdadeiro         | Tipo de concessão. O valor padrão é `client_credentials`.                    |
-|  Client_id          | Verdadeiro         |  Identificador do cliente/aplicativo associado ao Aplicativo Azure AD.                  |
-|  client_secret      | Verdadeiro         |  Senha associada ao Aplicativo Azure AD.                               |
-|  Recurso           | Verdadeiro         |  Recurso de destino para o qual o token é solicitado. O valor padrão é `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
+|  Grant_type         | True         | Tipo de concessão. O valor padrão é `client_credentials`.                    |
+|  Client_id          | True         |  Identificador do cliente/aplicativo associado ao Aplicativo Azure AD.                  |
+|  client_secret      | True         |  Senha associada ao Aplicativo Azure AD.                               |
+|  Resource           | True         |  Recurso de destino para o qual o token é solicitado. O valor padrão é `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
 |  |  |  |
 
 
@@ -168,8 +168,8 @@ Quando um usuário é redirecionado para um site do ISV, a URL contém um token 
 
 | **Chave de cabeçalho**     | **Obrigatório** | **Descrição**                                                                                                                                                                                                                  |
 |--------------------|--------------|-----------------------------------------------------------|
-| x-ms-requestid     | Não           | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente, preferencialmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-| x-ms-correlationid | Não           | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Isso correlaciona todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+| x-ms-requestid     | Não            | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente, preferencialmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
+| x-ms-correlationid | Não            | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Isso correlaciona todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 | Content-type       | Sim          | `application/json`                                        |
 | authorization      | Sim          | O token de portador JWT (Token Web JSON).                    |
 | x-ms-marketplace-token| Sim| O parâmetro de consulta de token na URL quando o usuário é redirecionado ao site do ISV SaaS partindo do Azure. **Observação:** Esse token é válido somente por 1 hora. Realize também a decodificação URL do valor do token do navegador antes de usá-lo.|
@@ -189,10 +189,10 @@ Quando um usuário é redirecionado para um site do ISV, a URL contém um token 
 
 | **Nome do parâmetro** | **Tipo de dados** | **Descrição**                       |
 |--------------------|---------------|---------------------------------------|
-| id                 | Cadeia        | A ID da assinatura de SaaS.          |
-| subscriptionName| Cadeia| Nome da assinatura de SaaS definida pelo usuário no Azure ao assinar o serviço SaaS.|
-| OfferId            | Cadeia        | ID da oferta que o usuário assinou. |
-| planId             | Cadeia        | ID do plano que o usuário assinou.  |
+| ID                 | Cadeia de caracteres        | A ID da assinatura de SaaS.          |
+| subscriptionName| Cadeia de caracteres| Nome da assinatura de SaaS definida pelo usuário no Azure ao assinar o serviço SaaS.|
+| OfferId            | Cadeia de caracteres        | ID da oferta que o usuário assinou. |
+| planId             | Cadeia de caracteres        | ID do plano que o usuário assinou.  |
 |  |  |  |
 
 
@@ -215,7 +215,7 @@ Quando um usuário é redirecionado para um site do ISV, a URL contém um token 
 | x-ms-requestid     | Sim          | O valor da ID de solicitação recebido do cliente.                                                                   |
 | x-ms-correlationid | Sim          | A ID de correlação se passada pelo cliente. Caso contrário, esse valor é a ID de correlação do servidor.                   |
 | x-ms-activityid    | Sim          | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do serviço. Isso é usado para quaisquer eventuais reconciliações. |
-| Retry-After        | Não           | Esse valor é definido somente para uma resposta 429.                                                                   |
+| Retry-After        | Não            | Esse valor é definido somente para uma resposta 429.                                                                   |
 |  |  |  |
 
 
@@ -237,12 +237,12 @@ O ponto de extremidade do assinante permite aos usuários iniciar uma assinatura
 
 |  **Chave de cabeçalho**        | **Obrigatório** |  **Descrição**                                                  |
 | ------------------     | ------------ | --------------------------------------------------------------------------------------- |
-| x-ms-requestid         |   Não         | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente, preferencialmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| x-ms-correlationid     |   Não         | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| If-Match/If-None-Match |   Não         |   Valor de ETag de validador forte.                                                          |
+| x-ms-requestid         |   Não          | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente, preferencialmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+| x-ms-correlationid     |   Não          | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+| If-Match/If-None-Match |   Não          |   Valor de ETag de validador forte.                                                          |
 | content-type           |   Sim        |    `application/json`                                                                   |
 |  authorization         |   Sim        |    O token de portador JWT (Token Web JSON).                                               |
-| x-ms-marketplace-session-mode| Não | Sinalizador para habilitar o modo de simulação ao assinar uma oferta de SaaS. Se definido, a assinatura não será cobrada. Isso é útil para cenários de teste de ISV. Defina-o como **'dryrun'**|
+| x-ms-marketplace-session-mode| Não  | Sinalizador para habilitar o modo de simulação ao assinar uma oferta de SaaS. Se definido, a assinatura não será cobrada. Isso é útil para cenários de teste de ISV. Defina-o como **'dryrun'**|
 |  |  |  |
 
 *Corpo*
@@ -302,9 +302,9 @@ O ponto de extremidade de alteração permite que o usuário converta seu plano 
 
 | **Chave de cabeçalho**          | **Obrigatório** | **Descrição**                                                                                                                                                                                                                  |
 |-------------------------|--------------|---------------------------------------------------------------------------------------------------------------------|
-| x-ms-requestid          | Não           | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente. Recomende um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.   |
-| x-ms-correlationid      | Não           | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| If-Match/If-None-Match | Não           | Valor de ETag de validador forte.                              |
+| x-ms-requestid          | Não            | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente. Recomende um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.   |
+| x-ms-correlationid      | Não            | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+| If-Match/If-None-Match | Não            | Valor de ETag de validador forte.                              |
 | content-type            | Sim          | `application/json`                                        |
 | authorization           | Sim          | O token de portador JWT (Token Web JSON).                    |
 |  |  |  |
@@ -366,8 +366,8 @@ A ação de exclusão no ponto de extremidade de assinatura permite que um usuá
 
 | **Chave de cabeçalho**     | **Obrigatório** | **Descrição**                                                                                                                                                                                                                  |
 |--------------------|--------------| ----------------------------------------------------------|
-| x-ms-requestid     | Não           | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente. Recomende um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.                                                           |
-| x-ms-correlationid | Não           | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+| x-ms-requestid     | Não            | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente. Recomende um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.                                                           |
+| x-ms-correlationid | Não            | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 | autorização      | Sim          | O token de portador JWT (Token Web JSON).                    |
 |  |  |  |
 
@@ -416,8 +416,8 @@ Esse ponto de extremidade permite que o usuário acompanhe o status de uma opera
 
 | **Chave de cabeçalho**     | **Obrigatório** | **Descrição**                                                                                                                                                                                                                  |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | Não           | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente. Recomende um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.   |
-| x-ms-correlationid | Não           | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
+| x-ms-requestid     | Não            | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente. Recomende um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.   |
+| x-ms-correlationid | Não            | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
 | autorização      | Sim          | O token de portador JWT (Token Web JSON).                    |
 |  |  |  | 
 
@@ -435,9 +435,9 @@ Esse ponto de extremidade permite que o usuário acompanhe o status de uma opera
 
 | **Nome do parâmetro** | **Tipo de dados** | **Descrição**                                                                                                                                               |
 |--------------------|---------------|-------------------------------------------------------------------------------------------|
-| id                 | Cadeia        | A ID da operação.                                                                      |
+| ID                 | Cadeia de caracteres        | A ID da operação.                                                                      |
 | status             | Enum          | Status da operação, um dos seguintes: `In Progress`, `Succeeded` ou `Failed`.          |
-| resourceLocation   | Cadeia        | Link para a assinatura que foi criada ou modificada. Isso ajuda o cliente a obter o estado atualizado após a operação. Esse valor não é definido para operações `Unsubscribe`. |
+| resourceLocation   | Cadeia de caracteres        | Link para a assinatura que foi criada ou modificada. Isso ajuda o cliente a obter o estado atualizado após a operação. Esse valor não é definido para operações `Unsubscribe`. |
 | criado            | DateTime      | Hora de criação de operação em UTC.                                                           |
 | lastModified       | DateTime      | Última atualização da operação em UTC.                                                      |
 |  |  |  |
@@ -484,8 +484,8 @@ A ação Get no ponto de extremidade da assinatura permite que um usuário recup
 
 | **Chave de cabeçalho**     | **Obrigatório** | **Descrição**                                                                                           |
 |--------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | Não           | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente, preferencialmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.                                                           |
-| x-ms-correlationid | Não           | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+| x-ms-requestid     | Não            | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente, preferencialmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.                                                           |
+| x-ms-correlationid | Não            | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 | autorização      | Sim          | O token de portador JWT (Token Web JSON).                                                                    |
 |  |  |  |
 
@@ -505,10 +505,10 @@ A ação Get no ponto de extremidade da assinatura permite que um usuário recup
 
 | **Nome do parâmetro**     | **Tipo de dados** | **Descrição**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | Cadeia        | ID do recurso de assinatura de SaaS no Azure.    |
-| offerId                | Cadeia        | ID da oferta que o usuário assinou.         |
-| planId                 | Cadeia        | ID do plano que o usuário assinou.          |
-| saasSubscriptionName   | Cadeia        | O nome da assinatura de SaaS.                |
+| ID                     | Cadeia de caracteres        | ID do recurso de assinatura de SaaS no Azure.    |
+| offerId                | Cadeia de caracteres        | ID da oferta que o usuário assinou.         |
+| planId                 | Cadeia de caracteres        | ID do plano que o usuário assinou.          |
+| saasSubscriptionName   | Cadeia de caracteres        | O nome da assinatura de SaaS.                |
 | saasSubscriptionStatus | Enum          | Status da operação.  Um dos seguintes:  <br/> - `Subscribed`: a assinatura está ativa.  <br/> - `Pending`: o usuário cria o recurso, mas ele não é ativado pelo ISV.   <br/> - `Unsubscribed`: o usuário cancelou a assinatura.   <br/> - `Suspended`: o usuário suspendeu a assinatura.   <br/> - `Deactivated`:  a assinatura do Azure está suspensa.  |
 | criado                | DateTime      | Valor do carimbo de data/hora de criação da assinatura em UTC. |
 | lastModified           | DateTime      | Valor do carimbo de data/hora de modificação da assinatura em UTC. |
@@ -533,7 +533,7 @@ A ação Get no ponto de extremidade da assinatura permite que um usuário recup
 | x-ms-requestid     | Sim          | O valor da ID de solicitação recebido do cliente.                                                                   |
 | x-ms-correlationid | Sim          | A ID de correlação se passada pelo cliente. Caso contrário, é a ID de correlação do servidor.                   |
 | x-ms-activityid    | Sim          | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do serviço. Isso é usado para quaisquer eventuais reconciliações. |
-| Retry-After        | Não           | Intervalo com o qual o cliente pode verificar o status.                                                       |
+| Retry-After        | Não            | Intervalo com o qual o cliente pode verificar o status.                                                       |
 | eTag               | Sim          | Vincule a um recurso para obter o status da operação.                                                        |
 |  |  |  |
 
@@ -556,8 +556,8 @@ A ação Get no ponto de extremidade de assinaturas permite que um usuário recu
 
 | **Chave de cabeçalho**     | **Obrigatório** | **Descrição**                                           |
 |--------------------|--------------|-----------------------------------------------------------|
-| x-ms-requestid     | Não           | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente. Recomende um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.             |
-| x-ms-correlationid | Não           | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+| x-ms-requestid     | Não            | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente. Recomende um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.             |
+| x-ms-correlationid | Não            | Um valor de cadeia de caracteres exclusiva para a operação no cliente. Esse valor é para correlacionar todos os eventos da operação de cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
 | autorização      | Sim          | O token de portador JWT (Token Web JSON).                    |
 |  |  |  |
 
@@ -577,10 +577,10 @@ A ação Get no ponto de extremidade de assinaturas permite que um usuário recu
 
 | **Nome do parâmetro**     | **Tipo de dados** | **Descrição**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | Cadeia        | ID do recurso de assinatura de SaaS no Azure.    |
-| offerId                | Cadeia        | ID da oferta que o usuário assinou.         |
-| planId                 | Cadeia        | ID do plano que o usuário assinou.          |
-| saasSubscriptionName   | Cadeia        | O nome da assinatura de SaaS.                |
+| ID                     | Cadeia de caracteres        | ID do recurso de assinatura de SaaS no Azure.    |
+| offerId                | Cadeia de caracteres        | ID da oferta que o usuário assinou.         |
+| planId                 | Cadeia de caracteres        | ID do plano que o usuário assinou.          |
+| saasSubscriptionName   | Cadeia de caracteres        | O nome da assinatura de SaaS.                |
 | saasSubscriptionStatus | Enum          | Status da operação.  Um dos seguintes:  <br/> - `Subscribed`: a assinatura está ativa.  <br/> - `Pending`: o usuário cria o recurso, mas ele não é ativado pelo ISV.   <br/> - `Unsubscribed`: o usuário cancelou a assinatura.   <br/> - `Suspended`: o usuário suspendeu a assinatura.   <br/> - `Deactivated`:  a assinatura do Azure está suspensa.  |
 | criado                | DateTime      | Valor do carimbo de data/hora de criação da assinatura em UTC. |
 | lastModified           | DateTime      | Valor do carimbo de data/hora de modificação da assinatura em UTC. |
@@ -605,7 +605,7 @@ A ação Get no ponto de extremidade de assinaturas permite que um usuário recu
 | x-ms-requestid     | Sim          | O valor da ID de solicitação recebido do cliente.                                                                   |
 | x-ms-correlationid | Sim          | A ID de correlação se passada pelo cliente. Caso contrário, é a ID de correlação do servidor.                   |
 | x-ms-activityid    | Sim          | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do serviço. Isso é usado para quaisquer eventuais reconciliações. |
-| Retry-After        | Não           | Intervalo com o qual o cliente pode verificar o status.                                                       |
+| Retry-After        | Não            | Intervalo com o qual o cliente pode verificar o status.                                                       |
 |  |  |  |
 
 ### <a name="saas-webhook"></a>Webhook de SaaS
@@ -629,12 +629,12 @@ Um webhook de SaaS é usado para notificar sobre alterações de forma proativa 
 
 | **Nome do parâmetro**     | **Tipo de dados** | **Descrição**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id  | Cadeia       | ID exclusiva para a operação disparada.                |
-| activityId   | Cadeia        | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do serviço. Isso é usado para quaisquer eventuais reconciliações.               |
-| subscriptionId                     | Cadeia        | ID do recurso de assinatura de SaaS no Azure.    |
-| offerId                | Cadeia        | ID da oferta que o usuário assinou. Fornecido somente com a ação "Atualizar".        |
-| publisherId                | Cadeia        | ID do editor da oferta de SaaS         |
-| planId                 | Cadeia        | ID do plano que o usuário assinou. Fornecido somente com a ação "Atualizar".          |
-| ação                 | Cadeia        | A ação que está disparando esta notificação. Os valores possíveis: ativar, excluir, suspender, restabelecer, atualizar          |
-| timeStamp                 | Cadeia        | Valor de carimbo de hora em UTC quando essa notificação foi disparada.          |
+| ID  | Cadeia de caracteres       | ID exclusiva para a operação disparada.                |
+| activityId   | Cadeia de caracteres        | Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do serviço. Isso é usado para quaisquer eventuais reconciliações.               |
+| subscriptionId                     | Cadeia de caracteres        | ID do recurso de assinatura de SaaS no Azure.    |
+| offerId                | Cadeia de caracteres        | ID da oferta que o usuário assinou. Fornecido somente com a ação "Atualizar".        |
+| publisherId                | Cadeia de caracteres        | ID do editor da oferta de SaaS         |
+| planId                 | Cadeia de caracteres        | ID do plano que o usuário assinou. Fornecido somente com a ação "Atualizar".          |
+| ação                 | Cadeia de caracteres        | A ação que está disparando esta notificação. Os valores possíveis: ativar, excluir, suspender, restabelecer, atualizar          |
+| timeStamp                 | Cadeia de caracteres        | Valor de carimbo de hora em UTC quando essa notificação foi disparada.          |
 |  |  |  |

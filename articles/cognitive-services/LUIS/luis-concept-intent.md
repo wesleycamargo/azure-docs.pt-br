@@ -109,7 +109,7 @@ Se a redução do número de intenções ou a divisão das suas intenções em v
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre [entidades](luis-concept-entity-types.md), que são palavras importantes relevantes para intenções
 * Saiba como [adicionar e gerenciar intenções](luis-how-to-add-intents.md) em seu aplicativo LUIS.

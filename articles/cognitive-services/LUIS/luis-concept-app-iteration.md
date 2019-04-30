@@ -47,6 +47,6 @@ Quando você conclui um ciclo de criação, é possível começar novamente. Com
 ## <a name="batch-testing"></a>Teste de lote
 O teste de lote é uma maneira de ver quantas declarações de exemplo são classificadas pelo LUIS. Os exemplos devem ser novos para o LUIS e devem estar rotulados corretamente com a intenção e as entidades que você deseja que o LUIS localize. Os resultados de teste indicam o quão bem seria o desempenho do LUIS nesse conjunto de declarações. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Conheça conceitos sobre [colaboração](luis-concept-collaborator.md).

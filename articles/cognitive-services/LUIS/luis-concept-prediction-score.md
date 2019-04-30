@@ -71,6 +71,6 @@ As pontuações de previsão podem usar a notação exponencial, *aparecendo* ac
 
 Pontuação é um token separado no LUIS. Uma expressão que contém um ponto no final em comparação com uma expressão que não contém um ponto no final são duas declarações separadas e pode receber duas diferentes de previsões. Certifique-se de que o modelo manipule pontuação nos [exemplos de expressões](luis-concept-utterance.md) (com e sem pontuação) ou nos [padrões](luis-concept-patterns.md), onde é mais fácil ignorar a pontuação com a sintaxe especial: `I am applying for the {Job} position[.]`
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Confira [Adicionar entidades](luis-how-to-add-entities.md) para saber como adicionar entidades ao seu aplicativo LUIS.

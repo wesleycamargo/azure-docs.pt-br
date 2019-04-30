@@ -33,7 +33,7 @@ O método Translate () usa o parâmetro “options”, que contém o novo elemen
 | Marked | Palavras impróprias cercadas por marcas XML \<profanação >... \</profanity >. | 彼は変態です。 | Ele é um \<profanity>jerk\</profanity >. |
 | Deleted | Palavras impróprias são removidas da saída sem substituição. | 彼は。 | Ele é um. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
 > [Aplicar filtragem de linguagem obscena com a chamada à API de Tradução](reference/v3-0-translate.md)
 

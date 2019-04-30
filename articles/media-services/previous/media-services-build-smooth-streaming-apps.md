@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 910c593c9277efeaf72dadc52740b1c918381e19
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524762"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466029"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Como compilar um aplicativo Smooth Streaming da Windows Store  
 
@@ -66,7 +66,7 @@ Para obter mais informações sobre como desenvolver aplicativos da Windows Stor
 1. No menu **ARQUIVO**, clique em **Novo** e em **Projeto**.
 1. Na caixa de diálogo Novo Projeto, digite ou selecione os seguintes valores:
 
-    | NOME | Valor |
+    | NOME | Value |
     | --- | --- |
     | Grupo de modelos |Instalado/Modelos/Visual C#/Windows Store |
     | Modelo |Aplicativo em branco (XAML) |
@@ -82,7 +82,7 @@ Para obter mais informações sobre como desenvolver aplicativos da Windows Stor
 1. No Gerenciador de Soluções, clique com o botão direito do mouse em **SSPlayer** e, em seguida, clique em **Adicionar Referência**.
 1. Digite ou selecione os valores a seguir:
 
-    | NOME | Valor |
+    | NOME | Value |
     | --- | --- |
     | Grupo de referências |Windows/Extensions |
     | Referência |Selecione SDK do Microsoft Smooth Streaming Client para Windows 8 e Pacote do Tempo de Execução do Microsoft Visual C++ |

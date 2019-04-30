@@ -33,7 +33,7 @@ Essa integração usa um modelo de [preço](luis-boundaries.md#key-limits) difer
 ### <a name="quota-usage"></a>Uso da cota
 Consulte [limites de chave](luis-boundaries.md#key-limits) para obter informações. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Usar Conversão de fala em texto](luis-tutorial-speech-to-intent.md)
