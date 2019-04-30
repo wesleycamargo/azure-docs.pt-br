@@ -1,7 +1,6 @@
 ---
 title: Gravação do Apache Storm para Armazenamento/Data Lake Storage – HDInsight do Azure
 description: Saiba como usar o Apache Storm para gravar no armazenamento compatível com o HDFS para HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: 34056b3a562d3110569e05c5c50ae4d9dae2375a
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.openlocfilehash: 4ba0c861674eb2308cf1f96c33d0792f3e1a0f94
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868129"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62109456"
 ---
 # <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>Escreva para o Apache Hadoop HDFS do Apache Storm no HDInsight
 

@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 50bd9ecdd665cf72c146c63ae25efa6773934a3e
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: 840a010f8606387a250552d884621a96d0031f90
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295373"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62106220"
 ---
 # <a name="get-started-with-the-onedrive-connector"></a>Introdução ao conector do OneDrive
 Conecte-se ao OneDrive para gerenciar seus arquivos, incluindo carregar, obter, excluir arquivos e muito mais. 
@@ -62,7 +62,7 @@ Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho defi
 ## <a name="use-an-action"></a>Usar uma ação
 Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-1. Selecione o sinal de mais. Você tem várias opções: **adicionar uma ação**, **adicionar uma condição** ou uma das opções **Mais**.
+1. Selecione o sinal de mais. Você tem várias opções: **Adicionar uma ação**, **adicionar uma condição**, ou um dos **mais** opções.
    
     ![](./media/connectors-create-api-onedrive/add-action.png)
 2. Escolha **Adicionar uma ação**.

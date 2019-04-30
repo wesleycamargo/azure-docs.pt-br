@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
 ms.openlocfilehash: fbaa89140033ee3b07017370e31e69601aa298db
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078747"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121124"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Consulte de Serviços para o Azure Marketplace e AppSource
 Os Serviços de Consultoria no Azure Marketplace e AppSource fornecem a parceiros da Microsoft a meta de conectar clientes com os serviços de suporte e estender seu uso e objetivos de negócios. 

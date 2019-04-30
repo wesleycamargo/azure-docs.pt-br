@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: gangan
-ms.openlocfilehash: 0b45bd2a1a2599908d2077198dce0062071b79af
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: f6d9e683e1feff670c26b01a31ce977557295bff
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31512503"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129052"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Como criar uma solicitação de suporte do Azure
 ## <a name="summary"></a>Resumo
@@ -32,9 +32,9 @@ Os clientes do Azure podem criar e gerenciar solicitações de suporte no Portal
 
 Com base nos comentários dos clientes, atualizamos a experiência de solicitação de suporte com foco em três metas principais:
 
-* **Otimizada**: reduzir cliques e folhas para simplificar o processo de envio de uma solicitação de suporte.
-* **Integrada**: quando você estiver solucionando um problema com um recurso do Azure, deverá ser fácil abrir uma solicitação de suporte para esse recurso sem alternância de contexto.
-* **Eficiente**: reunir as principais informações que o engenheiro de suporte precisa para resolver eficazmente o problema.
+* **Simplificada**: Reduza cliques e folhas para simplificar o processo de envio de uma solicitação de suporte.
+* **Integrado**: Quando você estiver solucionando um problema com um recurso do Azure, ele deve ser fácil abrir uma solicitação de suporte para esse recurso sem alternância de contexto.
+* **Eficiente**: Colete as informações de chave que seu engenheiro de suporte precisa para resolver eficazmente o problema.
 
 ## <a name="getting-started"></a>Introdução
 Você pode criar uma solicitação de suporte no menu de navegação superior ou diretamente na folha de um recurso.
@@ -54,7 +54,7 @@ Na página Ajuda e Suporte, selecione “Nova solicitação de suporte”
 ## <a name="basics"></a>Noções básicas
 A primeira etapa do processo de solicitação de suporte coleta informações básicas sobre o problema e seu plano de suporte.
 
-Vamos ver um exemplo: Você está com dificuldades técnicas em sua máquina virtual e suspeita de um problema com a conectividade da rede.
+Vejamos um exemplo: Você está enfrentando problemas técnicos com sua máquina virtual e suspeita de um problema de conectividade de rede.
 A escolha do serviço ("Máquina Virtual executando o Windows") e o recurso (o nome da máquina virtual) na primeira etapa do assistente inicia o processo de obter ajuda para esse problema.
 
 ![Folha de Noções básicas](./media/how-to-create-azure-support-request/Basics.png)

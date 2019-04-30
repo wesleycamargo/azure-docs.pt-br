@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: ramamill
-ms.openlocfilehash: ba80c8ce57495eaa46e915cb0c472eb4aabcee57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a0b6c83f800c0a479ba7a16c91b497d1a11da9e
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318494"
+ms.locfileid: "62732478"
 ---
 # <a name="manage-process-servers"></a>Gerenciar servidores de processo
 
@@ -68,6 +68,19 @@ Por meio dessa opção, toda carga de trabalho protegida em um servidor de proce
 2. Monitore o progresso do trabalho em **Cofre de Serviços de Recuperação** > **Monitorando** >  **trabalhos de Recuperação do Site**.
 3. Leva 15 minutos para que as alterações reflitam a conclusão desta operação bem-sucedida ou [atualizar o servidor de configuração](vmware-azure-manage-configuration-server.md#refresh-configuration-server) para efeito imediato.
 
+## <a name="process-server-selection-guidance"></a>Diretrizes de seleção de servidor de processo
+
+O Azure Site Recovery identifica automaticamente se o servidor de processo está se aproximando seus limites de uso. Orientação é fornecida quando você configurar uma expansão servidor de processo.
+
+|Status de Integridade  |Explicação  | Disponibilidade de recursos  | Recomendações|
+|---------|---------|---------|---------|
+| Íntegro (verde)    |   Servidor de processo está conectado e está íntegro      |Utilização de CPU e memória está abaixo de 80%; Disponibilidade de espaço livre estiver acima de 30%| Este servidor de processo pode ser usado para proteger os servidores adicionais. Certifique-se de que a nova carga de trabalho está dentro de [definidos limites do servidor de processo](vmware-azure-set-up-process-server-scale.md#sizing-requirements).
+|Aviso (laranja)    |   Servidor de processo está conectado, mas determinados recursos estão prestes a atingir os limites máximos  |   Utilização de CPU e memória é entre 80% a 95%; Disponibilidade de espaço livre é entre 25% a 30%       | Uso do servidor de processo está próximo valores de limite. Adicionando novos servidores ao mesmo servidor de processo levará a cruzar os valores de limite e pode afetar os itens protegidos existentes. É aconselhável [configurar um servidor de processo de escalonamento horizontal](vmware-azure-set-up-process-server-scale.md#before-you-start) para replicações novo.
+|Aviso (laranja)   |   Servidor de processo está conectado, mas dados não foi carregados no Azure nos últimos 30 min  |   Utilização de recursos esteja dentro dos limites de limite       | Solucionar problemas [falhas de carregamento de dados](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) antes de adicionar novas cargas de trabalho **ou** [configurar um servidor de processo de escalonamento horizontal](vmware-azure-set-up-process-server-scale.md#before-you-start) para replicações novo.
+|Crítico (vermelho)    |     Servidor de processo pode estar desconectado  |  Utilização de recursos esteja dentro dos limites de limite      | Solucionar problemas [problemas de conectividade do servidor de processo](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) ou [configurar um servidor de processo de escalonamento horizontal](vmware-azure-set-up-process-server-scale.md#before-you-start) para replicações novo.
+|Crítico (vermelho)    |     Utilização de recursos ultrapassou o limite de limites |  Utilização de CPU e memória estiver acima de 95%; Disponibilidade de espaço livre é menor que 25%.   | Adicionando novas cargas de trabalho ao mesmo servidor de processo está desabilitada porque o limite de recursos, limites tenham sido atendidos. Portanto, [configurar um servidor de processo de escalonamento horizontal](vmware-azure-set-up-process-server-scale.md#before-you-start) para replicações novo.
+Crítico (vermelho)    |     Dados não foi carregados do Azure para o Azure nos últimos 45 min. |  Utilização de recursos esteja dentro dos limites de limite      | Solucionar problemas [falhas de carregamento de dados](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) antes de adicionar novas cargas de trabalho ao mesmo servidor de processo ou [configurar um servidor de processo de escalonamento horizontal](vmware-azure-set-up-process-server-scale.md#before-you-start)
+
 ## <a name="reregister-a-process-server"></a>Registrar um servidor em processo novamente
 
 Caso precise registrar novamente um servidor em processo executado localmente ou no Azure, com o servidor de configuração, faça o seguinte:
@@ -109,7 +122,6 @@ Se o servidor em processo usa um proxy para se conectar ao Site Recovery no Azur
    exit
    ```
 
-
 ## <a name="remove-a-process-server"></a>Remover um servidor em processo
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
@@ -126,4 +138,3 @@ Se o software antivírus estiver ativo em um servidor de processos independente 
 - C:\ProgramData\LogUploadServiceLogs
 - C:\ProgramData\Microsoft Azure Site Recovery
 - Diretório de instalação do servidor de processo, Exemplo: C:\Program Files (x86)\Microsoft Azure Site Recovery
-

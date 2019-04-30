@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 4/22/2019
+ms.date: 4/23/2019
 ms.author: victorh
-ms.openlocfilehash: 740b0ac505edfff1f703c2831ec5608e72851610
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: 7a412589f4e86f2a49d07f2d01ca34bf30fd528b
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149760"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62738766"
 ---
 # <a name="fqdn-tags-overview"></a>Visão geral de marcas FQDN
 
@@ -35,11 +35,11 @@ A tabela a seguir mostra as marcas FQDN atuais que você pode usar. A Microsoft 
 |MAPS (Microsoft Active Protection Service)|Permitir acesso de saída ao [MAPS](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/).|
 |ASE (Ambiente do Serviço de Aplicativo)|Permite acesso de saída para tráfego de plataforma do ASE. Essa marca não cobre pontos de extremidade de Armazenamento e SQL específicos ao cliente criados pelo ASE. Eles devem ser habilitados por meio dos [Pontos de Extremidade de Serviço](../virtual-network/tutorial-restrict-network-access-to-resources.md) ou adicionados manualmente.<br><br>Para obter mais informações sobre a integração do Firewall do Azure com o ASE, confira [Bloquear um Ambiente do Serviço de Aplicativo](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
 |Serviço de Backup do Azure|Permite acesso de saída para os serviços de Backup do Azure.|
-|Azure HDInsight<br>(Visualização)|Permite acesso de saída para o tráfego de plataforma HDInsight. Essa marca não cobre o tráfego de armazenamento ou SQL específica do cliente do HDInsight. Esses são habilitados por meio [pontos de extremidade de serviço](../virtual-network/tutorial-restrict-network-access-to-resources.md) ou adicionadas manualmente.|
+|Azure HDInsight<br>(Visualização)|Permite acesso de saída para o tráfego de plataforma HDInsight. Essa marca não cobre o tráfego de armazenamento ou SQL específica do cliente do HDInsight. Habilitar essas usando [pontos de extremidade de serviço](../virtual-network/tutorial-restrict-network-access-to-resources.md) ou adicioná-los manualmente.|
 
 > [!NOTE]
 > Ao selecionar a Marca de FQDN em uma regra de aplicativo, o campo protocolo:porta precisa ser definido como **HTTPS**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber como implantar um Firewall do Azure, consulte [Tutorial: Implantar e configurar o Firewall do Azure usando o portal do Azure](tutorial-firewall-deploy-portal.md).

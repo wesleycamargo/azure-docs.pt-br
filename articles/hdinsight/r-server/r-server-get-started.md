@@ -1,7 +1,6 @@
 ---
 title: Introdução aos Serviços de ML no HDInsight – Azure
 description: Saiba como criar um Apache Spark no cluster HDInsight que inclui ML Services e enviar um script R no cluster.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 474048bc9f31e4630110ea099f3e0b375ad74e51
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 465b53e1c5f56c5c05c860ebd69a825141f7e703
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087577"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124604"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Introdução ML Services no Azure HDInsight
 
@@ -39,7 +38,7 @@ O Azure HDInsight permite criar um cluster do ML Services. Essa opção permite 
     * **Assinatura**: Selecione a assinatura a ser usada.
     * **Nome de usuário de logon do cluster** e **Senha de logon do cluster**: O logon ao acessar o cluster por HTTPS. Você usa essas credenciais para acessar serviços, como a UI do Apache Ambari Web ou a API REST.
     * **Nome de usuário do SSH (Secure Shell)**: O logon usado ao acessar o cluster via SSH. Por padrão, a senha é a mesma do logon do cluster.
-    * **Grupo de Recursos**: O grupo de recursos no qual criar o cluster.
+    * **Grupo de recursos**: O grupo de recursos no qual criar o cluster.
     * **Localização**: A região do Azure na qual criar o cluster.
 
         ![Detalhes básicos do cluster](./media/r-server-get-started/clustername.png)

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1ba96c76c51abcfe5bb5ef9bd66eb8a50afdfda
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 58c8ca9bb9b4dfd58c801eb4dd1dad95c1969c18
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58846628"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127609"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Criar uma máquina virtual Windows usando um modelo do Resource Manager
 
@@ -31,7 +31,7 @@ Saiba como criar uma máquina virtual do Windows usando um modelo do Resource Ma
 
 A criação de uma máquina virtual do Azure geralmente inclui duas etapas:
 
-- Crie um grupos de recursos. Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Você deve criar um grupo de recursos antes de criar uma máquina virtual.
+- Crie um grupo de recursos. Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Você deve criar um grupo de recursos antes de criar uma máquina virtual.
 - Crie uma máquina virtual.
 
 O exemplo a seguir cria uma VM de um [modelo de início rápido do Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json). Veja uma cópia do modelo:

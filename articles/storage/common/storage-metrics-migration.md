@@ -2,18 +2,19 @@
 title: Migração de métricas de Armazenamento do Azure | Microsoft Docs
 description: Saiba como migrar métricas antigas para novas métricas gerenciadas pelo Azure Monitor.
 services: storage
-author: fhryo-msft
+author: WenJason
 ms.service: storage
 ms.topic: article
-ms.date: 03/30/2018
-ms.author: fryu
+origin.date: 03/30/2018
+ms.date: 02/25/2019
+ms.author: v-jay
 ms.subservice: common
 ms.openlocfilehash: f8a73bb6e86a187a504c2d36098001cfd90015f9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454916"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477273"
 ---
 # <a name="azure-storage-metrics-migration"></a>Migração de métricas de Armazenamento do Azure
 
@@ -112,7 +113,7 @@ Se você criou regras de alerta clássicas com base em métricas de armazenament
 
 ### <a name="is-new-metric-data-stored-in-the-same-storage-account-by-default"></a>Os novos dados de métrica são armazenados na mesma conta de armazenamento por padrão?
 
- Não. Para arquivar os dados de métrica em uma conta de armazenamento, use a [API de configuração de diagnóstico do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate).
+Não. Para arquivar os dados de métrica em uma conta de armazenamento, use a [API de configuração de diagnóstico do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate).
 
 ## <a name="next-steps"></a>Próximas etapas
 

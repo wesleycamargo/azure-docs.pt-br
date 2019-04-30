@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 588b8b11a02551a790145aafb013759699004267
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: bc85de0c8ec89ea88d2bae8e3f226da7d3163f53
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009958"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115305"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Monitorar e diagnosticar com latência de um segundo
 
@@ -50,10 +50,13 @@ Métricas em tempo real no momento, há suporte para aplicativos ASP.NET, ASP.NE
 
 4. [Proteja o canal de controle](#secure-the-control-channel) se você puder usar dados confidenciais, como nomes de clientes, em seus filtros.
 
+### <a name="nodejs"></a>Node.js
+
+Para usar o Live Metrics com Node. js, você deve atualizar para a versão 1.30 ou posterior do SDK. Por padrão o Live Metrics está desabilitado no SDK do Node. js. Para habilitar o Live Metrics, adicione `setSendLiveMetrics(true)` para seu [métodos de configuração](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) como inicializar o SDK.
+
 ### <a name="no-data-check-your-server-firewall"></a>Não há dados? Verificar o firewall de servidor
 
 Verifique se as [portas de saída para o Live Metrics Stream](../../azure-monitor/app/ip-addresses.md#outgoing-ports) estão abertas no firewall dos servidores. 
-
 
 ## <a name="how-does-live-metrics-stream-differ-from-metrics-explorer-and-analytics"></a>Como o Live Metrics Stream difere do Metrics Explorer e Analytics?
 
@@ -65,7 +68,6 @@ Verifique se as [portas de saída para o Live Metrics Stream](../../azure-monito
 |Grátis|Não há nenhum custo para dados do Live Stream|Sujeito a [preços](../../azure-monitor/app/pricing.md)
 |amostragem|Todas as métricas e os contadores selecionados são transmitidos. Há amostras de falhas e rastreamentos de pilha. TelemetryProcessors não são aplicados.|Os eventos podem ter [amostras](../../azure-monitor/app/api-filtering-sampling.md)|
 |Canal de controle|Os sinais de controle de filtro são enviados ao SDK. Recomendamos que você proteja este canal.|A comunicação é unidirecional para o portal|
-
 
 ## <a name="select-and-filter-your-metrics"></a>Selecionar e filtrar suas métricas
 
@@ -206,7 +208,7 @@ Não há dados? Se seu aplicativo estiver em uma rede protegida: O Live Metrics 
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Monitorando o uso com o Application Insights](../../azure-monitor/app/usage-overview.md)
 * [Usando a Pesquisa de diagnóstico](../../azure-monitor/app/diagnostic-search.md)
 * [Criador de perfil](../../azure-monitor/app/profiler.md)

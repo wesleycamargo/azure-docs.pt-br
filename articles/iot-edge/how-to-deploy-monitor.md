@@ -11,11 +11,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 69ba0a882c0e52e7c0d063b8f77e7a0fe22526a1
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428770"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126351"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implante e monitore módulos de IoT Edge em escala usando o portal do Azure
 
@@ -132,7 +132,7 @@ Examine as informações da implantação e, em seguida, selecione **Enviar**.
 
 ## <a name="deploy-modules-from-azure-marketplace"></a>Implantar módulos do Azure Marketplace
 
-O Azure Marketplace é um marketplace online de aplicativos e serviços em que você pode procurar em uma ampla variedade de aplicativos e soluções empresariais que são certificadas e otimizadas para execução no Azure, incluindo [módulos do IoT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). O Azure Marketplace também pode ser acessado pelo portal do Azure em **Criar um Recurso**.
+O Azure Marketplace é um marketplace online de aplicativos e serviços onde você pode procurar por uma ampla variedade de aplicativos e soluções corporativas que são certificadas e otimizadas para execução no Azure, incluindo [módulos do IoT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). O Azure Marketplace também pode ser acessado pelo portal do Azure em **Criar um Recurso**.
 
 Você pode instalar um módulo do IoT Edge por meio do Azure Marketplace ou do portal do Azure:
 
@@ -143,7 +143,7 @@ Você pode instalar um módulo do IoT Edge por meio do Azure Marketplace ou do p
    * Azure Marketplace:
 
      1. Encontre um módulo e selecione **Obter agora**.
-     1. Reconheça os termos de uso e a política de privacidade do provedor selecionando **Continuar**.
+     1. Confirme os termos de uso e a política de privacidade do provedor selecionando **Continuar**.
 
 1. Escolha sua assinatura e o Hub IoT ao qual o dispositivo de destino está anexado.
 

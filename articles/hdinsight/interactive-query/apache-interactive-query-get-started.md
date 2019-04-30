@@ -1,7 +1,6 @@
 ---
 title: Use a consulta interativa com o Azure HDInsight
 description: Saiba como usar a Consulta Interativa (Hive LLAP) com o HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: ae0264c918bb550affe8e694cdb3b9891edea531
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.openlocfilehash: c7cee3dfd3b091d75f4dadcaa62513fddf0c0e68
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875439"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126589"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Usar a Consulta Interativa com o HDInsight
 Consulta Interativa (também chamado Apache Hive LLAP ou [Processamento Analítico de Baixa Latência](https://cwiki.apache.org/confluence/display/Hive/LLAP)) é um [tipo de cluster do Azure HDInsight](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). A Consulta Interativa dá suporte ao cache na memória, o que torna as consultas do Apache Hive mais rápidas e muito mais interativas.

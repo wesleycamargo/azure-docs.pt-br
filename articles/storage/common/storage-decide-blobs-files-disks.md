@@ -9,11 +9,11 @@ ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 869d2105ccf635a46a21e9b7f382ddbef713d68b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327003"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61483410"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decidindo quando usar Blobs do Azure, Arquivos do Azure ou Discos do Azure
 O Microsoft Azure fornece vários recursos no Armazenamento do Azure para armazenar e acessar seus dados na nuvem. Este artigo aborda os Arquivos, Blobs e Discos do Azure e foi elaborado para ajudá-lo a escolher entre esses recursos.

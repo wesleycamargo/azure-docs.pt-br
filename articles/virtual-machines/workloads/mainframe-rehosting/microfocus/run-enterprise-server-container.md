@@ -9,11 +9,11 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 30d99c3f4767eb50361f7074c0d508fcf309faca
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58896237"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61488259"
 ---
 # <a name="run-micro-focus-enterprise-server-40-in-a-docker-container-on-azure"></a>Execute o Micro Focus Enterprise Server 4.0 em um contêiner do Docker no Azure
 
@@ -168,7 +168,7 @@ Neste ponto, a VM está em execução e conectado via RDP. Você está conectado
 
 É isso! Agora você está executando e gerenciando um aplicativo do CICS em um contêiner do Docker.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Instalar o Micro Focus Enterprise Server 4.0 e do Enterprise Developer 4.0 no Azure](./set-up-micro-focus-azure.md)
 - [Migração de aplicativos de mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)

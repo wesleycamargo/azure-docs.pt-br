@@ -1,68 +1,62 @@
 ---
-title: Use o Apache Sqoop com o Curl no HDInsight - Azure
+title: Use o Curl para exportar dados com o Apache Sqoop no HDInsight do Azure
 description: Aprenda a enviar tarefas do Apache Sqoop remotamente para o HDInsight usando o Curl.
-services: hdinsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
-ms.author: hrasheed
-ms.openlocfilehash: ad716e2ef5e597424c860378e7a63d5c2de53f54
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.date: 04/15/2019
+ms.openlocfilehash: 345f492c5b2c754cbbcfa150561ee06b5a4154a5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834550"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126946"
 ---
-# <a name="run-apache-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Execute tarefas do Apache Sqoop com o Hadoop no HDInsight com Curl
+# <a name="run-apache-sqoop-jobs-in-hdinsight-with-curl"></a>Executar trabalhos do Apache Sqoop no HDInsight com Curl
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Aprenda a usar o Curl para executar tarefas do Apache Sqoop em um cluster do Apache Hadoop no HDInsight.
+Aprenda a usar o Curl para executar tarefas do Apache Sqoop em um cluster do Apache Hadoop no HDInsight. Este artigo demonstra como exportar dados do armazenamento do Azure e importe-o para um banco de dados do SQL Server usando o Curl. Este artigo é uma continuação da [usar o Apache Sqoop com Hadoop no HDInsight](./hdinsight-use-sqoop.md).
 
 Curl é usado para demonstrar como você pode interagir com o HDInsight usando solicitações HTTP brutas para executar, monitorar e recuperar os resultados de trabalhos do Sqoop. Isso funciona usando a API REST do WebHCat (anteriormente conhecido como Templeton) fornecida pelo seu cluster HDInsight.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para concluir as etapas neste artigo, você precisará do seguinte:
 
+* Conclusão da [configurar o ambiente de teste](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) partir [usar o Apache Sqoop com Hadoop no HDInsight](./hdinsight-use-sqoop.md).
 
-* Concluída [usar o Apache Sqoop com Hadoop no HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database) para configurar um ambiente com um cluster HDInsight e um banco de dados SQL do Azure.
+* Um cliente para consultar o banco de dados SQL do Azure. Considere o uso de [SQL Server Management Studio](../../sql-database/sql-database-connect-query-ssms.md) ou [Visual Studio Code](../../sql-database/sql-database-connect-query-vscode.md).
+
 * [Curl](https://curl.haxx.se/). Curl é uma ferramenta para transferir dados de ou um cluster HDInsight ou para ele.
+
 * [jq](https://stedolan.github.io/jq/). O utilitário jq é usado para processar os dados JSON retornados de solicitações REST.
 
-
 ## <a name="submit-apache-sqoop-jobs-by-using-curl"></a>Enviar trabalhos do Apache Sqoop usando o cURL
+
+Use o Curl para exportar dados usando trabalhos do Apache Sqoop do armazenamento do Azure para o SQL Server.
+
 > [!NOTE]  
 > Ao usar o Curl ou qualquer outra comunicação do REST com WebHCat, você deve autenticar as solicitações, fornecendo o nome de usuário e a senha para o administrador do cluster HDInsight. Você também deve usar o nome do cluster como parte do URI (Uniform Resource Identifier) usado para enviar as solicitações ao servidor.
-> 
-> Para os comandos nesta seção, substitua **USERNAME** pelo usuário para autenticar o cluster e substitua **PASSWORD** pela senha da conta de usuário. Substitua **CLUSTERNAME** pelo nome do cluster.
-> 
-> A API REST é protegida por meio de [autenticação básica](https://en.wikipedia.org/wiki/Basic_access_authentication). Você deve sempre fazer solicitações usando HTTPS (HTTP seguro) para ajudar a garantir que suas credenciais sejam enviadas com segurança para o servidor.
-> 
-> 
+
+Para os comandos nesta seção, substitua `USERNAME` com o usuário para autenticar o cluster e substitua `PASSWORD` com a senha da conta de usuário. Substitua `CLUSTERNAME` pelo nome do cluster.
+ 
+A API REST é protegida por meio de [autenticação básica](https://en.wikipedia.org/wiki/Basic_access_authentication). Você deve sempre fazer solicitações usando HTTPS (HTTP seguro) para ajudar a garantir que suas credenciais sejam enviadas com segurança para o servidor.
 
 1. De uma linha de comando, use o seguinte comando para verificar se você pode se conectar ao cluster HDInsight:
 
-    ```bash   
+    ```cmd
     curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
     ```
 
     Você deve receber uma resposta com esta aparência:
 
-    ```json   
+    ```json
     {"status":"ok","version":"v1"}
     ```
-   
-    Os parâmetros usados nesse comando são os seguintes:
-   
-   * **-u** - o nome de usuário e a senha usada para autenticar a solicitação.
-   * **-G** - indica que se trata de uma solicitação GET.
-     
-     O início da URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, é o mesmo para todas as solicitações. O caminho, **/status**, indica que a solicitação é para retornar o status de WebHCat (também conhecido como Templeton) ao servidor. 
-2. Use o seguinte para enviar um trabalho do sqoop:
 
-    ```bash
+2. Substitua `SQLDATABASESERVERNAME`, `USERNAME@SQLDATABASESERVERNAME`, `PASSWORD`, `SQLDATABASENAME` com os valores apropriados dos pré-requisitos. Use o seguinte para enviar um trabalho do sqoop:
+
+    ```cmd
     curl -u USERNAME:PASSWORD -d user.name=USERNAME -d command="export --connect jdbc:sqlserver://SQLDATABASESERVERNAME.database.windows.net;user=USERNAME@SQLDATABASESERVERNAME;password=PASSWORD;database=SQLDATABASENAME --table log4jlogs --export-dir /example/data/sample.log --input-fields-terminated-by \0x20 -m 1" -d statusdir="wasb:///example/data/sqoop/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/sqoop
     ```
 
@@ -82,9 +76,9 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
        {"id":"job_1415651640909_0026"}
        ```
 
-3. Para verificar o status do trabalho, use o comando a seguir. Substitua **JOBID** pelo valor retornado na etapa anterior. Por exemplo, se o valor retornado for **, `{"id":"job_1415651640909_0026"}`JOBID** será `job_1415651640909_0026`.
+3. Para verificar o status do trabalho, use o comando a seguir. Substitua `JOBID` pelo valor retornado na etapa anterior. Por exemplo, se o valor de retorno foi `{"id":"job_1415651640909_0026"}`, em seguida, `JOBID` seria `job_1415651640909_0026`.
 
-    ```bash
+    ```cmd
     curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
     ```
 
@@ -93,9 +87,16 @@ Para concluir as etapas neste artigo, você precisará do seguinte:
    > [!NOTE]  
    > Essa solicitação de Curl retorna um documento JSON (JavaScript Object Notation) com informações sobre o trabalho; jq é usado para recuperar o valor de estado.
 
-4. Depois que o estado do trabalho for alterado para **SUCCEEDED**, você poderá recuperar os resultados do trabalho no Armazenamento de Blobs do Azure. O parâmetro `statusdir` passado com a consulta contém o local do arquivo de saída; nesse caso, **wasb:///example/data/sqoop/curl**. Esse endereço armazena a saída do trabalho no diretório **example/data/sqoop/curl** no contêiner de armazenamento padrão usado pelo cluster HDInsight.
-   
-    É possível usar o Portal do Azure para acessar os blobs stderr e stdout.  Também é possível usar o Microsoft SQL Server Management Studio para verificar os dados carregados para a tabela log4jlogs.
+4. Depois que o estado do trabalho for alterado para **SUCCEEDED**, você poderá recuperar os resultados do trabalho no Armazenamento de Blobs do Azure. O parâmetro `statusdir` transmitido com a consulta contém a localização do arquivo de saída; nesse caso, `wasb:///example/data/sqoop/curl`. Esse endereço armazena a saída do trabalho no `example/data/sqoop/curl` diretório no contêiner de armazenamento padrão usado pelo seu cluster HDInsight.
+
+    É possível usar o Portal do Azure para acessar os blobs stderr e stdout.
+
+5. Para verificar se os dados foram exportados, use as seguintes consultas de seu cliente SQL para exibir os dados exportados:
+
+    ```sql
+    SELECT COUNT(*) FROM [dbo].[log4jlogs] WITH (NOLOCK);
+    SELECT TOP(25) * FROM [dbo].[log4jlogs] WITH (NOLOCK);
+    ```
 
 ## <a name="limitations"></a>Limitações
 * Exportação em massa — com HDInsight baseado em Linux, o conector Sqoop usado para exportar dados no Microsoft SQL Server ou no Banco de Dados SQL do Azure, atualmente, não permite inserções em massa.
@@ -107,15 +108,7 @@ Conforme demonstrado neste documento, você pode usar uma solicitação HTTP bru
 Para obter mais informações sobre a interface REST usada neste artigo, confira o <a href="https://sqoop.apache.org/docs/1.99.3/RESTAPI.html" target="_blank">Guia da API REST do Apache Sqoop</a>.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter informações gerais sobre o Hive com HDInsight:
-
-* [Usar o Apache Sqoop com o Apache Hadoop no HDInsight](hdinsight-use-sqoop.md)
-
-Para obter informações sobre outras maneiras que você pode trabalhar com Hadoop no HDInsight:
-
-* [Use o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md)
-* [Use o Apache Pig com o Apache Hadoop no HDInsight](hdinsight-use-pig.md)
-* [Usar o MapReduce com o Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md)
+[Usar o Apache Sqoop com o Apache Hadoop no HDInsight](hdinsight-use-sqoop.md)
 
 Para outros artigos do HDInsight que envolvem curl:
  
@@ -123,6 +116,3 @@ Para outros artigos do HDInsight que envolvem curl:
 * [Executar consultas do Apache Hive com o Apache Hadoop no HDInsight usando a REST](apache-hadoop-use-hive-curl.md)
 * [Executar trabalhos do MapReduce com o Apache Hadoop no HDInsight usando a REST](apache-hadoop-use-mapreduce-curl.md)
 * [Executar trabalhos do Apache Pig com o Apache Hadoop no HDInsight usando o cURL](apache-hadoop-use-pig-curl.md)
-
-
-

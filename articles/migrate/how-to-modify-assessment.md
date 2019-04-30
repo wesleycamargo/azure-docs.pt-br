@@ -7,11 +7,11 @@ ms.topic: article
 ms.date: 01/10/2019
 ms.author: raynew
 ms.openlocfilehash: 8419d7e7a91e4cbfd0eebfe00d35bf498cf5998c
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200302"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129816"
 ---
 # <a name="customize-an-assessment"></a>Personalizar uma avaliação
 
@@ -47,17 +47,17 @@ As [Migrações para Azure](migrate-overview.md) criam avaliações com configur
 
 Quando você especifica o critério de dimensionamento para ser dimensionamento local, o recurso Migrações para Azure não considera os dados de desempenho das VMs e tamanhos de VMs com base na configuração local. Se o critério de dimensionamento for baseado em desempenho, o dimensionamento será feito com base nos dados de utilização. Por exemplo, se houver uma VM local com 4 núcleos e 8 GB de memória com 50% de utilização de CPU e 50% de utilização da memória. Se o critério de dimensionamento for dimensionamento local, um SKU de VM do Azure com 4 núcleos e 8 GB de memória será recomendado, no entanto, se o critério de dimensionamento for baseado em desempenho como, um SKU de VM de dois núcleos e 4 GB será recomendado, pois o percentual de utilização será considerado ao recomendar o tamanho.
 
-Da mesma forma, para discos, o dimensionamento de disco depende de duas propriedades de avaliação – tipo de armazenamento e critério de dimensionamento. Se o critério de dimensionamento for baseado em desempenho e o tipo de armazenamento for automático, os valores de IOPS e a taxa de transferência do disco serão considerados para identificar o tipo de disco de destino (Standard ou Premium). Se o critério de dimensionamento for baseado em desempenho e o tipo de armazenamento for premium, um disco premium será recomendado, o SKU de disco premium no Azure será selecionado com base no tamanho do disco local. A mesma lógica é usada para dimensionamento do disco quando o critério de dimensionamento é dimensionamento local e o tipo de armazenamento é standard ou premium.
+Da mesma forma, para discos, o dimensionamento de disco depende de duas propriedades de avaliação – tipo de armazenamento e critério de dimensionamento. Se o critério de dimensionamento for baseado em desempenho e o tipo de armazenamento for automático, os valores de IOPS e a taxa de transferência do disco serão considerados para identificar o tipo de disco de destino (Standard ou Premium). Se o critério de dimensionamento for baseado em desempenho e o tipo de armazenamento for premium, um disco premium será recomendado, e a SKU de disco premium no Azure será selecionada com base no tamanho do disco local. A mesma lógica é usada para dimensionamento do disco quando o critério de dimensionamento é dimensionamento local e o tipo de armazenamento é standard ou premium.
 
 ### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>Que impacto que a utilização do percentil e o histórico de desempenho têm sobre as recomendações de tamanho?
 
-Essas propriedades só são aplicáveis ao dimensionamento com base no desempenho. O recurso de Migrações para Azure coleta o histórico de desempenho dos computadores locais e o utiliza para recomendar o tipo de disco e tamanho VM no Azure.
+Essas propriedades só são aplicáveis ao dimensionamento com base no desempenho. O recurso Migrações para Azure coleta o histórico de desempenho dos computadores locais e o utiliza para recomendar o tipo de disco e tamanho da VM no Azure.
 
-- O dispositivo Coletor cria perfis continuamente do ambiente local para coletar dados de utilização em tempo real a cada 20 segundos.
+- O dispositivo coletor cria perfis do ambiente local continuamente para coletar dados de utilização em tempo real a cada 20 segundos.
 - O dispositivo acumula as amostras de 20 segundos e cria um único ponto de dados a cada 15 minutos. Para criar o ponto de dados único, o dispositivo seleciona o valor de pico de todas as amostras de 20 segundos e envia-o para o Azure.
-- Quando você cria uma avaliação no Azure, com base na duração de desempenho e no valor de percentil de histórico de desempenho, o recurso Migrações para Azure calcula o valor de utilização eficiente e o utiliza para dimensionamento.
+- Quando você cria uma avaliação no Azure, com base na duração de desempenho e no valor de percentil do histórico de desempenho, as Migrações para Azure calculam o valor de utilização eficiente e o utilizam para dimensionamento.
 
-Por exemplo, se você tiver definido a duração de desempenho como 1 dia e o valor de percentil como o percentil 95, o recurso Migrações para Azure usará os pontos de amostra de 15 minutos enviados pelo coletor para o último dia, os classificará em ordem crescente e escolherá o valor do 95º percentil como a utilização efetiva. O valor do 95º percentil garante que você ignore quaisquer desvios que possam ocorrer se você escolher o 99º percentil. Se você quiser escolher o pico de uso para o período e não quiser perder nenhuma exceções, deverá selecionar o 99º percentil.
+Por exemplo, se você tiver definido a duração de desempenho como um dia e o valor de percentil como o percentil 95, as Migrações para Azure usarão os pontos de amostra de 15 minutos enviados pelo coletor para o último dia, os classificarão em ordem crescente e escolherão o valor do 95º percentil como a utilização efetiva. O valor do 95º percentil faz com que você ignore eventuais desvios que possam aparecer se você escolher o 99º percentil. Se você quiser escolher o pico de uso para o período e não quiser perder nenhuma exceções, deverá selecionar o 99º percentil.
 
 ## <a name="next-steps"></a>Próximas etapas
 

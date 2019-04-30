@@ -2,24 +2,18 @@
 title: Introdução ao Gerenciador de Armazenamento | Microsoft Docs
 description: Gerenciar recursos do armazenamento do Azure com o Gerenciador de Armazenamento
 services: storage
-documentationcenter: na
 author: cawaMS
-manager: paulyuk
-editor: ''
-ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/17/2017
+ms.date: 04/22/2019
 ms.author: cawa
-ms.openlocfilehash: 38a857b1d309b92c48137a46655155e0e131908c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3db1d638aa1e0d8488c310593a593465c2b9b336
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60459100"
+ms.locfileid: "62128272"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introdução ao Gerenciador de Armazenamento
 
@@ -115,7 +109,9 @@ Além disso, você pode trabalhar com contas nacionais e internacionais de armaz
 
 O Gerenciador de Armazenamento permite que você trabalhe no armazenamento local usando um emulador. Essa abordagem permite que você simule o trabalho com o Armazenamento do Azure sem, necessariamente, ter uma conta de armazenamento implantada no Azure.
 
-Começando com a versão 1.1.0, emulador de armazenamento local é compatível com todas as plataformas. O Gerenciador de armazenamento pode se conectar a qualquer serviço emulado ouvindo seus pontos de extremidade de armazenamento local padrão.
+Começando com a versão 1.1.0, o Gerenciador de armazenamento dá suporte ao uso um emulador de armazenamento local em todas as plataformas. O Gerenciador de armazenamento pode se conectar a qualquer serviço emulado ouvindo seus pontos de extremidade de armazenamento local padrão.
+
+O [emulador de armazenamento do Azure](storage/common/storage-use-emulator.md) atualmente é executado somente no Windows. Para aqueles que consideram um emulador de armazenamento para Linux, uma opção é a comunidade mantida, o emulador de armazenamento de código aberto [Azurite](https://github.com/azure/azurite).
 
 > [!NOTE]
 > Suporte para recursos e serviços de armazenamento pode variar amplamente, dependendo de sua escolha de emulador. Verifique se o emulador suporta os serviços e recursos que você pretende trabalhar com.

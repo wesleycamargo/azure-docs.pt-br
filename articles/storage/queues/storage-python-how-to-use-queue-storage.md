@@ -10,18 +10,18 @@ ms.date: 12/14/2018
 ms.author: tamram
 ms.subservice: queues
 ms.openlocfilehash: afa0b6d4f87c4325f116463242c15df9d9b6e7c4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58006432"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108768"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Como usar o Armazenamento de fila do Python
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Este guia mostra como executar cenários comuns usando o serviço de armazenamento de Fila do Azure. Os exemplos são escritos em Python e usam o [SDK do Armazenamento do Microsoft Azure para Python]. Os cenários abrangidos incluem **inserir**, **exibir**, **obter** e **excluir** mensagens da fila, bem como **criar e excluir filas**. Para obter mais informações sobre filas, consulte a seção [Próximas etapas].
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
@@ -127,7 +127,7 @@ Para excluir uma fila e todas as mensagens contidas nela, chame o método **dele
 queue_service.delete_queue('taskqueue')
 ```
 
-## <a name="next-steps"></a>Próximas Etapas
+## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu os conceitos básicos do Armazenamento de Filas, siga estes links para saber mais.
 
 * [Centro de desenvolvedores do Python](https://azure.microsoft.com/develop/python/)

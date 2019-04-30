@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: spelluru
-ms.openlocfilehash: c26418d36271b4d2d39a43eda7e8b23585d69f4a
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: 91c598bde0912cffb8aa1dd7ba022c86a9084faa
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149420"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127388"
 ---
 # <a name="azure-devtest-labs-faq"></a>Perguntas frequentes sobre o Azure DevTest Labs
 Obtenha respostas para algumas das perguntas mais comuns sobre o Azure DevTest Labs.
@@ -350,7 +350,7 @@ Para outras cadeias de ferramentas de CI (integração contínua)/CD (entrega co
 ### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>Quando devo criar uma nova rede virtual para meu ambiente de Laboratórios de Desenvolvimento/Teste versus o uso de uma rede virtual existente?
 Se suas VMs precisam interagir com a infraestrutura existente, considere usar uma rede virtual existente dentro de seu ambiente do DevTest Labs. Se você usar o ExpressRoute, você talvez queira minimizar a quantidade de VNets / sub-redes, de modo que você não fragmentar seu espaço de endereço IP que é atribuído para uso nas assinaturas. 
 
-Considere usar o padrão de emparelhamento de VNet aqui ([modelo Hub-Spoke](/architecture/reference-architectures/hybrid-networking/hub-spoke)) muito. Essa abordagem permite a comunicação de rede virtual/sub-rede entre assinaturas. Caso contrário, cada ambiente de Laboratórios de Desenvolvimento/Teste pode ter sua própria rede virtual. 
+Considere usar o padrão de emparelhamento de VNet aqui ([modelo Hub-Spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)) muito. Essa abordagem permite a comunicação de rede virtual/sub-rede entre assinaturas. Caso contrário, cada ambiente de Laboratórios de Desenvolvimento/Teste pode ter sua própria rede virtual. 
 
 Há [limites](../azure-subscription-service-limits.md) no número de redes virtuais por assinatura. O valor padrão é 50, embora esse limite possa ser aumentado para 100.
 

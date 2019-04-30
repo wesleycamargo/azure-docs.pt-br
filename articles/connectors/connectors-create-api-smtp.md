@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 78b1eb6272fa97ef392e97723454d29cf56bb4bf
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230498"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62106143"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Enviar um email de sua conta SMTP com Aplicativos Lógicos do Azure
 
@@ -55,10 +55,10 @@ Com os Aplicativos Lógicos do Azure e o conector de protocolo SMTP (SMTP), voc�
 
    | Propriedade | Obrigatório | DESCRIÇÃO |
    |----------|----------|-------------|
-   | **Nome da Conexão** | SIM | Um nome para a conexão com seu servidor SMTP | 
-   | **Endereço do Servidor SMTP** | SIM | O endereço do seu servidor SMTP | 
-   | **Nome de usuário** | SIM | O nome de usuário da sua conta SMTP | 
-   | **Senha** | SIM | A senha da sua conta SMTP | 
+   | **Nome da Conexão** | Sim | Um nome para a conexão com seu servidor SMTP | 
+   | **Endereço do Servidor SMTP** | Sim | O endereço do seu servidor SMTP | 
+   | **Nome de usuário** | Sim | O nome de usuário da sua conta SMTP | 
+   | **Senha** | Sim | A senha da sua conta SMTP | 
    | **Porta do Servidor SMTP** | Não  | Uma porta específica no servidor SMTP que você deseja usar | 
    | **Habilitar SSL?** | Não  | Ligar ou desligar a criptografia SSL. | 
    |||| 
@@ -71,7 +71,7 @@ Com os Aplicativos Lógicos do Azure e o conector de protocolo SMTP (SMTP), voc�
 
 Para obter detalhes técnicos sobre gatilhos, ações e limites, que são explicados na descrição da OpenAPI do conector (anteriormente conhecido como Swagger), veja a [página de referência](/connectors/smtpconnector/) do conector.
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).

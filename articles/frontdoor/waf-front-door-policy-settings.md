@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2019
 ms.author: tyao;kumud
 ms.openlocfilehash: 4c2f070e9b3c972f063008df8880b196ddb069cc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797456"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61459361"
 ---
 # <a name="policy-settings-for-web-application-firewall-with-azure-front-door"></a>Configurações de diretiva de firewall do aplicativo web da frente com o Azure
 
@@ -54,5 +54,5 @@ Mensagem de resposta e o código de status de resposta personalizada é uma conf
 Será necessário definir um URI para redirecionar as solicitações como se o **REDIRECIONAR** ação é selecionada para qualquer uma das regras contidas em uma política de WAF. Esse redirecionamento URI deve ser um site válido do HTTP (S) e uma vez configurado, todas as solicitações de regras de correspondência com uma ação de "REDIRECIONAMENTO" serão redirecionadas para o site especificado.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Saiba como definir o WAF [respostas personalizadas](waf-front-door-configure-custom-response-code.md)

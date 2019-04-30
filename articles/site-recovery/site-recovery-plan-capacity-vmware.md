@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: c198e6cd9d5c5e0aca69491db9df5d0ab8e08c7a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 7b10db06ab4ade1b23985b1a259d82d4818941b1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358018"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124959"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planejar a capacidade e o dimensionamento da recuperação de desastre do VMware para o Azure
 
@@ -120,7 +120,7 @@ Antes de configurar a infraestrutura do Site Recovery, acesse o ambiente para me
 
 ## <a name="deploy-additional-process-servers"></a>Implantar servidores de processo adicionais
 
-Se você aumentar sua implantação além de 200 computadores de origem ou tiver uma taxa diária de rotatividade total acima de 2 TB, deverá adicionar servidores de processo para tratar do volume de tráfego. Para saber como configurar o servidor de processo, veja [Escalar para failback usando servidores de processo adicionais](vmware-azure-set-up-process-server-scale.md). Depois de configurar o servidor de processo, você pode migrar os computadores de origem para usá-lo.
+Se você aumentar sua implantação além de 200 computadores de origem ou tiver uma taxa diária de rotatividade total acima de 2 TB, deverá adicionar servidores de processo para tratar do volume de tráfego. Aprimoramos o produto na versão 9.24 para fornecer [orientação no produto](vmware-azure-manage-process-server.md#process-server-selection-guidance) sobre quando configurar um servidor de processo de escalonamento horizontal. [Configurar o servidor de processo](vmware-azure-set-up-process-server-scale.md) para proteger novas máquinas de origem ou [balancear a carga](vmware-azure-manage-process-server.md#balance-the-load-on-process-server).
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>Migrar computadores para usar o novo servidor de processo
 

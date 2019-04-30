@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
 ms.openlocfilehash: 52623183139be2b8ac6b12d3adca64e72de932d3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050299"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125095"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Criar um cluster do Service Fabric usando o Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -289,7 +289,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
     --template-file $templateFilePath --parameter-file $parametersFilePath 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste ponto, você tem um cluster seguro em execução no Azure. Em seguida, [conecte-se ao cluster](service-fabric-connect-to-secure-cluster.md) e saiba como [gerenciar segredos do aplicativo](service-fabric-application-secret-management.md).
 
 Para obter a sintaxe JSON e as propriedades a serem usadas em um modelo, confira a referência de modelo [Microsoft.ServiceFabric/clusters](/azure/templates/microsoft.servicefabric/clusters).

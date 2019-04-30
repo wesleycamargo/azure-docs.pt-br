@@ -17,18 +17,18 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: manayar
 ms.openlocfilehash: 3d472aeaae7e7f02eba58aadea1df042d6c0f27b
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741412"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108044"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Como criar um Conjunto de Dimensionamento de Máquinas Virtuais com o Visual Studio
 Este artigo mostra como implantar um Conjunto de Escala de Máquina Virtual do Azure usando uma Implantação de Grupo de Recursos do Visual Studio.
 
 Os [Conjuntos de Dimensionamento de Máquinas Virtuais do Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) são um recurso de Computação do Azure para implantar e gerenciar uma coleção de máquinas virtuais semelhantes com escala automática e balanceamento de carga. É possível provisionar e implantar os Conjuntos de Dimensionamento de Máquinas Virtuais usando os [Modelos do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates). Os Modelos do Azure Resource Manager podem ser implantados usando a CLI do Azure, o PowerShell, a REST e também diretamente por meio do Visual Studio. O Visual Studio fornece um conjunto de modelos de exemplo, que podem ser implantados como parte de um projeto de Implantação de Grupo de Recursos do Azure.
 
-As implantações de Grupo de Recursos do Azure são uma maneira de agrupar e publicar um conjunto de recursos relacionados do Azure em uma única operação de implantação. Saiba mais sobre eles aqui: [Criando e implantando grupos de recursos do Azure por meio do Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+As implantações de Grupo de Recursos do Azure são uma maneira de agrupar e publicar um conjunto de recursos relacionados do Azure em uma única operação de implantação. Você pode aprender mais sobre eles aqui: [Criar e implantar grupos de recursos do Azure por meio do Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ## <a name="pre-requisites"></a>Pré-requisitos
 Para começar a implantar Conjuntos de Dimensionamento de Máquinas Virtuais no Visual Studio, você precisa do seguinte:

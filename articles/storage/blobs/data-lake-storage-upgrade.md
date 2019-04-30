@@ -8,12 +8,12 @@ ms.author: normesta
 ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 1a9d26736a444efb83f9040b51676202b1ea4450
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 84e3aff9c1c8cb3e7fe399c861c2c7d58c278fed
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006107"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62107866"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Atualize suas soluções de análise de Big Data do Azure Data Lake Storage Gen1 para o Azure Data Lake Storage Gen2
 
@@ -249,7 +249,7 @@ A principal tarefa é converter o URI que têm um prefixo de `adl://` no URI que
 
 O esquema de URI para o Data Lake Storage Gen1 é mencionado [aqui](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-store) em detalhes, mas falando genericamente, ele é *adl://meudatalakestore.azuredatalakestore.net/\<caminho_do_arquivo\>.*
 
-O esquema URI para acessar arquivos do Data Lake armazenamento Gen2 é explicado [aqui](https://docs.microsoft.com/azure/storage/data-lake-storage/use-hdi-cluster) em detalhes, mas falando genericamente, ele é `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>`.
+O esquema URI para acessar arquivos do Data Lake armazenamento Gen2 é explicado [aqui](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) em detalhes, mas falando genericamente, ele é `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>`.
 
 Você precisará passar por seus aplicativos existentes e verificar se alterou os URIs adequadamente para apontarem para aqueles do Data Lake Storage Gen2. Além disso, você precisará adicionar as credenciais apropriadas. Por fim, o modo como você desativa os aplicativos originais e os substitui pelo novo aplicativo deverá ser estreitamente alinhado à sua estratégia geral de atualização.
 

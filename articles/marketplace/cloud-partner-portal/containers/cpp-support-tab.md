@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 90a103bcdfdcd5d61433c05d4cadfa746c67e192
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980092"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61472729"
 ---
 # <a name="container-support-tab"></a>Guia de suporte de contêiner
 
-Use a guia **Suporte** da página **Nova oferta** para fornecer recursos técnicos e de suporte ao usuário para sua oferta.  As seguintes áreas de entrada são fornecidas no formulário de Suporte: **Contato de Engenharia**, **Suporte ao Cliente** e **URLs de Suporte**. Um asterisco (*) anexado ao nome do campo indica que é obrigatório.
+Use a guia **Suporte** da página **Nova oferta** para fornecer recursos técnicos e de suporte ao usuário para sua oferta.  As seguintes áreas de entrada são fornecidas no formulário de suporte: **Contato de engenharia**, **atendimento**, e **dão suporte a Urls**. Um asterisco (*) anexado ao nome do campo indica que é obrigatório.
 
 ## <a name="support-form-fields"></a>Campos de formulário de suporte
 

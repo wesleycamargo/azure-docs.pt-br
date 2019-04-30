@@ -11,11 +11,11 @@ ms.date: 04/19/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.openlocfilehash: fac33a01afc2efc1ab06c4783c11f7a089bb6208
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013389"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62114147"
 ---
 # <a name="troubleshooting-source-anchor-issues-during-installation"></a>Solução de problemas de âncora de origem durante a instalação
 Este artigo explica os diferentes problemas que podem ocorrer durante a instalação e oferece maneiras de resolver esses problemas relacionados a âncora de origem.
@@ -45,5 +45,5 @@ Durante a instalação, é possível do Azure AD Connect tenta configurar o meca
 ![unexpected](media/tshoot-connect-source-anchor/source4.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).

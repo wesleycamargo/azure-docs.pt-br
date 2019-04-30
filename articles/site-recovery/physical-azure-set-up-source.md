@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/14/2019
 ms.author: ramamill
 ms.openlocfilehash: 5f0578026e95378065fc68198434e347a87eb1fe
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149012"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123896"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configurar o servidor de configuração para recuperação de desastre de servidores físicos no Azure
 
@@ -71,6 +71,6 @@ A tabela a seguir lista os requisitos mínimos de hardware, software e rede para
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 A próxima etapa envolve a [configuração do ambiente de destino](physical-azure-set-up-target.md) no Azure.

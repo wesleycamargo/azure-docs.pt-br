@@ -9,11 +9,11 @@ ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
 ms.openlocfilehash: b8451a1195ab64d3cd7afda074d786a3209ce785
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793961"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477275"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Lista de verificação de desempenho e escalabilidade do armazenamento do Microsoft Azure
 ## <a name="overview"></a>Visão geral
@@ -29,7 +29,7 @@ Este artigo organiza as práticas comprovadas nos grupos a seguir. As práticas 
 * Tabelas
 * Filas  
 
-| Concluído | Área | Categoria | Pergunta |
+| Concluído | Área | Category | Pergunta |
 | --- | --- | --- | --- |
 | &nbsp; | Todos os serviços |Metas de escalabilidade |[Seu aplicativo foi criado para evitar a abordagem de metas de escalabilidade?](#subheading1) |
 | &nbsp; | Todos os serviços |Metas de escalabilidade |[A convenção de nomenclatura foi projetada para permitir melhor balanceamento de carga?](#subheading47) |

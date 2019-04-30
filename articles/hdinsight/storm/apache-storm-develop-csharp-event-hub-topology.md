@@ -1,7 +1,6 @@
 ---
 title: Processar eventos de Hubs de Eventos com o Storm – Azure HDInsight
 description: Saiba como processar dados de Hubs de Eventos do Azure com uma topologia Storm C# criada no Visual Studio usando as ferramentas do HDInsight para Visual Studio.
-services: hdinsight,notification hubs
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 85d95354d24a3f107fc518b367ab1187da43269d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: b02945197b20c7fe704d0f8cfa9201a5b9cbc292
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633752"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125197"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Processar eventos dos Hubs de Eventos do Azure com o Apache Storm no HDInsight (C#)
 
@@ -153,7 +152,7 @@ Hubs de Eventos é a fonte de dados para este exemplo. Use as informações na s
 
 3. No projeto **EventHubWriter**, abra o arquivo **App.config**. Use as informações do hub de eventos que você configurou antes para preencher o valor das seguintes chaves:
 
-   | Chave | Valor |
+   | Chave | Value |
    | --- | --- |
    | EventHubPolicyName |gravador (se você usou um nome diferente para a política com a permissão *Enviar*, use-o.) |
    | EventHubPolicyKey |A chave para a política de gravador. |
@@ -169,7 +168,7 @@ Hubs de Eventos é a fonte de dados para este exemplo. Use as informações na s
 
 2. Abra o arquivo **App.config** para o **EventHubReader**. Use as informações do hub de eventos que você configurou antes para preencher o valor das seguintes chaves:
 
-   | Chave | Valor |
+   | Chave | Value |
    | --- | --- |
    | EventHubPolicyName |leitor (se você usou um nome diferente para a política com a permissão *Escutar*, use-o.) |
    | EventHubPolicyKey |A chave para a política de leitor. |

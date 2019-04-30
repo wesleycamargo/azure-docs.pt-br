@@ -6,14 +6,14 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 03/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 5e4bd3647b557b260e65e3fb1ce297892f5d7d78
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.openlocfilehash: 08eff24dc42f594424d109b82933b01b5c1be454
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578817"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733893"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Fazer backup de bancos de dados do SQL Server nas VMs do Azure
 
@@ -40,12 +40,12 @@ Antes de fazer backup de seu banco de dados do SQL Server, verifique as condiç�
 
 ### <a name="establish-network-connectivity"></a>Estabelecer conectividade de rede
 
-Para todas as operações, a máquina virtual (VM) do SQL Server precisa ter conectividade com os endereços IP públicos do Azure. Operações de VM (descoberta de banco de dados, configurar backups, agendar backups, restaurar os pontos de recuperação e assim por diante) falhar sem conectividade com os endereços IP públicos. Estabeleça a conectividade com uma destas opções:
+Para todas as operações, a máquina virtual (VM) do SQL Server precisa ter conectividade com os endereços IP públicos do Azure. Operações de VM (descoberta de banco de dados, configurar backups, agendar backups, restaurar pontos de recuperação e assim por diante) falharem sem conectividade com os endereços IP públicos. Estabeleça a conectividade com uma destas opções:
 
 - **Permitir os intervalos de IP do datacenter do Azure**: Permita os [intervalos de IP](https://www.microsoft.com/download/details.aspx?id=41653) no download. Para acessar o grupo de segurança de rede (NSG), use o **Set-AzureNetworkSecurityRule** cmdlet.
 - **Implantar um servidor proxy HTTP para rotear o tráfego**: Quando você faz backup de um banco de dados do SQL Server em uma VM do Azure, a extensão de backup na VM usa as APIs HTTPS para enviar comandos de gerenciamento para o Backup do Azure e dados para o Armazenamento do Azure. A extensão de backup também usa o Azure AD (Azure Active Directory) para autenticação. Roteie o tráfego de extensão de backup para esses três serviços por meio do proxy HTTP. A extensão é o único componente que está configurado para acesso à internet pública.
 
-Cada opção traz vantagens e desvantagens
+Cada opção tem vantagens e desvantagens
 
 **Opção** | **Vantagens** | **Desvantagens**
 --- | --- | ---
@@ -60,11 +60,11 @@ O Backup do Azure realiza uma série de ações quando você configura o backup 
 - Para descobrir bancos de dados na máquina virtual, o Backup do Azure cria uma conta **NT SERVICE\AzureWLBackupPluginSvc**. Essa conta é usada para backup e restauração e exige permissões de sysadmin do SQL.
 - O Backup do Azure aproveita a conta **NT AUTHORITY\SYSTEM** para descoberta/consulta de banco de dados e, portanto, essa conta precisa ser um logon público no SQL.
 
-Se você não criou a VM do SQL Server no Azure Marketplace, talvez você receba um erro **UserErrorSQLNoSysadminMembership**. Se isso ocorrer, [siga estas instruções](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
+Se você não criou a VM do SQL Server no Azure Marketplace, talvez você receba um erro **UserErrorSQLNoSysadminMembership**. Se isso ocorrer [siga estas instruções](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
 
 ### <a name="verify-database-naming-guidelines-for-azure-backup"></a>Verificar as diretrizes de nomenclatura de banco de dados do Backup do Azure
 
-Evite usar o seguinte em nomes de banco de dados:
+Evite a abaixo para nomes de banco de dados:
 
   * Espaços à esquerda ou à direita
   * '!' à direita
@@ -106,7 +106,7 @@ Descubra os bancos de dados em execução na VM.
 
     ![Mensagem de êxito na implantação](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-8. O Backup do Azure descobre todos os bancos de dados do SQL Server na VM. Durante a descoberta, ocorre o seguinte em segundo plano:
+8. O Backup do Azure descobre todos os bancos de dados do SQL Server na VM. Durante a descoberta a seguir ocorre em segundo plano:
 
     - O Backup do Azure registra a VM no cofre para backup da carga de trabalho. Todos os bancos de dados na VM registrada só podem ser copiados em backup nesse cofre.
     - O Backup do Azure instala a extensão **AzureBackupWindowsWorkload** na VM. Nenhum agente é instalado no Banco de Dados SQL.
@@ -171,7 +171,7 @@ Uma política de backup define quando os backups são feitos e por quanto tempo 
 Para criar uma política de backup:
 
 1. No cofre, clique em **Políticas de backup** > **Adicionar**.
-2. No menu **Adicionar**, clique em **SQL Server em uma VM do Azure**. Isso define o tipo de política.
+2. No menu **Adicionar**, clique em **SQL Server em uma VM do Azure**. Para define o tipo de política.
 
    ![Escolha um tipo de política para a nova política de backup](./media/backup-azure-sql-database/policy-type-details.png)
 
@@ -179,7 +179,7 @@ Para criar uma política de backup:
 4. Em **Política de Backup Completo**, selecione uma **Frequência de Backup** escolhendo **Diária** ou **Semanal**.
 
    - Para **Diária**, selecione a hora e fuso horário quando o trabalho de backup começar.
-   - É necessário executar um backup completo, não sendo possível desligar a opção **Backup Completo**.
+   - Você deve executar um backup completo, pois não é possível desativar o **Backup completo** opção.
    - Clique em **Backup Completo** para exibir a política.
    - Você não pode criar backups diferenciais para backups diários completos.
    - Para **Semanal**, selecione o dia da semana, a hora e o fuso horário do início do trabalho de backup.

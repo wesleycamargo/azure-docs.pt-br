@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: 0cccf6f6187f894faadbe4f572d75c483638aafd
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 097605a81e263ba558c616bd9f0d1ac38092f86e
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679237"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62738349"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>Enviar eventos para ou receber eventos de Hubs de eventos do Azure usando o .NET Framework
 Os Hubs de Eventos do Azure são uma plataforma de streaming de Big Data e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos pelos dispositivos e software distribuídos. Os dados enviados para um Hub de Eventos podem ser transformados e armazenados usando qualquer provedor de análise em tempo real ou adaptadores de envio em lote/armazenamento. Para obter uma visão detalhada dos Hubs de Eventos, confira [Visão geral de Hubs de Eventos](event-hubs-about.md) e [Recursos de Hubs de Eventos](event-hubs-features.md).
@@ -103,7 +103,7 @@ No Visual Studio, crie um novo projeto de aplicativo de área de trabalho do Vis
 5. Execute o programa e certifique-se de que não existem erros.
   
 ## <a name="receive-events"></a>Receber eventos
-Nesta seção, você escreve um aplicativo de console do .NET Framework que recebe mensagens de um hub de eventos usando o [Event Processor Host](event-hubs-event-processor-host.md). O [Host do Processador de Eventos](event-hubs-event-processor-host.md) é uma classe do .NET que simplifica o recebimento de eventos de hubs de eventos ao gerenciar pontos de verificação persistentes e recebimentos paralelos desses hubs de eventos. Ao usar o Host do Processador de Eventos, você pode dividir eventos através de vários receptores, mesmo quando hospedados em nós diferentes. Este exemplo mostra como usar o Host do Processador de Eventos para um único destinatário. O exemplo de [Processamento de eventos de escala horizontal][Scale out Event Processing with Event Hubs] mostra como usar o Host do Processador de Eventos com vários destinatários.
+Nesta seção, você escreve um aplicativo de console do .NET Framework que recebe mensagens de um hub de eventos usando o [Event Processor Host](event-hubs-event-processor-host.md). O [Host do Processador de Eventos](event-hubs-event-processor-host.md) é uma classe do .NET que simplifica o recebimento de eventos de hubs de eventos ao gerenciar pontos de verificação persistentes e recebimentos paralelos desses hubs de eventos. Ao usar o Host do Processador de Eventos, você pode dividir eventos através de vários receptores, mesmo quando hospedados em nós diferentes. 
 
 [!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
 
@@ -225,7 +225,6 @@ Leia os seguintes artigos:
 <!-- Links -->
 [EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
 [Event Hubs overview]: event-hubs-about.md
-[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [Event Hubs Programming Guide]: event-hubs-programming-guide.md
 [Azure Storage account]:../storage/common/storage-create-storage-account.md
 [Event Processor Host]: event-hubs-event-processor-host.md

@@ -13,11 +13,11 @@ ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
 ms.openlocfilehash: 5b2b7f3cd6bfa219b794edc63d6bf8b2784b713c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58891881"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120731"
 ---
 # <a name="azure-functions-developers-guide"></a>Guia do desenvolvedor do Azure Functions
 No Azure Functions, funções específicas compartilham alguns componentes e conceitos técnicos, independentemente da linguagem ou da associação usada. Antes de aprender detalhes específicos de uma determinada linguagem ou binding, leia esta visão geral que se aplica a todos eles.
@@ -48,9 +48,9 @@ A propriedade `bindings` é onde você configura gatilhos e associações. Cada 
 
 | Propriedade | Valores/Tipos | Comentários |
 | --- | --- | --- |
-| `type` |cadeia de caracteres |Tipo de binding. Por exemplo: `queueTrigger`. |
+| `type` |string |Tipo de binding. Por exemplo: `queueTrigger`. |
 | `direction` |'in', 'out' |Indica se a associação é para receber dados na função ou enviar dados a partir da função. |
-| `name` |cadeia de caracteres |O nome que é usado para os dados associados na função. Em C#, esse é um nome de um argumento. Em JavaScript, é a chave em uma lista de chaves/valores. |
+| `name` |string |O nome que é usado para os dados associados na função. Em C#, esse é um nome de um argumento. Em JavaScript, é a chave em uma lista de chaves/valores. |
 
 ## <a name="function-app"></a>Aplicativo de funções
 O aplicativo de funções fornece um contexto de execução no Azure no qual suas funções são executadas. Um aplicativo de funções é composto por uma ou mais funções individuais que são gerenciadas, implantadas e dimensionadas em conjunto. Todas as funções em um aplicativo de funções compartilham o mesmo plano de preços, a implantação contínua e a versão de tempo de execução. Pense em um aplicativo de funções como uma forma de organizar e gerenciar coletivamente suas funções. 

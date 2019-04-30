@@ -1,7 +1,6 @@
 ---
 title: Use o Apache Pig com SSH em um cluster do HDInsight - Azure
 description: Aprenda como se conectar a um cluster do Apache Hadoop baseado em Linux com o SSH e, em seguida, use o comando Pig para executar instruções Pig Latin interativamente ou como um trabalho em lotes.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: a674ee52ae5e8f8f800d4584a53c808ceae70156
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 503449e36b2b11e5663449dd732fdaf785417570
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435048"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62110741"
 ---
 # <a name="run-apache-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Executar tarefas do Apache Pig em um cluster baseado em Linux com o comando Pig (SSH)
 
@@ -141,4 +140,4 @@ Para obter informações gerais sobre como usar o Pig no HDInsight, consulte o s
 Para saber mais sobre outras maneiras de trabalhar com o Hadoop no HDInsight, consulte os seguintes documentos:
 
 * [Use o Apache Hive com o Apache Hadoop no HDInsight](hdinsight-use-hive.md)
-* [Usar o MapReduce com o Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md)
+* [Usar MapReduce com Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md)

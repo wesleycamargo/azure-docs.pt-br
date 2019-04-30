@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: b97753e6f1b67e3c8d247281c5e5208033a56eca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: dc24ebd59fd977ef35766c304aec5824e2c7bb4c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111284"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127168"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Usar o StorSimple Snapshot Manager para gerenciar o catálogo de backup
 

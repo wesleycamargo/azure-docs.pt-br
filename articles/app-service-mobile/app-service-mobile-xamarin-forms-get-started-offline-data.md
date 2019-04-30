@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: crdun
 ms.openlocfilehash: 506c59ca24aeafbac59b1508bb78142051302765
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001813"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127872"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>Habilitar sincronização offline para seu aplicativo móvel Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

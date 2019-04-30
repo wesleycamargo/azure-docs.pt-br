@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
 ms.openlocfilehash: 078815185ddb6018a394401f57f7557ac3aedb73
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050145"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123410"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribuição de uso do cliente do parceiro do Azure
 
@@ -267,7 +267,7 @@ Quando você implanta esse modelo, a Microsoft consegue identificar a instalaç�
 
 Quando você implanta o software \<PARTNER>, a Microsoft pode identificar a instalação do software \< PARTNER> com os recursos do Azure implantados. Microsoft é capaz de correlacionar os recursos do Azure que são usados para dar suporte ao software. A Microsoft coleta essas informações para fornecer as melhores experiências com seus produtos e operar seus negócios. Os dados são coletados e regidos pelas políticas de privacidade da Microsoft, que podem ser encontradas em https://www.microsoft.com/trustcenter.
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 Se você precisar de assistência para integração do Marketplace e/ou atribuição de uso do cliente, siga estas etapas.
 

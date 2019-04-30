@@ -15,11 +15,11 @@ ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
 ms.openlocfilehash: 9f81e2b7537a5ecc6778baa93a1bab23dd30ff8a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451902"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475500"
 ---
 # <a name="powershell-dsc-extension"></a>Extensão de DSC do PowerShell
 
@@ -100,32 +100,32 @@ O JSON a seguir mostra o esquema que serve para a parte das configurações da e
 
 | Nome | Valor/Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 01-10-2018 | data |
-| publicador | Microsoft.Powershell.DSC | cadeia de caracteres |
-| tipo | DSC | cadeia de caracteres |
+| apiVersion | 01-10-2018 | date |
+| publicador | Microsoft.Powershell.DSC | string |
+| Tipo | DSC | string |
 | typeHandlerVersion | 2.77 | int |
 
 ### <a name="settings-property-values"></a>Valores da Propriedade de Configurações
 
-| Nome | Tipo de Dados | Descrição
+| NOME | Tipo de Dados | DESCRIÇÃO
 | ---- | ---- | ---- |
-| settings.wmfVersion | cadeia de caracteres | Especifica a versão do Windows Management Framework que deve ser instalada em sua VM. Configurar essa propriedade como 'latest' instalará a versão mais atualizada do WMF. Os únicos valores possíveis atualmente para essa propriedade são ‘4.0’, ‘5.0’, e a mais recente. Esses valores possíveis estão sujeitos a atualizações. O valor padrão é ‘latest’. |
-| settings.configuration.url | cadeia de caracteres | Especifica o local da URL de onde baixar o arquivo zip configuração DSC. Se a URL fornecida exigir um token SAS para acesso, será necessário definir a propriedade protectedSettings.configurationUrlSasToken como o valor do token de SAS. Esta propriedade será necessária se settings.configuration.script e/ou settings.configuration.function estiverem definidas.
-| settings.configuration.script | cadeia de caracteres | Especifica o nome do arquivo do script que contém a definição de sua configuração DSC. Esse script deve estar na pasta raiz do arquivo zip baixado da URL especificada pela propriedade configuration.url. Esta propriedade é necessária se settings.configuration.url e/ou settings.configuration.script estiverem definidas.
-| settings.configuration.function | cadeia de caracteres | Especifica o nome da configuração DSC. A configuração denominada deve estar contida no script definido por configuration.script. Esta propriedade será necessária se settings.configuration.script.url e/ou settings.configuration.function estiverem definidas.
+| settings.wmfVersion | string | Especifica a versão do Windows Management Framework que deve ser instalada em sua VM. Configurar essa propriedade como 'latest' instalará a versão mais atualizada do WMF. Os únicos valores possíveis atualmente para essa propriedade são ‘4.0’, ‘5.0’, e a mais recente. Esses valores possíveis estão sujeitos a atualizações. O valor padrão é ‘latest’. |
+| settings.configuration.url | string | Especifica o local da URL de onde baixar o arquivo zip configuração DSC. Se a URL fornecida exigir um token SAS para acesso, será necessário definir a propriedade protectedSettings.configurationUrlSasToken como o valor do token de SAS. Esta propriedade será necessária se settings.configuration.script e/ou settings.configuration.function estiverem definidas.
+| settings.configuration.script | string | Especifica o nome do arquivo do script que contém a definição de sua configuração DSC. Esse script deve estar na pasta raiz do arquivo zip baixado da URL especificada pela propriedade configuration.url. Esta propriedade é necessária se settings.configuration.url e/ou settings.configuration.script estiverem definidas.
+| settings.configuration.function | string | Especifica o nome da configuração DSC. A configuração denominada deve estar contida no script definido por configuration.script. Esta propriedade será necessária se settings.configuration.script.url e/ou settings.configuration.function estiverem definidas.
 | settings.configurationArguments | Coleção | Define os parâmetros que você deseja passar para a configuração de DSC. Esta propriedade não será criptografada.
-| settings.configurationData.url | cadeia de caracteres | Especifica a URL de onde baixar o arquivo de dados de configuração (.pds1) para usar como entrada para a sua configuração de DSC. Se a URL fornecida exigir um token SAS para acesso, será necessário definir a propriedade protectedSettings.configurationDataUrlSasToken como o valor do token de SAS.
-| settings.privacy.dataEnabled | cadeia de caracteres | Habilita ou desabilita a coleta de telemetria. Os únicos valores possíveis para essa propriedade são ‘Enable’, ‘Disable’, ”, ou $null. Deixar esta propriedade em branco ou nulo permitirá telemetria
-| settings.advancedOptions.forcePullAndApply | Booleano | Esta configuração é projetada para aprimorar a experiência de trabalhar com a extensão para registrar os nós com o DSC de automação do Azure.  Se o valor for `$true`, aguardará a extensão para a primeira execução da configuração extraída do serviço antes de retornar êxito/falha.  Se o valor é definido como $false, o status retornado pela extensão só fará referência a se o nó foi registrado com a configuração de estado de automação do Azure com êxito e a configuração de nó não será executada durante o registro.
+| settings.configurationData.url | string | Especifica a URL de onde baixar o arquivo de dados de configuração (.pds1) para usar como entrada para a sua configuração de DSC. Se a URL fornecida exigir um token SAS para acesso, será necessário definir a propriedade protectedSettings.configurationDataUrlSasToken como o valor do token de SAS.
+| settings.privacy.dataEnabled | string | Habilita ou desabilita a coleta de telemetria. Os únicos valores possíveis para essa propriedade são ‘Enable’, ‘Disable’, ”, ou $null. Deixar esta propriedade em branco ou nulo permitirá telemetria
+| settings.advancedOptions.forcePullAndApply | Bool | Esta configuração é projetada para aprimorar a experiência de trabalhar com a extensão para registrar os nós com o DSC de automação do Azure.  Se o valor for `$true`, aguardará a extensão para a primeira execução da configuração extraída do serviço antes de retornar êxito/falha.  Se o valor é definido como $false, o status retornado pela extensão só fará referência a se o nó foi registrado com a configuração de estado de automação do Azure com êxito e a configuração de nó não será executada durante o registro.
 | settings.advancedOptions.downloadMappings | Coleção | Define locais alternativos para fazer o download de dependências como WMF e .NET
 
 ### <a name="protected-settings-property-values"></a>Valores da Propriedade de Configurações Protegidos
 
-| Nome | Tipo de Dados | Descrição
+| NOME | Tipo de Dados | DESCRIÇÃO
 | ---- | ---- | ---- |
-| protectedSettings.configurationArguments | cadeia de caracteres | Define os parâmetros que você deseja passar para a configuração de DSC. Esta propriedade será criptografada. |
-| protectedSettings.configurationUrlSasToken | cadeia de caracteres | Especifica o token SAS para acessar a URL definida por configuration.url. Esta propriedade será criptografada. |
-| protectedSettings.configurationDataUrlSasToken | cadeia de caracteres | Especifica o token SAS para acessar a URL definida por configurationData.url. Esta propriedade será criptografada. |
+| protectedSettings.configurationArguments | string | Define os parâmetros que você deseja passar para a configuração de DSC. Esta propriedade será criptografada. |
+| protectedSettings.configurationUrlSasToken | string | Especifica o token SAS para acessar a URL definida por configuration.url. Esta propriedade será criptografada. |
+| protectedSettings.configurationDataUrlSasToken | string | Especifica o token SAS para acessar a URL definida por configurationData.url. Esta propriedade será criptografada. |
 
 
 ## <a name="template-deployment"></a>Implantação de modelo
@@ -136,7 +136,7 @@ Um modelo do Resource Manager que inclui a extensão de DSC para Windows pode se
 
 ## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
 
-### <a name="troubleshoot"></a>Solucionar problemas
+### <a name="troubleshoot"></a>Solução de problemas
 
 Dados sobre o estado das implantações de extensão podem ser recuperados do Portal do Azure usando a CLI do Azure. Para ver o estado da implantação das extensões de uma determinada VM, execute o comando a seguir usando a CLI do Azure.
 
@@ -164,7 +164,7 @@ C:\WindowsAzure\Logs\Plugins\{Extension_Name}\{Extension_Version}
 
 | Código de Erro | Significado | Ação possível |
 | :---: | --- | --- |
-| 1.000 | Erro genérico | A mensagem de erro é fornecida pela exceção específica em logs de extensão |
+| 1000 | Erro genérico | A mensagem de erro é fornecida pela exceção específica em logs de extensão |
 | 52 | Erro de Instalação da Extensão | A mensagem de erro é fornecida pela exceção específica |
 | 1002 | Erro de instalação Wmf | Erro ao instalar WMF. |
 | 1004 | Pacote Zip Inválido | Zip inválido ; Erro ao desempacotar o zip |

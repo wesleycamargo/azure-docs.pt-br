@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
 ms.openlocfilehash: 624539557b0bf57e9d919a3a46337f1cf93a4f07
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894227"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128593"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Criar modelos do Azure Resource Manager para implantar aplicativos lógicos
 
@@ -184,7 +184,7 @@ Se você tiver um projeto existente do grupo de recursos do Azure, você pode ad
 
    ![Adicionar recurso](./media/logic-apps-create-deploy-template/addresource.png)
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 

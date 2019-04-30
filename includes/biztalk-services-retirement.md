@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 11/09/2017
 ms.author: mandia
 ms.custom: include file
-ms.openlocfilehash: 81e053c8258d24177d5c7ea499595c4dd4a3b0f0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 58a97ddf46a611d9a70c6662e315379629ffbec1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38946097"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108864"
 ---
 > [!IMPORTANT]
 > Os Serviços BizTalk do Microsoft Azure (MABS) estão sendo desativados e substituídos pelos Aplicativos Lógicos do Azure.
-> Se você estiver usando o MABS, analise este artigo para obter algumas diretrizes sobre como migrar suas soluções de integração para os Aplicativos Lógicos: [Mover dos Serviços BizTalk para os Aplicativos Lógicos](../articles/logic-apps/logic-apps-move-from-mabs.md) 
+> Se você estiver usando o MABS, analise este artigo para obter orientação sobre como migrar suas soluções de integração para aplicativos lógicos: [Mover dos Serviços BizTalk para aplicativos lógicos](../articles/logic-apps/logic-apps-move-from-mabs.md) 
 > 
 > Se você não estiver familiarizado com os Aplicativos Lógicos, tente iniciar aqui: 
 > 

@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
 ms.openlocfilehash: f9773c3b372ab22cbcd99828e147d23c185c4eb6
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244614"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127320"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-nist-special-publication-800-171"></a>Blueprint de segurança e conformidade do Azure - Aplicativo Web de PaaS para Publicação Especial do NIST 800-171
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 A [Publicação Especial do NIST 800-171](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-171.pdf) fornece diretrizes para proteção de CUI (Controlled Unclassified Information) que reside em organizações e sistemas de informações não federais. O NIST SP 800-171 estabelece 14 famílias de requisitos de segurança para proteger a confidencialidade de CUI.
 
 Esse blueprint de segurança e conformidade do Azure fornece diretrizes para ajudar os clientes a implantar um aplicativo Web de PaaS (plataforma como serviço) no Azure que implementa um subconjunto de controles do NIST SP 800-171. Esta solução demonstra maneiras em que os clientes podem atender a requisitos de conformidade e segurança específicos. Ela também funciona como base para os clientes criarem e configurarem seus próprios aplicativos Web no Azure.
@@ -49,16 +49,16 @@ A solução usa os serviços do Azure a seguir. Para obter mais informações, c
     - (4) /24 redes
     - (4) Grupos de segurança de rede
 - Gateway de Aplicativo do Azure
-    - Firewall de Aplicativo Web
+    - Firewall do aplicativo Web
         - Modo de firewall: prevenção
         - Conjunto de regras: OWASP
         - Porta do ouvinte: 443
 - Application Insights
-- Active Directory do Azure
+- Azure Active Directory
 - Ambiente do Serviço de Aplicativo v2
 - Automação do Azure
 - DNS do Azure
-- Cofre de Chaves Azure
+- Cofre da Chave do Azure
 - Azure Load Balancer
 - O Azure Monitor (logs)
 - Azure Resource Manager
@@ -66,7 +66,7 @@ A solução usa os serviços do Azure a seguir. Para obter mais informações, c
 - Banco de Dados SQL do Azure
 - Armazenamento do Azure
 - Automação do Azure
-- Aplicativos Web do Azure
+- Aplicativos Web do Azure 
 
 ## <a name="deployment-architecture"></a>Arquitetura de implantação
 A seção a seguir fornece detalhes sobre os elementos de implantação e implementação.
@@ -177,7 +177,7 @@ A Central de Segurança fornece alertas e incidentes de segurança priorizados. 
 
 Os serviços do Azure registram em log de forma extensiva as atividades do sistema e do usuário, bem como a integridade do sistema:
 - **Logs de atividades**: Os [logs de atividades](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem insights sobre as operações executadas em recursos em uma assinatura. Os logs de atividade podem ajudar a determinar o iniciador, o horário da ocorrência e o status de uma operação.
-- **Logs de diagnóstico**: Os [logs de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluem todos os logs emitidos por cada um dos recursos. Esses logs incluem os logs do sistema de eventos do Windows, os logs de Armazenamento, os logs de auditoria do Key Vault e os logs de acesso e do firewall do Gateway de Aplicativo. Todos os logs de diagnóstico são gravados em uma conta de armazenamento do Azure centralizada e criptografada para arquivamento. Os usuários podem configurar um período de retenção de até 730 dias para atender às suas necessidades específicas.
+- **Logs de diagnóstico**: Os [Logs de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluem todos os registros emitidos por todos os recursos. Esses logs incluem os logs do sistema de eventos do Windows, os logs de Armazenamento, os logs de auditoria do Key Vault e os logs de acesso e do firewall do Gateway de Aplicativo. Todos os logs de diagnóstico são gravados em uma conta de armazenamento do Azure centralizada e criptografada para arquivamento. Os usuários podem configurar um período de retenção de até 730 dias para atender às suas necessidades específicas.
 
 **Logs do Azure Monitor**: Os logs são consolidados [registra em log do Azure Monitor](https://azure.microsoft.com/services/log-analytics/) para processamento, armazenamento e emissão de relatórios do painel. Depois que os dados são coletados, eles são organizados em tabelas separadas para cada tipo de dados nos espaços de trabalho do Log Analytics. Dessa forma, todos os dados podem ser analisados juntos, independentemente de sua fonte original. A Central de segurança se integra com os logs do Azure Monitor. Os clientes podem usar consultas Kusto para acessar seus dados de evento de segurança e combiná-lo com dados de outros serviços.
 
@@ -214,7 +214,7 @@ Como o tráfego do túnel de VPN passa pela Internet com uma VPN site a site, a 
 
 Estão [disponíveis](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid) práticas recomendadas para a implementação de uma rede híbrida segura que estende uma rede local para o Azure.
 
-## <a name="disclaimer"></a>Aviso de isenção de responsabilidade
+## <a name="disclaimer"></a>Isenção de responsabilidade
 
  - Este documento serve apenas para fins informativos. A MICROSOFT NÃO FORNECE NENHUMA GARANTIA, EXPRESSA, IMPLÍCITA OU REGULAMENTAR, QUANTO ÀS INFORMAÇÕES PRESENTES NESTE DOCUMENTO. Este documento é fornecido "no estado em que se encontra". As informações e opiniões expressadas neste documento, incluindo URLs e outras referências a sites da Internet, podem ser alteradas sem aviso prévio. Os clientes que estão lendo este documento arcarão com o risco de usá-lo.
  - Este documento não fornece aos clientes nenhum direito legal a qualquer propriedade intelectual de qualquer produto ou solução da Microsoft.

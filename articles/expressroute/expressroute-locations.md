@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2019
 ms.author: pareshmu
-ms.openlocfilehash: 948d57ffc557aad1d1828cb6b6f45471880a810c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8c61a3276ebe58c86827b32c6bd33ae4689e35dc
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60363863"
+ms.locfileid: "62732520"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Locais de emparelhamento e parceiros do ExpressRoute
 
@@ -78,7 +78,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/cloud-services-applications/azure-expressroute/)** |Com suporte |Com suporte |Melbourne, Sydney |
 | **[Airtel](https://www.airtel.in/creatingsmiles/)** | Com suporte | Com suporte | Chennai2, Mumbai2 |
-| **[Aryaka Networks](https://www.aryaka.com/)** |Com suporte |Com suporte |Amsterdã, Chicago, Dallas, RAE de Hong Kong, são Paulo, Seattle, vale do Silício, Cingapura, Tóquio, Washington, D.C. |
+| **[Aryaka Networks](https://www.aryaka.com/)** |Com suporte |Com suporte |Amsterdã, Chicago, Dallas, Hong Kong SAR, são Paulo, Seattle, vale do Silício, Cingapura, Tóquio, Washington, D.C. |
 | **[Data centers Ascenty](https://ascenty.com/servicos/cloud-connect/microsoft-expressroute/)** |Com suporte |Com suporte |São Paulo |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Com suporte |Com suporte |Amsterdã, Chicago, Dallas, Londres, Vale do Silício, Singapura, Sydney, Tóquio, Toronto, Washington, D.C. |
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Com suporte |Com suporte |Montreal, Toronto, Cidade de Quebec |
@@ -116,7 +116,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Com suporte |Com suporte |Amsterdã, Atlanta, Chicago, Dallas, Denver, Dublin, RAE de Hong Kong, Las Vegas, Londres, Los Angeles, Melbourne, Miami, Nova York, Perth, cidade de Quebec, San Antonio, Seattle, vale do Silício, Cingapura, cingapura2, Sydney, Toronto, Washington, D.C. |
 | **[MTN](https://www.mtnbusiness.com/en/enterprise/Pages/microsoft-express-route.aspx)** |Com suporte |Com suporte |Londres |
 | **[Neutrona Networks](http://www.neutrona.com/index.php/azure-expressroute/)** |Com suporte |Com suporte |Dallas, Los Angeles, Miami, São Paulo |
-| **[Dados da Próxima Geração](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Com suporte |Com suporte |Newport (País de Gales) |
+| **[Dados da Próxima Geração](https://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Com suporte |Com suporte |Newport (País de Gales) |
 | **[NEXTDC](https://www.nextdc.com/services/axon-ethernet/microsoft-expressroute)** |Com suporte |Com suporte |Melbourne, Perth, Sydney |
 | **[NTT Communications](https://www.ntt.com/en/services/network/virtual-private-network.html)** |Com suporte |Com suporte |Amsterdã, RAE de Hong Kong, Londres, Los Angeles, Osaka, Cingapura, Sydney, Tóquio, Washington, D.C. |
 | **[NTT EAST](https://flets.com/cloudgateway/crossconnect/)** |Com suporte |Com suporte |Tóquio |
@@ -145,7 +145,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |Com suporte |Com suporte |Amsterdã, Chicago, Dallas, RAE de Hong Kong, Londres, vale do Silício, Cingapura, Sydney, Tóquio, Washington, D.C. |
 | **[Vodafone](https://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Com suporte |Com suporte |Londres, Singapura |
 | **Vodafone Idea** | Com suporte | Com suporte | Mumbai, Mumbai2 |
-| **[Zayo](http://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Com suporte |Com suporte |Amsterdã, Chicago, Dallas, Denver +, Londres, Los Angeles, Montreal, Nova York, Paris, Seattle, vale do Silício, Toronto, Washington, D.C. |
+| **[Zayo](https://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Com suporte |Com suporte |Amsterdã, Chicago, Dallas, Denver +, Londres, Los Angeles, Montreal, Nova York, Paris, Seattle, vale do Silício, Toronto, Washington, D.C. |
 
  **+** indica que haverá em breve
 
@@ -221,7 +221,7 @@ Se seu provedor de conectividade não estiver listado em seções anteriores, vo
 | **[CoreAzure](http://coreazure.com/expressroute)**| Equinix | Londres |
 | **[Cox Business](https://www.cox.com/business/networking/cloud-connectivity.html)** | Equinix | Dallas, Vale do Silício, Washington D.C. | 
 | **[Dados Foundry](https://www.datafoundry.com/services/cloud-connect)** | Megaport | Dallas |
-| **[Epsilon Telecommunications Limited](http://www.epsilontel.com/data-connectivity/cloud-access/)** | Equinix | Londres, Singapura, Washington, D.C. |
+| **[Epsilon Telecommunications Limited](https://www.epsilontel.com/data-connectivity/cloud-access/)** | Equinix | Londres, Singapura, Washington, D.C. |
 | **[Eurofiber](https://eurofiber.nl/microsoft-azure/)** | Equinix | Amsterdã |
 | **[E Exponencial](https://www.exponential-e.com/services/connectivity-services/cloud-connect-exchange)** | Equinix | Londres |
 | **[Fastweb S.p.A](https://www.fastweb.it/grandi-aziende/connessione-voce-e-wifi/scheda-prodotto/rete-privata-virtuale/)** | Equinix | Amsterdã |
@@ -248,7 +248,7 @@ Se seu provedor de conectividade não estiver listado em seções anteriores, vo
 | **[Telecom Italia Sparkle](https://www.tisparkle.com/our-platform/corporate-platform/sparkle-cloud-connect#catalogue)**| Equinix | Amsterdã |
 | **[Telia](https://www.telia.se/foretag/losningar/produkter-tjanster/datanet)** | Equinix | Amsterdã |
 | **[ThinkTel](https://www.thinktel.ca/services/agile-ix-data/expressroute/)** | Equinix | Toronto | 
-| **[Transtelco](http://www.transtelco.net/tcloud/microsoft)** |Equinix | Dallas, Los Angeles |
+| **[Transtelco](https://www.transtelco.net/tcloud/microsoft)** |Equinix | Dallas, Los Angeles |
 | **[United Information Highway (UIH)](https://www.uih.co.th/en/internet-solution/cloud-direct/uih-cloud-direct-for-microsoft-azure-expressroute)**| Equinix | Singapura |
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | Equinix | São Paulo |
 | **[Webair](https://www.webair.com/microsoft-express-route-partnership/)**| Megaport | Nova Iorque |
@@ -264,7 +264,7 @@ Se seu provedor de conectividade não estiver listado em seções anteriores, vo
 | **[Cyrus One](https://cyrusone.com/enterprise-data-center-services/connectivity-and-interconnection/cloud-connectivity-reaching-amazon-microsoft-google-and-more/microsoft-azure-expressroute/?doing_wp_cron=1498512235.6733090877532958984375)** | Megaport |
 | **[Cyxtera](https://www.cyxtera.com/data-center-services/interconnection)** | Megaport |
 | **[Digital Realty](https://www.digitalrealty.com/services/interconnection/service-exchange/)** | Megaport |
-| **[EdgeConnex](http://www.edgeconnex.com/services/edge-data-centers-proximity-matters/)** | Megaport |
+| **[EdgeConnex](https://www.edgeconnex.com/services/edge-data-centers-proximity-matters/)** | Megaport |
 | **[RagingWire Data Centers](https://www.ragingwire.com/wholesale/wholesale-data-centers-worldwide-nexcenters)** | IX Reach |
 | **[Datacenters T5](https://t5datacenters.com/network-cloud-connect/)** | IX Reach |
 
@@ -292,7 +292,7 @@ Habilitar a conectividade privada para atender às suas necessidades pode ser de
 | --- | --- |
 | **[Altogee](https://altogee.be/diensten/express-route/)** | Europa |
 | **[Avanade Inc.](https://www.avanade.com/)** | Ásia, Europa, América do Norte, América do Sul |
-| **[Bright Skies GmbH](http://bskies.io/expressroute)** | Europa
+| **[Bright Skies GmbH](https://bskies.io/expressroute)** | Europa
 | **[Ensyst](https://www.ensyst.com.au)** | Ásia
 | **[Equinix Professional Services](https://www.equinix.com/services/consulting/)** | América do Norte |
 | **[FlexManage](https://www.flexmanage.com/cloud)** | América do Norte |

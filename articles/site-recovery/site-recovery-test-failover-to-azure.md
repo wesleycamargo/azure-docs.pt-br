@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
 ms.openlocfilehash: 6d8ad71894444b3759e506c50244b592ac1f8aac
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904705"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61471446"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Realizar uma análise detalhada da recuperação de desastre para o Azure 
 
@@ -113,5 +113,5 @@ Se você quiser se conectar às VMs do Azure usando RDP/SSH após o failover, si
 
 Siga as etapas descritas [aqui](site-recovery-failover-to-azure-troubleshoot.md) para solucionar quaisquer problemas de conectividade após o failover.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Depois de concluir uma simulação de recuperação de desastre, saiba mais sobre outros tipos de [failover](site-recovery-failover.md).

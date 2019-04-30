@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: aschhab
 ms.openlocfilehash: 2da6e46ad4866ad624ff6bc8aa61a96e41568ca2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006561"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61472158"
 ---
 # <a name="service-bus-messaging-samples"></a>Exemplos de mensagens do Barramento de Serviço
 Os exemplos de mensagens do Barramento de Serviço demonstram os principais recursos de [mensagens do Barramento de Serviço](https://azure.microsoft.com/services/service-bus/). No momento, você pode encontrar os exemplos nos seguintes locais:
@@ -34,7 +34,7 @@ Os exemplos de mensagens do Barramento de Serviço demonstram os principais recu
 
 Além disso, o [Explorer do Barramento de Serviço](https://github.com/paolosalvatori/ServiceBusExplorer) é um exemplo hospedado no GitHub que permite a conexão a um namespace de serviço do Barramento de Serviço e o fácil gerenciamento de entidades de mensagens. A ferramenta fornece recursos avançados, como a funcionalidade de importação/exportação, e a capacidade de testar entidades do sistema de mensagens e os serviços de retransmissão. Encontre toda a documentação e fonte do Explorer do Barramento de Serviço no [GitHub](https://github.com/paolosalvatori/ServiceBusExplorer).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Confira os tópicos a seguir para obter visões gerais conceituais do Barramento de Serviço.
 

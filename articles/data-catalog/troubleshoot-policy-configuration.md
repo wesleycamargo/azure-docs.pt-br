@@ -7,11 +7,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/06/2019
 ms.openlocfilehash: e69a7e3bd104d0fb82b248b6560d4fd082c88426
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996434"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116594"
 ---
 # <a name="azure-active-directory-policy-configuration"></a>Configuração de política do Azure Active Directory
 
@@ -27,6 +27,6 @@ Com a política de autenticação global, você pode habilitar a autenticação 
 
 Para saber mais, confira [Configurando políticas de autenticação](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn486781(v=ws.11)).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Criar um catálogo de dados do Azure](data-catalog-get-started.md)

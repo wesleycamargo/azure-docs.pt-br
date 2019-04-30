@@ -17,11 +17,11 @@ ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7c80b821d6bd0263473ba0178eea148f7a2d5773
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788115"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123925"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalar drivers NVIDIA GPU em VMs da série N que executam o Linux
 
@@ -346,6 +346,6 @@ Em seguida, crie uma entrada para o seu script de atualização em `/etc/rc.d/rc
 
 * Você pode definir o modo de persistência usando `nvidia-smi`, de modo que o resultado do comando seja mais rápido quando você precisar consultar cartões. Para definir o modo de persistência, execute `nvidia-smi -pm 1`. Observe que, se a VM for reiniciada, a configuração do modo desaparecerá. Você sempre pode gerar um script da configuração de modo para ser executada na inicialização.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para capturar uma imagem de VM do Linux na qual você tenha instalado drivers NVIDIA, consulte [Como generalizar e capturar uma máquina virtual Linux](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

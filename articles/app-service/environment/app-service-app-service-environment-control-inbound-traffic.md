@@ -16,11 +16,11 @@ ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 84575dcb67845a074ce19cf9d819e1dda3f90e20
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271947"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130782"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Como controlar o tráfego de entrada para um ambiente de serviço de aplicativo
 ## <a name="overview"></a>Visão geral

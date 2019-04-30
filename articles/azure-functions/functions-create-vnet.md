@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 4/11/2019
 ms.author: alkarche
 ms.openlocfilehash: 96ab479d3373eb6e575a00898f7007a4df252e39
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002760"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125655"
 ---
 # <a name="integrate-a-function-app-with-an-azure-virtual-network"></a>Integrar um aplicativo de funções com uma rede virtual do Azure
 
@@ -112,7 +112,7 @@ Seu aplicativo de funções está conectado à internet e sua rede virtual. O pr
 
 <img src="./media/functions-create-vnet/plant.png" width="900">
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Funções em execução em um plano Premium compartilham a mesma infraestrutura subjacente do serviço de aplicativo como aplicativos web em planos de PremiumV2. Toda a documentação para aplicativos web se aplica a suas funções de plano Premium.
 

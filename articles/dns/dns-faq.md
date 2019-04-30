@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 3/21/2019
 ms.author: victorh
 ms.openlocfilehash: 4f0800dfd264059e1dc8aac32a54f216f777647f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905708"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62096158"
 ---
 # <a name="azure-dns-faq"></a>Perguntas frequentes do DNS do Azure
 
@@ -68,25 +68,25 @@ O DNS do Azure só oferece suporte à hospedagem de domínios DNS estáticos, em
 
 ### <a name="does-azure-dns-support-domain-name-registration"></a>O DNS do Azure dá suporte ao registro de nome de domínio?
 
- Não. O DNS do Azure atualmente não oferece suporte à opção de comprar nomes de domínio. Para comprar domínios, você deve usar um registrador de nomes de domínio de terceiros. O registrador normalmente cobra uma pequena taxa anual. Os domínios, em seguida, podem ser hospedados no DNS do Azure para gerenciamento de registros DNS. Confira [Delegar um domínio ao DNS do Azure](dns-domain-delegation.md)para saber mais.
+Não. O DNS do Azure atualmente não oferece suporte à opção de comprar nomes de domínio. Para comprar domínios, você deve usar um registrador de nomes de domínio de terceiros. O registrador normalmente cobra uma pequena taxa anual. Os domínios, em seguida, podem ser hospedados no DNS do Azure para gerenciamento de registros DNS. Confira [Delegar um domínio ao DNS do Azure](dns-domain-delegation.md)para saber mais.
 
 O recurso para comprar nomes de domínio é rastreado no backlog do Azure. Use o site de feedback para [registrar seu suporte para esse recurso](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar).
 
 ### <a name="does-azure-dns-support-dnssec"></a>O DNS do Azure oferece suporte a DNSSEC?
 
- Não. O DNS do Azure atualmente não oferece suporte às extensões de segurança do sistema de nomes de domínio (DNSSEC).
+Não. O DNS do Azure atualmente não oferece suporte às extensões de segurança do sistema de nomes de domínio (DNSSEC).
 
 O recurso DNSSEC é rastreado no backlog de DNS do Azure. Use o site de feedback para [registrar seu suporte para esse recurso](https://feedback.azure.com/forums/217313-networking/suggestions/13284393-azure-dns-needs-dnssec-support).
 
 ### <a name="does-azure-dns-support-zone-transfers-axfrixfr"></a>O DNS do Azure dá suporte para transferências de zona (AXFR/IXFR)?
 
- Não. O DNS do Azure não suporta atualmente as transferências de zona. As zonas DNS podem ser [importadas para o DNS do Azure usando a CLI do Azure](dns-import-export.md). Os registros DNS são gerenciados por meio do [portal de gerenciamento do DNS do Azure](dns-operations-recordsets-portal.md), [API REST](https://docs.microsoft.com/powershell/module/az.dns), [SDK](dns-sdk.md), [cmdlets do PowerShell](dns-operations-recordsets.md) ou da [ferramenta CLI](dns-operations-recordsets-cli.md).
+Não. O DNS do Azure não suporta atualmente as transferências de zona. As zonas DNS podem ser [importadas para o DNS do Azure usando a CLI do Azure](dns-import-export.md). Os registros DNS são gerenciados por meio do [portal de gerenciamento do DNS do Azure](dns-operations-recordsets-portal.md), [API REST](https://docs.microsoft.com/powershell/module/az.dns), [SDK](dns-sdk.md), [cmdlets do PowerShell](dns-operations-recordsets.md) ou da [ferramenta CLI](dns-operations-recordsets-cli.md).
 
 O recurso de transferência de zona é rastreado no backlog de DNS do Azure. Use o site de feedback para [registrar seu suporte para esse recurso](https://feedback.azure.com/forums/217313-networking/suggestions/12925503-extend-azure-dns-to-support-zone-transfers-so-it-c).
 
 ### <a name="does-azure-dns-support-url-redirects"></a>O DNS do Azure oferece suporte a redirecionamentos de URL?
 
- Não. Os serviços de redirecionamento de URL não são um serviço DNS. Eles trabalham no nível HTTP, e não no nível DNS. Alguns provedores DNS agrupam um serviço de redirecionamento de URL como parte de sua oferta geral. No momento, esse serviço não é suportado pelo DNS do Azure.
+Não. Os serviços de redirecionamento de URL não são um serviço DNS. Eles trabalham no nível HTTP, e não no nível DNS. Alguns provedores DNS agrupam um serviço de redirecionamento de URL como parte de sua oferta geral. No momento, esse serviço não é suportado pelo DNS do Azure.
 
 O recurso de redirecionamento de URL é rastreado no backlog de DNS do Azure. Use o site de feedback para [registrar seu suporte para esse recurso](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape).
 
@@ -217,7 +217,7 @@ Sim. As zonas privadas são suportadas para resolução de DNS entre redes virtu
 
 ### <a name="is-connectivity-to-the-internet-from-virtual-networks-required-for-private-zones"></a>A conectividade com a Internet de redes virtuais é necessária para zonas privadas?
 
- Não. As zonas privadas funcionam junto com as redes virtuais. Os clientes os usam para gerenciar domínios para máquinas virtuais ou outros recursos dentro e entre redes virtuais. A conectividade com a Internet não é necessária para a resolução de nomes. 
+Não. As zonas privadas funcionam junto com as redes virtuais. Os clientes os usam para gerenciar domínios para máquinas virtuais ou outros recursos dentro e entre redes virtuais. A conectividade com a Internet não é necessária para a resolução de nomes. 
 
 ### <a name="can-the-same-private-zone-be-used-for-several-virtual-networks-for-resolution"></a>A mesma zona privada pode ser usada para várias redes virtuais para resolução?
 
@@ -233,7 +233,7 @@ Sim. Se você excluir uma máquina virtual em uma rede virtual de Registro, os r
 
 ### <a name="can-an-automatically-registered-virtual-machine-record-in-a-private-zone-from-a-registration-virtual-network-be-deleted-manually"></a>Um registro de máquina virtual registrado automaticamente em uma zona privada de uma rede virtual de Registro pode ser excluído manualmente?
 
- Não. Os registros DNS da máquina virtual que são registrados automaticamente em uma zona privada a partir de uma rede virtual de Registro não são visíveis ou editáveis pelos clientes. Você pode regravar os registros DNS registrados automaticamente com um registro DNS criado manualmente na zona. A pergunta e resposta a seguir abordam este tópico.
+Não. Os registros DNS da máquina virtual que são registrados automaticamente em uma zona privada a partir de uma rede virtual de Registro não são visíveis ou editáveis pelos clientes. Você pode regravar os registros DNS registrados automaticamente com um registro DNS criado manualmente na zona. A pergunta e resposta a seguir abordam este tópico.
 
 ### <a name="what-happens-when-we-try-to-manually-create-a-new-dns-record-into-a-private-zone-that-has-the-same-hostname-as-an-automatically-registered-existing-virtual-machine-in-a-registration-virtual-network"></a>O que acontece quando tentamos criar manualmente um novo registro DNS em uma zona privada que tenha o mesmo nome de host de uma máquina virtual existente registrada automaticamente em uma rede virtual de Registro?
 
@@ -253,7 +253,7 @@ Sim. As zonas privadas não substituem as resoluções DNS padrão usando a zona
 
 ### <a name="will-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>O sufixo DNS em máquinas virtuais em uma rede virtual vinculada será alterado para o da zona privada?
 
- Não. O sufixo DNS nas máquinas virtuais em sua rede virtual vinculada permanece como o sufixo fornecido pelo Azure padrão ("*.internal.cloudapp.net"). Você pode alterar manualmente esse sufixo DNS em suas máquinas virtuais para aquela da zona privada. 
+Não. O sufixo DNS nas máquinas virtuais em sua rede virtual vinculada permanece como o sufixo fornecido pelo Azure padrão ("*.internal.cloudapp.net"). Você pode alterar manualmente esse sufixo DNS em suas máquinas virtuais para aquela da zona privada. 
 
 ### <a name="are-there-any-limitations-for-private-zones-during-this-preview"></a>Há alguma limitação para zonas privadas durante essa visualização?
 
@@ -276,7 +276,7 @@ Não há limites para o número de zonas permitidas por assinatura para zonas pr
 
 As zonas privadas que já são criadas por meio de APIs, PowerShell, CLI e SDKs são visíveis no portal do Azure. Mas os clientes não podem criar novas zonas privadas ou gerenciar associações com redes virtuais. Para redes virtuais associadas como redes virtuais de registro, os registros de VM registrados automaticamente não são visíveis no portal. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Saiba mais sobre o DNS do Azure](dns-overview.md).
 

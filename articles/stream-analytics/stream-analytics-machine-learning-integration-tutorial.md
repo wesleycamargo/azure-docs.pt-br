@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: b06fec8ab726f48e1937bae4cfbdbd9842788d0a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109300"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61480521"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Como realizar uma análise de sentimento usando o Azure Stream Analytics e o Azure Machine Learning
 Este artigo descreve como configurar rapidamente um trabalho do Azure Stream Analytics simples que se integre ao Azure Machine Learning. Você usa um modelo de análise de sentimento de Machine Learning da Galeria do Cortana Intelligence para analisar dados de texto de streaming e determinar a pontuação de sentimento em tempo real. Usar o Cortana Intelligence Suite permite realizar essa tarefa sem se preocupar com as complexidades de criar um modelo de análise de sentimento.
@@ -136,7 +136,7 @@ O trabalho obtém sua entrada do arquivo CSV que você carregou anteriormente pa
 3. Preencha a folha **Armazenamento de Blobs** com estes valores:
 
    
-   |Campo  |Valor  |
+   |Campo  |Value  |
    |---------|---------|
    |**Alias de entrada** | Use o nome `datainput` e selecione a opção **Selecionar o armazenamento de blobs por meio de sua assinatura**       |
    |**Conta de armazenamento**  |  Selecione a conta de armazenamento criada anteriormente.  |
@@ -156,7 +156,7 @@ O trabalho envia resultados para o mesmo armazenamento de blobs do qual ele obt�
 
 3. Preencha a folha **Armazenamento de Blobs** com estes valores:
 
-   |Campo  |Valor  |
+   |Campo  |Value  |
    |---------|---------|
    |**Alias de saída** | Use o nome `datamloutput` e selecione a opção **Selecionar o armazenamento de blobs por meio de sua assinatura**       |
    |**Conta de armazenamento**  |  Selecione a conta de armazenamento criada anteriormente.  |
@@ -179,7 +179,7 @@ Nesta seção do tutorial, você define uma função do trabalho de Stream Analy
 
 3. Preencha a folha **Função do Azure Machine Learning** com estes valores:
 
-   |Campo  |Valor  |
+   |Campo  |Value  |
    |---------|---------|
    | **Alias da função** | Use o nome `sentiment` e selecione a opção **Fornecer as configurações de função do Azure Machine Learning manualmente**, que oferece uma opção para inserir a URL e a chave.      |
    | **URL**| Cole a URL do serviço Web.|

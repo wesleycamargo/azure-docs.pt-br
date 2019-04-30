@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 194e6091180fa1dd0eaaf999e970c0248ea99db9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 388723624fde73899809b95ff8ae4ee23cf49a9d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60535884"
+ms.locfileid: "62108959"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Crie tarefas do Apache Spark Streaming com processamento de eventos exatamente uma vez
 
@@ -86,7 +86,7 @@ Por exemplo, é possível usar um procedimento armazenado com Banco de Dados SQL
 
 Outro exemplo é usar um sistema de arquivos particionado como blobs de armazenamento do Azure ou Azure Data Lake Storage. Nesse caso, a lógica do coletor não precisará verificar a existência de um arquivo. Se o arquivo que representa o evento existir, ele simplesmente será substituído pelos mesmos dados. Caso contrário, um novo arquivo será criado no caminho computado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Visão geral do Streaming do Apache Spark](apache-spark-streaming-overview.md)
 * [Criando trabalhos de Streaming do Apache Spark altamente disponíveis no Apache Hadoop YARN](apache-spark-streaming-high-availability.md)

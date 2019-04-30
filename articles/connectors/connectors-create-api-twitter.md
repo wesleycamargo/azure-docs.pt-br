@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 0fbd89202796cb4543dbecbeee605c9b87cc9d05
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230651"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104979"
 ---
 # <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Monitore e gerencie o Twitter usando os Aplicativos Lógicos do Azure
 
@@ -70,15 +70,15 @@ Você pode usar gatilhos que obtêm respostas de sua conta do Twitter e disponib
 
 ## <a name="examples"></a>Exemplos
 
-### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Gatilho do Twitter: quando um novo tweet é postado
+### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Gatilho do Twitter: Quando um novo tweet é postado
 
 Esse gatilho inicia um fluxo de trabalho do aplicativo lógico quando detecta um novo tweet, por exemplo, com a hashtag #Seattle. Sendo assim, por exemplo, quando esses tweets são encontrados, você pode adicionar um arquivo com o conteúdo dos tweets ao armazenamento, como uma conta do Dropbox, usando o conector do Dropbox. 
 
 Opcionalmente, você pode incluir uma condição segundo a qual tweets qualificados devem vir de usuários com um número mínimo de seguidores especificado.
 
-**Exemplo corporativo**: você pode usar esse gatilho para monitorar tweets sobre sua empresa e fazer upload do conteúdo desses tweets em um banco de dados SQL.
+**Exemplo corporativo**: Você pode usar esse gatilho monitore tweets sobre sua empresa e carregar o conteúdo dos tweets para um banco de dados SQL.
 
-### <a name="twitter-action-post-a-tweet"></a>Ação do Twitter: postar um tweet
+### <a name="twitter-action-post-a-tweet"></a>Ação do Twitter: Publicar um tweet
 
 Essa ação posta um tweet, mas você pode configurá-la para que o tweet tenha o conteúdo dos tweets encontrados pelo gatilho descrito anteriormente. 
 
@@ -86,7 +86,7 @@ Essa ação posta um tweet, mas você pode configurá-la para que o tweet tenha 
 
 Para obter detalhes técnicos sobre gatilhos, ações e limites, que são explicados na descrição da OpenAPI do conector (anteriormente conhecido como Swagger), veja a [página de referência](/connectors/twitterconnector/) do conector.
 
-## <a name="get-support"></a>Obtenha suporte
+## <a name="get-support"></a>Obter suporte
 
 * Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).

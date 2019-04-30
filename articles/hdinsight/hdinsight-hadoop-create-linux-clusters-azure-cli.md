@@ -1,7 +1,6 @@
 ---
 title: Criar clusters do Apache Hadoop usando a CLI clássica do Azure - Azure HDInsight
 description: Saiba como criar clusters do HDInsight usando a CLI clássica do Azure multiplataforma.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: c9b1f3570ae3f9b945c87c2ce316c3f72e32b4ad
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 21985b009694dc5a21c65d4c9dc9536cf6c01a0e
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792043"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128712"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>Criar clusters do HDInsight usando a CLI clássica do Azure
 
@@ -50,7 +49,7 @@ As etapas a seguir devem ser executadas de uma linha de comando, como o PowerShe
 
         azure config mode arm
 
-3. Crie um grupos de recursos. Esse grupo de recursos contém o cluster HDInsight e a conta de armazenamento associada.
+3. Crie um grupo de recursos. Esse grupo de recursos contém o cluster HDInsight e a conta de armazenamento associada.
 
         azure group create groupname location
 
@@ -112,7 +111,7 @@ As etapas a seguir devem ser executadas de uma linha de comando, como o PowerShe
       
       Pode levar vários minutos para que o processo de criação de cluster seja concluído. Geralmente, cerca de 15 minutos.
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot"></a>Solução de problemas
 
 Se você tiver problemas com a criação de clusters HDInsight, confira os [requisitos de controle de acesso](hdinsight-hadoop-create-linux-clusters-portal.md).
 

@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: ninarn
 ms.openlocfilehash: da850b8ff9174fa310c5247cd7e99af69db28a8b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328428"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477363"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuração de armazenamento para VMs do SQL Server
 
@@ -123,14 +123,14 @@ Para saber mais sobre preços, consulte a página [Preços de armazenamento](htt
 
 O Azure usa as configurações a seguir para criar o pool de armazenamento em VMs do SQL Server.
 
-| Configuração | Valor |
+| Configuração | Value |
 | --- | --- |
 | Tamanho da distribuição |256 KB (Data warehouse); 64 KB (Transacional) |
 | Tamanhos do disco |1 TB cada |
 | Cache |Ler |
 | Tamanho da alocação |Tamanho da unidade de alocação de NTFS de 64 KB |
-| Inicialização de arquivo instantânea |habilitado |
-| Bloquear páginas na memória |habilitado |
+| Inicialização de arquivo instantânea |Enabled |
+| Bloquear páginas na memória |Enabled |
 | Recuperação |Recuperação simples (sem resiliência) |
 | Número de colunas |Número de discos de dados<sup>1</sup> |
 | Local do TempDB |Armazenados em discos de dados<sup>2</sup> |

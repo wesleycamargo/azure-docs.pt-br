@@ -10,11 +10,11 @@ ms.date: 2/22/2017
 ms.author: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 5e65965678ed042081e4a406d3a207fb7ede299f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313644"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61483478"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Suporte para o compartilhamento de recursos entre origens (CORS) para os serviços de armazenamento do Azure
 Os serviços de armazenamento do Azure, da versão 2013-08-15 em diante, dão suporte a CORS (compartilhamento de recursos entre origens) para os serviços de Blob, Tabela e Fila. O CORS é um recurso HTTP que permite que um aplicativo web em execução em um domínio acesse recursos em outro domínio. Navegadores da Web implementam uma restrição de segurança, conhecida como [política de mesma origem](https://www.w3.org/Security/wiki/Same_Origin_Policy), que impede uma página da Web de chamar APIs em um domínio diferente. O CORS fornece uma maneira segura para permitir que um domínio (o domínio de origem) chame APIs em outro domínio. Confira a [Especificação CORS](https://www.w3.org/TR/cors/) para obter detalhes sobre o CORS.
@@ -166,11 +166,11 @@ A tabela a seguir indica como o armazenamento do Azure responderá às solicita�
 | **Cabeçalho da origem presente na solicitação** |**Regra(s) de CORS especificada(s) para este serviço** |**Existe uma regra de correspondência que permite todas as origens(*)** |**Regra de correspondência existe para correspondência exata da origem** |**Resposta inclui o cabeçalho Vary definido como origem** |**A resposta inclui Access-Control-Allowed-Origin: "*"** |**Resposta inclui Access-Control-Exposed-Headers** |
 | Não |Não |Não |Não |Não |Não |Não |
 | Não  |Sim |Não |Não  |Sim |Não |Não |
-| Não  |sim |sim |Não |Não  |sim |Sim |
+| Não  |sim |sim |Não |Não  |sim |sim |
 | sim |Não |Não |Não |Não |Não |Não  |
 | sim |sim |Não  |sim |sim |Não  |sim |
-| Sim |sim |Não |Não  |Sim |Não |Não  |
-| sim |Sim |sim |Não |Não  |sim |Sim |
+| sim |sim |Não |Não  |Sim |Não |Não  |
+| sim |sim |sim |Não |Não  |sim |Sim |
 
 ## <a name="billing-for-cors-requests"></a>Cobrança para solicitações CORS
 Solicitações de simulação com êxito são cobradas se você tiver CORS habilitado para qualquer um dos serviços de armazenamento para sua conta (chamando [Definir propriedades do serviço Blob](https://msdn.microsoft.com/library/hh452235.aspx), [Definir propriedades do serviço Fila](https://msdn.microsoft.com/library/hh452232.aspx) ou [Definir propriedades do serviço Tabela](https://msdn.microsoft.com/library/hh452240.aspx)). Para minimizar encargos, é recomendável configurar o elemento **MaxAgeInSeconds** em suas regras CORS para um valor grande para que o agente do usuário armazene a solicitação em cache.

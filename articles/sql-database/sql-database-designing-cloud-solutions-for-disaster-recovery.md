@@ -14,11 +14,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 46232afcaf9504d4cfbd80160e2d7e7ea958d600
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272759"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61488010"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Criar serviços globalmente disponíveis usando o banco de dados SQL do Azure
 

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: 10bec01a3b90776c8dd8c32a74ba7754264da131
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050128"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119715"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gerenciar servidor de configuração para recuperação de desastres do servidor físico
 
@@ -313,7 +313,7 @@ Para implantações de servidor de configuração antes de maio de 2016, a expir
 ## <a name="common-issues"></a>Problemas comuns
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Analisar os tutoriais para configurar a recuperação após desastres de [servidores físicos](tutorial-physical-to-azure.md) no Azure.
 

@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 503b7764ba7958a5448903b217b00e204ffcbf61
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527397"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61459256"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Como conectar aplicativos ao Banco de Dados do Azure para MySQL
 Este tópico lista os tipos de cadeia de conexão com suporte do Banco de Dados do Azure para MySQL, juntamente com modelos e exemplos. Você pode ter parâmetros e configurações diferentes na cadeia de conexão.
@@ -41,7 +41,7 @@ String url ="jdbc:mysql://%s:%s/%s[?verifyServerCertificate=true&useSSL=true&req
 var conn = mysql.createConnection({host: {your_host}, user: {username@servername}, password: {your_password}, database: {your_database}, Port: {your_port}[, ssl:{ca:fs.readFileSync({ca-cert filename})}}]);
 ```
 
-## <a name="odbc"></a>ODBCODBC
+## <a name="odbc"></a>ODBC
 ```odbc
 DRIVER={MySQL ODBC 5.3 UNICODE Driver};Server={your_host};Port={your_port};Database={your_database};Uid={username@servername};Pwd={your_password}; [sslca={ca-cert filename}; sslverify=1; Option=3;]
 ```

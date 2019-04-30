@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 63cb02c52b5def12675ccca4f2cd292a8ad4bb66
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: 87a162338cc67a3f2d2fc425bbcbefe2976661e5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295635"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104911"
 ---
 # <a name="get-started-with-the-onedrive-for-business-connector"></a>Introdução ao conector do OneDrive for Business
 Conecte-se ao OneDrive for Business para gerenciar seus arquivos. É possível executar várias ações, como carregar, atualizar, obter e excluir arquivos.
@@ -28,7 +28,7 @@ Para criar Aplicativos lógicos com o OneDrive for Business, primeiro você deve
 
 | Propriedade | Obrigatório | DESCRIÇÃO |
 | --- | --- | --- |
-| A criptografia do token |sim |Fornecer as credenciais do OneDrive for Business |
+| A criptografia do token |Sim |Fornecer as credenciais do OneDrive for Business |
 
 Depois de criar a conexão, é possível usá-la para executar as ações e ouvir os gatilhos descritos neste artigo.
 

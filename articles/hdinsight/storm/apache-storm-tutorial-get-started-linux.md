@@ -2,7 +2,6 @@
 title: Exemplos de storm-starter no Apache Storm no HDInsight – Azure
 description: Saiba como fazer a análise de big data e processar dados em tempo real usando o Apache Storm e os exemplos de storm-starter no HDInsight.
 keywords: storm-starter, exemplo do apache storm
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 5c0fe0921446dde12771bacf096f806701b90444
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 40757c80878ef5a06d3368d4c20f65ebfa11e47b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117992"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116377"
 ---
 # <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Introdução ao Apache Storm no HDInsight usando os exemplos do storm-starter
 
@@ -50,7 +49,7 @@ Use as seguintes etapas para criar um cluster Storm no HDInsight:
     * **Assinatura**: Selecione a assinatura a ser usada.
     * **Nome de usuário de logon do cluster** e **Senha de logon do cluster**: O logon ao acessar o cluster por HTTPS. Você pode usar essas credenciais para acessar serviços como a interface do usuário da Web do Ambari ou a API REST.
     * **Nome de usuário do SSH (Secure Shell)**: O logon usado ao acessar o cluster via SSH. Por padrão, a senha é a mesma do logon do cluster.
-    * **Grupo de Recursos**: O grupo de recursos no qual criar o cluster.
+    * **Grupo de recursos**: O grupo de recursos no qual criar o cluster.
     * **Localização**: A região do Azure na qual criar o cluster.
 
    ![Escolha a assinatura](./media/apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)

@@ -15,11 +15,11 @@ ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
 ms.openlocfilehash: 15b45cadc69830827952d87ffc2315b06b07b02c
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663393"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124976"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Como usar as APIs de comunicação dos Reliable Services
 O Service Fabric do Azure como uma plataforma é totalmente independente quanto às comunicações entre serviços. Todos os protocolos e pilhas são aceitáveis, de UDP a HTTP. Cabe ao desenvolvedor determinar a forma de comunicação entre os serviços. A estrutura de aplicativo dos Reliable Services fornece algumas pilhas de comunicação internas, bem como APIs que você pode usar para criar componentes de comunicação personalizados.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
 ms.openlocfilehash: ab8fb4a567e4c4a7bf1e884999a4e403a98547a0
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471026"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128008"
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Sincronização de dados offline em Aplicativos Móveis do Azure
 ## <a name="what-is-offline-data-sync"></a>O que é sincronização de dados offline?
@@ -37,13 +37,13 @@ A sincronização offline proporciona vários benefícios:
 
 Os tutoriais a seguir mostram como adicionar sincronização offline para os clientes móveis usando aplicativos móveis do Azure:
 
-* [Android: Habilitar a sincronização offline]
-* [Apache Cordova: habilitar sincronização offline](app-service-mobile-cordova-get-started-offline-data.md)
-* [iOS: Habilitar a sincronização offline]
-* [Xamarin iOS: Habilitar a sincronização offline]
-* [Xamarin Android: Habilitar a sincronização offline]
-* [Xamarin.Forms: habilitar a sincronização offline](app-service-mobile-xamarin-forms-get-started-offline-data.md)
-* [Plataforma Universal do Windows: Habilitar sincronização offline]
+* [Android: Habilitar sincronização offline]
+* [Apache Cordova: Habilitar sincronização offline](app-service-mobile-cordova-get-started-offline-data.md)
+* [iOS: Habilitar sincronização offline]
+* [Xamarin iOS: Habilitar sincronização offline]
+* [Xamarin Android: Habilitar sincronização offline]
+* [Xamarin.Forms: Habilitar sincronização offline](app-service-mobile-xamarin-forms-get-started-offline-data.md)
+* [Plataforma universal do Windows: Habilitar sincronização offline]
 
 ## <a name="what-is-a-sync-table"></a>O que é uma tabela de sincronização?
 Para acessar o ponto de extremidade "/tables", os SDKs do cliente móvel do Azure fornecem interfaces como `IMobileServiceTable` (SDK do cliente .NET) ou `MSTable` (cliente iOS). Essas APIs se conectam diretamente ao back-end do Aplicativo Móvel do Azure e falharão se o dispositivo cliente não tiver uma conexão de rede.
@@ -53,7 +53,7 @@ Para oferecer suporte a uso offline, seu aplicativo deve usar as APIs de *tabela
 ## <a name="what-is-a-local-store"></a>O que é um armazenamento local?
 Um armazenamento local é a camada de persistência de dados no dispositivo cliente. Os SDKs de cliente de aplicativos móveis do Azure oferecem uma implementação padrão do armazenamento local. No Windows, Xamarin e Android, ele se baseia em SQLite. No iOS, ele se baseia em Core Data.
 
-Para usar a implementação baseada em SQLite no Windows Phone ou Microsoft Store, você precisa instalar uma extensão SQLite. Para obter mais detalhes, veja [Plataforma Universal do Windows: Habilitar sincronização offline]. Android e iOS são fornecidos com uma versão do SQLite no próprio sistema operacional do dispositivo; portanto, não é necessário fazer referência a sua própria versão do SQLite.
+Para usar a implementação baseada em SQLite no Windows Phone ou Microsoft Store, você precisa instalar uma extensão SQLite. Para obter mais informações, consulte [plataforma Universal do Windows: Habilitar sincronização offline]. Android e iOS são fornecidos com uma versão do SQLite no próprio sistema operacional do dispositivo; portanto, não é necessário fazer referência a sua própria versão do SQLite.
 
 Os desenvolvedores também podem implementar seu próprio armazenamento local. Por exemplo, se você quiser armazenar dados em um formato criptografado no cliente móvel, poderá definir um armazenamento local que usa SQLCipher para criptografia.
 
@@ -65,9 +65,9 @@ Um armazenamento local é associado ao contexto de sincronização usando um mé
 ## <a name="how-sync-works"></a>Como a sincronização offline funciona
 Ao usar tabelas de sincronização, o código do cliente controla quando as alterações locais são sincronizadas com um back-end do aplicativo móvel do Azure. Nada será enviado ao back-end até que haja uma chamada para alterações locais de *push* . Da mesma forma, o armazenamento local é preenchido com dados novos somente quando há uma chamada para dados de *pull* .
 
-* **Push**: push é uma operação no contexto de sincronização e envia todas as alterações de CUD desde o último envio por push. Observe que não é possível enviar apenas alterações de uma tabela individual, pois as operações poderiam ser enviadas fora da ordem. O envio por push executa uma série de chamadas REST ao back-end do seu aplicativo móvel do Azure, que por sua vez, modifica o banco de dados do servidor.
-* **Pull**: o pull é executado por tabela e pode ser personalizado com uma consulta para recuperar apenas um subconjunto dos dados do servidor. Os SDKs de cliente móvel do Azure inserem então os dados resultantes no armazenamento local.
-* **Pushes implícitos**: se um pull for executado em uma tabela que tenha atualizações locais pendentes, o pull primeiro executará um `push()` no contexto de sincronização. Esse envio por push ajuda a minimizar conflitos entre as alterações que já estão na fila e novos dados do servidor.
+* **Push**: Envio por push é uma operação no contexto de sincronização e envia todas as alterações CUD desde o último envio por push. Observe que não é possível enviar apenas alterações de uma tabela individual, pois as operações poderiam ser enviadas fora da ordem. O envio por push executa uma série de chamadas REST ao back-end do seu aplicativo móvel do Azure, que por sua vez, modifica o banco de dados do servidor.
+* **Pull**: Pull é executado em uma base por tabela e pode ser personalizado com uma consulta para recuperar apenas um subconjunto dos dados do servidor. Os SDKs de cliente móvel do Azure inserem então os dados resultantes no armazenamento local.
+* **Pushes implícitos**: Se um pull é executado em uma tabela que tenha atualizações locais pendentes, o pull primeiro executará um `push()` no contexto de sincronização. Esse envio por push ajuda a minimizar conflitos entre as alterações que já estão na fila e novos dados do servidor.
 * **Sincronização Incremental**: o primeiro parâmetro para a operação de pull é um *nome de consulta* que é usado apenas no cliente. Se você usar um nome de consulta não nulo, o SDK móvel do Azure executará uma *sincronização incremental*. Cada vez que uma operação de pull retornar um conjunto de resultados, o carimbo de data/hora `updatedAt` mais recente desse conjunto de resultados será armazenado nas tabelas do sistema local do SDK. As operações de pull subsequentes recuperarão somente registros após esse carimbo de data/hora.
 
   Para usar a sincronização incremental, o servidor deve retornar valores `updatedAt` significativos e também deve oferecer suporte à classificação por este campo. No entanto, como o SDK adiciona sua própria classificação no campo updatedAt, não é possível usar uma consulta de pull que tem sua própria cláusula `orderBy` .
@@ -82,7 +82,7 @@ Ao usar tabelas de sincronização, o código do cliente controla quando as alte
             syncTable.Where(u => u.UserId == userid));
 
   Se você deseja recusar a sincronização incremental, passe `null` como a ID da consulta. Nesse caso, todos os registros são recuperados em cada chamada de `PullAsync`, o que é potencialmente ineficiente.
-* **Limpeza**: é possível limpar o conteúdo do armazenamento local usando `IMobileServiceSyncTable.PurgeAsync`.
+* **Limpando**: Você pode limpar o conteúdo do repositório local usando `IMobileServiceSyncTable.PurgeAsync`.
   Pode ser necessário realizar limpeza se você tiver dados obsoletos no banco de dados do cliente ou se quiser descartar todas as alterações pendentes.
 
   Uma limpeza remove uma tabela do repositório local. Se houver operações que estão aguardando a sincronização com o banco de dados do servidor, a limpeza gerará uma exceção, a menos que o parâmetro *forçar limpeza* esteja definido.
@@ -90,15 +90,15 @@ Ao usar tabelas de sincronização, o código do cliente controla quando as alte
   Como exemplo de dados obsoletos no cliente, suponha que no exemplo "lista de tarefas", Device1 mantém apenas os itens que não foram concluídos. Um todoitem “Comprar leite” é marcado como concluído no servidor por outro dispositivo. No entanto, o Device1 ainda terá o todoitem “Comprar leite” no repositório local, pois ele só está obtendo itens que não foram marcados como concluídos. Uma limpeza limpa esse item obsoleto.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [iOS: Habilitar a sincronização offline]
-* [Xamarin iOS: Habilitar a sincronização offline]
-* [Xamarin Android: Habilitar a sincronização offline]
-* [Plataforma Universal do Windows: Habilitar sincronização offline]
+* [iOS: Habilitar sincronização offline]
+* [Xamarin iOS: Habilitar sincronização offline]
+* [Xamarin Android: Habilitar sincronização offline]
+* [Plataforma universal do Windows: Habilitar sincronização offline]
 
 <!-- Links -->
 [SDK do cliente do .NET]: app-service-mobile-dotnet-how-to-use-client-library.md
-[Android: Habilitar a sincronização offline]: app-service-mobile-android-get-started-offline-data.md
-[iOS: Habilitar a sincronização offline]: app-service-mobile-ios-get-started-offline-data.md
-[Xamarin iOS: Habilitar a sincronização offline]: app-service-mobile-xamarin-ios-get-started-offline-data.md
-[Xamarin Android: Habilitar a sincronização offline]: app-service-mobile-xamarin-android-get-started-offline-data.md
-[Plataforma Universal do Windows: Habilitar sincronização offline]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
+[Android: Habilitar sincronização offline]: app-service-mobile-android-get-started-offline-data.md
+[iOS: Habilitar sincronização offline]: app-service-mobile-ios-get-started-offline-data.md
+[Xamarin iOS: Habilitar sincronização offline]: app-service-mobile-xamarin-ios-get-started-offline-data.md
+[Xamarin Android: Habilitar sincronização offline]: app-service-mobile-xamarin-android-get-started-offline-data.md
+[Plataforma universal do Windows: Habilitar sincronização offline]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md

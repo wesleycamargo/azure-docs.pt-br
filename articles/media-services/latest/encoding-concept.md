@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 532701eb2c5e92e5443f69c464b561d6fa242598
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: ed798995807f4037f0127b08e25e04bdd0340d42
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617624"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103534"
 ---
 # <a name="encoding-with-media-services"></a>Codificação com os Serviços de Mídia do Microsoft Azure
 
@@ -91,7 +91,11 @@ Os Serviços de Mídia oferece suporte completo para a personalização de todos
 
 Para dimensionar o processamento de mídia, consulte [escala com CLI](media-reserved-units-cli-how-to.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="provide-feedback"></a>Fornecer comentários
+
+Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
+
+## <a name="next-steps"></a>Próximas etapas
 
 * [Codificar a partir de uma URL HTTPS usando predefinições](job-input-from-http-how-to.md)
 * [Codificar um arquivo local usando os valores predefinidos internos](job-input-from-local-file-how-to.md)

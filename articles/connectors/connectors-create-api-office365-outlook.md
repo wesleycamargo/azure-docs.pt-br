@@ -3,20 +3,21 @@ title: Conectar ao Office 365 Outlook – Aplicativos Lógicos do Azure | Micros
 description: Gerenciar emails, contatos e calendários com as APIs REST do Office 365 e os Aplicativos Lógicos do Azure
 author: ecfan
 manager: jeconnoc
-ms.author: estfan
-ms.date: 10/18/2016
+ms.author: v-yiso
+origin.date: 10/18/2016
+ms.date: 09/03/2018
 ms.topic: article
 ms.service: logic-apps
 services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 0355f121a09e1ba89f98a8af5037eb1371db2242
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
-ms.translationtype: HT
+ms.openlocfilehash: 52abf17e869216e65780129a7b48df79bd79f67a
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215631"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62105047"
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Introdução ao conector do Outlook do Office 365
 O conector do Outlook do Office 365 permite interação com o Outlook no Office 365. Use esse conector para criar, editar e atualizar contatos e itens de calendário, bem como para obter, enviar e responder a emails.
@@ -68,7 +69,7 @@ Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho defi
 ## <a name="use-an-action"></a>Usar uma ação
 Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-1. Selecione o sinal de mais. Você tem várias opções: **adicionar uma ação**, **adicionar uma condição** ou uma das opções **Mais**.
+1. Selecione o sinal de mais. Você tem várias opções: **Adicionar uma ação**, **adicionar uma condição**, ou um dos **mais** opções.
    
     ![](./media/connectors-create-api-office365-outlook/add-action.png)
 2. Escolha **Adicionar uma ação**.

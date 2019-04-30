@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: f953e1dc15e12c37c30a86ebd7536b1126bf18f7
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
-ms.translationtype: HT
+ms.openlocfilehash: e78fa419b067c0bad48229dcfd8d4e986fc16903
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061993"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62117294"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Elemento de interface do usuário Microsoft.Common.DropDown
 Um controle de seleção com uma lista suspensa.

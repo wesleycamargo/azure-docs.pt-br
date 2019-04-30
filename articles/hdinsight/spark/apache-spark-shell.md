@@ -1,7 +1,6 @@
 ---
 title: Usar um Shell Interativo do Spark no Azure HDInsight
 description: Um Shell interativo do Spark fornece um processo de leitura/execução/impressão para executar um comando do Spark de cada vez e ver os resultados.
-services: hdinsight
 ms.service: hdinsight
 author: maxluk
 ms.author: maxluk
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.openlocfilehash: 3da6260faa87aecb7eb13f16386006e0c856d46b
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 9044ed3ad9cf9ffa2f54d130bb50b37df121b86f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653842"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116066"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Execute o Apache Spark no Shell Spark
 
@@ -60,7 +59,7 @@ Para acessar a instância de SparkSession, digite `spark`. Para acessar a instâ
 
 O comando shell do Spark (`spark-shell`, `pyspark` ou `sparkR`) dá suporte a vários parâmetros de linha de comando. Para ver uma lista completa de parâmetros, inicie o shell do Spark com a opção `--help`. Observe que alguns desses parâmetros podem se aplicar somente a `spark-submit`, que encapsula o shell do Spark.
 
-| switch | Descrição | exemplo |
+| switch | description | exemplo |
 | --- | --- | --- |
 | --master MASTER_URL | Especifica a URL mestre. No HDInsight, esse valor é sempre `yarn`. | `--master yarn`|
 | --jars JAR_LIST | Lista separada por vírgulas de jars locais a ser incluída em classpaths de driver e executor. No HDInsight, essa lista é composta de caminhos para o sistema de arquivos padrão no Armazenamento do Microsoft Azure ou no Data Lake Storage. | `--jars /path/to/examples.jar` |

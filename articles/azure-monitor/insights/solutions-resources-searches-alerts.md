@@ -1,24 +1,24 @@
 ---
-title: Salvar pesquisas e alertas em soluções de gerenciamento | Microsoft Docs
-description: As soluções de gerenciamento geralmente incluem pesquisas salvas no Log Analytics para analisar dados coletados pela solução. Elas podem também definir alertas para notificar o usuário ou executar automaticamente a ação em resposta a um problema crítico. Este artigo descreve como definir pesquisas salvas e alertas do Log Analytics em um modelo do Resource Manager para que eles possam ser incluídos em soluções de gerenciamento.
+title: Pesquisas salvas em soluções de gerenciamento | Microsoft Docs
+description: As soluções de gerenciamento geralmente incluem pesquisas salvas no Log Analytics para analisar dados coletados pela solução. Elas podem também definir alertas para notificar o usuário ou executar automaticamente a ação em resposta a um problema crítico. Este artigo descreve como definir pesquisas salvas em um modelo do Resource Manager para que eles possam ser incluídos em soluções de gerenciamento do Log Analytics.
 services: monitoring
 documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/18/2018
+ms.date: 02/27/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 97e6029ff85ce7ee8572fd76d04a5d72b27b2950
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 0975b23a8f96da6fc2dfcc8bd9ad046847a68aa9
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980101"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104810"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adicionar alertas e pesquisas salvas do Log Analytics à solução de gerenciamento (versão prévia)
 
@@ -78,7 +78,7 @@ Todas as propriedades de uma pesquisa salva são descritas na tabela a seguir.
 
 | Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| categoria | A categoria para a pesquisa salva.  As pesquisas salvas na mesma solução geralmente compartilham uma única categoria para que eles são agrupados juntos no console. |
+| category | A categoria para a pesquisa salva.  As pesquisas salvas na mesma solução geralmente compartilham uma única categoria para que eles são agrupados juntos no console. |
 | displayname | Nome para exibição para a pesquisa salva no portal. |
 | query | Consulta a executar. |
 
@@ -90,7 +90,6 @@ Os [Alertas de Log do Azure](../../azure-monitor/platform/alerts-unified-log.md)
 
 > [!NOTE]
 > A partir de 14 de maio de 2018, todos os alertas em uma instância de nuvem pública do Azure do espaço de trabalho do Log Analytics começaram a estender para o Azure. Para obter mais informações, consulte [Estender alertas para o Azure](../../azure-monitor/platform/alerts-extend.md). As ações dos usuários que estendem os alertas para o Azure agora são controladas em grupos de ações do Azure. Quando um workspace e seus alertas são estendidos para o Azure, será possível recuperar ou adicionar ações usando o [Grupo de Ação – Modelo do Azure Resource Manager](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
-
 Regras de alerta em uma solução de gerenciamento são constituídas por três recursos diferentes.
 
 - **Pesquisa salva.** Define a pesquisa de logs executada. Várias regras de alerta podem compartilhar uma única pesquisa salva.
@@ -120,7 +119,6 @@ Uma pesquisa salva pode ter uma ou mais agendas com cada agenda que representa u
             "enabled": "[variables('Schedule').Enabled]"
         }
     }
-
 As propriedades de recursos de agendamento são descritas na tabela a seguir.
 
 | Nome do elemento | Obrigatório | DESCRIÇÃO |
@@ -130,19 +128,14 @@ As propriedades de recursos de agendamento são descritas na tabela a seguir.
 | queryTimeSpan | Sim | Período de tempo em minutos no qual avaliar resultados. |
 
 O recurso de agendamento deve depender a pesquisa salva para que ele seja criado antes da agenda.
-
 > [!NOTE]
 > O Nome do Agendamento precisa ser exclusivo no workspace em questão; dois agendamentos não podem ter a mesma ID, mesmo se forem associados a diferentes pesquisas salvas. Além disso, todas as pesquisas, agendas e ações salvas criadas com a API do Log Analytics deve estar em minúsculas.
 
 ### <a name="actions"></a>Ações
 Um agendamento pode ter várias ações. Uma ação pode definir um ou mais processos a serem executados, como enviar um email ou iniciar um runbook, ou então ela pode definir um limite que determina quando os resultados de uma pesquisa correspondem a certos critérios. Algumas ações definirão ambos para que os processos sejam executados quando o limite for atingido.
-
 As ações podem ser definidas usando o recurso de [grupo de ações] ou recurso de ação.
-
 > [!NOTE]
 > A partir de 14 de maio de 2018, todos os alertas em uma instância de nuvem pública do Azure do espaço de trabalho do Log Analytics começaram a estender-se automaticamente ao Azure. Para obter mais informações, consulte [Estender alertas para o Azure](../../azure-monitor/platform/alerts-extend.md). As ações dos usuários que estendem os alertas para o Azure agora são controladas em grupos de ações do Azure. Quando um workspace e seus alertas são estendidos para o Azure, será possível recuperar ou adicionar ações usando o [Grupo de Ação – Modelo do Azure Resource Manager](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
-
-
 Há dois tipos de recurso de ação especificado pelo **tipo** propriedade. Um agendamento requer uma ação **Alerta**, que define os detalhes da regra de alerta e quais ações são tomadas quando um alerta é criado. Recursos de ação com um tipo de `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.
 
 Ações de alerta tem a seguinte estrutura. Isso inclui variáveis e parâmetros comuns para que você possa copiar e colar este snippet de código em seu arquivo de solução e alterar os nomes de parâmetro.
@@ -195,7 +188,7 @@ Esta seção é necessária. Define as propriedades para o limite de alerta.
 | Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--|:--|:--|
 | Operador | Sim | O operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
-| Valor | Sim | O valor para comparar os resultados. |
+| Value | Sim | O valor para comparar os resultados. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Esta seção é opcional. Inclua-o para um alerta de métrica de medição.
@@ -207,7 +200,7 @@ Esta seção é opcional. Inclua-o para um alerta de métrica de medição.
 |:--|:--|:--|
 | TriggerCondition | Sim | Especifica se o limite do número total de violações ou falhas consecutivas dos seguintes valores:<br><br>**Total<br>consecutivas** |
 | Operador | Sim | O operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
-| Valor | Sim | Número de vezes que os critérios devem ser atendidos para disparar o alerta. |
+| Value | Sim | Número de vezes que os critérios devem ser atendidos para disparar o alerta. |
 
 
 #### <a name="throttling"></a>Limitação
@@ -240,12 +233,12 @@ Cada agenda tem uma ação **Alerta**. Isso define os detalhes do alerta e, opci
 
 | Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--|:--|:--|
-| Destinatários | Sim | Lista delimitada por vírgulas de endereços de email para enviar notificações quando um alerta é criado, como no exemplo a seguir.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| Assunto | Sim | Linha de assunto do email. |
-| Anexo | Não  | Anexos não são atualmente suportados. Se este elemento for incluído, ele deve ser **nenhum**. |
+| Recipients | Sim | Lista delimitada por vírgulas de endereços de email para enviar notificações quando um alerta é criado, como no exemplo a seguir.<br><br>**[ "recipient1\@contoso.com", "recipient2\@contoso.com" ]** |
+| Subject | Sim | Linha de assunto do email. |
+| Attachment | Não  | Anexos não são atualmente suportados. Se este elemento for incluído, ele deve ser **nenhum**. |
 
 ##### <a name="remediation"></a>Correção
-Esta seção é opcional. Inclua-a se desejar que um runbook seja iniciado em resposta ao alerta. |
+Esta seção é opcional. Inclua-a se desejar que um runbook seja iniciado em resposta ao alerta. 
 
 | Nome do elemento | Obrigatório | DESCRIÇÃO |
 |:--|:--|:--|
@@ -274,7 +267,6 @@ Se o alerta for chamar um webhook, ele precisará de um recurso de ação com um
         "customPayload": "[variables('Alert').Webhook.CustomPayLoad]"
       }
     }
-
 As propriedades de recursos de ação do Webhook são descritas nas tabelas a seguir.
 
 | Nome do elemento | Obrigatório | DESCRIÇÃO |

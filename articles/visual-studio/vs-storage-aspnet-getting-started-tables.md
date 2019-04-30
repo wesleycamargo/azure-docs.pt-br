@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
 ms.openlocfilehash: ea50506df53bfd586656d0030be4536d9d3b907d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010134"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122968"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Introdução ao Armazenamento de Tabelas do Azure e aos Serviços Conectados do Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -707,7 +707,7 @@ Esta seção ilustra como excluir uma entidade de uma tabela.
   
     ![Obter um único](./media/vs-storage-aspnet-getting-started-tables/delete-entity-results.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Consulte outros guias de recursos para obter informações sobre opções adicionais para armazenar dados no Azure.
 
   * [Introdução ao Armazenamento de Blobs do Azure e aos Serviços Conectados do Visual Studio (ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)

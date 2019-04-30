@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2018
+ms.date: 03/14/2019
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 6ebd25dc65f86e5e028c1c56943756b46d0db9a8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0516c954bd23d5a2e339c5df447a923528e09d93
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011800"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61430623"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Perguntas frequentes sobre o Cloudyn
 
@@ -154,7 +154,7 @@ Após adicionar o acesso do Azure Resource Manager e os dados forem coletados, v
 
 ## <a name="is-cloudyn-agent-based"></a>O Cloudyn é baseado em agente?
 
- Não. Os agentes não são usados. Os dados da métrica da máquina virtual do Azure para VMs são coletados da API do Microsoft Insights. Se você quiser reunir dados de métrica de VMs do Azure, eles precisam ter as configurações de diagnóstico habilitadas.
+Não. Os agentes não são usados. Os dados da métrica da máquina virtual do Azure para VMs são coletados da API do Microsoft Insights. Se você quiser reunir dados de métrica de VMs do Azure, eles precisam ter as configurações de diagnóstico habilitadas.
 
 ## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>Relatórios Cloudyn mostram mais de um locatário do AD por relatório?
 

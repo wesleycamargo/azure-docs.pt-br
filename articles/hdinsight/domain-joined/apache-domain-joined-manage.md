@@ -1,7 +1,6 @@
 ---
 title: Gerenciar clusters HDInsight com Enterprise Security Package - Azure
 description: Saiba como gerenciar clusters HDInsight com Enterprise Security Package.
-services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
@@ -9,12 +8,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: 0fec9173eb94aa60c3689089e4eacd2d9d47724a
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: 951bd74c67c77c944a17e41646c4fe49ef46b33f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200014"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128306"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Gerenciar clusters HDInsight com Enterprise Security Package
 Saiba mais sobre usuários e funções no ESP (Enterprise Security Package) do HDInsight e como gerenciar clusters ESP.

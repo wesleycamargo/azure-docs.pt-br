@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: roiyz
-ms.openlocfilehash: 9d9f634d494c3c88146ab1f243d17609cf30bbcd
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: MT
+ms.openlocfilehash: 5a184c72da8af0d451902a164c8b71a94a01883f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620675"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129069"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensão de Driver NVIDIA GPU para Linux
 
@@ -35,7 +35,7 @@ Uma extensão também está disponível para instalar drivers NVIDIA GPU em [VMs
 
 Esta extensão é compartível com as seguintes distribuições do sistema operacional, dependendo do suporte do driver para uma versão específica do sistema operacional.
 
-| Distribuição | Versão |
+| Distribuição | Version |
 |---|---|
 | Linux: Ubuntu | 16.04 LTS, 18.04 LTS |
 | Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5, 7.6 |
@@ -73,9 +73,9 @@ O JSON a seguir mostra o esquema para a extensão.
 
 | NOME | Valor/Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | data |
-| publicador | Microsoft.HpcCompute | cadeia de caracteres |
-| Tipo | NvidiaGpuDriverLinux | cadeia de caracteres |
+| apiVersion | 2015-06-15 | date |
+| publicador | Microsoft.HpcCompute | string |
+| Tipo | NvidiaGpuDriverLinux | string |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>Configurações
@@ -84,9 +84,9 @@ Todas as configurações são opcionais. O comportamento padrão é não atualiz
 
 | NOME | DESCRIÇÃO | Valor Padrão | Valores Válidos | Tipo de Dados |
 | ---- | ---- | ---- | ---- | ---- |
-| updateOS | Atualize o kernel, mesmo que não seja necessário para instalação do driver | falso | verdadeiro, falso | booleano |
-| driverVersion | NV: versão do driver GRID<br> NC/ND: versão do Kit de ferramentas CUDA. Os drivers mais recentes para o CUDA escolhido são instalados automaticamente. | mais recente | GRID: "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | cadeia de caracteres |
-| installCUDA | Instale o kit de ferramentas CUDA. Só é relevante para as VMs da série NC/ND. | verdadeiro | verdadeiro, falso | booleano |
+| updateOS | Atualize o kernel, mesmo que não seja necessário para instalação do driver | falso | verdadeiro, falso | boolean |
+| driverVersion | NV: versão do driver GRID<br> NC/ND: versão do Kit de ferramentas CUDA. Os drivers mais recentes para o CUDA escolhido são instalados automaticamente. | mais recente | GRID: "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
+| installCUDA | Instale o kit de ferramentas CUDA. Só é relevante para as VMs da série NC/ND. | verdadeiro | verdadeiro, falso | boolean |
 
 
 ## <a name="deployment"></a>Implantação
@@ -154,7 +154,7 @@ az vm extension set `
 
 ## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
 
-### <a name="troubleshoot"></a>Solucionar problemas
+### <a name="troubleshoot"></a>Solução de problemas
 
 Os dados sobre o estado das implantações de extensão podem ser recuperados no Portal do Azure usando o Azure PowerShell e a CLI do Azure. Para ver o estado da implantação das extensões de uma determinada VM, execute o comando a seguir.
 
