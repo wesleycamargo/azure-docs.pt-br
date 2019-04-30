@@ -60,7 +60,7 @@ A tabela a seguir fornece descrições dos elementos JSON específicos para o se
 | -------- | ----------- | -------- |
 | type | A propriedade type deve ser definida como: **AzureSearch**. | Sim |
 | url | URL para o serviço Azure Search. | Sim |
-| chave | Chave de administração para o serviço Azure Search. | Sim |
+| key | Chave de administração para o serviço Azure Search. | Sim |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
@@ -68,7 +68,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | -------- | ----------- | -------- |
-| Tipo | A propriedade type deve ser definida como: **AzureSearchIndex**.| Sim |
+| type | A propriedade type deve ser definida como: **AzureSearchIndex**.| Sim |
 | indexName | Nome do índice do Azure Search. O Data Factory não cria o índice. O índice deve existir no Azure Search. | Sim |
 
 
