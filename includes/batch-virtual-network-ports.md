@@ -64,14 +64,14 @@ Você não precisa especificar os NSGs no nível da sub-rede porque o Lote confi
 
 **Regras de segurança de entrada**
 
-| Endereços IP da fonte | Marca de serviço de origem | Portas de origem | Destino | Portas de destino | Protocolo | Ação |
+| Endereços IP da fonte | Marca de serviço de origem | Portas de origem | Destino | Portas de destino | Protocol | Ação |
 | --- | --- | --- | --- | --- | --- | --- |
 | N/D | `BatchNodeManagement` [Marca de serviço](../articles/virtual-network/security-overview.md#service-tags) | * | Qualquer | 29876-29877 | TCP | PERMITIR |
 | Usuário IPs de origem para acessar remotamente os nós de computação e/ou sub-rede do nó de computação para tarefas de várias instâncias do Linux, se necessário. | N/D | * | Qualquer | 3389 (Windows), 22 (Linux) | TCP | PERMITIR |
 
 **Regras de segurança da saída**
 
-| Fonte | Portas de origem | Destino | Marca de serviço de destino | Protocolo | Ação |
+| Fonte | Portas de origem | Destino | Marca de serviço de destino | Protocol | Ação |
 | --- | --- | --- | --- | --- | --- |
 | Qualquer | 443 | [Marca do serviço](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (na mesma região que sua conta do lote e a rede virtual)  | Qualquer | PERMITIR |
 
@@ -97,13 +97,13 @@ Configure o tráfego de entrada na porta 3389 para Windows se você precisar per
 
 **Regras de segurança de entrada**
 
-| Endereços IP da fonte | Portas de origem | Destino | Portas de destino | Protocolo | Ação |
+| Endereços IP da fonte | Portas de origem | Destino | Portas de destino | Protocol | Ação |
 | --- | --- | --- | --- | --- | --- |
 Qualquer <br /><br />Embora isso exija efetivamente "permitir todos", o serviço do Lote aplica uma regra ACL no nível de cada nó que filtra todos os endereços IP que não são do serviço do Lote. | * | Qualquer | 10100, 20100, 30100 | TCP | PERMITIR |
 | Opcional, para permitir o acesso RDP em nós de computação. | * | Qualquer | 3389 | TCP | PERMITIR |
 
 **Regras de segurança da saída**
 
-| Fonte | Portas de origem | Destino | Portas de destino | Protocolo | Ação |
+| Fonte | Portas de origem | Destino | Portas de destino | Protocol | Ação |
 | --- | --- | --- | --- | --- | --- |
 | Qualquer | * | Qualquer | 443  | Qualquer | PERMITIR |
