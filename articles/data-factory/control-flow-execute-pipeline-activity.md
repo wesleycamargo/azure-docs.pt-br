@@ -63,7 +63,7 @@ A atividade de execução de pipeline permite que um pipeline do Data Factory in
 Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
 Nome | Nome da atividade de execução de pipeline. | Cadeia de caracteres | Sim
-tipo | Precisa ser definido como: **ExecutePipeline**. | Cadeia de caracteres | Sim
+Tipo | Precisa ser definido como: **ExecutePipeline**. | Cadeia de caracteres | Sim
 pipeline | Referência de pipeline para o pipeline dependente que invoca esse pipeline. Um objeto de referência do pipeline tem duas propriedades: **referenceName** e **type**. A propriedade referenceName especifica o nome do pipeline de referência. A propriedade type deve ser definida como PipelineReference. | PipelineReference | Sim
 parameters | Parâmetros a serem passados para o pipeline invocado | Um objeto JSON que mapeia os nomes de parâmetro para os valores de argumento | Não 
 waitOnCompletion | Define se a atividade de execução aguarda a execução do pipeline dependente ser concluída. O padrão é falso. | Boolean | Não 
