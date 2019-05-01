@@ -3,19 +3,19 @@ title: Passar um token de acesso por meio de uma politica personalizada para seu
 description: Saiba como você pode passar por meio de um token de acesso para provedores de identidade do OAuth 2.0 como uma declaração através de uma política personalizada para o seu aplicativo no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 784387b119bff6445015419adfd3bc0e52eee43f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d752af1860d76e59df045907c11d16b4e1d20b0c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60397169"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702944"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Passar um token de acesso por meio de uma politica personalizada para seu aplicativo no Azure Active Directory B2C
 

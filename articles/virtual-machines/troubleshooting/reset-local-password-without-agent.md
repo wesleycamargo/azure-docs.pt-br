@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/31/2018
+ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: 6b77ceb2ab9abe232cec75254b30ce37c3dbbf60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c0152726aba115e1b370838308a7bf0af08cab7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307535"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708136"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Redefina a senha local do Windows para a VM do Azure offline
 Você pode redefinir a senha local do Windows de uma VM no Azure usando o [portal do Azure ou Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), desde que o agente convidado do Azure esteja instalado. Esse método é a principal maneira de redefinir uma senha para uma VM do Azure. Caso encontre problemas com o agente convidado do Azure, como não responder ou falhar na instalação após carregamento de uma imagem personalizada, você poderá redefinir manualmente uma senha do Windows. Este artigo fornece detalhes sobre como redefinir uma senha de conta local anexando o disco virtual do SO de origem a outra VM. As etapas descritas neste artigo não se aplicam aos controladores de domínio do Windows. 
@@ -106,7 +106,7 @@ Sempre tentar redefinir uma senha usando o [portal do Azure ou Azure PowerShell]
      ```
      
      ![Criar gpt.ini](./media/reset-local-password-without-agent/create_gpt_ini.png)
-5. Crie `scripts.ini` em `\Windows\System32\GroupPolicy\Machine\Scripts\Startup`. Verifique se as pastas ocultas são mostradas. Se necessário, crie as pastas`Machine` ou `Scripts`.
+5. Crie `scripts.ini` em `\Windows\System32\GroupPolicy\Machines\Scripts\`. Verifique se as pastas ocultas são mostradas. Se necessário, crie as pastas`Machine` ou `Scripts`.
    
    * Adicione as seguintes linhas ao arquivo `scripts.ini` que você criou:
      
@@ -156,7 +156,7 @@ Sempre tentar redefinir uma senha usando o [portal do Azure ou Azure PowerShell]
     
     * De %windir%\System32
       * remova FixAzureVM.cmd
-    * De %windir%\System32\GroupPolicy\Machine\
+    * De %windir%\System32\GroupPolicy\Machine\Scripts
       * remova scripts.ini
     * De %windir%\System32\GroupPolicy
       * remova gpt.ini (se gpt.ini já existia e você o renomeou para gpt.ini.bak, renomeie o arquivo .bak de volta para gpt.ini)

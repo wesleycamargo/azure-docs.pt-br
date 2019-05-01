@@ -1,25 +1,18 @@
 ---
-title: Configurar SKUs para uma oferta de aplicativo do Azure | Microsoft Docs
+title: Configurar SKUs para uma oferta de aplicativo do Azure | O Azure Marketplace
 description: Como configurar as SKUs para um aplicativo gerenciado do Azure e um modelo de solução do Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 5d6ec0197699f603c79f414e015cdebcde6b9f60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/23/2019
+ms.author: pabutler
+ms.openlocfilehash: ef4ea2419c64d0376023ea5d291460df48a51c63
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744976"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943427"
 ---
 # <a name="azure-application-skus-tab"></a>Guia de SKUs de aplicativo do Azure
 
@@ -44,22 +37,25 @@ Use estas etapas para criar uma nova SKU:
 
 ### <a name="sku-details-for-a-solution-template"></a>Detalhes da SKU para um modelo de solução
 
-Forneça as seguintes configurações de SKU:
+A próxima captura de tela mostra o formulário de detalhes da SKU para um modelo de solução.
 
-- **Título** – um título para o SKU. Esse título é mostrado na galeria para este item.
-- **Resumo** – uma breve descrição resumida do SKU. (O comprimento máximo é de 100 caracteres.)
-- **Descrição** – uma descrição detalhada do SKU.
-- **Tipo de SKU** – uma lista suspensa com estes valores: "Modelo de solução" e "Aplicativo gerenciado". Para este cenário, selecione **Modelo de solução**.
-- **Disponibilidade de nuvem** – o local do SKU. O padrão é **Azure público**.
-Público do Azure - essa máquina virtual poderá ser implantada nos clientes em todas as regiões públicas do Azure que têm a integração do Marketplace.
-- **Nuvem do Azure Governamental** – esta máquina virtual será implantada na nuvem do Azure Governamental. Antes de publicar no [Azure Governamental](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), a Microsoft recomenda que os fornecedores testem e validem se a solução funciona no ambiente conforme o esperado. Para preparação e teste, solicite [conta de avaliação](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/).
+![Formulário de detalhes de SKU para o modelo de solução](./media/azureapp-sku-details-solutiontemplate.png)
 
-  >[!NOTE] 
-  >O Microsoft Azure Governamental é uma nuvem de comunidade do governo, com acesso controlado para clientes federais, estaduais, locais ou tribais dos EUA e parceiros qualificados para atender a essas entidades.
+Forneça os seguintes valores SKU.  Os campos anexados com um asterisco são obrigatórios.
 
-- **Trata-se de uma SKU privada?** – selecione Sim se o SKU está disponível apenas para um grupo seleto de clientes.
+|    Campo         |       DESCRIÇÃO                                                            |
+|  ---------       |     ---------------                                                          |
+|  **Título\***     | Um título para a SKU. Esse título é mostrado na galeria para este item.   |
+| **Resumo\***    | Uma breve descrição resumida da SKU. (O comprimento máximo é de 100 caracteres.)  |
+| **Descrição\*** | Uma descrição detalhada do SKU. Há suporte para HTML básica.                 | 
+| **Tipo de SKU\***   | Tipo de solução de aplicativo do Azure, selecione ***modelo de solução** para esse cenário. |
+| **Disponibilidade de nuvem\*** | O local do SKU. O padrão é **Azure público**.  <b/>   **Azure público** -aplicativo será implantada nos clientes em todas as regiões públicas do Azure que tem a integração do marketplace.  <b/>   **Nuvem do Azure governamental** -aplicativo será implantado na nuvem do governo do Azure. Antes de publicar no [do Azure governamental](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), a Microsoft recomenda fornecedores testem e validem a solução funciona conforme o esperado nesse ambiente. Para preparação e teste, solicite [conta de avaliação](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/).  |
+| **Trata-se de uma SKU privada?\*** | Selecione **Sim** se este SKU está disponível apenas para um grupo seleto de clientes. |
+|   |   |
 
-    ![Formulário de detalhes de SKU para o modelo de solução](./media/azureapp-sku-details-solutiontemplate.png)
+  > [!NOTE] 
+  > O Microsoft Azure Governamental é uma nuvem de comunidade do governo, com acesso controlado para clientes federais, estaduais, locais ou tribais dos EUA e parceiros qualificados para atender a essas entidades.
+
 
 ### <a name="sku-details-for-managed-application"></a>Detalhes de SKU do aplicativo gerenciado
 
@@ -67,51 +63,45 @@ A próxima captura de tela mostra o formulário de detalhes de SKU para um aplic
 
    ![Formulário de detalhes de SKU do aplicativo gerenciado](./media/azureapp-sku-details-managedapplication.png)
 
-Defina as seguintes configurações de SKU:
+Defina as seguintes configurações de SKU. Os campos anexados com um asterisco são obrigatórios.
 
-- **Título** – um título para o SKU. Esse título é mostrado na galeria para este item.
-- **Resumo** – uma breve descrição resumida do SKU. (O comprimento máximo é de 100 caracteres.)
-- **Descrição** – uma descrição detalhada do SKU.
-- **Tipo de SKU** – uma lista suspensa com estes valores: "Modelo de solução" e "Aplicativo gerenciado". Para este cenário, selecione **Aplicativo Gerenciado**.
-- **Disponibilidade de nuvem** – o local do SKU. O padrão é **Azure público**.
-- **Público do Azure** - essa máquina virtual poderá ser implantada nos clientes em todas as regiões públicas do Azure que têm a integração do Marketplace.
-- **Nuvem do Azure Governamental** – esta máquina virtual será implantada na nuvem do Azure Governamental. Antes de publicar no [Azure Governamental](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), a Microsoft recomenda que os fornecedores testem e validem se a solução funciona no ambiente conforme o esperado. Para preparação e teste, solicite [conta de avaliação](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/).
+|    Campo         |       DESCRIÇÃO                                                            |
+|  ---------       |     ---------------                                                          |
+|  **Título\***     | Um título para a SKU. Esse título é mostrado na galeria para este item.   |
+| **Resumo\***    | Uma breve descrição resumida da SKU. (O comprimento máximo é de 100 caracteres.)  |
+| **Descrição\*** | Uma descrição detalhada do SKU. Há suporte para HTML básica.                 | 
+| **Tipo de SKU\***   | Tipo de solução de aplicativo do Azure, selecione ***aplicativo gerenciado** para esse cenário. 
+| **Disponibilidade de nuvem\*** | O local do SKU. O padrão é **Azure público**.  <b/>   **Azure público** -aplicativo será implantada nos clientes em todas as regiões públicas do Azure que tem a integração do marketplace.  <b/>   **Nuvem do Azure governamental** -aplicativo será implantado na nuvem do governo do Azure. Antes de publicar no [do Azure governamental](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), a Microsoft recomenda fornecedores testem e validem a solução funciona conforme o esperado nesse ambiente. Para preparação e teste, solicite [conta de avaliação](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/).   O Microsoft Azure Governamental é uma nuvem de comunidade do governo, com acesso controlado para clientes federais, estaduais, locais ou tribais dos EUA e parceiros qualificados para atender a essas entidades. |
+| **Trata-se de uma SKU privada?\*** | Selecione **Sim** se este SKU está disponível apenas para um grupo seleto de clientes. |
+| **Disponibilidade de país/região\*** | Use **selecionar regiões** para exibir a lista de países/regiões que estão disponíveis. Verifique cada país/região e selecione **OK** para salvar suas escolhas.  <b/>   ![Lista de disponibilidade de país e região](./media/azure-app-select-country-region.png)  |
+| **Preço antigo\*** | O preço para a SKU, em USD por mês. Os preços são definidos em moeda local usando taxas de câmbio atuais após a configuração. Valide-os, já que essas configurações são suas. Para definir ou exibir o preço de cada país/região individualmente, exporte a planilha de preços e importe-a com preços personalizados.  Você deve salvar as alterações de preços para habilitar a exportação/importação de dados de preços.  |
+| **Moeda simplificada de preços\*** | O preço para a SKU, em USD por mês. Deve ser igual ao Preço Antigo. Para obter mais informações, consulte [Preços simplificados da moeda](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer). |
+|  |  |
 
-  >[!NOTE] 
-  >O Microsoft Azure Governamental é uma nuvem de comunidade do governo, com acesso controlado para clientes federais, estaduais, locais ou tribais dos EUA e parceiros qualificados para atender a essas entidades.
-
-- **Trata-se de uma SKU privada?** – selecione Sim se o SKU está disponível apenas para um grupo seleto de clientes.
-- **Disponibilidade de país/região** – use **Selecionar regiões** para exibir a lista de países/regiões disponíveis. Verifique cada país/região e selecione **OK** para salvar suas escolhas. 
-
-   ![Lista de disponibilidade de país e região](./media/azure-app-select-country-region.png)
-
-- **Preço Antigo** – insira o preço da SKU, em USD por mês. Os preços são definidos em moeda local usando taxas de câmbio atuais após a configuração. Valide-os, já que essas configurações são suas. Para definir ou exibir o preço de cada país/região individualmente, exporte a planilha de preços e importe-a com preços personalizados.
-
-  >[!NOTE]
-  >Salve as alterações de preços para habilitar a exportação/importação de dados sobre preços.
-
-- **Preços Simplificados da Moeda** – insira o preço da SKU, em USD por mês. Deve ser igual ao Preço Antigo. Para obter mais informações, consulte [Preços simplificados da moeda](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer).
 
 ### <a name="package-details-for-solution-template"></a>Detalhes do pacote do modelo de solução
 
-Forneça os seguintes detalhes do pacote:
+   ![Detalhes do pacote do modelo de solução](./media/azureapp-sku-pkgdetails-solutiontemplate.png)
 
-- **Versão** – a versão do pacote do qual você fará upload. As tags de versão devem ter o formato X.Y.Z, onde X, Y e Z são inteiros.
-- **Arquivo de pacote (.zip)** – o pacote contém os arquivos a seguir, que estão salvos em um arquivo .zip.
+Forneça o seguinte **detalhes do pacote** valores.  Os campos anexados com um asterisco são obrigatórios.
+
+- **Versão\***  -a versão do pacote que será carregado. As tags de versão devem ter o formato X.Y.Z, onde X, Y e Z são inteiros.
+- **O arquivo de pacote (. zip)\***  -este pacote contém os seguintes arquivos, salvos em um arquivo. zip.
   - MainTemplate.json – o arquivo do modelo de implantação que é usado para implantar a solução/aplicativo e criar os recursos definidos para a solução. Para obter mais informações, confira [Como criar arquivos de modelo de implantação](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
   - createUIDefinition.json - Esse arquivo é usado pelo portal do Azure para gerar a interface do usuário para o provisionamento dessa solução/aplicação. Para obter mais informações, confira [Criar uma interface do usuário do portal do Azure para seu aplicativo gerenciado](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
 
   >[!IMPORTANT] 
   >Esse pacote deve conter outros modelos ou scripts aninhados que sejam necessários para provisionar o aplicativo. Os arquivos MainTemplate.json e createUIDefinition.json precisam estar na pasta raiz.
 
-   ![Detalhes do pacote do modelo de solução](./media/azureapp-sku-pkgdetails-solutiontemplate.png)
 
 ### <a name="package-details-for-managed-application"></a>Detalhes de pacote do aplicativo gerenciado
 
-Forneça os seguintes detalhes do pacote:
+   ![Detalhes de pacote do aplicativo gerenciado](./media/azureapp-sku-pkgdetails-managedapplication.png)
 
-- **Versão** – a versão do pacote do qual você fará upload. As tags de versão devem ter o formato X.Y.Z, onde X, Y e Z são inteiros.
-- **Arquivo de pacote (.zip)** – o pacote contém os arquivos a seguir, que estão salvos em um arquivo .zip.
+Forneça os seguintes detalhes do pacote.  Os campos anexados com um asterisco são obrigatórios.
+
+- **Versão\***  -a versão do pacote que será carregado. As tags de versão devem ter o formato X.Y.Z, onde X, Y e Z são inteiros.
+- **O arquivo de pacote (. zip)\***  -este pacote contém os seguintes arquivos, salvos em um arquivo. zip.
   - applianceMainTemplate.json – o arquivo do modelo de implantação que é usado para implantar a solução/aplicativo e criar os recursos definidos. Para saber mais, confira [Início Rápido: Crie e implante modelos do Azure Resource Manager usando o portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal). 
   - applianceCreateUIDefinition.json – esse arquivo é usado pelo portal do Azure para gerar a interface do usuário para o provisionamento dessa solução/aplicativo. Para obter mais informações, confira [Criar uma interface do usuário do portal do Azure para seu aplicativo gerenciado](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
   - mainTemplate.json – o arquivo de modelo que contém somente o recurso Microsoft.Solution/appliances. Para obter mais informações, confira [Noções básicas de estrutura e sintaxe dos Modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates). <br>
@@ -123,24 +113,23 @@ Observe as seguintes propriedades principais desse recurso:
   >[!IMPORTANT] 
   >Esse pacote deve conter outros modelos ou scripts aninhados que sejam necessários para provisionar o aplicativo. Estes arquivos devem estar na pasta raiz:  MainTemplate.json, applianceMainTemplate.json e applianceCreateUIDefinition.json.
 
-- **ID do locatário** – ID do locatário do Azure Active Directory da sua organização.
-- **Habilitar acesso JIT?** – selecione **Sim** a fim de habilitar o acesso de gerenciamento Just-In-Time para implantações de cliente usando esta oferta.
+- **Id do locatário\***  -id do locatário do Azure Active Directory da sua organização.
+- **Habilitar o acesso JIT? \***  – Selecione **Sim** Just-In-Time de habilitar o acesso de gerenciamento para implantações de cliente usando esta oferta.
 
   >[!NOTE] 
   >Se você habilitar o JIT, deverá atualizar o arquivo CreateUiDefinition.json para dar suporte a acesso JIT.
 
-   ![Detalhes de pacote do aplicativo gerenciado](./media/azureapp-sku-pkgdetails-managedapplication.png)
-
 Para um aplicativo gerenciado, você deve definir as configurações de política e autorização.
+
 
 #### <a name="authorization"></a>Autorização
 
 Adicione o identificador do Azure Active Directory do usuário, grupo ou aplicativo ao qual você deseja conceder a permissão para o grupo de recursos gerenciado. A permissão concedida é indicada pela ID de definição de função. Pode ser um proprietário, colaborador ou qualquer função personalizada.
 
+
 #### <a name="policy-settings"></a>Configurações de política
 
 Adicione as políticas com as quais o aplicativo gerenciado está em conformidade. Saiba mais sobre políticas de recursos do Azure, confira [O que é o Azure Policy?](../../../governance/policy/overview.md)
-
 
    ![Configurações de autorização e política para um aplicativo gerenciado](./media/azureapp-sku-details-managedapp-auth-policy.png)
 
@@ -163,6 +152,7 @@ Adicione as políticas com as quais o aplicativo gerenciado está em conformidad
 
 4. Em **SKU de política**, selecione Gratuito ou Standard como o tipo de SKU de política. A SKU Standard é necessária para as políticas de auditoria.
 
+
 ## <a name="next-steps"></a>Próximas etapas
 
-[Guia Marketplace](./cpp-marketplace-tab.md)
+Descreva sua oferta será ainda mais e fornecer ativos de marketing na [guia Marketplace](./cpp-marketplace-tab.md). 

@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d976a43173ce4f9deee0a723a895b40678e173b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 033740d1ae75bb6f6fe8509d9ad123d55d9c6770
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250525"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704997"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de Logon Único
 
@@ -49,9 +49,9 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 
 | Parâmetro |  | DESCRIÇÃO |
 | --- | --- | --- |
-| ID | Necessário | O Azure AD usa esse atributo para popular o atributo `InResponseTo` da resposta retornada. A ID não deve começar com um número. Uma estratégia comum é anexar uma cadeia de caracteres como "id" à representação de cadeia de caracteres de um GUID. Por exemplo, `id6c1c178c166d486687be4aaf5e482730` é uma ID válida. |
-| Version | Necessário | Esse parâmetro deve ser definido como **2.0**. |
-| IssueInstant | Necessário | Isso é uma cadeia de caracteres DateTime com um valor de UTC e [formato de ida e volta ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). O Azure AD espera um valor DateTime desse tipo, mas não avalia ou usa o valor. |
+| ID | Obrigatório | O Azure AD usa esse atributo para popular o atributo `InResponseTo` da resposta retornada. A ID não deve começar com um número. Uma estratégia comum é anexar uma cadeia de caracteres como "id" à representação de cadeia de caracteres de um GUID. Por exemplo, `id6c1c178c166d486687be4aaf5e482730` é uma ID válida. |
+| Version | Obrigatório | Esse parâmetro deve ser definido como **2.0**. |
+| IssueInstant | Obrigatório | Isso é uma cadeia de caracteres DateTime com um valor de UTC e [formato de ida e volta ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). O Azure AD espera um valor DateTime desse tipo, mas não avalia ou usa o valor. |
 | AssertionConsumerServiceUrl | Opcional | Se fornecido, esse parâmetro deve corresponder ao `RedirectUri` do serviço de nuvem no Azure AD. |
 | ForceAuthn | Opcional | Esse é um valor booliano. Se for true, isso significa que o usuário será forçado a autenticar novamente, mesmo que ele tenha uma sessão válida no Azure AD. |
 | IsPassive | Opcional | Esse é um valor booliano que especifica se o Azure AD deve autenticar o usuário silenciosamente, sem a interação do usuário, usando o cookie da sessão, se existir. Se for true, o Azure AD tentará autenticar o usuário usando o cookie da sessão. |
@@ -90,7 +90,7 @@ Se `NameIDPolicy` for fornecido, você poderá incluir seu atributo `Format` opc
 O Azure AD ignora o atributo `AllowCreate` .
 
 ### <a name="requestauthncontext"></a>RequestAuthnContext
-O elemento `RequestedAuthnContext` especifica os métodos de autenticação desejados. É opcional nos elementos `AuthnRequest` enviados ao Azure AD. O Azure AD dá suporte a apenas um valor `AuthnContextClassRef`: `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
+O elemento `RequestedAuthnContext` especifica os métodos de autenticação desejados. É opcional nos elementos `AuthnRequest` enviados ao Azure AD. Azure AD dá suporte a `AuthnContextClassRef` valores como `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
 
 ### <a name="scoping"></a>Scoping
 O elemento `Scoping`, que inclui uma lista de provedores de identidade, é opcional em `AuthnRequest` enviadas ao Azure AD.

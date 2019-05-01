@@ -3,20 +3,19 @@ title: Exemplos de transformação de declarações StringCollection para o esqu
 description: Exemplos de transformação de declarações StringCollection para o esquema da Estrutura de Experiência de Identidade do Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-origin.date: 09/10/2018
-ms.date: 04/04/2019
-ms.author: v-junlch
+ms.date: 09/10/2018
+ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c312433832f7402eaff8b40c4e0a2a61397f6f87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 37102a231f1741b9e488cca101f4a5411f89de44
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60360343"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681996"
 ---
 # <a name="stringcollection-claims-transformations"></a>Transformações de declarações StringCollection
 
@@ -30,7 +29,7 @@ Adiciona uma declaração de cadeia de caracteres a uma nova declaração string
 
 | item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | item | cadeia de caracteres | O ClaimType a ser adicionado à declaração de saída. |
+| InputClaim | item | string | O ClaimType a ser adicionado à declaração de saída. |
 | InputClaim | collection | stringCollection | [Opcional] Se especificada, a transformação de declarações copiará os itens desta coleção e adicionará o item ao final da declaração da coleção de saída. |
 | OutputClaim | collection | stringCollection | Os ClaimTypes produzidos depois de invocar este ClaimsTransformation. |
 
@@ -65,7 +64,7 @@ Adiciona um parâmetro de cadeia de caracteres a uma nova declaração stringCol
 | item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | [Opcional] Se especificada, a transformação de declarações copiará os itens desta coleção e adicionará o item ao final da declaração da coleção de saída. |
-| InputParameter | item | cadeia de caracteres | O valor a ser adicionado à declaração de saída. |
+| InputParameter | item | string | O valor a ser adicionado à declaração de saída. |
 | OutputClaim | collection | stringCollection | Os ClaimTypes que serão produzidos depois de invocar esta ClaimsTransformation. |
 
 Use essa transformação de declaração para adicionar um valor de cadeia de caracteres a uma stringCollection nova ou existente. O exemplo a seguir adiciona um endereço de email constante (admin@contoso.com) à declaração **otherMails**. 
@@ -100,7 +99,7 @@ Obtém o primeiro item da coleção de cadeia de caracteres fornecida.
 | item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | Os ClaimTypes que são usados pela transformação de declarações para obter o item. |
-| OutputClaim | extractedItem | cadeia de caracteres | Os ClaimTypes produzidos depois de invocar este ClaimsTransformation. O primeiro item na coleção. |
+| OutputClaim | extractedItem | string | Os ClaimTypes produzidos depois de invocar este ClaimsTransformation. O primeiro item na coleção. |
 
 O exemplo a seguir lê a declaração **otherMails** e retorna o primeiro item para a declaração **email**. 
 
@@ -121,5 +120,4 @@ O exemplo a seguir lê a declaração **otherMails** e retorna o primeiro item p
   - **collection**: ["someone@outlook.com", "someone@contoso.com"]
 - Declarações de saída: 
   - **extractedItem**: "someone@outlook.com"
-
 

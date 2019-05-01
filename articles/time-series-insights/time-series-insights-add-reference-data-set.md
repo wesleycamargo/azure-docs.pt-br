@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/15/2018
 ms.custom: seodec18
 ms.openlocfilehash: 17ba15ea12efc80dcc830f6338a837d1abb77a71
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764449"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708853"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Criar um conjunto de dados de referência para o seu ambiente Time Series Insights usando o Portal do Azure
 
@@ -97,5 +97,7 @@ Os dados de referência não estão unidos retroativamente. Isso significa que s
     A página confirma o carregamento concluído e exibe a mensagem **Conjunto de dados carregado com êxito**.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 * [Gerenciar dados de referência](time-series-insights-manage-reference-data-csharp.md) programaticamente.
+
 * Para obter a referência completa de API, confira o documento [API de Dados de Referência](/rest/api/time-series-insights/ga-reference-data-api).

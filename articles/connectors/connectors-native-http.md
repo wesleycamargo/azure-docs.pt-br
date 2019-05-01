@@ -11,26 +11,28 @@ ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 01da06ca55199989a3a27012bec101580f5ef853
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 22b21512c78a06f2639ca9339f3b7a20c7f5bfa3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60447533"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713801"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Chamar pontos de extremidade HTTP ou HTTPS com os Aplicativos Lógicos do Azure
 
-Com o Aplicativo Lógico do Azure e o conector do protocolo HTTP, você pode automatizar os fluxos de trabalho que se comunicam com qualquer ponto de extremidade HTTP ou HTTPS criando aplicativos lógicos. Por exemplo, você pode monitorar o ponto de extremidade de serviço para seu site. Quando ocorre um evento naquele ponto de extremidade, como o seu site ficar inativo, o evento dispara o fluxo de trabalho do aplicativo lógico e executa as ações especificadas. 
+Com o Aplicativo Lógico do Azure e o conector do protocolo HTTP, você pode automatizar os fluxos de trabalho que se comunicam com qualquer ponto de extremidade HTTP ou HTTPS criando aplicativos lógicos. Por exemplo, você pode monitorar o ponto de extremidade de serviço para seu site. Quando ocorre um evento naquele ponto de extremidade, como o seu site ficar inativo, o evento dispara o fluxo de trabalho do aplicativo lógico e executa as ações especificadas.
 
 Você pode usar o gatilho HTTP como a primeira etapa no seu fluxo de trabalho de verificação ou *sondagem* de um ponto de extremidade regularmente. Em cada verificação, o gatilho envia uma chamada ou *solicitação* ao ponto de extremidade. A resposta do ponto de extremidade determina se o fluxo de trabalho do aplicativo lógico é executado. O gatilho passa todo o conteúdo da resposta para as ações no aplicativo lógico. 
 
-Você pode usar a ação HTTP como qualquer outra etapa no fluxo de trabalho para chamar o ponto de extremidade quando quiser. A resposta do ponto de extremidade determina como as ações restantes do fluxo de trabalho são executadas.
+Você pode usar a ação HTTP como qualquer outra etapa no fluxo de trabalho para chamar o ponto de extremidade quando quiser. A resposta do ponto de extremidade determina como as ações restantes do fluxo de trabalho são executadas. 
+
+Com base em capacidade de um ponto de extremidade de destino, este conector dá suporte a segurança de camada de transporte (TLS) versões 1.0, 1.1 e 1.2. Os aplicativos lógicos negocia com o ponto de extremidade usando a versão com suporte mais alta possível. Portanto, por exemplo, se o ponto de extremidade suportar 1.2, o conector usa 1.2 pela primeira vez. Caso contrário, o conector usa a próxima versão com suporte mais alta.
 
 Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se em uma conta gratuita do Azure</a>. 
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/). 
 
 * A URL do ponto de extremidade de destino que você deseja chamar 
 

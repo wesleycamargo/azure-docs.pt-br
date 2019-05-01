@@ -2,24 +2,18 @@
 title: Determinar a opção de publicação no Azure Marketplace | Azure
 description: Este artigo descreve os critérios de qualificação e os parceiros de requisitos de publicação tentando entender como publicar aplicativos no Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 2755232ea81f1551477431f4eb1f0aeab8b8bfe8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb306a32a9388113a9c81fa363a6e1ee2c3b30ad
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60726632"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938107"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar a opção de publicação
 A opção de publicação que você escolher para a oferta estará relacionada diretamente aos requisitos de qualificação e benefícios de GTM do Marketplace. Mais importante, a seleção de opção de publicação e o tipo de oferta no Portal do Cloud Partner definem como será a interação dos usuários com sua oferta do Marketplace.

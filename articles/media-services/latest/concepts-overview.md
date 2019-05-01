@@ -1,6 +1,6 @@
 ---
-title: Conceitos de serviços de mídia do Azure - Azure | Microsoft Docs
-description: Este tópico fornece uma visão geral dos conceitos de serviços de mídia do Azure e fornece links para obter detalhes.
+title: Conceitos ‑ Azure e terminologia de serviços de mídia do Azure | Microsoft Docs
+description: Este tópico fornece uma visão geral dos conceitos e terminologia de serviços de mídia do Azure e fornece links para obter mais detalhes.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,20 +12,38 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 74a4ee03562963c8a50159f085e4b76b6d461ed9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: feba7d53f196f6675aca965218046df67bbef81d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103792"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867073"
 ---
 # <a name="media-services-concepts"></a>Conceitos de serviços de mídia
 
-Este tópico fornece uma visão geral dos conceitos de serviços de mídia do Azure e fornece links para artigos com a explicação detalhada sobre os serviços de mídia v3 conceitos e funcionalidade. Os conceitos fundamentais descritos nestes tópicos devem ser examinados antes do início do desenvolvimento.
+Este tópico fornece uma visão geral dos conceitos e terminologia de serviços de mídia do Azure. O artigo também fornece links para artigos com a explicação detalhada sobre os serviços de mídia v3 conceitos e funcionalidade. 
+
+Os conceitos fundamentais descritos nestes tópicos devem ser examinados antes do início do desenvolvimento.
 
 > [!NOTE]
 > Atualmente, você não pode usar o portal do Azure para gerenciar recursos da v3. Use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](developers-guide.md) com suporte.
 
+## <a name="terminology"></a>Terminologia
+
+Esta seção mostra como alguns termos comuns do setor são mapeados para a API dos serviços de mídia v3.
+
+### <a name="live-event"></a>Evento ao Vivo
+
+Um **evento ao vivo** representa um pipeline para ingestão, transcodificação (opcionalmente) e transmissões ao vivo de metadados de vídeo, áudio e em tempo real de empacotamento.
+
+Migrando de APIs do serviços de mídia v2, o **evento ao vivo** substitui a **canal** entidade no v2. Para obter mais informações, consulte [Migrando do v2 para v3](migrate-from-v2-to-v3.md).
+
+### <a name="streaming-endpoint-packaging-and-origin"></a>Ponto de extremidade Streaming (empacotamento e a origem)
+
+Um **ponto de extremidade de Streaming** representa um dinâmico (just-in-time) empacotamento e a origem serviço que pode entregar seu conteúdo ao vivo e sob demanda diretamente a um aplicativo de player de cliente, usando um dos protocolos de mídia streaming (HLS comuns ou DASH). Além disso, o **ponto de extremidade de Streaming** fornece a criptografia dinâmica (just-in-time) para DRMs de líderes do setor.
+
+Na mídia de streaming do setor, esse serviço é conhecido como um **Packager** ou **origem**.  Outros termos comuns do setor para essa funcionalidade incluem JITP (Just-no-tempo-packager) ou JITE (Just-no-tempo-criptografia). 
+ 
 ## <a name="cloud-upload-and-storage"></a>Upload e armazenamento na nuvem
 
 Para começar a gerenciar, criptografar, codificação, analisar e streaming de conteúdo de mídia no Azure, você precisa criar uma conta de serviços de mídia e carregar seus arquivos digitais em **ativos**.
@@ -52,7 +70,7 @@ Para analisar seus arquivos de áudio e vídeos, você também precisará criar 
 
 ## <a name="packaging-delivery-protection"></a>Empacotamento, entrega, proteção
 
-Depois que seu conteúdo é codificado, você pode aproveitar **empacotamento dinâmico**. **Ponto de extremidade de streaming** é o serviço de empacotamento dinâmico dos serviços de mídia usado para distribuir o conteúdo de mídia para jogadores do cliente. Para disponibilizar vídeos no ativo de saída para os clientes de reprodução, você precisa criar uma **localizador de Streaming** e, em seguida, criar URLs de streaming. 
+Depois que seu conteúdo é codificado, você pode aproveitar **empacotamento dinâmico**. Nos serviços de mídia, uma **ponto de extremidade de Streaming**  /origem é o serviço de empacotamento dinâmico usado para distribuir o conteúdo de mídia para jogadores do cliente. Para disponibilizar vídeos no ativo de saída para os clientes de reprodução, você precisa criar uma **localizador de Streaming** e, em seguida, criar URLs de streaming. 
 
 Ao criar o **localizador de Streaming**, além do nome do ativo, você precisará especificar **Streaming política**. **Políticas de streaming** permitem que você definir os protocolos de streaming e opções de criptografia (se houver) para seus **localizadores de Streaming**.
 

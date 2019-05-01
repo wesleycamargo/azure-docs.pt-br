@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: 044e997703f5b274215fb05c7152186948b331b4
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 508fe597a494ed89b4c2f406337c6b565943387a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63761411"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728819"
 ---
 # <a name="troubleshooting-guide"></a>Guia de Solução de Problemas
 
@@ -157,7 +157,7 @@ Você poderá ver esse erro se azds.exe não estiver instalado ou configurado co
 
 ### <a name="try"></a>Experimente:
 
-1. Verifique se azds.exe está no local %ProgramFiles%/Microsoft SDKs\Azure\CLI do Azure Dev Spaces (Versão Prévia). Se estiver lá, adicione o local à variável de ambiente PATH.
+1. Verifique o local %ProgramFiles%/Microsoft SDKs\Azure\Azure Dev espaços CLI para azds.exe. Se estiver lá, adicione o local à variável de ambiente PATH.
 2. Se azds.exe não estiver instalado, execute o seguinte comando:
 
     ```cmd
@@ -292,6 +292,16 @@ Esse erro ocorrerá se o cliente do Helm não puder mais se comunicar com o pod 
 
 ### <a name="try"></a>Experimente:
 Reiniciar os nós de agente em seu cluster geralmente resolve esse problema.
+
+## <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>"Erro: versão azds -\<identificador\>-\<spacename\>-\<servicename\> falhou: Serviços\<servicename\>' já existe "ou" efetuar Pull de acesso negado para o \<servicename\>, repositório não existe ou pode exigir o logon do docker "
+
+### <a name="reason"></a>Motivo
+Esses erros podem ocorrer se você combinar executando comandos do Helm diretos (como `helm install`, `helm upgrade`, ou `helm delete`) com comandos de espaços de desenvolvimento (como `azds up` e `azds down`) dentro do mesmo espaço de desenvolvimento. Eles ocorrem porque os espaços de desenvolvimento tem sua própria instância Tiller, que está em conflito com sua própria instância Tiller em execução no mesmo espaço de desenvolvimento.
+
+### <a name="try"></a>Experimente:
+É possível usar comandos do Helm e comandos de espaços de desenvolvimento no mesmo cluster AKS, mas cada namespace habilitado para espaços de desenvolvimento deve usar um ou outro.
+
+Por exemplo, suponha que você usar um comando de Helm para executar todo o seu aplicativo em um espaço de desenvolvimento do pai. Você pode criar filho espaços dev desativar esse pai, usar espaços de desenvolvimento para executar serviços individuais dentro do filho espaços de desenvolvimento e testar os serviços juntos. Quando você estiver pronto para fazer check-in de suas alterações, use um comando de Helm para implantar o código atualizado no espaço de desenvolvimento do pai. Não use `azds up` para executar o serviço atualizado no pai espaço de desenvolvimento, porque ele está em conflito com o serviço inicialmente executado usando o Helm.
 
 ## <a name="azure-dev-spaces-proxy-can-interfere-with-other-pods-running-in-a-dev-space"></a>o Azure Dev Spaces pode interferir com outros pods em execução em um espaço de desenvolvimento
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 360b822bc78d353e91612459a70334a0bf3a56e6
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 8bd0014518dc93abb952114a1728f8fc1d3fb4a5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189624"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708085"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Como configurar os codificadores locais ao usar os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits
 Este tópico lista os codificadores ativos locais que podem ser usados para capturar os eventos ao vivo e enviar uma transmissão ao vivo de taxa de bits única para os canais do AMS (que são habilitados para a codificação ativa) para mais processamento. O tópico também contém links para os tutoriais que mostram como configurar os codificadores listados.
@@ -37,7 +37,7 @@ Para saber mais sobre como configurar o [Codificador Haivision KB](https://www.h
 Para obter informações sobre como configurar o codificador [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) para enviar uma transmissão ao vivo de taxa de bits única para um Canal do AMS, veja [Configurando o Wirecast](media-services-configure-wirecast-live-encoder.md).
 
 ## <a name="newtek-tricaster"></a>NewTek TriCaster
-Para obter informações sobre como configurar o codificador [Tricaster](http://newtek.com/products/tricaster-40.html) para enviar uma transmissão ao vivo de taxa de bits única para um Canal do AMS, veja [Configurando o Tricaster](media-services-configure-tricaster-live-encoder.md).
+Para obter informações sobre como configurar o codificador [Tricaster](https://newtek.com/products/tricaster-40.html) para enviar uma transmissão ao vivo de taxa de bits única para um Canal do AMS, veja [Configurando o Tricaster](media-services-configure-tricaster-live-encoder.md).
 
 ## <a name="elemental-live"></a>Elemental Live
 Para obter mais informações, consulte [Elemental Live](https://www.elementaltechnologies.com/products/elemental-live).

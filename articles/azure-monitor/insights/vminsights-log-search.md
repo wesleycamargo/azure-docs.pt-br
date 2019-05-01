@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 8b6745a2b9afe8d3101585e3f7a13f2fc978c84a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: bca1b96e7dc5673cabef26fe6b2cfb8daa41fbf5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122584"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702514"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Como consultar logs do Azure Monitor para VMs (versão prévia)
 O Azure Monitor para VMs coleta de desempenho e métricas de conexão, computador e dados de inventário do processo e informações de estado de integridade e a encaminha para o espaço de trabalho do Log Analytics no Azure Monitor.  Esses dados estão disponíveis para [consulta](../../azure-monitor/log-query/log-query-overview.md) no Azure Monitor. Você pode aplicar esses dados a cenários que incluem planejamento de migração, análise de capacidade, descoberta e solução de problemas de desempenho sob demanda.
@@ -202,7 +202,7 @@ Os registros com um tipo de *ServiceMapProcess_CL* têm dados de inventário par
 | ProductVersion_s | A versão do produto |
 | FileVersion_s | A versão do arquivo |
 | CommandLine_s | A linha de comando |
-| ExecutablePath _s | O caminho para o arquivo executável |
+| ExecutablePath_s | O caminho para o arquivo executável |
 | WorkingDirectory_s | O diretório de trabalho |
 | UserName | A conta sob a qual o processo está sendo executado |
 | UserDomain | O domínio sob o qual o processo está sendo executado |

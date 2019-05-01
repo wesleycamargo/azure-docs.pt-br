@@ -10,22 +10,26 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: b43532ade35e4e01573abbd3f47d009beadd9c60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d00bc68458d9f8acf11e1e4e2d755dfbec748b3f
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387835"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876830"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Copiar dados de ou para o Armazenamento de Arquivos do Azure usando o Azure Data Factory
 
-Este artigo descreve como usar a Atividade de Cópia no Azure Data Factory para copiar dados de e para o Azure Cosmos DB (Arquivos do Azure). Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como copiar dados de e para o armazenamento de arquivos do Azure. Para saber mais sobre o Azure Data Factory, leia as [artigo introdutório](introduction.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-Você pode copiar dados de qualquer Armazenamento de Arquivos do Azure para qualquer armazenamento de dados do coletor com suporte ou copiar dados de qualquer armazenamento de dados de origem com suporte para o Armazenamento de Arquivos do Azure. Para obter uma lista de armazenamentos de dados com suporte como origens/coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
+Este conector do armazenamento de arquivos do Azure é compatível com as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [suporte para a matriz de origem/coletor](copy-activity-overview.md)
+- [Atividade de pesquisa](control-flow-lookup-activity.md)
+- [Atividade GetMetadata](control-flow-get-metadata-activity.md)
 
 Especificamente, este conector do Armazenamento de Arquivos do Azure dá suporte à cópia de arquivos no estado em que se encontram ou à análise/geração de arquivos com os [formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md).
 
@@ -79,9 +83,54 @@ As propriedades a seguir têm suporte no serviço vinculado do Armazenamento de 
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre conjuntos de dados. Esta seção apresenta uma lista das propriedades com suporte pelo conjunto de dados da Armazenamento de Arquivos do Azure.
+Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de Dados](concepts-datasets-linked-services.md). 
 
-Para copiar dados de/para o Armazenamento de Arquivos do Azure, defina a propriedade de tipo do conjunto de dados como **FileShare**. Há suporte para as seguintes propriedades:
+- Para **Parquet e formato de texto delimitado**, consulte [conjunto de dados de formato de Parquet e texto delimitado](#parquet-and-delimited-text-format-dataset) seção.
+- Para outros formatos, como **formato ORC/Avro/JSON/binário**, consulte [outro conjunto de dados do formato](#other-format-dataset) seção.
+
+### <a name="parquet-and-delimited-text-format-dataset"></a>Conjunto de dados de formato de parquet e texto delimitado
+
+Para copiar dados para e do armazenamento de arquivos do Azure na **Parquet ou o formato de texto delimitado**, consulte [formato Parquet](format-parquet.md) e [formato de texto delimitado](format-delimited-text.md) artigo no conjunto de dados com base no formato e configurações com suporte. As propriedades a seguir têm suporte para o armazenamento de arquivos do Azure em `location` configurações no conjunto de dados com base no formato:
+
+| Propriedade   | DESCRIÇÃO                                                  | Obrigatório |
+| ---------- | ------------------------------------------------------------ | -------- |
+| Tipo       | A propriedade type sob `location` no conjunto de dados deve ser definida como **FileServerLocation**. | Sim      |
+| folderPath | O caminho para a pasta. Se você quiser usar o caractere curinga para a pasta de filtro, ignore essa configuração e especificar nas configurações de fonte da atividade. | Não        |
+| fileName   | Nome do arquivo em determinado folderPath. Se você quiser usar o caractere curinga para filtrar arquivos, ignore essa configuração e especificar nas configurações de fonte da atividade. | Não        |
+
+> [!NOTE]
+>
+> **Compartilhamento de arquivos** ainda há suporte para o tipo de conjunto de dados com formato de texto/Parquet mencionado na próxima seção como-é para a atividade de pesquisa/cópia/GetMetadata para compatibilidade com versões anteriores. São sugeridas para usar esse novo modelo no futuro, e o ADF criação da interface do usuário foi alternada para gerar esses novos tipos.
+
+**Exemplo:**
+
+```json
+{
+    "name": "DelimitedTextDataset",
+    "properties": {
+        "type": "DelimitedText",
+        "linkedServiceName": {
+            "referenceName": "<Azure File Storage linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "schema": [ < physical schema, optional, auto retrieved during authoring > ],
+        "typeProperties": {
+            "location": {
+                "type": "FileServerLocation",
+                "folderPath": "root/folder/subfolder"
+            },
+            "columnDelimiter": ",",
+            "quoteChar": "\"",
+            "firstRowAsHeader": true,
+            "compressionCodec": "gzip"
+        }
+    }
+}
+```
+
+### <a name="other-format-dataset"></a>Outro conjunto de dados de formato
+
+Para copiar dados para e do armazenamento de arquivos do Azure na **formato ORC/Avro/JSON/binário**, as propriedades a seguir têm suporte:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
@@ -135,12 +184,76 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 ### <a name="azure-file-storage-as-source"></a>Armazenamento de Arquivos do Azure como origem
 
-Para copiar dados do Armazenamento de Arquivos do Azure, defina o tipo de origem na atividade de cópia como **FileSystemSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
+- Para copiar de **Parquet e formato de texto delimitado**, consulte [Parquet e a origem do formato de texto delimitado](#parquet-and-delimited-text-format-source) seção.
+- Para cópia de outros formatos, como **formato ORC/Avro/JSON/binário**, consulte [outra fonte de formato](#other-format-source) seção.
+
+#### <a name="parquet-and-delimited-text-format-source"></a>Parquet e a origem do formato de texto delimitado
+
+Para copiar dados do armazenamento de arquivos do Azure na **Parquet ou o formato de texto delimitado**, consulte [formato Parquet](format-parquet.md) e [formato de texto delimitado](format-delimited-text.md) artigo sobre a atividade de cópia baseada em formato código-fonte e configurações com suporte. As propriedades a seguir têm suporte para o armazenamento de arquivos do Azure em `storeSettings` as configurações na fonte de cópia com base no formato:
+
+| Propriedade                 | DESCRIÇÃO                                                  | Obrigatório                                      |
+| ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
+| Tipo                     | A propriedade type sob `storeSettings` deve ser definida como **FileServerReadSetting**. | Sim                                           |
+| recursiva                | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Observe que quando recursiva é definida como true e o coletor é um armazenamento baseado em arquivo, uma pasta vazia ou subpasta não é copiada ou criada no coletor. Os valores permitidos são **true** (padrão) e **false**. | Não                                             |
+| wildcardFolderPath       | O caminho da pasta com caracteres curinga para filtrar as pastas de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape. <br>Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Não                                             |
+| wildcardFileName         | O nome de arquivo com caracteres curinga em determinado folderPath/wildcardFolderPath para filtrar arquivos de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape.  Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Sim se `fileName` não for especificado no conjunto de dados |
+| modifiedDatetimeStart    | Filtro de arquivos com base no atributo: Última Modificação. Os arquivos serão selecionados se a hora da última alteração estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br> As propriedades podem ser NULL, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de dados.  Quando `modifiedDatetimeStart` tem o valor de data e hora, mas `modifiedDatetimeEnd` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é maior ou igual ao valor de data e hora.  Quando `modifiedDatetimeEnd` tem o valor de data e hora, mas `modifiedDatetimeStart` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é menor que o valor de data e hora. | Não                                             |
+| modifiedDatetimeEnd      | Mesmo que acima.                                               | Não                                             |
+| maxConcurrentConnections | O número das conexões para se conectar ao repositório de armazenamento simultaneamente. Especifique somente quando você quiser limitar a conexão simultâneo ao armazenamento de dados. | Não                                             |
+
+> [!NOTE]
+> Para o formato de texto delimitado por Parquet /, **FileSystemSource** ainda tem suporte como origem de atividade de cópia de tipo mencionada na próxima seção-é para compatibilidade com versões anteriores. São sugeridas para usar esse novo modelo no futuro, e o ADF criação da interface do usuário foi alternada para gerar esses novos tipos.
+
+**Exemplo:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromAzureFileStorage",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<Delimited text input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "DelimitedTextSource",
+                "formatSettings":{
+                    "type": "DelimitedTextReadSetting",
+                    "skipLineCount": 10
+                },
+                "storeSettings":{
+                    "type": "FileServerReadSetting",
+                    "recursive": true,
+                    "wildcardFolderPath": "myfolder*A",
+                    "wildcardFileName": "*.csv"
+                }
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+#### <a name="other-format-source"></a>Outra fonte de formato
+
+Para copiar dados do armazenamento de arquivos do Azure na **formato ORC/Avro/JSON/binário**, as propriedades a seguir têm suporte na atividade de cópia **origem** seção:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type da fonte da atividade de cópia deve ser definida como: **FileSystemSource** |Sim |
 | recursiva | Indica se os dados são lidos recursivamente a partir das subpastas ou somente da pasta especificada. Observe que quando o recursivo estiver definido como verdadeiro e o coletor for um armazenamento baseado em arquivo, subpasta/pasta vazia não será copiada/criada no coletor.<br/>Os valores permitidos são: **true** (padrão), **false** | Não  |
+| maxConcurrentConnections | O número das conexões para se conectar ao repositório de armazenamento simultaneamente. Especifique somente quando você quiser limitar a conexão simultâneo ao armazenamento de dados. | Não  |
 
 **Exemplo:**
 
@@ -176,12 +289,66 @@ Para copiar dados do Armazenamento de Arquivos do Azure, defina o tipo de origem
 
 ### <a name="azure-file-storage-as-sink"></a>Armazenamento de Arquivos do Azure como coletor
 
-Para copiar dados para o Armazenamento de Arquivos do Azure, defina o tipo de coletor na atividade de cópia como **FileSystemSink**. As propriedades a seguir têm suporte na seção **coletor**:
+- Para copiar para a **Parquet e formato de texto delimitado**, consulte [Parquet e o coletor de formato de texto delimitado](#parquet-and-delimited-text-format-sink) seção.
+- Para copiar para outros formatos, como **formato ORC/Avro/JSON/binário**, consulte [outro coletor do formato](#other-format-sink) seção.
+
+#### <a name="parquet-and-delimited-text-format-sink"></a>Parquet e o coletor de formato de texto delimitado
+
+Para copiar dados para o armazenamento de arquivos do Azure no **Parquet ou o formato de texto delimitado**, consulte [formato Parquet](format-parquet.md) e [formato de texto delimitado](format-delimited-text.md) artigo sobre o coletor de atividade de cópia baseada em formato e configurações com suporte. As propriedades a seguir têm suporte para o armazenamento de arquivos do Azure em `storeSettings` configurações no coletor de cópia com base no formato:
+
+| Propriedade                 | DESCRIÇÃO                                                  | Obrigatório |
+| ------------------------ | ------------------------------------------------------------ | -------- |
+| Tipo                     | A propriedade type sob `storeSettings` deve ser definida como **FileServerWriteSetting**. | Sim      |
+| copyBehavior             | Define o comportamento de cópia quando a fonte for de arquivos de um armazenamento de dados baseado em arquivo.<br/><br/>Valores permitidos são:<br/><b>– PreserveHierarchy (padrão)</b>: Preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><b>– FlattenHierarchy</b>: Todos os arquivos da pasta de origem estão no primeiro nível da pasta de destino. Os arquivos de destino têm os nomes gerados automaticamente. <br/><b>– MergeFiles</b>: Mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo for especificado, o nome do arquivo mesclado será o nome especificado. Caso contrário, ele será um nome de arquivo gerado automaticamente. | Não        |
+| maxConcurrentConnections | O número das conexões para se conectar ao armazenamento de dados simultaneamente. Especifique somente quando você quiser limitar a conexão simultâneo ao armazenamento de dados. | Não        |
+
+> [!NOTE]
+> Para o formato de texto delimitado por Parquet /, **FileSystemSink** ainda há suporte para o coletor de atividade de cópia de tipo mencionada na próxima seção como-é para compatibilidade com versões anteriores. São sugeridas para usar esse novo modelo no futuro, e o ADF criação da interface do usuário foi alternada para gerar esses novos tipos.
+
+**Exemplo:**
+
+```json
+"activities":[
+    {
+        "name": "CopyToAzureFileStorage",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<Parquet output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "ParquetSink",
+                "storeSettings":{
+                    "type": "FileServerWriteSetting",
+                    "copyBehavior": "PreserveHierarchy"
+                }
+            }
+        }
+    }
+]
+```
+
+#### <a name="other-format-sink"></a>Outro coletor do formato
+
+Para copiar dados para o armazenamento de arquivos do Azure no **formato ORC/Avro/JSON/binário**, as propriedades a seguir têm suporte nas **coletor** seção:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type do coletor da atividade de cópia deve ser definida como: **FileSystemSink** |Sim |
 | copyBehavior | Define o comportamento de cópia quando a fonte for de arquivos de armazenamento de dados baseado em arquivo.<br/><br/>Valores permitidos são:<br/><b>- PreserveHierarchy (padrão)</b>: preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><b>- FlattenHierarchy</b>: todos os arquivos da pasta de origem estão no primeiro nível da pasta de destino. Os arquivos de destino têm o nome gerado automaticamente. <br/><b>- MergeFiles</b>: mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo/blob for especificado, o nome do arquivo mesclado será o nome especificado; caso contrário, será o nome de arquivo gerado automaticamente. | Não  |
+| maxConcurrentConnections | O número das conexões para se conectar ao repositório de armazenamento simultaneamente. Especifique somente quando você quiser limitar a conexão simultâneo ao armazenamento de dados. | Não  |
 
 **Exemplo:**
 

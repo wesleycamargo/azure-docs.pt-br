@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: eb125133138c6de173fdeb90024a9e5d961a929d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a82452f4b41aee9c4ea6f269d92fbc91a5697d16
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597092"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916952"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exportar e excluir dados do cliente no LUIS (Serviço Inteligente de Reconhecimento Vocal) nos Serviços Cognitivos
 
@@ -58,7 +58,7 @@ Para habilitar [aprendizado ativo](luis-how-to-review-endpoint-utterances.md#ena
 * [Austrália](#australia)
 * [Estados Unidos](#united-states)
 
-Com exceção dos dados de aprendizado ativo (detalhados embaixo), o LUIS segue o [práticas recomendadas de armazenamento de dados para serviços regionais](http://azuredatacentermap.azurewebsites.net/). 
+Com exceção dos dados de aprendizado ativo (detalhados embaixo), o LUIS segue o [práticas recomendadas de armazenamento de dados para serviços regionais](https://azuredatacentermap.azurewebsites.net/). 
 
 ### <a name="europe"></a>Europa
 
@@ -87,7 +87,7 @@ O [luis.ai](https://www.luis.ai) portal e dos Estados Unidos (também conhecido 
 Ao implantar essas regiões geográficas do Azure, as declarações recebidas pelo ponto de extremidade dos usuários finais do seu aplicativo serão armazenadas na geografia de Estados Unidos do Azure para o aprendizado ativo. Você pode desabilitar o aprendizado ativo, consulte [desabilitar aprendizado ativo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Para gerenciar armazenadas declarações, consulte [excluir expressão](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Referência de regiões do LUIS](./luis-reference-regions.md)

@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 21ddeb9cb0621f0f11ca23a7b12a82df0b7aa8ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5d7ff8513a0659ca1107b9baf07cdf4bac4b807
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60528304"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688622"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Tipos de preço no Banco de Dados do Azure para MySQL
 
@@ -40,31 +40,25 @@ Depois de criar um servidor, o número de vCores a geração de hardware e o tip
 
 Os recursos de computação são fornecidos como vCores, que representam a CPU lógica do hardware subjacente. No momento, você pode escolher entre duas gerações de computação, Gen 4 e 5. As CPUs lógicas de 4ª geração são baseadas em processadores Intel E5-2673 v3 (Haswell) 2,4 GHz. As CPUs lógicas de 5ª geração são baseadas em processadores E5-2673 v4 (Broadwell) 2,3 GHz. As Gerações 4 e 5 estão disponíveis nas seguintes regiões (o "X" indica disponível).
 
-> [!IMPORTANT]
-> A partir de 12 de dezembro de 2018, novos clientes não poderão provisionar servidores de geração da computação 4 no Sul do Brasil, Canadá Central, Leste do Canadá, Ásia Oriental, Leste dos EUA 2, Índia Central, Índia Ocidental, Oeste do Japão, Centro-Norte dos EUA, Oeste dos EUA. Os servidores da geração da computação 4 criados anteriormente migrarão para a geração da computação 5 a partir de 1º de fevereiro de 2019 nessas regiões.
->
-> [!IMPORTANT]
-> A partir de 15 de fevereiro de 2019 novos clientes não poderão provisionar servidores de geração 4 de computação no centro dos EUA, Leste dos EUA, Leste do Japão, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Europa Ocidental. Geração de computação 4 servidores serão migrados para 5, começando em 1 de abril de 2019 nessas regiões de geração de computação foi criado anteriormente.
-
 | **Região do Azure** | **Geração 4** | **Geração 5** |
 |:---|:----------:|:--------------------:|
 | Centro dos EUA |  | X |
 | Leste dos EUA |  | X |
 | Leste dos EUA 2 |  | X |
 | Centro-Norte dos EUA |  | X |
-| Centro-Sul dos Estados Unidos | X | X |
+| Centro-Sul dos Estados Unidos |  | X |
 | Oeste dos EUA |  | X |
 | Oeste dos EUA 2 |  | X |
 | Sul do Brasil |  | X |
 | Canadá Central |  | X |
 | Leste do Canadá |  | X |
-| Norte da Europa | X | X |
+| Norte da Europa |  | X |
 | Europa Ocidental |  | X |
 | França Central |  | X |
 | Sul do Reino Unido |  | X |
 | Oeste do Reino Unido |  | X |
 | Ásia Oriental |  | X |
-| Sudeste Asiático | X | X |
+| Sudeste Asiático |  | X |
 | Leste da Austrália |  | X |
 | Austrália Central |  | X |
 | Austrália Central 2 |  | X |
@@ -72,7 +66,7 @@ Os recursos de computação são fornecidos como vCores, que representam a CPU l
 | Índia Central |  | X |
 | Sul da Índia |  | X |
 | Índia Ocidental |  | X |
-| Leste do Japão | X | X |
+| Leste do Japão |  | X |
 | Oeste do Japão |  | X |
 | Coreia Central |  | X |
 | Sul da Coreia |  | X |

@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/18/2018
+ms.date: 04/25/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8fefc2eb2e642b5c7ac93b8a1cfc25a54c3b646
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdf28418e7e1335dcb1f664964fa6ef03174aa1f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437120"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64709203"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de erro do relatório de atividade de login 
 
@@ -177,6 +177,7 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |90051| Token de delegação inválido. ID de nuvem nacional inválido ({cloudId}) é especificado.|
 |90072| A conta precisa primeiro ser adicionada como um usuário externo no locatário. Saia e entre novamente com outra conta do Azure AD.|
 |90094| A concessão exige permissões de administrador. Solicite ao administrador de locatários que ele forneça o consentimento para esse aplicativo.|
+|500121| Falha de autenticação durante a solicitação de autenticação forte.|
 |500133| A declaração não está dentro de seu intervalo de tempo válido. Certifique-se de que o token de acesso não expirou antes de usá-lo para a declaração de usuário ou antes de solicitar um novo token.|
 |530021|Aplicativo não atende os requisitos de aplicativo de acesso condicional aprovado.|
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: dc5bfe6b431659b7b99140eb29a0e64922a42275
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fddea12d4c6b7d09d87174d29c645ef6da54af6f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61364469"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917415"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Usar o roteamento de mensagens do IoT Hub para enviar mensagens do dispositivo para nuvem para pontos de extremidade diferentes
 
@@ -119,7 +119,7 @@ Na maioria dos casos, o aumento médio na latência é menor que 500 ms. Você p
 
 O Hub IoT fornece várias métricas relacionadas a roteamento e a ponto de extremidade que fornecem uma visão geral da integridade do hub e o número de mensagens enviadas. Você pode combinar informações de várias métricas para identificar a causa raiz de problemas. Por exemplo, use a métrica **roteamento: mensagens de telemetria ignoradas** ou **d2c.telemetry.egress.dropped** para identificar o número de mensagens que foram descartados quando eles não correspondiam consultas em nenhuma das rotas e a rota de fallback foi desabilitada. [Métricas do Hub IoT](iot-hub-metrics.md) lista todas as métricas que são habilitadas por padrão para o Hub IoT.
 
-Você pode usar a API REST [obter integridade do ponto de extremidade](https://docs.microsoft.com/de-de/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) para obter [status de integridade](iot-hub-devguide-endpoints.md#custom-endpoints) dos pontos de extremidade. É recomendável usar o [métricas do IoT Hub](iot-hub-metrics.md) relacionados ao roteamento de latência de mensagem para identificar e depurar erros quando a integridade do ponto de extremidade está inativo ou não está íntegro. Por exemplo, para o tipo de ponto de extremidade dos Hubs de eventos, você pode monitorar **d2c.endpoints.latency.eventHubs**. O status de um ponto de extremidade não íntegro será ser atualizado para íntegro quando o IoT Hub estabeleceu um estado consistente de integridade.
+Você pode usar a API REST [obter integridade do ponto de extremidade](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) para obter [status de integridade](iot-hub-devguide-endpoints.md#custom-endpoints) dos pontos de extremidade. É recomendável usar o [métricas do IoT Hub](iot-hub-metrics.md) relacionados ao roteamento de latência de mensagem para identificar e depurar erros quando a integridade do ponto de extremidade está inativo ou não está íntegro. Por exemplo, para o tipo de ponto de extremidade dos Hubs de eventos, você pode monitorar **d2c.endpoints.latency.eventHubs**. O status de um ponto de extremidade não íntegro será ser atualizado para íntegro quando o IoT Hub estabeleceu um estado consistente de integridade.
 
 Usando os logs de diagnóstico de **rotas** nas [configurações de diagnóstico](../iot-hub/iot-hub-monitor-resource-health.md) do Azure Monitor, você pode rastrear erros que ocorrem durante a avaliação de uma consulta de roteamento e integridade e de ponto de extremidade, como visto pelo Hub IoT, por exemplo, quando um ponto de extremidade está inativo. Esse logs de diagnóstico podem ser enviado para o armazenamento do Azure, Hubs de eventos ou logs do Azure Monitor para processamento personalizado.
 

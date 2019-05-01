@@ -4,14 +4,14 @@ description: Mostra como os tipos de recurso lidam com a exclusão de modo compl
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 02/13/2019
+ms.date: 04/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: fded37fee844a01f4d51518f2ca56dcf575704b2
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.openlocfilehash: 21b3972a96c1601b15c403275474d58873753b08
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60150142"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712999"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Exclusão de recursos do Azure para implantações do modo completo
 Este artigo descreve como os tipos de recurso lidam com a exclusão quando ela não ocorre em um modelo implantado no modo completo.
@@ -633,7 +633,7 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 | Tipo de recurso | Exclusão completa de modo |
 | ------------- | ----------- |
-| clusters | Não  | 
+| clusters | Sim | 
 | clusters/applications | Não  | 
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport

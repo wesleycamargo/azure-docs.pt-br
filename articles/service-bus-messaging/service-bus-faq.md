@@ -1,6 +1,6 @@
 ---
 title: Perguntas frequentes (FAQ) sobre o Barramento de Serviço | Microsoft Docs
-description: Responde a algumas perguntas frequentes sobre o Barramento de Serviço do Azure.
+description: Responde a algumas perguntas frequentes sobre o barramento de serviço do Azure.
 services: service-bus-messaging
 author: axisc
 manager: timlt
@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 41a5f08be833d1235146d6e748580751af2c9d73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8461764a3f1f682ffb97420a4efdf2803f518872
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311022"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707144"
 ---
 # <a name="service-bus-faq"></a>Perguntas frequentes sobre o Barramento de Serviço
 
@@ -41,6 +41,48 @@ Uma fila ou um tópico convencional é manipulado por um único agente de mensag
 A ordenação não é garantida ao usar entidades particionadas. Se uma partição não estiver disponível, você poderá enviar e receber mensagens de outras partições.
 
  As entidades particionadas não são mais compatíveis com a camada [SKU Premium](service-bus-premium-messaging.md). 
+
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quais portas preciso abrir o firewall? 
+Você pode usar os seguintes protocolos de barramento de serviço do Azure para enviar e receber mensagens:
+
+- Advanced Message Queuing Protocol (AMQP)
+- Protocolo do sistema de mensagens do Barramento de Serviço (SBMP)
+- HTTP
+
+Consulte a tabela a seguir para as portas de saída que você precisa abrir para usar esses protocolos para se comunicar com os Hubs de eventos do Azure. 
+
+| Protocol | Portas | Detalhes | 
+| -------- | ----- | ------- | 
+| AMQP | 5671 e 5672 | Consulte [guia do protocolo AMQP](service-bus-amqp-protocol-guide.md) | 
+| SBMP | 9350 a 9354 | Consulte [modo de conectividade](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
+| HTTP, HTTPS | 80, 443 | 
+
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quais endereços IP é necessário à lista de permissões?
+Para localizar os endereços IP corretos para a lista branca para suas conexões, siga estas etapas:
+
+1. Execute o seguinte comando em um prompt de comando: 
+
+    ```
+    nslookup <YourNamespaceName>.servicebus.windows.net
+    ```
+2. Anote o endereço IP retornado na `Non-authoritative answer`. Esse endereço IP é estático. O único ponto no tempo que ele seria alterado é se você restaurar o namespace de logon em um cluster diferente.
+
+Se você usar a redundância de zona para seu namespace, você precisará seguir algumas etapas adicionais: 
+
+1. Primeiro, você execute nslookup no namespace.
+
+    ```
+    nslookup <yournamespace>.servicebus.windows.net
+    ```
+2. Anote o nome na **resposta não autoritativa** seção, que está em um dos seguintes formatos: 
+
+    ```
+    <name>-s1.servicebus.windows.net
+    <name>-s2.servicebus.windows.net
+    <name>-s3.servicebus.windows.net
+    ```
+3. Execute nslookup para cada um deles com sufixos s1, s2 e s3 para obter os endereços IP de todas as três instâncias em execução em três zonas de disponibilidade 
+
 
 ## <a name="best-practices"></a>Práticas recomendadas
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Quais são algumas das práticas recomendadas do Barramento de Serviço do Azure?
@@ -118,7 +160,7 @@ $res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsof
 Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre o Barramento de Serviço, consulte os seguintes artigos:
 
 * [Introdução ao Barramento de Serviço Premium do Azure (postagem de blog)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)

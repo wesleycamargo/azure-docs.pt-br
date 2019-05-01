@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
-ms.openlocfilehash: 175d5d5d4495986c29b75427a325088c14279e17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5f5c1d9b1884c6e9975ceb0ce28ecd5f25e89b2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308514"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716103"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Métricas do Barramento de Serviço do Azure no Azure Monitor (versão prévia)
 
@@ -83,14 +83,14 @@ Os dois tipos de erros a seguir são classificados como erros do usuário:
 |Mensagens de saída (versão prévia)|O número de eventos ou mensagens recebidas do Barramento de Serviço durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 | Mensagens (versão prévia) | Contagem de mensagens em uma fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: EntityName |
 | Mensagens ativas (versão prévia) | Contagem de mensagens ativas em uma fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: EntityName |
+| Mensagens mortas (visualização) | Contagem de mensagens mortas em uma fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/>Dimensão: EntityName |
+| Mensagens agendadas (visualização) | Contagem de mensagens agendadas em uma fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média  <br/> Dimensão: EntityName |
 
 ## <a name="connection-metrics"></a>Métricas de conexão
 
 | Nome da métrica | DESCRIÇÃO |
 | ------------------- | ----------------- |
 |ActiveConnections (versão prévia)|O número de conexões ativas em um namespace, bem como em uma entidade.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Conexões abertas (versão prévia)|O número de conexões abertas.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Conexões fechadas (versão prévia)|O número de conexões fechadas.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName |
 
 ## <a name="resource-usage-metrics"></a>Métricas de uso de recurso
 
@@ -115,7 +115,7 @@ O Barramento de Serviço do Azure dá suporte às seguintes dimensões para mét
 1. Na guia **Métrica** da página **Namespace do barramento de serviço**, selecione **Configurar alertas**. 
 
     ![Página de métrica – Configurar o menu de alertas](./media/service-bus-metrics-azure-monitor/metrics-page-configure-alerts-menu.png)
-2. Selecione **Selecionar destino** e realize as seguintes ações na página **Selecionar um recurso**: 
+2. Selecione o **Selecionar destino** opção e fazer as seguintes ações na **selecionar um recurso** página: 
     1. Selecione **Namespaces de barramento de serviço** para o campo **Filtrar por tipo de recurso**. 
     2. Selecione a assinatura no campo **Filtrar por assinatura**.
     3. Selecione o **namespace de barramento de serviço** na lista. 
@@ -158,7 +158,7 @@ O Barramento de Serviço do Azure dá suporte às seguintes dimensões para mét
 
     ![Botão Criar regra de alerta](./media/service-bus-metrics-azure-monitor/create-alert-rule.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Consulte [Visão geral do Monitoramento do Azure](../monitoring-and-diagnostics/monitoring-overview.md).
 

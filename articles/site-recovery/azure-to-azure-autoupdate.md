@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 04/29/2098
 ms.author: rajanaki
-ms.openlocfilehash: 67eb01ad596393c9095d72670e61b8c09776c588
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: aa135fef2850a692d45d932c15d4be74ccba5724
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792921"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925708"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Atualização automática do serviço de mobilidade na replicação do Azure para
 
@@ -31,9 +31,10 @@ Quando você usa o Site Recovery para gerenciar atualizações, ele implanta um 
 A agenda de runbook padrão se repete diariamente às 12:00 AM no fuso horário de geográfica da VM replicada. Você também pode alterar a agenda de runbook por meio da conta de automação.
 
 > [!NOTE]
+> Começando com 35 de Rollup de atualização, você pode escolher uma conta de automação existente a ser usado para atualizações. Antes dessa atualização, o Site Recovery criou esta conta por padrão. Essa opção está disponível quando você habilita a replicação para uma VM. Se você alterar a configuração, ela será aplicada para todas as VMs do Azure protegidas no mesmo cofre.
+ 
 > Ativar as atualizações automáticas não exigem uma reinicialização das VMs do Azure ou afetar a replicação em andamento.
 
-> [!NOTE]
 > Trabalho na conta de automação de cobrança baseia-se no número de minutos de tempo de execução do trabalho usados em um mês. Por padrão, 500 minutos são incluídos como unidades gratuitas para uma conta de automação. Execução do trabalho leva alguns segundos para cerca de um minuto por dia e é abordada como unidades gratuitas.
 
 | Unidades gratuitas incluídas (por mês) | Preço |
@@ -63,7 +64,7 @@ Quando você habilita a replicação para uma VM iniciando [da exibição do VM]
 
 
 > [!Note]
-> Qualquer opção notifica você sobre a conta de automação usada para gerenciar atualizações. Se você estiver usando esse recurso em um cofre pela primeira vez, uma nova conta de automação é criada. Todas as replicações enable subsequentes no mesmo cofre usam aquele criado anteriormente.
+> Qualquer opção notifica você sobre a conta de automação usada para gerenciar atualizações. Se você estiver usando esse recurso em um cofre pela primeira vez, uma nova conta de automação é criada por padrão. Como alternativa, você pode personalizar a configuração e escolha uma conta de automação existente. Todas as replicações enable subsequentes no mesmo cofre usam aquele criado anteriormente.
 
 Para uma conta de automação personalizada, use o seguinte script:
 

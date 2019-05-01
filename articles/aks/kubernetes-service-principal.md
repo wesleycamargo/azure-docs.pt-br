@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: dc2e2f010de3dfe265cddbbaa6c050d081bd05dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a1fe8929b5ae39c82850aa08899c7b3e6bb98c7e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464911"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725311"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entidades de serviço com o AKS (Serviço de Kubernetes do Azure)
 
@@ -126,7 +126,7 @@ Ao usar o AKS e as entidades de serviço do Azure AD, tenha em mente as consider
 - Por padrão, as credenciais da entidade de serviço são válidas por um ano. Você pode [atualizar ou girar as credenciais da entidade de serviço] [ update-credentials] a qualquer momento.
 - Cada entidade de serviço é associada a um aplicativo Azure AD. A entidade de serviço de um cluster Kubernetes pode ser associada a qualquer nome de aplicativo válido do Azure AD (por exemplo: *https://www.contoso.org/example*). A URL para o aplicativo não precisa ser um ponto de extremidade real.
 - Ao especificar a **ID do cliente** da entidade de serviço, use o valor de `appId`.
-- Nas VMs mestre e de nó no cluster Kubernetes, as credenciais da entidade de serviço são armazenadas no arquivo `/etc/kubernetes/azure.json`
+- No nó de agente VMs no cluster Kubernetes, as credenciais da entidade de serviço são armazenadas no arquivo. `/etc/kubernetes/azure.json`
 - Se você usar o comando [az aks create][az-aks-create] para gerar a entidade de serviço automaticamente, as credenciais da entidade de serviço serão gravadas no arquivo `~/.azure/aksServicePrincipal.json` no computador usado para executar o comando.
 - Ao excluir um cluster do AKS que foi criado por [az aks create][az-aks-create], a entidade de serviço que foi criada automaticamente não será excluída.
     - Para excluir a entidade de serviço, consulte o cluster *servicePrincipalProfile.clientId* e, em seguida, exclua-a com [az ad app delete][az-ad-app-delete]. Substitua os seguintes nomes de cluster e de grupo de recursos por seus próprios valores:

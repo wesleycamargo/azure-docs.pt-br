@@ -8,18 +8,18 @@ ms.service: batch
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: lahugh
-ms.openlocfilehash: 233b26b330fabe7da8664114ba1857f74feea4bc
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 886dea0e53519870aaa27dea721a9eb78515cf86
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764268"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706317"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Usar uma imagem personalizada para criar um pool de máquinas virtuais 
 
 Ao criar um pool no Lote do Azure usando a Configuração de Máquina Virtual, você especifica uma imagem de VM que fornece o sistema operacional para cada nó de computação no pool. Você pode criar um pool de máquinas virtuais com uma imagem do Azure Marketplace compatível ou com uma imagem personalizada (uma imagem de VM que você mesmo criou e configurou). A imagem personalizada deve ser um recurso de *imagem gerenciada* na mesma assinatura e região do Azure que a conta de Lote.
 
-## <a name="why-use-a-custom-image"></a>Por que usar uma imagem personalizada?
+## <a name="benefits-of-custom-images"></a>Benefícios de imagens personalizadas
 
 Quando você fornece uma imagem personalizada, tem controle sobre a configuração do sistema operacional e o tipo de sistema operacional e discos de dados a serem usados. Sua imagem personalizada pode incluir aplicativos e dados de referência ficam disponíveis em todos os nós do pool do Lote assim que eles são provisionados.
 
@@ -32,12 +32,11 @@ Usar uma imagem personalizada configurada para o seu cenário pode fornecer vár
 - **Economize tempo de reinicialização em VMs.** A instalação de aplicativo normalmente requer a reinicialização da VM, o que é demorado. Você pode economizar tempo de reinicialização pré-instalando aplicativos. 
 - **Copie grandes quantidades de dados de uma só vez.** Torne os dados estáticos parte da imagem personalizada gerenciada copiando-os para os discos de dados de uma imagem gerenciada. Isso só precisa ser feito uma vez e disponibiliza dados para cada nó do pool.
 - **Opção de tipos de disco.** Você tem a opção de usar o armazenamento premium para o disco do SO e o disco de dados.
-- **Expanda os pools para tamanhos grandes.** Quando você usa uma imagem personalizada gerenciada para criar um pool, ele pode crescer sem que seja necessário que você faça cópias de VHDs do blob de imagem. 
-
+- **Expanda os pools para tamanhos grandes.** Quando você usa uma imagem personalizada gerenciada para criar um pool, ele pode crescer sem que seja necessário que você faça cópias de VHDs do blob de imagem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Um recurso de imagem gerenciada**. Para criar um pool de máquinas virtuais usando uma imagem personalizada, você precisa ter ou criar um recurso de imagem gerenciada na mesma assinatura e região do Azure que a conta do Lote. A imagem deve ser criada de instantâneos de disco do sistema operacional da VM e, opcionalmente, dos discos de dados anexados. Para obter mais informações e etapas para preparar uma imagem gerenciada, veja a seção a seguir. 
+- **Um recurso de imagem gerenciada**. Para criar um pool de máquinas virtuais usando uma imagem personalizada, você precisa ter ou criar um recurso de imagem gerenciada na mesma assinatura e região do Azure que a conta do Lote. A imagem deve ser criada de instantâneos de disco do sistema operacional da VM e, opcionalmente, dos discos de dados anexados. Para obter mais informações e etapas para preparar uma imagem gerenciada, veja a seção a seguir.
   - Use uma imagem personalizada exclusiva para cada pool que criar.
   - Para criar um pool com a imagem usando as APIs de Lote, especifique a **ID de recurso** da imagem, que tem a forma `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`. Para usar o portal, use o **nome** da imagem.  
   - O recurso de imagem gerenciada deve existir pelo tempo de vida do pool para permitir a expansão e pode ser removido após a exclusão do pool.
@@ -46,7 +45,7 @@ Usar uma imagem personalizada configurada para o seu cenário pode fornecer vár
 
 ## <a name="prepare-a-custom-image"></a>Preparar uma imagem personalizada
 
-No Azure, você pode preparar uma imagem gerenciada de instantâneos de discos de SO e de dados de uma VM do Azure, de uma VM do Azure generalizada com discos gerenciados ou de um VHD local generalizado carregado por você. Para dimensionar os pools de lote de forma confiável com uma imagem personalizada, é recomendável criar uma imagem gerenciada usando *apenas* o primeiro método: usando instantâneos de discos da VM. Consulte as etapas a seguir para preparar uma VM, gerar um instantâneo e criar uma imagem do instantâneo. 
+No Azure, você pode preparar uma imagem gerenciada de instantâneos de discos de SO e de dados de uma VM do Azure, de uma VM do Azure generalizada com discos gerenciados ou de um VHD local generalizado carregado por você. Para dimensionar os pools de lote de forma confiável com uma imagem personalizada, é recomendável criar uma imagem gerenciada usando *apenas* o primeiro método: usando instantâneos de discos da VM. Consulte as etapas a seguir para preparar uma VM, gerar um instantâneo e criar uma imagem do instantâneo.
 
 ### <a name="prepare-a-vm"></a>Preparar uma VM
 
@@ -60,6 +59,7 @@ Se você estiver criando uma nova VM para a imagem, use uma primeira imagem do A
 
 * Verifique se a VM é criada com um disco gerenciado. Essa é a configuração de armazenamento padrão quando você cria uma VM.
 * Não instale extensões do Azure, tais como a extensão de Script personalizado, na VM. Se a imagem contém uma extensão pré-instalada, o Azure pode ter problemas ao implantar a o pool do Lote.
+* Usando discos de dados anexados, você precisa montar e formatar os discos de dentro de uma VM para usá-los.
 * Verifique se a imagem do sistema operacional base que você forneceu usa unidade temporária padrão. O agente do nó de Lote no momento espera unidade temporária padrão.
 * Quando a VM estiver em execução, conecte-se a ela via RDP (para Windows) ou SSH (para Linux). Instale o software necessário ou copie os dados desejados.  
 

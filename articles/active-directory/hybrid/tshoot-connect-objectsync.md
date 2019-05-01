@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82139178d4c1db4774d539180e41e49699d8ee12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e56d4d94e38e5095ef2223d0cc2875cbf1dcd46
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60382321"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919113"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Solução de problemas de sincronização de objetos com a sincronização do Azure AD Connect
 Este artigo descreve as etapas para solucionar problemas com a sincronização de objetos usando a tarefa de solução de problemas. Para ver como a solução de problemas funciona no Azure Active Directory (Azure AD) Connect, assista a [este breve vídeo](https://aka.ms/AADCTSVideo).
@@ -37,13 +37,13 @@ Para executar a tarefa de solução de problemas no assistente, execute as etapa
 4.  Navegue até a página Tarefas Adicionais, selecione Solucionar problemas e clique em Avançar.
 5.  Na página de solução de problemas, clique em Iniciar para iniciar o menu de solução de problemas no PowerShell.
 6.  No menu principal, selecione Solucionar Problemas de Sincronização de Senha.
-![](media/tshoot-connect-objectsync/objsynch11.png)
+![Solucionar problemas de sincronização de objeto](media/tshoot-connect-objectsync/objsynch11.png)
 
 ### <a name="troubleshooting-input-parameters"></a>Parâmetros de entrada para a solução de problemas
 Os parâmetros de entrada a seguir são necessários para a tarefa de solução de problemas:
 1.  **Nome distinto do objeto** – este é o nome distinto do objeto que precisa de solução de problemas
 2.  **Nome do Conector AD** – este é o nome da floresta do AD em que reside o objeto acima.
-3.  Credenciais de administrador global do locatário do Azure Active Directory ![](media/tshoot-connect-objectsync/objsynch1.png)
+3.  Credenciais de administrador global do locatário AD do Azure ![credenciais de administrador global](media/tshoot-connect-objectsync/objsynch1.png)
 
 ### <a name="understand-the-results-of-the-troubleshooting-task"></a>Entender os resultados da tarefa de solução de problemas
 A tarefa de solução de problemas executa as seguintes verificações:
@@ -60,27 +60,27 @@ O restante desta seção descreve resultados específicos que são retornados pe
 ### <a name="upn-suffix-is-not-verified-with-azure-ad-tenant"></a>O sufixo UPN não foi verificado com locatário do Azure Active Directory
 Quando o sufixo de UserPrincipalName (UPN)/ID de logon alternativo não é verificado com o locatário do Azure Active Directory, os sufixos de UPN são substituídos pelo nome de domínio padrão "onmicrosoft.com".
 
-![](media/tshoot-connect-objectsync/objsynch2.png)
+![O Azure AD substitui UPN](media/tshoot-connect-objectsync/objsynch2.png)
 
 ### <a name="changing-upn-suffix-from-one-federated-domain-to-another-federated-domain"></a>Alterando o sufixo de UPN de um domínio federado para outro domínio federado
 O Azure Active Directory não permite a sincronização de mudança de sufixo de UserPrincipalName (UPN)/ID de login alternativo de um domínio federado para outro domínio. Isso se aplica a domínios, que são verificados com o locatário do Azure Active Directory e têm o Tipo de Autenticação como Federada.
 
-![](media/tshoot-connect-objectsync/objsynch3.png) 
+![Nenhuma sincronização UPN de um domínio federado para outro](media/tshoot-connect-objectsync/objsynch3.png) 
 
 ### <a name="azure-ad-tenant-dirsync-feature-synchronizeupnformanagedusers-is-disabled"></a>O recurso de DirSync do Locatário do Azure Active Directory 'SynchronizeUpnForManagedUsers' está desabilitado
 Quando o recurso de DirSync do Locatário do Azure Active Directory 'SynchronizeUpnForManagedUsers' está desabilitado, o Azure Active Directory não permite atualizações de sincronização para UserPrincipalName/ID de logon alternativo para contas de usuário licenciado com autenticação gerenciada.
 
-![](media/tshoot-connect-objectsync/objsynch4.png)
+![SynchronizeUpnForManagedUsers](media/tshoot-connect-objectsync/objsynch4.png)
 
 ## <a name="object-is-filtered-due-to-domain-filtering"></a>O objeto é filtrado devido a filtragem do domínio
 ### <a name="domain-is-not-configured-to-sync"></a>O domínio não está configurado para sincronização
 O objeto está fora do escopo porque o domínio não está sendo configurado. No exemplo abaixo, o objeto está fora do escopo de sincronização, pois o domínio ao qual ele pertence é filtrado da sincronização.
 
-![](media/tshoot-connect-objectsync/objsynch5.png)
+![O domínio não está configurado para sincronização](media/tshoot-connect-objectsync/objsynch5.png)
 
 ### <a name="domain-is-configured-to-sync-but-is-missing-run-profilesrun-steps"></a>O domínio é configurado para sincronização, mas tem perfis de execução/etapas de execução ausentes
 O objeto está fora do escopo porque o domínio tem perfis de execução/etapas de execução ausentes. No exemplo abaixo, o objeto está fora do escopo de sincronização, pois o domínio ao qual ele pertence tem etapas de execução ausentes para o perfil de execução Importação Completa.
-![](media/tshoot-connect-objectsync/objsynch6.png)
+![perfis de execução ausentes](media/tshoot-connect-objectsync/objsynch6.png)
 
 ## <a name="object-is-filtered-due-to-ou-filtering"></a>O objeto é filtrado devido a filtragem do OU
 O objeto está fora do escopo de sincronização devido a configuração de filtragem de OU. No exemplo abaixo, o objeto pertence à OU=NoSync,DC=bvtadwbackdc,DC=com.  Esse OU não está incluído no escopo de sincronização.</br>
@@ -99,7 +99,7 @@ Devido às várias diferenças entre o Active Directory local e o Azure Active D
 ## <a name="html-report"></a>Relatório HTML
 Além de analisar o objeto, a tarefa de solução de problemas também gera um relatório HTML que tem tudo o que se sabe sobre o objeto. Este relatório HTML pode ser compartilhado com a equipe de suporte para fazer mais solução de problemas, se necessário.
 
-![](media/tshoot-connect-objectsync/objsynch8.png)
+![Relatório HTML](media/tshoot-connect-objectsync/objsynch8.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).

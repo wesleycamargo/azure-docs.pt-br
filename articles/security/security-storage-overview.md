@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2019
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: ec0e8ae1bf657cda59f3d133db23106436e184e3
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 262ccc311b2b7ec634183eb4f914902048ba2c3b
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120885"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872034"
 ---
 # <a name="azure-storage-security-overview"></a>Visão geral de segurança do Armazenamento do Azure
 
-O Armazenamento do Azure é a solução de armazenamento em nuvem para aplicativos modernos que dependem de durabilidade, disponibilidade e escalabilidade para atender às necessidades dos clientes. O Armazenamento do Azure fornece um conjunto abrangente de funcionalidades de segurança. Você pode:
+Este artigo fornece uma visão geral dos recursos de segurança do Azure que podem ser usados com o Armazenamento do Azure. O Armazenamento do Azure é a solução de armazenamento em nuvem para aplicativos modernos que dependem de durabilidade, disponibilidade e escalabilidade para atender às necessidades dos clientes. O Armazenamento do Azure fornece um conjunto abrangente de funcionalidades de segurança. Você pode:
 
 * Proteger a conta de armazenamento usando o Controle de Acesso Baseado em Função (RBAC) e o Azure Active Directory.
 * Proteja os dados em trânsito entre um aplicativo e o Azure usando a criptografia do cliente, HTTPS ou SMB 3.0.
@@ -33,9 +33,6 @@ O Armazenamento do Azure é a solução de armazenamento em nuvem para aplicativ
 * Use a análise para controlar o método de autenticação que alguém está usando ao acessar o Armazenamento.
 
 Para obter uma visão mais detalhada sobre a segurança no Armazenamento do Azure, confira o [Guia de segurança do Armazenamento do Azure](../storage/common/storage-security-guide.md). Este guia aborda detalhadamente os recursos de segurança do Armazenamento do Azure. Esses recursos incluem chaves de conta de armazenamento, criptografia de dados em trânsito e em repouso e análise de armazenamento.
-
-
-Este artigo fornece uma visão geral dos recursos de segurança do Azure que podem ser usados com o Armazenamento do Azure. Os links para artigos fornecem detalhes de cada recurso para que você saiba mais sobre eles.
 
 ## <a name="role-based-access-control"></a>Controle de Acesso Baseado em Função
 

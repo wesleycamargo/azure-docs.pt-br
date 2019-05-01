@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0dfe6553778092c33f9e1bd55ac7a7ae65137a6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: eff8e2cedd6f9388d811002a622dbcdcd0e7ed6c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419096"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714157"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicados e PredicateValidations
 
@@ -39,7 +39,7 @@ O elemento **Predicados** contém o seguinte elemento:
 
 O elemento **Predicado** contém os seguintes atributos:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ID | Sim | Um identificador usado para o predicado. Outros elementos podem usar esse identificador na política. |
 | Método | Sim | O tipo de método a ser usado para validação. Valores possíveis: **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** ou **IsDateRange**. O valor **IsLengthRange** verifica se o comprimento de um valor de declaração de cadeia de caracteres está dentro do intervalo de parâmetros mínimos e máximos especificados. O valor **MatchesRegex** verifica se um valor de declaração de cadeia de caracteres corresponde a uma expressão regular. O valor **IncludesCharacters** verifica se um valor de declaração de cadeia de caracteres contém um conjunto de caracteres. O valor **IsDateRange** verifica se um valor de declaração de data está dentro do intervalo de parâmetros mínimos e máximos especificados. |
@@ -138,7 +138,7 @@ O elemento **PredicateValidations** contém o seguinte elemento:
 
 O elemento **PredicateValidation** contém o seguinte atributo:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ID | Sim | Um identificador usado para a validação do predicado. O elemento **ClaimType** pode usar esse identificador na política. |
 
@@ -156,7 +156,7 @@ O elemento **PredicateGroups** contém o seguinte elemento:
 
 O elemento **PredicateGroup** contém o seguinte atributo:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ID | Sim | Um identificador usado para o grupo de predicados.  |
 
@@ -169,7 +169,7 @@ O elemento **PredicateGroup** contém os seguintes elementos:
 
 O elemento **PredicateReferences** contém os seguintes atributos:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | MatchAtLeast | Não  | Especifica que o valor deve corresponder a pelo menos à quantidade de definições de predicado para a entrada ser aceita. |
 
@@ -181,7 +181,7 @@ O elemento **PredicateReferences** contém os seguintes elementos:
 
 O elemento **PredicateReference** contém os seguintes atributos:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ID | Sim | Um identificador usado para a validação do predicado.  |
 

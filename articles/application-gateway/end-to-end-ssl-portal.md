@@ -2,25 +2,25 @@
 title: Guia de início rápido - configurar a criptografia de SSL de ponta a ponta no Gateway de aplicativo do Azure - portal do Azure | Microsoft Docs
 description: Saiba como usar o portal do Azure para criar um Gateway de aplicativo do Azure com criptografia SSL de ponta a ponta.
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/19/2019
+ms.date: 4/30/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: e47a3e1231701f3339057e25ee4388aff0c9fbd7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd165f81b45e3ae0c121fb8876ed88e68d493195
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831939"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64946790"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-the-portal"></a>Configurar o SSL de ponta a ponta usando o Gateway de aplicativo com o portal
 
 Este artigo mostra como usar o portal do Azure para configurar a criptografia de SSL de ponta a ponta com um gateway de aplicativo v1 SKU.  
 
 > [!NOTE]
-> SKU do Gateway de aplicativo v2 requer certificados raiz confiáveis para habilitar configuração de ponta a ponta. Suporte do portal para adicionar certificados raiz confiáveis ainda não está disponível. Portanto, no caso de SKU do V2, consulte [configurar o SSL de ponta a ponta usando o PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+> SKU do Gateway de aplicativo v2 requer certificados raiz confiáveis para habilitar configuração de ponta a ponta. Suporte do portal para adicionar certificados raiz confiáveis ainda não está disponível. Portanto, no caso de v2 SKU vê [configurar o SSL de ponta a ponta usando o PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -32,7 +32,7 @@ Para obter mais informações, consulte [SSL o SSL de ponta a ponta e de términ
 
 ## <a name="create-a-new-application-gateway-with-end-to-end-ssl"></a>Criar um novo gateway de aplicativo com SSL de ponta a ponta
 
-Para criar um novo gateway de aplicativo com a criptografia SSL de ponta a ponta, você precisará primeiro habilitar terminação SSL ao criar um novo gateway de aplicativo. Isso habilitará a criptografia SSL para a comunicação entre o gateway de aplicativo do cliente. Em seguida, você precisará lista branca certificados para servidores de back-end nas configurações de HTTP para habilitar a criptografia SSL para a comunicação entre os gateway e o back-end de servidores de aplicativos, realização, portanto, a criptografia SSL de ponta a ponta.
+Para criar um novo gateway de aplicativo com a criptografia SSL de ponta a ponta, você precisará primeiro habilitar terminação SSL ao criar um novo gateway de aplicativo. Isso habilitará a criptografia SSL para a comunicação entre o gateway de aplicativo do cliente. Em seguida, você precisará lista branca certificados para servidores de back-end nas configurações de HTTP para habilitar a criptografia SSL para a comunicação entre os gateway e o back-end de servidores de aplicativos, realizar a criptografia SSL de ponta a ponta.
 
 ### <a name="enable-ssl-termination-while-creating-a-new-application-gateway"></a>Habilite a terminação SSL ao criar um novo gateway de aplicativo
 
@@ -61,9 +61,9 @@ Consulte este artigo para entender como [habilitar terminação SSL ao criar um 
 
 ## <a name="enable-end-to-end-ssl-for-existing-application-gateway"></a>Habilitar o SSL de ponta a ponta para o gateway de aplicativo existente
 
-Para configurar um gateway de aplicativo existente com a criptografia SSL de ponta a ponta, você precisará primeiro terminação de SSL habilitar no ouvinte. Isso habilitará a criptografia SSL para a comunicação entre o gateway de aplicativo do cliente. Em seguida, você precisará lista branca certificados para servidores de back-end nas configurações de HTTP para habilitar a criptografia SSL para a comunicação entre os gateway e o back-end de servidores de aplicativos, realização, portanto, a criptografia SSL de ponta a ponta.
+Para configurar um gateway de aplicativo existente com a criptografia SSL de ponta a ponta, você precisará primeiro terminação de SSL habilitar no ouvinte. Isso habilitará a criptografia SSL para a comunicação entre o gateway de aplicativo do cliente. Em seguida, você precisará lista branca certificados para servidores de back-end nas configurações de HTTP para habilitar a criptografia SSL para a comunicação entre os gateway e o back-end de servidores de aplicativos, realizar a criptografia SSL de ponta a ponta.
 
-Você precisará usar um ouvinte com o protocolo HTTPS e certificado para habilitar a terminação SSL. Você não pode alterar o protocolo de um ouvinte existente. Portanto, você pode escolher usar um ouvinte existente com o certificado e o protocolo HTTPS, ou criar um novo ouvinte. Caso escolha a primeira opção, você pode ignorar o mencionadas abaixo as etapas para **terminação de habilitar o SSL no gateway de aplicativo existente** e passar diretamente para **lista branca certificados para servidores de back-end** seção. Se você escolher a última opção, execute estas etapas. 
+Você precisará usar um ouvinte com o protocolo HTTPS e certificado para habilitar a terminação SSL. Você não pode alterar o protocolo de um ouvinte existente. Portanto, você pode optar por usar um ouvinte existente com o certificado e o protocolo HTTPS, ou crie um novo ouvinte. Caso escolha a primeira opção, você pode ignorar o mencionadas abaixo as etapas para **terminação de habilitar o SSL no gateway de aplicativo existente** e passar diretamente para **lista branca certificados para servidores de back-end** seção. Se você escolher a última opção, use estas etapas.
 
 ### <a name="enable-ssl-termination-in-existing-application-gateway"></a>Habilite a terminação SSL no gateway de aplicativo existente
 

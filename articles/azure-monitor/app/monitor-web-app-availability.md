@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: 9f48303396d1ecd03fdffd2c6ab1e0c122615a21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fe8549027bb7fcf9fcfc2db26816c0b6646c9da6
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60701398"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916395"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorar a disponibilidade e a capacidade de resposta de qualquer site
 Após implantar o aplicativo Web ou site em qualquer servidor, você pode configurar testes para monitorar sua disponibilidade e capacidade de resposta. [Application Insights do Azure](../../azure-monitor/app/app-insights-overview.md) envia solicitações da Web ao aplicativo em intervalos regulares de pontos no mundo todo. Ele o alertará se o aplicativo não responder ou responder lentamente.
@@ -67,7 +67,7 @@ Abra a folha Disponibilidade e adicione um teste.
 
     **Resposta HTTP**: o código de status retornado que é contado como êxito. 200 é o código que indica que uma página da Web normal foi retornada.
 
-    **Correspondência de conteúdo**: uma cadeia de caracteres como "Bem-vindo!" Faremos o teste que uma correspondência exata de maiúsculas e minúsculas ocorre em todas as respostas. É necessário que seja uma cadeia de caracteres simples, sem curingas. Lembre-se de que se o conteúdo de sua página for alterado, talvez seja necessário atualizá-lo.
+    **Correspondência de conteúdo**: uma cadeia de caracteres como "Bem-vindo!" Faremos o teste que uma correspondência exata de maiúsculas e minúsculas ocorre em todas as respostas. É necessário que seja uma cadeia de caracteres simples, sem curingas. Lembre-se de que se o conteúdo de sua página for alterado, talvez seja necessário atualizá-lo. **Somente caracteres em inglês no momento têm suporte com correspondência de conteúdo.** 
 
 * **Limite de alerta de localização**: é recomendável um mínimo de 3/5 locais. É a relação ideal entre o limite de alerta local e o número de locais de teste **limite de alerta local** = **número de locais teste** - 2, com um mínimo de cinco de teste locais.
 
@@ -92,7 +92,7 @@ Use o Visual Studio Enterprise para registrar uma sessão da Web.
 
     ![No Visual Studio Enterprise Edition, crie um projeto do modelo de Teste de carga e desempenho na Web.](./media/monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
-   * *Não consegue ver o modelo de Teste de carga e desempenho na Web?* - Feche o Visual Studio Enterprise. Abra o **Instalador do Visual Studio** para modificar a instalação do Visual Studio Enterprise. Em **Componentes Individuais**, selecione **Ferramentas de teste de carga e desempenho na Web**.
+ * *Não consegue ver o modelo de Teste de carga e desempenho na Web?* - Feche o Visual Studio Enterprise. Abra o **Instalador do Visual Studio** para modificar a instalação do Visual Studio Enterprise. Em **Componentes Individuais**, selecione **Ferramentas de teste de carga e desempenho na Web**.
 
 2. Abra o arquivo .webtest e inicie a gravação.
 
@@ -273,6 +273,9 @@ Se o teste tiver de entrar usando OAuth, a abordagem geral será:
   (O Visual Studio tenta parametrizar o teste, mas não parametriza os tokens corretamente.)
 
 ## <a name="performance-tests"></a>Testes de desempenho
+> [!NOTE]  
+> O serviço de teste de carga baseado em nuvem foi preterida. Para obter mais informações sobre a substituição, a disponibilidade do serviço e serviços alternativos podem ser encontradas [aqui](https://docs.microsoft.com/en-us/azure/devops/test/load-test/overview?view=azure-devops).
+
 Você pode executar um teste de carga em seu site. Como o teste de disponibilidade, você pode enviar solicitações simples ou solicitações de várias etapas de nossos pontos em todo o mundo. Diferentemente de um teste de disponibilidade, muitas solicitações são enviadas, simulando vários usuários simultâneos.
 
 Em **Configurar**, acesse **Teste de desempenho** e clique em novo para criar um teste.

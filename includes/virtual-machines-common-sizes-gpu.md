@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: c2908ef5c67665b5ba48879626370f977634dc83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7a13dab50b5735d1a1e54a029daba742176bedfb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776300"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64743886"
 ---
 Os tamanhos de VM otimizados para GPU são máquinas virtuais especializadas disponíveis com um ou vários GPUs NVIDIA. Esses tamanhos são projetados para cargas de trabalho de visualização e com muita computação e muitos gráficos. Este artigo fornece informações sobre o número e o tipo de GPUs, vCPUs, discos de dados e NICs. A taxa de transferência de armazenamento e a largura de banda de rede também são incluídos para cada tamanho neste agrupamento. 
 
@@ -30,7 +30,7 @@ Os tamanhos de VM otimizados para GPU são máquinas virtuais especializadas dis
 
 Armazenamento Premium:  Sem suporte
 
-Cache de Armazenamento Premium:  Sem suporte
+Cache de armazenamento Premium:  Sem suporte
 
 VMs da série NC têm a tecnologia do cartão [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf). Os usuários podem processar os dados mais rapidamente aproveitando o CUDA para aplicativos de exploração de energia, simulações de falhas, renderização de traçados de raio, aprendizado profundo e muito mais. A configuração NC24r fornece um adaptador de rede de alta taxa de transferência e baixa latência, otimizado para cargas de trabalho de computação paralela firmemente acopladas.
 
@@ -50,7 +50,7 @@ VMs da série NC têm a tecnologia do cartão [NVIDIA Tesla K80](https://www.nvi
 
 Armazenamento Premium:  Com suporte
 
-Cache de Armazenamento Premium:  Com suporte
+Cache de armazenamento Premium:  Com suporte
 
 VMs da série NCv2 têm a tecnologia de GPUs [NVIDIA Tesla P100](https://www.nvidia.com/en-us/data-center/tesla-p100/). Essas GPUs podem fornecer desempenho computacional 2 vezes maior que da série NC. Os clientes podem aproveitar essas GPUs atualizadas para cargas de trabalho HPC tradicionais como modelagem de reservatório, sequenciamento de DNA, análise de proteína, simulações de Monte Carlo, entre outros. A configuração NC24rs v2 fornece um adaptador de rede de alta taxa de transferência e baixa latência, otimizado para cargas de trabalho de computação paralela firmemente acopladas.
 
@@ -73,7 +73,7 @@ VMs da série NCv2 têm a tecnologia de GPUs [NVIDIA Tesla P100](https://www.nvi
 
 Armazenamento Premium:  Com suporte
 
-Cache de Armazenamento Premium:  Com suporte
+Cache de armazenamento Premium:  Com suporte
 
 VMs da série NCv3 têm a tecnologia de GPUs [NVIDIA Tesla V100](https://www.nvidia.com/en-us/data-center/tesla-v100/). Essas GPUs podem fornecer desempenho computacional 1,5 vezes maior da série NCv2. Os clientes podem aproveitar essas GPUs atualizadas para cargas de trabalho HPC tradicionais como modelagem de reservatório, sequenciamento de DNA, análise de proteína, simulações de Monte Carlo, entre outros. A configuração NC24rs v3 fornece um adaptador de rede de alta taxa de transferência e baixa latência, otimizado para cargas de trabalho de computação paralela firmemente acopladas.
 
@@ -97,7 +97,7 @@ VMs da série NCv3 têm a tecnologia de GPUs [NVIDIA Tesla V100](https://www.nvi
 
 Armazenamento Premium:  Com suporte
 
-Cache de Armazenamento Premium:  Com suporte
+Cache de armazenamento Premium:  Com suporte
 
 Infiniband: Sem suporte
 
@@ -116,7 +116,7 @@ A máquina virtual da série NDv2 é uma nova adição à família de GPUs proje
 
 Armazenamento Premium:  Com suporte
 
-Cache de Armazenamento Premium:  Com suporte
+Cache de armazenamento Premium:  Com suporte
 
 As máquinas virtuais da série ND são uma nova adição à família de GPU projetada para cargas de trabalho AI e Deep Learning. Elas oferecem um desempenho excelente para treinamento e Inferência. Instâncias de ND também têm a tecnologia das GPUs [NVIDIA Tesla P40](http://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf). Essas instâncias oferecem um desempenho excelente para operações de ponto flutuante de precisão simples, para cargas de trabalho de AI que utilizam o Cognitive Toolkit, o TensorFlow, o Caffe e outras estruturas. A série ND também oferece um tamanho de memória de GPU muito maior (24 GB), permitindo usar modelos de rede neural muito maiores. Como a série NC, a série ND oferece uma configuração com uma baixa latência secundária, uma rede com alta taxa de transferência por meio de RDMA e a conectividade InfiniBand, permitindo executar trabalhos de grande escala que abrangem várias GPUs.
 
@@ -139,7 +139,7 @@ As máquinas virtuais da série ND são uma nova adição à família de GPU pro
 
 Armazenamento Premium:  Sem suporte
 
-Cache de Armazenamento Premium:  Sem suporte
+Cache de armazenamento Premium:  Sem suporte
 
 As máquinas virtuais da série NV têm a tecnologia das GPUs [ Tesla M60 da NVIDIA ](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) e NVIDIA GRID para aplicativos acelerados de área de trabalho e áreas de trabalho virtuais, em que os clientes podem visualizar seus dados ou simulações. Os usuários podem visualizar seus fluxos de trabalho com uso intensivo de gráficos em instâncias NV para obter capacidade gráfica superior, além de executar cargas de trabalho de precisão única, como codificação e renderização. 
 
@@ -157,7 +157,7 @@ Cada GPU em instâncias NV vem com uma licença GRID. Esta licença oferece flex
 
 Armazenamento Premium:  Com suporte
 
-Cache de Armazenamento Premium:  Com suporte
+Cache de armazenamento Premium:  Com suporte
 
 As máquinas virtuais da série NVv2 contam com as GPUs [Tesla M60 NVIDIA](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) e a tecnologia NVIDIA GRID com CPUs Intel Broadwell. Essas máquinas virtuais são direcionadas para aplicativos com gráficos acelerados por GPU e áreas de trabalho virtuais em que os clientes querem visualizar dados, simular resultados para exibição, trabalhar no CAD ou renderizar e transmitir conteúdo por streaming. Além disso, essas máquinas virtuais podem executar cargas de trabalho de precisão simples, como codificação e renderização. As máquinas virtuais NVv2 são compatíveis com o Armazenamento Premium e oferecem duas vezes mais memória (RAM) em comparação com a Série NV anterior.  
 

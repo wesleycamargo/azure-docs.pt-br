@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 2f27105aed940f0411abaa534cb09adf0be34bfe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a16421182f533f5aa2ad4bcc2e58e910cc7e8ca6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60830307"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702420"
 ---
 # <a name="how-an-application-gateway-works"></a>Como funciona um gateway de aplicativo
 
@@ -26,7 +26,7 @@ Este artigo explica como um gateway de aplicativo aceita solicitações de entra
 
 2. O DNS do Azure retorna o endereço IP para o cliente, que é o endereço IP de front-end do gateway de aplicativo.
 
-3. O gateway de aplicativo aceita o tráfego de entrada em um ou mais ouvintes. Um ouvinte é uma entidade lógica que verifica se há solicitações de conexão. Ele é configurado com um endereço IP de front, protocolo e número da porta para conexões de clientes para o gateway de aplicativo.
+3. O gateway de aplicativo aceita o tráfego de entrada em um ou mais ouvintes. Um ouvinte é uma entidade lógica que verifica se há solicitações de conexão. Ele é configurado com um endereço IP de front-end, protocolo e número da porta para conexões de clientes para o gateway de aplicativo.
 
 4. Se o firewall do aplicativo web (WAF) está em uso, o gateway de aplicativo verifica os cabeçalhos de solicitação e o corpo, se presente, em relação às regras de WAF. Essa ação determina se a solicitação é uma ameaça à segurança ou solicitação válida. Se a solicitação for válida, ela é roteada para o back-end. Se a solicitação não for válida, ele é bloqueado como uma ameaça à segurança.
 

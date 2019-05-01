@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 5c9f70650f518c72a75d9a7826e7cbc30a95a00c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f19d193bef718bd4ad3d98f2112a7e705051b729
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60852693"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920072"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guia do desenvolvedor Java para o Serviço de Aplicativo no Linux
 
@@ -112,7 +112,7 @@ Os desenvolvedores que executam um único aplicativo com um slot de implantaçã
 
 Ao ajustar as configurações de heap do aplicativo, examine os detalhes do Plano do Serviço de Aplicativo e considere os vários aplicativos e slots de implantação necessários para encontrar a alocação de memória ideal.
 
-Se você estiver implantando um aplicativo de JAR, ele deve ser chamado `app.jar` para que a imagem interna possa identificar corretamente o seu aplicativo. (O plug-in do Maven faz essa renomeação automaticamente.) Se você não quiser renomear seu JAR do `app.jar`, você pode carregar um script de shell com o comando para executar o JAR. Em seguida, cole o caminho completo para esse script na [arquivo de inicialização](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-faq#startup-file) caixa de texto na seção de configuração do portal.
+Se você estiver implantando um aplicativo de JAR, ele deve ser chamado `app.jar` para que a imagem interna possa identificar corretamente o seu aplicativo. (O plug-in do Maven faz essa renomeação automaticamente.) Se você não quiser renomear seu JAR do `app.jar`, você pode carregar um script de shell com o comando para executar o JAR. Em seguida, cole o caminho completo para esse script na [arquivo de inicialização](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#startup-file) caixa de texto na seção de configuração do portal.
 
 ### <a name="turn-on-web-sockets"></a>Ativar os soquetes da Web
 

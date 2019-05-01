@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 7984172c2b66f2b09e31c646b111e4b9d04fce2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 39c64b9fe4e03bb0b7216a8d1ba607bec10b4708
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344235"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64743861"
 ---
 Os tamanhos de VM otimizados para memória oferecem uma taxa de memória alta para CPU que são ideais para servidores de banco de dados relacionais, caches médio a grande e análises in-memory. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho neste agrupamento. 
 
@@ -33,7 +33,7 @@ ACU: 160-190 <sup>1</sup>
 
 Armazenamento Premium:  Com suporte
 
-Cache de Armazenamento Premium:  Com suporte
+Cache de armazenamento Premium:  Com suporte
 
 As instâncias ESv3-series são baseadas no processador Intel XEON ® E5-2673 v4 (Broadwell) de 2.3 GHz e podem atingir 3.5 GHz com a Tecnologia Intel Turbo Boost 2.0, e utilizam armazenamento premium. As instâncias Ev3-series são ideais para aplicativos empresariais com uso intensivo de memória.
 
@@ -63,7 +63,7 @@ ACU: 160 - 190 <sup>1</sup>
 
 Armazenamento Premium:  Sem suporte
 
-Cache de Armazenamento Premium:  Sem suporte
+Cache de armazenamento Premium:  Sem suporte
 
 As instâncias Ev3-series são baseadas no processador Intel XEON ® E5-2673 v4 (Broadwell) de 2.3 GHz e podem atingir 3.5 GHz com a Tecnologia Intel Turbo Boost 2.0. As instâncias Ev3-series são ideais para aplicativos empresariais com uso intensivo de memória.
 
@@ -94,7 +94,7 @@ ACU: 160-180 <sup>1</sup>
 
 Armazenamento Premium:  Com suporte
 
-Cache de Armazenamento Premium:  Com suporte
+Cache de armazenamento Premium:  Com suporte
 
 Acelerador de Gravação:  [Com suporte](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
@@ -132,7 +132,7 @@ ACU: 180 - 240 <sup>1</sup>
 
 Armazenamento Premium:  Com suporte
 
-Cache de Armazenamento Premium:  Com suporte
+Cache de armazenamento Premium:  Com suporte
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência de disco sem cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -156,7 +156,7 @@ ACU: 180 - 240
 
 Armazenamento Premium:  Sem suporte
 
-Cache de Armazenamento Premium:  Sem suporte
+Cache de armazenamento Premium:  Sem suporte
 
 | Tamanho         | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps de leitura / MBps de gravação | Discos de dados máximos / taxa de transferência: IOPS | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -175,7 +175,7 @@ ACU: 210 - 250 <sup>1</sup>
 
 Armazenamento Premium:  Com suporte
 
-Cache de Armazenamento Premium:  Com suporte
+Cache de armazenamento Premium:  Com suporte
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência de disco sem cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -198,7 +198,7 @@ ACU: 210 - 250
 
 Armazenamento Premium:  Sem suporte
 
-Cache de Armazenamento Premium:  Sem suporte
+Cache de armazenamento Premium:  Sem suporte
 
 | Tamanho              | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps de leitura / MBps de gravação | Discos de dados máximos / taxa de transferência: IOPS | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

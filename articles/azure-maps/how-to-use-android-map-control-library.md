@@ -1,24 +1,24 @@
 ---
-title: Como usar o controle de mapa Android em mapas do Azure | Microsoft Docs
+title: Introdução ao controle de mapa de Android do mapas do Azure | Microsoft Docs
 description: O controle de mapa Android em mapas do Azure.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 15706addbe6b7f6310223978130158c792a47c89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e655b442ba9290d4b4525108521f2d1a0c766b48
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60770293"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869813"
 ---
-# <a name="how-to-use-the-azure-maps-android-sdk"></a>Como usar o SDK de Android do mapas do Azure
+# <a name="getting-started-with-azure-maps-android-sdk"></a>Introdução ao SDK do Android do Azure mapas
 
-O SDK de Android do mapas do Azure é uma biblioteca de mapa de vetor para Android. Este artigo o orienta os processos de instalar o SDK de Android do mapas do Azure, carregando um mapa e colocando um pin no mapa.
+O SDK de Android do mapas do Azure é uma biblioteca de mapa de vetor para Android. Este artigo o orienta os processos de instalar o SDK de Android do mapas do Azure e carregar um mapa.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -55,7 +55,7 @@ Você pode aprender mais sobre como configurar um AVD na [documentação do Andr
 
 A próxima etapa na criação de seu aplicativo é instalar o SDK de Android do mapas do Azure. Conclua estas etapas para instalar o SDK:
 
-1. Adicione o seguinte código para o **todos os projetos**, **repositórios** bloquear sua **Build. gradle** arquivo.
+1. Abra o nível superior **Build. gradle** arquivo e adicione o seguinte código para o **todos os projetos**, **repositórios** bloquear seção:
 
     ```
     maven {
@@ -64,8 +64,10 @@ A próxima etapa na criação de seu aplicativo é instalar o SDK de Android do 
     ```
 
 2. Atualização de seu **gradle** e adicione o seguinte código nele:
+    
+    1. Certifique-se de que seu projeto **minSdkVersion** é a API 21 ou mais.
 
-    1. Adicione o seguinte código ao bloco Android:
+    2. Adicione o seguinte código à seção Android:
 
         ```
         compileOptions {
@@ -73,24 +75,16 @@ A próxima etapa na criação de seu aplicativo é instalar o SDK de Android do 
             targetCompatibility JavaVersion.VERSION_1_8
         }
         ```
-    2. Atualize seu bloco de dependências e adicione o seguinte código nele:
+    3. Atualize seu bloco de dependências e adicionar uma nova linha de dependência de implementação para o Android SDK mais recente do Azure mapas:
 
         ```
-        implementation "com.microsoft.azure.maps:mapcontrol:0.1"
+        implementation "com.microsoft.azure.maps:mapcontrol:0.2"
         ```
 
-3. Definir permissões, adicionando o seguinte XML para seu **androidmanifest. XML** arquivo:
+    > [!Note]
+    > O Azure mapas do SDK do Android está sendo regularmente atualizados e aprimorados. Você pode ver os [Introdução ao controle de mapa Android](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) documentação para obter o número de versão de implementação de mapas do Azure mais recente. Além disso, você pode definir o número de versão de "0,2" para "0 +" para que ele seja sempre apontar para a versão mais recente.
 
-    ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <manifest>
-        ...
-        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-        ...
-    </manifest>
-    ```
-
-4. Edite **res** > **layout** > **activity_main** para que ele se parece com este XML:
+3. Edite **res** > **layout** > **activity_main** e substituí-lo com o seguinte:
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -105,16 +99,20 @@ A próxima etapa na criação de seu aplicativo é instalar o SDK de Android do 
             android:id="@+id/mapcontrol"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:mapcontrol_cameraTargetLat="47.64"
-            app:mapcontrol_cameraTargetLng="-122.33"
-            app:mapcontrol_cameraZoom="12"
             />
-
     </FrameLayout>
     ```
 
-5. Edite **MainActivity.java** para criar uma classe de atividade de exibição de mapa. Depois de editar, deve se parecer com esta classe:
+4. No **mainactivity. Java** arquivo, você precisará:
+    
+    * Adicione as importações do SDK de mapas do Azure
+    * definir as informações de autenticação de mapas do Azure
+    * obter a instância de controle de mapa **onCreate** método
 
+    Definindo as informações de autenticação na classe AzureMaps globalmente usando os métodos setSubscriptionKey ou setAadProperties torna assim você não terá que adicionar suas informações de autenticação em cada exibição. O controle de mapa contém seus próprios métodos de ciclo de vida de gerenciamento OpenGL ciclo de vida do Android, que deve ser chamado diretamente do que a atividade contentora. Para que o aplicativo corretamente, chamar métodos de ciclo de vida do controle de mapa, você deve substituir os seguintes métodos de ciclo de vida na atividade que contém o controle de mapa e chame o método de controle de mapa respectivo. 
+
+    Editar o **mainactivity. Java** arquivos da seguinte maneira:
+    
     ```java
     package com.example.myapplication;
 
@@ -129,7 +127,7 @@ A próxima etapa na criação de seu aplicativo é instalar o SDK de Android do 
     public class MainActivity extends AppCompatActivity {
         
         static {
-            AzureMaps.setSubscriptionKey("{subscription-key}");
+            AzureMaps.setSubscriptionKey("<Your Azure Maps subscription key>");
         }
 
         MapControl mapControl;
@@ -197,97 +195,21 @@ Selecione o botão de execução, conforme mostrado na seguinte gráfico (ou pre
 
 Android Studio levará alguns segundos para compilar o aplicativo. Depois que a compilação estiver concluída, você pode testar seu aplicativo no dispositivo Android emulado. Você deverá ver um mapa como este:
 
-![Mapa do Android](./media/how-to-use-android-map-control-library/android-map.png)
+<center>
 
-## <a name="add-a-marker-to-the-map"></a>Adicionar um marcador ao mapa
+![Mapa do Android](./media/how-to-use-android-map-control-library/android-map.png)</center>
 
-Para adicionar um marcador para seu mapa, adicione a `mapView.getMapAsync()` função `MainActivity.java`. O último `MainActivity.java` código deve ter esta aparência:
+## <a name="next-steps"></a>Próximas etapas
 
-```java
-package com.example.myapplication;
+Para adicionar itens a seu mapa, consulte:
 
-import android.app.Activity;
-import android.os.Bundle;
-import com.mapbox.geojson.Feature;
-import com.mapbox.geojson.Point;
-import com.microsoft.azure.maps.mapcontrol.AzureMaps;
-import com.microsoft.azure.maps.mapcontrol.MapControl;
-import com.microsoft.azure.maps.mapcontrol.layer.SymbolLayer;
-import com.microsoft.azure.maps.mapcontrol.source.DataSource;
-import static com.microsoft.azure.maps.mapcontrol.options.SymbolLayerOptions.iconImage;
-public class MainActivity extends AppCompatActivity {
-    
-    static{
-            AzureMaps.setSubscriptionKey("{subscription-key}");
-        }
+> [!div class="nextstepaction"]
+> [Adicionar uma camada de símbolo para um mapa do Android](https://review.docs.microsoft.com/azure/azure-maps/how-to-add-symbol-to-android-map)
 
-    MapControl mapControl;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+> [!div class="nextstepaction"]
+> [Adicionar formas a um mapa de Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
 
-        mapControl = findViewById(R.id.mapcontrol);
+> [!div class="nextstepaction"]
+> [Estilos de mapa de alteração em mapas do Android](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
 
-        mapControl.onCreate(savedInstanceState);
 
-        mapControl.getMapAsync(map -> {
-            DataSource dataSource = new DataSource();
-            dataSource.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64)));
-
-            SymbolLayer symbolLayer = new SymbolLayer(dataSource);
-            symbolLayer.setOptions(iconImage("my-icon"));
-
-            map.images.add("my-icon", R.drawable.mapcontrol_marker_red);
-            map.sources.add(dataSource);
-            map.layers.add(symbolLayer);
-        });
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        mapControl.onStart();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        mapControl.onResume();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        mapControl.onPause();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        mapControl.onStop();
-    }
-
-    @Override
-    public void onLowMemory() {
-        super.onLowMemory();
-        mapControl.onLowMemory();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mapControl.onDestroy();
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        mapControl.onSaveInstanceState(outState);
-    }
-}
-```
-
-Execute o aplicativo novamente. Você deverá ver um marcador no mapa, conforme mostrado aqui:
-
-![Marcador de mapa do Android](./media/how-to-use-android-map-control-library/android-map-pin.png)

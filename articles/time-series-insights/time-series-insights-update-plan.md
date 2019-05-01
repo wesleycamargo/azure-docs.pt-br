@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 251e95744f57d9b5e42df9bdc3743f4880ff5381
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0472f53d11ec4c990fcf6face633444fe66ba937
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076989"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702339"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planeje o ambiente de versão prévia do Azure Time Series Insights
 
@@ -79,7 +79,7 @@ Uma boa regra prática:
 * Armazenar metadados no modelo de série temporal
 * O modo de série temporal, os campos de instância e os eventos incluem somente informações necessárias, como:
   * ID da série temporal
-  * Carimbo de data/hora
+  * Timestamp
 
 Para saber mais, confira [Formatar eventos](./time-series-insights-send-events.md#json).
 
@@ -90,9 +90,7 @@ O Time Series Insights é um serviço de alta disponibilidade que usa redundânc
 Para saber mais sobre os recursos internos do Azure para BCDR (continuidade dos negócios e recuperação de desastres), confira [Continuidade dos negócios e diretrizes técnicas do Azure](https://docs.microsoft.com/azure/resiliency/resiliency-technical-guidance). Para obter diretrizes de arquitetura sobre estratégias para aplicativos do Azure a fim de alcançar alta disponibilidade e recuperação de desastre, confira o artigo em [Recuperação de desastre e alta disponibilidade para aplicativos do Azure](https://docs.microsoft.com/azure/architecture/resiliency/index).
 
 > [!NOTE]
-> 
->  O Time Series Insights não tem BCDR interno.
-> Por padrão, o Armazenamento do Azure, o Hub IoT do Azure e os Hubs de Eventos do Azure têm recuperação interna.
+> O Time Series Insights não tem BCDR interno. Por padrão, o Armazenamento do Azure, o Hub IoT do Azure e os Hubs de Eventos do Azure têm recuperação interna.
 
 Para saber mais, leia:
 
@@ -115,7 +113,6 @@ Siga estas etapas para criar e usar um ambiente secundário do Time Series Insig
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais, leia:
+- Leia mais sobre [armazenamento e a entrada](./time-series-insights-update-storage-ingress.md) na visualização de Insights de série do tempo.
 
-- [Armazenamento e entrada da Versão Prévia do Azure Time Series Insights](./time-series-insights-update-storage-ingress.md)
-- [Modelagem de dados](./time-series-insights-update-tsm.md)
+- Saiba mais sobre [modelagem de dados](./time-series-insights-update-tsm.md) na visualização de Insights de série do tempo.

@@ -9,11 +9,11 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: 5fbe08bb9ebc355074a790f7732c9de10eaad859
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62110675"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707112"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Autenticando e autorizando com Coleções de Workspaces do Power BI
 
@@ -41,7 +41,7 @@ O token de seu aplicativo pode conter as seguintes declarações:
 | **ver** |A versão do token do aplicativo. A versão atual é 0.2.0. |
 | **aud** |O destinatário pretendido do token. Para o uso de Coleções de Workspaces do Power BI: *https:\//analysis.windows.net/powerbi/api*. |
 | **iss** |Uma cadeia de caracteres que indica o aplicativo que emitiu o token. |
-| **tipo** |O tipo de token de aplicativo que está sendo criado. O único tipo com suporte atualmente é **incorporar**. |
+| **type** |O tipo de token de aplicativo que está sendo criado. O único tipo com suporte atualmente é **incorporar**. |
 | **wcn** |Nome da coleção de workspaces para o qual o token foi emitido. |
 | **wid** |ID do workspace para o qual o token foi emitido. |
 | **rid** |ID ddo relatório para o qual o token foi emitido. |

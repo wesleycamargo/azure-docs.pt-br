@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 328433664d22925b4e991f2f18c858c5505cade1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b410dab40d5434a6f23950a9f151e50240ace63b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60781981"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916371"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Colete dados de log com o agente do Log Analytics do Azure
 
@@ -38,7 +38,7 @@ Se você estiver monitorando um computador com o System Center Operations Manage
 
 O agente do Windows pode relatar até quatro áreas de trabalho do Log Analytics, enquanto o agente do Linux suporta apenas o relatório para um único espaço de trabalho.  
 
-O agente para Linux e Windows não é apenas para se conectar ao Azure Monitor, ele também dá suporte a automação do Azure para hospedar a função Hybrid Runbook worker e outros serviços, como [Change Tracking](../../automation/automation-change-tracking.md) e [degerenciamentodeatualizações](../../automation/automation-update-management.md). Para obter mais informações sobre a função Hybrid Runbook Worker, consulte [Hybrid Runbook Worker de Automação do Azure](../../automation/automation-hybrid-runbook-worker.md).  
+O agente para Linux e Windows não é apenas para se conectar ao Azure Monitor, ele também dá suporte a automação do Azure para hospedar a função Hybrid Runbook worker e outros serviços, como [Change Tracking](../../automation/change-tracking.md) e [degerenciamentodeatualizações](../../automation/automation-update-management.md). Para obter mais informações sobre a função Hybrid Runbook Worker, consulte [Hybrid Runbook Worker de Automação do Azure](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## <a name="supported-windows-operating-systems"></a>Sistemas operacionais Windows compatíveis
 Há suporte oficial para as seguintes versões do sistema operacional Windows para o agente para Windows:
@@ -101,7 +101,7 @@ Para o agente Linux, o servidor proxy pode ser especificado durante a instalaç�
 
 |Propriedade| DESCRIÇÃO |
 |--------|-------------|
-|Protocolo | HTTPS |
+|Protocol | HTTPS |
 |usuário | Nome de usuário opcional para autenticação de proxy |
 |Senha | Senha opcional para autenticação de proxy |
 |proxyhost | Endereço ou FQDN do servidor proxy/gateway do Log Analytics |

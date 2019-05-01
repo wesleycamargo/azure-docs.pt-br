@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e2b2621ac8ee5b9ee84aaa978e8b915c98c5b702
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fecefbbed39f4fc12db79c7466006409e3da7dd1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61095515"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574462"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planejando uma implantação de Arquivos do Azure
 
@@ -77,26 +77,16 @@ Se você estiver usando a Sincronização de Arquivos do Azure para acessar o co
 Arquivos do Azure oferece dois níveis de desempenho: standard e premium.
 
 * Os **compartilhamentos de arquivos padrão** contam com HDDs (unidades de disco rígido) rotacionais que fornecem um desempenho confiável para as cargas de trabalho de E/S que são menos sensíveis à variabilidade de desempenho, como os compartilhamentos de arquivos de finalidade geral e os ambientes de desenvolvimento/teste. Os compartilhamentos de arquivos padrão estão disponíveis apenas em um modelo de cobrança pago conforme o uso.
-* Os **compartilhamentos de arquivos Premium (versão prévia)** contam com SSDs (discos de estado sólido) que fornecem alto desempenho consistente e baixa latência, em milissegundos de dígito único para a maioria das operações de E/S e para as cargas de E/S mais intensivas. Isso os torna adequados para uma ampla variedade de cargas de trabalho, como bancos de dados, hospedagem de websites, ambientes de desenvolvimento, etc. Os compartilhamentos de arquivos Premium estão disponíveis em um modelo de cobrança provisionado. Compartilhamentos de arquivos do Premium usam um modelo de implantação separado de compartilhamentos de arquivos padrão. Se você quiser saber como criar um compartilhamento de arquivos do premium, consulte nosso artigo sobre o assunto: [Como criar uma conta de armazenamento de arquivos do Azure premium](storage-how-to-create-premium-fileshare.md).
+* Os **compartilhamentos de arquivos Premium (versão prévia)** contam com SSDs (discos de estado sólido) que fornecem alto desempenho consistente e baixa latência, em milissegundos de dígito único para a maioria das operações de E/S e para as cargas de E/S mais intensivas. Isso os torna adequados para uma ampla variedade de cargas de trabalho, como bancos de dados, hospedagem de websites, ambientes de desenvolvimento, etc. Os compartilhamentos de arquivos Premium estão disponíveis em um modelo de cobrança provisionado. Compartilhamentos de arquivos do Premium usam um modelo de implantação separado de compartilhamentos de arquivos padrão.
+
+O Backup do Azure está disponível para os compartilhamentos de arquivos premium e o serviço Kubernetes do Azure dá suporte a compartilhamentos de arquivos do premium na versão 1.13 e posterior.
+
+Se você quiser saber como criar um compartilhamento de arquivos do premium, consulte nosso artigo sobre o assunto: [Como criar uma conta de armazenamento de arquivos do Azure premium](storage-how-to-create-premium-fileshare.md).
+
+Atualmente, é possível converter diretamente entre um compartilhamento de arquivos padrão e um compartilhamento de arquivos de premium. Se você quiser alternar para a camada, você deve criar um novo compartilhamento de arquivo nessa camada e copiar manualmente os dados do seu compartilhamento original para o novo compartilhamento que você criou. Você pode fazer isso usando as ferramentas de cópia de arquivos do Azure com suporte, como o AzCopy.
 
 > [!IMPORTANT]
-> Arquivo Premium compartilhamentos ainda estão em visualização, disponível apenas com o LRS e só estão disponíveis em um subconjunto de regiões com suporte de Backup do Azure estejam disponíveis no selecionar regiões:
-
-|Região disponível  |Suporte de Backup do Azure  |
-|---------|---------|
-|Leste dos EUA 2      | Sim|
-|Leste dos EUA       | Sim|
-|Oeste dos EUA       | Não  |
-|Oeste dos EUA 2      | Não  |
-|Centro dos EUA    | Não  |
-|Norte da Europa  | Não  |
-|Europa Ocidental   | Sim|
-|Sudeste da Ásia       | Sim|
-|Ásia Oriental     | Não  |
-|Leste do Japão    | Não  |
-|Oeste do Japão    | Não  |
-|Coreia Central | Não  |
-|Leste da Austrália| Não  |
+> Compartilhamentos de arquivos do Premium ainda estão em visualização, estão disponíveis apenas com LRS e estão disponíveis na maioria das regiões que oferecem as contas de armazenamento. Para descobrir se os compartilhamentos de arquivos do premium estão disponíveis no momento em sua região, consulte o [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=storage) página para o Azure.
 
 ### <a name="provisioned-shares"></a>Compartilhamentos provisionados
 
@@ -115,7 +105,9 @@ Compartilhamentos devem ser provisionados em incrementos de 1 GiB. Tamanho míni
 >
 > taxa de entrada = 40 MiB/s + 0,04 * provisionado GiB
 
-Tamanho do compartilhamento pode ser aumentado a qualquer momento, mas pode ser diminuído apenas após 24 horas desde o último aumento. Após aguardar 24 horas sem um aumento de tamanho, você pode diminuir o tamanho do compartilhamento quantas vezes até que você aumentá-lo novamente. As alterações de escala IOPS/taxa de transferência entrarão em vigor em poucos minutos após a alteração de tamanho.
+Tamanho do compartilhamento pode ser aumentado a qualquer momento, mas pode ser diminuído apenas após 24 horas desde o último aumento. Depois de aguardar 24 horas sem um aumento de tamanho, você pode diminuir o tamanho do compartilhamento quantas vezes desejar, até que você aumentá-lo novamente. As alterações de escala IOPS/taxa de transferência entrarão em vigor em poucos minutos após a alteração de tamanho.
+
+É possível diminuir o tamanho do seu compartilhamento provisionado abaixo seu GiB usado. Se você fizer isso, você não perderá dados, mas, ainda será cobrado para o tamanho usado e receber o desempenho (linha de base de IOPS, taxa de transferência e IOPS de intermitente) do compartilhamento provisionado, não o tamanho usado.
 
 A tabela a seguir ilustra alguns exemplos dessas fórmulas para os tamanhos do compartilhamento provisionado:
 
@@ -141,7 +133,7 @@ Compartilhamentos de arquivos do Premium podem estourar seu IOPS até um fator d
 Os créditos são acumulados em um bucket de intermitente sempre que o tráfego para o compartilhamento de arquivos está abaixo da linha de base IOPS. Por exemplo, um compartilhamento de 100 GiB tem a linha de base de 100 IOPS. Se tráfego real no compartilhamento de 40 IOPS para um intervalo específico de 1 segundo, o IOPS não utilizado 60 são creditado para um bucket de intermitente. Esses créditos, em seguida, serão usados posteriormente quando operações excederia a IOPs de linha de base.
 
 > [!TIP]
-> Tamanho do bucket de intermitente = Baseline_IOPS * 3600 * 2.
+> Tamanho do bucket de intermitente = IOPS de linha de base * 3600 * 2.
 
 Sempre que um compartilhamento excede a linha de base IOPS e tem créditos em um bucket de intermitente, ele será intermitente. Compartilhamentos podem continuar a intermitência créditos restantes, desde que, embora os compartilhamentos de menores que 50 TiB apenas permanecerão no limite de intermitência para até uma hora. Compartilhamentos de maiores que 50 TiB tecnicamente podem exceder esse limite de uma hora, backup para duas horas, mas, isso se baseia no número de créditos de intermitente vencidas. Cada e/s, além da linha de base de IOPS consome um crédito e depois que todos os créditos são consumidos o compartilhamento retornaria a IOPS de linha de base.
 

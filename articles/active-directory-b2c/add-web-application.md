@@ -3,19 +3,19 @@ title: Adicionar um aplicativo Web – Azure Active Directory B2C | Microsoft Do
 description: Saiba como adicionar um aplicativo Web ao seu locatário do Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.author: davidmu
 ms.date: 04/16/2019
 ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: c1c640fa2c03f584aa9be62ae6ad123377ef53cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ede3fd0dd1d0351e691a9f160260c029d01c8f8a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60383908"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704035"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Adicionar um aplicativo de API Web ao locatário do Azure Active Directory B2C
 

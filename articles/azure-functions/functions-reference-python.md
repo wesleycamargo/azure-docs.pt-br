@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 28f2b395c7f9be1b194b500ef20456be8ff405b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 039b0951484a6bf57703d9a91d604c9c5e5c9a66
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61021254"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571163"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia do desenvolvedor de Python para o Azure Functions
 
@@ -28,7 +28,7 @@ Este artigo é uma introdução ao desenvolvimento do Azure Functions usando Pyt
 
 ## <a name="programming-model"></a>Modelo de programação
 
-Uma função do Azure deve ser um método sem estado no script de Python que processa a entrada e produz a saída. Por padrão, o tempo de execução espera que ela seja implementada como um método global chamado `main()` no arquivo `__init__.py`.
+Uma função do Azure deve ser um método sem estado no script de Python que processa a entrada e produz a saída. Por padrão, o tempo de execução espera o método a ser implementada como um método global chamado `main()` no `__init__.py` arquivo.
 
 Você pode alterar a configuração padrão especificando as propriedades `scriptFile` e `entryPoint` no arquivo `function.json`. Por exemplo, o _function.json_ a seguir diz ao tempo de execução para usar o método _customentry()_ no arquivo _main.py_ como o ponto de entrada para sua função do Azure.
 
@@ -40,7 +40,7 @@ Você pode alterar a configuração padrão especificando as propriedades `scrip
 }
 ```
 
-Os dados de gatilhos e associações estão vinculados à função por meio de atributos de método usando a propriedade `name` definida no arquivo de configuração `function.json`. Por exemplo, o _function.json_ a seguir descreve uma função simples disparada por uma solicitação HTTP denominada `req`:
+Os dados de gatilhos e associações estão vinculados à função por meio de atributos de método usando a propriedade `name` definida no arquivo de configuração `function.json`. Por exemplo, o _Function. JSON_ a seguir descreve uma função simples disparada por uma solicitação HTTP denominada `req`:
 
 ```json
 {
@@ -109,15 +109,16 @@ O código compartilhado deve ser mantido em uma pasta separada. Para fazer refer
 from ..SharedCode import myFirstHelperFunction
 ```
 
-As extensões de associação usadas pelo tempo de execução do Functions são definidas no arquivo `extensions.csproj`, com os arquivos de biblioteca reais na pasta `bin`. Ao desenvolver localmente, você deverá [registrar as extensões de associação](./functions-bindings-register.md#local-development-azure-functions-core-tools) usando o Azure Functions Core Tools. 
+As extensões de associação usadas pelo tempo de execução do Functions são definidas no arquivo `extensions.csproj`, com os arquivos de biblioteca reais na pasta `bin`. Ao desenvolver localmente, você deverá [registrar as extensões de associação](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles) usando o Azure Functions Core Tools. 
 
 Ao implantar um projeto do Functions em seu aplicativo de funções no Azure, todo o conteúdo da pasta FunctionApp deverá ser incluído no pacote, mas não a pasta em si.
 
-## <a name="inputs"></a>Entradas
+## <a name="triggers-and-inputs"></a>Gatilhos e entradas
 
-As entradas são divididas em duas categorias no Azure Functions: entrada do gatilho e entrada adicional. Embora elas sejam diferentes em `function.json`, seu uso é idêntico no código Python. Como exemplo, vejamos o snippet de código a seguir:
+As entradas são divididas em duas categorias no Azure Functions: entrada do gatilho e entrada adicional. Embora elas sejam diferentes em `function.json`, seu uso é idêntico no código Python.  Cadeias de caracteres de Conexão para fontes de entrada e o gatilho devem ser mapeado para valores de `local.settings.json` arquivo localmente e as configurações de aplicativo em execução no Azure. Como exemplo, vejamos o snippet de código a seguir:
 
 ```json
+// function.json
 {
   "scriptFile": "__init__.py",
   "bindings": [
@@ -139,7 +140,19 @@ As entradas são divididas em duas categorias no Azure Functions: entrada do gat
 }
 ```
 
+```json
+// local.settings.json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsStorage": "<azure-storage-connection-string>"
+  }
+}
+```
+
 ```python
+# __init__.py
 import azure.functions as func
 import logging
 
@@ -149,7 +162,8 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-Quando a função é invocada, a solicitação HTTP é transmitida para a função como `req`. Uma entrada será recuperada do Armazenamento de Blobs do Azure com base na _id_ na URL da rota e disponibilizada como `obj` no corpo da função.
+Quando a função é invocada, a solicitação HTTP é transmitida para a função como `req`. Uma entrada será recuperada do armazenamento de BLOBs do Azure com base nas _identificação_ na URL da rota e disponibilizado como `obj` no corpo da função.  Aqui a conta de armazenamento especificado é a cadeia de caracteres de conexão encontrada no `AzureWebJobsStorage` que é a mesma conta de armazenamento usada pelo aplicativo de funções.
+
 
 ## <a name="outputs"></a>outputs
 

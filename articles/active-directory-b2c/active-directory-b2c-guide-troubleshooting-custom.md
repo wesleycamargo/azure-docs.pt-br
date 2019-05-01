@@ -3,19 +3,19 @@ title: Solucionar problemas de políticas personalizadas no Azure Active Directo
 description: Saiba mais sobre as abordagens para a solução de erros ao trabalhar com políticas personalizadas no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: b33b76175558c71720c15a2a4e206e26a60f1f95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5345069005f9161ff04fffb063fda99b7594ec08
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317710"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64703049"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Solucionar problemas de políticas personalizadas do Azure AD B2C e da Estrutura de Experiência de Identidade
 
@@ -72,6 +72,6 @@ Snippet de código de erro: `Reason: User is currently logged as a user of 'your
 
 **Desenvolva e teste jornadas de usuário com perfis técnicos testados.** Altere as etapas de orquestração de uma jornada de usuário de forma incremental. Crie os seus cenários desejados de forma progressiva.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * No GitHub, faça o download do arquivo .zip [active-directory-b2c-custom-policy-starterpack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip).

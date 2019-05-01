@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/22/2019
 ms.author: victorh
-ms.openlocfilehash: 7c31801156ee321fe93d73de41fc68179835261a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 06930171552843a5620d9a2bfb379a60e91a3915
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831105"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64946737"
 ---
 # <a name="configure-ssl-termination-with-key-vault-certificates-using-azure-powershell"></a>Configura a terminação SSL com certificados do Key Vault usando o Azure PowerShell
 
@@ -21,9 +21,6 @@ ms.locfileid: "60831105"
 Para obter mais informações, consulte [terminação SSL com certificados do Key Vault](key-vault-certs.md).
 
 Este artigo mostra um script do PowerShell do Azure para integrar o Key Vault com o Gateway de aplicativo para certificados de terminação de SSL.
-
-> [!IMPORTANT]
-> A integração do Cofre de chaves do Gateway de aplicativo está atualmente em visualização pública. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

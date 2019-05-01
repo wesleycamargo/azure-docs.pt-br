@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: cd06326b22b227490798b2b89c0439940cb4575f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: f1f02f8b5488609a0c69a6d335c96d3cc9266c71
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551555"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64743881"
 ---
 <!-- F-series, Fs-series* -->
 
@@ -27,9 +27,9 @@ A um preço de lista por hora inferior, a série Fsv2 é o melhor valor de preç
 
 ACU: 195 - 210
 
-Armazenamento Premium:  Suportado
+Armazenamento Premium:  Com suporte
 
-Cache de Armazenamento Premium:  Suportado
+Cache de armazenamento Premium:  Com suporte
 
 | Tamanho             | da vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência de disco sem cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 |------------------|--------|-------------|----------------|----------------|--------------------------|--------------------------|-------------------------|

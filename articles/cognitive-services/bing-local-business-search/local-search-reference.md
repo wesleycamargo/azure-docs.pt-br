@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: bc38b4457179c11f9d6b2656aacb8aa66848c444
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3628670d2393d7b6921c60317719ccf8e72a451
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60581030"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866355"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Referência da API v7 da Pesquisa de empresa local do Bing
 
-A API de pesquisa de empresa local envia uma consulta de pesquisa ao Bing para obter resultados que incluam restaurantes, hotéis ou outras empresas locais. A API de pesquisa de empresa local envia uma consulta de pesquisa ao Bing para obter resultados que incluam restaurantes, hotéis ou outras empresas locais. Os resultados de entidade incluem pessoas, lugares ou coisas. Coloque neste contexto entidades empresariais, estados, países, etc.  
+A API de pesquisa de empresa local envia uma consulta de pesquisa ao Bing para obter resultados que incluam restaurantes, hotéis ou outras empresas locais. A API de pesquisa de empresa local envia uma consulta de pesquisa ao Bing para obter resultados que incluam restaurantes, hotéis ou outras empresas locais. Os resultados de entidade incluem pessoas, lugares ou coisas. Local neste contexto é entidades de negócios, estados, países/regiões, etc.  
 
 Esta seção fornece detalhes técnicos sobre os objetos de resposta e os parâmetros e cabeçalhos de consulta que afetam os resultados da pesquisa. Para exemplos que mostram como fazer solicitações, consulte [Início rápido da Pesquisa C# de empresa local](quickstarts/local-quickstart.md) ou [Início rápido de Java da Pesquisa de empresa local](quickstarts/local-search-java-quickstart.md). 
   
@@ -268,7 +268,7 @@ Veja a seguir os possíveis valores de código de erro e de código de suberro.
 |InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|O Bing retorna InvalidAuthorization quando o Bing não pode autenticar o chamador. Por exemplo, o cabeçalho `Ocp-Apim-Subscription-Key` está ausente ou a chave de assinatura não é válida.<br/><br/>A redundância ocorrerá se você especificar mais de um método de autenticação.<br/><br/>Se o erro for InvalidAuthorization, o código de status HTTP será 401.
 |InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|O Bing retorna InsufficientAuthorization quando o chamador não tem permissões para acessar o recurso. Isso pode ocorrer se a chave de assinatura foi desabilitada ou expirou. <br/><br/>Se o erro for InsufficientAuthorization, o código de status HTTP será 403.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - [ Início Rápido da Pesquisa de empresa local ](quickstarts/local-quickstart.md)
 - [Início rápido de negócios pesquisa Java local](quickstarts/local-search-java-quickstart.md)
 - [Início rápido de negócios o nó de pesquisa local](quickstarts/local-search-node-quickstart.md)

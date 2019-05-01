@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2da4ee5d60290485d87af86885dda0d72a625fef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 44894694bab7d34ed9e6a71fe5e47c9e41144bca
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323004"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716272"
 ---
 # <a name="dynamic-manifests"></a>Manifestos dinâmicos
 
@@ -26,7 +26,7 @@ Os Serviços de Mídia oferecem **Manifestos dinâmicos** com base em filtros pr
 
 A tabela a seguir mostra alguns exemplos de URLs com filtros:
 
-|Protocolo|Exemplo|
+|Protocol|Exemplo|
 |---|---|
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
@@ -131,7 +131,7 @@ Você pode especificar uma lista de filtros de ativo ou conta, que se aplica a l
 - Os valores para **forceEndTimestestamp**, **presentationWindowDuration** e **liveBackoffDuration** não devem ser definidos para um filtro VoD. Eles são usados apenas para cenários de filtro em tempo real. 
 - Manifesto dinâmico opera nos limites do GOP (quadros chave) e, como consequência, o corte tem precisão de GOP. 
 - Você pode usar o mesmo nome de filtro para filtros de conta e de recurso. Os filtros de recursos têm precedência mais alta e substituem os filtros de conta.
-- Se você atualizar um filtro, ele pode levar até 2 minutos para o ponto de extremidade do Streaming atualize as regras. Se o conteúdo foi distribuído usando alguns filtros (e armazenado em cache nos proxies e caches CDN), atualizar esses filtros pode resultar em falhas do player. É recomendável limpar o cache depois de atualizar o filtro. Se essa opção não for possível, considere usar um filtro diferente.
+- Se você atualizar um filtro, ele pode levar até 2 minutos para que o ponto de extremidade do Streaming atualize as regras. Se o conteúdo foi distribuído usando alguns filtros (e armazenado em cache nos proxies e caches CDN), atualizar esses filtros pode resultar em falhas do player. É recomendável limpar o cache depois de atualizar o filtro. Se essa opção não for possível, considere usar um filtro diferente.
 - Os clientes precisam fazer o download manual do manifesto e analisar a exata startTimestamp e a escala de tempo.
     
     - Para determinar as propriedades das faixas em um Ativo, [obtenha e examine o arquivo de manifesto](#get-and-examine-manifest-files).

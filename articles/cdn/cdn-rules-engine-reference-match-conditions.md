@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75fe965a04bd02a1086551053c28d2072eae6468
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323817"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869523"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condições de correspondência do mecanismo de regras da CDN do Azure 
 Este artigo lista descrições detalhadas das condições de correspondência disponíveis para o [mecanismo de regras](cdn-rules-engine.md) da CDN (Rede de Distribuição de Conteúdo) do Azure.
@@ -28,7 +28,7 @@ A segunda parte de uma regra é a condição de correspondência. Uma condição
 
 Por exemplo, você pode usar uma condição de correspondência para:
 - Filtrar solicitações para conteúdo em um local específico.
-- Filtrar solicitações geradas de um endereço IP ou país específico.
+- Filtrar solicitações geradas de um determinado endereço IP ou país/região.
 - Filtrar solicitações por informações de cabeçalho.
 
 ## <a name="always-match-condition"></a>Condição de correspondência Sempre
@@ -54,7 +54,7 @@ As condições de correspondência Localização identificam solicitações base
 NOME | Finalidade
 -----|--------
 [Número AS](#as-number) | Identifica solicitações originadas de uma rede específica.
-[País](#country) | Identifica solicitações originadas de países especificados.
+[País](#country) | Identifica solicitações originadas de países/regiões especificados.
 
 ## <a name="origin-match-conditions"></a>Condições de correspondência Origem
 
@@ -235,7 +235,7 @@ Informações de chave:
 
 ---
 ### <a name="country"></a>País/Região
-Você pode especificar um país por meio de seu código de país. 
+Você pode especificar um país/região por meio de seu código de país. 
 
 A opção **Corresponde**/**Não corresponde** determina as condições sob as quais a condição de correspondência País são atendidas:
 - **Corresponde**: requer que a solicitação contenha os valores de código de país especificados. 
@@ -260,9 +260,9 @@ Essa condição de correspondência permite que você execute uma variedade de p
 - Correspondência do Curinga de Caminho da URL: defina a [condição de correspondência do Curinga de Caminho da URL](#url-path-wildcard) para o diretório que será protegido. 
     Acrescente um asterisco no final do caminho relativo para garantir que o acesso a todos os seus elementos filho sejam restritos por essa regra.
 
-- Correspondência de país: defina a condição de correspondência de país para o conjunto desejado de países.
-   - Permitir: defina a condição de correspondência de país como **Não corresponde** para permitir que apenas os países especificados tenham acesso ao conteúdo armazenado no local definido pela condição de correspondência do Curinga de Caminho da URL.
-   - Bloquear: defina a condição de correspondência de país como **Corresponde** para bloquear o acesso dos países especificados ao conteúdo armazenado no local definido pela condição de correspondência do Curinga de Caminho da URL.
+- Correspondência de país: Defina a condição de correspondência de país para o conjunto desejado de países/regiões.
+   - Permitir: Defina a condição de correspondência de país como **não corresponde ao** para permitir que somente o acesso de países/regiões especificado para o conteúdo armazenado no local definido pela condição de correspondência curinga do caminho de URL.
+   - Bloquear: Defina a condição de correspondência de país como **correspondências** para bloquear os países/regiões especificados de acessar o conteúdo armazenado no local definido pela condição de correspondência curinga do caminho de URL.
 
 - Recurso do negar acesso (403): habilite o [Recurso negar acesso (403)](cdn-rules-engine-reference-features.md#deny-access-403) para replicar a porção permitir ou bloquear do recurso de filtragem de país.
 

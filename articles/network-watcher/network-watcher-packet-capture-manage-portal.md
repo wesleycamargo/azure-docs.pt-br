@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: 22bdd50f129a48ade97db323f904f7e652a00d39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 50092db9e2e3670168cbb3440b8cb99eb0c2ac20
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60725849"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714715"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gerenciar as capturas de pacotes com o Observador de Rede do Azure usando o portal
 
@@ -98,7 +98,7 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 Se você selecionou **Arquivo** ao criar a captura, pode exibir ou baixar o arquivo do caminho configurado na máquina virtual.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber como automatizar a captura de pacote com alertas de máquina virtual, veja [Criar uma captura de pacote acionada por alerta](network-watcher-alert-triggered-packet-capture.md).
 - Para determinar se um tráfego específico é permitido dentro ou fora de uma máquina virtual, veja [Diagnosticar um problema de filtro de tráfego de rede de máquina virtual](diagnose-vm-network-traffic-filtering-problem.md).

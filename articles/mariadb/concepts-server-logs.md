@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: a26f61eb199d8f370e1a9dd010932dc868b74ae4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/29/2019
+ms.openlocfilehash: 8a78a9b8f0772a83e45ac2b926878e61e6ee2e61
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61041251"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926326"
 ---
 # <a name="server-logs-in-azure-database-for-mariadb"></a>Logs de servidor no Banco de Dados do Azure para MariaDB
 No Banco de Dados do Azure para MariaDB, o log de consultas lentas está disponível para os usuários. No entanto, não há suporte para acesso ao log de transação. O log de consultas lentas pode ser usado para identificar gargalos de desempenho para solução de problemas.
@@ -23,7 +23,7 @@ Para obter mais informações sobre o log de consulta lenta, leia a documentaç�
 
 No portal do Azure, selecione o servidor do Banco de Dados do Azure para MariaDB. Sob o título **Monitoramento**, selecione a página **Logs do Servidor**.
 
-<!-- For more information on Azure CLI, see [Configure and access server logs using Azure CLI](howto-configure-server-logs-in-cli.md).-->
+Para obter mais informações sobre a CLI do Azure, consulte [Configurar e acessar logs de servidor usando a CLI do Azure](howto-configure-server-logs-cli.md).
 
 ## <a name="log-retention"></a>Retenção de log
 Logs estão disponíveis por até sete dias desde a criação deles. Se o tamanho total dos logs disponíveis exceder 7 GB, os arquivos mais antigos serão excluídos até que haja espaço disponível.
@@ -41,6 +41,42 @@ Outros parâmetros que você pode ajustar incluem:
 - **log_throttle_queries_not_using_indexes**: Esse parâmetro limita o número de consultas não indexadas que podem ser gravadas no log de consulta lenta. Esse parâmetro tem efeito quando log_queries_not_using_indexes está definido como ON.
 
 Consulte a [documentação de log de consulta lenta](https://mariadb.com/kb/en/library/slow-query-log-overview/) do MariaDB para ver descrições completas dos parâmetros de log de consulta lenta.
+
+## <a name="diagnostic-logs"></a>Logs de diagnóstico
+Banco de dados do Azure para MariaDB é integrado com os Logs de diagnóstico do Azure Monitor. Depois de habilitar logs de consulta lentos em seu servidor do MariaDB, você pode optar por fazer com que eles são emitidos para o armazenamento do Azure, Hubs de eventos ou logs do Azure Monitor. Para saber mais sobre como ativar logs de diagnóstico, consulte o como parte da [documentação registros de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md).
+
+> [!IMPORTANT]
+> Esse recurso de diagnóstico para logs do servidor só está disponível no uso geral e otimizado para memória [tipos de preço](concepts-pricing-tiers.md).
+
+A tabela a seguir descreve o que está em cada log. Dependendo do método de saída, os campos incluídos e a ordem em que aparecem podem variar.
+
+| **Propriedade** | **Descrição** |
+|---|---|
+| `TenantId` | Sua ID de locatário |
+| `SourceSystem` | `Azure` |
+| `TimeGenerated` [UTC] | Carimbo de data/hora quando o log foi gravado, em UTC |
+| `Type` | Tipo do log. Sempre `AzureDiagnostics` |
+| `SubscriptionId` | GUID para a assinatura a que o servidor pertence |
+| `ResourceGroup` | Nome do grupo de recursos ao qual o servidor pertence |
+| `ResourceProvider` | Nome do provedor de recursos. Sempre `MICROSOFT.DBFORMARIADB` |
+| `ResourceType` | `Servers` |
+| `ResourceId` | URI de recurso |
+| `Resource` | Nome do servidor |
+| `Category` | `MySqlSlowLogs` |
+| `OperationName` | `LogEvent` |
+| `Logical_server_name_s` | Nome do servidor |
+| `start_time_t` [UTC] | Horário em que a consulta começou |
+| `query_time_s` | Tempo total que a consulta levou para executar |
+| `lock_time_s` | Tempo total em que a consulta foi bloqueada |
+| `user_host_s` | Nome de Usuário |
+| `rows_sent_s` | Número de linhas enviadas |
+| `rows_examined_s` | Número de linhas verificadas |
+| `last_insert_id_s` | [last_insert_id](https://mariadb.com/kb/en/library/last_insert_id/) |
+| `insert_id_s` | Inserir ID |
+| `sql_text_s` | Consulta completa |
+| `server_id_s` | ID do servidor |
+| `thread_id_s` | ID do thread |
+| `\_ResourceId` | URI de recurso |
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Como configurar e acessar logs de servidor a partir da CLI do Azure](howto-configure-server-logs-portal.md).

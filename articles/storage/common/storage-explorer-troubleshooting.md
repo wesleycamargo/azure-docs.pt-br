@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 3e26365c4273611c81682a760695522575f3875d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 385eee6223487e9d7ca5cc3b213d180bb0f1da46
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483328"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64710874"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas de Gerenciador de armazenamento do Azure
 
@@ -96,10 +96,10 @@ Se você não conseguir encontrar certificados autoassinados usando as etapas an
 
 Diálogos de entrada em branco são causados frequentemente pelo ADFS solicitando que o Gerenciador de armazenamento para executar um redirecionamento, que não é suportado pelo Electron. Para contornar esse problema, você pode tentar usar o fluxo de código de dispositivo para entrar. Para isso, execute as etapas a seguir:
 
-1. "Ir para a visualização" -> "Usem Sign-In de código de dispositivo".
+1. Menu: Visualização -> "Usem Sign-In de código de dispositivo".
 2. Abra a caixa de diálogo Conectar (seja por meio do ícone de tomada na barra vertical à esquerda, ou “Adicionar conta” no painel da conta).
 3. Escolha qual ambiente você deseja entrar.
-4. Clique no botão “Entrar”.
+4. Clique no botão "Entrar".
 5. Siga as instruções no painel seguinte.
 
 Se você estiver tendo problemas de inscrição para a conta que você deseja usar como navegador padrão já está conectado a uma conta diferente, você pode:

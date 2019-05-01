@@ -5,15 +5,15 @@ services: storage
 author: yzheng-msft
 ms.service: storage
 ms.topic: conceptual
-ms.date: 3/20/2019
+ms.date: 4/29/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 2de194e501c05ba0bdb9971ca6045e67a42b0fd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f1fdd1b239301a5340716e1d5d098487afe27f9f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392459"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938559"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerenciar o ciclo de vida do armazenamento de BLOBs do Azure
 
@@ -42,7 +42,7 @@ O recurso de gerenciamento do ciclo de vida está disponível em todas as regiõ
 
 ## <a name="add-or-remove-a-policy"></a>Adicionar ou remover uma política 
 
-Você pode adicionar, editar ou remover uma política por meio do portal do Azure, [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), a CLI do Azure, [APIs REST](https://docs.microsoft.com/en-us/rest/api/storagerp/managementpolicies), ou uma ferramenta de cliente. Este artigo mostra como gerenciar a política usando o portal e métodos do PowerShell.  
+Você pode adicionar, editar ou remover uma política por meio do portal do Azure, [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), a CLI do Azure, [APIs REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies), ou uma ferramenta de cliente. Este artigo mostra como gerenciar a política usando o portal e métodos do PowerShell.  
 
 > [!NOTE]
 > Se você habilitar as regras de firewall para sua conta de armazenamento, as solicitações de gerenciamento do ciclo de vida poderão ser bloqueadas. Desbloqueie essas solicitações fornecendo exceções. O bypass necessário são: `Logging,  Metrics,  AzureServices`. Para obter mais informações, confira a seção Exceções em [Configurar firewalls e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
@@ -80,7 +80,47 @@ $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Fi
 $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 
 ```
+## <a name="arm-template-with-lifecycle-management-policy"></a>Modelo ARM com política de gerenciamento do ciclo de vida
 
+Você pode definir e implantar o gerenciamento de ciclo de vida como parte da sua implantação de solução do Azure usando modelos do ARM. A seguir é um exemplo de modelo para implantar uma conta de armazenamento de GPv2 de RA-GRS com uma política de gerenciamento do ciclo de vida. 
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "storageAccountName": "[uniqueString(resourceGroup().id)]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2019-04-01",
+      "sku": {
+        "name": "Standard_RAGRS"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "networkAcls": {}
+      }
+    },
+    {
+      "name": "[concat(variables('storageAccountName'), '/default')]",
+      "type": "Microsoft.Storage/storageAccounts/managementPolicies",
+      "apiVersion": "2019-04-01",
+      "dependsOn": [
+        "[variables('storageAccountName')]"
+      ],
+      "properties": {
+        "policy": {...}
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
 
 ## <a name="policy"></a>Política
 
@@ -113,7 +153,7 @@ Uma política é uma coleção de regras:
 
 Cada regra na política tem vários parâmetros:
 
-| Nome do parâmetro | Tipo de parâmetro | Observações | Necessário |
+| Nome do parâmetro | Tipo de parâmetro | Observações | Obrigatório |
 |----------------|----------------|-------|----------|
 | Nome           | Cadeia de caracteres |Um nome de regra pode incluir até 256 caracteres alfanuméricos. A regra de nome diferencia maiúsculas de minúsculas.  Ela deve ser exclusiva em uma política. | True |
 | Habilitado | Boolean | Um booliano opcional para permitir que uma regra para ser temporário desabilitado. Valor padrão é true se não for definido. | Falso | 
@@ -305,11 +345,11 @@ Para dados que são modificados e acessados regularmente durante seu ciclo de vi
   ]
 }
 ```
-## <a name="faq---i-created-a-new-policy-why-are-the-actions-not-run-immediately"></a>Perguntas frequentes – Criei uma política. Por que as ações não são executadas imediatamente? 
-
+## <a name="faq"></a>Perguntas frequentes 
+**Eu criei uma nova política, por que as ações não são executadas imediatamente?**  
 A plataforma executa a política de ciclo de vida uma vez por dia. Depois de configurar uma política, ele pode levar até 24 horas para algumas ações (como disposição em camadas e exclusão) para ser executado pela primeira vez.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba como recuperar dados após uma exclusão acidental:
 

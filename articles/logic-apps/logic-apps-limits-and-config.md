@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: c211d479efe086bb739b91034c6d9e349358b2d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f371376a7c801eecb6231d551546b13dbc68dd26
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60303665"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916805"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -179,45 +179,18 @@ Aqui estão os limites para conectores personalizados que você pode criar de AP
 
 Estes são os limites no número de artefatos para cada conta de integração. Para obter mais informações, consulte [Preços de Aplicativos Lógicos](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-*Camada gratuita*
+> [!NOTE] 
+> Use a camada gratuita somente para cenários exploratórios, não os cenários de produção. Esta camada restringe o uso e a taxa de transferência e não tem nenhum SLA (Contrato de Nível de Serviço).
 
-Use a camada gratuita somente para cenários exploratórios, não cenários de produção. Esta camada restringe o uso e a taxa de transferência e não tem nenhum SLA (Contrato de Nível de Serviço).
-
-| Artefato | Limite | Observações |
-|----------|-------|-------|
-| Assemblies | 10 | |
-| Configurações de lote | 5 |
-| Certificados | 25 | |
-| Contratos comerciais de EDI | 10 | |
-| Parceiros comerciais de EDI | 25 | |
-| Mapas | 25 | |
-| Esquemas | 25 |
-||||
-
-*Camada básica*
-
-| Artefato | Limite | Observações |
-|----------|-------|-------|
-| Assemblies | 25 | |
-| Configurações de lote | 1 | |
-| Certificados | 2 | |
-| Contratos comerciais de EDI | 1 | |
-| Parceiros comerciais de EDI | 2 | |
-| Mapas | 500 | |
-| Esquemas | 500 |
-||||
-
-*Camada Standard*
-
-| Artefato | Limite | Observações |
-|----------|-------|-------|
-| Assemblies | 50 | |
-| Configurações de lote | 50 |
-| Certificados | 500 | |
-| Contratos comerciais de EDI | 500 | |
-| Parceiros comerciais de EDI | 500 | |
-| Mapas | 1.000 | |
-| Esquemas | 1.000 |
+| Artefato | Grátis | Basic | Standard |
+|----------|------|-------|----------|
+| Contratos comerciais de EDI | 10 | 1 | 500 |
+| Parceiros comerciais de EDI | 25 | 2 | 500 |
+| Mapas | 25 | 500 | 1.000 |
+| Esquemas | 25 | 500 | 1.000 |
+| Assemblies | 10 | 25 | 50 |
+| Certificados | 25 | 2 | 500 |
+| Configurações de lote | 5 | 1 | 50 |
 ||||
 
 <a name="artifact-capacity-limits"></a>
@@ -304,7 +277,7 @@ Os Aplicativos Lógicos não permitem a conexão direta com a contas de Armazena
 | Sul da Índia | 52.172.9.47, 52.172.49.43, 52.172.51.140, 104.211.225.152 |
 | Sudeste Asiático | 52.163.93.214, 52.187.65.81, 52.187.65.155, 104.215.181.6 |
 | Centro-Oeste dos EUA | 13.78.137.247, 52.161.8.128, 52.161.19.82, 52.161.26.172 |
-| Europa Ocidental | 13.95.155.53, 52.174.49.6, 52.174.49.6, 52.174.54.218 |
+| Europa Ocidental | 13.95.155.53, 51.144.176.185, 52.174.49.6, 52.174.54.218 |
 | Índia Ocidental | 104.211.157.237, 104.211.164.25, 104.211.164.112, 104.211.165.81 |
 | Oeste dos EUA | 13.91.252.184, 52.160.90.237, 138.91.188.137, 157.56.160.212 |
 | Oeste dos EUA 2 | 13.66.128.68, 13.66.224.169, 52.183.30.10, 52.183.39.67 |
@@ -344,7 +317,7 @@ Os Aplicativos Lógicos não permitem a conexão direta com a contas de Armazena
 | Oeste do Reino Unido | 51.141.45.238, 51.141.47.136, 51.141.54.185, 51.141.112.112, 51.141.113.36, 51.141.114.77, 51.141.118.119, 51.141.119.63 | 51.140.211.0 - 51.140.211.15, 51.141.47.105 |
 ||||
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Próximas etapas  
 
 * Saiba como [criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
 * Saiba mais sobre [exemplos e cenários comuns](../logic-apps/logic-apps-examples-and-scenarios.md)

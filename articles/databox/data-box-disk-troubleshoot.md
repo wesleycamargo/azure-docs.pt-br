@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 04/2/2019
 ms.author: alkohli
-ms.openlocfilehash: ed6d567be255fe9b72be564c31d734541a1ffa73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9d01b56da2650be395878ce07e4aae73495061f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564896"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939634"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Solucionar problemas no Azure Data Box Disk
 
@@ -54,12 +54,12 @@ Para navegar até o caminho do log de cópia, vá até a conta de armazenamento 
 É possível usar os logs de atividade para encontrar um erro ao solucionar problemas ou monitorar como um usuário em sua organização modificou um recurso. Com os logs de atividade, você pode determinar:
 
 - Quais operações foram executadas nos recursos em sua assinatura.
-- Quem iniciou a operação. 
+- Quem iniciou a operação.
 - Quando a operação ocorreu.
 - O status da operação.
 - Os valores de outras propriedades que podem ajudar você a pesquisar a operação.
 
-O log de atividades contém todas as operações de gravação (como PUT, POST, DELETE) realizadas em seus recursos, mas não as operações de leitura (como GET). 
+O log de atividades contém todas as operações de gravação (como PUT, POST, DELETE) realizadas em seus recursos, mas não as operações de leitura (como GET).
 
 Os logs de atividade são retidos por 90 dias. Você pode consultar qualquer intervalo de datas, desde que a data inicial não seja anterior a 90 dias no passado. Você também pode filtrar por uma das consultas internas no Insights. Por exemplo, clique em erro e, depois, selecione e clique em falhas específicas para entender a causa raiz.
 
@@ -79,7 +79,7 @@ Os logs de atividade são retidos por 90 dias. Você pode consultar qualquer int
 
 |Mensagem de erro/avisos  |Recomendações |
 |---------|---------|
-|[Informações] Recuperação de senha do BitLocker para o volume: m <br>[Erro] Exceção detectada ao recuperar a chave do BitLocker para o volume m:<br> A sequência não contém elementos.|Esse erro será gerado se o Data Box Disk de destino estiver offline. <br> Use a ferramenta `diskmgmt.msc` em discos online.|
+|[Info] Recuperação de senha do BitLocker para o volume: m <br>[Erro] Exceção detectada ao recuperar a chave do BitLocker para m: de volume<br> A sequência não contém elementos.|Esse erro será gerado se o Data Box Disk de destino estiver offline. <br> Use a ferramenta `diskmgmt.msc` em discos online.|
 |[Erro] Exceção gerada: A operação de WMI falhou:<br> Method=UnlockWithNumericalPassword, ReturnValue=2150694965, <br>Win32Message = o formato da senha de recuperação fornecida é inválido. <br>As senhas de recuperação do BitLocker têm 48 dígitos. <br>Verifique se a senha de recuperação está no formato correto e, em seguida, tente novamente.|Use a ferramenta de desbloqueio do Data Box Disk para desbloquear os discos e repita o comando. Para obter mais informações, acesse <li> [Desbloquear Data Box Disk para clientes Windows](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client). </li><li> [Desbloquear Data Box Disk para clientes Linux](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client). </li>|
 |[Erro] Exceção gerada: Existe um arquivo de DriveManifest.xml na unidade de destino. <br> Isso indica que a unidade de destino pode ter sido preparada com um arquivo de diário diferente. <br>Para adicionar mais dados à mesma unidade, use o arquivo de diário anterior. Para excluir dados existentes e reutilizar a unidade de destino para um novo trabalho de importação, exclua DriveManifest.xml na unidade. Execute o comando novamente com um novo arquivo de diário.| Esse erro é recebido quando você tenta usar o mesmo conjunto de unidades para várias sessões de importação. <br> Use um conjunto de unidades apenas para uma sessão de divisão e cópia.|
 |[Erro] Exceção gerada: CopySessionId importdata-sept-test-1 se refere a uma sessão de cópia anterior e não pode ser reutilizado para uma nova sessão de cópia.|Esse erro é relatado ao tentar usar o mesmo nome de um trabalho anterior concluído com êxito para um novo trabalho.<br> Atribua um nome exclusivo para seu trabalho.|
@@ -96,7 +96,7 @@ Esta seção apresenta detalhes sobre alguns dos principais problemas enfrentado
 
 Isso pode ser devido a um sistema de arquivos não limpo. 
 
-Remontar uma unidade como leitura e gravação não funciona com Data Box Disks. Não há suporte para esse cenário em unidades descriptografadas pelo dislocker. Você pode ter remontado o dispositivo com sucesso usando o seguinte comando: 
+Remontar uma unidade como leitura e gravação não funciona com Data Box Disks. Não há suporte para esse cenário em unidades descriptografadas pelo dislocker. Você pode ter remontado o dispositivo com sucesso usando o seguinte comando:
 
     `# mount -o remount, rw /mnt/DataBoxDisk/mountVol1`
 
@@ -104,15 +104,37 @@ Embora a remontagem tenha sido bem-sucedida, os dados não persistirão.
 
 **Resolução**
 
-Se você vir o erro acima, poderá tentar uma das seguintes resoluções:
+Execute as seguintes etapas no seu sistema Linux:
 
-- Instale [`ntfsfix`](https://linux.die.net/man/8/ntfsfix) (disponível no pacote `ntfsprogs`) e execute-o em relação à partição relevante.
+1. Instalar o `ntfsprogs` pacote para o utilitário ntfsfix.
+2. Desmonte os pontos de montagem fornecidos para a unidade pela ferramenta de desbloqueio. O número de pontos de montagem variam para unidades.
 
-- Se você tiver acesso a um sistema Windows
+    ```
+    unmount /mnt/DataBoxDisk/mountVol1
+    ```
 
-    - Carregue a unidade no sistema Windows.
-    - Abra uma prompt de comando com privilégios de administrativos. Execute `chkdsk` no volume.
-    - Remova o volume com segurança e tente novamente.
+3. Execute `ntfsfix` no caminho correspondente. O número realçado deve ser igual a etapa 2.
+
+    ```
+    ntfsfix /mnt/DataBoxDisk/bitlockerVol1/dislocker-file
+    ```
+
+4. Execute o seguinte comando para remover os metadados de hibernação que podem causar o problema de montagem.
+
+    ```
+    ntfs-3g -o remove_hiberfile /mnt/DataBoxDisk/bitlockerVol1/dislocker-file /mnt/DataBoxDisk/mountVol1
+    ```
+
+5. Faça uma desmontagem limpa.
+
+    ```
+    ./DataBoxDiskUnlock_x86_64 /unmount
+    ```
+
+6. Fazer uma limpeza unlock e montar.
+7. Teste o ponto de montagem, escrevendo um arquivo.
+8. Desmonte e monte novamente para validar a persistência de arquivo.
+9. Continue com a cópia de dados.
  
 ### <a name="issue-error-with-data-not-persisting-after-copy"></a>Problema: Erro de dados não persistirem após a cópia
  

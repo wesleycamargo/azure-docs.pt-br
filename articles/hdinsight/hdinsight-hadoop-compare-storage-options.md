@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: ac1a0e4eadc0b84fdd2a170c2e0f6e0a2f2af3a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2724451d44a793023f7b69196b186f68f6fc6a26
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60921903"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720474"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparar opções de armazenamento para uso com clusters do Azure HDInsight
 
@@ -31,8 +31,12 @@ A tabela a seguir resume os serviços de armazenamento do Azure que são compat�
 |Azure Data Lake Storage Gen2| Uso geral V2 | Hierarchical (sistema de arquivos) | Blob | Standard | Frequente, esporádico, arquivo morto | 3.6+ | Todos |
 |Armazenamento do Azure| Uso geral V2 | Object | Blob | Standard | Frequente, esporádico, arquivo morto | 3.6+ | Todos |
 |Armazenamento do Azure| Uso geral V1 | Object | Blob | Standard | N/D | Todos | Todos |
-|Armazenamento do Azure| Armazenamento de Blobs | Object | Blob | Standard | Frequente, esporádico, arquivo morto | Todos | Todos |
+|Armazenamento do Azure| Armazenamento de blob * * | Object | Blob de blocos | Standard | Frequente, esporádico, arquivo morto | Todos | Todos |
 |Azure Data Lake Storage Gen1| N/D | Hierarchical (sistema de arquivos) | N/D | N/D | N/D | 3.6 somente | Todos, exceto HBase |
+
+* * Para clusters de HDInsight, somente as contas de armazenamento secundário podem ser do tipo BlobStorage.
+
+Para obter mais informações sobre tipos de conta de armazenamento do Azure, consulte [visão geral da conta de armazenamento do Azure](../storage/common/storage-account-overview.md)
 
 Para obter mais informações sobre as camadas de acesso de armazenamento do Azure, consulte [armazenamento de BLOBs do Azure: Premium (versão prévia), as camadas de armazenamento quente, fria e arquivo morto](../storage/blobs/storage-blob-storage-tiers.md)
 
@@ -40,14 +44,14 @@ Você pode criar um cluster usando combinações diferentes de serviços para o 
 
 | Versão do HDInsight | Armazenamento Primário | Armazenamento secundário | Com suporte |
 |---|---|---|---|
-| 3.6 & 4.0 | Blob padrão | Blob padrão | Sim |
-| 3.6 & 4.0 | Blob padrão | Armazenamento do Data Lake Gen2 | Não  |
-| 3.6 & 4.0 | Blob padrão | Armazenamento do Data Lake Gen1 | Sim |
+| 3.6 & 4.0 | Uso geral V1, V2 de uso geral | Uso geral V1, V2 de uso geral, BlobStorage (Blobs de blocos) | Sim |
+| 3.6 & 4.0 | Uso geral V1, V2 de uso geral | Armazenamento do Data Lake Gen2 | Não  |
+| 3.6 & 4.0 | Uso geral V1, V2 de uso geral | Armazenamento do Data Lake Gen1 | Sim |
 | 3.6 & 4.0 | Data Lake Storage Gen2* | Armazenamento do Data Lake Gen2 | Sim |
-| 3.6 & 4.0 | Data Lake Storage Gen2* | Blob padrão | Sim |
+| 3.6 & 4.0 | Data Lake Storage Gen2* | Uso geral V1, V2 de uso geral, BlobStorage (Blobs de blocos) | Sim |
 | 3.6 & 4.0 | Armazenamento do Data Lake Gen2 | Armazenamento do Data Lake Gen1 | Não  |
 | 3.6 | Armazenamento do Data Lake Gen1 | Armazenamento do Data Lake Gen1 | Sim |
-| 3.6 | Armazenamento do Data Lake Gen1 | Blob padrão | Sim |
+| 3.6 | Armazenamento do Data Lake Gen1 | Uso geral V1, V2 de uso geral, BlobStorage (Blobs de blocos) | Sim |
 | 3.6 | Armazenamento do Data Lake Gen1 | Armazenamento do Data Lake Gen2 | Não  |
 | 4,0 | Armazenamento do Data Lake Gen1 | Qualquer | Não  |
 

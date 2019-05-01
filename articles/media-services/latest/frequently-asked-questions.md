@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 04/24/2019
 ms.author: juliako
-ms.openlocfilehash: d6e5142bec29f58671c553b7b32bb72202cae263
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d99e3661fd51b481a20404cfeb55157ac803c220
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322695"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706160"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Perguntas frequentes sobre os serviços de mídia do Azure v3
 
@@ -41,6 +41,10 @@ Use [Transformações](https://docs.microsoft.com/rest/api/media/transforms) par
 ### <a name="how-does-pagination-work"></a>Como a paginação funciona?
 
 Ao usar a paginação, você sempre deve usar o próximo link para enumerar a coleção e não depender de um tamanho de página em particular. Para obter detalhes e exemplos, confira [Filtragem, ordenação, paginação](entities-overview.md).
+
+### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Quais recursos ainda não estão disponíveis na v3 de serviços de mídia do Azure?
+
+Para obter detalhes, consulte [lacunas em relação à v2 APIs de recurso](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis).
 
 ## <a name="live-streaming"></a>Transmissão ao vivo 
 
@@ -89,6 +93,6 @@ Para obter mais informações, confira [Migrar para os Serviços de Mídia v3](m
 
 Agora é recomendável usar a criptografia de armazenamento do lado do servidor (que está ativada por padrão). Para obter mais informações, consulte [Criptografia de serviço do Armazenamento do Azure para dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 [Visão geral dos Serviços de Mídia v3](media-services-overview.md)

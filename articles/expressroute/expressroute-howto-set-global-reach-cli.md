@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/12/2018
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 28df8f59944ccac9d731e15a558d864beed2f3ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89ada41c5f3c9cf1ca7a2ac707363f57080c361d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364207"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869975"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Configurar o alcance Global do ExpressRoute usando a CLI do Azure
 
@@ -48,7 +48,7 @@ az account set --subscription <your subscription ID>
 
 ### <a name="identify-your-expressroute-circuits-for-configuration"></a>Identifique seus circuitos do ExpressRoute para configuração
 
-Você pode habilitar o Alcance Global do ExpressRoute entre quaisquer dois circuitos do ExpressRoute, desde que eles estejam localizados em países com suporte e tenham sido criados em diferentes locais de emparelhamento. Se sua assinatura for tiver os dois circuitos, você poderá escolher qualquer um dos circuitos para executar a configuração conforme explicado mais adiante neste artigo. Se os dois circuitos estiverem em assinaturas do Azure diferentes, você precisará ter autorização de uma assinatura do Azure e precisará passar a chave de autorização quando executar o comando de configuração na outra assinatura.
+Você pode habilitar o alcance Global do ExpressRoute entre quaisquer dois circuitos do ExpressRoute, desde que eles estão localizados em países/regiões com suporte e foram criados em diferentes locais de emparelhamento. Se sua assinatura for tiver os dois circuitos, você poderá escolher qualquer um dos circuitos para executar a configuração conforme explicado mais adiante neste artigo. Se os dois circuitos estiverem em assinaturas do Azure diferentes, você precisará ter autorização de uma assinatura do Azure e precisará passar a chave de autorização quando executar o comando de configuração na outra assinatura.
 
 ## <a name="enable-connectivity-between-your-on-premises-networks"></a>Habilitar conectividade entre suas redes locais
 

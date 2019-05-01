@@ -10,27 +10,32 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 433824c4e375cf1ce7d7a6fe16730044628ccab1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2f315911d79c46810faf720c017cc1f72d5592d7
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61001608"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876816"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Copiar dados de/para o Azure Data Lake Storage Gen1 usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-azure-datalake-connector.md)
 > * [Versão atual](connector-azure-data-lake-store.md)
 
-Este artigo descreve como usar a Atividade de Cópia no Azure Data Factory para copiar dados de/para o Azure Data Lake Storage Gen1 (conhecido anteriormente como Azure Data Lake Store). Ele se baseia na [Visão geral da Atividade de Cópia](copy-activity-overview.md).
+Este artigo descreve como copiar dados de e para Gen1 de armazenamento do Azure Data Lake (ADLS Gen1). Para saber mais sobre o Azure Data Factory, leia as [artigo introdutório](introduction.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-Você pode copiar dados de qualquer armazenamento de dados de origem com suporte para o Azure Data Lake Store ou copiar dados do Azure Data Lake Store para qualquer armazenamento de dados de coletor com suporte. Veja a tabela [armazenamentos de dados compatíveis](copy-activity-overview.md#supported-data-stores-and-formats).
+Esse conector Gen1 de armazenamento do Azure Data Lake é compatível com as seguintes atividades:
 
-Especificamente, este conector do Azure Data Lake Store dá suporte à:
+- [Atividade de cópia](copy-activity-overview.md) com [suporte para a matriz de origem/coletor](copy-activity-overview.md)
+- [Mapeamento de fluxo de dados](concepts-data-flow-overview.md)
+- [Atividade de pesquisa](control-flow-lookup-activity.md)
+- [Atividade GetMetadata](control-flow-get-metadata-activity.md)
+
+Especificamente, esse conector dá suporte para:
 
 - Copiar arquivos usando um dos seguintes métodos de autenticação: **entidade de serviço** ou **identidades gerenciadas para recursos do Azure**.
 - Cópia de arquivos no estado em que se encontram ou analisar ou gerar arquivos com os [formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md).
@@ -70,7 +75,7 @@ Para usar a autenticação de entidade de serviço, registre uma entidade de apl
 >[!IMPORTANT]
 > Verifique se você concedeu a permissão apropriada à entidade de serviço no Data Lake Store:
 >- **Como origem**: Em **Data Explorer** > **Acesso**, dê pelo menos uma permissão de **Leitura + Execução** para listar e copiar os arquivos em pastas e subpastas. Outra opção é conceder permissão de **Leitura** para copiar um único arquivo. Você pode optar por adicionar a **Esta pasta e todos os filhos** para recursivo e adicionar como **uma permissão de acesso e uma entrada de permissão padrão**. Não há requisito de controle de acesso no nível da conta (IAM).
->- **Como coletor**: Em **Data Explorer** > **Acesso**, dê pelo menos uma permissão **Gravação + Execução** para criar itens filho na pasta. Você pode optar por adicionar a **Esta pasta e todos os filhos** para recursivo e adicionar como **uma permissão de acesso e uma entrada de permissão padrão**. Se você usar o Azure Integration Runtime para copiar (origem e coletor estão na nuvem), no IAM, dê pelo menos a função de **Leitor** para permitir ao Data Factory detectar a região do Data Lake Store. Se você quiser evitar essa função IAM, escolha explicitamente [criar um Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) com o local do Data Lake Store. Associe-os no serviço vinculado do Data Lake Store como o exemplo a seguir.
+>- **Como coletor**: Em **Data Explorer** > **Acesso**, dê pelo menos uma permissão **Gravação + Execução** para criar itens filho na pasta. Você pode optar por adicionar a **Esta pasta e todos os filhos** para recursivo e adicionar como **uma permissão de acesso e uma entrada de permissão padrão**. Se você usar o Azure Integration Runtime para copiar (origem e coletor estão na nuvem), no IAM, dê pelo menos a função de **Leitor** para permitir ao Data Factory detectar a região do Data Lake Store. Se você quiser evitar essa função IAM, escolha explicitamente [criar um Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) com o local do Data Lake Store. Por exemplo, se seu Store lago de dados estiver na Europa Ocidental, crie um tempo de execução de integração do Azure com o local definido para "Europa Ocidental". Associá-los no serviço do Data Lake Store vinculado como no exemplo a seguir.
 
 >[!NOTE]
 >Para listar as pastas começando na raiz, você deve definir a permissão da entidade de serviço que está sendo concedida **no nível raiz com a permissão "Executar"**. Isso é verdadeiro quando você usa o:
@@ -156,7 +161,54 @@ No Azure Data Factory, você não precisa especificar nenhuma propriedade além 
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para copiar dados para e do Azure Data Lake Store, defina a propriedade `type` do conjunto de dados como **AzureDataLakeStoreFile**. Há suporte para as seguintes propriedades:
+Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de Dados](concepts-datasets-linked-services.md). 
+
+- Para **Parquet e formato de texto delimitado**, consulte [conjunto de dados de formato de Parquet e texto delimitado](#parquet-and-delimited-text-format-dataset) seção.
+- Para outros formatos, como **formato ORC/Avro/JSON/binário**, consulte [outro conjunto de dados do formato](#other-format-dataset) seção.
+
+### <a name="parquet-and-delimited-text-format-dataset"></a>Conjunto de dados de formato de parquet e texto delimitado
+
+Para copiar dados para e do ADLS Gen1 na **Parquet ou o formato de texto delimitado**, consulte [formato Parquet](format-parquet.md) e [formato de texto delimitado](format-delimited-text.md) artigo no conjunto de dados com base no formato e configurações com suporte. As propriedades a seguir têm suporte para o ADLS Gen1 sob `location` configurações no conjunto de dados com base no formato:
+
+| Propriedade   | DESCRIÇÃO                                                  | Obrigatório |
+| ---------- | ------------------------------------------------------------ | -------- |
+| tipo       | A propriedade type sob `location` no conjunto de dados deve ser definida como **AzureDataLakeStoreLocation**. | Sim      |
+| folderPath | O caminho para a pasta. Se você quiser usar o caractere curinga para a pasta de filtro, ignore essa configuração e especificar nas configurações de fonte da atividade. | Não        |
+| fileName   | Nome do arquivo em determinado folderPath. Se você quiser usar o caractere curinga para filtrar arquivos, ignore essa configuração e especificar nas configurações de fonte da atividade. | Não        |
+
+> [!NOTE]
+>
+> **AzureDataLakeStoreFile** ainda há suporte para o tipo de conjunto de dados com formato de texto/Parquet mencionado na próxima seção como-é para a atividade de pesquisa/cópia/GetMetadata para compatibilidade com versões anteriores, mas ele não funciona com o mapeamento de fluxo de dados. São sugeridas para usar esse novo modelo no futuro, e o ADF criação da interface do usuário foi alternada para gerar esses novos tipos.
+
+**Exemplo:**
+
+```json
+{
+    "name": "DelimitedTextDataset",
+    "properties": {
+        "type": "DelimitedText",
+        "linkedServiceName": {
+            "referenceName": "<ADLS Gen1 linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "schema": [ < physical schema, optional, auto retrieved during authoring > ],
+        "typeProperties": {
+            "location": {
+                "type": "AzureDataLakeStoreLocation",
+                "folderPath": "root/folder/subfolder"
+            },
+            "columnDelimiter": ",",
+            "quoteChar": "\"",
+            "firstRowAsHeader": true,
+            "compressionCodec": "gzip"
+        }
+    }
+}
+```
+
+### <a name="other-format-dataset"></a>Outro conjunto de dados de formato
+
+Para copiar dados para e do ADLS Gen1 na **formato ORC/Avro/JSON/binário**, as propriedades a seguir têm suporte:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
@@ -208,23 +260,87 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 ### <a name="azure-data-lake-store-as-source"></a>Azure Data Lake Store como fonte
 
-Para copiar dados do Data Lake Store, defina o tipo de origem na Atividade de Cópia como **AzureDataLakeStoreSource**. As seguintes propriedades são suportadas na seção **source** da atividade de cópia:
+- Para copiar de **Parquet e formato de texto delimitado**, consulte [Parquet e a origem do formato de texto delimitado](#parquet-and-delimited-text-format-source) seção.
+- Para cópia de outros formatos, como **formato ORC/Avro/JSON/binário**, consulte [outra fonte de formato](#other-format-source) seção.
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
-|:--- |:--- |:--- |
-| Tipo | A propriedade `type` da origem da Atividade de Cópia deve ser definida como: **AzureDataLakeStoreSource**. |Sim |
-| recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Observe que quando `recursive` é definida como true e o coletor é um repositório baseado em arquivo, uma pasta vazia ou subpasta não é copiada ou criada no coletor. Os valores permitidos são: **true** (padrão) e **false**. | Não  |
+#### <a name="parquet-and-delimited-text-format-source"></a>Parquet e a origem do formato de texto delimitado
+
+Para copiar dados do ADLS Gen1 na **Parquet ou o formato de texto delimitado**, consulte [formato Parquet](format-parquet.md) e [formato de texto delimitado](format-delimited-text.md) artigo sobre a fonte da atividade de cópia baseada em formato e configurações com suporte. As propriedades a seguir têm suporte para o ADLS Gen1 sob `storeSettings` as configurações na fonte de cópia com base no formato:
+
+| Propriedade                 | DESCRIÇÃO                                                  | Obrigatório                                      |
+| ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
+| Tipo                     | A propriedade type sob `storeSettings` deve ser definida como **AzureDataLakeStoreReadSetting**. | Sim                                           |
+| recursiva                | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Observe que quando recursiva é definida como true e o coletor é um armazenamento baseado em arquivo, uma pasta vazia ou subpasta não é copiada ou criada no coletor. Os valores permitidos são **true** (padrão) e **false**. | Não                                             |
+| wildcardFolderPath       | O caminho da pasta com caracteres curinga para filtrar as pastas de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape. <br>Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Não                                             |
+| wildcardFileName         | O nome de arquivo com caracteres curinga em determinado folderPath/wildcardFolderPath para filtrar arquivos de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape.  Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Sim se `fileName` não for especificado no conjunto de dados |
+| modifiedDatetimeStart    | Filtro de arquivos com base no atributo: Última Modificação. Os arquivos serão selecionados se a hora da última alteração estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br> As propriedades podem ser NULL, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de dados.  Quando `modifiedDatetimeStart` tem o valor de data e hora, mas `modifiedDatetimeEnd` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é maior ou igual ao valor de data e hora.  Quando `modifiedDatetimeEnd` tem o valor de data e hora, mas `modifiedDatetimeStart` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é menor que o valor de data e hora. | Não                                             |
+| modifiedDatetimeEnd      | Mesmo que acima.                                               | Não                                             |
+| maxConcurrentConnections | O número das conexões para se conectar ao repositório de armazenamento simultaneamente. Especifique somente quando você quiser limitar a conexão simultâneo ao armazenamento de dados. | Não                                             |
+
+> [!NOTE]
+> Para o formato de texto delimitado por Parquet /, **AzureDataLakeStoreSource** ainda tem suporte como origem de atividade de cópia de tipo mencionada na próxima seção-é para compatibilidade com versões anteriores. São sugeridas para usar esse novo modelo no futuro, e o ADF criação da interface do usuário foi alternada para gerar esses novos tipos.
 
 **Exemplo:**
 
 ```json
 "activities":[
     {
-        "name": "CopyFromADLS",
+        "name": "CopyFromADLSGen1",
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<ADLS input dataset name>",
+                "referenceName": "<Delimited text input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "DelimitedTextSource",
+                "formatSettings":{
+                    "type": "DelimitedTextReadSetting",
+                    "skipLineCount": 10
+                },
+                "storeSettings":{
+                    "type": "AzureDataLakeStoreReadSetting",
+                    "recursive": true,
+                    "wildcardFolderPath": "myfolder*A",
+                    "wildcardFileName": "*.csv"
+                }
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+#### <a name="other-format-source"></a>Outra fonte de formato
+
+Para copiar dados do ADLS Gen1 na **formato ORC/Avro/JSON/binário**, as propriedades a seguir têm suporte na atividade de cópia **origem** seção:
+
+| Propriedade | DESCRIÇÃO | Obrigatório |
+|:--- |:--- |:--- |
+| Tipo | A propriedade `type` da origem da Atividade de Cópia deve ser definida como: **AzureDataLakeStoreSource**. |Sim |
+| recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Observe que quando `recursive` é definida como true e o coletor é um repositório baseado em arquivo, uma pasta vazia ou subpasta não é copiada ou criada no coletor. Os valores permitidos são: **true** (padrão) e **false**. | Não  |
+| maxConcurrentConnections | O número das conexões para se conectar ao armazenamento de dados simultaneamente. Especifique somente quando você quiser limitar a conexão simultâneo ao armazenamento de dados. | Não  |
+
+**Exemplo:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromADLSGen1",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<ADLS Gen1 input dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -249,19 +365,28 @@ Para copiar dados do Data Lake Store, defina o tipo de origem na Atividade de C�
 
 ### <a name="azure-data-lake-store-as-sink"></a>Azure Data Lake Store como coletor
 
-Para copiar dados para o Data Lake Store, defina o tipo de coletor na Atividade de Cópia como **AzureDataLakeStoreSink**. As propriedades a seguir têm suporte na seção **coletor**:
+- Para copiar para a **Parquet e formato de texto delimitado**, consulte [Parquet e o coletor de formato de texto delimitado](#parquet-and-delimited-text-format-sink) seção.
+- Para copiar para outros formatos, como **formato ORC/Avro/JSON/binário**, consulte [outro coletor do formato](#other-format-sink) seção.
 
-| Propriedade | DESCRIÇÃO | Obrigatório |
-|:--- |:--- |:--- |
-| Tipo | A propriedade `type` do coletor de Atividade de Cópia deve ser definida como: **AzureDataLakeStoreSink**. |Sim |
-| copyBehavior | Define o comportamento de cópia quando a fonte for de arquivos de um armazenamento de dados baseado em arquivo.<br/><br/>Valores permitidos são:<br/><b>- PreserveHierarchy (padrão)</b>: preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><b>- FlattenHierarchy</b>: todos os arquivos da pasta de origem estão no primeiro nível da pasta de destino. Os arquivos de destino têm nomes gerados automaticamente. <br/><b>- MergeFiles</b>: mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo/blob for especificado, o nome do arquivo mesclado será o nome especificado. Caso contrário, o nome do arquivo será gerado automaticamente. | Não  |
+#### <a name="parquet-and-delimited-text-format-sink"></a>Parquet e o coletor de formato de texto delimitado
+
+Para copiar dados para o ADLS Gen1 na **Parquet ou o formato de texto delimitado**, consulte [formato Parquet](format-parquet.md) e [formato de texto delimitado](format-delimited-text.md) artigo sobre o coletor de atividade de cópia baseada em formato e configurações com suporte. As propriedades a seguir têm suporte para o ADLS Gen1 sob `storeSettings` configurações no coletor de cópia com base no formato:
+
+| Propriedade                 | DESCRIÇÃO                                                  | Obrigatório |
+| ------------------------ | ------------------------------------------------------------ | -------- |
+| Tipo                     | A propriedade type sob `storeSettings` deve ser definida como **AzureDataLakeStoreWriteSetting**. | Sim      |
+| copyBehavior             | Define o comportamento de cópia quando a fonte for de arquivos de um armazenamento de dados baseado em arquivo.<br/><br/>Valores permitidos são:<br/><b>– PreserveHierarchy (padrão)</b>: Preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><b>– FlattenHierarchy</b>: Todos os arquivos da pasta de origem estão no primeiro nível da pasta de destino. Os arquivos de destino têm os nomes gerados automaticamente. <br/><b>– MergeFiles</b>: Mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo for especificado, o nome do arquivo mesclado será o nome especificado. Caso contrário, ele será um nome de arquivo gerado automaticamente. | Não        |
+| maxConcurrentConnections | O número das conexões para se conectar ao armazenamento de dados simultaneamente. Especifique somente quando você quiser limitar a conexão simultâneo ao armazenamento de dados. | Não        |
+
+> [!NOTE]
+> Para o formato de texto delimitado por Parquet /, **AzureDataLakeStoreSink** ainda há suporte para o coletor de atividade de cópia de tipo mencionada na próxima seção como-é para compatibilidade com versões anteriores. São sugeridas para usar esse novo modelo no futuro, e o ADF criação da interface do usuário foi alternada para gerar esses novos tipos.
 
 **Exemplo:**
 
 ```json
 "activities":[
     {
-        "name": "CopyToADLS",
+        "name": "CopyToADLSGen1",
         "type": "Copy",
         "inputs": [
             {
@@ -271,7 +396,52 @@ Para copiar dados para o Data Lake Store, defina o tipo de coletor na Atividade 
         ],
         "outputs": [
             {
-                "referenceName": "<ADLS output dataset name>",
+                "referenceName": "<Parquet output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "ParquetSink",
+                "storeSettings":{
+                    "type": "AzureDataLakeStoreWriteSetting",
+                    "copyBehavior": "PreserveHierarchy"
+                }
+            }
+        }
+    }
+]
+```
+
+#### <a name="other-format-sink"></a>Outro coletor do formato
+
+Para copiar dados para o ADLS Gen1 na **formato ORC/Avro/JSON/binário**, as propriedades a seguir têm suporte nas **coletor** seção:
+
+| Propriedade | DESCRIÇÃO | Obrigatório |
+|:--- |:--- |:--- |
+| tipo | A propriedade `type` do coletor de Atividade de Cópia deve ser definida como: **AzureDataLakeStoreSink**. |Sim |
+| copyBehavior | Define o comportamento de cópia quando a fonte for de arquivos de um armazenamento de dados baseado em arquivo.<br/><br/>Valores permitidos são:<br/><b>- PreserveHierarchy (padrão)</b>: preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><b>- FlattenHierarchy</b>: todos os arquivos da pasta de origem estão no primeiro nível da pasta de destino. Os arquivos de destino têm nomes gerados automaticamente. <br/><b>- MergeFiles</b>: mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo for especificado, o nome do arquivo mesclado será o nome especificado. Caso contrário, o nome do arquivo será gerado automaticamente. | Não  |
+| maxConcurrentConnections | O número das conexões para se conectar ao armazenamento de dados simultaneamente. Especifique somente quando você quiser limitar a conexão simultâneo ao armazenamento de dados. | Não  |
+
+**Exemplo:**
+
+```json
+"activities":[
+    {
+        "name": "CopyToADLSGen1",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<ADLS Gen1 output dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -312,5 +482,10 @@ Esta seção descreve o comportamento resultante da operação de Cópia para di
 | falso |flattenHierarchy | Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5 | A Pasta1 de destino é criada com a seguinte estrutura:<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Nome gerado automaticamente para o Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nome gerado automaticamente para o Arquivo2<br/><br/>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados. |
 | falso |mergeFiles | Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Arquivo2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subpasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Arquivo5 | A Pasta1 de destino é criada com a seguinte estrutura:<br/><br/>Pasta1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Os conteúdos dos Arquivo1 + Arquivo2 são mesclados em um único arquivo com um nome de arquivo gerado automaticamente. Nome gerado automaticamente para o Arquivo1<br/><br/>Subpasta1 com Arquivo3, Arquivo4 e Arquivo5 não são selecionados. |
 
+## <a name="mapping-data-flow-properties"></a>Propriedades do mapeamento de fluxo de dados
+
+Obtenha detalhes em [transformação de origem](data-flow-source.md) e [transformação do coletor](data-flow-sink.md) no mapeamento de fluxo de dados.
+
 ## <a name="next-steps"></a>Próximas etapas
+
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela Atividade de Cópia no Azure Data Factory, veja [Armazenamentos de dados com suporte](copy-activity-overview.md##supported-data-stores-and-formats).

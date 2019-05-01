@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: jegeib
-ms.openlocfilehash: 502c1e8a422eb9e74586e5a6820d5b12ec4ae2a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ad6eca20827e1683237b2c668eba71acedfaade
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60610645"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917631"
 ---
 # <a name="threat-modeling-tool-update-release-71604081---492019"></a>Versão Threat Modeling Tool atualização 7.1.60408.1 - 9/4/2019
 
@@ -53,7 +53,7 @@ Todos os links de suporte dentro da ferramenta foram atualizados para direcionar
 - Sistemas operacionais com suporte
   - [Atualização de Aniversário do Microsoft Windows 10 ou posterior](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97)
 - Versão necessária do .NET
-  - [.Net 4.7.1](http://go.microsoft.com/fwlink/?LinkId=863262) ou posterior
+  - [.Net 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) ou posterior
 - Requisitos adicionais
   - Uma conexão de Internet é necessária para receber as atualizações da ferramenta e também os modelos.
 

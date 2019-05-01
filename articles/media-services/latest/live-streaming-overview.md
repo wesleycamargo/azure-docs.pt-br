@@ -1,5 +1,5 @@
 ---
-title: Visão geral da transmissão ao vivo usando os Serviços de Mídia do Azure | Microsoft Docs
+title: Visão geral da transmissão ao vivo com os serviços de mídia do Azure v3 | Microsoft Docs
 description: Este artigo fornece uma visão geral da transmissão ao vivo usando os serviços de mídia do Azure v3.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: juliako
-ms.openlocfilehash: ad8e84d84665b20bfff53cf09473bc8bce9760d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0157cdc8062d7c53aaeb3ff01762e9562aa9c394
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322449"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866325"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão ao vivo com os Serviços de Mídia do Azure v3
 
@@ -26,7 +26,7 @@ O Azure Media Services permite entregar eventos ao vivo para seus clientes na nu
 
 - Uma câmera é usada para capturar o evento ao vivo.<br/>Para obter ideias de instalação, confira [Configuração da engrenagem de vídeo de evento simples e portátil]( https://link.medium.com/KNTtiN6IeT).
 
-    Se você não tiver acesso a uma câmera, ferramentas, como [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) podem ser usados gerar um feed em tempo real a partir de um arquivo de vídeo.
+    Se você não tiver acesso a uma câmera, ferramentas, como [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) podem ser usados gerar um feed em tempo real a partir de um arquivo de vídeo.
 - Um codificador de vídeo ao vivo que converte sinais de uma câmera (ou outro dispositivo, como um laptop) em um feed de contribuição enviado para os Serviços de Mídia. O feed de contribuição pode incluir sinais relacionados à publicidade, como os marcadores SCTE-35.<br/>Para obter uma lista dos codificadores de transmissão ao vivo recomendados, confira [Codificadores de transmissão ao vivo](recommended-on-premises-live-encoders.md). Além disso, confira este blog: [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT) (Produção de transmissão ao vivo com o OBS).
 - Componentes nos Serviços de Mídia, que permitem a você ingerir, visualizar, empacotar, gravar, criptografar e transmitir o evento ao vivo para seus clientes ou para um CDN para distribuição posterior.
 
@@ -37,7 +37,7 @@ Este artigo fornece uma visão geral e a orientação da transmissão ao vivo co
 
 ## <a name="dynamic-packaging"></a>Empacotamento dinâmico
 
-Com os serviços de mídia, você pode tirar proveito de Packaging](dynamic-packaging-overview.md) dinâmico, que permite que você visualize e transmitir suas transmissões ao vivo na [formatos MPEG DASH, HLS e Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) de contribuição feed que você envia para o serviço. Seus espectadores podem reproduzir a transmissão ao vivo com qualquer player compatível com HLS, DASH ou Smooth Streaming. Você pode usar o [Player de Mídia do Azure](https://amp.azure.net/libs/amp/latest/docs/index.html) em seus aplicativos da Web ou móveis para fornecer seu fluxo em qualquer um desses protocolos.
+Com os serviços de mídia, você pode aproveitar [empacotamento dinâmico](dynamic-packaging-overview.md), que permite que você visualize e transmitir suas transmissões ao vivo no [formatos MPEG DASH, HLS e Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) do feed de contribuição que estão sendo enviado para o serviço. Seus espectadores podem reproduzir a transmissão ao vivo com qualquer player compatível com HLS, DASH ou Smooth Streaming. Você pode usar o [Player de Mídia do Azure](https://amp.azure.net/libs/amp/latest/docs/index.html) em seus aplicativos da Web ou móveis para fornecer seu fluxo em qualquer um desses protocolos.
 
 ## <a name="dynamic-encryption"></a>Criptografia dinâmica
 
@@ -73,7 +73,7 @@ Para entender o fluxo de trabalho de streaming ao vivo nos serviços de mídia v
 
 ### <a name="general-steps"></a>Etapas gerais
 
-1. Na conta dos Serviços de Mídia, verifique se o **Ponto de Extremidade de Streaming** está em execução. 
+1. Em sua conta de serviços de mídia, certifique-se a **ponto de extremidade de Streaming** (origem) está em execução. 
 2. Crie um [evento ao vivo](live-events-outputs-concept.md). <br/>Ao criar o evento, é possível especificar sua inicialização automática. Como alternativa, você poderá iniciar o evento quando estiver pronto para iniciar o streaming.<br/> Quando a inicialização automática é definida como true, o Evento ao Vivo é iniciado logo após a criação. A cobrança começa assim que o Evento ao vivo começa a ser transmitido. É necessário chamar explicitamente o recurso Parar no Evento ao vivo para parar a cobrança adicional. Para saber mais, confira [Estados e cobrança do Evento ao vivo](live-event-states-billing.md).
 3. Obtenha as URLs de ingestão e configure seu codificador local para usar a URL para enviar a feed de contribuição.<br/>Confira [Codificadores dinâmicos recomendados](recommended-on-premises-live-encoders.md).
 4. Obtenha a URL de visualização e use-a para verificar se a entrada do codificador está sendo realmente recebida.
@@ -81,7 +81,7 @@ Para entender o fluxo de trabalho de streaming ao vivo nos serviços de mídia v
 6. Crie um **LiveOutput** e use o nome do ativo que você criou.<br/>A **Saída Dinâmica** arquivará o fluxo no **Ativo**.
 7. Crie um **Localizador de Streaming** com os tipos internos da **Política de Streaming**.<br/>Se você pretende criptografar seu conteúdo, reveja a [Visão geral da proteção de conteúdo](content-protection-overview.md).
 8. Liste os caminhos no **Localizador de Streaming** para retornar as URLs a serem usadas (elas são determinísticas).
-9. Obtenha o nome do host para o **ponto de extremidade de streaming** de onde você deseja transmitir.
+9. Obter o nome do host para o **ponto de extremidade de Streaming** (origem) que você deseja transmitir do.
 10. Combine a URL da etapa 8 com o nome do host na etapa 9 para obter a URL completa.
 11. Caso deseje que o **Evento ao Vivo** deixe de ser visível, você precisará interromper a transmissão do evento e excluir o **Localizador de Streaming**.
 
@@ -92,6 +92,10 @@ Para entender o fluxo de trabalho de streaming ao vivo nos serviços de mídia v
 - [Comparação de recursos de tipos de Evento ao Vivo](live-event-types-comparison.md)
 - [Estados e cobrança](live-event-states-billing.md)
 - [Latência](live-event-latency.md)
+
+## <a name="provide-feedback"></a>Fornecer comentários
+
+Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 9603c45443c6339a127f977600eeff2ba57a283f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2bc32e28ffd6dd9dab2da61078684791a04709cc
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61227935"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922980"
 ---
 # <a name="configure-application-insights-profiler"></a>Configurar o Profiler do Application Insights
 
@@ -41,7 +41,7 @@ Dependendo de como seu Ambiente do Serviço de Aplicativo do Azure está configu
 ## <a id="profileondemand"></a>Disparar o Profiler manualmente
 
 ### <a name="minimum-requirements"></a>Requisitos mínimos 
-Para um usuário disparar manualmente uma sessão de criador de perfil, eles exigem no mínimo "gravação" acesso em suas funções para o componente do Application Insights. Na maioria dos casos você receberá esse acesso automaticamente e nenhum trabalho adicional é necessário. Se você estiver tendo problemas, a função de escopo de assinatura para adicionar seria a função "Colaborador de componente do Application Insights". [Veja mais informações sobre o controle de acesso de função no monitoramento do Azure](https://docs.microsoft.com/en-us/azure/azure-monitor/app/resources-roles-access-control).
+Para um usuário disparar manualmente uma sessão de criador de perfil, eles exigem no mínimo "gravação" acesso em suas funções para o componente do Application Insights. Na maioria dos casos você receberá esse acesso automaticamente e nenhum trabalho adicional é necessário. Se você estiver tendo problemas, a função de escopo de assinatura para adicionar seria a função "Colaborador de componente do Application Insights". [Veja mais informações sobre o controle de acesso de função no monitoramento do Azure](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
 
 Você pode disparar o Profiler manualmente com um único clique. Imagine que você está executando um teste de desempenho Web. Você precisará de rastreamentos para ajudá-lo a entender o desempenho de seu aplicativo Web sob carga. Ter controle sobre quando os rastreamentos são capturados é crucial, pois você sabe quando o teste de carga será executado. Mas o intervalo de amostragem aleatória poderá não detectar isso.
 

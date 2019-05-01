@@ -1,25 +1,18 @@
 ---
-title: Detalhes da Vitrine de uma oferta do Aplicativo do Power BI – Azure Marketplace | Microsoft Docs
+title: Detalhes da vitrine para um aplicativo do Power BI oferecem | O Azure Marketplace
 description: Configure os campos de Detalhes da Vitrine para uma oferta de Aplicativo do Power BI para o Marketplace do Microsoft AppSource.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/30/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 2c99b20e554d92dbe63594d63525dd8e1d765423
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: 0816e7a7add430a65af9b3948aa8626f9567053a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60726159"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942634"
 ---
 # <a name="power-bi-app-storefront-details-tab"></a>Guia de detalhes da vitrine eletrônica de aplicativo do Power BI
 
@@ -32,13 +25,13 @@ No **detalhes da oferta** , digite as informações gerais sobre sua oferta do A
 
 ![Seção Detalhes da Oferta da guia Detalhes da Vitrine](./media/offer-details-section.png)
 
-Para concluir os campos nesta seção, use a tabela a seguir:
+A tabela a seguir fornece mais informações sobre esses campos. Os campos obrigatórios são indicados por um asterisco (*).  
 
 |   Campo               |   DESCRIÇÃO                                                                           |
 |-----------------------|-----------------------------------------------------------------------------------------|
-| **Resumo da oferta**     | Uma breve finalidade do aplicativo, usando até 100 caracteres.                             |
-| **Descrição da oferta** | Uma descrição do aplicativo, usando até 3.000 caracteres. Este campo dá suporte a formatação de HTML simples. |
-|                       |                                                                                         |
+| **Resumo da oferta\***     | Uma breve finalidade do aplicativo, usando até 100 caracteres.                             |
+| **Descrição da oferta\*** | Uma descrição do aplicativo, usando até 3.000 caracteres. Este campo dá suporte a formatação de HTML simples. |
+|   |    |
 
 
 ## <a name="listing-details-section"></a>Seção Detalhes da Listagem
@@ -47,13 +40,13 @@ O **listando detalhes** seção reúne informações sobre o contexto do seu apl
 
 ![Seção Detalhes da Listagem da guia Detalhes da Vitrine](./media/listing-details-section.png)
 
-Para concluir os campos nesta seção, use a tabela a seguir:
+Para concluir os campos nesta seção, use a tabela a seguir.  Os campos obrigatórios são indicados por um asterisco (*).
  
 |   Campo                                  |   DESCRIÇÃO                                                        |
 | --------------                           | ---------------------                                                |
 | **Indústrias**                           | Selecione o setor de onde seu aplicativo se encaixa melhor. Se seu aplicativo se relaciona aos diversos setores, deixe esse campo em branco.      |
-| **Categorias**                           | Selecione até três categorias que se relacionam ao seu aplicativo.     |
-| **Link de ajuda para seu aplicativo**               | Forneça uma URL para uma página que oferece ajuda on-line para seu aplicativo.           |
+| **Categorias\***                           | Selecione até três categorias que se relacionam ao seu aplicativo.     |
+| **Link de ajuda para seu aplicativo\***               | Forneça uma URL para uma página que oferece ajuda on-line para seu aplicativo.           |
 | **Produtos com os quais seu aplicativo trabalha (máx. 3)** | Selecione o **New** sinal de adição para criar um campo de texto. No campo, insira o nome de um produto que seu aplicativo funciona com. Liste até três produtos.       |
 | **Pesquisar palavras-chave (máx. de 3)**              | Insira até três palavras-chave que os usuários provavelmente usará para pesquisar para seu aplicativo no AppSource. Por exemplo, se o aplicativo é chamado de "Meu aplicativo enviando email", as palavras-chave podem ser **emails**, **mala direta**, e **aplicativo de email**. |
 |  |  |
@@ -65,13 +58,13 @@ No **artefatos de Marketing** seção, upload de identidade visual e materiais p
 
 ![Seção Artefatos de Marketing da guia Detalhes da Vitrine](./media/marketing-artifacts-section.png)
 
-Para concluir os campos nesta seção, use a tabela a seguir:
+Para concluir os campos nesta seção, use a tabela a seguir. Os campos obrigatórios são indicados por um asterisco (*).
  
 |    Campo                             |    DESCRIÇÃO                                                    |
 |   -----------                        |    -------------                                                  |
 | *Logos*                              |                                                                   |
-| **Logotipo da oferta (formato png, 48x48)**   | Carregue um logotipo a ser exibido na visão geral do aplicativo ou nos resultados de pesquisa do aplicativo. AppSource dá suporte ao formato somente, PNG, com uma resolução de 48 x 48 px.  |
-| **Logotipo de oferta (formato png, 216x216)** | Carregue um logotipo a ser exibido na página de detalhes do seu aplicativo.  AppSource dá suporte ao formato somente, PNG, com uma resolução de 216x216 px.  |
+| **Logotipo de oferta (formato png, 48 x 48)\***   | Carregue um logotipo a ser exibido na visão geral do aplicativo ou nos resultados de pesquisa do aplicativo. AppSource dá suporte ao formato somente, PNG, com uma resolução de 48 x 48 px.  |
+| **Logotipo de oferta (formato png, 216x216)\*** | Carregue um logotipo a ser exibido na página de detalhes do seu aplicativo.  AppSource dá suporte ao formato somente, PNG, com uma resolução de 216x216 px.  |
 | *Vídeos*                             |                                                                   |
 | **Nome**                             | Insira o nome ou o título do seu aplicativo.                                          |
 | **URL**                              | Insira a URL de um vídeo hospedado no YouTube ou Vimeo.                              |
@@ -79,7 +72,7 @@ Para concluir os campos nesta seção, use a tabela a seguir:
 | *Documentos*                          | Adicione até três documentos a serem exibidos no AppSource, sob o **Saiba mais** título.  |
 | **Nome**                             | Insira o nome ou o título de um documento de suporte.                              |
 | **Arquivo**                             | Carregue um arquivo PDF.                             |
-| *Capturas de tela*                        | Adicione até cinco capturas de tela.                        |
+| *Capturas de tela\**                      | Adicione até cinco capturas de tela.                        |
 | **Nome**                             | Insira um nome ou o título de uma captura de tela.                                       |
 | **Imagem**                            | Carrega uma captura de tela PNG. Sua resolução deve ser 1280 x 720 px.  | 
 |   |   |
@@ -100,8 +93,8 @@ Para concluir os campos nesta seção, use a tabela a seguir:
 
 |   Campo                |   DESCRIÇÃO                           |
 |------------------------|--------------------------------------   |
-| **URL da política de privacidade** | URL para a política de privacidade postada       |
-| **Termos de uso**       | Sua política de uso, formatados como texto sem formatação ou HTML simples     |
+| **URL da política de privacidade\*** | URL para a política de privacidade postada       |
+| **Termos de uso\***       | Sua política de uso, formatados como texto sem formatação ou HTML simples     |
 |  |  |
 
 

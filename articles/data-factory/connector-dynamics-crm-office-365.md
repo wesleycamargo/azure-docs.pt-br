@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 04/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 772b9b191a2e6464ff481ff6661308e00ef6033a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a52749c78cd0f090e66220fe51e3d04985f96e7
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60535313"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869526"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para Dynamics 365 (Common Data Service) ou Dynamics CRM usando o Azure Data Factory
 
@@ -61,16 +61,13 @@ As propriedades a seguir têm suporte no serviço vinculado do Dynamics.
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como **Dynamics**. | Sim |
+| tipo | A propriedade type deve ser definida como **Dynamics**. | Sim |
 | deploymentType | O tipo de implantação da instância do Dynamics. Deve ser **"Online"** para o Dynamics online. | Sim |
 | serviceUri | A URL de serviço da instância do Dynamics, por exemplo, `https://adfdynamics.crm.dynamics.com`. | Sim |
 | authenticationType | O tipo de autenticação para se conectar a um servidor do Dynamics. Especifique **"Office365"** para o Dynamics online. | Sim |
 | Nome de Usuário | Especifique o nome de usuário para se conectar ao Dynamics. | Sim |
 | Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se não for especificado, ele usa o Integration Runtime padrão do Azure. | Não para a fonte, Sim para o coletor se o serviço vinculado à fonte não possuir um integration runtime |
-
->[!IMPORTANT]
->Ao copiar dados para o Dynamics, o Azure Integration Runtime padrão não poderá ser usado para executar a cópia. Em outras palavras, se seu serviço vinculado à fonte não tem um integration runtime especificado, explicitamente [crie um Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) com um local perto de sua instância do Dynamics. Encontrar a localização sua instância do Dynamics fazendo referência a [lista de regiões para Dynamics 365](https://docs.microsoft.com/dynamics365/customer-engagement/admin/datacenter/new-datacenter-regions). Associe-o ao serviço vinculado do Dynamics como no exemplo a seguir.
 
 >[!NOTE]
 >O conector do Dynamics costumava usar a propriedade "organizationName" opcional para identificar a instância do Dynamics CRM/365 Online. Embora continue funcionando, sugerimos que você especifique a nova propriedade "serviceUri" para obter melhor desempenho para a descoberta da instância.
@@ -117,9 +114,6 @@ As propriedades a seguir têm suporte no serviço vinculado do Dynamics.
 | Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou armazenar a senha no Azure Key Vault e permitir o pull de atividade de cópia a partir daí, ao executar a cópia de dados - Saiba mais de [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se não for especificado, ele usa o Integration Runtime padrão do Azure. | Não para fonte, Sim para o coletor |
 
->[!IMPORTANT]
->Para copiar dados em Dynamics, explicitamente [crie um Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) com o local perto de sua instância do Dynamics. Associe-o ao serviço vinculado como no exemplo a seguir.
-
 **Exemplo: Dynamics local com IFD usando a autenticação de IFD**
 
 ```json
@@ -160,8 +154,8 @@ Para copiar dados de e para Dynamics, defina o tipo da propriedade do conjunto d
 | entityName | O nome lógico da entidade a ser recuperada. | Não para fonte (se "query" na fonte da atividade for especificada), Sim para coletor |
 
 > [!IMPORTANT]
->- Quando você copia dados do Dynamics, a seção "estrutura" é opcional mas recomendada no conjunto de dados do Dynamics para garantir um resultado de cópia determinística. Ela define o tipo de dados e o nome de coluna para dados do Dynamics que você deseja copiar. Saiba mais em [Estrutura do conjunto de dados](concepts-datasets-linked-services.md#dataset-structure) e [Mapeamento de tipo de dados para o Dynamics](#data-type-mapping-for-dynamics).
->- Durante a importação de esquema na criação da interface do usuário, o ADF infere o esquema fazendo a amostragem das primeiras linhas do resultado da consulta do Dynamics para inicializar a construção da estrutura, caso em que as colunas sem valores são omitidas. Você poderá examinar o esquema/estrutura de conjunto de dados do Dynamics e adicionar mais colunas a ele conforme necessário, as quais serão respeitadas durante o tempo de execução de cópia.
+>- Quando você copia dados do Dynamics, a seção "estrutura" é opcional mas altamente recommanded no conjunto de dados Dynamics para garantir um resultado determinística de cópia. Ela define o tipo de dados e o nome de coluna para dados do Dynamics que você deseja copiar. Saiba mais em [Estrutura do conjunto de dados](concepts-datasets-linked-services.md#dataset-structure-or-schema) e [Mapeamento de tipo de dados para o Dynamics](#data-type-mapping-for-dynamics).
+>- Durante a importação de esquema na criação da interface do usuário, o ADF infere o esquema fazendo a amostragem das primeiras linhas do resultado da consulta do Dynamics para inicializar a construção da estrutura, caso em que as colunas sem valores são omitidas. O mesmo comportamento se aplica para copiar as execuções se não houver nenhuma definição de estrutura explícita. Você poderá examinar o esquema/estrutura de conjunto de dados do Dynamics e adicionar mais colunas a ele conforme necessário, as quais serão respeitadas durante o tempo de execução de cópia.
 >- Ao copiar dados para o Dynamics, a seção "estrutura" é opcional no conjunto de dados do Dynamics. Quais colunas copiar serão determinadas pelo esquema de fonte de dados. Se a fonte for um arquivo CSV sem cabeçalho, no conjunto de dados de entrada, especifique "structure" com o nome da coluna e tipo de dados. Eles são mapeados para os campos no arquivo CSV um por um em ordem.
 
 **Exemplo:**
@@ -274,7 +268,7 @@ Para copiar dados do Dynamics, defina o tipo de coletor na atividade de cópia c
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | O tipo de propriedade do coletor da atividade de cópia deve ser definida como **DynamicsSink**. | Sim |
+| tipo | O tipo de propriedade do coletor da atividade de cópia deve ser definida como **DynamicsSink**. | Sim |
 | writeBehavior | O comportamento da operação de gravação.<br/>O valor permitido é **"Upsert"**. | Sim |
 | writeBatchSize | A contagem de linhas de dados gravados no Dynamics em cada lote. | Não (o padrão é 10) |
 | ignoreNullValues | Indica se deve ignorar valores nulos de dados de entrada (exceto campos de chave) durante uma operação de gravação.<br/>Os valores permitidos são **True** e **False**.<br>- **True**: deixa os dados no objeto de destino inalterados quando você faz uma operação upsert/update. Insira um valor padrão definido quando você faz uma operação insert.<br/>- **False**: atualiza os dados no objeto de destino como NULL quando você faz uma operação upsert/update. Insira um valor NULL quando você faz uma operação insert. | Não (padrão é falso) |
@@ -330,7 +324,7 @@ Configure o tipo de dados do Data Factory correspondente em uma estrutura do con
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | long | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
-| AttributeType.Customer | Guid | ✓ | | 
+| AttributeType.Customer | Guid | ✓ | |
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |

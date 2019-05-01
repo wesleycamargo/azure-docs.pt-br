@@ -8,16 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 04/01/2019
-ms.author: v-biyu
+ms.date: 12/06/2018
+ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d5d3d7031f9795db0ae04bc707bd9e7707137210
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4360150064d2f42cc2dc2cc3ef9f7783a5cb175
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60481942"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866539"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Gravar amostras de voz para criar uma voz personalizada
 
@@ -110,7 +109,7 @@ Felizmente, é possível evitar completamente esses problemas. Há muitas fontes
 |-|-|
 |[Corpus CMU Arctic](http://festvox.org/cmu_arctic/)|Cerca de 1100 frases selecionadas de obras que não possuem direitos autorais, especificamente para uso em projetos de sintetização de fala. Um excelente ponto de partida.|
 |Obras que não estão mais<br>sob direitos autorais|Normalmente, obras publicadas antes de 1923. Para inglês, o [Project Gutenberg](https://www.gutenberg.org/) oferece dezenas de milhares de obras desse tipo. Talvez seja conveniente concentra-se em textos mais recentes, pois a linguagem estará mais próxima do inglês moderno.|
-|Obras&nbsp;governamentais|As obras criadas pelo governo dos Estados Unidos não são protegidas por direitos autorais nos Estados Unidos, embora o governo possa reivindicar direitos autorais em outros países.|
+|Obras&nbsp;governamentais|Works criado pelo governo dos Estados Unidos não direitos autorais nos Estados Unidos, embora o governo pode de declaração de direitos autorais em outros países/regiões.|
 |Domínio público|Obras para as quais os direitos autorais foram explicitamente renunciados ou foram dedicadas ao domínio público. Pode não ser possível renunciar totalmente aos direitos autorais em algumas jurisdições.|
 |Obras com licença permissiva|Obras distribuídas sob licença como Creative Commons ou GFDL (Licença GNU de Documentação Livre). Wikipedia usa GFDL. Algumas licenças, no entanto, podem impor restrições à performance do conteúdo licenciado que podem afetar a criação de um modelo de voz personalizada, portanto, leia a licença atentamente.|
 
@@ -217,7 +216,7 @@ Por fim, crie a *transcrição* que associa cada arquivo WAV a uma versão em te
 
 Arquive as gravações originais em um local seguro, caso precise delas posteriormente. Guarde também o script e as anotações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Você está pronto para fazer upload as gravações e criar a voz personalizada.
 

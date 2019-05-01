@@ -1,25 +1,18 @@
 ---
-title: SKUs para uma imagem de Contêineres do Azure | Microsoft Docs
+title: SKUs disponíveis para uma imagem de contêineres do Azure | O Azure Marketplace
 description: Configurar SKUs para um contêiner do Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/14/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 81f7e46e626bb061881be53e8cace36e1478e0e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: 6953329bfabe99fc4bb28f2494cb412ba9cbbba0
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472800"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942923"
 ---
 # <a name="container-skus-tab"></a>Guia de SKUs de contêiner
 
@@ -38,11 +31,13 @@ Quando você começa a criar uma nova oferta, não há SKUs associados à oferta
     -   Metadados da SKU
     -   Metadados do contêiner
 
+
 ### <a name="sku-metadata"></a>Metadados da SKU
 
 Os metadados de SKU contêm informações de exibição de vitrine para a listagem de contêiner.
 
 ![Metadados da SKU](./media/containers-sku-details.png)
+
 
 ### <a name="container-metadata"></a>Metadados do contêiner
 
@@ -50,29 +45,31 @@ Os metadados do contêiner têm informações de referência de seus detalhes de
 
 ![Metadados do contêiner](./media/containers-image-repository.png)
     
-Os **Detalhes do Repositório de Imagem** na captura de tela anterior contêm os seguintes campos:
+O **detalhes do repositório de imagem** na tela anterior captura contém os campos a seguir.  Os campos obrigatórios são indicados por um asterisco (*).
 
--   **ID da Assinatura** – a ID da assinatura do Azure em que o ACR está presente.
--   **Nome do grupo de recursos** – o nome do grupo de recursos que contém o ACR.
--   **Nome do registro** – o nome do ACR.
--   **Nome do repositório** – o nome do repositório. Após a definição do nome, esse valor não pode ser alterado. Use um nome exclusivo para evitar um conflito com outras ofertas em sua conta.
--   **Nome de usuário** – o nome de usuário (nome de usuário administrador) associado com a imagem do ACR.
--   **Senha** – a senha associada à imagem do ACR.
+-   **ID da assinatura\***  -ID da assinatura do Azure em que o ACR está presente.
+-   **Nome do grupo de recursos\***  -o nome do grupo de recursos do ACR.
+-   **Nome do registro\***  -nome do ACR.
+-   **Nome do repositório\***  -o nome do repositório. Após a definição do nome, esse valor não pode ser alterado. Use um nome exclusivo para evitar um conflito com outras ofertas em sua conta.
+-   **Nome de usuário\***  -o nome de usuário (nome de usuário de administrador) associado à imagem ACR.
+-   **Senha\***  -a senha associada com a imagem ACR.
 
     >[!NOTE]
     >O nome de usuário e senha são necessários para assegurar que os parceiros tenham acesso ao ACR mencionado no processo de publicação.
+
 
 ### <a name="image-version"></a>Versão da imagem
 
 Ao publicar uma imagem de contêiner, você pode fornecer uma ou mais marcas de imagem e resumos do SHA.
 
-**Marca de imagem ou resumo**
+**Marca de imagem\* ou Digest**
  
 - Essa marca ou resumo deve incluir pelo menos uma marca `latest` e uma marca de versão (por exemplo, começando com `xx.xx.xx-` em que xx é um número). Devem ser [marcas de manifesto](https://github.com/estesp/manifest-tool) para segmentar várias plataformas. Todas as marcas referenciadas por uma marca de manifesto também deverão ser adicionadas para que possamos enviá-las. 
 - Você pode adicionar várias versões de um contêiner usando marcas. Todas as marcas de manifesto (exceto `latest`) devem começar com `X.Y-` ou `X.Y.Z-` em que X, Y, Z são inteiros. <br/> Por exemplo, se uma marca `latest` apontar para `1.0.1-linux-x64`, `1.0.1-linux-arm32` e `1.0.1-windows-arm32`, essas marcas deverão ser adicionadas aqui.
 
 >[!NOTE]
 >Lembre-se de adicionar uma **marca de teste** à sua imagem para que você possa identificar a imagem durante o teste.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

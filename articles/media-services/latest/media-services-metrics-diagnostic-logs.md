@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: 23c87ae92a0f22b4a1a31c054df730af2efc07d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7ce57e1f8b2732ea909625c89f3e8148cb70635c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322090"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728832"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs"></a>Monitorar logs de diagnóstico e métricas de serviços de mídia
 
@@ -36,8 +36,8 @@ Atualmente, os seguintes serviços de mídia [pontos de extremidade de Streaming
 
 |NOME|DESCRIÇÃO|
 |---|---|
-|Requests|Fornece detalhes sobre o número total de solicitações atendidas pelo ponto de extremidade de streaming.|
-|Saída|Número total de bytes de saída. Por exemplo, bytes transmitidos pelo ponto de extremidade de streaming.|
+|Requests|Fornece detalhes sobre o número total de solicitações atendidas pelo ponto de extremidade de Streaming.|
+|Saída|Número total de bytes de saída. Por exemplo, bytes transmitidos pelo ponto de extremidade de Streaming.|
 |Latência de ponta a ponta com sucesso| Fornece informações sobre a latência de ponta a ponta de solicitações bem-sucedidas.|
 
 Por exemplo, para obter as métricas de "Saída" com a CLI, você executaria o seguinte `az monitor metrics` comando da CLI:
@@ -86,6 +86,6 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
     --logs '[{"category": "KeyDeliveryRequests",  "enabled": true, "retentionPolicy": {"days": 3, "enabled": true }}]'
 ```
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Próximas etapas 
 
 [Como coletar e consumir dados de log dos recursos do Azure](../../azure-monitor/platform/diagnostic-logs-overview.md).

@@ -8,15 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 12/07/2018
-ms.date: 01/16/2019
-ms.author: v-junlch
-ms.openlocfilehash: aca7aa30744c79cefd3c7704a8fde1df203b2c9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 12/07/2018
+ms.author: azfuncdf
+ms.openlocfilehash: c032ba046668310ff71d067d22a805fc6446667c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60731304"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683795"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Orquestradores singleton em Funções Duráveis (Azure Functions)
 
@@ -57,16 +56,43 @@ public static async Task<HttpResponseMessage> RunSingle(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (somente Functions 2.x)
+### <a name="javascript-functions-2x-only"></a>JavaScript (apenas Funções 2.x)
 
+Aqui está o arquivo function.json:
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "route": "orchestrators/{functionName}/{instanceId}",
+      "methods": ["post"]
+    },
+    {
+      "name": "starter",
+      "type": "orchestrationClient",
+      "direction": "in"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    }
+  ]
+}
+```
+
+Aqui está o código JavaScript:
 ```javascript
 const df = require("durable-functions");
 
-modules.exports = async function(context, req) {
+module.exports = async function(context, req) {
     const client = df.getClient(context);
 
     const instanceId = req.params.instanceId;
-    const functionName = req.params.functionsName;
+    const functionName = req.params.functionName;
 
     // Check if an instance with the specified ID already exists.
     const existingInstance = await client.getStatus(instanceId);
@@ -96,9 +122,7 @@ Por padrão, IDs de instância são GUIDs gerados aleatoriamente. Mas, nesse cas
 
 Os detalhes da implementação da função de orquestrador, na verdade, não importam. Poderia ser uma função de orquestrador regular que é iniciada e concluída ou poderia ser uma que é executada eternamente (ou seja, um [Orquestração Eterna](durable-functions-eternal-orchestrations.md)). O aspecto importante é que há somente uma instância em execução por vez.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Saiba como chamar suborquestrações](durable-functions-sub-orchestrations.md)
-
-<!-- Update_Description: wording update -->

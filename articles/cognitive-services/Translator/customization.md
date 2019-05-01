@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: b9a182da0ce03bf3964b6da30f1ed68de38c8141
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 71856865eb7a0445cdcf39def9c0fc89c1f8dcec
+ms.sourcegitcommit: 807c318f5c034f8256f91c241e9d6f8f4d7de90a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61468349"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951439"
 ---
 # <a name="customize-your-text-translations"></a>Personalizar suas traduções de texto
 
@@ -43,7 +43,7 @@ Para obter mais detalhes sobre os vários níveis de personalização com base n
 ## <a name="microsoft-translator-hub"></a>Hub do Microsoft Translator
 
 > [!NOTE]
-> O Microsoft Translator Hub legado será desativado em 30 de abril de 2019. [Exibir informações de migração importantes e datas](https://www.microsoft.com/translator/business/hub/).  
+> O Microsoft Translator Hub legado será desativado em 17 de maio de 2019. [Exibir informações de migração importantes e datas](https://www.microsoft.com/translator/business/hub/).  
 
 ## <a name="custom-translator-versus-hub"></a>Tradutor Personalizado versus Hub
 
@@ -60,10 +60,8 @@ Para obter mais detalhes sobre os vários níveis de personalização com base n
 
 > [!NOTE]
 > A partir de 1º de fevereiro de 2018 AddTranslation() e AddTranslationArray() não estarão mais disponíveis para uso com a API de Tradução de Texto V2.0. Esses métodos falharão e nada será gravado. A API de Tradução de Texto V3.0 não é compatível com esses métodos.
-> 
-> Funcionalidade semelhante está disponível na API do Hub do Translator. Veja [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Configurar um sistema de idioma personalizado usando o Tradutor Personalizado](https://aka.ms/CustomTranslatorDocs)

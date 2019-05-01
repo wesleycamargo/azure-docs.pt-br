@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: magattus
-ms.openlocfilehash: 53002fba9883d4ae0276ee1d91e915587f89177b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ae316749d3e88bc8bfd99d0f4856d5386916a27f
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627574"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869632"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Cobertura do CDN do Azure por Metro 
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ Este artigo lista os Metros atuais que contêm locais POP (ponto de presença), 
 | África | Cidade do Cabo, África do Sul<br />Joanesburgo, África do Sul | Joanesburgo, África do Sul | África do Sul |
 | Oriente Médio | Dubai, Emirados Árabes Unidos | Mascate, Omã<br />Fujirah, Emirados Árabes Unidos | Catar<br />Emirados Árabes Unidos |
 | Índia | Chennai, Índia<br />Mumbai, Índia<br />Nova Délhi, Índia | Bengaluru (Bangalore), Índia<br />Chennai, Índia<br />Mumbai, Índia<br />Nova Délhi, Índia<br /> | Índia |
-| Ásia | RAE de Hong Kong<br />Osaka, Japão<br />Tóquio, Japão<br />Kuala Lumpur, Malásia<br />Manila, Filipinas<br />Singapura<br />Busan, Coreia do Sul<br />Seul, Coreia do Sul<br />Taipé, Taiwan<br />Bancoc, Tailândia | RAE de Hong Kong<br />Batam, Indonésia<br />Jacarta, Indonésia<br />Osaka, Japão<br />Tóquio, Japão<br />Singapura<br />Busan, Coreia do Sul<br />Seul, Coreia do Sul<br />Kaohsiung, Taiwan | RAE de Hong Kong<br />Indonésia<br />Israel<br />Japão<br />RAE de Macau<br />Malásia<br />Filipinas<br />Singapura<br />Coreia do Sul<br />Taiwan<br />Tailândia<br />Turquia<br />Vietnã |
+| Ásia | RAE de Hong Kong<br />Osaka, Japão<br />Tóquio, Japão<br />Kuala Lumpur, Malásia<br />Manila, Filipinas<br />Singapura<br />Busan, Coreia do Sul<br />Seul, Coreia do Sul<br />Taipé, Taiwan<br />Bancoc, Tailândia | RAE de Hong Kong<br />Batam, Indonésia<br />Jacarta, Indonésia<br />Osaka, Japão<br />Tóquio, Japão<br />Singapura<br />Busan, Coreia do Sul<br />Seul, Coreia do Sul<br />Kaohsiung, Taiwan | RAE de Hong Kong<br />Indonésia<br />Israel<br />Japão<br />Macau<br />Malásia<br />Filipinas<br />Singapura<br />Coreia do Sul<br />Taiwan<br />Tailândia<br />Turquia<br />Vietnã |
 | Austrália e Nova Zelândia | Brisbane, Austrália<br />Melbourne, Austrália<br />Perth, Austrália<br />Sydney, Austrália<br />Auckland, Nova Zelândia | Melbourne, Austrália<br />Sydney, Austrália<br />Auckland, Nova Zelândia | Austrália<br />Nova Zelândia |
 
 

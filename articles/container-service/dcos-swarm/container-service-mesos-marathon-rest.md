@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: fd109a72b092e963bc4fda7894bf67f998b7d0c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 73fa9c4433a2af780798f0439c0a119bc32a678f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60511570"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916694"
 ---
 # <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(PRETERIDO) Gerenciamento de contêiner de DC/sistema operacional por meio da API REST do Marathon
 
@@ -32,7 +32,7 @@ Antes de trabalhar nos exemplos, você precisará de um cluster DC/OS configurad
 ## <a name="access-the-dcos-apis"></a>Acessar as APIs de DC/sistema operacional
 Depois que você está conectado ao cluster serviço de contêiner do Azure, você pode acessar o DC/SO e as APIs REST relacionadas por meio de http:\//localhost:local-porta. Os exemplos neste documento pressupõem que você crie um túnel na porta 80. Por exemplo, os pontos de extremidade maratona podem ser contatados em URIs começando com http:\/localhost/marathon/v2 /. 
 
-Para saber mais sobre as várias APIs, confira a documentação da Mesosphere para a [API Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) e a [API Chronos](https://mesos.github.io/chronos/docs/api.html) e a documentação do Apache para a [API do Agendador do Mesos](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
+Para saber mais sobre as várias APIs, confira a documentação da Mesosphere para a [API Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) e a [API Chronos](https://mesos.github.io/chronos/docs/api.html) e a documentação do Apache para a [API do Agendador do Mesos](https://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
 ## <a name="gather-information-from-dcos-and-marathon"></a>Coletar informações do DC/OS e do Marathon
 Antes de implantar contêineres no cluster DC/OS, colete algumas informações sobre esse cluster, como os nomes e o status dos agentes DC/OS. Para fazer isso, confira o ponto de extremidade `master/slaves` da API REST DC/OS. Se tudo correr bem, a consulta retornará uma lista de agentes DC/OS e várias propriedades para cada um deles.
@@ -186,7 +186,7 @@ Execute o comando a seguir para escalar horizontalmente o aplicativo:
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Leia mais sobre os pontos de extremidade HTTP Mesos](https://mesos.apache.org/documentation/latest/endpoints/)
 * [Leia mais sobre a API REST do Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html)
 

@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 3/20/2019
+ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: 3c8a2fe9f4486fe4d33754b58f4e7ebec1b3252d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 72eaa18d570e85274efbea80f12e9a7301eecbfa
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682943"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947079"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o Gateway de aplicativo
 
@@ -103,7 +103,7 @@ Implantações que usam o SKU v2 podem levar até 6 minutos para ser provisionad
 
 ### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>Pode usar o Exchange Server como um back-end com o Gateway de aplicativo?
 
- Não. O Gateway de aplicativo não dá suporte a protocolos de email como SMTP, IMAP e POP3. 
+Não. O Gateway de aplicativo não dá suporte a protocolos de email como SMTP, IMAP e POP3. 
 
 ## <a name="performance"></a>Desempenho
 
@@ -119,11 +119,11 @@ Use o Gerenciador de tráfego para distribuir o tráfego entre vários gateways 
 
 ### <a name="does-application-gateway-support-autoscaling"></a>O Gateway de aplicativo dá suporte a dimensionamento automático?
 
-Sim, o SKU Application Gateway v2 suporta escalonamento automático. Para obter mais informações, consulte [dimensionamento automático e o Gateway de aplicativo com redundância de zona (visualização pública)](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
+Sim, o SKU Application Gateway v2 suporta escalonamento automático. Para obter mais informações, consulte [dimensionamento automático e com redundância de zona de Gateway de aplicativo](application-gateway-autoscaling-zone-redundant.md).
 
 ### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>Não escala manual para cima ou reduzir verticalmente causa tempo de inatividade?
 
- Não. As instâncias são distribuídas entre domínios de atualização e domínios de falha.
+Não. As instâncias são distribuídas entre domínios de atualização e domínios de falha.
 
 ### <a name="does-application-gateway-support-connection-draining"></a>O Gateway de Aplicativo suporta a drenagem de conexão?
 
@@ -145,7 +145,7 @@ Desde que tenham conectividade IP, Gateway de aplicativo podem se comunicar com 
 
 ### <a name="can-i-deploy-anything-else-in-the-application-gateway-subnet"></a>Posso implantar coisa na sub-rede do gateway de aplicativo?
 
- Não. Mas você pode implantar outros gateways de aplicativo na sub-rede.
+Não. Mas você pode implantar outros gateways de aplicativo na sub-rede.
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Há suporte para grupos de segurança de rede na sub-rede do gateway de aplicativo?
 
@@ -177,7 +177,7 @@ Há suporte para arquitetura de Microsserviço. Para investigação em portas di
 
 ### <a name="do-custom-probes-support-wildcards-or-regex-on-response-data"></a>Investigações personalizadas têm suporte curingas ou regex nos dados de resposta?
 
- Não. 
+Não. 
 
 ### <a name="how-are-routing-rules-processed-in-application-gateway"></a>Como as regras de roteamento são processadas no Gateway de aplicativo?
 
@@ -193,7 +193,7 @@ Sim. Ver [restringir o acesso a IPs de origem específico](https://docs.microsof
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>Pode usar a mesma porta para ouvintes voltados ao público e privado voltado?
 
- Não.
+Não.
 
 ## <a name="configuration---ssl"></a>Configuração - SSL
 
@@ -267,7 +267,7 @@ O Gateway de aplicativo dá suporte a até 10 certificados de autenticação. O 
 
 ### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>O Gateway de aplicativo integra nativamente com o Azure Key Vault?
 
- Não.
+Sim, o SKU do Gateway de aplicativo v2 dá suporte ao Cofre de chaves. Para obter mais informações, consulte [terminação SSL com certificados do Key Vault](key-vault-certs.md).
 
 ### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>Como fazer para configurar os ouvintes HTTPS para sites. com e .net? 
 
@@ -289,7 +289,7 @@ Monitorar o WAF por meio do log de diagnóstico. Para obter mais informações, 
 
 ### <a name="does-detection-mode-block-traffic"></a>Modo de detecção bloqueia o tráfego?
 
- Não. Modo de detecção apenas registra o tráfego que dispara uma regra WAF.
+Não. Modo de detecção apenas registra o tráfego que dispara uma regra WAF.
 
 ### <a name="can-i-customize-waf-rules"></a>Como posso personalizar regras WAF?
 

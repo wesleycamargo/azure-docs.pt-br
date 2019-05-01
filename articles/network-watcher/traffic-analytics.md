@@ -3,8 +3,8 @@ title: Análise de Tráfego do Azure | Microsoft Docs
 description: Saiba como analisar logs de fluxo de grupo de segurança de rede do Azure com a Análise de Tráfego.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
-ms.author: yagup;jdial
-ms.openlocfilehash: 2f283421a851914822f5b0c9d05ed6bc929d28c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: yagup;kumud
+ms.openlocfilehash: a4ae997398c85dc99af8711f1c6ce4e743592d73
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60429635"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939887"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -176,7 +176,7 @@ Selecione as opções a seguir, conforme mostrado na imagem:
 
     ![Seleção de conta de armazenamento, espaço de trabalho do Log Analytics e habilitação da Análise de Tráfego](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
 
-Repita as etapas anteriores para quaisquer outros NSGs para os quais você deseja habilitar a Análise de Tráfego. Os dados de logs de fluxo são enviados para o workspace, portanto, certifique-se de que as leis e regulamentações locais em seu país permitem o armazenamento de dados na região onde está o workspace.
+Repita as etapas anteriores para quaisquer outros NSGs para os quais você deseja habilitar a Análise de Tráfego. Dados de logs de fluxo são enviados para o espaço de trabalho, portanto, certifique-se de que as leis e regulamentações locais em seu país/região permitem o armazenamento de dados na região onde existe o espaço de trabalho.
 
 Você também pode configurar a análise de tráfego usando o [AzNetworkWatcherConfigFlowLog conjunto](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) cmdlet do PowerShell no Azure PowerShell. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps).
 
@@ -270,13 +270,13 @@ Algumas das informações que talvez você pode querer obter depois que a Análi
 
     ![Painel apresentando distribuição de tráfego](./media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
 
-- O mapa de área geográfica mostra a faixa de opções para seleção de parâmetros como data centers (implantados/não-implantação/ativos/inativos/análise de tráfego habilitada/análise de tráfego não habilitada) e países que contribuem com tráfego benigno/mal-intencionado para a implantação ativa:
+- O mapa de área geográfica mostra a faixa de opções para seleção de parâmetros como data centers (implantados/não-implantação/ativo/inativo/análise de tráfego habilitada/análise de tráfego não habilitada) e países/regiões contribuindo com tráfego benigno/mal-intencionado para o Active Directory implantação:
 
     ![Exibição de mapa de área de geográfica mostrando implantação ativa](./media/traffic-analytics/geo-map-view-showcasing-active-deployment.png)
 
-- O mapa de área geográfica mostra a distribuição de tráfego para um data center de países e continentes que se comunicam com ele em linhas azul (tráfego benigno) e vermelha (tráfego mal-intencionado):
+- O mapa de área geográfica mostra a distribuição de tráfego para um data center de países e continentes que se comunicam com ele em azul (tráfego benigno) e vermelha (tráfego mal-intencionado) linhas:
 
-    ![Exibição de mapa de área geográfica mostrando a distribuição de tráfego para países e continentes](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
+    ![Exibição do mapa geográfico mostrando a distribuição de tráfego para países e continentes](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
 
     ![Detalhes de fluxo para distribuição de tráfego na pesquisa de log](./media/traffic-analytics/flow-details-for-traffic-distribution-in-log-search.png)
 
@@ -362,7 +362,7 @@ Você tem o tráfego mal-intencionado no seu ambiente? Onde ele é originado? Pa
 
 Para obter respostas para perguntas frequentes, confira [Perguntas Frequentes sobre Análise de Tráfego](traffic-analytics-faq.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber como habilitar os logs de fluxo, consulte [Habilitar o log de fluxo NSG](network-watcher-nsg-flow-logging-portal.md).
 - Para compreender o esquema e os detalhes da análise de tráfego de processamento, consulte [esquema de análise de tráfego](traffic-analytics-schema.md).

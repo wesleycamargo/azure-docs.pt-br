@@ -2,17 +2,17 @@
 title: Visão geral da configuração de Gateway de aplicativo do Azure
 description: Este artigo descreve como configurar os componentes do Gateway de aplicativo do Azure
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 4/30/2019
 ms.author: absha
-ms.openlocfilehash: 4b8e04babfffaf49d3719d8a7e90af16598814f4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 5bfd1f930c190e717e435856f424f0cdf80deb2c
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998899"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64946820"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração de Gateway de aplicativo
 
@@ -71,7 +71,7 @@ Para este cenário, use os NSGs na sub-rede do Gateway de aplicativo. Coloque as
 
 Para o SKU de v1, rotas definidas pelo usuário (UDRs) têm suporte na sub-rede do Gateway de aplicativo, desde que elas não alteram a comunicação de solicitação/resposta de ponta a ponta. Por exemplo, você pode configurar uma UDR na sub-rede do Gateway de aplicativo para apontar para um dispositivo de firewall para inspeção de pacotes. Mas, certifique-se de que o pacote pode atingir seu destino pretendido após a inspeção. Falha ao fazer isso pode resultar na investigação de integridade incorreta ou o comportamento de roteamento de tráfego. Isso inclui aprendidas rotas ou padrão 0.0.0.0/0 que são propagadas pelos gateways VPN ou ExpressRoute do Azure na rede virtual.
 
-Para a SKU do v2, UDRs não são suportadas na sub-rede do Gateway de aplicativo. Para obter mais informações, consulte [dimensionamento automático e a redundância de zona para o Gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#known-issues-and-limitations).
+Para a SKU do v2, UDRs não são suportadas na sub-rede do Gateway de aplicativo. Para obter mais informações, consulte [SKU do Gateway de aplicativo do Azure v2](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku).
 
 > [!NOTE]
 > Usar UDRs na sub-rede do Gateway de aplicativo faz com que o status de integridade na [modo de exibição de integridade do back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) seja exibido como "Desconhecido". Ele também faz com que a geração de logs do Gateway de aplicativo e métricas de falha. É recomendável que você não usar UDRs na sub-rede do Gateway de aplicativo para que você possa exibir a integridade do back-end, logs e métricas.
@@ -84,7 +84,7 @@ Um IP público não é necessário para um ponto de extremidade interno não exp
 
 Há suporte para apenas 1 endereço IP público ou 1 endereço IP privado. Quando você cria o gateway de aplicativo, você escolher o IP de front-end.
 
-- Para um IP público, você pode criar um novo endereço IP público ou usar um IP público existente no mesmo local que o gateway de aplicativo. Se você criar um novo IP público, o tipo de endereço IP que você seleciona (estático ou dinâmico) não pode ser alterado posteriormente. Para obter mais informações, consulte [estática versus o endereço IP público dinâmico](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address).
+- Para um IP público, você pode criar um novo endereço IP público ou usar um IP público existente no mesmo local que o gateway de aplicativo. Se você criar um novo IP público, o tipo de endereço IP que você seleciona (estático ou dinâmico) não pode ser alterado posteriormente. Para obter mais informações, consulte [estática versus o endereço IP público dinâmico](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address).
 
 - Para um endereço IP privado, você pode especificar um endereço IP privado da sub-rede onde o gateway de aplicativo é criado. Se você não for especificado, um endereço IP arbitrário é selecionado automaticamente da sub-rede. Para obter mais informações, consulte [criar um gateway de aplicativo com um balanceador de carga interno](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
 
@@ -118,7 +118,7 @@ Escolha o endereço IP de front-end que você planeja associar este ouvinte. O o
 
 Escolha a porta de front-end. Selecione uma porta existente ou crie um novo. Escolha qualquer valor entre o [intervalo de portas permitido](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#ports). Você pode usar não apenas portas bem conhecidas, como 80 e 443, mas qualquer porta permitida personalizada que é adequada. Uma porta pode ser usada para ouvintes para o público ou privado voltado para ouvintes.
 
-### <a name="protocol"></a>Protocolo
+### <a name="protocol"></a>Protocol
 
 Escolha HTTP ou HTTPS:
 
@@ -259,7 +259,7 @@ Esse recurso é útil quando você deseja manter uma sessão de usuário no mesm
 
 Drenagem de Conexão ajuda normalmente remover membros do pool de back-end durante as atualizações de serviço planejada. Você pode aplicar essa configuração para todos os membros de um pool de back-end durante a criação da regra. Isso garante que todas as instâncias de cancelar o registro de um pool de back-end não recebem novas solicitações. Enquanto isso, as solicitações existentes podem ser concluídas dentro de um limite de tempo configurado. Drenagem de Conexão se aplica a instâncias de back-end que são explicitamente removidas do pool de back-end por uma chamada à API. Ele também se aplica a instâncias de back-end que são relatadas como *Íntegro* pela integridade investigações.
 
-### <a name="protocol"></a>Protocolo
+### <a name="protocol"></a>Protocol
 
 O Gateway de aplicativo dá suporte a HTTP e HTTPS para rotear solicitações para servidores de back-end. Se você escolher HTTP, o tráfego para os servidores de back-end será criptografado. Se a comunicação não criptografada não for aceitável, escolha HTTPS.
 

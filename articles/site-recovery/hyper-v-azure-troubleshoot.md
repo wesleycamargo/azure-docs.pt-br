@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
-ms.openlocfilehash: 8bb790571e1499bd45fb8bee27f4f1896046cbc2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a7fcd4deb0446577af310ff5380ffddf05ba87be
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749049"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719829"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Solucionar problemas de Hyper-V para replicação e failover do Azure
 
@@ -129,7 +129,7 @@ Um instantâneo consistente com o aplicativo é um instantâneo em um ponto no t
 
 2. Para gerar os instantâneos do VSS para a VM, verifique se os serviços de integração do Hyper-V estão instalados na VM e se o serviço de integração de Backup (VSS) está habilitado.
     - Certifique-se de que o serviço VSS/daemons do Integration Services estão em execução no convidado e se estão em um estado **OK**.
-    - Você pode verificar isso em uma sessão do PowerShell elevada no host Hyper-V com o comando **et-VMIntegrationService -VMName<VMName>-Name VSS**. Também é possível obter essas informações fazendo logon na VM convidada. [Saiba mais](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
+    - Você pode verificar isso em uma sessão do PowerShell com privilégios elevados no host Hyper-V com o comando **et-VMIntegrationService - VMName\<VMName >-Name VSS** você também pode obter essas informações fazendo logon na VM convidada. [Saiba mais](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
     - Verifique se os serviços de integração de Backup/VSS na VM estão em execução e em estado íntegro. Se não, reinicie esses serviços e o serviço do solicitante de Cópia de Sombra de Volume do Hyper-V no servidor host Hyper-V.
 
 ### <a name="common-errors"></a>Erros comuns

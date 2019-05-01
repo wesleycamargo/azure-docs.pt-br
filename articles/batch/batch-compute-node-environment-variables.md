@@ -1,6 +1,6 @@
 ---
-title: Variáveis de ambiente do nó de computação – Lote do Azure | Microsoft Docs
-description: Referência de variável de ambiente do nó de computação para análise de lote do Azure.
+title: Tarefa de variáveis de ambiente de tempo de execução - lote do Azure | Microsoft Docs
+description: Diretrizes do variável de ambiente do tempo de execução tarefa e referência para análise de lote do Azure.
 services: batch
 author: laurenhughes
 manager: jeconnoc
@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 02/07/2019
+ms.date: 04/23/2019
 ms.author: lahugh
-ms.openlocfilehash: 9902f38ddfd3035adcce697c2eb5b77bdc1d8c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c46f75c447becc8b15d4a6b8f979330db7ab95c7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782218"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575568"
 ---
-# <a name="azure-batch-compute-node-environment-variables"></a>Variáveis de ambiente do nó de computação do Lote do Azure
+# <a name="azure-batch-runtime-environment-variables"></a>Variáveis de ambiente de tempo de execução de lote do Azure
 
 O [serviço Lote do Azure](https://azure.microsoft.com/services/batch/) define as seguintes variáveis de ambiente em nós de computação. Você pode consultar essas variáveis de ambiente nas linhas de comando da tarefa e nos programas e scripts executados pelas linhas de comando.
 
@@ -28,6 +28,12 @@ Para informações adicionais sobre como usar as variáveis de ambiente com lote
 ## <a name="environment-variable-visibility"></a>Visibilidade de variável de ambiente
 
 Essas variáveis de ambiente são visíveis somente no contexto do **usuário da tarefa**, ou seja, a conta de usuário no nó em que uma tarefa é executada. Você *não* as vê caso [se conecte remotamente](https://azure.microsoft.com/documentation/articles/batch-api-basics/#connecting-to-compute-nodes) a um nó de computação via RDP (Protocolo RDP) ou SSH (Secure Shell) e liste as variáveis de ambiente. Isso ocorre porque a conta de usuário usada para a conexão remota não é igual à conta usada pela tarefa.
+
+Para obter o valor atual de uma variável de ambiente, inicie `cmd.exe` nó de computação em um Windows ou `/bin/sh` em um nó do Linux:
+
+`cmd /c set <ENV_VARIABLE_NAME>`
+
+`/bin/sh printenv <ENV_VARIABLE_NAME>`
 
 ## <a name="command-line-expansion-of-environment-variables"></a>Expansão de linha de comando de variáveis de ambiente
 

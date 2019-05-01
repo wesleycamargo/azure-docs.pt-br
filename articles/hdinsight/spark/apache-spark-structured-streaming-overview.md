@@ -1,21 +1,19 @@
 ---
 title: Spark Structured Streaming no Azure HDInsight
 description: Como usar aplicativos Spark Structured Streaming em clusters Spark do HDInsight.
-services: hdinsight
 author: maxluk
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-orgin.date: 02/05/2018
-ms.date: 04/01/2019
-ms.author: v-yiso
+ms.date: 02/05/2018
+ms.author: maxluk
 ms.openlocfilehash: 0e9d87e5b344b7091a2a0cf41d6f7fa3484dfcf3
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098568"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711330"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Visão geral do streaming estruturado do Apache Spark
 
@@ -25,9 +23,9 @@ Aplicativos de Fluxo Estruturado são executados em clusters do HDInsight Spark 
 
 O Structured Streaming cria uma consulta de longa execução durante a qual você aplica operações aos dados de entrada, como seleção, projeção, agregação, janelas e união de DataFrame de streaming com referência de DataFrames. Em seguida, você gera os resultados para o armazenamento de arquivo (Azure Storage Blobs ou Data Lake Storage) ou para qualquer repositório de dados usando código personalizado (como banco de dados SQL ou Power BI). Structured Streaming também fornece a saída para o console para depuração local e para uma tabela na memória para que você possa ver os dados gerados para depuração no HDInsight. 
 
-![Processamento de Stream com o HDInsight e o Spark Structured Streaming ](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
+![Processamento de Stream com o HDInsight e o Spark Structured Streaming](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
 
-> [!NOTE]
+> [!NOTE]  
 > O Spark Structured Streaming substitui o Spark Streaming (DStreams). No futuro, Structured Streaming receberá aprimoramentos e manutenção, enquanto DStreams estará apenas no modo de manutenção. O Structured Streaming não tem no momento todos os recursos do DStreams para as fontes e coletores compatíveis instantaneamente, então avalie os requisitos para escolher a opção adequada de processamento de transmissão do Spark. 
 
 ## <a name="streams-as-tables"></a>Fluxos como tabelas

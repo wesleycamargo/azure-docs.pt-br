@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
-ms.openlocfilehash: 30ceb0e396597530071c70c4448761d914acb4ac
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 02e9b64c89eda1471d644e0116bbf8c1c061ccc3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548397"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682526"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrar seus dados de detecção facial para uma assinatura diferente de Detecção Facial
 
 Este guia mostra como mover dados de detecção facial (como um **PersonGroup** armazenado de faces) para uma assinatura diferente de API de Detecção Facial usando o recurso Instantâneo. Isso permite que você evite ter que criar e treinar repetidamente um **PersonGroup** ou **FaceList** ao mover ou expandir suas operações. Por exemplo, você pode ter criado um **PersonGroup** usando uma assinatura de avaliação gratuita e agora deseja migrá-lo para sua assinatura paga ou talvez precise sincronizar dados de detecção facial entre regiões para uma operação de grande porte.
 
-Essa mesma estratégia de migração também se aplica aos objetos **LargePersonGroup** e **LargeFaceList**. Se você não estiver familiarizado com os conceitos deste guia, consulte suas definições no [glossário](../Glossary.md). Este guia usa a biblioteca cliente .NET da API de Detecção Facial com C#.
+Essa mesma estratégia de migração também se aplica aos objetos **LargePersonGroup** e **LargeFaceList**. Se você não estiver familiarizado com os conceitos neste guia, consulte suas definições na [enfrentam os conceitos de reconhecimento](../concepts/face-recognition.md) guia. Este guia usa a biblioteca cliente .NET da API de Detecção Facial com C#.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,15 +29,13 @@ Essa mesma estratégia de migração também se aplica aos objetos **LargePerson
 - A cadeia de caracteres de ID de assinatura da API de Detecção Facial correspondente à assinatura de destino (localizada na folha **Visão geral** no portal do Azure). 
 - Qualquer edição do [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
 
-
 ## <a name="create-the-visual-studio-project"></a>Criar o projeto do Visual Studio
 
 Este guia usará um aplicativo de console simples para executar a migração de dados de detecção facial. Para uma implementação completa, confira [Exemplo de Instantâneo de API de Detecção Facial](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) no GitHub.
 
-1. No Visual Studio, crie um novo projeto de **Aplicativo de Console (.NET Framework)** e dê o nome de **FaceApiSnapshotSample**. 
+1. No Visual Studio, crie um novo projeto de **Aplicativo de Console (.NET Framework)** e dê o nome de **FaceApiSnapshotSample**.
 1. Obtenha os pacotes necessários do NuGet. No Gerenciador de Soluções, clique com o botão direito do mouse no projeto e selecione **Gerenciar Pacotes NuGet**. Clique na guia **Procurar** e selecione **Incluir pré-lançamento**; depois, localize e instale o pacote a seguir:
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.3.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
-
 
 ## <a name="create-face-clients"></a>Criar clientes de detecção facial
 
@@ -226,7 +224,9 @@ Quando terminar de migrar os dados de detecção facial, recomendamos que você 
 await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 ```
 
-## <a name="related-topics"></a>Tópicos Relacionados
+## <a name="next-steps"></a>Próximas etapas
+
+Em seguida, consulte a documentação de referência de API relevante, explorar um aplicativo de exemplo que usa o recurso de instantâneo ou seguir um guia de instruções para começar a usar as operações de API que mencionadas aqui.
 
 - [Documentação de referência do instantâneo (SDK do .NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
 - [Exemplo de Instantâneo de API de Detecção Facial](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)

@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: add3521a3961f230188e04ff23dda5aac537571a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15d195361b9fe8523ae6e46ba035ca5927c4d242
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61418272"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924752"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria do banco de dados SQL
 
@@ -90,7 +90,7 @@ A seção a seguir descreve a configuração de auditoria usando o Portal do Azu
 5. **Novo** – agora você tem várias opções para configurar o local em que os logs de auditoria serão gravados. Você pode gravar logs para uma conta de armazenamento do Azure, um espaço de trabalho do Log Analytics para consumo pelos logs do Azure Monitor ou hub de eventos para consumo usando o hub de eventos. Você pode configurar qualquer combinação dessas opções, e os logs de auditoria serão gravados em cada uma.
 
    > [!WARNING]
-   > Habilitação da auditoria ao Log Analytics incorrerá em custos com base nas taxas de ingestão. Esteja ciente do custo associado com o uso isso [opção](https://azure.microsoft.com/en-us/pricing/details/monitor/), ou considere armazenar a auditoria registra em log em uma conta de armazenamento do Azure.
+   > Habilitação da auditoria ao Log Analytics incorrerá em custos com base nas taxas de ingestão. Esteja ciente do custo associado com o uso isso [opção](https://azure.microsoft.com/pricing/details/monitor/), ou considere armazenar a auditoria registra em log em uma conta de armazenamento do Azure.
 
     ![opções de armazenamento](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 

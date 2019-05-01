@@ -15,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: celested
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b78897e2e03085a20f07ce8724226f0e0171861e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fa4eeb0a21525d636c7c1193c125d525774fa3fe
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291222"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707181"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Usar restrições de locatário para gerenciar o acesso a aplicativos de nuvem de SaaS
 
@@ -42,7 +42,7 @@ A solução geral inclui os seguintes componentes:
 
 3. **Software cliente**: Para dar suporte a restrições de locatário, o software cliente deve solicitar tokens diretamente do Azure AD, para que a infraestrutura do proxy pode interceptar o tráfego. Baseada em navegador e aplicativos do Office 365 atualmente oferece suporte a restrições de locatário, assim como clientes do Office que usam autenticação moderna (como OAuth 2.0).
 
-4. **Autenticação moderna**: Serviços de nuvem devem usar a autenticação moderna para usar restrições de locatário e bloquear o acesso a todos os locatários não permitido. Você deve configurar os serviços de nuvem do Office 365 para usar protocolos de autenticação moderna por padrão. Para obter as informações mais recentes sobre o suporte do Office 365 para autenticação moderna, leia [Updated Office 365 modern authentication](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/) (Autenticação moderna do Office 365 atualizada).
+4. **Autenticação moderna**: Serviços de nuvem devem usar a autenticação moderna para usar restrições de locatário e bloquear o acesso a todos os locatários não permitido. Você deve configurar os serviços de nuvem do Office 365 para usar protocolos de autenticação moderna por padrão. Para obter as informações mais recentes sobre o suporte do Office 365 para autenticação moderna, leia [Updated Office 365 modern authentication](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) (Autenticação moderna do Office 365 atualizada).
 
 O diagrama a seguir ilustra o fluxo do tráfego de alto nível. Restrições de locatário requer a inspeção de SSL apenas no tráfego do Azure AD, não para os serviços de nuvem do Office 365. Essa distinção é importante, porque o volume de tráfego para a autenticação para o Azure AD é normalmente muito menor do que o volume de tráfego para aplicativos SaaS, como o Exchange Online e SharePoint Online.
 
@@ -128,7 +128,7 @@ Aplicativos do Office 365 devem atender a dois critérios para dar total suporte
 1. O cliente usado dá suporte à autenticação moderna.
 2. A autenticação moderna está habilitada como o protocolo de autenticação padrão para o serviço de nuvem.
 
-Consulte [Updated Office 365 modern authentication](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/) (Autenticação moderna do Office 365 atualizada) para obter as informações mais recentes sobre quais clientes do Office atualmente dão suporte à autenticação moderna. Essa página também inclui links para instruções para habilitar a autenticação moderna nos locatários do Exchange Online e Skype for Business Online. SharePoint Online já habilita a autenticação moderna por padrão.
+Consulte [Updated Office 365 modern authentication](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) (Autenticação moderna do Office 365 atualizada) para obter as informações mais recentes sobre quais clientes do Office atualmente dão suporte à autenticação moderna. Essa página também inclui links para instruções para habilitar a autenticação moderna nos locatários do Exchange Online e Skype for Business Online. SharePoint Online já habilita a autenticação moderna por padrão.
 
 Aplicativos baseados em navegador do Office 365 (o Portal do Office, Yammer, sites do SharePoint, Outlook na Web e muito mais) atualmente oferece suporte a restrições de locatário. Clientes espessos (Outlook, Skype para negócios, Word, Excel, PowerPoint e muito mais) podem impor restrições de locatário somente ao usar a autenticação moderna.  
 
@@ -185,5 +185,5 @@ Para obter detalhes específicos, consulte a documentação do servidor proxy.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Leia sobre a [Updated Office 365 modern authentication](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/) (Autenticação moderna do Office 365 atualizada)
+- Leia sobre a [Updated Office 365 modern authentication](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) (Autenticação moderna do Office 365 atualizada)
 - Examine as [URLs e intervalos de endereços IP do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)

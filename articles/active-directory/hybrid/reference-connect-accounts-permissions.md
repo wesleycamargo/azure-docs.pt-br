@@ -13,22 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/24/2019
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d145407331ed652f21510483b51a4617bf28e2fa
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 466b1aadb84bc92981b9adf1b1affa69f5f2ec25
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62096157"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919179"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Contas e permissões
 
 ## <a name="accounts-used-for-azure-ad-connect"></a>Contas usadas para o Azure AD Connect
 
-![](media/reference-connect-accounts-permissions/account5.png)
+![Visão geral das contas](media/reference-connect-accounts-permissions/account5.png)
 
 O Azure AD Connect usa 3 contas para sincronizar informações do Active Directory do Windows Server ou local no Azure Active Directory.  Essas contas são:
 
@@ -114,7 +114,7 @@ A seguir apresentamos um resumo das páginas do assistente de instalação perso
 | Servidores do AD FS |Para cada servidor na lista, o assistente coleta credenciais quando as credenciais de logon do usuário que executa o assistente não são suficientes para conectar-se |Administrador de domínio |Instalação e configuração da função de servidor do AD FS. |
 | Servidores proxy de aplicativo Web |Para cada servidor na lista, o assistente coleta credenciais quando as credenciais de logon do usuário que executa o assistente não são suficientes para conectar-se |Administrador local no computador de destino |Instalação e configuração da função de servidor WAP. |
 | Credenciais de confiança de proxy |As credenciais de confiança do serviço de federação (as credenciais que o proxy usa para se registrar para um certificado de confiança do FS |Conta de domínio que é administrador local do servidor do AD FS |Registro inicial de certificado de confiança FS-WAP. |
-| Página da conta de serviço do AD FS, "Usar uma opção de conta de usuário de domínio" |Credenciais de conta de usuário do AD |Usuário de domínio |A conta de usuário do AD cujas credenciais são fornecidas é usada como a conta de logon do serviço do AD FS. |
+| Página da conta de serviço do AD FS, "Usar uma opção de conta de usuário de domínio" |Credenciais de conta de usuário do AD |Usuário de domínio |A conta de usuário do Azure AD cujas credenciais são fornecidas é usada como a conta de logon do serviço do AD FS. |
 
 ### <a name="create-the-ad-ds-connector-account"></a>Criar a conta do conector do AD DS
 
@@ -239,6 +239,11 @@ A conta é criada com uma senha longa complexa que não expira. Ela recebe uma f
 Há um limite de 20 contas de serviço de sincronização no Azure AD. Para obter a lista de contas de serviço do Azure AD existentes no seu Azure AD, execute o seguinte cmdlet do PowerShell do Azure AD: `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
 
 Para remover contas de serviço do Azure AD não utilizadas, execute o seguinte cmdlet do PowerShell do Azure AD:`Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
+
+>[!NOTE]
+>Antes de poder usar os comandos do PowerShell acima, você precisará instalar o [Azure Active Directory PowerShell para o módulo de gráfico](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) e conecte-se à sua instância do AD do Azure usando [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
+
+Para obter mais informações sobre como gerenciar ou redefinir a senha para a conta do Azure AD Connector consulte [gerenciar a conta do Azure AD Connect](how-to-connect-azureadaccount.md)
 
 ## <a name="related-documentation"></a>documentação relacionada
 Se você não leu a documentação em [Integrando suas identidades locais com o Azure Active Directory](whatis-hybrid-identity.md), a tabela a seguir fornece links para tópicos relacionados.

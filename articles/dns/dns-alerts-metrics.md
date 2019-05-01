@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: victorh
-ms.openlocfilehash: baa2a09adeba133c5348449b12e037d4a9cb3213
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: a9d8bc172eb5f5e0e119a0bde56fb167f7a0c2b2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683014"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699147"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Métricas e alertas DNS do Azure
 O DNS do Azure é um serviço de hospedagem para domínios DNS que fornece a resolução de nomes usando a infraestrutura do Microsoft Azure. Este artigo descreve as métricas e alertas para o serviço DNS do Azure.
@@ -36,7 +36,7 @@ Você também pode ver a [definição dessas métricas](../azure-monitor/platfor
 >[!NOTE]
 > Neste momento, essas métricas estão disponíveis somente para as zonas de DNS públicas hospedadas no DNS do Azure. Se você tiver zonas privadas hospedadas no DNS do Azure, essas métricas não fornecerão dados para essas zonas. Além disso, o recurso de métricas e alertas só tem suporte na nuvem pública do Azure. O suporte para nuvens soberanas seguirá em um momento posterior. 
 
-O nível granular de dimensão para essas métricas é a zona DNS.
+O elemento mais granular que você pode ver as métricas para é uma zona DNS. No momento, você não pode ver as métricas para os registros de recurso individual dentro de uma zona.
 
 ### <a name="query-volume"></a>Volume de consulta
 

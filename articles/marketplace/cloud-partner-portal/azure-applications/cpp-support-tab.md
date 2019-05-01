@@ -1,25 +1,18 @@
 ---
-title: Configurar o suporte do aplicativo Azure | Microsoft Docs
+title: Configurar o suporte de aplicativo do Azure | O Azure Marketplace
 description: Configure o suporte do aplicativo Azure para uma oferta no Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/05/2018
-ms.author: pbutlerm
-ms.openlocfilehash: a42253baa1ed6dcfb8ad20d416c492cc7a677e43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/23/2019
+ms.author: pabutler
+ms.openlocfilehash: 37c6a36afaad1e10d5075a207b35920531d6ace2
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744663"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943252"
 ---
 # <a name="azure-application-support-tab"></a>Guia Suporte do aplicativo Azure
 
@@ -33,15 +26,15 @@ Use a próxima captura de tela como guia para fornecer as informações necessá
 
 1. Em **Contato de Engenharia**, forneça informações para os seguintes campos:
 
-   - **Nome** – insira o nome do contato de engenharia do aplicativo. Esse contato receberá comunicações técnicas da Microsoft.
-   - **Email** – insira o endereço de email do contato de engenharia.
-   - **Telefone** – insira o número de telefone do contato de engenharia.
+   - **Nome da\***  -insira o nome do contato de engenharia para seu aplicativo. Esse contato receberá comunicações técnicas da Microsoft.
+   - **Email\***  -insira o endereço de email do contato de engenharia.
+   - **Telefone\***  -insira o número de telefone de contato de engenharia.
   
 2. Em **Contato de Suporte**, forneça informações para os seguintes campos:
 
-   - **Nome** – insira o nome do contato de suporte do aplicativo. Esse contato receberá comunicações relacionadas a suporte da Microsoft.
-   - **Email** – insira o endereço de email do contato de suporte do aplicativo.
-   - **Telefone** – insira o número de telefone do contato de suporte.
+   - **Nome da\***  -insira o nome de contato de suporte para seu aplicativo. Esse contato receberá comunicações relacionadas a suporte da Microsoft.
+   - **Email\***  -insira o endereço de email de contato de suporte para seu aplicativo.
+   - **Telefone\***  -insira o número de telefone de contato de suporte.
  
 3. Em **URLs de suporte**, forneça as URLs de suporte apropriadas que a Microsoft usará quando os clientes abrirem tíquetes de suporte. Essas URLs serão para a nuvem pública do Azure ou para a nuvem do Azure Governamental.
 4. Selecione **Salvar** quando terminar.
@@ -49,4 +42,3 @@ Use a próxima captura de tela como guia para fornecer as informações necessá
 ## <a name="next-steps"></a>Próximas etapas
 
 [Publicar oferta de aplicativo do Azure](./cpp-publish-offer.md)
-

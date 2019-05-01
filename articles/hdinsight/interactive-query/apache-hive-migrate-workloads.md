@@ -2,17 +2,17 @@
 title: Migrar cargas de trabalho de Hive do Azure HDInsight 3.6 HDInsight 4.0
 description: Saiba como migrar cargas de trabalho Apache Hive no HDInsight 3.6 HDInsight 4.0.
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
+author: msft-tacox
+ms.author: tacox
 ms.reviewer: jasonh
 ms.topic: howto
-ms.date: 04/15/2019
-ms.openlocfilehash: 144e0ada0ce3a15a5dcd13b31f46f50162750a74
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.openlocfilehash: b181edc08c51a5afa8682858b330acc84da7d73d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126555"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707003"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrar cargas de trabalho de Hive do Azure HDInsight 3.6 HDInsight 4.0
 
@@ -99,6 +99,8 @@ No HDInsight 3.6, o cliente de GUI para interagir com o servidor do Hive é o mo
 
 Inicie uma ação de script em relação a seu cluster, com "Nós de cabeça" como o tipo de nó para execução. Cole o URI a seguir na caixa de texto marcado como "URI do Script Bash": https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
 
+Studio de análise de dados pode ser iniciado com a URL: https://<clustername>.azurehdinsight.net/das/
+
 
 
 Depois que o DAS é instalada, se você não vir as consultas que você executou no Visualizador de consultas, execute as seguintes etapas:
@@ -109,7 +111,7 @@ Depois que o DAS é instalada, se você não vir as consultas que você executou
     * `tez.history.logging.proto-base-dir`
 3. Reinicie o HDFS, Hive, o Tez e em ambos os de cabeçalho.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Comunicado de HDInsight 4.0](../hdinsight-version-release.md)
 * [Aprofundamento de HDInsight 4.0](https://azure.microsoft.com/blog/deep-dive-into-azure-hdinsight-4-0/)

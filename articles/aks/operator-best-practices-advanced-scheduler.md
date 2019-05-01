@@ -2,18 +2,17 @@
 title: Práticas recomendadas do operador – recursos do agendador avançado no Serviço de Kubernetes do Azure (AKS)
 description: Conheça as práticas recomendadas de operador do cluster para usar recursos avançados de agendador como taints and tolerations, seletores de nó e afinidade, ou afinidade entre pods e antiafinidade no Serviço de Kubernetes do Azure (AKS)
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 11/26/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: 27c9c872f4dfb82b4a1389189d62c4e1f06ee272
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 11/26/2018
+ms.author: iainfou
+ms.openlocfilehash: 9aa394a405e5b4392f900d1e7520d93e6d152e49
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464961"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690460"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para os recursos do agendador avançado no Serviço de Kubernetes do Azure (AKS)
 
@@ -37,7 +36,7 @@ O Agendador Kubernetes pode usar taints e tolerations para restringir quais carg
 * Um **taint** é aplicado a um nó que indica que apenas os pods específicos podem ser agendados neles.
 * Um **toleration**, em seguida, é aplicado a um pod que lhes permite *tolerar* um taint de nó.
 
-Quando você implanta um pod em um cluster do AKS, os Kubernetes apenas agendam pods em nós onde um toleration é alinhado com o taint. Por exemplo, suponha que você tem um nodepool no cluster do AKS para nós com GPU com suporte. Você define o nome, como *gpu*, em seguida, um valor para o agendamento. Se você definir esse valor como *NoSchedule*, o Agendador Kubernetes não poderá agendar pods no nó, se o pod não definir o toleration apropriado.
+Quando você implanta um pod em um cluster do AKS, os Kubernetes apenas agendam pods em nós onde um toleration é alinhado com o taint. Por exemplo, suponha que você tem um pool de nós no cluster do AKS para nós com GPU com suporte. Você define o nome, como *gpu*, em seguida, um valor para o agendamento. Se você definir esse valor como *NoSchedule*, o Agendador Kubernetes não poderá agendar pods no nó, se o pod não definir o toleration apropriado.
 
 ```console
 kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
@@ -53,7 +52,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
+    image: microsoft/samples-tf-mnist-demo:gpu
   resources:
     requests:
       cpu: 0.5
@@ -73,6 +72,23 @@ Quando esse pod é implantado, como o uso de `kubectl apply -f gpu-toleration.ya
 Ao aplicar taints, trabalhe com seus desenvolvedores de aplicativos e proprietários para permitir que definam os tolerations necessários em suas implantações.
 
 Para obter mais informações sobre taints e tolerations, consulte [Aplicar taints e tolerations][k8s-taints-tolerations].
+
+### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Comportamento de taints e tolerations no AKS
+
+Quando você atualiza um pool de nós no AKS, taints e tolerations seguem um padrão de conjunto conforme eles são aplicados aos novos nós:
+
+- **Clusters padrão sem suporte de escala de máquina virtual**
+  - Vamos supor que você tenha um cluster de dois nós - *node1* e *node2*. Quando você atualiza, um nó adicional (*node3*) é criado.
+  - Os taints da *node1* são aplicadas a *node3*, em seguida, *node1* é excluído.
+  - Outro novo nó é criado (denominada *node1*, desde o último *node1* foi excluída) e o *node2* taints são aplicadas ao novo *node1*. Em seguida, *node2* é excluído.
+  - Em essência *node1* se torna *node3*, e *node2* se torna *node1*.
+
+- **Conjuntos de dimensionamento de clusters que usam a máquina virtual** (atualmente em visualização no AKS)
+  - Novamente, vamos supor que você tenha um cluster de dois nós - *node1* e *node2*. Atualizar o pool de nós.
+  - Dois nós adicionais são criados, *node3* e *Nó4*, e os taints são passados, respectivamente.
+  - O original *node1* e *node2* são excluídos.
+
+Quando você dimensiona um pool de nós no AKS, taints e tolerations não carregam a tecla TAB design.
 
 ## <a name="control-pod-scheduling-using-node-selectors-and-affinity"></a>Controle o agendando de pod usando os seletores de nó e afinidade
 
@@ -96,7 +112,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
+    image: microsoft/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5
@@ -126,7 +142,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
+    image: microsoft/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5

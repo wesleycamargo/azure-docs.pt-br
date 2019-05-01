@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b477171be0f306431b0f7c5965ebede4f4680c22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f344a4f928030c07f59c2f7aba201d153da123f1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249948"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918711"
 ---
 # <a name="web-api"></a>API Web
 
@@ -69,7 +69,7 @@ Consulte os exemplos de código para os cenários de aplicativo Web para API da 
 
 ## <a name="app-registration"></a>Registro do aplicativo
 
-Para registrar um aplicativo no ponto de extremidade do Azure AD v1.0, veja [Registrar um aplicativo no ponto de extremidade do Azure AD v1.0](quickstart-v1-add-azure-ad-app.md).
+Para registrar um aplicativo com o ponto de extremidade do Azure AD v 1.0, consulte [registrar um aplicativo](quickstart-register-app.md).
 
 * Locatário único: para a identidade do aplicativo e casos de identidade de usuário delegado, o aplicativo Web e a API Web devem ser registrados no mesmo diretório no Azure AD. A API da Web pode ser configurada para expor um conjunto de permissões, que são usadas para limitar o acesso do aplicativo Web a seus recursos. Se um tipo de identidade de usuário delegado estiver sendo usado, o aplicativo Web precisará selecionar as permissões desejadas no menu suspenso **Permissões para outros aplicativos** no portal do Azure. Essa etapa não será necessária se o tipo de identidade de aplicativo estiver sendo usado.
 * Multilocatário: primeiro, o aplicativo Web é configurado para indicar as permissões necessárias para que seja funcional. Essa lista de permissões necessárias é mostrada em uma caixa de diálogo quando um usuário ou administrador no diretório de destino dá consentimento para o aplicativo, o que o torna disponível para sua organização. Alguns aplicativos exigem apenas permissões de nível de usuário, que qualquer usuário na organização pode conceder. Outros aplicativos exigem permissões de nível administrativo, que um usuário na organização não pode conceder. Somente um administrador do diretório pode dar consentimento para aplicativos que exigem esse nível de permissões. Quando o usuário ou administrador conceder sua permissão, o aplicativo Web e a API da Web são registrados em seu diretório.

@@ -1,25 +1,18 @@
 ---
-title: Publicar a oferta de aplicativo de SaaS do Azure | Microsoft Docs
+title: Publicar oferta de aplicativo de SaaS do Azure | O Azure Marketplace
 description: O processo e as etapas de publicação de uma oferta de aplicativo SaaS no Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 25c9ab0008e7f056789536d8cc737b69e83d6db5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.author: pabutler
+ms.openlocfilehash: 628aab7e47fa097a7b1844b3d18d1213677234d6
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120230"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942274"
 ---
 # <a name="publish-a-saas-application-offer"></a>Publicar uma oferta de aplicativo do SaaS
 

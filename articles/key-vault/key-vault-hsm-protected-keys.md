@@ -2,23 +2,19 @@
 title: Como gerar e transferir chaves protegidas por HSM para o Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: Use este artigo para ajudá-lo a planejar, gerar e transferir as suas próprias chaves de HSM protegido para usar com o Cofre da Chave do Azure. Também conhecido como BYOK ou Traga sua própria chave.
 services: key-vault
-documentationcenter: ''
 author: barclayn
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 51abafa1-812b-460f-a129-d714fdc391da
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: 70a33b0ec55705c6fb00671cc801415cd7459558
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: a013e0091e1a955672c1f16a4ac6300281d277b3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522721"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573000"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Como gerar e transferir chaves de HSM protegido para o Cofre da Chave do Azure
 
@@ -45,7 +41,7 @@ Para mais informações sobre como gerar e transferir uma chave de HSM protegido
 
 ## <a name="more-information-about-thales-hsms-and-microsoft-services"></a>Para obter mais informações sobre serviços HSMs da Thales e da Microsoft
 
-A Thales e-Security é um provedor líder global em criptografia de dados e soluções de segurança cibernética para os serviços financeiros, de alta tecnologia, manufatura, governo e setores de tecnologia. Com um histórico de proteção corporativa e informações do governo com 40 anos de existência, as soluções Thales são usadas por quatro das cinco maiores empresas do setor de energia e aeroespacial. Suas soluções também são usadas por 22 países da OTAN e protegem mais de 80 porcento das transações de pagamento em todo o mundo.
+A Thales e-Security é um provedor líder global em criptografia de dados e soluções de segurança cibernética para os serviços financeiros, de alta tecnologia, manufatura, governo e setores de tecnologia. Com um histórico de proteção corporativa e informações do governo com 40 anos de existência, as soluções Thales são usadas por quatro das cinco maiores empresas do setor de energia e aeroespacial. Suas soluções também são usadas por 22 países/regiões de OTAN e proteger mais de 80 por cento de transações de pagamento em todo o mundo.
 
 A Microsoft tem colaborado com a Thales para aprimorar os mais recentes HSMs. Essas melhorias permitem obter os benefícios típicos dos serviços hospedados sem abrir mão do controle sobre as chaves. Especificamente, essas melhorias permitem que a Microsoft gerencie os HSMs para que você não precise fazer isso. Como um serviço de nuvem, o Cofre da Chave do Azure escala verticalmente a curto prazo para atender aos picos de uso da sua organização. Ao mesmo tempo, sua chave é protegida dentro dos HSMs da Microsoft: Você mantém o controle sobre o ciclo de vida da chave, pois gera a chave e a transfere para HSMs da Microsoft.
 

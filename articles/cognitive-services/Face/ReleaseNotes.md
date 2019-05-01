@@ -8,18 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 04/28/2019
 ms.author: yluiu
-ms.openlocfilehash: 8502d643986392ba846d509819c6d8f63f931c07
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 63f705061db7c89a80578e741d02ab8f8b1041c2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60815215"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917092"
 ---
 # <a name="face-api-release-notes"></a>Notas de versão da API de Detecção Facial
 
 Este artigo refere-se ao Face API Service versão 1.0.
+
+### <a name="release-changes-in-april-2019"></a>Alterações de lançamento em abril de 2019
+
+* Melhor precisão geral do `age` e `headPose` atributos. O `headPose` atributo também é atualizado com o `pitch` valor habilitado agora. Usar esses atributos especificando-os na `returnFaceAttributes` parâmetro de [enfrentam - detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` parâmetro. 
+
+* Velocidade de aprimorada [enfrentam - detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList - adicionar Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargeFaceList – adicionar Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [PersonGroup pessoa - adicionar Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) e [ Pessoa LargePersonGroup – adicionar Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42).
 
 ### <a name="release-changes-in-march-2019"></a>Alterações de versão em março de 2019
 

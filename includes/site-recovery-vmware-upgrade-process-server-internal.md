@@ -2,16 +2,16 @@
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 04/28/2010
 ms.author: raynew
-ms.openlocfilehash: fa41784902c1b10d9a30cb67dec5079da565e8ed
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 83e9e584967f780532ce9b3c51bf3f41a963eabf
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263961"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925584"
 ---
-1. Fazer logon no servidor de processo como Administrador.
-2. Baixe a versão mais recente do [instalação unificada](https://aka.ms/unifiedinstaller).
+1. Entrar para o servidor de processo como administrador.
+2. Baixe a versão mais recente do [Unified Installer de instalação](https://aka.ms/unifiedinstaller).
 3. Clique duas vezes o instalador para iniciar o processo de atualização.
-4. O instalador irá detectar os diversos componentes que estão instalados e os atualizará para a versão mais recente.
+4. O instalador detecta os componentes da recuperação de Site que estão instalados e atualiza-os para a versão mais recente.

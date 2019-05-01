@@ -11,19 +11,19 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: 57ea52c179376e8378680f436d396ffaf9357f68
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 92785015a1ce122b8301b56fa62d122c8d95180c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771843"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725043"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Principais diferenças entre os serviços do Machine Learning no banco de dados do SQL do Azure (visualização) e o SQL Server
 
 A funcionalidade dos serviços de aprendizado de máquina do Azure SQL banco de dados (com R) no (visualização) é semelhante ao [serviços do SQL Server Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Abaixo estão algumas das principais diferenças.
 
 > [!IMPORTANT]
-> Aprendizado serviços de máquina de banco de dados SQL do Azure está atualmente em visualização pública.
+> Os Serviços do Machine Learning do Banco de Dados SQL do Azure estão em versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -61,6 +61,6 @@ Uso depende do quanto de memória é usada em seus scripts de R e o número de c
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira a documentação dos [Serviços do Machine Learning do SQL Server](https://docs.microsoft.com/sql/advanced-analytics) para obter informações gerais
-- Para saber como usar os Serviços do Microsoft Machine Learning (com R) no Banco de Dados SQL do Azure, confira [Guia de início rápido](sql-database-connect-query-r.md).
-- Saiba mais com os [tutoriais da linguagem R do SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sql-server-r-tutorials)
+- Consulte a visão geral, [serviços do Azure SQL banco de dados de Machine Learning com R (versão prévia)](sql-database-machine-learning-services-overview.md).
+- Para saber como usar R para consultar o banco de dados para SQL Azure Machine Learning Services (versão prévia), consulte o [guia de início rápido](sql-database-connect-query-r.md).
+- Para se familiarizar com alguns scripts simples do R, consulte [criar e executar scripts simples do R no banco de dados para SQL Azure Machine Learning Services (versão prévia)](sql-database-quickstart-r-create-script.md).

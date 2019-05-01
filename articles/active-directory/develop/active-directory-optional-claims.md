@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 253a5e247dbbea5fc7e0e556d8619328b43bff58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc38e2096b6a761060fab09a8ce2518808b370e1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300137"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713346"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Como: Fornecer declarações opcionais para seu aplicativo do AD do Azure
 
@@ -57,7 +57,7 @@ O conjunto de declarações opcionais disponíveis por padrão para uso pelos ap
 | `auth_time`                | Hora em que o usuário foi autenticado pela última vez. Confira especificações de OpenID Connect.| JWT        |           |  |
 | `tenant_region_scope`      | Região do locatário do recurso | JWT        |           | |
 | `home_oid`                 | Para usuários convidados, a ID de objeto do usuário no locatário inicial do usuário.| JWT        |           | |
-| `sid`                      | ID de sessão usada para entrada do usuário por sessão out. | JWT        |           |         |
+| `sid`                      | ID de sessão usada para entrada do usuário por sessão out. | JWT        |  Pessoal e contas do Azure AD.   |         |
 | `platf`                    | Plataforma de dispositivos    | JWT        |           | Restrito aos dispositivos gerenciados que podem verificar o tipo de dispositivo.|
 | `verified_primary_email`   | Originado de PrimaryAuthoritativeEmail do usuário      | JWT        |           |         |
 | `verified_secondary_email` | Originado de SecondaryAuthoritativeEmail do usuário   | JWT        |           |        |
@@ -91,7 +91,6 @@ Essas declarações são sempre incluídas nos tokens do Azure AD v 1.0, mas nã
 | `family_name` | Sobrenome                       | Fornece o último nome, sobrenome ou nome da família do usuário conforme definido no objeto de usuário. <br>"family_name":"Barros" | Com suporte no MSA e AAD   |
 | `given_name`  | Nome                      | Fornece o nome ou o nome "determinado" do usuário, conforme definido no objeto do usuário.<br>"given_name": "Davi"                   | Com suporte no MSA e AAD  |
 | `upn`         | Nome UPN | Um identificador para o usuário que pode ser usado com o parâmetro username_hint.  Não é um identificador durável para o usuário e não deve ser usado para dados de chave. | Ver [propriedades adicionais](#additional-properties-of-optional-claims) abaixo para a configuração da declaração. |
-| `sid`         | ID da sessão                      | Identificador de sessão GUID, usado para acompanhamento de sessão de autenticação com MSA. | MSA.  Não será incluído para contas do Azure AD. | 
 
 
 ### <a name="additional-properties-of-optional-claims"></a>Propriedades adicionais de declarações opcionais
@@ -243,7 +242,7 @@ Há várias opções disponíveis para atualizar as propriedades na configuraç�
 
 1. Quando terminar de atualizar o manifesto, clique em **Salvar** para salvar o manifesto
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as declarações padrão fornecidas pelo Azure AD.
 

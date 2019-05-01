@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e92378cca445191f42708bd6348b1c75b29da1a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 65634cb6573a0f163f7a0ca07bf26af9512e240b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60361057"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683881"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil de técnico de OAuth2 em uma política personalizada do Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "60361057"
 
 O Azure AD (Azure Active Directory) B2C oferece suporte para o provedor de identidade do protocolo OAuth2. OAuth2 é o principal protocolo de autorização e autenticação delegada. Para obter mais informações, confira [RFC 6749 O Framework de Autorização OAuth 2.0](https://tools.ietf.org/html/rfc6749). Com um perfil técnico de OAuth2, você pode federar com um provedor de identidade baseada no OAuth2, como o Facebook. Federação com um provedor de identidade permite que os usuários entram com suas redes sociais existentes ou identidades corporativas.
 
-## <a name="protocol"></a>Protocolo
+## <a name="protocol"></a>Protocol
 
 O atributo **Name** do elemento **Protocol** precisa ser definido como `OAuth2`. Por exemplo, o protocolo para o perfil técnico **Facebook-OAUTH** é `OAuth2`:
 
@@ -76,7 +76,7 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | client_id | Sim | O identificador do aplicativo do provedor de identidade. |
 | IdTokenAudience | Não  | O público-alvo do id_token. Se for especificado, o Azure AD B2C verificará se o token está em uma declaração retornada pelo provedor de identidade e é igual ao especificado. |
@@ -100,7 +100,7 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 
 O elemento **CryptographicKeys** contém o seguinte atributo:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | client_secret | Sim | O segredo do cliente do aplicativo do provedor de identidade. A chave de criptografia será necessária apenas se os metadados **response_types** estiverem definidos como `code`. Nesse caso, o Azure AD B2C faz outra chamada para trocar o código de autorização para um token de acesso. Se os metadados são definidos `id_token`, você pode omitir a chave de criptografia. |  
 

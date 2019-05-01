@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 5028a05fe74f1d19ed5e43ac797df87bbe3382e8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: a3087718a3eece1e19f05757ace64ba00aa0dc58
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680716"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682680"
 ---
 # <a name="install-and-run-face-containers"></a>Instalar e executar os contêineres de detecção facial
 
@@ -34,10 +34,9 @@ Você precisa atender aos seguintes pré-requisitos antes de usar contêineres d
 |Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`.| 
 |Azure `Cognitive Services` recursos |Para usar o contêiner, você precisará ter:<br><br>Um _dos serviços Cognitivos_ o ponto de extremidade cobrança URI de chave de recurso do Azure e a cobrança associada. Ambos os valores estão disponíveis nas páginas de visão geral e as chaves de recurso e são necessários para iniciar o contêiner. Você precisará adicionar o `face/v1.0` roteamento para o URI do ponto de extremidade, conforme mostrado no exemplo a seguir de BILLING_ENDPOINT_URI. <br><br>**{BILLING_KEY}**: chave do recurso<br><br>**{BILLING_ENDPOINT_URI}**: exemplo de URI de terminal é: `https://westus.api.cognitive.microsoft.com/face/v1.0`|
 
-
 ## <a name="request-access-to-the-private-container-registry"></a>Solicitar acesso ao registro de contêiner privado
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
+[!INCLUDE [Request access to private container registry](../../../includes/cognitive-services-containers-request-access.md)]
 
 ### <a name="the-host-computer"></a>O computador host
 
@@ -84,7 +83,7 @@ Depois que o contêiner estiver no [computador host](#the-host-computer), use o 
 
 Use o comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) para executar qualquer um dos três contêineres. O comando usa os seguintes parâmetros:
 
-| Placeholder | Valor |
+| Placeholder | Value |
 |-------------|-------|
 |{BILLING_KEY} | Essa chave é usada para iniciar o contêiner e está disponível no Azure `Cognitive Services` página chaves.  |
 |{BILLING_ENDPOINT_URI} | O valor do URI de ponto de extremidade cobrança está disponível no Azure `Cognitive Services` página de visão geral. É um exemplo: `https://westus.api.cognitive.microsoft.com/face/v1.0`|
@@ -162,5 +161,4 @@ Neste artigo, você aprendeu conceitos e fluxo de trabalho para baixar, instalar
 * Revise [Configurar contêineres](face-resource-container-config.md) para configurações
 * Analise [Visão geral da face](Overview.md) para saber mais sobre como detectar e identificar rostos  
 * Consulte a [API Face](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter detalhes sobre os métodos suportados pelo contêiner.
-* Consulte [Perguntas frequentes (FAQ)](FAQ.md) para resolver problemas relacionados à funcionalidade Face.
 * Use mais [Contêineres de Serviços Cognitivos](../cognitive-services-container-support.md)

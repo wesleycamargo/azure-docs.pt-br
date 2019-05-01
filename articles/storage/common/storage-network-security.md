@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 6d6ca1fe1256f1571079027ebd299492bfa62f41
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 81904c4f205b9c5da2bb099d440e65ad63637bdc
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280733"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917009"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Armazenamento do Microsoft Azure
 
@@ -354,11 +354,11 @@ Se você habilitar a exceção **Permitir serviços Microsoft confiáveis...**, 
 |Azure DevTest Labs|Microsoft.DevTestLab|Criação de imagem personalizada e instalação de artefato. [Saiba mais](/azure/devtest-lab/devtest-lab-overview).|
 |Grade de Eventos do Azure|Microsoft.EventGrid|Habilite a publicação de eventos do Armazenamento de Blobs e permita que a Grade de Eventos publique em filas de armazenamento. Saiba mais sobre [eventos de Armazenamento de Blobs](/azure/event-grid/event-sources) e [publicação em filas](/azure/event-grid/event-handlers).|
 |Hubs de eventos do Azure|Microsoft.EventHub|Arquivar dados com a Captura de Hubs de Evento. [Saiba mais](/azure/event-hubs/event-hubs-capture-overview).|
-|Azure HDInsight|Microsoft.HDInsight|Provisione o conteúdo inicial do sistema de arquivos padrão para um novo cluster HDInsight. [Saiba mais](https://azure.microsoft.com/en-us/blog/enhance-hdinsight-security-with-service-endpoints/).|
+|Azure HDInsight|Microsoft.HDInsight|Provisione o conteúdo inicial do sistema de arquivos padrão para um novo cluster HDInsight. [Saiba mais](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/).|
 |Azure Monitor|Microsoft.insights|Permite a gravação de dados de monitoramento para uma conta de armazenamento protegida [Saiba mais](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
 |Rede do Azure|Microsoft.Networking|Armazenar e analisar os logs de tráfego de rede. [Saiba mais](/azure/network-watcher/network-watcher-packet-capture-overview).|
 |Azure Site Recovery|Microsoft.SiteRecovery |Configure a recuperação de desastre, habilitando a replicação para máquinas virtuais IaaS do Azure. Isso é necessário se você estiver usando a conta de armazenamento de cache de firewall habilitado ou a conta de armazenamento de origem ou a conta de armazenamento de destino.  [Saiba mais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication).|
-|SQL Data Warehouse do Azure|Microsoft.Sql|Permite importar e exportar cenários usando o PolyBase. [Saiba mais](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
+|SQL Data Warehouse do Azure|Microsoft.Sql|Permite importar e exportar os cenários de instâncias específicas de bancos de dados SQL usando o PolyBase. [Saiba mais](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
 
 ### <a name="storage-analytics-data-access"></a>Acesso a dados de análise de armazenamento
 

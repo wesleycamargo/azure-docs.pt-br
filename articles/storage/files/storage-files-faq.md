@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 77f07394eb895c08ef3e366bd486b4270714c2fc
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 4186af31e17acea09e6b3c1a0121d2fcbe63f800
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766270"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917605"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas frequentes sobre o Azure Files
 [ Os arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do {SM} protocolo [de padrão do setor](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, do Linux e do macOS. Também é possível armazenar em cache os compartilhamentos de arquivos do Azure em computadores Windows Server usando a Sincronização de Arquivos do Azure para acesso rápido próximo ao local em que os dados são usados.
@@ -249,7 +249,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 * <a id="port-445-blocked"></a>
 **Monte a meu ISP ou IT bloqueia a porta 445 que está falhando arquivos do Azure. O que devo fazer?**
 
-    Você pode aprender sobre [várias maneiras para solucionar esse problema bloqueado a porta 445 aqui](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked). Os arquivos do Azure permite apenas conexões usando o SMB 3.0 (com suporte de criptografia) de fora da região ou datacenter. Protocolo SMB 3.0 introduziu muitos recursos de segurança, incluindo a criptografia de canal que é muito segura usar pela internet. No entanto, é possível que a porta 445 foi bloqueado devido a razões históricas de vulnerabilidades encontradas em versões anteriores do SMB. No caso ideal, a porta deve ser bloqueada para somente para tráfego SMB 1.0 e o SMB 1.0 deve ser desligado em todos os clientes.
+    Você pode aprender sobre [várias maneiras para solucionar esse problema bloqueado a porta 445 aqui](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked). Os arquivos do Azure permite apenas conexões usando o SMB 3.0 (com suporte de criptografia) de fora da região ou datacenter. Protocolo SMB 3.0 introduziu muitos recursos de segurança, incluindo a criptografia de canal que é muito segura usar pela internet. No entanto, é possível que a porta 445 foi bloqueado devido a razões históricas de vulnerabilidades encontradas em versões anteriores do SMB. No caso ideal, a porta deve ser bloqueada para somente para tráfego SMB 1.0 e o SMB 1.0 deve ser desligado em todos os clientes.
 
 * <a id="expressroute-not-required"></a>
 **Preciso usar o Azure ExpressRoute para me conectar aos Arquivos do Azure ou para usar a Sincronização de arquivos do Azure localmente?**  

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 67526eddd19c5869aa54432f963d9b80396f878d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7725563a80182be8f8c02d94ef1e6cfa382c04d3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61471620"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924863"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configurar a recuperação de desastres para o SQL Server
 
@@ -170,7 +170,7 @@ Para aplicativos que usam transações distribuídas, recomendamos a implantaç�
 
 Nesse cenário, recomendamos o uso da replicação de Site Recovery para proteger a máquina do SQL Server. As etapas exatas dependerão se o SQL Server é uma VM ou um servidor físico, e se você deseja replicar para o Azure ou para um site secundário local. Saiba mais sobre [cenários do Site Recovery](site-recovery-overview.md).
 
-## <a name="protect-a-sql-server-cluster-standard-editionwindows-server-2008-r2"></a>Proteger um cluster do SQL Server (edição standard/Windows Server 2008 R2)
+## <a name="protect-a-sql-server-cluster-standard-editionsql-server-2008-r2"></a>Proteger um cluster do SQL Server (standard edition/SQL, Server 2008 R2)
 
 Para um cluster executando o SQL Server Standard ou o SQL Server 2008 R2, recomendamos o uso da replicação do Site Recovery para proteger o SQL Server.
 

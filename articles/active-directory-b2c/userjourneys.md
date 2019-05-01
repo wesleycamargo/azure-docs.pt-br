@@ -3,19 +3,19 @@ title: UserJourneys | Microsoft Docs
 description: Especifica o elemento UserJourneys de uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ccc1f94b9411a158b5c60509e09bd3edc0a61640
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e09435b09811ef31057f4dc257fc55fa72909d83
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359867"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714911"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -35,7 +35,7 @@ O elemento **UserJourneys** contém o seguinte elemento:
 
 O elemento **UserJourney** contém o seguinte atributo:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ID | Sim | Um identificador de um percurso do usuário que pode ser usado para referenciá-lo de outros elementos na política. O elemento **DefaultUserJourney** da [política de terceira parte confiável](relyingparty.md) aponta para esse atributo. |
 
@@ -61,7 +61,7 @@ O elemento **OrchestrationSteps** contém o seguinte elemento:
 
 O elemento **OrchestrationStep** contém os seguintes atributos:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | `Order` | Sim | A ordem das etapas de orquestração. | 
 | `Type` | Sim | O tipo da etapa de orquestração. Valores possíveis: <ul><li>**ClaimsProviderSelection** – indica que a etapa de orquestração apresenta vários provedores de declarações para o usuário selecionar um.</li><li>**CombinedSignInAndSignUp** – indica que a etapa de orquestração apresenta uma conexão de provedor social combinada e uma página de entrada de conta local.</li><li>**ClaimsExchange** – indica que a etapa de orquestração troca declarações com um provedor de declarações.</li><li>**SendClaims** – indica que a etapa de orquestração envia as declarações à terceira parte confiável com um token emitido por um emissor de declarações.</li></ul> | 
@@ -90,7 +90,7 @@ O elemento **Preconditions** contém o seguinte elemento:
 
 O elemento **Precondition** contém os seguinte atributo:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | `Type` | Sim | O tipo de verificação ou consulta ser executada para essa pré-condição. O valor poderá ser **ClaimsExist**, que especifica que as ações deverão ser executadas se as declarações especificadas existirem no conjunto de declarações do usuário atual, ou **ClaimEquals**, que especifica que as ações deverão ser executadas se a declaração especificada existir e seu valor for igual ao valor especificado. |
 | `ExecuteActionsIf` | Sim | Use um teste de verdadeiro ou falso para decidir se as ações na pré-condição devem ser executadas. | 
@@ -170,7 +170,7 @@ O elemento **ClaimsProviderSelection** contém o seguinte elemento:
 
 O elemento **ClaimsProviderSelection** contém os seguintes atributos: 
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | TargetClaimsExchangeId | Não  | O identificador da troca de declarações, que é executado na próxima etapa de orquestração da seleção do provedor de declarações. Esse atributo ou o atributo ValidationClaimsExchangeId deve ser especificado, mas não ambos. | 
 | ValidationClaimsExchangeId | Não  | O identificador da troca de declarações, que é executado na etapa de orquestração atual para validar a seleção do provedor de declarações. Esse atributo ou o atributo TargetClaimsExchangeId deve ser especificado, mas não ambos. |
@@ -222,7 +222,7 @@ O elemento **ClaimsExchanges** contém o seguinte elemento:
 
 O elemento **ClaimsExchange** contém os seguintes atributos:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ID | Sim | Um identificador da etapa de troca de declarações. O identificador é usado para referenciar a troca de declarações para uma etapa da seleção do provedor de declarações na política. | 
 | TechnicalProfileReferenceId | Sim | O identificador do perfil técnico que deve ser executado. |

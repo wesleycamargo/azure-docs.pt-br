@@ -2,24 +2,18 @@
 title: Requisitos por Tipo de Listagem | Azure
 description: Este artigo descreve os critérios de qualificação e os parceiros de requisitos de publicação tentando entender como publicar aplicativos no Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: ebe344d9f596f862fe5ffbfef083725e6527d0d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e45346ce8bd23ea8431faf8a123d57ecdee71606
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60599325"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937885"
 ---
 # <a name="requirements-by-listing-type"></a>Requisitos por tipo de listagem  
 Os requisitos de conteúdo técnico e de marketing variam de acordo com a vitrine, com o tipo de oferta e com o tipo de listagem. Analise as especificações a seguir para verificar sua conformidade.  

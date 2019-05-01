@@ -1,7 +1,6 @@
 ---
-title: Apache Storm com componentes Python – Azure HDInsight
+title: Apache Storm com componentes do Python - Azure HDInsight
 description: Saiba como criar uma topologia Apache Storm que usa componentes de Python.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 keywords: apache storm python
@@ -10,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: 87d13f8b0df4d9a357218b34035993663dfda8b3
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: a5cbd54dd07143688b676c063133bb1a73bed01a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634585"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694398"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Desenvolver topologias do Apache Storm usando o Python no HDInsight
 
@@ -148,5 +147,4 @@ Para interromper a topologia, use __Ctrl+C__.
 
 Consulte os seguintes documentos para conhecer outras maneiras de usar o Python com o HDInsight:
 
-* [Como usar o Python para trabalhos de MapReduce de streaming](../hadoop/apache-hadoop-streaming-python.md)
 * [Como usar as Funções Definidas pelo Usuário Python (UDF) no Apache Pig e Apache Hive](../hadoop/python-udf-hdinsight.md)

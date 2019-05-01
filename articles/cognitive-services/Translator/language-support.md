@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 3b938f07ef5b1feb9d5859f27423eaa79c2937cc
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 8de9d7e6aac052ca24f1eef5f99c3146029bddbb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59577578"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690143"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Idiomas e regiões compatíveis com a API de Tradução de Texto
 
@@ -28,7 +28,7 @@ A API de Tradução de Texto dá suporte aos seguintes idiomas para tradução d
 **API do Tradutor V2**
 
 > [!NOTE]
-> A V2 será preterida em 30 de abril de 2018 e será descontinuada em 30 de abril de 2019.
+> V2 foi preterida em 30 de abril de 2018. Migre seus aplicativos para a V3 para tirar proveito da nova funcionalidade disponível exclusivamente no V3.
 
 * Estatística apenas: nenhum sistema neural está disponível para esse idioma.
 * Neural disponível: um sistema neural está disponível. Use o parâmetro `category=generalnn` para acessar o sistema neural.
@@ -230,14 +230,17 @@ Os seguintes idiomas estão disponíveis para personalização de ou para uso em
 | Indonésio|   `id`    |
 | Italiano      | `it`          |
 | Japonês      | `ja`          |
+|Suaíli| `sw`    |
 | Coreano      | `ko`          |
 | Letão      | `lv`          |
 | Lituano      | `lt`          |
+|Malgaxe|  `mg`    |
 | Norueguês      | `nb`          |
 | Polonês      | `pl`          |
 | Português      | `pt`          |
 | Romeno      | `ro`          |
 | Russo      | `ru`          |
+|Samoano|    `sm`    |
 | Sérvio (latino)      | `sr-Latn`          |
 | Eslovaco     | `sk`          |
 | Esloveno      | `sl`          |

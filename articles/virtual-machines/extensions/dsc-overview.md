@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: b3cfc33f435c6ddaabe8358c344b1944f7c271f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2130dcc27f81eb1e33fa56a7a4f963d81ac0de5b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799561"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926109"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introdução ao manipulador de extensão de Desired State Configuration do Azure
 
@@ -82,7 +82,7 @@ Essas informações podem ser vistas na [portal do Azure](../../automation/autom
 ```
 
 Para o nome da configuração de nó, verifique se você estiver usando o nome da *configuração de nó* e não a configuração.
-Uma configuração é definida em um script que é usado [para compilar a configuração de nó (arquivo MOF)](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-compile).
+Uma configuração é definida em um script que é usado [para compilar a configuração de nó (arquivo MOF)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
 O nome sempre será a configuração seguida por um período `.` e `localhost` ou um nome de computador específico.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Extensão de DSC nos modelos do Resource Manager

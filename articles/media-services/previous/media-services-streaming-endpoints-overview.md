@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c5979fa7ff67c5acda9ab653bc4ee52d8b5129a5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a45e2af6f2cb9c105c084585a03a6de615fa1397
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60544938"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573046"
 ---
 # <a name="streaming-endpoints-overview"></a>Visão geral dos pontos de extremidade de streaming  
 
-## <a name="overview"></a>Visão geral
+> [!NOTE]
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [diretrizes de migração da v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 No AMS (Serviços de Mídia do Microsoft Azure), um **Ponto de Extremidade de Streaming** representa um serviço de streaming que pode fornecer conteúdo diretamente a um aplicativo cliente player ou à CDN (Rede de Distribuição de Conteúdo) para distribuição posterior. Os Serviços de Mídia também fornecem integração perfeita da CDN do Azure. O fluxo de saída do serviço StreamingEndpoint pode ser um fluxo ao vivo, um vídeo por demanda ou um download progressivo do seu ativo na conta dos Serviços de Mídia. Cada conta dos Serviços de Mídia do Azure inclui um StreamingEndpoint padrão. StreamingEndpoints adicionais podem ser criados na conta. Há duas versões do StreamingEndpoints, 1.0 e 2.0. A partir de 10 de janeiro de 2017, todas as contas AMS recém-criadas incluirão a versão 2.0 **padrão** do StreamingEndpoint. Pontos de extremidade de streaming adicionais que você adicionar nessa conta também terão a versão 2.0. Essa alteração não afetará as contas existentes; StreamingEndpoints existente estarão na versão 1.0 e poderão ser atualizados para a versão 2.0. Com essa alteração, haverá alterações de comportamento, cobrança e recurso (para obter mais informações, confira a seção **Tipos e versões de streaming** documentada abaixo).
 
@@ -46,14 +47,17 @@ Para pontos de extremidade adicionais: `{EndpointName}-{AccountName}.streaming.m
 
 ### <a name="standardpremium-types-version-20"></a>Tipos Standard/Premium (versão 2.0)
 
-Começando com a versão dos Serviços de Mídia de janeiro de 2017, há dois tipos de streaming: **Standard** e **Premium**. Esses tipos fazem parte da versão do ponto de extremidade de streaming “2.0”.
+Começando com a versão dos Serviços de Mídia de janeiro de 2017, há dois tipos de streaming: **Standard** (visualização) e **Premium**. Esses tipos fazem parte da versão do ponto de extremidade de streaming “2.0”.
 
-Type|DESCRIÇÃO
----|---
-**Standard** |Essa é a opção padrão que funciona para a maioria dos cenários.<br/>Com essa opção, você obtém SLA fixo/limitado e os primeiros 15 dias após iniciar o ponto de extremidade de streaming são gratuitos.<br/>Se você criar mais de um ponto de extremidade de streaming, somente o primeiro deles será gratuito pelos primeiros 15 dias, os outros serão cobrados assim forem iniciados. <br/>Observe que a avaliação gratuita se aplica somente a contas de serviços de mídia e do ponto de extremidade de streaming recém-criadas. Pontos de extremidade de streaming existentes e criados adicionalmente não incluem o período de avaliação gratuita mesmo se forem atualizados para a versão 2.0 ou criados nela.
-**Premium** |Esta opção é adequada para cenários profissionais que exigem maior escala ou controle.<br/>SLA variável com base na capacidade da UA (unidade de streaming) premium adquirida, pontos de extremidade de streaming dedicados residem em um ambiente isolado e não competem por recursos.
 
-Para obter mais informações, consulte a seção **Comparar tipos de Streaming** a seguir.
+|Type|DESCRIÇÃO|
+|--------|--------|  
+|**Standard**|O padrão de ponto de extremidade de Streaming é uma **Standard** tipo, pode ser alterado para o tipo Premium, ajustando as unidades de streaming.|
+|**Premium** |Esta opção é adequada para cenários profissionais que exigem maior escala ou controle. Mover para um **Premium** tipo ajustando as unidades de streaming.<br/>Pontos de extremidade de Streaming dedicados residem em um ambiente isolado e não competem por recursos.|
+
+Para clientes que desejam para fornecer conteúdo a um grande público de internet, é recomendável que você habilitar a CDN no ponto de extremidade de Streaming.
+
+Para obter mais informações, consulte a seção [Comparar tipos de Streaming](#comparing-streaming-types) a seguir.
 
 ### <a name="classic-type-version-10"></a>Tipo Clássico (versão 1.0)
 
@@ -71,29 +75,32 @@ Se seu ponto de extremidade de streaming **versão “1.0”** tiver >=1 SU (uni
 
 ### <a name="versions"></a>Versões
 
-|Type|StreamingEndpointVersion|ScaleUnits|CDN|Cobrança|Contrato de Nível de Serviço| 
-|--------------|----------|-----------------|-----------------|-----------------|-----------------|    
-|Clássico|1.0|0|ND|Grátis|ND|
-|Ponto de Extremidade de Streaming Standard|2,0|0|Sim|Pago|Sim|
-|Unidades de Streaming Premium|1.0|>0|Sim|Pago|Sim|
-|Unidades de Streaming Premium|2,0|>0|Sim|Pago|Sim|
+|Type|StreamingEndpointVersion|ScaleUnits|CDN|Cobrança|
+|--------------|----------|-----------------|-----------------|-----------------|
+|Clássico|1.0|0|ND|Grátis|
+|Extremidade de Streaming padrão (visualização)|2,0|0|Sim|Pago|
+|Unidades de Streaming Premium|1.0|>0|Sim|Pago|
+|Unidades de Streaming Premium|2,0|>0|Sim|Pago|
 
 ### <a name="features"></a>Recursos
 
 Recurso|Standard|Premium
 ---|---|---
-Gratuito pelos primeiros 15 dias| Sim |Não 
-Produtividade |Até 600 Mbps quando a Azure CDN não é usada. Escala com CDN.|200 Mbps por UA (unidade de streaming). Escala com CDN.
-Contrato de Nível de Serviço | 99.9|99,9 (200 Mbps por UA).
+Libere os primeiros 15 dias <sup>1</sup>| Sim |Não 
+Produtividade |Até 600 Mbps e pode fornecer uma muito eficaz taxa de transferência maior quando a CDN é usada.|200 Mbps por UA (unidade de streaming). Pode fornecer uma muito eficaz taxa de transferência maior quando a CDN é usada.
 CDN|Azure CDN, CDN de terceiros ou sem CDN.|Azure CDN, CDN de terceiros ou sem CDN.
 A cobrança é rateada| Diário|Diário
 Criptografia dinâmica|Sim|Sim
 Empacotamento dinâmico|Sim|Sim
-Escala|Escala verticalmente automaticamente com a taxa de transferência de destino.|Unidades de streaming adicionais
-Filtragem de IP/G20/Host personalizado|Sim|Sim
+Escala|Escala verticalmente automaticamente com a taxa de transferência de destino.|Unidades de streaming adicionais.
+Host de filtragem/G20/personalizado da IP <sup>2</sup>|Sim|Sim
 Download progressivo|Sim|Sim
-Uso recomendado |Recomendado para a grande maioria dos cenários de streaming.|Uso profissional.<br/>Se você achar que pode ter necessidades além do Standard. Contate-nos (amsstreaming@microsoft.com) se você espera ter uma audiência simultânea superior a 50.000 visualizadores.
+Uso recomendado |Recomendado para a grande maioria dos cenários de streaming.|Uso profissional. 
 
+<sup>1</sup> a avaliação gratuita se aplica somente a contas de serviços de mídia criado recentemente e o padrão ponto de extremidade de Streaming.<br/>
+<sup>2</sup> só é usado diretamente no ponto de extremidade de Streaming quando o CDN não está habilitado no ponto de extremidade.<br/>
+
+Para obter informações de SLA, consulte [preços e SLA](https://azure.microsoft.com/pricing/details/media-services/).
 
 ## <a name="migration-between-types"></a>Migração entre tipos
 

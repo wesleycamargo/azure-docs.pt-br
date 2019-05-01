@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 1e5faa8d356b891d825586414c0a1a1b9fa47090
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: feeb9ae4472fb3439ecc5d6505860cc407f9e4d3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60853313"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919726"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configurar um contêiner do Linux personalizado para o serviço de aplicativo do Azure
 
@@ -109,7 +109,6 @@ O SSH permite a comunicação segura entre um contêiner e um cliente. Em ordem 
 - [Usar o armazenamento persistente no Docker Compose](#use-persistent-storage-in-docker-compose)
 - [Limitações de visualização](#preview-limitations)
 - [Opções de composição do docker](#docker-compose-options)
-- [Opções de configuração do Kubernetes](#kubernetes-configuration-options)
 
 ### <a name="use-persistent-storage-in-docker-compose"></a>Usar o armazenamento persistente no Docker Compose
 
@@ -132,19 +131,6 @@ wordpress:
   - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
   - ${WEBAPP_STORAGE_HOME}/phpmyadmin:/var/www/phpmyadmin
   - ${WEBAPP_STORAGE_HOME}/LogFiles:/var/log
-```
-
-### <a name="use-custom-storage-in-docker-compose"></a>Usar armazenamento personalizado no Docker Compose
-
-O armazenamento do Azure (arquivos do Azure ou BLOBs do Azure) pode ser montado com aplicativos de vários contêineres usando a id personalizada. Para exibir o nome do id personalizada, execute [ `az webapp config storage-account list --name <app_name> --resource-group <resource_group>` ](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
-
-No seu *docker-Compose. yml* do arquivo, mapeie o `volumes` opção `custom-id`. Por exemplo: 
-
-```yaml
-wordpress:
-  image: wordpress:latest
-  volumes:
-  - <custom-id>:<path_in_container>
 ```
 
 ### <a name="preview-limitations"></a>Limitações de visualização
@@ -179,22 +165,6 @@ As listas a seguir mostram compatíveis e sem suportadas opções de configuraç
 
 > [!NOTE]
 > As outras opções não explicitamente chamadas são ignoradas em visualização pública.
-
-### <a name="kubernetes-configuration-options"></a>Opções de configuração do Kubernetes
-
-As opções de configuração a seguir têm suporte para Kubernetes:
-
-- args
-- command
-- containers
-- image
-- name
-- ports
-- spec
-
-> [!NOTE]
-> Não há suporte para quaisquer outras opções não explicitamente indicadas na visualização pública.
->
 
 ## <a name="next-steps"></a>Próximas etapas
 

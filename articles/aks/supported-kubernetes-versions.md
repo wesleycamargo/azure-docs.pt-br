@@ -5,14 +5,14 @@ services: container-service
 author: sauryadas
 ms.service: container-service
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 04/26/2019
 ms.author: saudas
-ms.openlocfilehash: aafc6c5a240a1dd3e3c75dd33da26bde918b2288
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d4287307ee3ed7f65b91f2865242113aa5b22bfd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61031604"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64684182"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versões do Kubernetes com suporte no AKS (Serviço de Kubernetes do Azure)
 
@@ -29,7 +29,7 @@ O AKS dá suporte a quatro versões secundárias do Kubernetes:
 
 Por exemplo, se o AKS introduzir a versão *1.12.x* hoje, ele também oferecerá suporte para *1.11.a* + *1.11.b*, *1.10.c* + *1.10d*, *1.9.e* + *1.9f* (as versões de patch indicadas com letras são os dois builds estáveis mais recentes).
 
-Quando uma nova versão secundária é introduzida, as versões secundárias e de patch mais antigas com suporte são desativadas. Quinze dias antes do lançamento da nova versão secundária e da futura desativação da versão, um comunicado é feito por meio dos [canais de atualização do Azure][azure-update-channel]. No exemplo acima, em que *1.12.x* é lançado, as versões desativadas são *1.8.g* + *1.8.h*.
+Quando uma nova versão secundária é introduzida, as versões secundárias e de patch mais antigas com suporte são desativadas. 30 dias antes do lançamento da nova versão secundária e retirada da versão futura, um anúncio é feito por meio de [canais de atualização do Azure][azure-update-channel]. No exemplo acima, em que *1.12.x* é lançado, as versões desativadas são *1.8.g* + *1.8.h*.
 
 Quando você implanta um cluster do AKS no portal ou com a CLI do Azure, o cluster é sempre definido como a versão secundária n-1 e o patch mais recente. Por exemplo, se o AKS oferecer suporte às versões *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c* + *1.10d*, *1.9.e* + *1.9F*, é a versão padrão para novos clusters *1.11.b*.
 

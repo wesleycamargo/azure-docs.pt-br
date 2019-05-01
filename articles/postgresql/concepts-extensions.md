@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/18/2019
-ms.openlocfilehash: 7d052ee2d3d3bdf6cca99dd6a91b88176983113f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.openlocfilehash: 8bbb638190928e0478053843264fde585ae17222
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559715"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720596"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>Extensões de PostgreSQL no Banco de Dados do Azure para PostgreSQL
 O PostgreSQL fornece a capacidade de estender a funcionalidade de seu banco de dados usando as extensões. As extensões permitem o agrupamento de vários objetos SQL relacionados em um único pacote que pode ser carregado ou removido de seu banco de dados com um único comando. Depois de ser carregada no banco de dados, as extensões podem funcionar como recursos internos. Para obter mais informações sobre extensões do PostgreSQL, consulte  [Empacotando Objetos Relacionados em uma Extensão](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -49,6 +49,7 @@ As tabelas a seguir listam as extensões PostgreSQL padrão que têm suporte atu
 > | [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Fornece funções e operadores para determinar a semelhança de texto alfanumérico, com base na correspondência de trigram. |
 > | [tablefunc](https://www.postgresql.org/docs/9.6/static/tablefunc.html) | Fornece funções que manipulam tabelas inteiras, incluindo a tabela de referência cruzada. |
 > | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Gera UUIDs (identificadores exclusivos universais). |
+> | [orafce](https://github.com/orafce/orafce) | Fornece um subconjunto de funções e pacotes emulados de bancos de dados comerciais. |
 
 ### <a name="full-text-search-extensions"></a>Extensões de pesquisa de texto completo
 
@@ -94,7 +95,7 @@ As tabelas a seguir listam as extensões PostgreSQL padrão que têm suporte atu
 > [!div class="mx-tableFixed"]
 > | **Extensão** | **Descrição** |
 > |---|---|
-> | [PostGIS](http://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | Objetos espaciais e geográficos para PostgreSQL. |
+> | [PostGIS](https://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | Objetos espaciais e geográficos para PostgreSQL. |
 > | address\_standardizer, address\_standardizer\_data\_us | Usado para analisar um endereço em elementos constituintes. Usado para oferecer suporte à etapa de normalização de endereços de geocodificação. |
 > | [pgrouting](https://pgrouting.org/) | Estende o banco de dados geoespacial PostGIS/PostgreSQL para fornecer a funcionalidade de roteamento geoespacial. |
 

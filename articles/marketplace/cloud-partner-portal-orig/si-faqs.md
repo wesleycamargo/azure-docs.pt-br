@@ -1,25 +1,18 @@
 ---
-title: Perguntas frequentes sobre os Insights do Vendedor | Microsoft Docs
+title: Perguntas Frequentes sobre os Insights do Vendedor
 description: Perguntas frequentes sobre o recurso Insights do Vendedor do Portal do Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ec7fc3a7877cf0bffac0043a74c34d6f0f04826b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 2719b6b47225576f2eadeb5e5b40b3aa7b39444d
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362366"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943077"
 ---
 <a name="seller-insights-faq"></a>Perguntas Frequentes sobre os Insights do Vendedor
 ===================

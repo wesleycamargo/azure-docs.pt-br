@@ -15,11 +15,11 @@ ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 40e7ebcddb5cc215e071f1a34dfa8f3f4ea95141
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103704"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64684575"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Proteção de conteúdo com criptografia dinâmica
 
@@ -128,7 +128,7 @@ O protocolo de MPEG-DASH suporta os seguintes formatos de contêiner e esquemas 
 
 O protocolo Smooth Streaming suporta os seguintes formatos de contêiner e esquemas de criptografia.
 
-|Protocolo|Formato de contêiner|Esquema de criptografia|
+|Protocol|Formato de contêiner|Esquema de criptografia|
 |---|---|---|
 |fMP4|AES||
 |fMP4 | CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/<id>/ignite.ism/manifest(encryption=cenc)`|

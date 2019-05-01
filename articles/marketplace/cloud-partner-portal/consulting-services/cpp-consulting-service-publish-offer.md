@@ -1,25 +1,18 @@
 ---
-title: Oferta de serviço de consultoria do Dynamics 365 e do Azure – Publicação | Microsoft Docs
-description: Guia para publicar uma oferta de serviço de consultoria do Dynamics 365 ou Azure no Portal do Cloud Partner.
+title: Publicação da oferta do Azure e Dynamics 365 serviço de consultoria | O Azure Marketplace
+description: Publica uma oferta de serviço consultoria do Azure ou Dynamics 365 no Portal do Cloud Partner para Azure Marketplace ou AppSource.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: dae86dcdd3ada10164be0120b49a8f5f7b642ccd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 44fe7f11d365761c351e488d834a63392ea9cac1
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60865418"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942799"
 ---
 # <a name="publish-a-consulting-service-offer"></a>Publicar uma oferta de serviço de consultoria
 

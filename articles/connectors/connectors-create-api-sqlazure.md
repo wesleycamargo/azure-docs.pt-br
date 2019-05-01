@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 29d53c7fbd26d3c8e2356ce82ff25c7e1b165728
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 998fcba50636cd92b14bdbe1633c2548e84a6bfc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60540692"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64696411"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Conectar-se ao SQL Server ou ao Banco de Dados SQL do Azure dos Aplicativos Lógicos do Azure
 
@@ -116,23 +116,26 @@ Em Aplicativos Lógicos do Azure, uma [ação](../logic-apps/logic-apps-overview
 
 [!INCLUDE [Create a connection to SQL Server or Azure SQL Database](../../includes/connectors-create-api-sqlazure.md)]
 
-## <a name="process-data-in-bulk"></a>Processar dados em massa
+## <a name="handle-bulk-data"></a>Manipulação de dados em massa
 
-Quando você trabalha com conjuntos de resultados tão grandes que o conector não retorna todos os resultados ao mesmo tempo ou você deseja um controle melhor sobre o tamanho e a estrutura de seus conjuntos de resultados, é possível usar a *paginação*, que ajuda a gerenciar esses resultados em conjuntos menores. 
+Às vezes, você talvez precise trabalhar com conjuntos de resultados muito grandes, o que o conector não retorna todos os resultados ao mesmo tempo, ou você deseja maior controle sobre o tamanho e a estrutura para seus conjuntos de resultados. Eis algumas maneiras que você pode lidar com esses grandes conjuntos de resultados:
 
-[!INCLUDE [Set up pagination for results exceeding default page size](../../includes/connectors-pagination-bulk-data-transfer.md)]
+* Para ajudá-lo a gerenciar os resultados como conjuntos menores, ative *paginação*. Para obter mais informações, consulte [obter dados em massa, registros e itens usando a paginação](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
 
-### <a name="create-a-stored-procedure"></a>Criar um procedimento armazenado
+* Crie um procedimento armazenado que organiza os resultados da maneira desejada.
 
-Ao obter ou inserir várias linhas, o aplicativo lógico pode iterar por esses itens usando um [*loop until*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) dentro desses [limites](../logic-apps/logic-apps-limits-and-config.md). Mas, às vezes, seu aplicativo lógico tem que trabalhar com conjuntos de registros tão grandes, como milhares ou milhões de linhas, que você deseja minimizar os custos de chamadas para o banco de dados. 
+  Ao obter ou inserindo várias linhas, seu aplicativo lógico pode iterar por meio dessas linhas usando um [ *loop until* ](../logic-apps/logic-apps-control-flow-loops.md#until-loop) nesses [limites](../logic-apps/logic-apps-limits-and-config.md). 
+  No entanto, quando seu aplicativo lógico tem que trabalhar com conjuntos de registros tão grandes, por exemplo, milhares ou milhões de linhas, que você deseja minimizar os custos resultantes de chamadas para o banco de dados.
 
-Em vez disso, você pode criar um <a href="https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine" target="blank">*procedimento armazenado*</a> que é executado na instância SQL e usa a instrução **SELECT - ORDER BY** para organizar os resultados da maneira desejada. Essa solução fornece a você mais controle sobre o tamanho e a estrutura de seus resultados. Seu aplicativo lógico chama o procedimento armazenado usando a ação **Executar procedimento armazenado** do conector do SQL Server. 
+  Para organizar os resultados da maneira que desejar, você pode criar uma [ *procedimento armazenado* ](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) que é executado em sua instância do SQL e usa o **SELECT – ORDER BY** instrução. 
+  Essa solução fornece a você mais controle sobre o tamanho e a estrutura de seus resultados. 
+  Seu aplicativo lógico chama o procedimento armazenado usando a ação **Executar procedimento armazenado** do conector do SQL Server.
 
-Para obter detalhes de solução, consulte estes artigos:
+  Para obter detalhes de solução, consulte estes artigos:
 
-* <a href="https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx" target="_blank">SQL Pagination for bulk data transfer with Logic Apps</a> (Paginação de SQL para transferência de dados em massa com Aplicativos Lógicos)
+  * [SQL Pagination for bulk data transfer with Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx) (Paginação de SQL para transferência de dados em massa com Aplicativos Lógicos)
 
-* <a href="https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql" target="_blank">SELECT – Cláusula ORDER BY</a>
+  * [SELECT – Cláusula ORDER BY](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql)
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 

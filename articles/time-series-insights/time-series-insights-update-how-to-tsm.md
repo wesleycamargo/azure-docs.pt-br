@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1686b52c9dacf5c78335f76bd19b41c4c7d15cee
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: df94290c5e62b898b6490c78ef0ae1ee79437240
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555397"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716957"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Modelagem de dados na Versão Prévia do Azure Time Series Insights
 
@@ -132,7 +132,9 @@ Selecione a instância e selecione **Excluir**. Se nenhum evento estiver associa
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter mais informações sobre Modelos de Série Temporal, leia [Modelagem de dados](./time-series-insights-update-tsm.md).
+
 - Para saber mais sobre a versão prévia, leia [Visualizar dados no Gerenciador da Versão Prévia do Azure Time Series Insights](./time-series-insights-update-explorer.md).
+
 - Para saber mais sobre formas JSON com suporte, leia [Formas JSON com suporte](./time-series-insights-send-events.md#json).
 
 <!-- Images -->

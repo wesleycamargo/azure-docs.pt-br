@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 51d168474fd593dd537a25c0434e240a426c2cbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 25b2eb05a612b18eab1fbf790b119edbe9c4d8d2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817340"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707401"
 ---
 # <a name="scaling-media-processing-overview"></a>Visão geral do dimensionamento do processamento de mídia 
 Esta página fornece uma visão geral de como e por que dimensionar o processamento de mídia. 
@@ -33,9 +33,9 @@ A tabela a seguir o ajudará a tomar uma decisão ao escolher entre diferentes v
 
 |Tipo de RU|Cenário|Exemplo de resultados para o [7 min 1080p vídeo](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)|
 |---|---|---|
-| **S1**|Codificação de taxa de bits única. <br/>Arquivos com resoluções SD ou inferiores, não sensível ao tempo, de baixo custo.|Codificação para um único arquivo de MP4 de taxa de bits SD resolução usando "H264 única taxa de bits de SD 16X9" leva 10 minutos.|
-| **S2**|Codificação de taxa de bits única e de taxa de bits múltipla.<br/>Uso normal para codificação SD e HD.|A codificação com a predefinição "H264 Taxa de Bits Única 720p" leva cerca de oito minutos.<br/><br/>A codificação com a predefinição "H264 Taxa de Bits Múltipla 720p" leva cerca de 16,8 minutos.|
-| **S3**|Codificação de taxa de bits única e de taxa de bits múltipla.<br/>Vídeos com resolução Full HD e 4K. Codificação urgente com retorno mais rápido.|A codificação com a predefinição "H264 Taxa de Bits Única 1080p" leva cerca de quatro minutos.<br/><br/>A codificação com a predefinição "H264 Taxas de Bits Múltiplas 1080p" leva aproximadamente oito minutos.|
+| **S1**|Codificação de taxa de bits única. <br/>Arquivos com resoluções SD ou inferiores, não sensível ao tempo, de baixo custo.|Codificação para o arquivo de MP4 de taxa de bits única SD resolução usando "H264 única taxa de bits de SD 16X9" leva cerca de 7 minutos.|
+| **S2**|Codificação de taxa de bits única e de taxa de bits múltipla.<br/>Uso normal para codificação SD e HD.|Codificação com "H264 taxa de bits única 720p" predefinição leva cerca de 6 minutos.<br/><br/>Codificação com "H264 taxas de bits múltiplas 720p" predefinição leva cerca de 12 minutos.|
+| **S3**|Codificação de taxa de bits única e de taxa de bits múltipla.<br/>Vídeos com resolução Full HD e 4K. Codificação urgente com retorno mais rápido.|Codificação com "H264 taxa de bits única 1080p" predefinição leva cerca de 3 minutos.<br/><br/>Codificação com "H264 taxas de bits múltiplas 1080p" predefinição leva aproximadamente 8 minutos.|
 
 ## <a name="considerations"></a>Considerações
 > [!IMPORTANT]

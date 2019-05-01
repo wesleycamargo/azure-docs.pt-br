@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 04/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8c226608f6c1c776463aa05c02b1d3cc04b699ec
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 42cdf230379665c596761f9846e52454a3d99680
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766817"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939665"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escala horizontal do Azure Analysis Services
 
@@ -39,13 +39,13 @@ Enquanto a sincronização automática é executada somente quando você expandi
 
 Ao executar uma operação de expansão subsequente, por exemplo, aumentando o número de réplicas no pool de consulta de duas a cinco, as novas réplicas são alimentadas com os dados do segundo conjunto de arquivos no armazenamento de BLOBs. Não há nenhuma sincronização. Se você fosse executar uma sincronização após a expansão, as novas réplicas no pool de consulta seriam alimentado duas vezes - uma hidratação redundante. Ao executar uma operação de expansão subsequente, é importante ter em mente:
 
-* Execute uma sincronização *antes da operação de expansão* para evitar hidratação redundante das réplicas adicionadas.
+* Execute uma sincronização *antes da operação de expansão* para evitar hidratação redundante das réplicas adicionadas. Operações de escala horizontal em execução ao mesmo tempo e de sincronização simultânea não são permitidas.
 
 * Ao automatizar o processamento de ambos os *e* operações de escala horizontal, é importante primeiro processar dados no servidor primário, em seguida, execute uma sincronização e, em seguida, executar a operação de expansão. Essa sequência garante um impacto mínimo sobre os recursos de memória e de QPU.
 
 * Sincronização é permitida mesmo quando não houver nenhuma réplica no pool de consulta. Se você estiver dimensionando-out de zero a um ou mais réplicas com novos dados de uma operação de processamento no servidor primário, realizar a sincronização pela primeira vez sem réplicas no pool de consulta e, em seguida, escalar horizontalmente. Sincronizando antes de escalar horizontalmente evita hidratação redundante das réplicas recém-adicionado.
 
-* Ao excluir um banco de dados de modelo do servidor primário, ele não automaticamente é excluído do réplicas no pool de consulta. Você deve executar uma operação de sincronização usando o [AzAnalysisServicesInstance sincronização](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) comando do PowerShell que remove o arquivo/s para o banco de dados do local de armazenamento de blob compartilhado da réplica e, em seguida, exclui o modelo banco de dados nas réplicas no pool de consulta.
+* Ao excluir um banco de dados de modelo do servidor primário, ele não automaticamente é excluído do réplicas no pool de consulta. Você deve executar uma operação de sincronização usando o [AzAnalysisServicesInstance sincronização](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) comando do PowerShell que remove o arquivo/s para o banco de dados do local de armazenamento de blob compartilhado da réplica e, em seguida, exclui o modelo banco de dados nas réplicas no pool de consulta. Para determinar se um banco de dados do modelo existe nas réplicas no pool de consulta, mas não no servidor primário, verifique se o **separar o servidor de processamento de consulta pool** configuração de **Sim**. Em seguida, usar o SSMS para se conectar ao servidor primário usando o `:rw` qualificador para ver se o banco de dados existe. Conectar-se às réplicas no pool de consulta ao se conectar sem o `:rw` qualificador para ver se o mesmo banco de dados também existe. Se o banco de dados existe nas réplicas no pool de consulta, mas não no servidor primário, execute uma operação de sincronização.   
 
 * Ao renomear um banco de dados no servidor primário, há uma etapa adicional necessária para garantir que o banco de dados é sincronizado corretamente para todas as réplicas. Depois de renomear, execute uma sincronização usando o [sincronização AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) comando especificando o `-Database` parâmetro com o nome antigo do banco de dados. Essa sincronização remove os arquivos com o nome antigo e o banco de dados de todas as réplicas. Em seguida, executar outra especificação de sincronização a `-Database` parâmetro com o novo nome de banco de dados. A segunda sincronização copia o banco de dados nomeado recentemente ao segundo conjunto de arquivos e recuperará todas as réplicas. Essas sincronizações não podem ser executadas usando o comando de modelo de sincronizar no portal.
 
@@ -58,6 +58,8 @@ Para desempenho máximo para operações de processamento e consulta, você pode
 Para determinar se a escala horizontal para seu servidor é necessária, monitore o servidor no Portal do Azure usando Métricas. Se a QPU for maximizada regularmente, isso significa que o número de consultas em relação aos modelos está excedendo o limite de QPU do plano. A métrica de comprimento da fila do trabalho do pool de consulta também aumenta quando o número de consultas na fila do pool de thread de consulta excede a QPU disponível. 
 
 Outra boa métrica para assistir é médio QPU por ServerResourceType. Essa métrica compara QPU média para o servidor primário com que um pool de consulta. 
+
+![Métricas de expansão da consulta](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
 ### <a name="to-configure-qpu-by-serverresourcetype"></a>Para configurar a QPU por ServerResourceType
 1. Em um gráfico de linha de métricas, clique em **adicionar métrica**. 
@@ -146,6 +148,8 @@ Para SSMS, SSDT e cadeias de conexão no PowerShell, aplicativos do Azure Functi
 **Problema:** usuários obtêm o erro **não é possível localizar o servidor '\<nome do servidor >' instância no modo de conexão 'ReadOnly'.**
 
 **Solução:** Ao selecionar o **separar o servidor de processamento do pool de consulta** opção conexões de cliente usando a cadeia de caracteres de conexão padrão (sem `:rw`) são redirecionadas para réplicas de pool de consulta. Se as réplicas no pool de consulta estiverem ainda online porque a sincronização ainda não foi concluída, as conexões de cliente redirecionada podem falhar. Para evitar conexões com falha, deve haver, pelo menos, dois servidores no pool de consulta ao executar uma sincronização. Cada servidor é sincronizado individualmente, enquanto os outros permanecem online. Se você optar por não ter o servidor de processamento no pool de consulta durante o processamento, você poderá optar por removê-lo do pool para processamento e, em seguida, adicioná-lo novamente ao pool após a conclusão do processamento, mas antes da sincronização. Use as métricas Memória e QPU para monitorar o status de sincronização.
+
+
 
 ## <a name="related-information"></a>Informações relacionadas
 

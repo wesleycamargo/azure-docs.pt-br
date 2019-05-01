@@ -1,25 +1,19 @@
 ---
-title: Configurar seu aplicativo no Portal de Publicação | Microsoft Docs
+title: Configurar seu aplicativo no Portal de Publicação
 description: Instruções de como configurar seu aplicativo no Portal de Publicação de Nuvem.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 8ac0fbb1c62e4162e1c4ad040365a16d055e4552
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 6da80bd3b5fe487a44400f4f3c21e8fa49da75d4
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60483150"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943549"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configurar seu aplicativo no Portal de Publicação
 
@@ -88,7 +82,7 @@ Aqui está uma explicação para esses campos:
 
 ### <a name="crm-package-availability"></a>Disponibilidade do Pacote CRM
 
-Nesta seção, selecione para quais regiões do CRM seu pacote será disponibilizado. Para obter informações sobre quais regiões atendem quais países, confira o link: [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
+Nesta seção, selecione para quais regiões do CRM seu pacote será disponibilizado. Para obter informações sobre quais CRM regiões servem que países/regiões, consulte o link: [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
 
 Observação: implantar para "Soberana e nuvem US Gov" da Alemanha REQUER PERMISSÃO ESPECIAL e VALIDAÇÃO DURANTE A CERTIFICAÇÃO
 

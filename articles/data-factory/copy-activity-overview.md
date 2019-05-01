@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 28d8c077f106f12812f7ed710217febd24d81efc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d04bb965ddf9616aaa01f4c8822ac42aea6dab2d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387656"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869547"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia no Azure Data Factory
 
@@ -54,7 +54,7 @@ A atividade de cópia passa pelos seguintes estágios para copiar dados de uma o
 
 Você pode usar a atividade de cópia para **copiar arquivos como estão** entre dois armazenamentos de dados baseados em arquivo, caso em que os dados são copiados de forma eficiente sem nenhuma serialização/desserialização.
 
-A Atividade de cópia também dá suporte à leitura e à gravação de arquivos em formatos especificados: **Texto, JSON, Avro, ORC e Parquet**e a compactação e decompresing arquivos com os seguintes codecs: **GZip, Deflate, BZip2 e ZipDeflate**. Consulte [Formatos de arquivo e compactação com suporte](supported-file-formats-and-compression-codecs.md) para obter detalhes.
+A Atividade de cópia também dá suporte à leitura e à gravação de arquivos em formatos especificados: **Texto, JSON, Avro, ORC e Parquet**e compactar e descompactar arquivos com os seguintes codecs: **GZip, Deflate, BZip2 e ZipDeflate**. Consulte [Formatos de arquivo e compactação com suporte](supported-file-formats-and-compression-codecs.md) para obter detalhes.
 
 Por exemplo, você pode fazer as seguintes atividades de cópia:
 
@@ -74,7 +74,7 @@ Para usar a atividade de cópia no Azure Data Factory, você precisa:
 
 1. **Criar serviços vinculados para armazenamentos de dados de origem e de coletor.** Consulte a seção “Propriedades de serviço vinculadas” do artigo do conector sobre como configurar e as propriedades com suporte. Você pode encontrar a lista de conectores com suporte na seção [Formatos e armazenamentos de dados com suporte](#supported-data-stores-and-formats).
 2. **Criar conjuntos de dados de origem e do coletor.** Consulte a seção “Propriedades do conjunto de dados” dos artigos do conector de origem e de coletor sobre como configurar e as propriedades com suporte.
-3. **Criar um pipeline com atividade de cópia.** A próxima seção fornece um exemplo.  
+3. **Criar um pipeline com atividade de cópia.** A próxima seção fornece um exemplo.
 
 ### <a name="syntax"></a>Sintaxe
 
@@ -139,7 +139,7 @@ O modelo a seguir de uma atividade de cópia contém uma lista exaustiva das pro
 | tradutor | Especifique mapeamentos de coluna explícita da origem para o coletor. Aplica-se quando o comportamento de cópia padrão não pode atender às suas necessidades.<br/><br/>Obtenha detalhes do [Mapeamento de tipo de dados e de esquema](copy-activity-schema-and-type-mapping.md). | Não  |
 | dataIntegrationUnits | Especifique o poder do [Integration Runtime do Azure](concepts-integration-runtime.md) para capacitar a cópia de dados. Anteriormente conhecido como Cloud Data Movement Units (DMU). <br/><br/>Aprenda detalhes de [Data Integration Units](copy-activity-performance.md#data-integration-units). | Não  |
 | parallelCopies | Especifique o paralelismo que você deseja que a atividade de cópia use ao ler dados da origem e gravar dados no coletor.<br/><br/>Obtenha detalhes em [Cópia paralela](copy-activity-performance.md#parallel-copy). | Não  |
-| enableStaging<br/>stagingSettings | Opte por preparar os dados provisórios em um armazenamento de blobs em vez de copiar os dados diretamente da origem para o coletor.<br/><br/>Conheça os cenários úteis e os detalhes de configuração em [Cópia em etapas](copy-activity-performance.md#staged-copy). | Não  |
+| enableStaging<br/>stagingSettings | Escolha a fim de preparar os dados provisórios em um armazenamento de blob em vez de copiar os dados diretamente da origem para o coletor.<br/><br/>Conheça os cenários úteis e os detalhes de configuração em [Cópia em etapas](copy-activity-performance.md#staged-copy). | Não  |
 | enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Escolha como lidar com linhas incompatíveis ao copiar dados da origem para o coletor.<br/><br/>Obtenha detalhes em [Tolerância a falhas](copy-activity-fault-tolerance.md). | Não  |
 
 ## <a name="monitoring"></a>Monitoramento
@@ -148,7 +148,7 @@ O modelo a seguir de uma atividade de cópia contém uma lista exaustiva das pro
 
 ### <a name="monitor-visually"></a>Monitorar visualmente
 
-Para monitorar visualmente a execução da atividade de cópia, acesse o data factory -> **Autor e Monitor** -> **Guia Monitor** e você verá uma lista de pipeline executada com uma link "Exibir Execuções da Atividade" na coluna **Ações**. 
+Para monitorar visualmente a execução da atividade de cópia, acesse o data factory -> **Autor e Monitor** -> **Guia Monitor** e você verá uma lista de pipeline executada com uma link "Exibir Execuções da Atividade" na coluna **Ações**.
 
 ![Monitorar execuções de pipeline](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
 
@@ -156,7 +156,7 @@ Clique para ver a lista das atividades no pipeline executado. Na coluna **Açõe
 
 ![Monitorar execuções de atividade](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-Clique o link "**Detalhes**" em **Ações** para ver os detalhes de execução da atividade de cópia e as características de desempenho. Ele mostra as informações, incluindo o volume/linhas/arquivos de dados copiados da fonte para o coletor, a taxa de transferência, as etapas realizadas com a duração correspondente e as configurações usadas para o cenário da sua cópia. 
+Clique o link "**Detalhes**" em **Ações** para ver os detalhes de execução da atividade de cópia e as características de desempenho. Ele mostra as informações, incluindo o volume/linhas/arquivos de dados copiados da fonte para o coletor, a taxa de transferência, as etapas realizadas com a duração correspondente e as configurações usadas para o cenário da sua cópia.
 
 >[!TIP]
 >Para alguns cenários, você também verá "**Dicas de ajuste de desempenho**" no alto da página de monitoramento de cópia, que informa o gargalo identificado e o orienta sobre o que mudar para aumentar a taxa de transferência de cópia; confira o exemplo com detalhes [aqui](#performance-and-tuning).
@@ -241,12 +241,12 @@ Em alguns casos, quando você executa uma atividade de cópia no ADF, verá dire
 
 **Exemplo: cópia para o BD SQL do Azure com dicas de ajuste de desempenho**
 
-Neste exemplo, durante a execução da cópia, o ADF nota que o coletor do BD SQL do Azure atinge alta utilização de DTU, o que diminui as operações de gravação, assim, a sugestão é aumentar a camada do BD SQL do Azure com mais de DTU. 
+Neste exemplo, durante a execução da cópia, o ADF nota que o coletor do BD SQL do Azure atinge alta utilização de DTU, o que diminui as operações de gravação, assim, a sugestão é aumentar a camada do BD SQL do Azure com mais de DTU.
 
 ![Monitoramento de cópia com dicas de ajuste de desempenho](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
-## <a name="incremental-copy"></a>Cópia incremental 
-O Data Factory suporta cenários para cópia incremental de dados delta de um armazenamento de dados de origem para um armazenamento de dados de destino. Consulte [Tutorial: cópia incremental de dados](tutorial-incremental-copy-overview.md). 
+## <a name="incremental-copy"></a>Cópia incremental
+O Data Factory suporta cenários para cópia incremental de dados delta de um armazenamento de dados de origem para um armazenamento de dados de destino. Consulte [Tutorial: cópia incremental de dados](tutorial-incremental-copy-overview.md).
 
 ## <a name="read-and-write-partitioned-data"></a>Ler e gravar dados particionados
 Na versão 1, com suporte do Azure Data Factory ler ou gravar dados particionados usando variáveis de sistema SliceStart/SliceEnd/WindowStart/WindowEnd. Na versão atual, você pode obter esse comportamento usando um parâmetro de pipeline e o horário de início/horário agendado do acionador como um valor do parâmetro. Para obter mais informações, consulte [Como ler e gravar dados de partição](how-to-read-write-partitioned-data.md).

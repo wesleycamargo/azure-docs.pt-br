@@ -1,6 +1,6 @@
 ---
 title: Usar o Azure Active Directory para autenticar as soluções de gerenciamento do lote | Microsoft Docs
-description: Aplicativos criados com o Azure Resource Manager e o provedor de recursos de lote se autenticam com o Azure AD.
+description: Aplicativos criados com o Azure Resource Manager e o provedor de recursos do lote se autenticar com o Azure AD.
 services: batch
 documentationcenter: .net
 author: laurenhughes
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: lahugh
-ms.openlocfilehash: 22cab5f22eccabf9176d777b1e3a3356cbf37c4f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0f6db6d9c86e6da047c45ae7b1c43cf5f55c7e2b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60722232"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922844"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autenticar soluções de gerenciamento do lote com o Active Directory
 
@@ -36,7 +36,7 @@ Para saber mais sobre como usar a biblioteca .NET do Gerenciamento do Lote e o e
 
 A ADAL [Biblioteca de Autenticação do Active Directory][aad_adal] fornece uma interface programática para o Azure AD para uso em seus aplicativos. Para chamar a ADAL de seu aplicativo, você deve registrar seu aplicativo em um locatário do Azure AD. Quando você registra seu aplicativo, fornece ao Azure AD informações sobre seu aplicativo, incluindo um nome para ele dentro do locatário do Azure AD. Em seguida, o Azure AD fornece uma ID de aplicativo que você usa para associar seu aplicativo ao Azure AD em tempo de execução. Para saber mais sobre a ID do aplicativo, veja [Objetos de aplicativo e de entidade de serviço no Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-Para registrar o aplicativo de exemplo AccountManagement, siga as etapas da seção [Adição de um aplicativo](../active-directory/develop/quickstart-v1-add-azure-ad-app.md) em [Integração de aplicativos ao Azure Active Directory][aad_integrate]. Especifique **aplicativo cliente nativo** para o tipo de aplicativo. O URI do OAuth 2.0 padrão do setor para o **URI de Redirecionamento** é `urn:ietf:wg:oauth:2.0:oob`. Porém, você pode especificar qualquer URI válido (como `http://myaccountmanagementsample`) para o **URI de Redirecionamento**, pois ele não precisa ser um ponto de extremidade real:
+Para registrar o aplicativo de exemplo AccountManagement, siga as etapas da seção [Adição de um aplicativo](../active-directory/develop/quickstart-register-app.md) em [Integração de aplicativos ao Azure Active Directory][aad_integrate]. Especifique **aplicativo cliente nativo** para o tipo de aplicativo. O URI do OAuth 2.0 padrão do setor para o **URI de Redirecionamento** é `urn:ietf:wg:oauth:2.0:oob`. Porém, você pode especificar qualquer URI válido (como `http://myaccountmanagementsample`) para o **URI de Redirecionamento**, pois ele não precisa ser um ponto de extremidade real:
 
 ![](./media/batch-aad-auth-management/app-registration-management-plane.png)
 

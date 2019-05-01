@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: 85d5bb822bc9b89c68c70633a22a1bed74118f49
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a73be313daa3b45cabc2adb07bb3d2592c7d307e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758182"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725467"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Provisionar e gerenciar a Versão Prévia do Azure Time Series Insights
 
@@ -92,11 +92,11 @@ As etapas a seguir descrevem como criar um ambiente de Versão Prévia do Azure 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Leia [Planejar seu ambiente](./time-series-insights-update-plan.md).
+- Leia [Planejar seu ambiente](./time-series-insights-update-plan.md).
 
-Leia [Adicionar uma origem de Hub de Eventos](./time-series-insights-how-to-add-an-event-source-eventhub.md).
+- Saiba como [adicionar uma origem do hub de evento](./time-series-insights-how-to-add-an-event-source-eventhub.md).
 
-Leia [Adicionar uma origem de Hub IoT](./time-series-insights-how-to-add-an-event-source-iothub.md).
+- Configure [uma origem do hub IoT](./time-series-insights-how-to-add-an-event-source-iothub.md).
 
 <!-- Images -->
 [1]: media/v2-update-manage/manage_one.PNG

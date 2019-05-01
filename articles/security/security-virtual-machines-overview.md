@@ -1,5 +1,5 @@
 ---
-title: Recursos de segurança do Azure usados nas máquinas virtuais do Azure | Microsoft Docs
+title: Recursos de segurança usados com máquinas virtuais do Azure - segurança do Azure | Microsoft Docs
 description: Este artigo fornece uma visão geral dos recursos de segurança centrais do Azure que podem ser usados com máquinas virtuais do Azure.
 services: security
 documentationcenter: na
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: c0a4a8ae270c8d8f6f3c2e86db9deed4e14f668e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3467050214cba6ce5723c2747d2c13e40e86609b
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60444241"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872023"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Visão geral de segurança de máquinas virtuais do Azure
+Este artigo fornece uma visão geral dos principais recursos de segurança do Azure que podem ser usados com máquinas virtuais.
 
 Use as Máquinas Virtuais do Azure para implantar uma ampla gama de soluções de computação com agilidade. O serviço dá suporte ao Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP e Serviços BizTalk do Azure. Portanto, você pode implantar qualquer carga de trabalho e qualquer linguagem em praticamente qualquer sistema operacional.
 
@@ -33,9 +34,7 @@ Com o Azure, você pode compilar soluções compatíveis, com segurança avança
 * Criptografam seus dados confidenciais.
 * Protegem o tráfego de rede.
 * Identificam e detectam ameaças.
-* Atendem aos requisitos de conformidade.
-
-O objetivo deste artigo é fornecer uma visão geral dos recursos de segurança centrais do Azure que podem ser usados com máquinas virtuais. Os links para artigos fornecem detalhes de cada recurso para que você saiba mais sobre eles.  
+* Atendem aos requisitos de conformidade.  
 
 ## <a name="antimalware"></a>Antimalware
 
@@ -77,14 +76,14 @@ Para uma proteção ainda mais poderosa, considere o uso da [Proteção Avançad
 * [Gerenciamento e APIs](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/management-apis)
 * [Proteção contra ameaças da Microsoft](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
 
-Saiba mais: 
+Saiba mais:
 
 * [Introdução ao WDATP](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/get-started)  
 * [Visão geral dos recursos WDATP](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview)  
 
 ## <a name="hardware-security-module"></a>Módulo de segurança de hardware
 
-A melhoria da segurança das chaves pode aprimorar as proteções de criptografia e de autenticação. Você pode simplificar o gerenciamento e a segurança dos seus principais segredos e chaves armazenando-os no Cofre de Chaves do Azure. 
+A melhoria da segurança das chaves pode aprimorar as proteções de criptografia e de autenticação. Você pode simplificar o gerenciamento e a segurança dos seus principais segredos e chaves armazenando-os no Cofre de Chaves do Azure.
 
 O Cofre de Chaves oferece a opção de armazenar as chaves em HSMs (módulos de segurança de hardware) certificados para os padrões FIPS 140-2 nível 2. Suas chaves de criptografia do SQL Server para backup ou [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx) podem ser armazenadas no Cofre de Chaves com quaisquer chaves ou segredos dos seus aplicativos. As permissões e o acesso a esses itens protegidos são gerenciados pelo [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
@@ -133,7 +132,7 @@ Saiba mais:
 
 ## <a name="virtual-networking"></a>Rede Virtual
 
-As máquinas virtuais precisam de conectividade de rede. Para dar suporte a esse requisito, o Azure exige que as máquinas virtuais estejam conectadas a uma Rede Virtual do Azure. 
+As máquinas virtuais precisam de conectividade de rede. Para dar suporte a esse requisito, o Azure exige que as máquinas virtuais estejam conectadas a uma Rede Virtual do Azure.
 
 Uma Rede Virtual do Azure é um constructo lógico criado na malha de rede física do Azure. Cada rede virtual lógica do Azure é isolada de todas as outras redes virtuais do Azure. Esse isolamento ajuda a garantir que o tráfego da rede nas implantações não seja acessível para os outros clientes do Microsoft Azure.
 
@@ -169,14 +168,13 @@ Saiba mais:
 
 ## <a name="confidential-computing"></a>Computação Confidencial
 
-Embora a computação confidencial não seja tecnicamente parte da segurança da máquina virtual, o tópico da segurança da máquina virtual pertence ao assunto de nível mais alto da segurança de “computação”. A computação confidencial pertence à categoria de segurança "computar". 
+Embora a computação confidencial não seja tecnicamente parte da segurança da máquina virtual, o tópico da segurança da máquina virtual pertence ao assunto de nível mais alto da segurança de “computação”. A computação confidencial pertence à categoria de segurança "computar".
 
 A computação confidencial garante que, quando os dados estiverem “limpos”, o que é necessário para um processamento eficiente, os dados são protegidos dentro de um Trusted Execution Environment https://en.wikipedia.org/wiki/Trusted_execution_environment (TEE - também conhecido como enclave), um exemplo é mostrado no figura abaixo.  
 
-Os TEEs garantem que não há como visualizar os dados ou as operações internas de fora, mesmo com um depurador. Eles até garantem que apenas o código autorizado tenha permissão para acessar os dados. Se o código for alterado ou adulterado, as operações serão negadas e o ambiente desativado. O TEE aplica essas proteções durante a execução do código dentro dele. 
+Os TEEs garantem que não há como visualizar os dados ou as operações internas de fora, mesmo com um depurador. Eles até garantem que apenas o código autorizado tenha permissão para acessar os dados. Se o código for alterado ou adulterado, as operações serão negadas e o ambiente desativado. O TEE aplica essas proteções durante a execução do código dentro dele.
 
 Saiba mais:
 
 * [Apresentando a computação confidencial do Azure](https://azure.microsoft.com/blog/introducing-azure-confidential-computing/)  
 * [Computação confidencial do Azure](https://azure.microsoft.com/blog/azure-confidential-computing/)  
-

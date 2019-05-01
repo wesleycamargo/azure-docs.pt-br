@@ -1,6 +1,6 @@
 ---
 title: Implantação contínua do Azure Functions | Microsoft Docs
-description: Use recursos de implantação contínua do Serviço de Aplicativo do Azure para publicar seu Azure Functions.
+description: Use os recursos de implantação contínua do serviço de aplicativo do Azure para publicar suas funções.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -11,17 +11,17 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: fd8fa690c508b8bf748490668c1e9aaa811ac247
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cb3f3ad3bb7b42429654ea4bf9b49f7e230db1da
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60731159"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943891"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Implantação contínua para Azure Functions
-As Funções do Azure facilitam a implantação do seu aplicativo de função utilizando a integração contínua do Serviço de Aplicativo. O Functions integra-se com BitBucket, Dropbox, GitHub e Azure DevOps. Isso permite que um fluxo de trabalho em que atualizações de código de função feitas utilizando um desses serviços integrados acione a implantação ao Azure. Se você for iniciante no Azure Functions, comece pela [Visão geral do Azure Functions](functions-overview.md).
+O Azure Functions torna mais fácil de implantar seu aplicativo de funções usando a integração contínua. Functions integra-se com repositórios de código principal e fontes de implantação. Essa integração permite que um fluxo de trabalho em que o código de função atualizações feito por meio de uma implantação de gatilho esses serviços do Azure. Se você for novo no Azure Functions, comece com o [visão geral do Azure Functions](functions-overview.md).
 
-A implantação contínua é uma ótima opção para projetos nos quais várias contribuições frequentes são integradas. Ele também permite manter o controle do código-fonte no código de funções. As seguintes fontes de implantação têm suporte atualmente:
+Implantação contínua é uma ótima opção para projetos em que você estiver integrando vários e frequentes contribuições. Ele também permite manter o controle do código-fonte em seu código de função. O Azure Functions dá suporte aos seguintes fontes de implantação:
 
 * [Bitbucket](https://bitbucket.org/)
 * [Dropbox](https://www.dropbox.com/)
@@ -33,9 +33,9 @@ A implantação contínua é uma ótima opção para projetos nos quais várias 
 
 As implantações são configuradas para cada aplicativo de função. Após a implantação contínua ser habilitada, o acesso ao código de função no portal é definido como *somente leitura*.
 
-## <a name="continuous-deployment-requirements"></a>Requisitos de implantação contínua
+## <a name="requirements-for-continuous-deployment"></a>Requisitos para implantação contínua
 
-Você deve ter a fonte de implantação configurada e o código de funções na fonte de implantação antes de configurar a implantação contínua. Em uma implantação de aplicativo de funções específica, cada função reside em um subdiretório nomeado, em que o nome do diretório é o nome da função.  
+Antes de configurar a implantação contínua, você deve ter a fonte de implantação configurada e o código de função na fonte de implantação. Em uma implantação de aplicativo de função, cada função está em um subdiretório nomeado, onde o nome do diretório é o nome da função.  
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
@@ -44,102 +44,97 @@ Para ser capaz de implantar do Azure DevOps, primeiro você deve vincular sua or
 ## <a name="set-up-continuous-deployment"></a>Configurar a implantação contínua
 Utilize o procedimento a seguir para configurar a implantação contínua para um aplicativo de função existente. Essas etapas demonstram a integração com um repositório GitHub, porém etapas semelhantes se aplicam para serviços do Azure DevOps ou outros serviços de implantação.
 
-1. Em seu aplicativo de função no [portal do Azure](https://portal.azure.com), clique em **Recursos da plataforma** e **Opções de implantação**. 
+1. Em seu aplicativo de função na [portal do Azure](https://portal.azure.com), selecione **recursos da plataforma** > **opções de implantação**. 
    
-    ![Configurar a implantação contínua](./media/functions-continuous-deployment/setup-deployment.png)
+    ![Seleções para abrir as opções de implantação](./media/functions-continuous-deployment/setup-deployment.png)
  
-2. Em seguida, na folha **Implantações**, clique em **Configurar**.
+1. Sobre o **implantações** folha, selecione **instalação**.
  
-    ![Configurar a implantação contínua](./media/functions-continuous-deployment/setup-deployment-1.png)
+    ![Folha implantações](./media/functions-continuous-deployment/setup-deployment-1.png)
    
-3. Na folha **Origem da implantação**, clique em **Escolher fonte**, preencha as informações da origem de implantação escolhida e clique em **OK**.
+1. Sobre o **fonte de implantação** folha, selecione **Escolher fonte**. Preencha as informações para sua fonte de implantação escolhida e, em seguida, selecione **Okey**.
    
-    ![Escolher a fonte de implantação](./media/functions-continuous-deployment/choose-deployment-source.png)
+    ![Escolher uma fonte de implantação](./media/functions-continuous-deployment/choose-deployment-source.png)
 
-Após a implantação contínua ser configurada, todas as alterações de arquivos na fonte de implantação são copiadas para o aplicativo de função e uma implantação completa do site é disparada. O site é reimplantado quando os arquivos da origem são atualizados.
+Depois de configurar a implantação contínua, todas as alterações de arquivo na fonte de implantação são copiadas para o aplicativo de funções e uma implantação completa do site é disparada. O site é reimplantado quando os arquivos da origem são atualizados.
 
-## <a name="deployment-options"></a>Opções de implantação
+## <a name="deployment-scenarios"></a>Cenários de implantação
 
-A seguir estão alguns cenários comuns de implantação:
-
-- [Criar uma implantação de preparo](#staging)
-- [Mover as funções existentes para implantação contínua](#existing)
+Cenários comuns de implantação incluem a criação de uma implantação de preparo e mover as funções existentes para implantação contínua.
 
 <a name="staging"></a>
 ### <a name="create-a-staging-deployment"></a>Criar uma implantação de preparo
 
-Aplicativos de Função ainda não dão suporte a slots de implantação. No entanto, você ainda pode gerenciar implantações de produção e preparo separadas usando a integração contínua.
+Aplicativos de função ainda não dão suporte a slots de implantação. Mas você ainda pode gerenciar implantações de produção e preparo separadas usando a integração contínua.
 
 O processo para configurar e trabalhar com uma implantação de preparo geralmente tem esta aparência:
 
-1. Crie dois aplicativos de função em sua assinatura, um para o código de produção e outro para preparo. 
+1. Crie dois aplicativos de funções em sua assinatura: um para o código de produção e outro para preparação. 
 
-2. Crie uma fonte de implantação, se você ainda não tiver uma. Este exemplo usa [GitHub].
+1. Crie uma fonte de implantação, se você ainda não tiver uma. Este exemplo usa [GitHub].
 
-3. Para o aplicativo de funções de produção, conclua as etapas acima em **Configurar a implantação contínua** e defina a ramificação de implantação para a ramificação mestra do repositório GitHub.
+1. Para o aplicativo de funções de produção, conclua as etapas acima em [Configurar a implantação contínua](#set-up-continuous-deployment) e defina a ramificação de implantação para a ramificação mestra do repositório GitHub.
    
-    ![Escolher a ramificação de implantação](./media/functions-continuous-deployment/choose-deployment-branch.png)
+    ![Seleções para escolher uma ramificação de implantação](./media/functions-continuous-deployment/choose-deployment-branch.png)
 
-4. Repita essa etapa para o aplicativo de funções de preparo, mas escolha a ramificação de preparo em vez do repositório GitHub. Se sua fonte de implantação não der suporte à ramificação, use uma pasta diferente.
+1. Repita a etapa 3 para o aplicativo de função de preparo, mas escolha a ramificação de preparo em vez disso, no seu repositório GitHub. Se sua fonte de implantação não der suporte à ramificação, use uma pasta diferente.
     
-5. Faça atualizações no código na ramificação de preparo ou na pasta e verifique se as alterações são refletidas na implantação de preparo.
+1. Fazer atualizações em seu código na ramificação de preparo ou pasta e, em seguida, verifique se a implantação de preparo reflete essas alterações.
 
-6. Depois de testar, mescle alterações da ramificação de preparo na ramificação mestre. Essa mesclagem disparará a implantação para o aplicativo de função de produção. Se sua fonte de implantação não der suporte a ramificações, substitua os arquivos na pasta de produção pelos arquivos da pasta de preparo.
+1. Depois de testar, mescle alterações da ramificação de preparo na ramificação mestre. Essa mesclagem disparará a implantação para o aplicativo de função de produção. Se sua fonte de implantação não der suporte a ramificações, substitua os arquivos na pasta de produção pelos arquivos da pasta de preparo.
 
 <a name="existing"></a>
 ### <a name="move-existing-functions-to-continuous-deployment"></a>Mover as funções existentes para implantação contínua
-Quando houver funções existentes que você criou e manteve no portal, será preciso baixar os arquivos de código de função existentes usando o FTP ou o repositório Git local para poder configurar a implantação contínua conforme descrito acima. Você pode fazer isso nas configurações do Serviço de Aplicativo para seu aplicativo de função. Depois que os arquivos forem baixados, você poderá carregá-los na fonte de implantação contínua escolhida.
+Quando você tem funções existentes que você criou e manteve no portal, você precisa baixar os arquivos de código de função por meio de FTP ou repositório Git local antes de você pode configurar a implantação contínua conforme descrito anteriormente. Você pode fazer isso nas configurações do serviço de aplicativo do Azure para seu aplicativo de funções. Depois de baixar os arquivos, você pode carregá-los à sua fonte de implantação contínua escolhida.
 
 > [!NOTE]
-> Depois de configurar a integração contínua, você não poderá mais editar os arquivos de origem no portal de Funções.
-
-- [Como: configurar credenciais de implantação](#credentials)
-- [Como: fazer o download de arquivos usando FTP](#downftp)
-- [Como: fazer o download de arquivos usando o repositório Git local](#downgit)
+> Depois de configurar a integração contínua, você não pode editar seus arquivos de origem no portal do Functions.
 
 <a name="credentials"></a>
-#### <a name="how-to-configure-deployment-credentials"></a>Como: configurar credenciais de implantação
-Antes de baixar arquivos do aplicativo de funções com o FTP ou repositório Git local, você deve configurar suas credenciais para acessar o site. As credenciais são definidas no nível do aplicativo de Função. Utilize as etapas a seguir para definir as credenciais de implantação no portal do Azure:
+#### <a name="configure-deployment-credentials"></a>configurar credenciais de implantação
+Antes de você pode baixar arquivos de seu aplicativo de funções usando o FTP ou um repositório Git local, você deve configurar suas credenciais para acessar o site. As credenciais são definidas no nível do aplicativo de função. Utilize as etapas a seguir para definir as credenciais de implantação no portal do Azure:
 
-1. Em seu aplicativo de função no [portal do Azure](https://portal.azure.com), clique em **Recursos da plataforma** e **Credenciais de implantação**.
+1. Em seu aplicativo de função na [portal do Azure](https://portal.azure.com), selecione **recursos da plataforma** > **credenciais de implantação**.
    
-    ![Definir credenciais de implantação local](./media/functions-continuous-deployment/setup-deployment-credentials.png)
+1. Insira um nome de usuário e senha e, em seguida, selecione **salvar**. 
 
-2. Digite um nome de usuário e senha e clique em **Salvar**. Agora você pode usar essas credenciais para acessar seu aplicativo de função do FTP ou do repositório Git interno.
+   ![Seleções para definir as credenciais de implantação local](./media/functions-continuous-deployment/setup-deployment-credentials.png)
+
+Agora você pode usar essas credenciais para acessar seu aplicativo de função do FTP ou do repositório Git interno.
 
 <a name="downftp"></a>
-#### <a name="how-to-download-files-using-ftp"></a>Como: fazer o download de arquivos usando FTP
+#### <a name="download-files-by-using-ftp"></a>Baixar arquivos usando FTP
 
-1. No aplicativo de função do [Portal do Azure](https://portal.azure.com), clique em **recursos de Plataforma**e **Propriedades**, e copie os valores para **Usuário de FTP/Implantação**,**Nome do Host FTP** e**Nome de Host FTPS**.  
+1. Em seu aplicativo de função na [portal do Azure](https://portal.azure.com), selecione **recursos da plataforma** > **propriedades**. Em seguida, copie os valores para **usuário FTP/implantação**, **nome do Host FTP**, e **nome de Host FTPS**.  
 
-    O **Usuário de FTP/Implantação** deve ser inserido conforme exibido no portal, incluindo o nome do aplicativo, a fim de fornecer o contexto adequado para o servidor FTP.
+   O **Usuário de FTP/Implantação** deve ser inserido conforme exibido no portal, incluindo o nome do aplicativo, a fim de fornecer o contexto adequado para o servidor FTP.
    
-    ![Obter as informações de implantação](./media/functions-continuous-deployment/get-deployment-credentials.png)
+   ![Seleções para obter as informações da implantação](./media/functions-continuous-deployment/get-deployment-credentials.png)
 
-2. No cliente de FTP, use as informações de conexão coletadas para se conectar ao aplicativo e baixar os arquivos de origem para suas funções.
+1. De seu cliente FTP, use as informações de conexão coletadas para se conectar ao seu aplicativo e baixar os arquivos de origem para suas funções.
 
 <a name="downgit"></a>
-#### <a name="how-to-download-files-using-a-local-git-repository"></a>Como: fazer o download de arquivos usando o repositório Git local
+#### <a name="download-files-by-using-a-local-git-repository"></a>Baixar arquivos usando um repositório Git local
 
-1. Em seu aplicativo de função no [portal do Azure](https://portal.azure.com), clique em **Recursos da plataforma** e **Opções de implantação**. 
+1. Em seu aplicativo de função na [portal do Azure](https://portal.azure.com), selecione **recursos da plataforma** > **opções de implantação**. 
    
-    ![Configurar a implantação contínua](./media/functions-continuous-deployment/setup-deployment.png)
+    ![Seleções para abrir as opções de implantação](./media/functions-continuous-deployment/setup-deployment.png)
  
-2. Em seguida, na folha **Implantações**, clique em **Configurar**.
+1. Em seguida, na **implantações** folha, selecione **instalação**.
  
-    ![Configurar a implantação contínua](./media/functions-continuous-deployment/setup-deployment-1.png)
+    ![Folha implantações](./media/functions-continuous-deployment/setup-deployment-1.png)
    
-2. Na folha **Fonte de implantações**, clique em**Repositório Git Local** e em seguida clique em **OK**.
+1. Sobre o **fonte de implantação** folha, selecione **repositório Git Local** > **Okey**.
 
-3. Em **Recursos da plataforma**, clique em **Propriedades** e observe o valor da URL de Git. 
+1. Na **recursos da plataforma**, selecione **propriedades** e observe o valor da URL do Git. 
    
-    ![Configurar a implantação contínua](./media/functions-continuous-deployment/get-local-git-deployment-url.png)
+    ![Seleções para obter a URL do Git](./media/functions-continuous-deployment/get-local-git-deployment-url.png)
 
-4. Faça uma cópia do repositório em seu computador local usando uma linha de comando com reconhecimento do Git ou sua ferramenta de Git favorita. O comando Git clone é semelhante ao seguinte:
+1. Clone o repositório em seu computador local usando um prompt de comando de reconhecimento do Git ou sua ferramenta Git favorita. O comando Git clone é semelhante ao seguinte:
    
         git clone https://username@my-function-app.scm.azurewebsites.net:443/my-function-app.git
 
-5. Busque arquivos de seu aplicativo de função para o clone no computador local, como no seguinte exemplo:
+1. Busque arquivos de seu aplicativo de função para o clone no computador local, como no seguinte exemplo:
    
         git pull origin master
    

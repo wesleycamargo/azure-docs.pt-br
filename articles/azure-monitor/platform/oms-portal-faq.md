@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: 8947d235894ffc021243a64244b4904c5ca7f128
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b353e3c0ed14c7ae42e6b1f2c8a92904bf0befd7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60453086"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916287"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Perguntas comuns sobre a transição do portal do OMS para o Portal do Azure para usuários do Log Analytics
 Inicialmente, o Log Analytics usava seu próprio portal, o portal do OMS, para gerenciar as configurações e analisar os dados coletados.  Todas as funcionalidades desse portal foram transferidas para o Portal do Azure, onde continuarão a ser desenvolvidas.
@@ -97,9 +97,9 @@ Gerencie a maioria das configurações de dados no menu **Configurações avanç
 | Logs personalizados                  | Menu **Configurações avançadas** do workspace. |
 | syslog                       | Menu **Configurações avançadas** do workspace. |
 | Application Insights         | Esta solução foi preterida agora que o Log Analytics e o Application Insights compartilham o mesmo mecanismo de dados.  |
-| Rastreamento de arquivos do Windows        | Menu **Controle de Alterações** na Automação do Azure. Confira [Controlar alterações no ambiente com a solução Controle de Alterações](../../automation/automation-change-tracking.md) para obter detalhes. |
-| Rastreamento de Registro do Windows        | Menu **Controle de Alterações** na Automação do Azure. Confira [Controlar alterações no ambiente com a solução Controle de Alterações](../../automation/automation-change-tracking.md) para obter detalhes. |
-| Rastreamento de Arquivos do Linux          | Menu **Controle de Alterações** na Automação do Azure. Confira [Controlar alterações no ambiente com a solução Controle de Alterações](../../automation/automation-change-tracking.md) para obter detalhes. |
+| Rastreamento de arquivos do Windows        | Menu **Controle de Alterações** na Automação do Azure. Confira [Controlar alterações no ambiente com a solução Controle de Alterações](../../automation/change-tracking.md) para obter detalhes. |
+| Rastreamento de Registro do Windows        | Menu **Controle de Alterações** na Automação do Azure. Confira [Controlar alterações no ambiente com a solução Controle de Alterações](../../automation/change-tracking.md) para obter detalhes. |
+| Rastreamento de Arquivos do Linux          | Menu **Controle de Alterações** na Automação do Azure. Confira [Controlar alterações no ambiente com a solução Controle de Alterações](../../automation/change-tracking.md) para obter detalhes. |
 
 ### <a name="solutions"></a>Soluções
 Gerencie soluções no menu **Soluções** do workspace. 

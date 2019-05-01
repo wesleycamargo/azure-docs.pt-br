@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: pullabhk
-ms.openlocfilehash: 83fe8d17699c19d442fd734d71d828eb9fd9d6ed
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 46719d3f72c57a44fb48489891e2348bb418da1e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258353"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918945"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Fazer backup e restaurar arquivos do Azure com o PowerShell
 
@@ -241,7 +241,7 @@ testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 P
 Use [AzRecoveryServicesBackupItem Backup](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0) para executar um backup sob demanda para um compartilhamento de arquivos do Azure protegidos.
 
 1. Recuperar a conta de armazenamento e compartilhamento de arquivos do contêiner no cofre que contém os dados de backup com [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
-2. Para iniciar um trabalho de backup, você obter informações sobre a VM com [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
+2. Para iniciar um trabalho de backup, você obtém informações sobre a VM com [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
 3. Executar um backup sob demanda com[AzRecoveryServicesBackupItem Backup](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem).
 
 Execute o backup sob demanda da seguinte maneira:
@@ -317,7 +317,7 @@ Depois que o ponto de recuperação relevante é selecionado, você restaurar o 
 
 ### <a name="restore-an-azure-file-share-to-an-alternate-location"></a>Restaurar um compartilhamento de arquivos do Azure para um local alternativo
 
-Use o [restauração AzRecoveryServicesBackupItem](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) para restaurar para o ponto de recuperação selecionado. Especifica esses parâmetros para identificar o local alternativo: 
+Use o [restauração AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) para restaurar para o ponto de recuperação selecionado. Especifica esses parâmetros para identificar o local alternativo: 
 
 - **TargetStorageAccountName**: a conta de armazenamento na qual o conteúdo de backup é restaurado. A conta de armazenamento de destino deve estar no mesmo local que o cofre.
 - **TargetFileShareName**: compartilhamentos de arquivos dentro da conta de armazenamento de destino na qual o conteúdo de backup é restaurado.
@@ -340,7 +340,7 @@ testAzureFS        Restore              InProgress           12/10/2018 9:56:38 
 
 ### <a name="restore-an-azure-file-to-an-alternate-location"></a>Restaurar um arquivo do Azure para um local alternativo
 
-Use o [restauração AzRecoveryServicesBackupItem](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) para restaurar para o ponto de recuperação selecionado. Especifica esses parâmetros para identificar o local alternativo e para identificar exclusivamente o arquivo que você deseja restaurar.
+Use o [restauração AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) para restaurar para o ponto de recuperação selecionado. Especifica esses parâmetros para identificar o local alternativo e para identificar exclusivamente o arquivo que você deseja restaurar.
 
 * **TargetStorageAccountName**: a conta de armazenamento na qual o conteúdo de backup é restaurado. A conta de armazenamento de destino deve estar no mesmo local que o cofre.
 * **TargetFileShareName**: compartilhamentos de arquivos dentro da conta de armazenamento de destino na qual o conteúdo de backup é restaurado.

@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/07/2017
-ms.openlocfilehash: 935c6ff03485c2b8e4d3e2f3df51c740ec1e8371
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7ac4b54740b03a8b3fa09486a8e09f3262f67555
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60770186"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866874"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Casos de uso comuns do Azure Cosmos DB
 Este artigo fornece uma visão geral dos vários casos de uso comuns do Azure Cosmos DB.  As recomendações deste artigo servem como ponto de partida ao desenvolver seu aplicativo com o Cosmos DB.   
@@ -108,7 +108,7 @@ Ou se desejar ler mais sobre os clientes que usam o Cosmos DB, os seguintes rela
 * [Citrix](https://customers.microsoft.com/story/citrix). A Citrix desenvolve uma solução de logon único usando o Azure Service Fabric e o Azure Cosmos DB
 * [TEXA](https://customers.microsoft.com/story/texaspa) A solução de IoT revolucionária da TEXA para proprietários de veículos ajuda a economizar tempo, dinheiro e combustível – e possivelmente, vidas.
 * [Domino's Pizza](https://www.dominos.com). A Domino's Pizza Inc. é uma cadeia de restaurantes especializados em pizza dos EUA.
-* [Johnson Controls](https://www.johnsoncontrols.com). A Johnson Controls é líder global em vários setores e tecnologias diversificadas que atende a uma ampla variedade de clientes em mais de 150 países.
+* [Johnson Controls](https://www.johnsoncontrols.com). Johnson Controls é uma global e tecnologias diversificadas múltipla líder que atende a uma ampla gama de clientes em mais de 150 países/regiões.
 * [Microsoft Windows, Universal Store, Hub IoT do Azure, Xbox Live e outros serviços de escala da Internet](https://azure.microsoft.com/blog/how-azure-documentdb-planet-scale-nosql-helps-run-microsoft-s-own-businesses/). Como a Microsoft cria serviços altamente escalonáveis usando o Azure Cosmos DB.
 * [Equipe de Dados e Análise da Microsoft](https://customers.microsoft.com/story/microsoftdataandanalytics). A equipe de Dados e Análise da Microsoft obtém uma coleção de Big Data de escala mundial com o Azure Cosmos DB
 * [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india). A Sulekha usa o Azure Cosmos DB para conectar clientes e empresas em toda a Índia.

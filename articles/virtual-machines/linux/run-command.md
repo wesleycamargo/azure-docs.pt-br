@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e865d4e9cbad2c2064d961bc6e407440ce8556fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fe0547c1ddb89b8d9ab3e876e83bbdea17a58743
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60772037"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570589"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Executar scripts de shell em sua VM Linux com o recurso Executar Comando
 
@@ -78,9 +78,9 @@ Esta tabela mostra a lista de comandos disponíveis para VMs Linux. O comando **
 
 ## <a name="limiting-access-to-run-command"></a>Limitando o acesso ao recurso Executar Comando
 
-Listar os comandos de execução ou mostrar os detalhes de um comando requer a permissão `Microsoft.Compute/locations/runCommands/read`, que a função [Leitor](../../role-based-access-control/built-in-roles.md#reader) interna e superiores têm.
+Listando os comandos de execução ou mostrando os detalhes de um comando exigem o `Microsoft.Compute/locations/runCommands/read` permissão no nível da assinatura, que internos [leitor](../../role-based-access-control/built-in-roles.md#reader) função e ter maior.
 
-Executar um comando requer a permissão `Microsoft.Compute/virtualMachines/runCommand/action`, que a função [Colaborador](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) e superior têm.
+Executar um comando exige o `Microsoft.Compute/virtualMachines/runCommand/action` permissão no nível da assinatura, que o [colaborador da máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) função e ter maior.
 
 É possível usar uma das funções [internas](../../role-based-access-control/built-in-roles.md) ou criar uma função [personalizada](../../role-based-access-control/custom-roles.md) para usar o recurso Executar Comando.
 

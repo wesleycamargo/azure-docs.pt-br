@@ -3,17 +3,17 @@ title: Compreender o bloqueio de recursos
 description: Aprenda sobre as opções de bloqueio para proteger recursos ao atribuir um blueprint.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/28/2019
+ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 232d823f364f9f98d1da1bade50ba369b898a57d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: db0b5bbe1261c7bdf76393c69a1189d2a850cd07
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60682996"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719763"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Entenda o bloqueio de recursos nos Blueprints do Azure
 
@@ -53,6 +53,13 @@ Quando a atribuição é removida, os bloqueios criados por planos gráficos sã
 Uma ação de negação [negar atribuições](../../../role-based-access-control/deny-assignments.md) do RBAC é aplicada aos recursos de artefato durante a atribuição de um blueprint se a atribuição selecionou a opção **Somente Leitura** ou **Não Excluir**. A ação de negação é adicionada pela identidade gerenciada da atribuição de blueprint e só pode ser removida dos recursos de artefato pela mesma identidade gerenciada. Essa medida de segurança impõe o mecanismo de bloqueio e impede a remoção do bloqueio do blueprint fora do Blueprints.
 
 ![Plano gráfico negar a atribuição de grupo de recursos](../media/resource-locking/blueprint-deny-assignment.png)
+
+O [Negar atribuição propriedades](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) de cada modo são da seguinte maneira:
+
+|Mode |Permissions.Actions |Permissions.NotActions |Principals[i].Type |ExcludePrincipals [i]. ID | DoNotApplyToChildScopes |
+|-|-|-|-|-|-|
+|Somente leitura |**\*** |**\*/read** |SystemDefined (todos) |Especificações técnicas de atribuição e definidas pelo usuário no **excludedPrincipals** |Grupo de recursos - _verdadeira_; Recursos - _false_ |
+|Não exclua |**\*/delete** | |SystemDefined (todos) |Especificações técnicas de atribuição e definidas pelo usuário no **excludedPrincipals** |Grupo de recursos - _verdadeira_; Recursos - _false_ |
 
 > [!IMPORTANT]
 > O Gerenciador de Recursos do Azure armazena em cache os detalhes da atribuição de função por até 30 minutos. Como resultado, a ação de negação das atribuições de negação nos recursos de blueprint pode não entrar imediatamente em vigor. Durante esse período, talvez seja possível excluir um recurso destinado a ser protegido por bloqueios de blueprint.

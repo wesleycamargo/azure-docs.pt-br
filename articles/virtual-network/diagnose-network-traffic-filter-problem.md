@@ -3,8 +3,8 @@ title: Diagnosticar um problema de filtro de tráfego de rede de máquina virtua
 description: Saiba como diagnosticar um problema de filtro de tráfego de rede de máquina virtual ao exibir as regras de segurança efetiva para uma máquina virtual.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: a54feccf-0123-4e49-a743-eb8d0bdd1ebc
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
-ms.author: jdial
-ms.openlocfilehash: fecab4dc3a0674b0b64638676f4538af145b52ac
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.author: kumud
+ms.openlocfilehash: f84e8a24e8f28cdccc987afbd1449cb17422ce0c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652638"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712675"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnosticar um problema de filtro de tráfego de rede de máquina virtual
 
@@ -168,13 +168,13 @@ A regra denominada **defaultSecurityRules / DenyAllInBound** é o que está impe
 
 Se você usar o Azure [portal](#diagnose-using-azure-portal), [PowerShell](#diagnose-using-powershell), ou o [CLI do Azure](#diagnose-using-azure-cli) para diagnosticar o problema apresentado a [cenário](#scenario) neste artigo, a solução é criar uma regra de segurança de rede com as seguintes propriedades:
 
-| Propriedade                | Valor                                                                              |
+| Propriedade                | Value                                                                              |
 |---------                |---------                                                                           |
 | Fonte                  | Qualquer                                                                                |
 | Intervalos de portas de origem      | Qualquer                                                                                |
 | Destino             | O endereço IP da VM, um intervalo de endereços IP ou todos os endereços na sub-rede. |
 | Intervalos de portas de destino | 80                                                                                 |
-| Protocolo                | TCP                                                                                |
+| Protocol                | TCP                                                                                |
 | Ação                  | PERMITIR                                                                              |
 | Prioridade                | 100                                                                                |
 | NOME                    | Permitir-HTTP-All                                                                     |
