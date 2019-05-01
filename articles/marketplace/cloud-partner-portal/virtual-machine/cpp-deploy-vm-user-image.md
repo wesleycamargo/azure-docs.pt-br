@@ -1,25 +1,18 @@
 ---
-title: Implantar uma VM do Azure de um VHD do usuário | Microsoft Docs
+title: Implantar uma VM do Azure de um VHD do usuário | O Azure Marketplace
 description: Explica como implantar uma imagem de VHD do usuário para criar uma instância de VM do Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 0885b187c4b9e9636144a3ab2a94b941008bec20
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: pabutler
+ms.openlocfilehash: e4da523fa54a513fe77fda037aea0a5fd530250b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046728"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938234"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Implantar uma VM do Azure de um VHD do usuário
 

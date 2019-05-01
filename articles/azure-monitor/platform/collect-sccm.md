@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
-ms.openlocfilehash: e5cf89b7fe01946de9944a7026ec448cd55dd6dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 26ddb0cdd2728f9dff5d45494a14841cdc1a20cd
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60741426"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922875"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Conectar o Configuration Manager para o Azure Monitor
 Você pode conectar seu ambiente do System Center Configuration Manager para o Azure Monitor para sincronizar dados de coleção de dispositivo e fazer referência a essas coleções no Azure Monitor e a automação do Azure.  
@@ -67,7 +67,7 @@ Para adicionar uma conexão do Log Analytics, seu ambiente do Configuration Mana
    
 2. Na tela **Geral**, confirme se você realizou as seguintes ações e se tem os detalhes de cada item, em seguida, selecione **Avançar**.
 
-   1. No portal do Azure, você registrou o Configuration Manager como um aplicativo Web e/ou aplicativo de API Web e tem a [ID do cliente do registro](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md).
+   1. No portal do Azure, você registrou o Configuration Manager como um aplicativo Web e/ou aplicativo de API Web e tem a [ID do cliente do registro](../../active-directory/develop/quickstart-register-app.md).
    2. No portal do Azure, você criou uma chave secreta do aplicativo para o aplicativo registrado no Azure Active Directory.  
    3. No portal do Azure, você concedeu ao aplicativo web registrado com permissão para acessar o espaço de trabalho do Log Analytics no Azure Monitor.  
       ![Conexão para a página geral do Assistente do Log Analytics](./media/collect-sccm/sccm-console-general01.png)

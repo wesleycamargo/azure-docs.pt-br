@@ -1,27 +1,22 @@
 ---
-title: Lista de verificação para publicação para AppSource | Azure
+title: Lista de verificação de publicação do AppSource | O Azure Marketplace
 description: Lista de verificação para publicação para AppSource.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5521602331b50c70ab31e6ea2f5eec8f6a3911ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7df88c941c1d42bc4a49e391fa3d64273237bd08
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733616"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937597"
 ---
 # <a name="publishing-checklist-for-appsource"></a>Lista de verificação para publicação para AppSource  
+
 Examine os componentes necessários antes de iniciar o processo de publicação.  
 
 Os seguintes artefatos são necessários para publicar seu aplicativo no AppSource.  

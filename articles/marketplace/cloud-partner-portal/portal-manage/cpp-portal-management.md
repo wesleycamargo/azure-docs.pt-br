@@ -1,25 +1,18 @@
 ---
-title: Portal de parceiros de gerenciamento - Azure Marketplace de nuvem | Microsoft Docs
+title: Gerenciamento do Portal de parceiros de nuvem | O Azure Marketplace
 description: Descreve os tipos de operações disponíveis para gerenciar contas para o Portal de parceiros de nuvem para o Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/01/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 539bc7861a487e6eb563f565d3475efdda99b093
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: d35e221790c2f94caf582859f78389ecca987709
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60332662"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942197"
 ---
 # <a name="cloud-partner-portal-management"></a>Gerenciamento do Portal de parceiros de nuvem
 
@@ -43,6 +36,6 @@ Esta seção contém os seguintes artigos que explicam como gerenciar contas de 
 - [Gerenciando usuários no Portal do Cloud Partner](./cpp-manage-users.md) adicionar usuários à nuvem da sua organização conta e como gerenciar o acesso, para permitir que várias pessoas trabalhem nas ofertas a mesmas publicação.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Você deve cumprir os [pré-requisitos para gerenciamento de contas](./cpp-manage-prerequisites.md) antes de continuar.  Depois disso, você também deve levar a [Tour do Portal de parceiros de nuvem](../portal-tour/cpp-portal-tour.md) de se familiarizar com a interface do usuário do portal.

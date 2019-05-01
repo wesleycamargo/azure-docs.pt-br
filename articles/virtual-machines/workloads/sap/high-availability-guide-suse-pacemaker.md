@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 62356ee35631373b5a5d38ed356bbb2fb489807b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0758105c7e2a18e976bc0c210eaf4e55e418a22d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710636"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925718"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuração do Pacemaker no SUSE Linux Enterprise Server no Azure
 
@@ -578,7 +578,7 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
 
 ## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Eventos agendados de configuração do pacemaker para o Azure
 
-O Azure oferece [eventos agendados](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/scheduled-events). Eventos agendados são fornecidos por meio do serviço de metadados e aguarde para que o aplicativo para se preparar para eventos, como desligamento da VM, reimplantação da VM, etc. Agente de recursos **[eventos do azure](https://github.com/ClusterLabs/resource-agents/pull/1161)** monitora os eventos agendados do Azure. Se os eventos são detectados, o agente tentará parar todos os recursos na VM afetado e movê-los para outro nó no cluster. Deve ser configurado atingir esse recursos adicionais do Pacemaker. 
+O Azure oferece [eventos agendados](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events). Eventos agendados são fornecidos por meio do serviço de metadados e aguarde para que o aplicativo para se preparar para eventos, como desligamento da VM, reimplantação da VM, etc. Agente de recursos **[eventos do azure](https://github.com/ClusterLabs/resource-agents/pull/1161)** monitora os eventos agendados do Azure. Se os eventos são detectados, o agente tentará parar todos os recursos na VM afetado e movê-los para outro nó no cluster. Deve ser configurado atingir esse recursos adicionais do Pacemaker. 
 
 1. **[A]**  Instalar o **eventos do azure** agente. 
 

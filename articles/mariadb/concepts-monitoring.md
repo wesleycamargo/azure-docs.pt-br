@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/10/2018
-ms.openlocfilehash: f34e32b9bda83ac1185d0c7b7dcaaaa7b47161a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/29/2019
+ms.openlocfilehash: babe2ac55953940370daa0731463ed6ed8988502
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60332796"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925905"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Monitorando no Banco de Dados do Azure para MariaDB
 Monitorar os dados dos seus servidores ajuda a solucionar problemas e otimizar sua carga de trabalho. O Banco de Dados do Azure para MariaDB fornece várias métricas que fornecem informações sobre o comportamento do seu servidor.
@@ -41,7 +41,7 @@ Essas métricas estão disponíveis para o Banco de Dados do Azure para MariaDB:
 |network_bytes_ingress|Entrada na rede|Bytes|Entrada de rede em conexões ativas.|
 
 ## <a name="server-logs"></a>Logs do servidor
-É possível habilitar o registro de consulta no servidor. Para saber mais sobre o registro em log, visite a página [logs de servidor](concepts-server-logs.md).
+É possível habilitar o registro de consulta no servidor. Esses logs também estão disponíveis por meio dos Logs de diagnóstico do Azure na conta de armazenamento, Hubs de eventos e logs do Azure Monitor. Para saber mais sobre o registro, visite a página  [logs do servidor](concepts-server-logs.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para obter mais informações sobre como acessar e exportar métricas usando o Portal do Azure, a API REST ou a CLI, consulte a [Visão geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).

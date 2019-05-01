@@ -1,25 +1,19 @@
 ---
-title: Gerenciando usuários no portal do cloud partner - Azure Marketplace | Microsoft Docs
+title: Gerenciando usuários no Portal do Cloud Partner | O Azure Marketplace
 description: Gerenciando usuários no portal de parceiros de nuvem
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
 manager: pbutlerm
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/01/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 6ab010a5fb8399fb14d3f45c8bb3b4571657d883
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 21c49ad0d73721dd204a7a3899d11cf10d43521b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60333704"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942065"
 ---
 # <a name="managing-users-on-the-cloud-partner-portal"></a>Gerenciando usuários no Portal do Cloud Partner
 
@@ -69,6 +63,6 @@ Use as seguintes etapas para adicionar usuários e atribuir funções para publi
 Para remover um usuário existente, pesquise seus emails na **os usuários** guia e, em seguida, pressione a **excluir** botão no lado direito.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Você também pode usar o portal para [gerenciar perfis de publicador](./cpp-manage-publisher-profile.md).

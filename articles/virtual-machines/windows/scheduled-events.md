@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 2ed92486b55aa4fd7dce32f54f0b6567c7bb3cf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ab0aefd5650aada9c301115813a80747ddd1f2ac
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710992"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926313"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Serviço de Metadados do Azure: Eventos Agendados para VMs do Windows
 
@@ -48,7 +48,7 @@ Os eventos agendados fornecem eventos nos seguintes casos de uso:
 - Manutenção iniciada pela plataforma (por exemplo, Atualização do Sistema Operacional do Host)
 - Hardware degradado
 - Manutenção iniciada pelo usuário (por exemplo, o usuário reinicia ou reimplanta uma VM)
-- [Remoção de VMs de baixa prioridade](https://azure.microsoft.com/en-us/blog/low-priority-scale-sets) conjuntos de dimensionamento
+- [Remoção de VMs de baixa prioridade](https://azure.microsoft.com/blog/low-priority-scale-sets) conjuntos de dimensionamento
 
 ## <a name="the-basics"></a>Noções básicas  
 

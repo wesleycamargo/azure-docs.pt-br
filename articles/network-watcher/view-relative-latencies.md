@@ -3,8 +3,8 @@ title: Exibir as latências relativas a regiões do Azure de localidades especí
 description: Saiba como exibir as latências relativas entre provedores de Internet para regiões do Azure de localidades específicas.
 services: network-watcher
 documentationcenter: ''
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2017
-ms.author: jdial
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 895e29d9855372e418ad5ebf2a3949dc01ddb8de
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: b4a50657442422786f49c931aa6c2610d49846b1
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792411"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939871"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Exibir a latência relativa a regiões do Azure de localidades específicas
 
@@ -60,7 +60,7 @@ Get-AzNetworkWatcherReachabilityReport `
 ```
 
 > [!NOTE]
-> A região que você especifica no comando anterior não precisa ser a mesma que a região especificada durante a recuperação do observador de rede. O comando anterior requer apenas que você especifique um observador de rede existente. O observador de rede pode estar em qualquer região. Se você especificar valores para `-Country` e `-State`, eles deverão ser válidos. Os valores diferenciam maiúsculas de minúsculas. Os dados estão disponíveis em um número limitado de países, estados e cidades. Execute os comandos em [Exibir países, estados, cidades e provedores disponíveis](#view-available) para exibir uma lista dos países, cidades e estados disponíveis para usar com o comando anterior. 
+> A região que você especifica no comando anterior não precisa ser a mesma que a região especificada durante a recuperação do observador de rede. O comando anterior requer apenas que você especifique um observador de rede existente. O observador de rede pode estar em qualquer região. Se você especificar valores para `-Country` e `-State`, eles deverão ser válidos. Os valores diferenciam maiúsculas de minúsculas. Dados estão disponíveis para um número limitado de países/regiões, Estados e cidades. Executar os comandos [exibir países/regiões disponíveis, estados, cidades e provedores](#view-available) para exibir uma lista de países/regiões disponíveis, cidades e estados para usar com o comando anterior. 
 
 > [!WARNING]
 > É necessário especificar uma data nos últimos 30 dias para `-StartTime` e `-EndTime`. A especificação de uma data anterior resultará na não devolução de dados.
@@ -125,15 +125,15 @@ Get-AzNetworkWatcherReachabilityReport `
 > [!NOTE]
 > Diferentemente de quando você especifica um único local, se você não especificar um local, ou especificar vários locais, como "Oeste dos EUA 2", "Oeste dos EUA", deverá especificar um provedor de serviços de Internet ao executar o comando. 
 
-## <a name="view-available"></a>Exibir países, estados, cidades e provedores disponíveis
+## <a name="view-available"></a>Exibir países/regiões disponíveis, estados, cidades e provedores
 
-Os dados estão disponíveis para cidades, estados, países e provedores de serviços de Internet específicos. Para exibir uma lista de todos os provedores de serviços de Internet, países, estados e cidades disponíveis para os quais você pode exibir os dados, insira o seguinte comando:
+Dados estão disponíveis para provedores de serviços de Internet específicos, países/regiões, Estados e cidades. Para exibir uma lista de Internet disponíveis todos os provedores de serviços, países/regiões, Estados e cidades, em que você pode exibir dados, digite o seguinte comando:
 
 ```powershell
 Get-AzNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
 ```
 
-Os dados só estão disponíveis para os países, estados e cidades retornados pelo comando anterior. O comando anterior exige que você especifique um observador de rede existente. O exemplo especificou o observador de rede *NetworkWatcher_eastus* em um grupo de recursos denominado *NetworkWatcherRG*, mas você pode especificar qualquer observador de rede existente. Se você não tiver um observador de rede existente, crie um executando as tarefas em [Criar um observador de rede](#create-a-network-watcher). 
+Dados só estão disponíveis para os países/regiões, Estados e cidades retornados pelo comando anterior. O comando anterior exige que você especifique um observador de rede existente. O exemplo especificou o observador de rede *NetworkWatcher_eastus* em um grupo de recursos denominado *NetworkWatcherRG*, mas você pode especificar qualquer observador de rede existente. Se você não tiver um observador de rede existente, crie um executando as tarefas em [Criar um observador de rede](#create-a-network-watcher). 
 
 Depois de executar o comando anterior, você pode filtrar a saída retornada especificando os valores válidos para **País/Região**, **Estado** e **Cidade**, se quiser.  Por exemplo, para exibir a lista de provedores de serviços de Internet disponíveis em Seattle, Washington, nos Estados Unidos, insira o seguinte comando:
 

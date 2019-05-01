@@ -3,8 +3,8 @@ title: Criar, alterar ou excluir um emparelhamento de rede virtual do Azure | Mi
 description: Saiba como criar, alterar ou excluir um emparelhamento de rede virtual.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: 6bccb1e75dc999bcb0e8c6d909abe7bffffcec8c
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 18d913339556c0d4b0a06bd62f4495da6a4d4223
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524031"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925908"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou excluir um emparelhamento da rede virtual
 
@@ -112,7 +112,7 @@ Se você deseja que as redes virtuais se comuniquem, às vezes, mas não sempre,
 
 - <a name="cross-region"></a>Você pode parear redes virtuais na mesma região ou em regiões diferentes. Emparelhamento de redes virtuais em diferentes regiões também é conhecido como *emparelhamento VNet Global*. 
 - Ao criar um emparelhamento global, as redes virtuais emparelhadas podem existir em qualquer região de nuvem pública do Azure ou regiões de nuvem na China ou regiões de nuvem do governo. Só é possível emparelhar entre nuvens. Por exemplo, uma rede virtual na nuvem pública do Azure não pode ser emparelhada uma rede virtual na nuvem do Azure na China.
-- Recursos em uma rede virtual não podem se comunicar com o endereço IP de front-end de um balanceador interno de carga básico em uma rede virtual emparelhada globalmente. Só existe suporte para Load Balancer Basic dentro da mesma região. Existe suporte para o balanceador de carga padrão para tanto, emparelhamento de rede virtual e o emparelhamento VNet Global.
+- Recursos em uma rede virtual não podem se comunicar com o endereço IP de front-end de um balanceador interno de carga básico em uma rede virtual emparelhada globalmente. Só existe suporte para Load Balancer Basic dentro da mesma região. Existe suporte para o balanceador de carga padrão para tanto, emparelhamento de rede virtual e o emparelhamento VNet Global. Serviços que usam um balanceador de carga básico que não funcionará em emparelhamento VNet Global estão documentados [aqui.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
 - Você pode usar gateways remotos ou permitir trânsito de gateway em redes virtuais emparelhadas globalmente e redes virtuais emparelhadas localmente.
 - As redes virtuais podem estar na mesma assinatura ou em assinaturas diferentes. Ao usar redes virtuais em diferentes assinaturas, ambas as assinaturas podem ser associadas ao mesmo locatário ou a um locatário diferente do Azure Active Directory. Se você ainda não tiver um locatário do AD, você poderá [criar um](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). O suporte para emparelhamento em redes virtuais de assinaturas associadas a diferentes locatários do Azure Active Directory não está disponível no Portal. Você pode usar CLI, PowerShell ou modelos.
 - As redes virtuais que você emparelhar devem ter espaços de endereço IP não sobrepostos.
@@ -150,7 +150,7 @@ Se sua conta não está atribuída a uma das funções anteriores, ela deve ser 
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read   | Ler um emparelhamento de rede virtual   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/delete | Excluir um emparelhamento de rede virtual |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Um emparelhamento de rede virtual é criado entre redes virtuais criadas com modelos de implantação iguais ou diferentes que existem nas mesmas assinaturas ou em assinaturas diferentes. Conclua um tutorial para um dos seguintes cenários:
 

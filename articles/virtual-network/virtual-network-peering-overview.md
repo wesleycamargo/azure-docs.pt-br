@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: b65bad57a300d941774f5d3e5d01967f0c13d684
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 22521abbc341fa9999738dd51301d3f84c18627a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60186813"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919303"
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
@@ -78,7 +78,7 @@ Você também pode experimentar a [Solução de problemas para problemas de empa
 ## <a name="requirements-and-constraints"></a>Requisitos e restrições
 
 As seguintes restrições se aplicam somente quando as redes virtuais são emparelhadas globalmente:
-- Recursos em uma rede virtual não podem se comunicar com o endereço IP de front-end de um balanceador interno de carga básico em uma rede virtual emparelhada globalmente. Só existe suporte para Load Balancer Basic dentro da mesma região. Existe suporte para o balanceador de carga padrão para o emparelhamento VNet Global.
+- Recursos em uma rede virtual não podem se comunicar com o endereço IP de front-end de um balanceador interno de carga básico em uma rede virtual emparelhada globalmente. Só existe suporte para Load Balancer Basic dentro da mesma região. Existe suporte para o balanceador de carga padrão para tanto, emparelhamento de rede virtual e o emparelhamento VNet Global. Serviços que usam um balanceador de carga básico que não funcionará em emparelhamento VNet Global estão documentados [aqui.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
 
 Para saber mais sobre requisitos e restrições, confira [Restrições e requisitos de emparelhamento de redes virtuais](virtual-network-manage-peering.md#requirements-and-constraints). Para saber mais sobre os limites de número de emparelhamentos que você pode criar para uma rede virtual, confira [Limites de rede do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 

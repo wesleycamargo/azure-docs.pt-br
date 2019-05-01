@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 31da745727d567e1b3b85b3508df368d78ad84a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc939011f87f03ef1de7e728fc52fc0c9887dd31
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60557234"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935399"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Streaming de FairPlay Offline para iOS 
 
@@ -42,8 +42,8 @@ A criptografia de gerenciamento de direitos digitais (DRM)/AES do conteúdo é e
 Além de proteger o conteúdo de streaming online por meio de vários protocolos de streaming, o modo offline para conteúdo protegido também é um recurso que normalmente é solicitado. O suporte ao modo offline é necessário para os seguintes cenários:
 
 * Reprodução quando a conexão de Internet não estiver disponível, como durante viagens.
-* Alguns provedores de conteúdo podem não permitir a entrega de licença do DRM além das fronteiras do país. Se os usuários desejarem inspecionar o conteúdo quando estiverem viajando fora do seu país, é necessário baixá-lo offline.
-* Em alguns países, a disponibilidade de Internet e/ou a largura de banda ainda é limitada. Os usuários podem optar por fazer o download primeiro para que seja possível assistir o conteúdo em uma resolução que seja alta o suficiente para uma experiência de exibição satisfatória. Nesse caso, o problema geralmente não é a disponibilidade da rede, mas largura de banda de rede limitada. Os provedores de over-the-top (OTT)/plataforma de vídeo online (OVP) solicitam suporte para o modo offline.
+* Alguns provedores de conteúdo podem não permitir a entrega de licença do DRM além das fronteiras de um país/região. Se os usuários desejarem inspecionar o conteúdo quando estiverem viajando fora do país/região, é necessário baixá-lo offline.
+* Em alguns países ou regiões, disponibilidade de internet e/ou largura de banda ainda é limitada. Os usuários podem optar por fazer o download primeiro para que seja possível assistir o conteúdo em uma resolução que seja alta o suficiente para uma experiência de exibição satisfatória. Nesse caso, o problema geralmente não é a disponibilidade da rede, mas largura de banda de rede limitada. Os provedores de over-the-top (OTT)/plataforma de vídeo online (OVP) solicitam suporte para o modo offline.
 
 Este artigo aborda o suporte ao modo offline de Streaming de FairPlay (FPS), focando em dispositivos que executam o iOS 10 ou posterior. Não há suporte para esse recurso para outras plataformas da Apple, como watchOS, tvOS ou Safari no macOS.
 

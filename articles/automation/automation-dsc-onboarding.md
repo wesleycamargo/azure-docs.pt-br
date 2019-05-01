@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: b81dccf3c71fbaff7b0cbb9ba00f13b458156e73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9f15c558e507742a641239ed25ba136dca0671a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61074458"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919979"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Integrar computadores para gerenciamento por Configuração de Estado da Automação do Azure
 
@@ -62,8 +62,8 @@ Em **Registro**, digite os [valores do Gerenciador de Configuração Local de DS
 
 ### <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 
-Máquinas virtuais do Azure podem ser implantadas e integradas à Configuração do Estado de Automação do Azure por meio de modelos do Gerenciador do Azure Resource Manager. Ver [servidor gerenciado pelo serviço de Desired State Configuration](https://azure.microsoft.com/en-us/resources/templates/101-automation-configuration/) para um modelo de exemplo que integra uma VM existente para a configuração de estado de automação do Azure.
-Se você estiver gerenciando um conjunto de dimensionamento de máquinas virtuais, consulte o modelo de exemplo [configuração de conjunto de dimensionamento de VM gerenciada pela automação do Azure](https://azure.microsoft.com/en-us/resources/templates/201-vmss-automation-dsc/).
+Máquinas virtuais do Azure podem ser implantadas e integradas à Configuração do Estado de Automação do Azure por meio de modelos do Gerenciador do Azure Resource Manager. Ver [servidor gerenciado pelo serviço de Desired State Configuration](https://azure.microsoft.com/resources/templates/101-automation-configuration/) para um modelo de exemplo que integra uma VM existente para a configuração de estado de automação do Azure.
+Se você estiver gerenciando um conjunto de dimensionamento de máquinas virtuais, consulte o modelo de exemplo [configuração de conjunto de dimensionamento de VM gerenciada pela automação do Azure](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/).
 
 ### <a name="powershell"></a>PowerShell
 
@@ -72,7 +72,7 @@ O cmdlet [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automati
 ### <a name="registering-virtual-machines-across-azure-subscriptions"></a>Registrando as máquinas virtuais entre assinaturas do Azure
 
 A melhor maneira de registrar as máquinas virtuais a partir de outras assinaturas do Azure é usar a extensão de DSC em um modelo de implantação do Azure Resource Manager.
-Exemplos são fornecidos nas [extensão de Desired State Configuration com modelos do Azure Resource Manager](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/dsc-template).
+Exemplos são fornecidos nas [extensão de Desired State Configuration com modelos do Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template).
 Para localizar a chave de registro e a URL de registro para usar como parâmetros no modelo, consulte o seguinte [ **proteger o registro** ](#secure-registration) seção.
 
 ## <a name="azure-virtual-machines-classic"></a>Máquinas virtuais do Azure (clássico)

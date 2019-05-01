@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 409c1abd7e9f532bb243ecab00228b402215c77e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8d5df0f83a7ae37b9f06a5e255e9809288b6d67
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61313629"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917023"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Replicação transacional do SQL Server com bancos de dados individuais, em pool e de instâncias no Banco de Dados SQL do Azure
 
@@ -79,7 +79,7 @@ Existem diferentes [tipos de replicação](https://docs.microsoft.com/sql/relati
   > - Tentativa de configurar a replicação usando uma versão mais antiga pode resultar em erro número MSSQL_REPL20084 (o processo não pôde se conectar ao Assinante.) e MSSQL_REPL40532 (não é possível abrir o servidor \<nome> solicitado pelo logon. Houve falha no logon).
   > - Para usar todos os recursos do Banco de Dados SQL do Azure, você deve estar usando as versões mais recentes do [SSMS (SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e do [SSDT (SQL Server Data Tools)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
   
-  ### <a name="supportabilty-matrix-for-instance-databases-and-on-premises-systems"></a>Matriz de Supportabilty para sistemas locais e bancos de dados de instância
+  ### <a name="supportability-matrix-for-instance-databases-and-on-premises-systems"></a>Matriz de suporte para sistemas de bancos de dados de instância e no local
   A matriz de suporte de replicação por exemplo, bancos de dados é o mesmo que aquele para o SQL Server local. 
   
   | **Publicador**   | **Distribuidor** | **assinante** |
@@ -140,7 +140,7 @@ Nessa configuração, um Banco de Dados SQL do Azure (banco de dados individual,
 
 ## <a name="next-steps"></a>Próximas etapas
 
-1. [Configurar a replicação transacional para uma Instância Gerenciada](replication-with-sql-database-managed-instance.md#configure-publishing-and-distribution-example). 
+1. [Configurar a replicação transacional para uma Instância Gerenciada](replication-with-sql-database-managed-instance.md). 
 1. [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 1. [Crie uma assinatura push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) usando o nome do servidor de Banco de Dados SQL do Azure como o assinante (por exemplo, `N'azuresqldbdns.database.windows.net` e o nome do Banco de Dados SQL do Azure como o banco de dados de destino (por exemplo, **AdventureWorks**. )
 

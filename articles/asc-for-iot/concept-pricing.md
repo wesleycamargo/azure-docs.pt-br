@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 41b2d012ef2f6dd1ca5f57e04da43eb1a06dafde
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 00666e27c9251248aa6ecff75d88908baabf71f3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61360142"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919731"
 ---
 # <a name="pricing-and-associated-costs"></a>Preços e custos associados
 
@@ -40,7 +40,7 @@ O ASC para IoT, modelo de preços é composto de duas partes e é cobrada depois
   >[!Note]
   > Mensagens de segurança também incorrerá em consumo de cota no IoT Hub.
 
-Para obter mais informações, consulte [preços da Central de segurança](https://azure.microsoft.com/en-us/pricing/details/security-center/).
+Para obter mais informações, consulte [preços da Central de segurança](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="associated-costs"></a>Custos associados
 
@@ -65,7 +65,7 @@ A tabela a seguir fornece um resumo dos custos associados e as implicações de 
 |     | Uso | Comentário |
 | --- | --- | --- |
 | **Consumo de cota do IoT Hub** |  |
-| [Exportar dispositivos](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) trabalho (exportação twin) | Uma vez por dia | Desabilitar _coleção de metadados de gêmeos_ |
+| [Exportar dispositivos](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) trabalho (exportação twin) | Uma vez por dia | Desabilitar _coleção de metadados de gêmeos_ |
 | **Armazenamento de análise de log** |  |
 | Alertas e a recomendação de dispositivo| Recomendação de segurança e alertas gerados pelo serviço | Não opcional |
 | Dados brutos de segurança| Dados de segurança bruto de dispositivos de IoT, coletados pelos agentes de segurança | Desabilitar _armazenar eventos de segurança de dispositivo não processado_ |

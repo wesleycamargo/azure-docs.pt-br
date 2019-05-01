@@ -1,25 +1,18 @@
 ---
-title: Pré-requisitos da oferta do Dynamics 365 for Customer Engagement – Azure Marketplace | Microsoft Docs
+title: Dynamics 365 for Customer Engagement oferta pré-requisitos | O Azure Marketplace
 description: Pré-requisitos de publicação de uma oferta do Aplicativo Azure no Azure Marketplace.
 services: Dynamics 365 for Customer Engagement offer, Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pbutlerm
-ms.openlocfilehash: b08312040f9702b8a9100886c198138431012e3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 0b14180c894977d822aa30ea5f46a2e21e247dc1
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308664"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942324"
 ---
 # <a name="dynamics-365-for-customer-engagement-prerequisites"></a>Pré-requisitos do Dynamics 365 for Customer Engagement
 
@@ -58,6 +51,6 @@ Os requisitos comerciais incluem as seguintes obrigações contratuais, legais e
 * Você deve ter criado o manual e os acessórios de marketing associados, como um nome de aplicativo oficial, uma descrição (no formato HTML), imagens de logotipo no formato PNG (40 x 40, 90 x 90, 115 x 115 e 255 x 115 pixels), bem como Termos de Uso e uma Política de Privacidade.  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Depois de atender a esses requisitos, você poderá [criar uma oferta do Dynamics 365 Customer Engagement](./cpp-create-offer.md) 

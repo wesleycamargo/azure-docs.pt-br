@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 4351017cc1848e29cca038f82fd96548ae3492e0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 84efdb0297a2dc69497baee5fb746fb51d02b1b7
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122652"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939509"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Recursos de multimodelos do Banco de Dados SQL do Azure
 
@@ -90,7 +90,7 @@ Em alguns cenários específicos podem ser usados modelos de documentos, em vez 
 
 ## <a name="spatial-features"></a>Recursos espaciais
 
-Os dados espaciais representam informações sobre a localização física e a forma dos objetos geométricos. Esses objetos podem ser localizações de pontos ou objetos mais complexos como países, estradas ou lagos.
+Os dados espaciais representam informações sobre a localização física e a forma dos objetos geométricos. Esses objetos podem ser locais de ponto ou objetos mais complexos como países/regiões, estradas ou Lagos.
 
 O Banco de Dados SQL do Azure oferece suporte a dois tipos de dados espaciais - tipo de dados Geometria e tipo de dados Geografia.
 - O tipo Geometria representa dados em um sistema de coordenadas Euclidiano (plano).

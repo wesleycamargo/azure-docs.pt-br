@@ -1,25 +1,18 @@
 ---
-title: Excluir ofertas do Marketplace – Azure Marketplace | Microsoft Docs
+title: Excluir as ofertas do marketplace | O Azure Marketplace
 description: Excluir ofertas nos Marketplaces do Azure e do AppSource usando o Portal do Cloud Partner
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 1d5d02d65dd3dcf5978639818fba4ebe36ffaaff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 542bc611ac8820385c3f749aa151afc1dcdf6db5
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60825142"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942121"
 ---
 # <a name="delete-azure-marketplace-and-appsource-offers-or-skus"></a>Excluir SKUs ou ofertas do Azure Marketplace e do AppSource
 
@@ -28,7 +21,7 @@ Por motivos diversos, você pode optar por retirar a oferta do seu Microsoft Mar
 - A *remoção de oferta* garante que novos clientes não possam adquirir ou implantar sua oferta, mas não tem impacto sobre clientes existentes, aos quais você precisa dar suporte de acordo com seu contrato de licença e leis pertinentes. 
 - O *encerramento de oferta* é o processo de encerrar o contrato de licenciamento e/ou serviço entre você e seus clientes existentes. 
 
-Diretrizes e políticas relacionadas à remoção e o término da oferta são governadas pelas [contrato de Editor do Microsoft Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) e o [políticas de participação](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (seção [oferta suspensão e remoção](https://docs.microsoft.com/en-us/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
+Diretrizes e políticas relacionadas à remoção e o término da oferta são governadas pelas [contrato de Editor do Microsoft Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) e o [políticas de participação](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (seção [oferta suspensão e remoção](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
 
 Este artigo aborda os diferentes cenários de exclusão compatíveis e as etapas necessárias para executar cada um deles.  
 

@@ -1,25 +1,19 @@
 ---
-title: Adicionar informações bancárias e fiscais | Azure
+title: Adicionar informações de banco e imposto | O Azure Marketplace
 description: Adicione informações bancárias e fiscais à sua conta do Centro de Desenvolvimento.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
 ms.service: marketplace
-ms.assetid: ''
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: f194b02e5b92ca2de5b58a033c38d4f2e35f93f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b435260edcbb132adc19f65b6bfcab7edd3afb9e
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626138"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935670"
 ---
 # <a name="add-bank-and-tax-information"></a>Adicionar informações de banco e imposto  
 As informações bancárias e fiscais são necessárias para todas as ofertas comerciais usando o tipo de listagem de transação.  

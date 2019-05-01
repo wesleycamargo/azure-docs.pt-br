@@ -1,25 +1,18 @@
 ---
-title: Visão geral da publicação de oferta de módulo do Módulo do Azure IoT Edge | Microsoft Docs
+title: Visão geral da publicação de oferta de módulo do IoT Edge do Azure | O Azure Marketplace
 description: Visão geral do processo de publicação de um módulo IoT Edge da oferta no Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 5b4d4471d9c77b5d13dfd5f8c2e9394b1c2d2a87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 319031ec99d449ea5866bb5234cc617145954173
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60910679"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942608"
 ---
 # <a name="iot-edge-module-offer-publishing-overview"></a>Visão geral da publicação da oferta de Módulo do IoT Edge
 

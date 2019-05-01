@@ -2,24 +2,17 @@
 title: Serviços Go-To-Market – seus benefícios do Marketplace | Azure
 description: Go-To-Market Services – os recursos da Microsoft que os publicadores podem usar são descritos nesta seção.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 896e5a3f3b5c9f7d217340c396707718adf93dbb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1f3ae120bbbb902188d893d5a04582a6e9547bdf
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60740020"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937956"
 ---
 # <a name="your-marketplace-benefits"></a>Seus benefícios do Marketplace
 

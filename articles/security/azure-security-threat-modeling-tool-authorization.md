@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 3c078f7246140ee966f1d202d2248758dde49059
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c922556417ac92cc3667927fc8f846ace960a14a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121514"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935875"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Estrutura de segurança: Autorização | Mitigações 
 | Produto/Serviço | Artigo |
@@ -280,7 +280,7 @@ Observe que a RLS, como um recurso de banco de dados pronto para uso, tem suport
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | Tipo de armazenamento - Tabela |
 | **Referências**              | [Como conceder acesso a objetos em sua conta de armazenamento do Azure usando SAS](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
-| **Etapas** | Em alguns cenários de negócios, o Armazenamento de Tabelas do Azure pode ser necessário para armazenar dados confidenciais que precisam ser acessados por várias pessoas diferentes. Por exemplo, dados confidenciais pertencentes a países distintos. Nesses casos, assinaturas SAS podem ser criadas com a especificação da partição e dos intervalos de linhas da chave, para que um usuário tenha acesso aos dados de um país específico.| 
+| **Etapas** | Em alguns cenários de negócios, o Armazenamento de Tabelas do Azure pode ser necessário para armazenar dados confidenciais que precisam ser acessados por várias pessoas diferentes. Por exemplo, dados confidenciais pertencentes a países/regiões diferentes. Nesses casos, assinaturas SAS podem ser construídas, especificando as partição e linha intervalos de chaves, de modo que um usuário pode acessar dados específicos de um determinado país/região.| 
 
 ## <a id="rbac-azure-manager"></a>Habilitar o controle de acesso baseado em função (RBAC) na conta de armazenamento do Azure usando o Azure Resource Manager
 

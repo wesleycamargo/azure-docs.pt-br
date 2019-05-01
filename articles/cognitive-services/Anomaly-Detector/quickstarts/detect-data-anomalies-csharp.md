@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 772f15f54819f31d92411df747fc10d54b3e96cd
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: ffa42eb2247d163dd6a146ffb26c1f8cc5cf6d82
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544105"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922530"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Início Rápido: Detectar anomalias em seus dados de série temporal usando a API de REST do Detector de anomalias eC# 
 
@@ -35,7 +35,7 @@ Use este guia de início rápido para começar a usar os dois modos de detecçã
         1. Clique com botão direito no **Gerenciador de soluções**
         2. Clique em **Gerenciar Pacotes NuGet...**
         3. Pesquise `Newtonsoft.Json` e instale o pacote
-- Se você estiver usando Linux/MacOS, esse aplicativo pode ser executado usando [Mono](http://www.mono-project.com/).
+- Se você estiver usando Linux/MacOS, esse aplicativo pode ser executado usando [Mono](https://www.mono-project.com/).
 
 - Pontos de dados de série de tempo que contém um JSON arquivo. Os dados de exemplo para este início rápido podem ser encontrados no [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 
@@ -181,7 +181,7 @@ Uma resposta bem-sucedida é retornada no formato JSON. Clique nos links abaixo 
 * [Exemplo de resposta de detecção de lote](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
 * [Resposta a detecção do ponto mais recente de exemplo](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect)

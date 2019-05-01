@@ -5,15 +5,15 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/05/2018
-ms.author: mialdridm
+ms.date: 04/24/2019
+ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 35cee297156cf64deeef8c9c6b514ec8176f9ca5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c4290473a7c1edce02d74a4a787c62ccf0d9c052
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60367688"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924304"
 ---
 # <a name="expressroute-circuits-and-peering"></a>Circuitos e emparelhamento do ExpressRoute
 
@@ -22,10 +22,11 @@ Os circuitos do ExpressRoute conectam sua infraestrutura local à Microsoft por 
 ![](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
 > [!IMPORTANT]
-> O emparelhamento público do Azure foi preterido, pois não está disponível para novos circuitos do ExpressRoute. Os novos circuitos dão suporte ao emparelhamento e ao emparelhamento privado da Microsoft.  
+> Emparelhamento público do Azure foi preterido e não está disponível para novos circuitos do ExpressRoute. Suportam a novos circuitos do emparelhamento da Microsoft e emparelhamento privado.  
 >
 
 ## <a name="circuits"></a> Circuitos do ExpressRoute
+
 Um circuito do ExpressRoute representa uma conexão lógica entre a infraestrutura local e os serviços de nuvem da Microsoft por meio de um provedor de conectividade. É possível solicitar vários circuitos do ExpressRoute. Os circuitos podem estar na mesma região ou em regiões diferentes, bem como podem ser conectados aos seus locais por meio de diferentes provedores de conectividade.
 
 Os circuitos do ExpressRoute não são mapeados para entidades físicas. Um circuito é identificado exclusivamente por um GUID padrão chamado de chave de serviço (s-key). A chave de serviço é a única informação trocada entre a Microsoft, o provedor de conectividade e você. A chave-s não é um segredo para fins de segurança. Há um mapeamento de 1:1 entre um circuito do ExpressRoute e a chave-s.
@@ -35,14 +36,17 @@ Os novos circuitos do ExpressRoute podem incluir dois emparelhamentos independen
 Cada circuito tem uma largura de banda fixa (50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 10 Gbps) e é mapeado para um provedor de conectividade e um local de emparelhamento. A largura de banda selecionada é compartilhada entre todos os emparelhamentos para o circuito
 
 ### <a name="quotas"></a>Cotas, limites e limitações
+
 Cotas e limites padrão aplicam-se a todos os circuitos do ExpressRoute. Consulte a página [Limites, cotas e restrições de serviço e assinatura do Azure](../azure-subscription-service-limits.md) para obter informações atualizadas sobre cotas.
 
 ## <a name="routingdomains"></a>Emparelhamento do ExpressRoute
+
 Um circuito do ExpressRoute tem vários domínios de roteamento/emparelhamento associados a ele: Público do Azure, privado do Azure e Microsoft. Cada emparelhamento é configurado de modo idêntico em um par de roteadores (na configuração ativo-ativo ou de compartilhamento de carga) para alta disponibilidade. Os serviços do Azure estão categorizados como *público do Azure* e *privado do Azure* para representar os esquemas de endereçamento IP.
 
 ![](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 
 ### <a name="privatepeering"></a>Emparelhamento privado do Azure
+
 Os serviços de computação do Azure, isto é, máquinas virtuais (IaaS) e serviços de nuvem (PaaS), implantados em uma rede virtual podem ser conectados por meio do domínio de emparelhamento privado. O domínio de emparelhamento privado é considerado uma extensão confiável de sua rede principal para o Microsoft Azure. Você pode configurar a conectividade bidirecional entre sua rede principal e as redes virtuais (VNets) do Azure. Esse emparelhamento permite a você se conectar a máquinas virtuais e serviços de nuvem diretamente em seus endereços IP privados.  
 
 Você pode conectar mais de uma rede virtual ao domínio de emparelhamento privado. Examine a [Página de perguntas Frequentes](expressroute-faqs.md) para obter informações sobre limites e limitações. Você pode visitar a página [Limites, cotas e restrições de serviço e assinatura do Azure](../azure-subscription-service-limits.md) para obter informações atualizadas sobre limites.  Consulte a página [Roteamento](expressroute-routing.md) para obter informações detalhadas sobre a configuração de roteamento.
@@ -58,7 +62,7 @@ Consulte a [página de perguntas frequentes](expressroute-faqs.md) para obter ma
 ### <a name="publicpeering"></a> Pareamento público do Azure (preterido para novos circuitos)
 
 > [!Note]
-> Emparelhamento público do Azure tem 1 endereço IP de NAT associado a cada sessão BGP. Para mais de 2 endereços IP de NAT, mova [emparelhamento da Microsoft](https://docs.microsoft.com/en-us/azure/expressroute/how-to-move-peering), onde você pode configurar seus próprio alocações de NAT, bem como usar filtros de rota para anúncios de prefixo seletivo. 
+> Emparelhamento público do Azure tem 1 endereço IP de NAT associado a cada sessão BGP. Para mais de 2 endereços IP de NAT, mova para o emparelhamento da Microsoft. Emparelhamento da Microsoft permite que você configurar seus próprio alocações de NAT, bem como usar filtros de rota para anúncios de prefixo seletivo. Para obter mais informações, consulte [mover para o emparelhamento da Microsoft](https://docs.microsoft.com/azure/expressroute/how-to-move-peering).
 >
 
 Serviços como o Armazenamento do Azure, Sites e Bancos de dados SQL são oferecidos em endereços IP públicos. Você pode se conectar de modo privado a serviços hospedados em endereços IP públicos (incluindo VIPs de seus serviços de nuvem) por meio do domínio de roteamento de emparelhamento público. É possível conectar o domínio de emparelhamento público à sua DMZ e a todos os serviços do Azure em seus endereços IP públicos de sua WAN sem precisar se conectar pela Internet.
@@ -70,6 +74,7 @@ Você pode definir filtros de rota personalizados dentro da sua rede para consum
 Para saber mais sobre serviços com suporte por meio do domínio de roteamento de emparelhamento público, consulte as [perguntas frequentes](expressroute-faqs.md).
 
 ## <a name="peeringcompare"></a>Comparação de emparelhamento
+
 A tabela a seguir compara os três emparelhamentos:
 
 |  | **Emparelhamento privado** | **Emparelhamento da Microsoft** |  **Pareamento público** (preterido para novos circuitos) |
@@ -86,11 +91,13 @@ Você pode habilitar um ou mais domínios de roteamento como parte do seu circui
 Cada emparelhamento requer sessões BGP (um par para cada tipo de emparelhamento) separadas. Os pares de sessões BGP fornecem um link altamente disponível. Se estiver conectando por meio de provedores de conectividade da camada 2, você será responsável por configurar e gerenciar o roteamento. Saiba mais analisando os [fluxos de trabalho](expressroute-workflows.md) para configurar o ExpressRoute.
 
 ## <a name="health"></a>Integridade do ExpressRoute
+
 Os circuitos de ExpressRoute podem ser monitorados para disponibilidade, conectividade para VNets e utilização de largura de banda usando o [Monitor de Desempenho de Rede](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM).
 
 O NPM monitora a integridade do peering privado do Azure e do peering da Microsoft. Confira nossa [postagem](https://azure.microsoft.com/blog/monitoring-of-azure-expressroute-in-preview/) para saber mais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
+
 * Encontrar um provedor de serviços. Consulte [Locais e provedores de serviços do ExpressRoute](expressroute-locations.md).
 * Certifique-se que todos os pré-requisitos foram atendidos. Consulte [Pré-requisitos do ExpressRoute](expressroute-prerequisites.md).
 * Configurar sua conexão do ExpressRoute.

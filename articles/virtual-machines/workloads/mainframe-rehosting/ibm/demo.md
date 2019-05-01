@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: f8af19056a343abdbafcd4ead8b072330cb41fd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6fcb345b49ce6354a24408ebe163fb928990252
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61438397"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925687"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Defina o backup de um aplicativo desenvolvedores controlado por distribuição (ADCD) no IBM zD & T v1
 
@@ -187,7 +187,7 @@ Parabéns! Agora você está executando um ambiente de mainframe IBM no Azure.
 - [Migração de mainframe: mitos e fatos](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
 - [IBM DB2 pureScale no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)
 - [Solução de problemas](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
-- [Desmistificando mainframe para a migração do Azure](https://azure.microsoft.com/en-us/resources/demystifying-mainframe-to-azure-migration/)
+- [Desmistificando mainframe para a migração do Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->
 [microfocus-get-started]: /microfocus/get-started.md

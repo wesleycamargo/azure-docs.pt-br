@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 90f832319fa2343003af58bd99eb64c0cbd94dd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 284480ab8b9973c02f365dbf3ebfd3a103ef4b42
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371667"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919160"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurar sua conta de cobrança para um contrato de cliente da Microsoft
 
@@ -108,7 +108,7 @@ Um locatário do Azure Active Directory é selecionado para a nova conta de cobr
 
 Sua nova conta dá suporte apenas a usuários do locatário que foi selecionado ao assinar o contrato do cliente Microsoft. Se os usuários com permissões administrativas no seu contrato Enterprise são parte do locatário, ele obterá acesso para a nova conta de cobrança durante a instalação. Se eles não fazem parte do locatário, eles não será capazes de acessar a nova conta de cobrança, a menos que você convidá-los.
 
-Ao convidar usuários, eles são adicionados ao locatário como usuários convidados e obtém acesso à conta de cobrança. Para convidar usuários, o acesso de convidado deve ser ativado para o locatário. Para obter mais informações, consulte [controlar o acesso de convidado no Azure Active Directory](https://docs.microsoft.com/en-us/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). Se o acesso de convidado é desativado, entre em contato com os administradores globais do seu locatário para ativá-lo. <!-- Todo - How can they find their global administrator -->
+Ao convidar usuários, eles são adicionados ao locatário como usuários convidados e obtém acesso à conta de cobrança. Para convidar usuários, o acesso de convidado deve ser ativado para o locatário. Para obter mais informações, consulte [controlar o acesso de convidado no Azure Active Directory](https://docs.microsoft.com/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). Se o acesso de convidado é desativado, entre em contato com os administradores globais do seu locatário para ativá-lo. <!-- Todo - How can they find their global administrator -->
 
 ## <a name="view-features-replaced-by-the-new-billing-account"></a>Exibir recursos substituídos pela nova conta de cobrança
 

@@ -1,5 +1,5 @@
 ---
-title: Modo de conectividade, energia e acesso de dispositivos de borda da caixa de dados do Microsoft Azure | Microsoft Docs
+title: Modo de conectividade, energia e acesso de dispositivo de borda da caixa de dados do Azure | Microsoft Docs
 description: Descreve como gerenciar o acesso, a potência e o modo de conectividade para o dispositivo de borda de caixa de dados do Azure que ajuda a transferir dados para o Azure
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 813563b500b9365289285a89536f2724fb87acad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5fbe8f3eb05ac60918e488c68869c3fe44051a3f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60757257"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924358"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Gerenciar o acesso, a potência e o modo de conectividade para a borda da caixa de dados do Azure
 

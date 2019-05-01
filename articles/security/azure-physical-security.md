@@ -1,6 +1,6 @@
 ---
-title: Recursos, local e segurança física do Azure | Microsoft Docs
-description: O artigo descreve os datacenters do Azure, incluindo as ofertas de conformidade, segurança e infra-estrutura física.
+title: Segurança física dos datacenters do Azure - Microsoft Azure | Microsoft Docs
+description: O artigo descreve o que a Microsoft faz para proteger os datacenters do Azure, incluindo as ofertas de conformidade, segurança e infra-estrutura físicas.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,19 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 5f8378de18796fd679354c88880942df83399ad5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d1b95695de809668987ebb6ef6720a3751205171
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60586775"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939843"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Recursos, local e segurança física do Azure
+Este artigo descreve o que a Microsoft faz para proteger a infraestrutura do Azure.
+
+## <a name="datacenter-infrastructure"></a>Infraestrutura de Datacenter
 O Azure é composto de uma [infraestrutura de datacenter distribuída globalmente](https://azure.microsoft.com/global-infrastructure/), oferecendo suporte a milhares de serviços on-line e abrangendo mais de 100 instalações altamente seguras em todo o mundo.
 
-A infraestrutura é projetada para aproximar os aplicativos aos usuários em todo o mundo, preservando a residência dos dados e oferecendo opções abrangentes de conformidade e resiliência para os clientes. Azure tem 52 regiões em todo o mundo e está disponível em 140 países.
+A infraestrutura é projetada para aproximar os aplicativos aos usuários em todo o mundo, preservando a residência dos dados e oferecendo opções abrangentes de conformidade e resiliência para os clientes. Azure tem 52 regiões em todo o mundo e está disponível em 140 países/regiões.
 
 Uma região é um conjunto de datacenters interconectados por meio de uma rede massiva e resiliente. A rede inclui a distribuição de conteúdo, o balanceamento de carga, redundância e criptografia por padrão. Com mais regiões globais do que qualquer outro provedor de nuvem, o Azure oferece a flexibilidade de implantar aplicativos onde você precisa deles.
 
@@ -67,9 +70,9 @@ A Microsoft usa os procedimentos de práticas recomendados e uma solução de ap
 No final de vida de um sistema, o pessoal operacional da Microsoft segue procedimentos rigorosos de manipulação de dados e descarte de hardware para garantir que o hardware que contém seus dados não seja disponibilizado para partes não confiáveis. Usamos uma abordagem de exclusão segura para discos rígidos que a suportam. Para discos rígidos que não podem ser limpos, usamos um processo de destruição que destrói a unidade e impossibilita a recuperação de informações. Esse processo de destruição pode ser desintegrar, destruir, pulverizar ou incinerar. Determinamos os meios de alienação de acordo com o tipo de ativo. Podemos manter registros da destruição. Todos os serviços do Azure usam serviços de gerenciamento de armazenamento e descarte de mídia aprovados.
 
 ## <a name="compliance"></a>Conformidade
-Projetamos e gerenciamos a infraestrutura do Azure para atender a um amplo conjunto de padrões de conformidade internacionais e específicos do setor, como ISO 27001, HIPAA, FedRAMP, SOC 1 e SOC 2. Também atendemos aos padrões específicos do país, incluindo o IRAP da Austrália, o G-Cloud do Reino Unido e o MTCS de Singapura. Auditorias rigorosas de terceiros, como as feitas pelo British Standards Institute, verificam a adesão aos rígidos controles de segurança que esses padrões exigem.
+Projetamos e gerenciamos a infraestrutura do Azure para atender a um amplo conjunto de padrões de conformidade internacionais e específicos do setor, como ISO 27001, HIPAA, FedRAMP, SOC 1 e SOC 2. Também podemos atender a padrões específicos de país ou região, incluindo o IRAP da Austrália, o G-Cloud do Reino Unido e o MTCS de Cingapura. Auditorias rigorosas de terceiros, como as feitas pelo British Standards Institute, verificam a adesão aos rígidos controles de segurança que esses padrões exigem.
 
-Para obter uma lista completa dos padrões de conformidade que o Azure adota, consulte as [ofertas de Conformidade](https://www.microsoft.com/trustcenter/compliance/complianceofferings). 
+Para obter uma lista completa dos padrões de conformidade que o Azure adota, consulte as [ofertas de Conformidade](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre o que a Microsoft faz para ajudar a proteger a infraestrutura do Azure, consulte:

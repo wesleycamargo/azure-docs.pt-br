@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8c3395345093ae9a3d35deb27a08f12d331c9f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bd117b79c2d103225e8f1f29b63eb6ae341031d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358150"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917655"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Proteção por senha do Azure AD local – perguntas frequentes
 
@@ -42,7 +42,7 @@ Uma alteração de senha é quando um usuário escolhe uma nova senha depois de 
 
 Um conjunto de senha (às vezes chamado de uma redefinição de senha) é quando um administrador substitui a senha em uma conta com uma nova senha, por exemplo, usando a ferramenta de gerenciamento de computadores e usuários do Active Directory. Esta operação requer um alto nível de privilégio (normalmente, o administrador de domínio) e a pessoa que realiza a operação geralmente não tem conhecimento da senha antiga. Cenários de assistência técnica faz isso com frequência, por exemplo quando ajudar um usuário que esqueceu a senha. Você também verá senha definir eventos quando uma nova conta de usuário está sendo criada pela primeira vez com uma senha.
 
-A política de validação de senha se comporta da mesma, independentemente se estiver sendo feito uma alteração de senha ou um conjunto. O serviço do agente de controlador de domínio de proteção de senha do Azure AD registrar eventos diferentes para informá-lo se uma alteração de senha ou a operação set foi feita.  Ver [proteção de senha do Azure AD, monitoramento e registro em log](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
+A política de validação de senha se comporta da mesma, independentemente se estiver sendo feito uma alteração de senha ou um conjunto. O serviço do agente de controlador de domínio de proteção de senha do Azure AD registrar eventos diferentes para informá-lo se uma alteração de senha ou a operação set foi feita.  Ver [proteção de senha do Azure AD, monitoramento e registro em log](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
 
 **P: Há suporte para instalação da proteção por senha do Azure AD lado a lado com outros produtos baseados em filtro de senha?**
 
@@ -128,7 +128,7 @@ Os links a seguir não fazem parte da principal documentação da Proteção de 
 
 Se você estiver interessado em aprender mais sobre a proteção por senha do Azure AD e como implantá-la em seu ambiente, poderá aproveitar um serviço proativo da Microsoft disponível para clientes com um contrato de suporte Premier ou Unified. O serviço chama-se Azure Active Directory: Proteção por Senha. Para obter mais informações, entre em contato com seu Gerente Técnico de Conta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se você tiver uma pergunta sobre proteção de senha do Azure AD local que não foi respondida aqui, envie um item de Comentário abaixo. Obrigado!
 

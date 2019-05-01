@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/29/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 67d3dcad4ec73ee09ec40282b2fbdea945daefe4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 21944c62f09518e20619313cd6ac28fb2ad600c7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122669"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925275"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedagem de site estático no Armazenamento do Microsoft Azure
 As contas de GPv2 de Armazenamento do Microsoft Azure permitem que você forneça conteúdo estático (HTML, CSS, JavaScript e arquivos de imagem) diretamente de um contêiner de armazenamento denominado *$web*. Aproveitar a hospedagem no Armazenamento do Microsoft Azure permite que você use arquiteturas sem servidor incluindo [Azure Functions](/azure/azure-functions/functions-overview) e outros serviços de PaaS.
@@ -52,16 +52,21 @@ O nome do arquivo padrão selecionado é usado na raiz e todos os subdiretórios
 
 ## <a name="cdn-and-ssl-support"></a>Suporte CDN e SSL
 
-Para acessar seu site hospedado em um nome de domínio personalizado por HTTPS, consulte [ Usando a Rede de Distribuição de Conteúdo do Microsoft Azure com domínios personalizados por HTTPS ](storage-https-custom-domain-cdn.md). Como parte desse processo, você precisará *apontar seu CDN para o ponto de extremidade da web* em vez do ponto de extremidade do Blobs. Talvez você precise aguardar alguns minutos antes que seu conteúdo fique visível, uma vez que a configuração de CDN não é executada imediatamente.
+Para disponibilizar seus arquivos de site estático em seu domínio personalizado e HTTPS, consulte [usando a CDN do Azure para acessar blobs com domínios personalizados por HTTPS](storage-https-custom-domain-cdn.md). Como parte desse processo, você precisará *apontar seu CDN para o ponto de extremidade da web* em vez do ponto de extremidade do Blobs. Talvez você precise aguardar alguns minutos antes que seu conteúdo fique visível, uma vez que a configuração de CDN não é executada imediatamente.
 
 Quando você atualiza seu site estático, certifique-se de limpar o conteúdo armazenado em cache nos servidores de borda da CDN com uma limpeza de ponto de extremidade CDN. Para obter mais informações, confira [Como limpar um ponto de extremidade do CDN do Azure](../../cdn/cdn-purge-endpoint.md).
+
+> [!NOTE]
+> Há suporte para HTTPS nativamente por meio do ponto de extremidade de web de conta. O uso de domínios personalizados por HTTPS requer o uso da CDN do Azure neste momento. 
+>
+> Ponto de extremidade público conta web via HTTPS: `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
 
 ## <a name="custom-domain-names"></a>Nomes de domínio personalizados
 
 Você pode [configurar um nome de domínio personalizado para sua conta de Armazenamento do Microsoft Azure](storage-custom-domain-name.md) para disponibilizar seu site estático por meio de um domínio personalizado. Para uma visão detalhada na hospedagem do seu domínio no [Azure, consulte Hospeder seu domínio no DNS do Azure](../../dns/dns-delegate-domain-azure-dns.md).
 
 ## <a name="pricing"></a>Preços
-Hospedagem de website estático é fornecida sem nenhum custo adicional. Para obter mais detalhes sobre preços para Armazenamento de Blob do Azure, confira [Página de Preços do Armazenamento de Blob do Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Habilitar a hospedagem de site estático está disponível gratuitamente. Os clientes são cobrados para os custos de armazenamento e operações de blob utilizados. Para obter mais detalhes sobre preços para Armazenamento de Blob do Azure, confira [Página de Preços do Armazenamento de Blob do Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="quickstart"></a>Início rápido
 
@@ -159,7 +164,10 @@ Não, hospedagem de websites estáticos está apenas disponível em contas de ar
 Sim, o novo endpoint da web obedece às regras de VNET e firewall configuradas para a conta de armazenamento.
 
 **O ponto de extremidade da web diferencia maiusculas de minúsculas?**  
-Sim, o ponto de extremidade da Web diferencia maiúsculas e minúsculas exatamente como o ponto de extremidade do Blob. 
+Sim, o ponto de extremidade da Web diferencia maiúsculas e minúsculas exatamente como o ponto de extremidade do Blob.
+
+**O ponto de extremidade da web é acessível por meio de HTTP e HTTPS?**
+Sim, o ponto de extremidade da web está acessível via HTTP e HTTPS. No entanto, se a conta de armazenamento é configurada para requerer transferência segura via HTTPS, os usuários devem usar o ponto de extremidade HTTPS. Para obter mais informações, consulte [requer transferência segura no armazenamento do Azure](../common/storage-require-secure-transfer.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Usar a CDN do Azure para acessar blobs com domínios personalizados por HTTPS](storage-https-custom-domain-cdn.md)

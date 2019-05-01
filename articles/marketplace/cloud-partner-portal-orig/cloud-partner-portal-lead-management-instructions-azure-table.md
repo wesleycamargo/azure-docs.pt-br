@@ -1,25 +1,18 @@
 ---
-title: Tabela do Azure | Microsoft Docs
+title: Tabela do Azure | O Azure Marketplace
 description: Configure o gerenciamento de clientes potenciais para a tabela do Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 2a8ae3ab71b258d92d9761cc813b168717e44d82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: af582e51875f84503116f4ec7131464d51e54a99
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61066374"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935853"
 ---
 # <a name="lead-management-instructions-for-azure-table"></a>Instruções de gerenciamento de leads em tabelas do Azure
 

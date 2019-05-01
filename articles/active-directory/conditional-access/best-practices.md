@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11d4d319fa31dd2493810dc7293d415554f79d94
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54cb8c3017b2b0a4c476095ba639985fb9418441
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411703"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917315"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Práticas recomendadas para o acesso condicional no Azure Active Directory
 
@@ -109,7 +109,7 @@ Para cada entrada, o Azure Active Directory avalia todas as políticas e garante
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>O acesso condicional funciona com o Exchange ActiveSync?
 
-Sim, você pode usar o Exchange ActiveSync em uma política de acesso condicional com algumas [limitações](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo#exchange-activesync). 
+Sim, você pode usar o Exchange ActiveSync em uma política de acesso condicional com algumas [limitações](https://docs.microsoft.com/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo#exchange-activesync). 
 
 ### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Como você configurar o acesso condicional com aplicativos do Office 365?
 

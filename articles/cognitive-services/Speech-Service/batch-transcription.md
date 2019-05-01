@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: b389d86fe4d23e3f4ee1c66e4270a74351098129
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1a2d24be00b0e1224b5f8d52105e2969d64e5f64
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61059598"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922470"
 ---
 # <a name="why-use-batch-transcription"></a>Por que usar a transcrição do lote?
 
@@ -29,7 +29,7 @@ A transcrição de lote é ideal se você quer transcrever uma grande quantidade
 Como acontece com todos os recursos do serviço de fala, você cria uma chave de assinatura no [Portal do Microsoft Azure](https://portal.azure.com) seguindo nosso [Guia de primeiros passos](get-started.md). Se você planeja obter transcrições de nossos modelos de linha de base, a criação de uma chave é tudo que você precisa fazer.
 
 >[!NOTE]
-> Uma assinatura standard (S0) para Serviços de Fala é necessária para usar a transcrição do lote. Chaves de assinatura gratuita (F0) não funcionarão. Para obter mais informações, consulte [preços e limites](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/).
+> Uma assinatura standard (S0) para Serviços de Fala é necessária para usar a transcrição do lote. Chaves de assinatura gratuita (F0) não funcionarão. Para obter mais informações, consulte [preços e limites](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="custom-models"></a>Modelos personalizados
 
@@ -72,7 +72,8 @@ Parâmetros de configuração são fornecidos como JSON:
   "properties": {
     "ProfanityFilterMode": "Masked",
     "PunctuationMode": "DictatedAndAutomatic",
-    "AddWordLevelTimestamps" : "True"
+    "AddWordLevelTimestamps" : "True",
+    "AddSentiment" : "True"
   }
 }
 ```
@@ -87,6 +88,7 @@ Parâmetros de configuração são fornecidos como JSON:
 | `ProfanityFilterMode` | Especifica como lidar com conteúdo ofensivo nos resultados do reconhecimento. Os valores aceitos são `none`, o que desativa a filtragem de profanação, `masked` que substitui a profanidade por asteriscos, `removed` que remove todos os palavrões do resultado ou `tags`, que adiciona tags de "profanidade". A configuração padrão é `masked`. | Opcional |
 | `PunctuationMode` | Especifica como manipular a pontuação nos resultados do reconhecimento. Os valores aceitos são `none`, o que desativa a pontuação, `dictated` que implica pontuação explícita, `automatic` que permite ao decodificador lidar com pontuação ou `dictatedandautomatic`, o que implica em sinais de pontuação ditados ou automáticos. | Opcional |
  | `AddWordLevelTimestamps` | Especifica se os carimbos de data/hora no nível da palavra devem ser adicionados à saída. Os valores aceitos são `true`, o que habilita os carimbos de data/hora no nível da palavra e `false` (o valor padrão) para desabilitá-los. | Opcional |
+ | `AddSentiment` | Especifica o sentimento deve ser adicionado à declaração. Os valores aceitos são `true` que permite que o sentimento por expressão e `false` (o valor padrão) para desabilitá-lo. | Opcional |
 
 ### <a name="storage"></a>Armazenamento
 
@@ -97,6 +99,57 @@ O lote dá suporte a transcrição [armazenamento de BLOBs do Azure](https://doc
 Sondagem de status de transcrição pode não tenha o melhor desempenho, ou fornecer a melhor experiência de usuário. Para sondar o status, você pode registrar retornos de chamada, o qual o cliente serão notificado quando tem concluído a tarefas de transcrição de longa execução.
 
 Para obter mais detalhes, consulte [Webhooks](webhooks.md).
+
+## <a name="sentiment"></a>Sentimento
+
+Sentimento é um novo recurso na API de transcrição de lote e é um recurso importante no domínio do Centro de chamada. Os clientes podem usar o `AddSentiment` parâmetros às suas solicitações para 
+
+1.  Obtenha informações sobre a satisfação do cliente
+2.  Obter informações sobre o desempenho dos agentes (levando as chamadas de equipe)
+3.  Identificar o ponto no tempo quando uma chamada levou um turno em uma direção negativa
+4.  Identificar o que deu bem ao transformar chamadas negativas positivo
+5.  Identificar clientes como e quais não gosto sobre um produto ou um serviço
+
+Sentimento foi classificado por segmento de áudio, onde um segmento de áudio é definido como a janela de tempo entre o início da declaração (deslocamento) e a latência de detecção do final do fluxo de bytes. Todo o texto dentro desse segmento é usado para calcular o sentimento. Nós não calculará nenhum valor de sentimento agregado para a chamada inteira ou a fala inteira de cada canal. Esses são deixadas para o proprietário do domínio ainda mais se aplicam.
+
+Sentimento foi aplicado a forma léxica.
+
+Um exemplo de saída JSON é semelhante a abaixo:
+
+```json
+{
+  "AudioFileResults": [
+    {
+      "AudioFileName": "Channel.0.wav",
+      "AudioFileUrl": null,
+      "SegmentResults": [
+        {
+          "RecognitionStatus": "Success",
+          "ChannelNumber": null,
+          "Offset": 400000,
+          "Duration": 13300000,
+          "NBest": [
+            {
+              "Confidence": 0.976174,
+              "Lexical": "what's the weather like",
+              "ITN": "what's the weather like",
+              "MaskedITN": "what's the weather like",
+              "Display": "What's the weather like?",
+              "Words": null,
+              "Sentiment": {
+                "Negative": 0.206194,
+                "Neutral": 0.793785,
+                "Positive": 0.0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+Os recursos usa um modelo de sentimento, que está atualmente em versão Beta.
 
 ## <a name="sample-code"></a>Exemplo de código
 

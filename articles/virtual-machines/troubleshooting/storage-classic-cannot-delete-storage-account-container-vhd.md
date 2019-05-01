@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 673101ad7f55969c216adf7e970402a2109f8254
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 35f8a766c6d260e23ff854284d5b8ee047e64b42
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60864170"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926238"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Solução de problemas de erros de exclusão de recursos de armazenamento clássicos
 Este artigo fornece diretrizes para solução de problemas quando ocorre um dos erros a seguir ao tentar excluir uma conta de armazenamento clássica do Azure, um contêiner ou um arquivo *.vhd do blob de páginas. 
@@ -37,7 +37,7 @@ Um recurso de "Disco" é usado para montar um arquivo *.vhd do blob de páginas 
 3. Depois que as concessões de disco forem desfeitas, os blobs de páginas em si poderão ser excluídos. Uma conta de armazenamento ou um contêiner pode ser excluído depois que todos os recursos de "Disco" presentes neles são excluídos.
 
 >[!NOTE] 
->Se o usuário excluir a VM, mas não o VHD, os encargos de armazenamento continuarão sendo acumulados no arquivo *.vhd do blob de páginas. Os encargos serão alinhados ao tipo de conta de armazenamento; verifique a [página de preços](https://azure.microsoft.com/en-us/pricing/details/storage/) para obter mais detalhes. Se o usuário não pretende mais usar os VHDs, exclua-os para evitar encargos futuros. 
+>Se o usuário excluir a VM, mas não o VHD, os encargos de armazenamento continuarão sendo acumulados no arquivo *.vhd do blob de páginas. Os encargos serão alinhados ao tipo de conta de armazenamento; verifique a [página de preços](https://azure.microsoft.com/pricing/details/storage/) para obter mais detalhes. Se o usuário não pretende mais usar os VHDs, exclua-os para evitar encargos futuros. 
 
 ## <a name="unable-to-delete-storage-account"></a>Não é possível excluir a conta de armazenamento 
 

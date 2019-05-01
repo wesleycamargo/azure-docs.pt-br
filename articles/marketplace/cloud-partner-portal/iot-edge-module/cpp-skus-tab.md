@@ -1,29 +1,23 @@
 ---
-title: SKUs do módulo do Azure IoT Edge | Microsoft Docs
+title: SKUs de módulo do IoT Edge do Azure | O Azure Marketplace
 description: Criar SKUs para um módulo do IoT Edge.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 370d8160661c1f73124151a3a49d0bb3170dfb77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: bf8957c315909785112dea947f2e2e0f7b26349f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60910823"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942184"
 ---
 # <a name="iot-edge-module-skus-tab"></a>Guia SKUs do módulo do IoT Edge
 
 A guia **SKUs** da página **Nova Oferta** permite criar uma ou mais SKUs e associá-las à sua nova oferta.  É possível usar diferentes SKUs para diferenciar uma solução por conjuntos de recursos, modelos de cobrança ou alguma outra característica.
+
 
 ## <a name="sku-settings"></a>Configurações de SKU
 
@@ -41,7 +35,9 @@ A guia **SKUs** é atualizada e exibe os campos editados para configurar a SKU. 
 
 |  **Campo**       |     **Descrição**                                                          |
 |  ---------       |     ---------------                                                          |
-| **ID DO SKU**       | Identificador dessa SKU. Esse nome tem no máximo 50 caracteres, consistindo de caracteres alfanuméricos minúsculos ou traços (-), mas não pode terminar com um traço. **Observação:** Depois que a oferta do publicado, é possível alterar esse nome. O nome é publicamente visível nas URLs do produto. |
+| **ID DO SKU\***       | Identificador dessa SKU. Esse nome tem no máximo 50 caracteres, consistindo de caracteres alfanuméricos minúsculos ou traços (-), mas não pode terminar com um traço. **Observação:** Depois que a oferta do publicado, é possível alterar esse nome. O nome é publicamente visível nas URLs do produto. |
+|  |  |
+
 
 ## <a name="sku-details"></a>Detalhes da SKU
 
@@ -49,24 +45,28 @@ Configure os **Detalhes da SKU** para definir como a SKU será exibida nos sites
 
 ![Metadados de sku do módulo do IoT Edge](media/iot-edge-module-skus-tab-metadata.png)
 
-A tabela a seguir descreve a finalidade, o conteúdo e a formatação dos campos em **Detalhes da SKU**.
+A tabela a seguir descreve a finalidade, o conteúdo e a formatação dos campos em **Detalhes da SKU**. Os campos obrigatórios são indicados por um asterisco (*).
 
 |  **Campo**       |     **Descrição**                                                          |
 |  ---------       |     ---------------                                                          |
-| **Título**        | Título dessa SKU. Comprimento máximo de 50 caracteres. <br/> Ele será mostrado no portal do Azure e utilizado como um nome de módulo padrão (sem espaços e caracteres especiais) quando for implantado. Observe as imagens abaixo para ver exatamente onde esse campo é exibido.|
-| **Resumo**      | Breve resumo desta SKU. Comprimento máximo de 100 caracteres. **NÃO** resuma a oferta, apenas a SKU.  Este resumo será mostrado no Azure Marketplace. Observe as imagens abaixo para ver exatamente onde esse campo é exibido.|
-| **Descrição**  | Breve descrição desta SKU. Comprimento máximo de 3000 caracteres. NÃO descreva a oferta, mas apenas esta SKU. Ela será mostrada no Marketplace e no portal do Azure. No portal do Azure, ela será anexado à Descrição do Marketplace descrevendo a oferta definida na guia Marketplace.  Pode ser semelhante ao Resumo da SKU. Observe as imagens abaixo para ver exatamente onde esse campo é exibido.|
-| **Ocultar esta SKU** | Mantenha a configuração padrão, que é **Não**. |
+| **Título\***        | Título dessa SKU. Comprimento máximo de 50 caracteres. <br/> Ele será mostrado no portal do Azure e utilizado como um nome de módulo padrão (sem espaços e caracteres especiais) quando for implantado. Observe as imagens abaixo para ver exatamente onde esse campo é exibido.|
+| **Resumo\***      | Breve resumo desta SKU. Comprimento máximo de 100 caracteres. **NÃO** resuma a oferta, apenas a SKU.  Este resumo será mostrado no Azure Marketplace. Observe as imagens abaixo para ver exatamente onde esse campo é exibido.|
+| **Descrição\***  | Breve descrição desta SKU. Comprimento máximo de 3000 caracteres. NÃO descreva a oferta, mas apenas esta SKU. Ela será mostrada no Marketplace e no portal do Azure. No portal do Azure, ela será anexado à Descrição do Marketplace descrevendo a oferta definida na guia Marketplace.  Pode ser semelhante ao Resumo da SKU. Observe as imagens abaixo para ver exatamente onde esse campo é exibido.|
+| **Ocultar esta SKU\*** | Mantenha a configuração padrão, que é **Não**. |
+|  |  |
+
 
 ### <a name="sku-example"></a>Exemplo de SKU
 
  Os exemplos a seguir mostram como os campos **Título**, **Resumo** e **Descrição** de SKU aparecem em diferentes exibições.
  
+
 #### <a name="on-the-azure-marketplace-website"></a>No site do Azure Marketplace:
 
 - Ao analisar os detalhes da SKU:
 
     ![Como as SKUs são exibidas no site do Azure Marketplace](media/iot-edge-module-ampdotcom-pdp-plans.png)
+
 
 #### <a name="on-the-azure-portal-website"></a>No site do portal do Azure:
 
@@ -88,6 +88,7 @@ A tabela a seguir descreve a finalidade, o conteúdo e a formatação dos campos
     
     ![Como o módulo do IoT Edge é exibido ao ser implantado](./media/iot-edge-module-deployment.png)
 
+
 ## <a name="sku-content"></a>Conteúdo da SKU
 
 Em **Imagens do Módulo do Edge**, forneça as informações necessárias para carregar o módulo do IoT Edge.
@@ -98,24 +99,24 @@ Conceda-nos acesso ao seu [ACR (Registro de Contêiner do Azure)](https://azure.
 
 ![Imagens do módulo do IoT Edge](./media/iot-edge-module-skus-tab-acr.png)
 
-A tabela a seguir descreve o objetivo, o conteúdo e a formatação dos campos para:
+A tabela a seguir descreve a finalidade, o conteúdo e a formatação dos campos para as seções **detalhes do repositório de imagem** e **versão da imagem**.  Os campos obrigatórios são indicados por um asterisco (*).
 
-- **Detalhes do repositório de imagens**
-- **Versão da imagem**
 
 |  **Campo**       |     **Descrição**                                                          |
 |  ---------       |     ---------------                                                          |
-|  ***Detalhes do repositório de imagens***   |  |
-| **ID da assinatura**        | A ID da assinatura do Azure do ACR.|
-| **Nome do grupo de recursos**      | O nome do grupo de recursos do ACR.|
-| **Nome do registro**  | Seu nome do registro ACR. Copie apenas o nome do registro, NÃO o nome do servidor de logon (por exemplo, sem o `azurecr.io`.) |
-| **Nome do repositório**  | O nome do repositório do ACR que contém o módulo do IoT Edge. **Observação:** Depois que o nome é definido, ele não pode ser alterado posteriormente. Use um nome exclusivo para garantir que nenhuma outra oferta na sua conta tenha o mesmo nome. |
-| **Nome de Usuário** | O nome de usuário associado ao ACR (nome de usuário do administrador). |
-| **Senha** | A senha associada ao ACR. |
-|  ***Versão da imagem***   |  |
-| **Marca de imagem ou resumo** | Ela deve incluir pelo menos uma marca `latest` e uma marca de versão (por exemplo, começando com `xx.xx.xx-` em que xx é um número). Devem ser [marcas de manifesto](https://github.com/estesp/manifest-tool) para segmentar várias plataformas. Todas as marcas referenciadas por uma marca de manifesto também deverão ser adicionadas para que possamos enviá-las. Você pode adicionar várias versões de um módulo do IoT Edge usando marcas. Todas as marcas de manifesto (exceto `latest`) devem começar com `X.Y-` ou `X.Y.Z-` em que X, Y, Z são inteiros. Saiba mais sobre [marcas e controle de versão em "Preparar os ativos técnicos do módulo do IoT Edge"](./cpp-create-technical-assets.md). <br/> Por exemplo, se uma marca `latest` apontar para esses pontos para `1.0.1-linux-x64`, `1.0.1-linux-arm32`,  , e `1.0.1-windows-arm32`, essas 6 marcas deverão ser adicionadas aqui. |
+|  |  ***Detalhes do repositório de imagens***    |
+| **ID da assinatura\***        | A ID da assinatura do Azure do ACR.|
+| **nome do grupo de recursos\***      | O nome do grupo de recursos do ACR.|
+| **Nome do registro\***  | Seu nome do registro ACR. Copie apenas o nome do registro, NÃO o nome do servidor de logon (por exemplo, sem o `azurecr.io`.) |
+| **Nome do repositório\***  | O nome do repositório do ACR que contém o módulo do IoT Edge. **Observação:** Depois que o nome é definido, ele não pode ser alterado posteriormente. Use um nome exclusivo para garantir que nenhuma outra oferta na sua conta tenha o mesmo nome. |
+| **nome de usuário\*** | O nome de usuário associado ao ACR (nome de usuário do administrador). |
+| **senha\*** | A senha associada ao ACR. |
+|    |  ***Versão da imagem***   |
+| **Resumo ou marca de imagem\*** | Ela deve incluir pelo menos uma marca `latest` e uma marca de versão (por exemplo, começando com `xx.xx.xx-` em que xx é um número). Devem ser [marcas de manifesto](https://github.com/estesp/manifest-tool) para segmentar várias plataformas. Todas as marcas referenciadas por uma marca de manifesto também deverão ser adicionadas para que possamos enviá-las. Você pode adicionar várias versões de um módulo do IoT Edge usando marcas. Todas as marcas de manifesto (exceto `latest`) devem começar com `X.Y-` ou `X.Y.Z-` em que X, Y, Z são inteiros. Saiba mais sobre [marcas e controle de versão em "Preparar os ativos técnicos do módulo do IoT Edge"](./cpp-create-technical-assets.md). <br/> Por exemplo, se uma marca `latest` apontar para esses pontos para `1.0.1-linux-x64`, `1.0.1-linux-arm32`,  , e `1.0.1-windows-arm32`, essas 6 marcas deverão ser adicionadas aqui. |
+|  |  |
 
-### <a name="help-your-customers-launch-your-iot-edge-module-by-using-default-settings"></a>Ajudar os clientes a iniciarem o módulo do IoT Edge usando as configurações padrão
+
+### <a name="help-your-customers-launch-by-using-default-settings"></a>Ajude seus clientes de inicialização, usando as configurações padrão
 
 Defina as configurações mais comuns para implantar seu módulo do IoT Edge. Otimize as implantações de clientes, permitindo que eles iniciem o módulo do IoT Edge pronto para uso com esses padrões.
 
@@ -129,8 +130,10 @@ A tabela a seguir descreve a finalidade, o conteúdo e a formatação dos campos
 | **Propriedades desejadas do gêmeo padrão**      | Cada nome e valor das propriedades desejadas do gêmeo padrão devem ter menos de 512 caracteres. É possível definir até 5 propriedades desejadas de nome/valor do gêmeo. Os valores das propriedades desejadas do gêmeo devem ser válidos como JSON, sem escape, sem matrizes e com uma hierarquia aninhada máxima de 4. Saiba mais sobre as [propriedades desejadas do gêmeo](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties). <br/> Por exemplo, se um módulo der suporte a uma taxa de atualização configurável dinamicamente através de propriedades desejadas do gêmeo, é recomendável definir a seguinte propriedade desejada do gêmeo padrão:<br/> - Nome nº 1: `RefreshRate`<br/>- Valor nº 1: `60`|
 | **Variáveis de ambiente padrão**  | Cada nome e valor de variáveis de ambiente padrão deve ter menos de 512 caracteres. Você pode definir até 5 variáveis de ambiente de nome/valor. <br/>Por exemplo, se um módulo precisar aceitar termos de uso antes de ser iniciado, será possível definir a seguinte variável de ambiente:<br/> - Nome nº 1: `ACCEPT_EULA`<br/>- Valor nº 1: `Y`|
 | **CreateOptions padrão**  | O createOptions deve ter menos de 512 caracteres. Deve ser um JSON válido, sem escape. Saiba mais sobre [createOptions](https://docs.microsoft.com/azure/iot-edge/module-composition#configure-modules). <br/> Por exemplo, se um módulo exigir associar uma porta, você poderá definir as seguintes createOptions:<br/>  `"HostConfig":{"PortBindings":{"5012/tcp":[{"HostPort":"5012"}]}`|
+|   |   |
 
-<br/> Selecione **Salvar** para salvar as configurações da SKU. 
+Selecione **Salvar** para salvar as configurações da SKU. 
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

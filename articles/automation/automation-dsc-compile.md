@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f2c6f45081b78d330033570ff322f90cd06e50dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 847c928681451b4fef93198e2f2272d5bb04b1b8
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61074094"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919794"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilação das configurações DSC na Configuração do Estado de Automação do Azure
 
@@ -287,11 +287,11 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 ## <a name="partial-configuration"></a>Configuração parcial
 
-Configuração de estado de automação do Azure dá suporte ao uso de [configurações parciais](https://docs.microsoft.com/en-us/powershell/dsc/pull-server/partialconfigs).
+Configuração de estado de automação do Azure dá suporte ao uso de [configurações parciais](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs).
 Nesse cenário, DSC está configurado para gerenciar várias configurações de forma independente e cada configuração é retreieved da automação do Azure.
 No entanto, somente uma configuração pode ser atribuída a um nó por conta de automação.
 Isso significa que se você estiver usando duas configurações para um nó exigirá duas contas de automação.
-Para obter mais informações sobre como as equipes podem trabalhar juntos para gerenciar os servidores de modo colaborativo usando a configuração como código ver [a função da compreensão DSC em um Pipeline de CI/CD](https://docs.microsoft.com/en-us/powershell/dsc/overview/authoringadvanced).
+Para obter mais informações sobre como as equipes podem trabalhar juntos para gerenciar os servidores de modo colaborativo usando a configuração como código ver [a função da compreensão DSC em um Pipeline de CI/CD](https://docs.microsoft.com/powershell/dsc/overview/authoringadvanced).
 
 ## <a name="importing-node-configurations"></a>Como importar configurações de nó
 

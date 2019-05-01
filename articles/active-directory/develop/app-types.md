@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef180fb444e32e8b055837fd418e21162ff58339
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa4b68d48ec3f4fbb61c7144a133d9c42938c723
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411175"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917291"
 ---
 # <a name="application-types-in-v10"></a>Tipos de aplicativos na v1.0
 
@@ -63,7 +63,7 @@ Qualquer aplicativo que terceirize a autenticação ao Azure AD deve ser registr
   * **Chave**: a chave enviada com uma ID de Aplicativo durante a autenticação no Azure AD para chamar uma API da Web.
 * O Azure AD precisa garantir que o aplicativo tem as permissões necessárias para acessar os dados do diretório, outros aplicativos em sua organização e assim por diante.
 
-Para obter detalhes, saiba como [registrar um aplicativo com o ponto de extremidade do Azure AD v 1.0](quickstart-v1-add-azure-ad-app.md).
+Para obter detalhes, saiba como [registrar um aplicativo](quickstart-register-app.md).
 
 ## <a name="single-tenant-and-multi-tenant-apps"></a>Aplicativos multilocatário e de único locatário
 

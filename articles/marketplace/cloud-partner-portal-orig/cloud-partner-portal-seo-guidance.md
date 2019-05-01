@@ -1,25 +1,18 @@
 ---
-title: Diretrizes de SEO do Marketplace do Azure | Microsoft Docs
+title: Diretrizes de SEO do Marketplace do Azure
 description: Fornece diretrizes sobre como maximizar a SEO (otimização do mecanismo de pesquisa).
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/09/2019
-ms.author: pbutlerm
-ms.openlocfilehash: da7b59400baa4c964dff71fa1f842fede9d68df1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: f5b956ed1197e3898c9536bda3a93a41e8ee35c0
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776787"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935144"
 ---
 # <a name="azure-marketplace-seo-guidance"></a>Diretrizes de SEO do Marketplace do Azure
 

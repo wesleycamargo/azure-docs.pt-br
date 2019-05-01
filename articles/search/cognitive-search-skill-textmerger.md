@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: ceda22394aab27f27740bb999b36e2cc46a6bd06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4dfd00f7f6bf591b3b40a3ca391d2f722b01b7f0
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61126869"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919137"
 ---
 #    <a name="text-merge-cognitive-skill"></a>Habilidade de percepção do Text Merge
 
@@ -78,7 +78,7 @@ Este exemplo mostra a saída da entrada anterior, supondo que o *insertPreTag* s
 
 Um cenário comum para o Text Merge é a capacidade de mesclar a representação textual de imagens (texto de uma habilidade OCR ou a legenda de uma imagem) no campo de conteúdo de um documento. 
 
-O conjunto de qualificações do exemplo a seguir usa a habilidade de OCR para extrair o texto de imagens inseridas no documento. Em seguida, cria um campo *merged_text* que contém texto original e OCRed de cada imagem. Saiba mais sobre a habilidade OCR [aqui](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-ocr).
+O conjunto de qualificações do exemplo a seguir usa a habilidade de OCR para extrair o texto de imagens inseridas no documento. Em seguida, cria um campo *merged_text* que contém texto original e OCRed de cada imagem. Saiba mais sobre a habilidade OCR [aqui](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr).
 
 ```json
 {

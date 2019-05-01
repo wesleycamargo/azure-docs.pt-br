@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: aljo, subramar
-ms.openlocfilehash: 6f14b3184cabd1dfd84f04260f6b8c831037cbcf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ecb7ac4d3359142d3aef247e4b918f517e10c3bb
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60718148"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926124"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de rede de contêiner do Service Fabric
 
@@ -30,7 +30,7 @@ Se você tiver um serviço de contêiner com um ponto de extremidade estático e
 Quando um serviço de contêiner é reiniciado ou movido para outro nó no cluster, o endereço IP é alterado. Por esse motivo, não é recomendável usar o endereço IP atribuído dinamicamente para descobrir os serviços de contêiner. Use somente o Serviço de Nomenclatura do Service Fabric ou o Serviço DNS para a descoberta de serviço. 
 
 >[!WARNING]
->O Azure permite um total de 65,356 IPs por rede virtual. A soma do número de nós e o número de instâncias de serviço de contêiner (que usam o modo aberto) não pode exceder 65,356 IPs dentro de uma rede virtual. Para cenários de alta densidade, recomendamos o modo de rede nat. Além disso, outras dependências, como o balanceador de carga terá outra [limitações](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits) a considerar. Atualmente, até 50 IPs por nó foram testadas e comprovadas estável. 
+>O Azure permite um total de 65,356 IPs por rede virtual. A soma do número de nós e o número de instâncias de serviço de contêiner (que usam o modo aberto) não pode exceder 65,356 IPs dentro de uma rede virtual. Para cenários de alta densidade, recomendamos o modo de rede nat. Além disso, outras dependências, como o balanceador de carga terá outra [limitações](https://docs.microsoft.com/azure/azure-subscription-service-limits) a considerar. Atualmente, até 50 IPs por nó foram testadas e comprovadas estável. 
 >
 
 ## <a name="set-up-open-networking-mode"></a>Configurar o modo de rede Aberto

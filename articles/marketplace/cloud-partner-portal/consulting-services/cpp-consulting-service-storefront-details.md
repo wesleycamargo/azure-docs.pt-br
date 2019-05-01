@@ -1,25 +1,18 @@
 ---
-title: Oferta de serviço de consultoria do Azure e Dynamics 365 – inserir detalhes da vitrine | Microsoft Docs
-description: Guia para definir detalhes da vitrine na oferta de serviço de consultoria do Azure ou Dynamics 365 no Portal do Cloud Partner.
+title: Insira os detalhes da vitrine para a oferta de consultoria | O Azure Marketplace
+description: Defina detalhes da vitrine em um Azure ou Dynamics 365 consultoria oferta de serviço no Portal do Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ac383c85938f5cb7dfe4f711714f5bacd0c96b89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/23/2019
+ms.author: pabutler
+ms.openlocfilehash: 1b028fe016d6ae3df8c1dfce548fc0c11479d5a6
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60865351"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942705"
 ---
 # <a name="storefront-details-tab"></a>Guia Detalhes da Vitrine
 
@@ -32,14 +25,16 @@ Este artigo explica como inserir os detalhes de sua vitrine. A guia **Detalhes d
 
 ![Criar uma oferta de serviço consultoria – guia Detalhes da Vitrine](media/consultingoffer-storefront-details.png)
 
+
 ## <a name="offer-details"></a>Detalhes da oferta
 
 A seção **Detalhes da Oferta** contém as caixas a seguir:
 
--   **Resumo da oferta**
--   **Descrição da oferta**
+-   **Resumo da oferta\***
+-   **Descrição da oferta\***
 
-### <a name="offer-summary"></a>Resumo da oferta
+
+### <a name="offer-summary"></a>Resumo da oferta\*
 
 O resumo da oferta é uma breve descrição da oferta que aparece logo abaixo do nome dela. Use o texto sem formatação para inserir o resumo da oferta sem nenhuma quebra de linha. Os exemplos a seguir são bons resumos da oferta, juntamente com seus nomes de oferta correspondentes.
 
@@ -68,7 +63,8 @@ O resumo da oferta é uma breve descrição da oferta que aparece logo abaixo do
 -   **Nome da oferta**: Dynamics e projetos: avaliação de três dias
 -   **Resuma da oferta**: coleta de requisitos e avaliação para uma solução de ERP elaborada para empresas de serviços profissionais e empresas orientadas a projetos.
 
-### <a name="offer-description"></a>Descrição da oferta
+
+### <a name="offer-description"></a>Descrição da oferta\*
 
 Insira a descrição do que a oferta de serviço de consultoria na caixa **Descrição da oferta**. Uma boa descrição da oferta contém os detalhes exatos de como será a participação e o produto final para o cliente. Ela deve claramente ajudar o cliente a entender o que ele receberá. Inclua como sua oferta se relaciona com o produto da Microsoft para o qual você está oferecendo serviços de consultoria.
 
@@ -144,6 +140,7 @@ Insira sua nova ID do Partner Center, caso tenha uma.
 Insira uma chave secreta para uma versão prévia da oferta no AppSource antes da ativação.
 Esse identificador não é uma senha.
 
+
 ## <a name="listing-details"></a>Detalhes da listagem
 
 **Tipo de serviço de consultoria**
@@ -166,7 +163,7 @@ Os cinco tipos de ofertas a seguir estão incluídos:
 Selecione o país e a região em que essa oferta de serviço de consultoria está disponível. Não é possível publicar uma única oferta em vários países ou regiões. Uma nova oferta precisa ser criada para cada país ou região.
 
 >[!Note]
->Serviços de consultoria do AppSource estão atualmente ativos no Canadá, nos Estados Unidos e no Reino Unido. Você pode enviar uma oferta para um país que ainda não esteja ativo e ela será examinada e preparada para entrar no ar. Um número mínimo de ofertas prontas para serem ativadas é necessário para abrir um país, portanto, incentivamos ofertas para países que não estão ativos.
+>Serviços de consultoria do AppSource estão atualmente ativos no Canadá, nos Estados Unidos e no Reino Unido. Você pode enviar uma oferta para um país/região em que ainda não está ativo e será examinada e preparado para entrar no ar. Um número mínimo de ofertas prontos para entrar no ar é necessárias para abrir um novo país/região, portanto, são incentivadas a ofertas para países/regiões que não estão online.
 
 **Indústrias**
 
@@ -207,6 +204,7 @@ Faça upload do folheto de marketing que descreve sua oferta de serviço de cons
 **Capturas de tela (limitadas a cinco)**
 
 Carregue até cinco imagens que forneçam mais informações sobre a oferta, seus produtos ou sua empresa. Um snippet do seu folheto de marketing, um slide relevante de uma apresentação ou uma imagem que mostre a força ou o conhecimento da empresa são alguns exemplos.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

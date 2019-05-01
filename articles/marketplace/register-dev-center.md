@@ -2,24 +2,18 @@
 title: Registrar no Centro de Desenvolvimento | Azure
 description: Como se registrar no Centro de Desenvolvimento.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 682c9e209c4fa4a9f4971af5da901faf1ec58c22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 559b5a519a48d4aa8022961a59f6f29cef28f948
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60735712"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937593"
 ---
 # <a name="register-in-dev-center"></a>Registrar no Centro de Desenvolvimento  
 Abra uma nova sessão de navegação InPrivate do Internet Explorer ou Anônima do Chrome para garantir que você não tenha se conectado em uma conta pessoal.  
@@ -34,7 +28,7 @@ Abra uma nova sessão de navegação InPrivate do Internet Explorer ou Anônima 
     ![Informações de conta com a caixa para país/região](./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png)  
    
     >[!WARNING]
-    >Para vender seus serviços no Azure Marketplace, verifique se a entidade registrada é de um dos países aprovados *para vender*. Essa restrição de localização é exigida por razões de pagamento e tributação. 
+    >Para vender seus serviços no Azure Marketplace, verifique se que a entidade registrada seja de um dos aprovados *de origem de venda* países/regiões. Essa restrição de localização é exigida por razões de pagamento e tributação. 
     >*   Para saber mais, visite a página Políticas de Participação do Azure Marketplace localizada em [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).  
 
 4.  Para o *Tipo de Conta*, selecione o botão de opção `Company`.  

@@ -1,25 +1,18 @@
 ---
-title: Gerenciamento remoto do Windows por HTTPS para o Azure | Microsoft Docs
-description: .
+title: Gerenciamento remoto do Windows via HTTPS para o Azure | O Azure Marketplace
+description: Explica como configurar uma VM hospedada no Azure, com base em Windows para que possam ser gerenciado remotamente com o PowerShell.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 99c41dc010ae589cc43c093646fd1c05c1333f7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: fb661a2705d437d1f40ceebcad7e759c2a78540f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60342807"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938220"
 ---
 # <a name="windows-remote-management-over-https"></a>Gerenciamento remoto do Windows por HTTPS
 

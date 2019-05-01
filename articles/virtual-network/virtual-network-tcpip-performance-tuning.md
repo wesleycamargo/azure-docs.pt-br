@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 1e8605a41cbe610c971b891309b2149d221b8b27
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 31ca0ee666ff37afa37fb9636860c557d92a52c7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61032444"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924786"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP ajuste de desempenho para VMs do Azure
 
@@ -304,7 +304,7 @@ A rede acelerada é projetada para melhorar o desempenho de rede, incluindo lat�
 
 Máquinas virtuais do Azure têm pelo menos um adaptador de rede anexado a eles. Elas podem ter várias. A largura de banda alocada a uma máquina virtual é a soma de todo o tráfego de saída de todas as interfaces de rede anexadas à máquina. Em outras palavras, a largura de banda é alocada em uma base por-virtual machine, independentemente de quantos adaptadores de rede estão anexados à máquina.
 
-Taxa de transferência de saída esperada e o número de interfaces de rede com suporte em cada tamanho VM são detalhados em [máquinas virtuais de tamanhos para Windows no Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Para ver a taxa de transferência máxima, selecione um tipo, como **propósito geral**e, em seguida, localize a seção sobre a série de tamanho na página resultante (por exemplo, "série Dv2"). Para cada série, há uma tabela que fornece especificações de rede na última coluna, que é intitulada "máximo de NICs / esperado (Mbps) da largura de banda de rede."
+Taxa de transferência de saída esperada e o número de interfaces de rede com suporte em cada tamanho VM são detalhados em [máquinas virtuais de tamanhos para Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Para ver a taxa de transferência máxima, selecione um tipo, como **propósito geral**e, em seguida, localize a seção sobre a série de tamanho na página resultante (por exemplo, "série Dv2"). Para cada série, há uma tabela que fornece especificações de rede na última coluna, que é intitulada "máximo de NICs / esperado (Mbps) da largura de banda de rede."
 
 O limite de taxa de transferência se aplica à máquina virtual. Taxa de transferência não é afetada por estes fatores:
 
@@ -388,4 +388,4 @@ Ainda assim, esses tipos de pacote são indicações de que a taxa de transferê
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu sobre ajuste de desempenho de TCP/IP para VMs do Azure, você talvez queira ler sobre outras considerações para o [planejamento de redes virtuais](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) ou [Saiba mais sobre como conectar e configurar as redes virtuais ](https://docs.microsoft.com/en-us/azure/virtual-network/).
+Agora que você aprendeu sobre ajuste de desempenho de TCP/IP para VMs do Azure, você talvez queira ler sobre outras considerações para o [planejamento de redes virtuais](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) ou [Saiba mais sobre como conectar e configurar as redes virtuais ](https://docs.microsoft.com/azure/virtual-network/).

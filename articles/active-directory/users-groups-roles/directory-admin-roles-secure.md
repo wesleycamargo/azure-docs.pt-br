@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81d09978c3333a5b76c09f8c7dac85998d342f03
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f4b61b661d9da0748bc354b8defa4e6d67a047a2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472780"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920475"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implantações de nuvem híbrida no Azure AD
 
@@ -261,7 +261,7 @@ Se você já estiver usando o Azure AD Privileged Identity Management, ajuste in
 
 #### <a name="determine-exposure-to-password-based-sign-in-protocols-if-using-exchange-online"></a>Determine a exposição a protocolos com senha (se estiver usando o Exchange Online)
 
-No passado, protocolos pressupõe-se presumiam que as combinações de nome de usuário/senha foram inseridas em dispositivos, contas de email, telefones e assim por diante. Mas agora com o risco de ataques cibernéticos na nuvem, recomendamos que você identifique todos os usuários possíveis que, se suas credenciais foram comprometidas, pode ser catastrófico para a organização e excluí-los de conseguirem entrar no seu email através do nome de usuário / senha com a implementação de autenticação forte e acesso condicional. Você pode bloquear [usando o acesso condicional de autenticação herdados](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/block-legacy-authentication). Verifique os detalhes sobre [como autenticação básica de bloquear](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) por meio do Exchange online. 
+No passado, protocolos pressupõe-se presumiam que as combinações de nome de usuário/senha foram inseridas em dispositivos, contas de email, telefones e assim por diante. Mas agora com o risco de ataques cibernéticos na nuvem, recomendamos que você identifique todos os usuários possíveis que, se suas credenciais foram comprometidas, pode ser catastrófico para a organização e excluí-los de conseguirem entrar no seu email através do nome de usuário / senha com a implementação de autenticação forte e acesso condicional. Você pode bloquear [usando o acesso condicional de autenticação herdados](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication). Verifique os detalhes sobre [como autenticação básica de bloquear](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) por meio do Exchange online. 
 
 #### <a name="complete-a-roles-review-assessment-for-office-365-roles-if-using-office-365"></a>Conclua uma avaliação de revisão de funções para as funções do Office 365 (se estiver usando o Office 365)
 
@@ -425,7 +425,7 @@ Para obter mais informações sobre como o Microsoft Office 365 trata os inciden
 
 **Resposta:** Use contas sem privilégios para todos os usuários e a maioria dos administradores. Inicie desenvolvimento de um volume da organização para determinar quais contas de administrador devem ser privilegiadas. E monitorar usuários administrativos recém-criados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Microsoft Trust Center for Product Security](https://www.microsoft.com/trustcenter/security) - Produtos e serviços de nuvem de recursos de segurança da Microsoft
 

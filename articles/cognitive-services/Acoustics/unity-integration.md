@@ -10,18 +10,18 @@ ms.subservice: acoustics
 ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: aa7c5c513d65310bf9bffab29c1d18e7e7a85b49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8605fe2ea86f875b5c5fd8ea451a287442dcd51b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389437"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922498"
 ---
 # <a name="project-acoustics-unity-integration"></a>Integração do Project acústica Unity
 Esse manual explica a integração do plug-in do projeto acústica Unity ao seu projeto do Unity.
 
 Requisitos de software:
-* [Unity 2018.2+](http://unity3d.com) para Windows
+* [Unity 2018.2+](https://unity3d.com) para Windows
 * [Pacote do projeto Unity acústica](https://www.microsoft.com/download/details.aspx?id=57346)
 
 ## <a name="import-the-plugin"></a>O plug-in de importação
@@ -62,7 +62,7 @@ Anexar o script **AcousticsAdjust** a uma fonte de som na sua cena para habilita
 
 ![Captura de tela do script AcousticsAdjust do Unity](media/acoustics-adjust.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * [Inserir sua cena com acústica do projeto para Unity](unity-baking.md)
 * [Criar uma conta do lote do Azure](create-azure-account.md) que inserir sua cena na nuvem
 * Explore os [processo de design de projeto acústica Unity](unity-workflow.md).

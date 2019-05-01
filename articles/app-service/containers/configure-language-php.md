@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 11d0648ee5090f02cb96c2d42a8d90cc3ea0ed28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dc6d3fd2239624e6fccecfbd565eb815b372ed3d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60853296"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920424"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Configurar um aplicativo PHP de Linux para o serviço de aplicativo do Azure
 
@@ -141,7 +141,7 @@ Estrutura Web populares permitem que você acesse informações do `X-Forwarded-
 
 ## <a name="customize-phpini-settings"></a>Personalizar as configurações de PHP. ini
 
-Se você precisar fazer alterações em sua instalação do PHP, você pode alterar qualquer um de [ini](http://www.php.net/manual/ini.list.php) seguindo estas etapas.
+Se você precisar fazer alterações em sua instalação do PHP, você pode alterar qualquer um de [ini](https://www.php.net/manual/ini.list.php) seguindo estas etapas.
 
 > [!NOTE]
 > A melhor maneira de ver a versão do PHP e o atual *PHP. ini* configuração é chamar [phpinfo ()](https://php.net/manual/function.phpinfo.php) em seu aplicativo.
@@ -149,7 +149,7 @@ Se você precisar fazer alterações em sua instalação do PHP, você pode alte
 
 ### <a name="customize-non-phpinisystem-directives"></a>Personalizar as diretivas de não-PHP_INI_SYSTEM
 
-Para personalizar as diretivas PHP_INI_USER, PHP_INI_PERDIR e PHP_INI_ALL (consulte [ini](http://www.php.net/manual/ini.list.php)), adicione um *. htaccess* arquivo para o diretório raiz do seu aplicativo.
+Para personalizar as diretivas PHP_INI_USER, PHP_INI_PERDIR e PHP_INI_ALL (consulte [ini](https://www.php.net/manual/ini.list.php)), adicione um *. htaccess* arquivo para o diretório raiz do seu aplicativo.
 
 No *. htaccess* do arquivo, adicione as diretivas usando o `php_value <directive-name> <value>` sintaxe. Por exemplo: 
 
@@ -165,11 +165,11 @@ php_value upload_max_filesize 10M
 
 Reimplante seu aplicativo com as alterações e reiniciá-lo. Se você implantá-lo com o Kudu (por exemplo, usando [Git](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)), ele será reiniciado automaticamente após a implantação.
 
-Como uma alternativa ao uso *. htaccess*, você pode usar [ini_set ()](http://www.php.net/manual/function.ini-set.php) em seu aplicativo para personalizar essas diretivas não PHP_INI_SYSTEM.
+Como uma alternativa ao uso *. htaccess*, você pode usar [ini_set ()](https://www.php.net/manual/function.ini-set.php) em seu aplicativo para personalizar essas diretivas não PHP_INI_SYSTEM.
 
 ### <a name="customize-phpinisystem-directives"></a>Personalizar as diretivas PHP_INI_SYSTEM
 
-Para personalizar as diretivas PHP_INI_SYSTEM (consulte [ini](http://www.php.net/manual/ini.list.php)), você não pode usar o *. htaccess* abordagem. Serviço de aplicativo fornece um mecanismo separado usando o `PHP_INI_SCAN_DIR` configuração de aplicativo.
+Para personalizar as diretivas PHP_INI_SYSTEM (consulte [ini](https://www.php.net/manual/ini.list.php)), você não pode usar o *. htaccess* abordagem. Serviço de aplicativo fornece um mecanismo separado usando o `PHP_INI_SCAN_DIR` configuração de aplicativo.
 
 Primeiro, execute o seguinte comando [Cloud Shell](https://shell.azure.com) para adicionar um configuração de aplicativo chamada `PHP_INI_SCAN_DIR`:
 
@@ -237,7 +237,7 @@ Quando um aplicativo PHP em funcionamento se comporta de forma diferente no serv
     - Dependendo da sua *Composer. JSON*, pacotes diferentes podem ser instalados para o modo de produção (`require` versus `require-dev`).
     - Determinadas estruturas da web podem implantar arquivos estáticos diferentemente em modo de produção.
     - Determinadas estruturas da web podem usar scripts de inicialização personalizada ao ser executado no modo de produção.
-- Execute seu aplicativo no serviço de aplicativo no modo de depuração. Por exemplo, na [Laravel](http://meanjs.org/), você pode configurar seu aplicativo para gerar mensagens de depuração em produção por [configuração de `APP_DEBUG` configuração do aplicativo para `true` ](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+- Execute seu aplicativo no serviço de aplicativo no modo de depuração. Por exemplo, na [Laravel](https://meanjs.org/), você pode configurar seu aplicativo para gerar mensagens de depuração em produção por [configuração de `APP_DEBUG` configuração do aplicativo para `true` ](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 ### <a name="robots933456"></a>robots933456
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 3c8a068e2f68dcd53ad7ee6cdf3a1f39524c0fa4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 17f596abda4febbd6e532adcb44d544cd4d104df
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60367826"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924664"
 ---
 # <a name="expressroute-faq"></a>Perguntas Frequentes sobre ExpressRoute
 
@@ -43,7 +43,7 @@ Não. Você pode comprar uma conexão VPN de qualquer velocidade de seu provedor
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>Se eu pago por um circuito de ExpressRoute de uma determinada largura de banda, tenho a capacidade de chegar até maiores velocidades, se necessário?
 
-Sim. Circuitos de ExpressRoute são configurados para permitir que você dispare até duas vezes o limite de largura de banda que você adquiriu, sem nenhum custo adicional. Verifique com seu provedor de serviços para ver se eles dão suporte a essa funcionalidade.
+Sim. Circuitos de ExpressRoute são configurados para permitir que você dispare até duas vezes o limite de largura de banda que você adquiriu, sem nenhum custo adicional. Verifique com seu provedor de serviços para ver se eles dão suporte a essa funcionalidade. Isso não é por um período prolongado de tempo e não é garantido. 
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Posso usar a mesma conexão de rede privada com rede virtual e outros serviços do Azure simultaneamente?
 
@@ -119,11 +119,11 @@ Você não perderá conectividade se uma das conexões cruzadas falhar. Uma cone
 
 ### <a name="how-do-i-implement-redundancy-on-private-peering"></a>Como implementar a redundância no emparelhamento privado?
 
-Vários circuitos do ExpressRoute de diferentes locais de emparelhamento podem estar conectados à mesma rede virtual para fornecer alta disponibilidade no caso de que um único circuito fica indisponível. Em seguida, você pode [atribuir pesos mais altos](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) para a conexão local a favorecer preferir um circuito específico. É altamente recomendável que os clientes pelo menos dois circuitos do ExpressRoute para evitar pontos únicos de falha de instalação. 
+Vários circuitos do ExpressRoute de diferentes locais de emparelhamento podem estar conectados à mesma rede virtual para fornecer alta disponibilidade no caso de que um único circuito fica indisponível. Em seguida, você pode [atribuir pesos mais altos](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) para a conexão local a favorecer preferir um circuito específico. É altamente recomendável que os clientes pelo menos dois circuitos do ExpressRoute para evitar pontos únicos de falha de instalação. 
 
 ### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>Como posso implementar a redundância no emparelhamento da Microsoft?
 
-É altamente recomendável quando os clientes estão usando o emparelhamento da Microsoft para acessar serviços públicos do Azure, como o armazenamento do Azure ou SQL do Azure, bem como os clientes que estão usando o emparelhamento da Microsoft para que eles implementem vários circuitos em diferentes de emparelhamento do Office 365 locais para evitar pontos únicos de faiure. Os clientes podem anunciar o prefixo mesmo em ambos os circuitos e usar [prefixação das PATH](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) ou anunciar prefixos diferentes para determinar o caminho do local.
+É altamente recomendável quando os clientes estão usando o emparelhamento da Microsoft para acessar serviços públicos do Azure, como o armazenamento do Azure ou SQL do Azure, bem como os clientes que estão usando o emparelhamento da Microsoft para que eles implementem vários circuitos em diferentes de emparelhamento do Office 365 locais para evitar pontos únicos de faiure. Os clientes podem anunciar o prefixo mesmo em ambos os circuitos e usar [prefixação das PATH](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) ou anunciar prefixos diferentes para determinar o caminho do local.
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Como posso garantir a alta disponibilidade em uma rede virtual conectada ao ExpressRoute?
 

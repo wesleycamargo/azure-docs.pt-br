@@ -1,25 +1,18 @@
 ---
-title: Configuração de test drive da oferta de aplicativo SaaS do Azure | Microsoft Docs
+title: Configuração de unidade de teste de oferta do SaaS aplicativo do Azure | O Azure Marketplace
 description: Configure o test drive da oferta do aplicativo SaaS no Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pbutlerm
-ms.openlocfilehash: b12ba53f847b46479b3100c088c29372b58c1b8e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: c76290d6c96108ff04799151c82334264a4c3dd0
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60594215"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64941709"
 ---
 # <a name="saas-application-test-drive-tab"></a>Guia Test Drive do aplicativo SaaS
 

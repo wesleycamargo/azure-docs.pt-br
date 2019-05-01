@@ -18,12 +18,12 @@ ms.date: 03/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d2841d3be584cae45ef49ad9ff20da8a232c366
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9fa7bc84558d2b794a569261ce3dd2db5d54493f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60355062"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917400"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como: Bloquear autenticação herdada para Azure AD com acesso condicional   
 
@@ -142,4 +142,4 @@ Se você bloquear a autenticação herdada usando a condição de outros cliente
 
 - Se você ainda não estiver familiarizado com a configuração de políticas de acesso condicional, consulte [Exigir MFA para aplicativos específicos com acesso condicional do Azure Active Directory](app-based-mfa.md), para obter um exemplo.
 
-- Para obter mais informações sobre o suporte a autenticação moderna, consulte [como a autenticação moderna funciona para aplicativos de cliente do Office 2013 e Office 2016](https://docs.microsoft.com/en-us/office365/enterprise/modern-auth-for-office-2013-and-2016) 
+- Para obter mais informações sobre o suporte a autenticação moderna, consulte [como a autenticação moderna funciona para aplicativos de cliente do Office 2013 e Office 2016](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) 

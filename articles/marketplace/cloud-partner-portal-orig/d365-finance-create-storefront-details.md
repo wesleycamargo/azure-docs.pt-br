@@ -1,25 +1,18 @@
 ---
-title: Como preencher o formulário Detalhes da montra | Microsoft Docs
+title: Como preencher o formulário Detalhes da montra
 description: Explica os valores do formulário Detalhes do Storefront para um novo aplicativo do Dynamics 365 Business Central.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: pbutlerm
-ms.openlocfilehash: f69a7f9ca94c0a83098300f01e9413b342bd4ae8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: a22a2ebe870280ddcdf18c037141b92894742400
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60397886"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935035"
 ---
 <a name="how-to-fill-out-the-storefront-details-form"></a>Como preencher o formulário Detalhes da montra
 ===========================================
@@ -57,9 +50,9 @@ Deve haver um link de ajuda ativo que direcione os clientes para a ajuda on-line
 
 ### <a name="supported-countriesregions"></a>Países / regiões suportados
 
-Este campo determina os países / regiões em que sua oferta estará disponível para avaliação. Você só pode escolher países em que o Microsoft Dynamics 365 Business Central já esteja disponível ou em pré-visualização. Para a lista atual, consulte [Países e Traduções Suportados](https://docs.microsoft.com/dynamics-nav/compliance/apptest-countries-and-translations).
+Este campo determina os países / regiões em que sua oferta estará disponível para avaliação. Você só pode escolher países/regiões onde o Microsoft Dynamics 365 Business Central já está disponível ou está em visualização. Para obter a lista atual, consulte [conversões de suporte e países/regiões](https://docs.microsoft.com/dynamics-nav/compliance/apptest-countries-and-translations).
 
-![Selecione os países e traduções com suporte](./media/d365-financials/image008.png)
+![Selecione os países/regiões e traduções com suporte](./media/d365-financials/image008.png)
 
 
 ### <a name="supported-languages"></a>Idiomas com suporte

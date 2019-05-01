@@ -1,6 +1,6 @@
 ---
 title: Governança de identidade - Azure Active Directory | Microsoft Docs
-description: Governança de identidade do Active Directory do Azure permite que você equilibre a necessidade de sua organização de segurança e produtividade dos funcionários com os processos e visibilidade.
+description: Governança de identidade de diretório Active Directory do Azure permite que você equilibre a necessidade de sua organização de segurança e produtividade dos funcionários com os processos e visibilidade.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 09/25/2018
+ms.date: 04/29/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4e2f564de254c2aea779b30286183d0a4e17db6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d30bbddd044d1aea70e43825035c94b69a46f1f8
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60350976"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935825"
 ---
-# <a name="what-is-azure-ad-identity-governance"></a>O que é a governança de identidade do Azure AD?
+# <a name="what-is-azure-ad-identity-governance"></a>O que é controle de identidade do AD do Azure?
 
-A governança de identidade do Azure AD (Azure Active Directory) permite que você equilibre a necessidade da sua organização de segurança e produtividade dos funcionários com os processos e a visibilidade. Ela fornece recursos para garantir que os usuários certos tenham o acesso certo aos recursos certos, e permite que você proteja, monitore e audite o acesso a ativos críticos, ao mesmo tempo garantindo a produtividade dos funcionários.  
+Governança de identidade do Azure AD (Active Directory do Azure) permite que você equilibre a necessidade de sua organização de segurança e produtividade dos funcionários com os processos e visibilidade. Ela fornece recursos para garantir que os usuários certos tenham o acesso certo aos recursos certos, e permite que você proteja, monitore e audite o acesso a ativos críticos, ao mesmo tempo garantindo a produtividade dos funcionários.  
 
-A governança de identidade dá às organizações a capacidade de fazer o seguinte entre funcionários, parceiros empresariais e fornecedores, além de serviços e aplicativos:
+Governança de identidade fornecem às organizações a capacidade de fazer as seguintes tarefas entre os funcionários, parceiros de negócios e fornecedores e serviços e aplicativos:
 
 - Controlar o ciclo de vida de identidade
 - Controlar o ciclo de vida de acesso
@@ -42,7 +42,9 @@ Especificamente, destina-se a ajudar as organizações a abordar estas quatro pe
 
 ## <a name="identity-lifecycle"></a>Ciclo de vida de identidade
 
-Governança de identidade ajuda as organizações a atingir um equilíbrio entre *produtividade* – Com que rapidez uma pessoa pode ter acesso aos recursos de que precisa, por exemplo, quando entra em minha organização? E *segurança* – Como o acesso deve mudar ao longo do tempo, como devido a alterações ao status de emprego da pessoa?  O gerenciamento do ciclo de vida de identidades é a base para governança de identidade, e governança efetiva em escala requer modernizar a infraestrutura de gerenciamento do ciclo de vida de identidades para aplicativos.
+Governança de identidade ajuda as organizações a atingir um equilíbrio entre *produtividade* -quão rapidamente uma pessoa pode ter acesso aos recursos que precisa, como quando entrarem em minha organização? E *segurança* – Como o acesso deve mudar ao longo do tempo, como devido a alterações ao status de emprego da pessoa?  Gerenciamento de ciclo de vida de identidade é a base para governança de identidade e governança efetiva em grande escala requer modernizar a infraestrutura de gerenciamento do ciclo de vida de identidade para aplicativos.
+
+![Ciclo de vida de identidade](./media/identity-governance-overview/identity-lifecycle.png)
 
 Para muitas organizações, o ciclo de vida de identidade para funcionários está vinculado à representação daquele usuário em um sistema HCM (gerenciamento de capital humano).  O Azure AD Premium mantém automaticamente as identidades do usuário para as pessoas representadas no Workday tanto no Active Directory quanto no Azure Active Directory, conforme descrito no [tutorial de provisionamento de entrada do Workday (versão prévia)](../saas-apps/workday-inbound-tutorial.md).  O Azure AD Premium também inclui o [Microsoft Identity Manager](/microsoft-identity-manager/), que pode importar registros de sistemas HCM locais como SAP, Oracle eBusiness e Oracle PeopleSoft.
 
@@ -52,6 +54,8 @@ Cada vez mais, os cenários exigem a colaboração com pessoas de fora da sua or
 
 As organizações precisam de um processo para gerenciar o acesso além do que foi inicialmente provisionado para um usuário quando a identidade do usuário foi criada.  Além disso, organizações empresariais precisam ser capazes de dimensionar com eficiência para poderem desenvolver e impor política de acesso e controles continuamente.
 
+![Ciclo de vida de acesso](./media/identity-governance-overview/access-lifecycle.png)
+
 Em geral, a IT delega as decisões de aprovação de acesso aos tomadores de decisão empresariais.  Além disso, a IT pode envolver os próprios usuários.  Por exemplo, os usuários que acessam os dados confidenciais do cliente no aplicativo de marketing da empresa na Europa precisam conhecer as políticas da empresa. Usuários convidados podem não estar cientes dos requisitos de manipulação para os dados em uma organização para a qual foram convidados.
 
 As organizações podem automatizar o processo de ciclo de vida de acesso por meio de tecnologias como [grupos dinâmicos](../users-groups-roles/groups-dynamic-membership.md), junto com o provisionamento de usuário para [aplicativos SaaS](../saas-apps/tutorial-list.md) ou [aplicativos integrados ao SCIM](../manage-apps/use-scim-to-provision-users-and-groups.md).  As organizações também podem controlar quais [usuários convidados têm acesso a aplicativos locais](../b2b/hybrid-cloud-to-on-premises.md).  Esses direitos de acesso podem então ser revisados regularmente usando [revisões de acesso do Azure AD](access-reviews-overview.md) recorrentes.
@@ -60,29 +64,26 @@ Quando um usuário tenta acessar aplicativos, o Azure AD impõe políticas de [a
 
 ## <a name="privileged-access-lifecycle"></a>Ciclo de vida de acesso privilegiado
 
-Historicamente, o acesso privilegiado é descrito por outros fornecedores como uma funcionalidade separada do controle de identidade. No entanto, na Microsoft, acreditamos que controlar o acesso privilegiado é uma parte importante da governança de identidade, especialmente considerando o potencial de estrago que o uso indevido associado a esses direitos de administrador pode causar a uma organização. Funcionários, fornecedores e prestadores de serviço que assumem direitos administrativos precisam ser controlados.
+Historicamente, o acesso privilegiado tem sido descrito por outros fornecedores como um recurso separado do controle de identidade. No entanto, na Microsoft, acreditamos que regem o acesso privilegiado é uma parte importante da governança de identidade – especialmente considerando o potencial para uso indevido associado a esses direitos podem fazer com que uma organização de administrador. Funcionários, fornecedores e prestadores de serviço que assumem direitos administrativos precisam ser controlados.
+
+![Ciclo de vida de acesso privilegiado](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
 O Azure AD PIM (Privileged Identity Management) fornece controles adicionais adaptados para proteger direitos de acesso para recursos, entre o Azure AD, o Azure e outros serviços Online da Microsoft.  O acesso Just-In-Time e as funcionalidades de alerta de mudança de função oferecidos pelo Azure AD PIM, além da autenticação multifator e do acesso condicional, fornecem um conjunto abrangente de controles de governança para ajudar a proteger recursos da empresa (diretório, Office 365 e funções de recurso do Azure). Assim como acontece com outras formas de acesso, as organizações podem usar revisões de acesso para configurar a recertificação recorrente de acesso para todos os usuários nas funções de administrador.
 
 ## <a name="getting-started"></a>Introdução
 
-Embora não haja nenhuma solução nem recomendação perfeita para todos os clientes, as configurações a seguir fornecem uma orientação quanto a quais políticas de linha de base a Microsoft recomenda para garantir uma força de trabalho mais segura e produtiva.
+Embora não haja nenhuma solução perfeita ou recomendação para todos os clientes, as configurações a seguir fornecem um guia para que políticas de linha de base, a Microsoft recomenda que você siga para garantir uma força de trabalho mais segura e produtiva.
 
 - [Configurações de acesso à identidade e ao dispositivo](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Protegendo o acesso privilegiado](../users-groups-roles/directory-admin-roles-secure.md)
 
+Você também pode consultar a guia de introdução da **governança de identidade** no portal do Azure para começar a usar o gerenciamento de direitos, acessar revisões, Privileged Identity Management e termos de uso.
 
-### <a name="access-reviews"></a>Análises de acesso
+![Guia de introdução de governança de identidade](./media/identity-governance-overview/getting-started.png)
 
-- [O que é revisão de acesso?](access-reviews-overview.md)
-- [Gerenciar o acesso do usuário com revisões de acesso](manage-user-access-with-access-reviews.md)
-- [Gerenciar o acesso do convidado com revisões de acesso](manage-guest-access-with-access-reviews.md)
-- [Iniciar uma revisão de acesso de funções do Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md)
+## <a name="next-steps"></a>Próximas etapas
 
-### <a name="terms-of-use"></a>Termos de uso
-
-- [O que posso fazer com os Termos de uso?](../conditional-access/terms-of-use.md)
-
-### <a name="privileged-identity-management"></a>Privileged Identity Management
-
-- [O que é o PIM do Azure AD?](../privileged-identity-management/pim-configure.md)
+- [O que é gerenciamento de direitos do AD do Azure? (versão prévia)](entitlement-management-overview.md)
+- [Revisões de quais são o acesso do Azure AD?](access-reviews-overview.md)
+- [O que é o Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
+- [O que posso fazer com os Termos de uso?](active-directory-tou.md)

@@ -6,25 +6,25 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/29/2018
 ms.author: asgang
-ms.openlocfilehash: c8b5cf840b8cb5eec2a993cfe35c8a8a7ac904fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 86bd41d518006b0601a5c9d18e5429f76d5a4fc5
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60791301"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926654"
 ---
-# <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Replicação de máquinas virtuais do Azure para outra região do Azure
-
+# <a name="replicate-azure-vms-to-another-azure-region"></a>Replicar VMs do Azure para outra região do Azure
 
 
 Este artigo descreve como habilitar a replicação de VMs do Azure, de uma região do Azure para outra.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="before-you-start"></a>Antes de começar
 
-Este artigo pressupõe que você já tenha configurado o Site Recovery para este cenário, conforme descrito no [Tutorial do Azure para o Azure](azure-to-azure-tutorial-enable-replication.md). Verifique se você preparou os pré-requisitos e criou o cofre dos Serviços de Recuperação.
+Este artigo pressupõe que você preparou para a implantação da recuperação de Site, conforme descrito na [tutorial de recuperação de desastre do Azure para](azure-to-azure-tutorial-enable-replication.md).
 
+Pré-requisitos devem estar em vigor, e você deverá ter criado um cofre dos serviços de recuperação.
 
 
 ## <a name="enable-replication"></a>Habilitar a replicação
@@ -34,9 +34,9 @@ Habilite a replicação. Este procedimento pressupõe que a região do Azure pri
 1. No cofre, clique em **+Replicar**.
 2. Observe os seguintes campos:
    - **Fonte**: O ponto de origem das VMs que, neste caso, é o **Azure**.
-   - **Local de origem**: A região do Azure na qual você deseja proteger as máquinas virtuais. Para esta ilustração, a localização da fonte é 'Ásia Oriental'
+   - **Local de origem**: A região do Azure de onde você deseja proteger suas VMs. Para esta ilustração, a localização da fonte é 'Ásia Oriental'
    - **Modelo de implantação**: O modelo de implantação do Azure para os computadores de origem.
-   - **Assinatura do Azure**: A assinatura à qual suas máquinas virtuais de origem pertencem. Pode ser qualquer assinatura dentro do mesmo locatário do Azure Active Directory na qual existe o cofre dos serviços de recuperação.
+   - **Assinatura do Azure**: A assinatura à qual pertencem suas VMs de origem. Pode ser qualquer assinatura dentro do mesmo locatário do Azure Active Directory na qual existe o cofre dos serviços de recuperação.
    - **Grupo de Recursos**: O grupo de recursos ao qual suas máquinas virtuais de origem pertencem. Todas as máquinas virtuais do grupo de recursos selecionado são listadas para a proteção na próxima etapa.
 
      ![Habilitar a replicação](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
@@ -48,12 +48,16 @@ Habilite a replicação. Este procedimento pressupõe que a região do Azure pri
 
    - **Local de Destino**: O local no qual seus dados de máquina virtual de origem serão replicados. Dependendo de seu local de máquinas selecionadas, a recuperação de Site fornece a lista de regiões de destino adequado. É recomendável que você mantenha o local de destino o mesmo do local do cofre dos Serviços de Recuperação.
    - **Assinatura de destino**: A assinatura de destino usada na recuperação de desastres. Por padrão, a assinatura de destino será o mesma que a assinatura de origem.
-   - **Grupo de recursos de destino**: O grupo de recursos ao qual pertencem todas as máquinas virtuais replicadas. Por padrão, o Azure Site Recovery cria um novo grupo de recursos na região de destino com um sufixo "asr". Caso o grupo de recursos criado pelo Azure Site Recovery já exista, ele é reutilizado. Você também poderá escolher personalizá-lo conforme mostrado na seção abaixo. O local do grupo de recursos pode ser qualquer região do Azure exceto a região em que as máquinas virtuais de origem estão hospedadas.
-   - **Rede virtual de destino**: Por padrão, o Site Recovery cria uma nova rede virtual na região de destino com o sufixo "asr". Isso é mapeado para sua rede de origem e usado para qualquer proteção futura. [Saiba mais](site-recovery-network-mapping-azure-to-azure.md) sobre o mapeamento de rede.
-   - **Contas de armazenamento de destino** (se a VM de origem não usa discos gerenciados): Por padrão, o Site Recovery cria uma nova conta de armazenamento de destino imitando suas configurações de armazenamento da VM de origem. Caso a conta de armazenamento já exista, ela é reutilizada.
-   - **Discos gerenciados de réplica** (se a VM de origem usar discos gerenciados): O Site Recovery cria novos discos gerenciados de réplica na região de destino para espelhar os discos gerenciados da VM de origem com o mesmo tipo de armazenamento (Standard ou Premium) do disco gerenciado da VM de origem.
+   - **Grupo de recursos de destino**: O grupo de recursos ao qual pertencem todas as máquinas virtuais replicadas.
+       - Por padrão o Site Recovery cria um novo grupo de recursos na região de destino com um sufixo "asr" no nome.
+       - Se o grupo de recursos criado pelo Site Recovery já existir, ele será reutilizado.
+       - Você pode personalizar as configurações de grupo de recursos.
+       - O local do grupo de recursos de destino pode ser qualquer região do Azure, exceto a região na qual as VMs de origem são hospedadas.
+   - **Rede virtual de destino**: Por padrão, o Site Recovery cria uma nova rede virtual na região de destino com um sufixo "asr" no nome. Isso é mapeado para sua rede de origem e usado para qualquer proteção futura. [Saiba mais](site-recovery-network-mapping-azure-to-azure.md) sobre o mapeamento de rede.
+   - **Contas de armazenamento (a VM de origem não usa discos gerenciados) de destino**: Por padrão, o Site Recovery cria uma nova conta de armazenamento de destino imitando suas configurações de armazenamento da VM de origem. Caso a conta de armazenamento já exista, ela é reutilizada.
+   - **Discos gerenciados de réplica (a VM de origem usa discos gerenciados)**: Site Recovery cria novos discos gerenciados de réplica na região de destino para espelhar os discos gerenciados da VM de origem com o mesmo tipo de armazenamento (Standard ou premium) a VM do disco gerenciado de origem.
    - **Contas de armazenamento em cache**: O Site Recovery precisa de uma conta de armazenamento adicional, chamada de armazenamento em cache na região de origem. Todas as alterações ocorrendo nas máquinas virtuais de origem são controladas e enviadas para a conta de armazenamento do cache antes de replicar para o local de destino.
-   - **Conjuntos de disponibilidade de destino**: Por padrão, o Azure Site Recovery cria um novo conjunto de disponibilidade na região de destino com um nome com um sufixo “asr” para o bloco de VMs de um conjunto de disponibilidade na região de destino. Caso o conjunto de disponibilidade criado pelo Azure Site Recovery já exista, ele é reutilizado.
+   - **Conjuntos de disponibilidade de destino**: Por padrão, o Site Recovery cria uma novo conjunto de disponibilidade na região de destino com o sufixo "asr" no nome, para VMs que fazem parte de uma conjunto de disponibilidade na região de origem. Se o conjunto de disponibilidade criado pelo Site Recovery já existir, ele será reutilizado.
    - **Zonas de disponibilidade de destino**: Por padrão, o Site Recovery atribui o mesmo número da zona que a região de origem na região de destino se a região de destino oferecer suporte a zonas de disponibilidade.
 
      Se a região de destino não oferecer suporte a zonas de disponibilidade, as VMs de destino são configuradas como instâncias isoladas por padrão. Se necessário, você pode configurar essas VMs como parte dos conjuntos de disponibilidade na região de destino, clicando em “Personalizar”.
@@ -65,6 +69,28 @@ Habilite a replicação. Este procedimento pressupõe que a região do Azure pri
    - **Política de replicação**: Define as configurações para o histórico de retenção do ponto de recuperação e frequência de instantâneo consistente do aplicativo. Por padrão, o Azure Site Recovery cria uma nova política de replicação com configurações padrão de “24 horas” para retenção de pontos de recuperação e “60 minutos” para a frequência de instantâneo consistente do aplicativo.
 
      ![Habilitar a replicação](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
+
+### <a name="enable-replication-for-added-disks"></a>Habilitar a replicação para os discos adicionados
+
+Se você adicionar discos a uma VM do Azure para o qual a replicação é habilitada, ocorre o seguinte:
+-   Integridade da replicação da VM mostra um aviso e informa a uma observação informando que um ou mais discos estão disponíveis para proteção.
+-   Se você habilitar a proteção para os discos adicionados, o aviso desaparecerá após a replicação inicial do disco.
+-   Se você optar por não habilitar a replicação para o disco, você pode selecionar para ignorar o aviso.
+
+    
+    ![Novo disco adicionado](./media/azure-to-azure-how-to-enable-replication/newdisk.png)
+
+Para habilitar a replicação para o disco adicionado, faça o seguinte:
+
+1.  No cofre > **itens replicados**, clique na VM à qual você adicionou o disco.
+2.  Clique em **discos**e, em seguida, selecione o disco de dados para o qual você deseja habilitar a replicação (esses discos têm um **não protegido** status).
+3.  Na **detalhes do disco**, clique em **habilitar a replicação**.
+
+    ![Habilitar a replicação para o disco adicionado](./media/azure-to-azure-how-to-enable-replication/enabled-added.png)
+
+Após o trabalho de replicação de habilitação é executado e a replicação inicial terminar, o aviso de integridade de replicação para o problema de disco é removido.
+
+
   
 ## <a name="customize-target-resources"></a>Personalizar os recursos de destino
 
@@ -79,15 +105,19 @@ Você pode modificar as configurações de destino padrão usadas pelo Site Reco
     - Em **Contas de armazenamento de destino**, selecione a conta que você deseja usar.
 
         ![Habilitar a replicação](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
-1. Clique em **Personalizar** para modificar as configurações de replicação.
-   - Em **Consistência de várias VMs**, selecione as VMs que você deseja replicar juntas 
-   - Todos os computadores de um grupo de replicação terão pontos de recuperação consistentes com o aplicativo e consistentes com falhas quando passarem por failover. A habilitação da consistência de várias VMs pode afetar o desempenho da carga de trabalho (devido ao uso intensivo de CPU) e só deve ser usada se os computadores estiverem executando a mesma carga de trabalho e se você precisar de consistência entre vários computadores. Por exemplo, se um aplicativo tem duas máquinas virtuais SQL e dois servidores Web, você deve adicionar somente máquinas virtuais SQL como parte do grupo de replicação.
-   - É possível optar por ter, no máximo, 16 máquinas virtuais em um grupo de replicação.
-   - Se você habilitar a consistência de várias VMs, as máquinas virtuais no grupo de replicação se comunicarão entre si pela porta 20004. Veja se não há nenhum dispositivo de firewall bloqueando a comunicação interna entre as VMs através da porta 20004. Se você quiser que VMs do Linux façam parte de um grupo de replicação, abra manualmente o tráfego de saída na porta 20004, de acordo com as diretrizes da versão específica do Linux.
+3. Clique em **Personalizar** para modificar as configurações de replicação.
+4. Na **consistência de várias VMs**, selecione as VMs que você deseja replicar juntos.
+    - Todos os computadores de um grupo de replicação terão pontos de recuperação consistentes com o aplicativo e consistentes com falhas quando passarem por failover.
+    - Habilitar a consistência de várias VMs pode afetar o desempenho da carga de trabalho (como ele é intensivo de CPU). Ele deve ser habilitado apenas se os computadores estão executando a mesma carga de trabalho, e você precisar de consistência entre várias máquinas.
+    - Por exemplo, se um aplicativo tiver 2 máquinas de virtuais do SQL Server e dois servidores web, você deve adicionar apenas as VMs do SQL Server para um grupo de replicação.
+    - Você pode optar por ter um máximo de 16 VMs em um grupo de replicação.
+    - Se você habilitar a consistência de várias VMs, as máquinas virtuais no grupo de replicação se comunicarão entre si pela porta 20004.
+    - Certifique-se de que não há nenhum dispositivo de firewall bloqueando a comunicação interna entre as VMs pela porta 20004.
+    - Se você quiser fazer parte de um grupo de replicação de VMs do Linux, verifique se que o tráfego de saída na porta 20004 manualmente é aberto de acordo com a orientação para a versão específica do Linux.
 ![Habilitar a replicação](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
     
-2. Clique em **Criar o recurso de destino** > **Habilitar Replicação**.
-3. Depois que as VMs forem habilitadas para replicação, você poderá verificar o status da integridade da VM em **Itens replicados**
+5. Clique em **Criar o recurso de destino** > **Habilitar Replicação**.
+6. Depois que as VMs forem habilitadas para replicação, você poderá verificar o status da integridade da VM em **Itens replicados**
 
 >[!NOTE]
 >Durante a replicação inicial, o status pode levar algum tempo para atualizar, sem andamento. Clique no botão **Atualizar** para obter o status mais recente.

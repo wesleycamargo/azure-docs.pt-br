@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 738dd451ca44801c799d793e6501c547655bd0e0
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 7db40de921c0eb8826a2fee832c1a51c57796f6d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524133"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919829"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Usar o serviço de Gerenciamento de API do Azure com rede virtual interna
 Com as VNETs (Redes Virtuais) do Azure, o Gerenciamento de API pode gerenciar as APIs que não estão acessíveis pela Internet. Várias tecnologias de VPN estão disponíveis para fazer a conexão. O Gerenciamento de API pode ser implantado em dois modos principais dentro de uma rede virtual:
@@ -48,7 +48,7 @@ Para executar as etapas descritas neste artigo, você precisa ter:
 + Quando um serviço de gerenciamento de API é implantado em uma rede virtual, uma [lista de portas](./api-management-using-with-vnet.md#required-ports) são usados e precisam ser abertas. 
 
 ## <a name="enable-vpn"> </a>Criar um Gerenciamento de API em uma rede virtual interna
-O serviço de gerenciamento de API em uma rede virtual interna é hospedado por trás de um [balanceador de carga interno (clássico)](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Isso é a única opção disponível e não pode ser alterado.
+O serviço de gerenciamento de API em uma rede virtual interna é hospedado por trás de um [balanceador de carga interno (clássico)](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Isso é a única opção disponível e não pode ser alterado.
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Habilite uma conexão de rede virtual usando o portal do Azure
 
