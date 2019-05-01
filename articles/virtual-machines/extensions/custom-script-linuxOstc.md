@@ -123,7 +123,7 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publicador | Microsoft.OSTCExtensions | string |
-| Tipo | CustomScriptForLinux | string |
+| tipo | CustomScriptForLinux | string |
 | typeHandlerVersion | 1.5 | int |
 | fileUris (por exemplo) | https://github.com/MyProject/Archive/MyPythonScript.py | matriz |
 | commandToExecute (por exemplo) | python MyPythonScript.py \<my-param1\> | string |

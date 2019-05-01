@@ -62,7 +62,7 @@ Você pode usar uma validação em um pipeline para garantir que o pipeline cont
 Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
 Nome | Nome da atividade 'Validação' | Cadeia de caracteres | Sim |
-Tipo | Deve ser definido como **validação**. | Cadeia de caracteres | Sim |
+tipo | Deve ser definido como **validação**. | Cadeia de caracteres | Sim |
 dataset | Atividade irá impedir a execução até que ele foi validado essa referência de conjunto de dados existe e que ele atende aos critérios especificados ou tempo limite foi atingido. Conjunto de dados fornecido deve dar suporte a propriedade "MinimumSize" ou "ChildItems". | Referência de conjunto de dados | Sim |
 Tempo limite | Especifica o tempo limite para a atividade ser executada. Se nenhum valor for especificado, o valor padrão é 7 dias ("7.00:00:00"). O formato é d.hh:mm:ss | Cadeia de caracteres | Não  |
 Modo de suspensão | Um atraso em segundos entre tentativas de validação. Se nenhum valor for especificado, o valor padrão é 10 segundos. | Número inteiro | Não  |

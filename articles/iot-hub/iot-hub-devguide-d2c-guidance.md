@@ -35,7 +35,7 @@ Aqui está uma comparação detalhada das várias opções de comunicação do d
 | Armazenamento e recuperação | Armazenado temporariamente pelo Hub IoT, até sete dias. Somente leitura sequencial. | Armazenados pelo Hub IoT no dispositivo gêmeo. Recuperáveis usando a [linguagem de consulta do Hub IoT](iot-hub-devguide-query-language.md). | Armazenados na conta de Armazenamento do Azure fornecida pelo usuário. |
 | Tamanho | Mensagens de até 256 KB. | O tamanho máximo relatado das propriedades é de 8 KB. | Tamanho máximo de arquivo com suporte pelo Armazenamento de Blobs do Azure. |
 | Frequência | Alta. Para obter mais informações, confira [Limites do Hub IoT](iot-hub-devguide-quotas-throttling.md). | Média. Para obter mais informações, confira [Limites do Hub IoT](iot-hub-devguide-quotas-throttling.md). | Baixa. Para obter mais informações, confira [Limites do Hub IoT](iot-hub-devguide-quotas-throttling.md). |
-| Protocolo | Disponível em todos os protocolos. | Disponível usando MQTT ou AMQP. | Disponível ao usar qualquer protocolo, mas requer HTTPS no dispositivo. |
+| Protocol | Disponível em todos os protocolos. | Disponível usando MQTT ou AMQP. | Disponível ao usar qualquer protocolo, mas requer HTTPS no dispositivo. |
 
 Um aplicativo pode precisar enviar informações tanto como um alerta ou uma série temporal de telemetria e torná-lo disponível no dispositivo gêmeo. Nesse cenário, você pode escolher uma das seguintes opções:
 

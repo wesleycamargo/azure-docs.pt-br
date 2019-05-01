@@ -236,7 +236,7 @@ A tabela a seguir mostra como essas opções podem ser aplicadas às propriedade
 |properties.startTime   |||
 |properties.streamingLocatorId  |||
 |properties.streamingPolicyName |||
-|Tipo   |||
+|tipo   |||
 
 ### <a name="pagination"></a>Paginação
 

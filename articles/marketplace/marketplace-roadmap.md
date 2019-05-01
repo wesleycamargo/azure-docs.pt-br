@@ -2,21 +2,15 @@
 title: Roteiro do Azure Marketplace e do AppSource | Azure
 description: Um roteiro sobre o que está acontecendo no Marketplace
 services: Azure, Marketplace, Compute
-documentationcenter: ''
 author: qianw211
 manager: MaggiePucciEvans
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 03/29/2019
 ms.author: BrianLevenson
 ms.openlocfilehash: 4a1586d965a51a3c655346994274159b99ab0a9a
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60764248"

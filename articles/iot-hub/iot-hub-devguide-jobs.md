@@ -118,7 +118,7 @@ A lista a seguir mostra as propriedades e descrições correspondentes que podem
 | **jobId** |ID fornecida pelo aplicativo para o trabalho. |
 | **startTime** |Hora de início fornecida pelo aplicativo (ISO 8601) para o trabalho. |
 | **endTime** |Data fornecida pelo Hub IoT (ISO-8601) para a conclusão do trabalho. Válida somente após o trabalho atingir o estado 'concluído'. |
-| **tipo** |Tipos de trabalhos: |
+| **type** |Tipos de trabalhos: |
 | | **scheduledUpdateTwin**: Um trabalho usado para atualizar um conjunto de propriedades desejadas ou marcas. |
 | | **scheduledDeviceMethod**: Um trabalho usado para invocar um método de dispositivo em um conjunto de dispositivos gêmeos. |
 | **status** |Estado atual do trabalho. Valores possíveis para o status: |

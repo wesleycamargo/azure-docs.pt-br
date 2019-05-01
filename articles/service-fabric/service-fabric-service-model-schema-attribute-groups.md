@@ -56,7 +56,7 @@ Nome de usuário ou Nome da conta de serviço (por exemplo, MeuComputador\Vinici
 |Atributo|Valor|
 |---|---|
 |Nome|AccountName|
-|Tipo|xs:string|
+|tipo|xs:string|
 |uso|opcional|
 
 ##### <a name="xml-source"></a>Origem XML
@@ -123,7 +123,7 @@ Nome totalmente qualificado do aplicativo.
 |Atributo|Valor|
 |---|---|
 |Nome|NameUri|
-|Tipo|FabricUri|
+|tipo|FabricUri|
 |uso|obrigatório|
 
 ##### <a name="xml-source"></a>Origem XML
@@ -254,7 +254,7 @@ O identificador deste manifesto do aplicativo, uma cadeia de caracteres não est
 |Nome|ManifestId|
 |uso|opcional|
 |padrão||
-|tipo|xs:string|
+|Tipo|xs:string|
 
 ##### <a name="xml-source"></a>Origem XML
 ```xml
@@ -465,7 +465,7 @@ Se a transferência de dados para este destino está habilitada. Por padrão, el
 |Atributo|Valor|
 |---|---|
 |Nome|IsEnabled|
-|tipo|xs:string|
+|Tipo|xs:string|
 
 ##### <a name="xml-source"></a>Origem XML
 ```xml
@@ -780,7 +780,7 @@ Intervalo em minutos no qual os dados são carregados para o destino.
 |Atributo|Valor|
 |---|---|
 |Nome|UploadIntervalInMinutes|
-|Tipo|xs:string|
+|tipo|xs:string|
 
 ##### <a name="xml-source"></a>Origem XML
 ```xml

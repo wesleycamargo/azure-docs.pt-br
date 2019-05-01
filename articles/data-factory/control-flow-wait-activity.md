@@ -40,7 +40,7 @@ Quando você usa uma atividade de espera em um pipeline, o pipeline aguarda o pe
 Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
 Nome | Nome da atividade `Wait`. | Cadeia de caracteres | Sim
-tipo | Deve ser definido para **Wait**. | Cadeia de caracteres | Sim
+Tipo | Deve ser definido para **Wait**. | Cadeia de caracteres | Sim
 waitTimeInSeconds | O número de segundos que o pipeline aguarda antes de continuar o processamento. | Número inteiro | Sim
 
 ## <a name="example"></a>Exemplo
