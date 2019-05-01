@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d69ddbd38798d0667ce69fb7696597a972b5098
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 16d20e9ea2203c788a2b7b5eb0507b357350407d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60455600"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918488"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Plano para o ciclo de vida de identidade híbrida
 Identidade é um dos pilares da mobilidade da sua empresa e da estratégia de acesso de aplicativo. Se você estiver entrando em seu dispositivo móvel ou em um aplicativo SaaS, sua identidade é a chave para ganhar acesso a tudo. Em seu nível mais alto, uma solução de gerenciamento de identidades abrange a unificação e a sincronização entre os repositórios de identidades, o que inclui automação e centralização do processo de provisionamento de recursos. A solução de identidade deve ser uma identidade centralizada no local e na nuvem e também usar alguma forma de federação de identidades para manter a autenticação centralizada e compartilhar e colaborar de forma segura com empresas e usuários externos. Os recursos variam de sistemas operacionais e aplicativos a pessoas associada ou pertencentes a uma organização. A estrutura organizacional pode ser alterada para acomodar as políticas e procedimentos de provisionamento.
@@ -32,7 +32,7 @@ Também é importante ter uma solução de identidade voltada para capacitar seu
 ## <a name="determine-hybrid-identity-management-tasks"></a>Determinar tarefas de gerenciamento de identidade híbrida
 A distribuição de tarefas administrativas em sua organização melhora a precisão e a eficiência da administração e melhora o equilíbrio da carga de trabalho de uma organização. A seguir estão os pontos que definem um sistema de gerenciamento de identidade sólido.
 
- ![](./media/plan-hybrid-identity-design-considerations/Identity_management_considerations.png)
+ ![Considerações sobre gerenciamento de identidade](./media/plan-hybrid-identity-design-considerations/Identity_management_considerations.png)
 
 Para definir as tarefas de gerenciamento de identidade híbrida, você deve entender algumas características essenciais da organização que adotará identidade híbrida. É importante entender os repositórios atuais que estão sendo usados como fontes de identidade. Conhecendo os principais elementos, você terá os requisitos básicos e, baseado nisso, você precisa fazer perguntas mais sintonizadas que levarão a uma melhor decisão de design para a solução de identidade.  
 
@@ -61,7 +61,7 @@ Ao definir esses requisitos, verifique se pelo menos as seguintes perguntas são
 ## <a name="synchronization-management"></a>Gerenciamento de sincronização
 Um dos objetivos de um gerenciador de identidades é ser capaz de buscar todos os provedores de identidade e mantê-los sincronizados. Você mantém os dados sincronizados baseado em um provedor de identidade mestre autoritativo. Em um cenário de identidade híbrida, com um modelo de gerenciamento sincronizado, você gerencia todas as identidades de usuários e de dispositivos em um servidor local, além de sincronizar contas e, opcionalmente, senhas para a nuvem. O usuário insere a mesma senha local que é inserida na nuvem e, no logon, a senha é verificada pela solução de identidade. Esse modelo usa uma ferramenta de sincronização de diretório.
 
-![](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) Para projetar adequadamente a sincronização de sua solução da identidade híbrida, verifique se as seguintes perguntas são respondidas: •   Quais soluções de sincronização estão disponíveis para a solução da identidade híbrida?
+![sincronização de diretórios](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) para projetar adequadamente a sincronização de sua solução de identidade híbrida, verifique se que as seguintes perguntas são respondidas: • quais são as soluções de sincronização disponíveis para solução de identidade híbrida?
 •   Quais recursos de logon único estão disponíveis?
 •   Quais são as opções da federação de identidades entre B2B e B2C?
 

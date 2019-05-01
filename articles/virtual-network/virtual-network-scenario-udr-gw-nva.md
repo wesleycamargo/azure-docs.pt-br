@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
-ms.openlocfilehash: c959ee3bea24955e3281feb9db66e4e0cadc8bf9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1bdc485dfb352144e8a8d0fb75965cbb78288e2c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61034111"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575595"
 ---
 # <a name="virtual-appliance-scenario"></a>Cenário de dispositivo virtual
 Um cenário comum entre os maiores clientes do Azure é a necessidade de fornecer um aplicativo de duas camadas exposto à Internet, permitindo acesso para a camada traseira de um datacenter local. Este documento explica um cenário usando UDR (Rotas Definidas pelo Usuário), um Gateway de VPN e dispositivos virtuais de rede para implantar um ambiente de duas camadas que atende aos seguintes requisitos:
@@ -30,14 +30,14 @@ Um cenário comum entre os maiores clientes do Azure é a necessidade de fornece
 * Todo o tráfego indo para o servidor de aplicativos deve passar por um dispositivo virtual de firewall. Este dispositivo virtual será usado para acesso ao servidor de back-end e para acesso proveniente da rede local por meio de um Gateway de VPN.
 * Os administradores devem ser capazes de gerenciar os dispositivos virtuais de firewall em seus computadores locais usando um terceiro dispositivo virtual de firewall usado exclusivamente para fins de gerenciamento.
 
-Esse é um cenário de DMZ padrão com um DMZ e uma rede protegida. Esse cenário pode ser criado no Azure usando NSGs, dispositivos virtuais de firewall ou uma combinação de ambos. A tabela a seguir mostra alguns dos prós e contras entre NSGs e dispositivos virtuais de firewall.
+Esse é um cenário de rede (também knowns como DMZ) de perímetro padrão com uma rede de Perímetro e uma rede protegida. Esse cenário pode ser criado no Azure usando NSGs, dispositivos virtuais de firewall ou uma combinação de ambos. A tabela a seguir mostra alguns dos prós e contras entre NSGs e dispositivos virtuais de firewall.
 
 |  | Prós | Contras |
 | --- | --- | --- |
-| NSG |Sem custo. <br/>Integrado ao RBAC do Azure. <br/>As regras podem ser criadas em modelos Aa ARM. |A complexidade pode variar em ambientes maiores. |
+| NSG |Sem custo. <br/>Integrado ao RBAC do Azure. <br/>Regras podem ser criadas em modelos do Azure Resource Manager. |A complexidade pode variar em ambientes maiores. |
 | Firewall |Controle total sobre o plano de dados. <br/>Gerenciamento central por meio do console do firewall. |Custo do dispositivo de firewall. <br/>Não é integrado ao RBAC do Azure. |
 
-A solução a seguir usa dispositivos virtuais do firewall para implementar um cenário de rede DMZ/protegido.
+A solução a seguir usa dispositivos virtuais de firewall para implementar uma rede de perímetro (DMZ) / protegida cenário de rede.
 
 ## <a name="considerations"></a>Considerações
 Você pode implantar o ambiente explicado anteriormente no Azure usando da seguinte maneira diferentes recursos disponíveis hoje.
@@ -167,5 +167,5 @@ Para implantar este cenário, siga as etapas de alto nível abaixo.
 2. Se você desejar implantar uma VNet para imitar a rede local, provisione os recursos que fazem parte do **ONPREMRG**.
 3. Provisione os recursos que fazem parte do **AZURERG**.
 4. Provisionar o túnel de **onpremvnet** para **azurevnet**.
-5. Depois que todos os recursos forem provisionados, faça logon em **onpremvm2** e faça ping do 10.0.3.101 para testar a conectividade entre **onpremsn2** e **azsn3**.
+5. Depois que todos os recursos são provisionados, entrar no **onpremvm2** e faça ping do 10.0.3.101 para testar a conectividade entre **onpremsn2** e **azsn3**.
 

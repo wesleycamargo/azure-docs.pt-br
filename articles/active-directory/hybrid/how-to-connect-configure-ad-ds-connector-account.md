@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6911b19c680c2fdb8c372347c4dd0fca60bb0e0b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff151ff8e14b5cf9602d4e7e2e9c6cb2118a8a65
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60245577"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918485"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar as permissões de Conta do AD DS Connector 
 
@@ -25,7 +25,7 @@ O novo módulo do PowerShell chamado [ADSyncConfig.psm1](reference-connect-adsyn
 ## <a name="overview"></a>Visão geral 
 Os seguintes cmdlets do PowerShell pode ser usado para configurar as permissões do Active Directory da conta do conector do AD DS, para cada recurso que você seleciona habilitar no Azure AD Connect. Para evitar problemas, você deve preparar permissões do Active Directory com antecedência sempre desejar instalar o Azure AD Connect usando uma conta de domínio personalizado para se conectar à sua floresta. Esse módulo ADSyncConfig também pode ser usado para configurar permissões após a implantação do Azure AD Connect.
 
-![](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
+![Visão geral da conta do ad ds](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
 
 Para a instalação do Azure AD Connect Express, uma conta gerada automaticamente (MSOL_nnnnnnnnnn) é criada no Active Directory com todas as permissões necessárias, portanto, não há necessidade de usar este módulo ADSyncConfig, a menos que você bloqueou permissões herdadas em unidades organizacionais ou em objetos específicos do Active Directory que você deseja sincronizar com o Azure AD. 
  

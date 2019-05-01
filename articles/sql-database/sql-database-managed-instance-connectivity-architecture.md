@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: fa19ea0c7ebeea0170822db0dae298f84e958983
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 399e2585f541f28b3880e69b508cfd643b2f2263
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006124"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64686285"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitetura de conectividade para uma instância gerenciada SQL do Azure
 
@@ -80,7 +80,7 @@ A Microsoft gerencia a instância gerenciada usando um ponto de extremidade de g
 Quando conexões iniciar dentro da instância gerenciada (assim como acontece com backups e logs de auditoria), o tráfego é exibido iniciar a partir do endereço IP público de um ponto de extremidade de gerenciamento. Você pode limitar o acesso a serviços públicos de uma instância gerenciada, definindo regras de firewall para permitir que somente o endereço IP da instância gerenciada. Para obter mais informações, consulte [Verifique se o firewall interno da instância gerenciada](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
-> O tráfego somente que vai para os serviços do Azure que estão dentro da região da instância gerenciada é otimizado e por que motivo não NATed para instância gerenciada ponto de extremidade público endereço IP de gerenciamento. Por esse motivo se você precisar usar regras de firewall baseadas em IP, mais comumente para o armazenamento, o serviço precisa estar em uma região diferente da instância gerenciada.
+> O tráfego que vai para os serviços do Azure que estão dentro da região da instância gerenciada é otimizado e por esse motivo não NATed para gerenciado gerenciamento ponto de extremidade público endereço IP de instância. Por esse motivo se você precisar usar regras de firewall baseadas em IP, mais comumente para o armazenamento, o serviço precisa estar em uma região diferente da instância gerenciada.
 
 ## <a name="network-requirements"></a>Requisitos de rede
 
@@ -97,7 +97,7 @@ Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtu
 
 ### <a name="mandatory-inbound-security-rules"></a>Regras de segurança de entrada obrigatórias
 
-| NOME       |Porta                        |Protocolo|Fonte           |Destino|Ação|
+| NOME       |Porta                        |Protocol|Fonte           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |gerenciamento  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |SUB-REDE DA MI  |PERMITIR |
 |mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |PERMITIR |
@@ -105,7 +105,7 @@ Implante uma instância gerenciada em uma sub-rede dedicada dentro da rede virtu
 
 ### <a name="mandatory-outbound-security-rules"></a>Regras de segurança de saída obrigatórias
 
-| NOME       |Porta          |Protocolo|Fonte           |Destino|Ação|
+| NOME       |Porta          |Protocol|Fonte           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
 |gerenciamento  |80, 443, 12000|TCP     |SUB-REDE DA MI        |AzureCloud |PERMITIR |
 |mi_subnet   |Qualquer           |Qualquer     |SUB-REDE DA MI        |SUB-REDE DA MI  |PERMITIR |
@@ -230,7 +230,7 @@ Além disso, você pode adicionar entradas à tabela de rotas para rotear o trá
 
 Se a rede virtual inclui um DNS personalizado, o servidor DNS personalizado deve ser capaz de resolver nomes de host em \*. core.windows.net zona. Usando os recursos adicionais, como autenticação do Azure AD pode exigir resolver FQDNs adicionais. Para obter mais informações, consulte [configurar um DNS personalizado](sql-database-managed-instance-custom-dns.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma visão geral, consulte [avançadas de segurança de dados do banco de dados do SQL](sql-database-managed-instance.md).
 - Saiba como [configurar uma nova rede virtual do Azure](sql-database-managed-instance-create-vnet-subnet.md) ou um [rede virtual do Azure existente](sql-database-managed-instance-configure-vnet-subnet.md) onde você pode implantar instâncias gerenciadas.

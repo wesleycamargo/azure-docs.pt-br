@@ -3,8 +3,8 @@ title: Diagnosticar a Conectividade Local por meio do Gateways de VPN com o Obse
 description: Este artigo descreve como diagnosticar a conectividade local por meio do gateway de VPN com a solução de problemas de recursos do Observador de Rede do Azure.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: aeffbf3d-fd19-4d61-831d-a7114f7534f9
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 323e5d63b5f8566d570dfd47323fcf12f7c6b28b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: kumud
+ms.openlocfilehash: 95c6e1f015e519bd1e753fce9a2c6f064a854456
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051573"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713775"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticar a conectividade local por meio do Gateway de VPN
 
@@ -107,7 +107,7 @@ O recurso de solução de problemas do Observador de Rede do Azure permite diagn
 | ConnectionIsMarkedDisconnected | A Conexão está marcado como "desconectada". |Não |
 | ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a Conexão configurada. | Sim |
 | ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| Sim|
-| Autenticação | Incompatibilidade de chave pré-compartilhada. | Sim|
+| Authentication | Incompatibilidade de chave pré-compartilhada. | Sim|
 | PeerReachability | O gateway correspondente não está acessível. | Sim|
 | IkePolicyMismatch | O gateway de mesmo nível tem diretivas IKE que não são suportadas pelo Azure. | Sim|
 | WfpParse Error | Ocorreu um erro ao analisar o log WFP. |Sim|

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 7bb25aa1f77a49363fe2e08d1430282b9b33caae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87f86f861ffc036077b25a2514fbd2d0c57da735
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311634"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716761"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -66,7 +66,7 @@ Por exemplo, o JSON a seguir mostra uma política que limita os locais em que os
 }
 ```
 
-Todos os exemplos do Azure Policy estão em [Exemplos de política](../samples/index.md).
+Todos os exemplos do Azure Policy estão em [exemplos do Azure Policy](../samples/index.md).
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -99,6 +99,7 @@ Um parâmetro tem as seguintes propriedades que são usadas na definição de po
   - `description`: a explicação de uso do parâmetro. Pode ser usado para fornecer exemplos de valores aceitáveis.
   - `displayName`: O nome amigável exibido no portal para o parâmetro.
   - `strongType`: (opcional) usado ao atribuir a definição de política por meio do portal. Fornece uma lista de reconhecimento de contexto. Para obter mais informações, confira [strongType](#strongtype).
+  - `assignPermissions`: (Opcional) Defina como _verdadeira_ para fazer com que o portal do Azure crie atribuições de função durante a atribuição de política. Essa propriedade é útil caso você queira atribuir permissões fora do escopo de atribuição. Há uma atribuição de função por definição de função na política (ou por definição de função em todas as políticas na iniciativa). O valor do parâmetro deve ser um recurso válido ou um escopo.
 - `defaultValue`: (opcional) define o valor do parâmetro em uma atribuição se não houver valor fornecido. Necessário ao atualizar uma definição de política existente que é atribuída.
 - `allowedValues`: (Opcional) Fornece uma matriz de valores que o parâmetro aceita durante a atribuição.
 
@@ -148,6 +149,7 @@ Na propriedade `metadata`, você pode usar **strongType** para fornecer uma list
 - `omsWorkspace`
 - `Microsoft.EventHub/Namespaces/EventHubs`
 - `Microsoft.EventHub/Namespaces/EventHubs/AuthorizationRules`
+- `Microsoft.EventHub/Namespaces/AuthorizationRules`
 - `Microsoft.RecoveryServices/vaults`
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
@@ -375,7 +377,7 @@ Com a regra de política revisado `if()` verifica o comprimento do **nome** ante
 
 ### <a name="effect"></a>Efeito
 
-A política é compatível com os seguintes tipos de efeito:
+A política do Azure dá suporte aos seguintes tipos de efeito:
 
 - **Negar**: gera um evento no log de atividades e falha na solicitação
 - **Auditoria**: gera um evento de aviso no log de atividades, mas não falha na solicitação
@@ -410,7 +412,7 @@ O efeito **DeployIfNotExists** requer a propriedade **roleDefinitionId** na part
 }
 ```
 
-Para obter detalhes completos sobre cada efeito, ordem de avaliação, propriedades e exemplos, confira [Compreendendo os efeitos da Política](effects.md).
+Para obter detalhes completos sobre cada efeito, a ordem de avaliação, propriedades e exemplos, consulte [Noções básicas sobre Azure política efeitos](effects.md).
 
 ### <a name="policy-functions"></a>Funções de política
 
@@ -591,11 +593,11 @@ O exemplo a seguir ilustra como criar uma iniciativa para lidar com duas marcas:
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-- Revise os exemplos em [amostras da Política do Azure](../samples/index.md)
-- Revisão [Noções básicas sobre os efeitos de política](effects.md)
-- Entender como [criar políticas de forma programática](../how-to/programmatically-create.md)
-- Saiba como [obter dados de conformidade](../how-to/getting-compliance-data.md)
-- Saiba como [corrigir recursos fora de conformidade](../how-to/remediate-resources.md)
-- Examine o que é um grupo de gerenciamento com [Organizar seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md)
+- Examine os exemplos na [exemplos do Azure Policy](../samples/index.md).
+- Revisar [Compreendendo os efeitos da política](effects.md).
+- Entender como [criar políticas de forma programática](../how-to/programmatically-create.md).
+- Saiba como [obter dados de conformidade](../how-to/getting-compliance-data.md).
+- Saiba como [corrigir recursos sem conformidade](../how-to/remediate-resources.md).
+- Examine o que um grupo de gerenciamento com [organizar seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).

@@ -18,12 +18,12 @@ ms.date: 03/23/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a92d10f67533efc2f5893b012aefbcb92efee59a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a5c6f1064d2d73ab3d99ca341cffd9b296723e97
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411588"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571096"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>O que são controles de acesso no acesso condicional do Azure Active Directory?
 
@@ -113,7 +113,7 @@ Você pode exigir que um usuário em seu locatário concorde com os termos de us
 
 ### <a name="custom-controls-preview"></a>Controles personalizados (versão prévia)
 
-Você pode criar controles personalizados em Acesso Condicional que redirecionam os usuários para um serviço compatível para atender requisitos adicionais fora do Azure Active Directory. Isso permite que você use determinados provedores de verificação e autenticação multifator externos para impor regras de Acesso Condicional ou para criar seu próprio serviço personalizado. Para satisfazer esse controle, o navegador do usuário é redirecionado para um serviço externo, realiza qualquer autenticação ou atividades de validação necessárias e, em seguida, é redirecionado ao Azure Active Directory. Se o usuário foi autenticado ou validado com êxito, ele continua no fluxo de Acesso Condicional. 
+Você pode adicionar controles personalizados em acesso condicional que redirecionam os usuários para um serviço compatível para atender requisitos adicionais fora do Azure Active Directory. Isso permite que você use determinados provedores de verificação e autenticação multifator externos para impor requisitos de acesso condicional. Para satisfazer esse controle, o navegador do usuário é redirecionado para um serviço externo, realiza qualquer autenticação ou atividades de validação necessárias e, em seguida, é redirecionado ao Azure Active Directory. Se o usuário foi autenticado ou validado com êxito, ele continua no fluxo de Acesso Condicional. 
 
 ## <a name="custom-controls"></a>Controles personalizados
 
@@ -137,6 +137,8 @@ Para obter mais informações sobre esses serviços, entre em contato diretament
 ### <a name="creating-custom-controls"></a>Criando controles personalizados
 
 Para criar um controle personalizado, você deve entrar em contato com o provedor que você deseja utilizar. Cada provedor não Microsoft tem seu próprio processo e requisitos para inscrição, assinatura ou outro modo de tornar-se parte do serviço, bem como para indicar que você deseja integrar-se com acesso condicional. Nesse ponto, o provedor lhe fornecerá um bloco de dados no formato JSON. Esses dados permitem que o provedor e o acesso condicional funcionem em conjunto para o seu locatário, cria o novo controle e define como o acesso condicional pode determinar se os usuários executaram com êxito a verificação com o provedor.
+
+Controles personalizados não podem ser usados com a automação do Identity Protection que exigem a autenticação multifator ou elevar as funções no Privileged Identity Manager (PIM).
 
 Copie os dados JSON e, em seguida, cole-os na caixa de texto relacionada. Não faça alterações ao JSON, a menos que você compreenda explicitamente a alteração que você está fazendo. Fazer qualquer alteração pode interromper a conexão entre o provedor e a Microsoft e potencialmente bloquear você e seus usuários do acesso às respectivas contas.
 
@@ -178,7 +180,7 @@ Para obter mais informações, consulte:
 
 - [Ativando acesso limitado com o Exchange Online](https://aka.ms/owalimitedaccess)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Se você quiser saber como configurar uma política de acesso condicional, consulte [Exigir MFA para aplicativos específicos com acesso condicional do Azure Active Directory](app-based-mfa.md).
 

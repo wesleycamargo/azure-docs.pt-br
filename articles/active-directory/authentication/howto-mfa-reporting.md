@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f78a3135fca290d50370652b33fe0a4d16a6f83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 64d4c48697d38cfa5942e09cb672af37c27eede2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358764"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688685"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Relatórios na Autenticação Multifator do Azure
 
@@ -122,7 +122,9 @@ Os relatórios de atividade de entrada para MFA fornecem acesso às seguintes in
 - Controles de sessão
 - Result
 
-## <a name="powershell-reporting"></a>Relatórios do PowerShell
+## <a name="powershell-reporting-on-users-registered-for-mfa"></a>PowerShell para gerar relatórios sobre usuários registrados para MFA
+
+Primeiro, certifique-se de que você tenha o [módulo V1 do MSOnline PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0) instalado.
 
 Identifique os usuários que se registraram para MFA usando o PowerShell a seguir.
 
@@ -132,7 +134,7 @@ Identifique os usuários que não se registraram para MFA usando o PowerShell a 
 
 ```Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Para usuários](../user-help/multi-factor-authentication-end-user.md)
 * [Onde implantar](concept-mfa-whichversion.md)

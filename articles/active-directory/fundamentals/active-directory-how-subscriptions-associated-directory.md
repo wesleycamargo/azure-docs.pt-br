@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b141de4c22ba1ba1325982d8e027fa46e0909fbb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06b6fdf7a3d21a6b7dc84c4347824d4eaeac046f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60248752"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918407"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma assinatura do Azure ao seu locatário do Azure Active Directory
 
@@ -31,7 +31,7 @@ Todos os usuários têm uma única *doméstica* diretório para autenticação. 
 > [!Important]
 > Ao associar uma assinatura para um diretório diferente, os usuários que têm funções atribuídas usando [controle de acesso baseado em função (RBAC)](../../role-based-access-control/role-assignments-portal.md) perderão o acesso. Os administradores de assinatura clássicos (administrador de serviços e Coadministradores) também perderá o acesso.
 > 
-> Além disso, movendo seu cluster do serviço de Kubernetes do Azure (AKS) para uma assinatura diferente ou movendo a assinatura proprietária de cluster para um novo locatário, faz com que o cluster perca a funcionalidade devido a direitos de entidades de serviço e de atribuições de função perdido. Para obter mais informações sobre o AKS, consulte [serviço de Kubernetes do Azure (AKS)](https://docs.microsoft.com/en-us/azure/aks/).
+> Além disso, movendo seu cluster do serviço de Kubernetes do Azure (AKS) para uma assinatura diferente ou movendo a assinatura proprietária de cluster para um novo locatário, faz com que o cluster perca a funcionalidade devido a direitos de entidades de serviço e de atribuições de função perdido. Para obter mais informações sobre o AKS, consulte [serviço de Kubernetes do Azure (AKS)](https://docs.microsoft.com/azure/aks/).
 
 ## <a name="before-you-begin"></a>Antes de começar
 

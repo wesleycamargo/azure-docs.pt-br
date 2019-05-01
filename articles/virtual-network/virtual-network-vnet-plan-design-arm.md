@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: acd7a88acb31b9d3bd3ba714387561e91b3524a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3843b5022aaf218bf91e25ecf6d9c36bb2db2dee
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61034732"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575413"
 ---
 # <a name="plan-virtual-networks"></a>Planejar redes virtuais
 
@@ -77,7 +77,7 @@ Você pode filtrar o tráfego de rede para e de recursos em uma rede virtual usa
 - Se diferentes VMs dentro de uma sub-rede estiverem dentro das regras de segurança aplicadas a elas, você pode associar a interface de rede na VM a um ou mais grupos de segurança do aplicativo. Uma regra de segurança pode especificar um grupo de segurança do aplicativo em sua origem, destino ou ambos. Essa regra, em seguida, só se aplica às interfaces de rede que são membros do grupo de segurança de aplicativos. Saiba mais sobre [grupos de segurança de rede](security-overview.md) e [grupos de segurança de aplicativo](security-overview.md#application-security-groups).
 - O Azure cria várias regras de segurança padrão dentro de cada grupo de segurança de rede. Uma regra padrão permite que todo o tráfego flua entre todos os recursos em uma rede virtual. Para substituir esse comportamento, use os grupos de segurança de rede, personalizar roteamento para rotear o tráfego a um NVA, ou ambos. É recomendável que você se familiarize com todas regras de segurança padrão do Azure [padrão de regras de segurança](security-overview.md#default-security-rules) e compreenda como as regras de grupo de segurança de rede são aplicadas a um recurso.
 
-Você pode exibir projetos de exemplo para a implementação de um DMZ entre o Azure e a internet usando um [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) ou [grupos de segurança de rede](virtual-networks-dmz-nsg.md).
+Você pode exibir os designs de exemplo para a implementação de uma rede de perímetro (também conhecida como DMZ) entre o Azure e a internet usando um [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) ou [grupos de segurança de rede](virtual-networks-dmz-nsg.md).
 
 ### <a name="traffic-routing"></a>Roteamento de tráfego
 

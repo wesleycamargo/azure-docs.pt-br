@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: c4f94dd2730dd302951b4476a292b006041b7ee8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d79154a8792b9017b98f9d21a2ab0360b7304d1c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60820029"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64697850"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Autotreinar um modelo de previsão de série temporal
 
@@ -67,7 +67,7 @@ y_test = X_test.pop("sales_quantity").values
 > [!NOTE]
 > Ao treinar um modelo para prever valores futuros, verifique se todos os recursos usados no treinamento podem ser usados durante a execução de previsões para o horizonte pretendido. Por exemplo, ao criar uma previsão de demanda, incluindo um recurso para o preço da ação atual poderia massivamente aumentar a precisão de treinamento. No entanto, se você pretende com um longo horizonte de previsão, pode não ser capaz de prever com precisão valores futuros de estoque correspondente aos pontos de série temporal futuras e precisão do modelo pode ser afetado.
 
-## <a name="configure-experiment"></a>Configurar o experimento
+## <a name="configure-and-run-experiment"></a>Configurar e executar o experimento
 
 Para tarefas de previsão, aprendizado de máquina automatizado usa as etapas de pré-processamento e a estimativa que são específicas para dados de série temporal. As seguintes etapas de pré-processamento serão executadas:
 
@@ -126,6 +126,20 @@ best_run, fitted_model = local_run.get_output()
 > [!NOTE]
 > Para obter o procedimento de (VC) de validação cruzada, dados de série temporal podem violar as suposições básicas de estatísticas da estratégia de validação cruzada K vezes canônica, para que o aprendizado de máquina automatizado implementa um procedimento de validação de origem sem interrupção para criar dobras de validação cruzada para dados de série temporal. Para usar este procedimento, especifique o `n_cross_validations` parâmetro no `AutoMLConfig` objeto. Você pode ignorar a validação e o uso de conjuntos de sua própria validação com o `X_valid` e `y_valid` parâmetros.
 
+### <a name="view-feature-engineering-summary"></a>Exibir o resumo de engenharia de recurso
+
+Para tipos de tarefa da série de tempo no aprendizado de máquina automatizado, você pode exibir detalhes do recurso do processo de engenharia. O código a seguir mostra cada recurso bruto, juntamente com os seguintes atributos:
+
+* Nome do recurso bruto
+* Número de recursos de engenharia formado esse recurso bruto
+* Tipo detectado
+* Se o recurso foi descartado
+* Lista de transformações de recurso para o recurso bruto
+
+```python
+fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
+```
+
 ## <a name="forecasting-with-best-model"></a>Com o melhor modelo de previsão
 
 Use a melhor iteração do modelo para prever valores para o conjunto de dados de teste.
@@ -133,6 +147,16 @@ Use a melhor iteração do modelo para prever valores para o conjunto de dados d
 ```python
 y_predict = fitted_model.predict(X_test)
 y_actual = y_test.flatten()
+```
+
+Como alternativa, você pode usar o `forecast()` de função em vez de `predict()`, que permitirá que as especificações de quando as previsões devem começar. No exemplo a seguir, primeiro substitua todos os valores na `y_pred` com `NaN`. A origem de previsão será no final dos dados de treinamento nesse caso, como normalmente seria ao usar `predict()`. No entanto, se você substituiu a segunda metade da `y_pred` com `NaN`, a função deixe os valores numéricos na primeira metade sem modificações, mas a previsão a `NaN` valores na segunda metade. A função retorna os valores previstos e os recursos alinhados.
+
+Você também pode usar o `forecast_destination` parâmetro no `forecast()` função para prever valores até uma data especificada.
+
+```python
+y_query = y_test.copy().astype(np.float)
+y_query.fill(np.nan)
+y_fcst, X_trans = fitted_pipeline.forecast(X_test, y_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
 Calcular RMSE (erro de quadrado da média de raiz) entre o `y_test` valores reais e os valores previstos no `y_pred`.

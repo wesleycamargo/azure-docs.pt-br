@@ -1,28 +1,19 @@
 ---
 title: Desempenho do Phoenix no Azure HDInsight
 description: Práticas recomendadas para otimizar o desempenho do Phoenix.
-services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 01/22/2018
-ms.date: 01/14/2019
-ms.author: v-yiso
+ms.topic: conceptual
+ms.date: 01/22/2018
+ms.author: ashishth
 ms.openlocfilehash: 4fc4d1843ddb8d007ca062d928ebbddf90909583
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62114300"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690041"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Práticas recomendadas de desempenho do Apache Phoenix
 
@@ -61,7 +52,7 @@ Com essa nova chave primária, chaves de linhas geradas pelo Phoenix seriam:
 
 Na primeira linha acima, os dados para o rowkey são representados conforme mostrado:
 
-|rowkey|       chave|   value| 
+|rowkey|       key|   value| 
 |------|--------------------|---|
 |  Dole-John-111|endereço |1111 San Gabriel Dr.|  
 |  Dole-John-111|phone |1-425-000-0002|  

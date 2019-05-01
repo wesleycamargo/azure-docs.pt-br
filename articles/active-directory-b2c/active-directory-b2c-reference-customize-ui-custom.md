@@ -3,19 +3,19 @@ title: Personalizar a interface do usuário de um Percurso do Usuário com polí
 description: Saiba mais sobre as políticas personalizadas do Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 88abd3d17218f1168119a66701f1474d27244acf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1cd3fa11df9bd9c87b84985f7acad6ba0a5e8838
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317336"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64695767"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalizar a interface do usuário de um Percurso do Usuário com políticas personalizadas
 
@@ -167,5 +167,5 @@ A tabela a seguir descreve o conjunto de IDs de definição de conteúdo reconhe
 | *api.selfasserted.profileupdate* | **Página de atualização de perfil**. Esta página contém um formulário que o usuário pode usar para atualizar seu perfil. Essa página é semelhante à página de inscrição para conta de redes sociais anterior, com exceção dos campos de entrada da senha. |
 | *api.signuporsignin* | **Página de inscrição ou entrada unificada**.  Esta página controla tanto a inscrição quanto a entrada dos usuários, que podem usar provedores de identidade empresarial, provedores de identidade social como Facebook ou Google+ ou contas locais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Referência: Aprenda como as políticas personalizadas trabalham com o Identity Experience Framework no B2C](active-directory-b2c-reference-custom-policies-understanding-contents.md)

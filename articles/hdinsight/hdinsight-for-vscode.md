@@ -10,11 +10,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/04/2019
 ms.openlocfilehash: 04e607517bc806b60d7e76e5076f9d3518e530eb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098330"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681759"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Usar a Ferramenta do Azure HDInsight para Visual Studio Code
 
@@ -328,7 +328,7 @@ Envie um arquivo, observe que a pasta .vscode é adicionada automaticamente à p
     Corpo da resposta   
     O objeto de lote criado.
 
-    | Nome | description | tipo | 
+    | Nome | description | Tipo | 
     | :- | :- | :- | 
     | ID | A id da sessão | int | 
     | appId | A ID de aplicativo desta sessão |  Cadeia de caracteres |

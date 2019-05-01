@@ -3,19 +3,19 @@ title: RelyingParty – Azure Active Directory B2C | Microsoft Docs
 description: Especifica o elemento RelyingParty de uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5d42568a738d946d7df65601044b9797a35f6b1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ca78e7a9ce44b492dafcc00c1663d54718ca7fac
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60360394"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64705085"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -102,7 +102,7 @@ Política *B2C_1A_signup_signin*:
 
 O elemento **DefaultUserJourney** contém o seguinte atributo:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ReferenceId | Sim | Um identificador de percurso do usuário na política. Para obter mais informações, confira [percursos do usuário](userjourneys.md) |
 
@@ -122,7 +122,7 @@ O elemento **UserJourneyBehaviors** contém os seguintes elementos:
 
 O elemento **SingleSignOn** contém o seguinte atributo:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | Escopo | Sim | O escopo do comportamento de logon único. Valores possíveis: `Suppressed`, `Tenant`, `Application` ou `Policy`. O valor `Suppressed` indica que o comportamento será suprimido. Por exemplo, no caso de uma única sessão de logon único, nenhuma sessão será mantida para o usuário e o usuário sempre será solicitado a fazer uma seleção de provedor de identidade. O valor `TrustFramework` indica que o comportamento é aplicado a todas as políticas na estrutura de confiança. Por exemplo, um usuário navegando por dois percursos de política para uma estrutura de confiança não é solicitado a fazer uma seleção de provedor de identidade. O valor `Tenant` indica que o comportamento é aplicado a todas as políticas no locatário. Por exemplo, um usuário navegando por dois percursos de política para um locatário não é solicitado a fazer uma seleção de provedor de identidade. O valor `Application` indica que o comportamento é aplicado a todas as políticas para o aplicativo que está fazendo a solicitação. Por exemplo, um usuário navegando por dois percursos de política para um aplicativo não é solicitado a fazer uma seleção de provedor de identidade. O valor `Policy` indica que o comportamento se aplica somente a uma política. Por exemplo, um usuário que navega pelas dois percursos de política para uma estrutura de confiança é solicitado a informar uma seleção de provedor de identidade ao alternar entre políticas. |
 | KeepAliveInDays | Sim | Controla por quanto tempo o usuário permanece conectado. A definição do valor como 0 desliga a funcionalidade KMSI. Para obter mais informações, confira [Manter-me conectado](active-directory-b2c-reference-kmsi-custom.md). |
@@ -131,7 +131,7 @@ O elemento **SingleSignOn** contém o seguinte atributo:
 
 O elemento **JourneyInsights** contém os seguintes atributos:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | TelemetryEngine | Sim | O valor deve ser `ApplicationInsights`. | 
 | InstrumentationKey | Sim | A cadeia de caracteres que contém a chave de instrumentação para o elemento de insights de aplicativo. |
@@ -158,7 +158,7 @@ O elemento **ContentDefinitionParameters** contém o seguinte elemento:
 
 O elemento **ContentDefinitionParameter** contém o seguinte atributo:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | Name | Sim | O nome do par chave-valor. |
 
@@ -168,7 +168,7 @@ Para obter mais informações, confira [Configurar a interface do usuário com c
 
 O elemento **TechnicalProfile** contém o seguinte atributo:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- | 
 | ID | Sim | O valor deve ser `PolicyProfile`. |
 
@@ -178,14 +178,14 @@ O **TechnicalProfile** contém os seguintes elementos:
 | ------- | ----------- | ----------- |
 | DisplayName | 0:1 | A cadeia de caracteres que contém o nome do perfil técnico exibido aos usuários. |
 | DESCRIÇÃO | 0:1 | A cadeia de caracteres que contém a descrição do perfil técnico exibido aos usuários. |
-| Protocolo | 1:1 | O protocolo usado para federação. |
+| Protocol | 1:1 | O protocolo usado para federação. |
 | Metadados | 0:1 | A coleção de *Item* de pares chave-valor utilizados pelo protocolo de comunicação com o ponto de extremidade no decorrer de uma transação para configurar a interação entre a terceira parte confiável e outros participantes da comunidade. |
 | OutputClaims | 0:1 | Uma lista de tipos de declaração obtidos como saída no perfil técnico. Cada um desses elementos contém referência a um **ClaimType** já definido na seção **ClaimsSchema** ou em uma política da qual este arquivo de política herda. |
 | SubjectNamingInfo | 0:1 | O nome da entidade usado nos tokens. |
 
 O elemento **Protocol** contém os seguinte atributo:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | Name | Sim | O nome de um protocolo válido com suporte no Azure AD B2C que é usado como parte do perfil técnico. Valores possíveis: `OpenIdConnect` ou `SAML2`. O valor `OpenIdConnect` representa o padrão de protocolo do OpenID Connect 1.0 de acordo com a especificação OpenID Foundation. O representa `SAML2` o padrão de protocolo SAML 2.0 de acordo com a especificação OASIS. Não use um token SAML em produção. |
 
@@ -199,7 +199,7 @@ O elemento **OutputClaims** contém o seguinte elemento:
 
 O elemento **OutputClaim** contém os seguintes atributos:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sim | Uma referência a um **ClaimType** já definido na seção **ClaimsSchema** no arquivo de política. |
 | DefaultValue | Não  | Um valor padrão que poderá ser usado se o valor da declaração estiver vazio. |
@@ -213,7 +213,7 @@ Com o elemento **SubjectNameingInfo**, você controla o valor da entidade do tok
 
 O elemento **SubjectNamingInfo** contém o seguinte atributo:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ClaimType | Sim | Uma referência a **PartnerClaimType** da declaração de saída. As declarações de saída devem ser definidas na política de terceira parte confiável da coleção **OutputClaims**. |
 

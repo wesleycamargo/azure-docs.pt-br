@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/01/2019
 ms.author: banders
-ms.openlocfilehash: 810d0795bd005cc313ec3567811ad55ba1d9d522
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: be20ad0583558949f65b9706f0a478669360bf3d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60369978"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571197"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Entenda sua fatura do contrato Enterprise do Azure
 
@@ -29,7 +29,7 @@ O crédito da sua organização inclui o seu compromisso monetário. O compromis
 
 ## <a name="invoices-for-most-customers"></a>Notas fiscais para a maioria dos clientes
 
-Esta seção não se aplica aos clientes do Azure na Austrália, Japão ou Cingapura. Se você estiver em um país, consulte [faturas para outros clientes](#invoices-for-other-customers).
+Esta seção não se aplica aos clientes do Azure na Austrália, Japão ou Cingapura. Se você estiver em uma desses países/regiões, consulte [faturas para outros clientes](#invoices-for-other-customers).
 
 Quando um dos procedimentos a seguir ocorre durante seu ciclo de cobrança, você receberá uma fatura do Azure:
 
@@ -136,5 +136,5 @@ Compare seu total no Azure Marketplace em **Relatórios** > **Resumo de uso** no
 
 Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - [Exibir e baixar seus encargos e o uso do Azure](billing-download-azure-daily-usage.md)

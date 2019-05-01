@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: dcc94daeb19174b85fface05222f8842e9544adf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 41305cc5825344a61ff15ddb5deb629cd0f1c679
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419485"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691021"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico autodeclarado em uma política personalizada do Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "60419485"
 
 Todas as interações no Azure AD (Azure Active Directory) B2C em que o usuário precisa fornecer uma entrada são perfis técnicos autodeclarados. Por exemplo, uma página de inscrição, entrada ou redefinição de senha.
 
-## <a name="protocol"></a>Protocolo
+## <a name="protocol"></a>Protocol
 
 O atributo **Name** do elemento **Protocol** precisa ser definido como `Proprietary`. O atributo **manipulador** deve conter o nome totalmente qualificado do assembly do manipulador de protocolo usado pelo Azure AD B2C, para autodeclaração: `Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
@@ -127,7 +127,7 @@ Também é possível chamar um perfil técnico da API REST com a lógica de neg�
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | setting.showContinueButton | Não  | Mostra o botão continuar. Valores possíveis: `true` (padrão) ou `false` |
 | setting.showCancelButton | Não  | Mostra o botão cancelar. Valores possíveis: `true` (padrão) ou `false` |

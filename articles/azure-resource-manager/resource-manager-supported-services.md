@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 04/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: 520aeb8e47b5e94e6346e682f21f46cb0814f8f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a3c6eca548eb61d6b7b239b4292b9c77ca2dec6f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389593"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702698"
 ---
 # <a name="azure-resource-providers-and-types"></a>Provedores e tipos de recursos do Azure
 
@@ -31,6 +31,8 @@ Ao implantar recursos, com frequência você precisa recuperar informações sob
 * Exibir versões de API válidas para um tipo de recurso
 
 Você pode fazer essas etapas por meio do portal do Azure, Azure PowerShell ou CLI do Azure.
+
+Para obter uma lista que mapeia os provedores de recursos para serviços do Azure, consulte [provedores de recursos para serviços do Azure](azure-services-resource-providers.md).
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -287,9 +289,9 @@ West US
 ...
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre a criação de modelos do Gerenciador de Recursos, confira [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md). 
 * Para exibir os esquemas de modelo de provedor de recursos, confira [Referência de modelo](/azure/templates/).
-* Para saber mais sobre como implantar recursos, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
+* Para obter uma lista que mapeia os provedores de recursos para serviços do Azure, consulte [provedores de recursos para serviços do Azure](azure-services-resource-providers.md).
 * Para exibir as operações para um provedor de recursos, consulte [API REST do Azure](/rest/api/).

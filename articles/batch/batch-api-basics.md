@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 1107842444ad0ac77ab890f07e65c8b489030461
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1fbe5b0a49960248133c35fb4a0401a31b95fb35
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60721669"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64700930"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolva soluções de computação paralela em larga escala com o Lote
 
@@ -132,7 +132,7 @@ Quando você cria um pool do Lote, pode especificar a configuração de máquina
 
 - A **configuração de máquina virtual**, que especifica que o pool é composto de máquinas virtuais do Azure. Essas máquinas virtuais podem ser criadas de imagens Linux ou Windows. 
 
-    Ao criar um pool baseado na Configuração da Máquina Virtual, você deverá especificar não apenas o tamanho dos nós e a origem das imagens usadas para criá-los, mas também a **referência da imagem da máquina virtual** e a **SKU do agente de nó** do Lote a ser instalada nos nós. Para saber mais sobre como especificar essas propriedades de pool, confira [Provisionar nós de computação do Linux em pools do Lote do Azure](batch-linux-nodes.md). Opcionalmente, você pode anexar um ou mais discos de dados vazios ao pool de máquinas virtuais criadas desde imagens do Marketplace ou incluir discos de dados em imagens personalizadas usadas para criar as máquinas virtuais.
+    Ao criar um pool baseado na Configuração da Máquina Virtual, você deverá especificar não apenas o tamanho dos nós e a origem das imagens usadas para criá-los, mas também a **referência da imagem da máquina virtual** e a **SKU do agente de nó** do Lote a ser instalada nos nós. Para saber mais sobre como especificar essas propriedades de pool, confira [Provisionar nós de computação do Linux em pools do Lote do Azure](batch-linux-nodes.md). Opcionalmente, você pode anexar um ou mais discos de dados vazios ao pool de máquinas virtuais criadas desde imagens do Marketplace ou incluir discos de dados em imagens personalizadas usadas para criar as máquinas virtuais. Ao incluir discos de dados, você precisa montar e formatar os discos de dentro de uma VM para usá-los.
 
 - A **configuração dos Serviços de Nuvem**, que especifica que o pool é composto de nós dos Serviços de Nuvem do Azure. Os Serviços de Nuvem fornecem *somente* nós de computação do Windows.
 

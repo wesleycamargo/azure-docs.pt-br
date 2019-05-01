@@ -3,19 +3,19 @@ title: Definir um perfil técnico RESTful em uma política personalizada no Azur
 description: Defina um perfil técnico RESTful em uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7ff14af756a55ccc6bbf40dd39d49c5168f4af1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0726c22e436658d51419b9e32d73f48db99ba805
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418272"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64705312"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico RESTful em uma política personalizada do Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ Sua política pode enviar declarações de entrada para a API REST. A API REST t
 - **Perfil técnico de validação** – um perfil técnico de validação chama o serviço RESTful. O perfil técnico de validação valida os dados fornecido pelo usuário para que o percurso do usuário continue. Com o perfil técnico de validação, uma mensagem de erro é exibida em uma página autodeclarada e retornada em declarações de saída.
 - **Troca de declarações** – é feita uma chamada para o serviço RESTful por meio de uma etapa de orquestração. Nesse cenário, não há interface do usuário para renderizar a mensagem de erro. Se a API REST retornar um erro, o usuário será redirecionado de volta para o aplicativo de terceira parte confiável com a mensagem de erro.
 
-## <a name="protocol"></a>Protocolo
+## <a name="protocol"></a>Protocol
 
 O atributo **Name** do elemento **Protocol** precisa ser definido como `Proprietary`. O atributo **manipulador** deve conter o nome totalmente qualificado do assembly do manipulador de protocolo usado pelo Azure AD B2C: `Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
@@ -83,7 +83,7 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ServiceUrl | Sim | A URL do ponto de extremidade da API REST. | 
 | AuthenticationType | Sim | O tipo de autenticação que está sendo executada pelo provedor de declarações RESTful. Valores possíveis: `None`, `Basic` ou `ClientCertificate`. O valor `None` indica que a API REST não é anônima. O valor `Basic` indica que a API REST está protegida com a autenticação Básica HTTP. Somente usuários verificados, incluindo Azure AD B2C, podem acessar a API. O valor `ClientCertificate` (recomendado) indica que a API REST restringe o acesso usando a autenticação de certificado do cliente. Somente os serviços que têm certificados adequados, como o Azure AD B2C, poderão acessar seu serviço. | 
@@ -109,7 +109,7 @@ Se o tipo de autenticação for definido como `None`, o elemento **Cryptographic
 
 Se o tipo de autenticação for definido como `Basic`, o elemento **CryptographicKeys** conterá os seguintes atributos:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | BasicAuthenticationUsername | Sim | O nome de usuário usado para autenticar. | 
 | BasicAuthenticationPassword | Sim | A senha usada para autenticar. |
@@ -134,7 +134,7 @@ O exemplo a seguir mostra um perfil técnico com a autenticação Básica:
 
 Se o tipo de autenticação for definido como `ClientCertificate`, o elemento **CryptographicKeys** conterá o seguinte atributo:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ClientCertificate | Sim | O certificado X509 (conjunto de chaves RSA) a ser usado para autenticar. | 
 
@@ -157,7 +157,7 @@ Se o tipo de autenticação for definido como `ClientCertificate`, o elemento **
 
 A API REST talvez precise retornar uma mensagem de erro, como "O usuário não foi encontrado no sistema CRM". Se um erro ocorrer, a API REST deverá retornar uma mensagem de erro HTTP 409 (código de status de resposta de Conflito) com os seguintes atributos:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | version | Sim | 1.0.0 | 
 | status | Sim | 409 | 

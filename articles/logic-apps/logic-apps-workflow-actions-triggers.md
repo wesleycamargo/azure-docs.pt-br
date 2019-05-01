@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: bd588eeec8b560411e3fb4b6f84ec8a4a45f08d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 76783ffd91a8ad17fca912ac9c3a66a5f0f15821
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844170"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691921"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Referência para tipos de gatilho e ação na linguagem de definição de fluxo de trabalho para aplicativos lógicos do Azure
 
@@ -2301,6 +2301,7 @@ Você pode alterar o comportamento de tempo de execução padrão para acionador
 | `runtimeConfiguration.concurrency.runs` | Número inteiro | Alterar o [ *limite padrão* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de instâncias de fluxo de trabalho que podem ser executados ao mesmo tempo, ou em paralelo. Esse valor pode ajudar a limitar o número de solicitações recebidas pelos sistemas de back-end. <p>A configuração da `runs`propriedade para`1` funciona da mesma maneira que a configuração da propriedade `operationOptions` para `SingleInstance`. Você pode definir a propriedade, mas não ambos. <p>Para alterar o limite padrão, consulte [simultaneidade do gatilho de alteração](#change-trigger-concurrency) ou [disparar instâncias sequencialmente](#sequential-trigger). | Todos os gatilhos | 
 | `runtimeConfiguration.concurrency.maximumWaitingRuns` | Número inteiro | Alterar o [ *limite padrão* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de instâncias de fluxo de trabalho pode esperar para ser executado quando o fluxo de trabalho já está em execução o número máximo de instâncias simultâneo. Você pode alterar o limite de simultaneidade na propriedade `concurrency.runs`. <p>Para alterar o limite padrão, consulte [execuções de espera da alteração limitam](#change-waiting-runs). | Todos os gatilhos | 
 | `runtimeConfiguration.concurrency.repetitions` | Número inteiro | Alterar o [*limite padrão*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de "for each" que podem ser executados ao mesmo tempo, ou em paralelo iterações do loop. <p>Definindo o `repetitions` propriedade para `1` funciona da mesma forma que a configuração a `operationOptions` propriedade `SingleInstance`. Você pode definir a propriedade, mas não ambos. <p>Para alterar o limite padrão, consulte [Alterar "para cada" simultaneidade](#change-for-each-concurrency) ou [Executar "para cada" faz um loop sequencialmente](#sequential-for-each). | Ação: <p>[Foreach](#foreach-action) | 
+| `runtimeConfiguration.paginationPolicy.minimumItemCount` | Número inteiro | Para ações específicas que possuem suporte e paginação ativada, esse valor Especifica o *mínimo* número de resultados a serem recuperados. <p>Para ativar a paginação, consulte [obter dados em massa, itens ou os resultados por meio de paginação](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | Ação: Variadas |
 ||||| 
 
 <a name="operation-options"></a>
@@ -2585,7 +2586,7 @@ Para [autenticação básica](../active-directory-b2c/active-directory-b2c-custo
 
 | Propriedade | Necessário | Value | DESCRIÇÃO | 
 |----------|----------|-------|-------------| 
-| **tipo** | Sim | “Basic” | O tipo de autenticação a ser usado, que é “Basic” aqui | 
+| **type** | Sim | “Basic” | O tipo de autenticação a ser usado, que é “Basic” aqui | 
 | **username** | Sim | "@parameters('userNameParam')" | O nome de usuário para autenticar o acesso ao ponto de extremidade de serviço de destino |
 | **password** | Sim | "@parameters('passwordParam')" | A senha para autenticar o acesso ao ponto de extremidade de serviço de destino |
 ||||| 
@@ -2619,7 +2620,7 @@ Para [autenticação baseada em certificado](../active-directory/authentication/
 
 | Propriedade | Necessário | Value | DESCRIÇÃO |
 |----------|----------|-------|-------------|
-| **tipo** | Sim | "ClientCertificate" | O tipo de autenticação a ser usado para certificados do cliente do protocolo SSL. Embora haja suporte para certificados autoassinados, não há suporte para certificados autoassinados para SSL. |
+| **type** | Sim | "ClientCertificate" | O tipo de autenticação a ser usado para certificados do cliente do protocolo SSL. Embora haja suporte para certificados autoassinados, não há suporte para certificados autoassinados para SSL. |
 | **pfx** | Sim | "@parameters('pfxParam') | O conteúdo codificado na base64 do arquivo PFX (Troca de Informações Pessoais) |
 | **password** | Sim | "@parameters('passwordParam')" | A senha para acessar o arquivo PFX |
 ||||| 
@@ -2653,7 +2654,7 @@ Para [autenticação OAuth do Azure AD](../active-directory/develop/authenticati
 
 | Propriedade | Necessário | Value | DESCRIÇÃO |
 |----------|----------|-------|-------------|
-| **tipo** | Sim | `ActiveDirectoryOAuth` | O tipo de autenticação a ser usado, o que é "ActiveDirectoryOAuth" para o OAuth do Azure AD |
+| **type** | Sim | `ActiveDirectoryOAuth` | O tipo de autenticação a ser usado, o que é "ActiveDirectoryOAuth" para o OAuth do Azure AD |
 | **authority** | Não  | <*URL-for-authority-token-issuer*> | A URL para a autoridade que fornece o token de autenticação |
 | **tenant** | Sim | <*tenant-ID*> | A ID do locatário para o locatário do Azure AD |
 | **audience** | Sim | <*resource-to-authorize*> | O recurso que você deseja usar para autorização, por exemplo, `https://management.core.windows.net/` |
@@ -2687,6 +2688,6 @@ Neste exemplo de definição de ação HTTP, a seção `authentication` especifi
 > [!IMPORTANT]
 > Proteja informações confidenciais manipuladas pela definição de fluxo de trabalho do aplicativo lógico. Use parâmetros seguros e codifique os dados, conforme necessário. Para saber mais sobre proteger parâmetros, confira [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) (Proteger o aplicativo lógico).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre [Linguagem de Definição de Fluxo de Dados](../logic-apps/logic-apps-workflow-definition-language.md)

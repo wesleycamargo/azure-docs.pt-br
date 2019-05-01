@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c6c552a6605278d8ab31264f5d180206e0badac
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4715ec92c4ee45733cc0eb2839c533f9ee8968fe
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490025"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694123"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guia de solução de problemas do Azure Disk Encryption
 
@@ -52,7 +52,7 @@ uname -a
 
 ## <a name="update-the-azure-virtual-machine-agent-and-extension-versions"></a>Atualizar o agente de máquina Virtual do Azure e as versões da extensão
 
-Operações de criptografia de disco do Azure podem falhar em imagens de máquina virtual usando versões sem suporte do agente de máquina Virtual do Azure. Para obter mais informações, consulte [suporte de versão mínima para agentes de máquina virtual no Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).  
+Operações de criptografia de disco do Azure podem falhar em imagens de máquina virtual usando versões sem suporte do agente de máquina Virtual do Azure. Imagens do Linux com as versões de agente anteriores ao 2.2.38 devem ser atualizadas antes de habilitar a criptografia. Para obter mais informações, consulte [como atualizar o agente Linux do Azure em uma máquina virtual](../virtual-machines/extensions/update-linux-agent.md) e [suporte de versão mínima para agentes de máquina virtual no Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 A versão correta da extensão do agente de convidado Microsoft.Azure.Security.AzureDiskEncryption ou Microsoft.Azure.Security.AzureDiskEncryptionForLinux também é necessária. Versões da extensão são mantidas e atualizadas automaticamente pela plataforma, quando os pré-requisitos de agente de máquina Virtual do Azure são atendidos, uma versão com suporte do agente de máquina virtual é usada.
 

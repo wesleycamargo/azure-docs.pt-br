@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 04/29/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9b63fb963408b8f22453c7ea78e36a49402273a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e2bcd92ffc8799b2edf04251b6ce160e96c7609c
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60906010"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875601"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personalizar a política de proteção de informações do SQL na Central de Segurança do Azure (Visualizar)
  
@@ -41,12 +41,11 @@ A Proteção de Informações vem com um conjunto integrado de rótulos e tipos 
 ## <a name="customize-the-information-protection-policy"></a>Personalizar a política de proteção de informações
 Para personalizar a política de proteção de informações do seu locatário do Azure, você precisa ter [privilégios administrativos no grupo de gerenciamento de raiz do locatário](security-center-management-groups.md). 
  
-1. No menu principal da Central de Segurança, selecione **Política de segurança**.
-2. Escolha **Visualização hierárquica (visualização)** e, em seguida, em **Grupo raiz de inquilinos**, clique em **Editar configurações**.
- 
+1. Na segurança Center menu principal, em **higiene de troca de segurança de recursos** acesse **dados e armazenamento** e clique no **proteção de informações do SQL** botão.
+
    ![Configurar a política de proteção de informações](./media/security-center-info-protection-policy/security-policy.png) 
  
-3. Sob **componentes de política**, clique em **proteção de informações**. Na página **Configurações de proteção de informações**, você pode visualizar seu conjunto atual de rótulos. Estes são os principais atributos de classificação usados para categorizar o nível de sensibilidade de seus dados. A partir daqui, você pode configurar os **rótulos de proteção de informações** e **tipos de informações** para o locatário. 
+2. No **proteção de informações do SQL** página, você pode exibir o conjunto atual de rótulos. Estes são os principais atributos de classificação usados para categorizar o nível de sensibilidade de seus dados. A partir daqui, você pode configurar os **rótulos de proteção de informações** e **tipos de informações** para o locatário. 
  
 ### <a name="customizing-labels"></a>Personalizando rótulos
  

@@ -1,5 +1,5 @@
 ---
-title: Práticas recomendadas ao usar a API do Detector de anomalias
+title: Melhores práticas ao usar a API do Detector de Anomalias
 description: Saiba mais sobre as práticas recomendadas ao detectar anomalias com a API do Detector de anomalias.
 services: cognitive-services
 author: aahill
@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 467ac4e475a1c23e25b62c76cfbc959e7ed49465
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 766d009be3cd664d928a3c12f5fea38c26bbbdde
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484025"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692208"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Práticas recomendadas para usar a API do Detector de anomalias
 
@@ -25,6 +25,29 @@ A API do Detector de anomalias é um serviço de detecção de anomalias sem mon
 * O número de pontos de dados em sua solicitação de API. 
 
 Use este artigo para saber mais sobre práticas recomendadas para usar a API de obtenção dos melhores resultados para seus dados. 
+
+## <a name="when-to-use-batch-entire-or-latest-last-point-anomaly-detection"></a>Quando usar o lote (inteiro) ou a versão mais recente (última) do ponto de detecção de anomalias
+
+Ponto de extremidade de detecção de lote da API de Detector de anomalias permite detectar anomalias por meio de toda vezes os dados de série. Nesse modo de detecção, um único modelo de estatístico é criado e aplicado a cada ponto no conjunto de dados. Se sua série temporal tem as características, abaixo, é recomendável usar a detecção de lote para visualizar seus dados em uma chamada de API.
+
+* Uma série temporal sazonal, com anomalias ocasionais.
+* Uma série de tempo de tendência plana, com picos ocasionais/dips. 
+
+Não recomendamos o uso de detecção de anomalias de lote para monitoramento, ou usá-lo em dados de série temporal que não tem acima características de dados em tempo real. 
+
+* Detecção de lote cria e aplica-se apenas um modelo, a detecção de cada ponto é feita no contexto de série inteira. Se as tendências de dados de série de tempo e reduza verticalmente sem sazonalidade, alguns pontos de alterar (dips e picos de dados) podem ser ignoradas pelo modelo. Da mesma forma, alguns pontos que são menos significativos do que aquelas mais tarde no conjunto de dados de alteração não podem ser contados como significativa o suficiente para ser incorporado ao modelo.
+
+* Detecção de lote é mais lenta do que detectar o status de anomalias do último ponto ao fazer o monitoramento de dados em tempo real, devido ao número de pontos que estão sendo analisados.
+
+Para monitorar dados em tempo real, é recomendável detectar o status de anomalias de seu último ponto de dados somente. Aplicando continuamente detecção do ponto mais recente, o monitoramento de dados de streaming pode ser feito com mais eficiência e precisão.
+
+O exemplo a seguir descreve o impacto que desses modos de detecção podem ter no desempenho. A primeira figura mostra o resultado da detecção continuamente o ponto mais recente do status de anomalias ao longo de pontos de dados Vista anteriormente 28. Os pontos vermelhos são anomalias.
+
+![Uma imagem que mostra a detecção de anomalias usando o ponto mais recente](../media/last.png)
+
+Abaixo está o mesmo conjunto de dados usando a detecção de anomalias de lote. O modelo criado para a operação ignorou várias anomalias, marcadas por retângulos.
+
+![Uma imagem que mostra a detecção de anomalias usando o método de lote](../media/entire.png)
 
 ## <a name="data-preparation"></a>Preparação dos dados
 

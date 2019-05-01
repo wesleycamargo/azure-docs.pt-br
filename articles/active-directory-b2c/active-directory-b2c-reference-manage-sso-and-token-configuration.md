@@ -3,20 +3,19 @@ title: Gerenciar a personalização de SSO e de token usando políticas personal
 description: Saiba mais sobre como gerenciar SSO e personalização de token usando políticas personalizadas no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 10/09/2018
-ms.date: 04/01/2019
-ms.author: v-junlch
+ms.date: 10/09/2018
+ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c0f5be7fd77ae195b66f8a8fb052ab8573d48171
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2033d37a4a847380003fb95243138082df804bbf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317166"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64703390"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gerenciar a personalização de SSO e de token usando políticas personalizadas no Azure Active Directory B2C
 
@@ -24,7 +23,11 @@ Este artigo fornece informações de como gerenciar as configurações de token,
 
 ## <a name="token-lifetimes-and-claims-configuration"></a>Configuração de declarações e de tempos de vida de token
 
-Para alterar as configurações nos tempos de vida de token, você adiciona um elemento [ClaimsProviders](claimsproviders.md) ao arquivo de terceira parte confiável da política que você deseja afetar.  O elemento **ClaimsProviders** é um filho do elemento [TrustFrameworkPolicy](trustframeworkpolicy.md). Nele, você precisará colocar as informações que afetam os tempos de vida de token. O XML se parece com este exemplo:
+Para alterar as configurações nos tempos de vida de token, você adiciona um elemento [ClaimsProviders](claimsproviders.md) ao arquivo de terceira parte confiável da política que você deseja afetar.  O elemento **ClaimsProviders** é um filho do elemento [TrustFrameworkPolicy](trustframeworkpolicy.md). 
+
+Inserir o elemento ClaimsProviders entre o elemento BasePolicy e o elemento de RelyingParty do arquivo de terceira parte confiável.
+
+Nele, você precisará colocar as informações que afetam os tempos de vida de token. O XML se parece com este exemplo:
 
 ```XML
 <ClaimsProviders>
@@ -101,4 +104,3 @@ Os seguintes valores são configurados no exemplo anterior:
 - **(SSO) logon único** – o logon único é configurado com o **SingleSignOn**. Os valores aplicáveis são `Tenant`, `Application`, `Policy` e `Suppressed`. 
 - **Tempo de vida de sessão de aplicativo Web (minutos)** – o tempo de vida de sessão do aplicativo Web é definido com o elemento **SessionExpiryInSeconds**. O valor padrão é de 86400 segundos (1440 minutos).
 - **Tempo limite de sessão do aplicativo Web** – o tempo limite de sessão do aplicativo Web é definido com o elemento **SessionExpiryType**. Os valores aplicáveis são `Absolute` e `Rolling`.
-

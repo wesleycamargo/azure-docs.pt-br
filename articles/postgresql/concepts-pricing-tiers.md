@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: a8dbb2c06d3622dcde19f298ee12fa49afb4cd4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4109679c03b13303c16cef8edd92ecddb6ca5e5f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559829"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712355"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Tipos de preço do Banco de Dados do Azure para PostgreSQL
 
@@ -41,31 +41,25 @@ Depois de criar um servidor, o número de vCores a geração de hardware e o tip
 
 Os recursos de computação são fornecidos como vCores, que representam a CPU lógica do hardware subjacente. No momento, você pode escolher entre duas gerações de computação, Gen 4 e 5. As CPUs lógicas de 4ª geração são baseadas em processadores Intel E5-2673 v3 (Haswell) 2,4 GHz. As CPUs lógicas de 5ª geração são baseadas em processadores E5-2673 v4 (Broadwell) 2,3 GHz. As Gerações 4 e 5 estão disponíveis nas seguintes regiões (o "X" indica disponível). 
 
-> [!IMPORTANT]
-> A partir de 12 de dezembro de 2018, novos clientes não poderão provisionar servidores de geração da computação 4 no Sul do Brasil, Canadá Central, Leste do Canadá, Ásia Oriental, Leste dos EUA 2, Índia Central, Índia Ocidental, Oeste do Japão, Centro-Norte dos EUA, Oeste dos EUA. Os servidores da geração da computação 4 criados anteriormente migrarão para a geração da computação 5 a partir de 1º de fevereiro de 2019 nessas regiões.
->
-> [!IMPORTANT]
-> A partir de 19 de fevereiro de 2019 novos clientes não poderão provisionar servidores de geração 4 de computação no centro dos EUA, Leste dos EUA, Leste do Japão, Europa Setentrional, Centro-Sul dos EUA, Sudeste Asiático, Europa Ocidental. Geração de computação 4 servidores serão migrados para 5, começando em 1 de abril de 2019 nessas regiões de geração de computação foi criado anteriormente.
-
 | **Região do Azure** | **Geração 4** | **Geração 5** |
 |:---|:----------:|:--------------------:|
 | Centro dos EUA |  | X |
 | Leste dos EUA |  | X |
 | Leste dos EUA 2 |  | X |
 | Centro-Norte dos EUA |  | X |
-| Centro-Sul dos Estados Unidos | X | X |
+| Centro-Sul dos Estados Unidos |  | X |
 | Oeste dos EUA |  | X |
 | Oeste dos EUA 2 |  | X |
 | Sul do Brasil |  | X |
 | Canadá Central |  | X |
 | Leste do Canadá |  | X |
-| Norte da Europa | X | X |
+| Norte da Europa |  | X |
 | Europa Ocidental |  | X |
 | França Central |  | X |
 | Sul do Reino Unido |  | X |
 | Oeste do Reino Unido |  | X |
 | Ásia Oriental |  | X |
-| Sudeste Asiático | X | X |
+| Sudeste Asiático |  | X |
 | Leste da Austrália |  | X |
 | Austrália Central |  | X |
 | Austrália Central 2 |  | X |
@@ -73,7 +67,7 @@ Os recursos de computação são fornecidos como vCores, que representam a CPU l
 | Índia Central |  | X |
 | Sul da Índia |  | X |
 | Índia Ocidental |  | X |
-| Leste do Japão | X | X |
+| Leste do Japão |  | X |
 | Oeste do Japão |  | X |
 | Coreia Central |  | X |
 | Sul da Coreia |  | X |
@@ -129,7 +123,7 @@ O dimensionamento do armazenamento e a alteração do período de retenção de 
 
 Para as informações mais recentes sobre preços, consulte a [página de preços](https://azure.microsoft.com/pricing/details/PostgreSQL/) do serviço. Para ver os custos da configuração desejada, o [Portal do Azure](https://portal.azure.com/#create/Microsoft.PostgreSQLServer) mostra o custo mensal na guia **Tipo de preço** com base nas opções que você seleciona. Se você não tiver uma assinatura do Azure, poderá usar a calculadora de preços do Azure para obter um preço estimado. No site da [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/), selecione **Adicionar itens**, expanda a categoria **Bancos de dados** e escolha **Banco de Dados do Azure para PostgreSQL** para personalizar as opções.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como [criar um servidor PostgreSQL no portal](tutorial-design-database-using-azure-portal.md).
 - Conheça os [limites de serviço](concepts-limits.md). 

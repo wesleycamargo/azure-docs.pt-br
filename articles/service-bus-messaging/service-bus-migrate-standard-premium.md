@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: aschhab
-ms.openlocfilehash: d2aa018566695b5b94cd8a7e64931a8b776b151d
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 65f89e234317c5a17e4443e767528fb9be9a8b72
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766302"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687077"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrar namespaces padrão de barramento de serviço do Azure existentes para a camada premium
 Anteriormente, o barramento de serviço do Azure oferecidos namespaces apenas na camada standard. Namespaces são instalações de multilocatário que são otimizadas para ambientes de desenvolvedor e baixa taxa de transferência. A camada premium oferece recursos dedicados por namespace para latência previsível e maior taxa de transferência a um preço fixo. A camada premium é otimizada para ambientes de produção que exigem recursos empresarias adicionais e alta taxa de transferência.
@@ -62,7 +62,7 @@ Para migrar seu namespace de barramento de serviço standard para premium usando
    ```
 
     >[!IMPORTANT]
-    > O nome após a migração (post_migration_dns_name) será usado para acessar a namespace padrão após a migração antigo. Use isto para drenar as filas e as assinaturas e, em seguida, exclua o namespace.
+    > Após a migração alias/nome (post_migration_dns_name) será ser usado para acessar a namespace padrão após a migração antigo. Use isto para drenar as filas e as assinaturas e, em seguida, exclua o namespace.
 
 1. Emparelhe os namespaces standard e premium e inicie a sincronização usando o comando a seguir:
 
