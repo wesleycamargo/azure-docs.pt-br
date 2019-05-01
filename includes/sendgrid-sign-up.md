@@ -69,7 +69,7 @@ Os clientes do Azure podem desbloquear 25.000 e-mails livres por mês. Esses 25.
 ### <a name="to-find-your-sendgrid-credentials"></a>Para localizar suas credenciais do SendGrid
 1. Clique no ícone de chave para localizar seu **Nome de usuário**.
 
-    ![chave][key]
+    ![key][key]
 2. A senha é a que você escolheu durante a instalação. Você pode selecionar **Alterar senha** ou **Redefinir senha** para fazer alterações.
 
 Para gerenciar suas configurações de entrega de email, clique no **botão Gerenciar**. Você será redirecionado para o painel do SendGrid.
