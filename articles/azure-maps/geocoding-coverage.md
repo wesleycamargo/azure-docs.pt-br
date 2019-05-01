@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 23f0110b3418e2df0434438247340f88678268ad
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 2a2df8b47b60f29d8ecd3c040e8ef979ee23afa8
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000922"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575408"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Cobertura da geocodificação dos Mapas do Azure
 
@@ -44,7 +44,6 @@ A capacidade de geocodificação em um país é dependente de cobertura de dados
 | Canadá                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ilhas Cayman                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Chile                                               |       ✓         |        ✓       |       ✓      |      ✓     |          ✓         |
-| Ilha Clipperton                                   |                 |                |              |      ✓     |                    |
 | Colômbia                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Costa Rica                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Cuba                                                |                 |                |       ✓      |      ✓     |          ✓         |
@@ -98,12 +97,12 @@ A capacidade de geocodificação em um país é dependente de cobertura de dados
 | Território Britânico do Oceano Índico                      |                 |                |              |      ✓     |          ✓         |
 | Brunei                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Camboja                                            |                 |                |              |      ✓     |          ✓         |
-| China                                               |        ✓        |        ✓       |              |      ✓     |          ✓         |
+| China                                               |                 |                |              |      ✓     |          ✓         |
 | Ilha Christmas                                    |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Ilhas Cocos (Keeling)                             |                 |                |              |      ✓     |          ✓         |
 | Ilhas Comores                                             |                 |                |              |      ✓     |          ✓         |
 | Ilhas Cook                                        |                 |                |              |      ✓     |          ✓         |
-| Fiji                                                |                  |                |              |      ✓     |          ✓         |
+| Fiji                                                |                  |                |              |      ✓     |          ✓        |
 | Polinésia Francesa                                    |                 |                |              |      ✓     |          ✓         |
 | Ilhas Heard e McDonald                   |                 |                |              |      ✓     |          ✓         |
 | RAE de Hong Kong                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -301,7 +300,7 @@ A capacidade de geocodificação em um país é dependente de cobertura de dados
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre a geocodificação de Mapas do Azure, consulte as páginas de referência [Pesquisa](https://docs.microsoft.com/rest/api/maps/search).
 

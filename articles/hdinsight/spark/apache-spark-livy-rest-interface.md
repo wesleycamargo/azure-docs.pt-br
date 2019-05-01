@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 99175f79e030a55991947313e4a7e32a738d6adb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: c8504c6bf25b186a4bc87c4e7565444dd3e57209
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097365"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570491"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Use a API REST do Apache Spark para enviar trabalhos remotos para um cluster do HDInsight Spark
 
@@ -164,16 +164,6 @@ Os clusters HDInsight 3.5 e posteriores, por padrão, desabilitam o uso de camin
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>Enviar trabalhos da Livy para um cluster em uma rede virtual do Azure
 
 Se você se conectar a um cluster do HDInsight Spark de dentro de uma Rede Virtual do Azure, você poderá se conectar diretamente à Livy no cluster. Nesse caso, a URL de ponto de extremidade da Livy é `http://<IP address of the headnode>:8998/batches`. Aqui, **8998** é a porta na qual a Livy é executada em um nó de cabeçalho do cluster. Para obter mais informações sobre como acessar serviços em portas não públicas, consulte [Portas usadas pelos serviços de Apache Hadoop no HDInsight](../hdinsight-hadoop-port-settings-for-services.md).
-
-## <a name="troubleshooting"></a>solução de problemas
-
-Veja aqui alguns dos problemas que você pode enfrentar ao usar o Livy para envio de trabalho remoto aos clusters Spark.
-
-### <a name="using-an-external-jar-from-the-additional-storage-is-not-supported"></a>Não há suporte para o uso de um jar externo no armazenamento adicional
-
-**Problema:** se o trabalho de Livy Spark fizer referência a um jar externo da conta de armazenamento adicional associada ao cluster, o trabalho falhará.
-
-**Resolução:** verifique se o jar que deseja usar está disponível no armazenamento padrão associado ao cluster HDInsight.
 
 
 

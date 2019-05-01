@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: ef473ea5f88b9108894787785fe1e9083fab1b0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 197f5ba9d6921f4a9921b7074b9e05162d3e37b8
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61347923"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868116"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Transformação de Pesquisa do Fluxo de Dados de Mapeamento do Azure Data Factory
 
@@ -25,6 +25,10 @@ Use a pesquisa para adicionar dados de referência de outra fonte a seu fluxo de
 Selecione os campos de chave que você deseja comparar entre os campos de fluxo de entrada e os campos da fonte de referência. Primeiro é preciso criar uma nova fonte na tela de design de fluxo de dados para ser usada como o lado direito da pesquisa.
 
 Quando correspondências forem encontradas, as linhas e colunas resultantes da fonte de referência serão adicionadas ao seu fluxo de dados. Você pode escolher que campos de interesse deseja incluir em seu coletor no final do fluxo de dados.
+
+## <a name="match--no-match"></a>Corresponder / nenhuma correspondência
+
+Após a sua transformação de pesquisa, você pode usar as transformações subsequentes para inspecionar os resultados de cada linha de correspondência usando a função de expressão `isMatch()` ainda mais fazer escolhas em sua lógica com base em se ou não a pesquisa resultou em uma correspondência de linha ou não.
 
 ## <a name="optimizations"></a>Otimizações
 

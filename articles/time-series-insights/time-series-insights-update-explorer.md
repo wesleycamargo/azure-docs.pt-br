@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: ed8a829bd73a53dc94bf8b08648b3d6684f718f6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d348592589f448dab9b8b4f3a1a3eb286d464417
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109756"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723458"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>Visualizar os dados na atualização do gerenciador
 
@@ -216,10 +216,11 @@ Você pode mostrar e ocultar elementos no painel de gráfico, selecionando o íc
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira os seguintes artigos:
-* [Armazenamento e entrada da Versão Prévia do Azure Time Series Insights](./time-series-insights-update-storage-ingress.md)
-* [Modelagem de dados](./time-series-insights-update-tsm.md)
-* [Solução de problemas e diagnósticos](./time-series-insights-update-how-to-troubleshoot.md)
+- Saiba mais sobre [armazenamento e a entrada](./time-series-insights-update-storage-ingress.md) na visualização de Insights de série de tempo do Azure.
+
+- Leia o documento de visualização de Insights de série de tempo sobre [modelagem de dados](./time-series-insights-update-tsm.md).
+
+- Saiba mais [como diagnosticar e solucionar problemas de](./time-series-insights-update-how-to-troubleshoot.md) sua instância do Time Series Insights.
 
 <!-- Images -->
 [1]: media/v2-update-explorer/explorer-one.png

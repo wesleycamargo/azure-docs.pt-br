@@ -2,33 +2,48 @@
 title: Arquivo de inclusão
 description: Arquivo de inclusão
 services: functions
-author: ggailey777
+author: craigshoemaker
 ms.service: functions
 ms.topic: include
-ms.date: 09/21/2018
-ms.author: glenga
+ms.date: 09/25/2018
+ms.author: cshoe
 ms.custom: include file
-ms.openlocfilehash: f1b53c53b1e5fb089eb9b8a9b816b11a1eea126d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: fc5b43dcdee394fea023124171fb42c1a18224dc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47044502"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733261"
 ---
-Quando você desenvolve funções localmente, pode instalar as extensões necessárias usando as ferramentas do Azure Functions Core do Terminal ou de um prompt de comando.
+Pacotes de extensão fazer todas as associações, publicadas pela equipe do Azure Functions disponível por meio de uma configuração na *host. JSON* arquivo. Para o desenvolvimento local, verifique se você tem a versão mais recente do [as ferramentas básicas do Azure Functions](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools).
 
-Depois de atualizar o arquivo *function.json* para incluir todas as associações que a função precisa, execute o comando a seguir na pasta do projeto.
+Para usar pacotes de extensão, atualize o *host. JSON* arquivo para incluir a seguinte entrada para `extensionBundle`:
 
-```bash
-func extensions install
+```json
+{
+    "version": "2.0",
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[1.*, 2.0.0)"
+    }
+}
 ```
 
-O comando lê o arquivo *function.json* para saber quais são os pacotes necessários, instala-os e recria o projeto de extensão. Ele adiciona as novas associações na versão atual, mas não atualiza as associações existentes. Use a opção `--force` para atualizar as associações existentes para a versão mais recente nas novas instalações.
+- O `id` propriedade faz referência ao namespace para pacotes de extensão do Microsoft Azure Functions.
+- O `version` faz referência a versão do pacote.
 
-Se você deseja instalar uma versão específica de um pacote ou se você deseja instalar pacotes antes de editar o arquivo *function.json*, use o comando `func extensions install` com o nome do pacote, conforme mostrado no exemplo a seguir:
+Incremento de versões do pacote como pacotes in das alterações do pacote. Alterações de versão principal acontecem somente quando os pacotes no pacote movem uma versão principal. O `version` usos de propriedade de [notação de intervalo para especificar os intervalos de versão](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards). O tempo de execução de funções sempre escolhe a versão permitida máximo definida pelo intervalo de versão ou intervalo.
 
-```bash
-func extensions install --package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
-```
+Depois de fazer referência os pacotes de extensão em seu projeto, em seguida, todas as associações padrão estão disponíveis para suas funções. As associações disponíveis na [pacote de extensão](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) são:
 
-Substitua `<target_version>`por uma versão específica do pacote, como`3.0.0-beta5`. Versões válidas são listadas nas páginas de pacotes individuais em [NuGet.org](https://nuget.org).
+|Pacote  |Version  |
+|---------|---------|
+|Microsoft.Azure.WebJobs.Extensions.CosmosDB|3.0.3|
+|Microsoft.Azure.WebJobs.Extensions.DurableTask|1.8.0|
+|Microsoft.Azure.WebJobs.Extensions.EventGrid|2.0.0|
+|Microsoft.Azure.WebJobs.Extensions.EventHubs|3.0.3|
+|Microsoft.Azure.WebJobs.Extensions.SendGrid|3.0.0|
+|Microsoft.Azure.WebJobs.Extensions.ServiceBus|3.0.3|
+|Microsoft.Azure.WebJobs.Extensions.SignalRService|1.0.0|
+|Microsoft.Azure.WebJobs.Extensions.Storage|3.0.4|
+|Microsoft.Azure.WebJobs.Extensions.Twilio|3.0.0|

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/23/2019
 ms.author: ramamill
-ms.openlocfilehash: 678f9aa60d4970540ded8ba0bb1a4ddaa6281a49
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 1b6084b4e93f3dc17f633f1b8496f9c26e7f576f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101890"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925484"
 ---
 # <a name="scale-with-additional-process-servers"></a>Dimensionar com servidores de processo adicionais
 
@@ -24,7 +24,7 @@ Por padrão, quando você estiver replicando VMs do VMware ou servidores físico
 
 Verifique se você realizou o [planejamento de capacidade](site-recovery-plan-capacity-vmware.md) para replicação de VMware. Isso ajuda a identificar como e quando você deve implantar servidores de processo adicionais.
 
-Da versão 9.24, orientação é adicionada durante a seleção de servidor de processo para replicações novo. Servidor de processo serão marcadas como íntegro, aviso e crítico com base em determinados critérios. Para entender os diferentes cenários que podem influenciar o estado do servidor de processo, visite [diretrizes de seleção de servidor de processo](vmware-azure-manage-process-server.md#process-server-selection-guidance).
+Da versão 9.24, orientação é adicionada durante a seleção de servidor de processo para replicações novo. Servidor de processo serão marcadas como íntegro, aviso e crítico com base em determinados critérios. Para entender os diferentes cenários que podem influenciar o estado do servidor de processo, examine os [processar alertas do servidor](vmware-physical-azure-monitor-process-server.md#process-server-alerts).
 
 > [!NOTE]
 > Não há suporte para o uso de um componente do Servidor de Processo clonado. Siga as etapas deste artigo para cada expansão de PS.

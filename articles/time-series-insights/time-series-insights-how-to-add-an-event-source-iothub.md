@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.custom: seodec18
-ms.openlocfilehash: 933d411f67655b49b4aef7bf413dfe5f87e4ff08
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: ee52cde6feeb69f9140df497a9abee300c93fd71
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556723"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692112"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Adicionar uma origem do evento do hub IoT ao seu ambiente do Time Series Insights
 
@@ -107,7 +107,9 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Definir as políticas de acesso de dados](time-series-insights-data-access.md) para proteger os dados.
+
 * [Enviar eventos](time-series-insights-send-events.md) para a origem do evento.
+
 * Acesse seu ambiente no [explorer do Time Series Insights](https://insights.timeseries.azure.com).
 
 <!-- Images -->

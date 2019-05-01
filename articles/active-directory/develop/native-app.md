@@ -7,22 +7,22 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 12/29/2018
-ms.author: v-junlch
+ms.date: 09/24/2018
+ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 4c15890a5693235e8f2554ba8d0fdefc161770f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5e37e40cd0dbba7961cbde75b5dde44f2666dc21
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443885"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918606"
 ---
 # <a name="native-apps"></a>Aplicativos nativos
 
@@ -52,10 +52,10 @@ Consulte os exemplos de código para os cenários de aplicativo nativo para API 
 
 ## <a name="app-registration"></a>Registro do aplicativo
 
-Para registrar um aplicativo no ponto de extremidade do Azure AD v1.0, veja [Registrar um aplicativo no ponto de extremidade do Azure AD v1.0](quickstart-v1-add-azure-ad-app.md).
+Para registrar um aplicativo com o ponto de extremidade do Azure AD v 1.0, consulte [registrar um aplicativo](quickstart-register-app.md).
 
-- Locatário único – O aplicativo nativo e a API Web devem ser registrados no mesmo diretório no Azure AD. A API da Web pode ser configurada para expor um conjunto de permissões, que são usadas para limitar o acesso do aplicativo nativo a seus recursos. O aplicativo cliente seleciona as permissões desejadas no menu suspenso "Permissões para Outros Aplicativos" no portal do Azure.
-- Multilocatário – Primeiro, o aplicativo nativo registrado apenas no diretório do desenvolvedor ou do editor. Em segundo lugar, o aplicativo nativo é configurado para indicar as permissões necessárias para que seja funcional. Essa lista de permissões necessárias é mostrada em uma caixa de diálogo quando um usuário ou administrador no diretório de destino dá consentimento para o aplicativo, o que o torna disponível para sua organização. Alguns aplicativos exigem apenas permissões de nível de usuário, que qualquer usuário na organização pode conceder. Outros aplicativos exigem permissões de nível administrativo, que um usuário na organização não pode conceder. Somente um administrador do diretório pode dar consentimento para aplicativos que exigem esse nível de permissões. Quando o usuário ou administrador concede sua permissão, somente a API da Web é registrada no diretório. 
+* Locatário único – O aplicativo nativo e a API Web devem ser registrados no mesmo diretório no Azure AD. A API da Web pode ser configurada para expor um conjunto de permissões, que são usadas para limitar o acesso do aplicativo nativo a seus recursos. O aplicativo cliente seleciona as permissões desejadas no menu suspenso "Permissões para Outros Aplicativos" no portal do Azure.
+* Multilocatário – Primeiro, o aplicativo nativo registrado apenas no diretório do desenvolvedor ou do editor. Em segundo lugar, o aplicativo nativo é configurado para indicar as permissões necessárias para que seja funcional. Essa lista de permissões necessárias é mostrada em uma caixa de diálogo quando um usuário ou administrador no diretório de destino dá consentimento para o aplicativo, o que o torna disponível para sua organização. Alguns aplicativos exigem apenas permissões de nível de usuário, que qualquer usuário na organização pode conceder. Outros aplicativos exigem permissões de nível administrativo, que um usuário na organização não pode conceder. Somente um administrador do diretório pode dar consentimento para aplicativos que exigem esse nível de permissões. Quando o usuário ou administrador concede sua permissão, somente a API da Web é registrada no diretório. 
 
 ## <a name="token-expiration"></a>Expiração do token
 
@@ -65,5 +65,3 @@ Quando o aplicativo nativo usa seu código de autorização para obter um token 
 
 - Saiba mais sobre outros [Tipos e cenários de aplicativo](app-types.md)
 - Saiba mais sobre as [noções básicas de autenticação](authentication-scenarios.md) do Azure AD
-
-<!-- Update_Description: link update -->

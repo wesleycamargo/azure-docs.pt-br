@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2019
+ms.date: 04/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: dfe2a103005cc48860c7bbeb3036afe94ff3a559
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4e94bc7686203bfbcd93200e5a1fb65b43ceeb91
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60239177"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64698481"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
@@ -222,6 +222,22 @@ Ao mover um aplicativo Web _entre assinaturas_, as seguintes limitações se apl
 - Todos os recursos de Serviço de Aplicativo no grupo de recursos devem ser movidos juntos.
 - Recursos do Serviço de Aplicativo podem ser movidos apenas no grupo de recursos no qual eles foram originalmente criados. Se um recurso do Serviço de Aplicativo não estiver mais em seu grupo de recursos original, ele deverá ser movido de volta para esse grupo de recursos original primeiro e, em seguida, poderá ser movido entre assinaturas.
 
+Se você não lembrar o grupo de recursos original, você pode achar por meio de diagnóstico. Para o seu aplicativo web, selecione **diagnosticar e resolver problemas**. Em seguida, selecione **configuração e gerenciamento**.
+
+![Selecione o diagnóstico](./media/resource-group-move-resources/select-diagnostics.png)
+
+Selecione **opções de migração**.
+
+![Selecione as opções de migração](./media/resource-group-move-resources/select-migration.png)
+
+Selecione a opção para as etapas recomendadas mover o aplicativo web.
+
+![Selecione as etapas recomendadas](./media/resource-group-move-resources/recommended-steps.png)
+
+Você ver as ações recomendadas a serem executadas antes de mover os recursos. As informações incluem o grupo de recursos original para o aplicativo web.
+
+![Recomendações](./media/resource-group-move-resources/recommendations.png)
+
 ### <a name="app-service-certificate-limitations"></a>Limitações de Certificado do Serviço de Aplicativo
 
 Você pode mover seu Certificado do Serviço de Aplicativo para um novo grupo de recursos ou assinatura. Se seu Certificado do Serviço de Aplicativo estiver associado a um aplicativo Web, você deverá executar algumas etapas antes de mover os recursos para uma nova assinatura. Exclua a associação de SSL e o certificado particular do aplicativo Web antes de mover os recursos. O Certificado do Serviço de Aplicativo não precisa ser excluído, apenas o certificado particular no aplicativo Web.
@@ -251,7 +267,7 @@ Ao mover recursos para uma nova assinatura, as seguintes restrições se aplicar
 * A assinatura de destino não deve ter nenhum outro recurso clássico.
 * A movimentação pode ser solicitada apenas por meio de uma API REST separada para movimentações clássicas. Os comandos de movimentação padrão do Gerenciador de Recursos não funcionam quando há uma movimentação dos recursos clássicos para uma nova assinatura.
 
-Para mover recursos clássicos para uma nova assinatura, use operações REST específicas para recursos clássicos. Para usar REST, execute as seguintes etapas:
+Para mover recursos clássicos para uma nova assinatura, use operações REST específicas para recursos clássicos. Para usar o REST, execute as seguintes etapas:
 
 1. Verifique se a assinatura de origem pode participar de uma movimentação entre assinaturas. Use a operação a seguir:
 
@@ -512,7 +528,7 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 
 No corpo da solicitação, especifique o grupo de recursos de destino e os recursos para mover. Para obter mais informações sobre a operação de movimentação REST, consulte [Mover recursos](/rest/api/resources/Resources/MoveResources).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre os cmdlets do PowerShell para gerenciar os recursos, consulte [usando o Azure PowerShell com o Resource Manager](manage-resources-powershell.md).
 * Para saber mais sobre os comandos da CLI do Azure para gerenciar os recursos, consulte [usando a CLI do Azure com o Resource Manager](manage-resources-cli.md).

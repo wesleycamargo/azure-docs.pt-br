@@ -3,19 +3,19 @@ title: TrustFrameworkPolicy – Azure Active Directory B2C | Microsoft Docs
 description: Especifica o elemento TrustFrameworkPolicy de uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 558e9c3a3bfd43f6ceb958bc3be55d58e1eb7f91
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 30cb6e49782b97d28b0d999f585d630477e8572f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60360447"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64684141"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -38,7 +38,7 @@ Uma política personalizada é representada como um ou vários arquivos formatad
 
 O elemento **TrustFrameworkPolicy** contém os seguintes atributos:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | Sim | A versão do esquema a ser usado para executar a política. O valor deve ser `0.3.0.0` |
 | TenantObjectId | Não  | O identificador de objeto exclusivo do locatário do Azure AD (Azure Active Directory) B2C. |

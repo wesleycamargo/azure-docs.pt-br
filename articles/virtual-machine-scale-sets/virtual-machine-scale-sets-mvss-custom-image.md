@@ -4,7 +4,7 @@ description: Saiba como adicionar uma imagem personalizada a um modelo existente
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,23 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2017
-ms.date: 11/30/2018
-ms.author: v-junlch
-ms.openlocfilehash: 2e3c8177a32082c251be74e597a18730ae1c9d37
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.date: 04/26/2018
+ms.author: manayar
+ms.openlocfilehash: 2415d0dc2b9a2c4229d9910b42eb8ec9309ac7a7
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62108370"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869105"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Adicionar uma imagem personalizada a um modelo de conjunto de dimensionamento do Azure
 
-Esse artigo mostra como modificar o [modelo do conjunto de dimensionamento mínimo viável](./virtual-machine-scale-sets-mvss-start.md) para a implantação de uma imagem personalizada.
+Este artigo mostra como modificar a [modelo de conjunto de dimensionamento básico](virtual-machine-scale-sets-mvss-start.md) para implantar a partir da imagem personalizada.
 
 ## <a name="change-the-template-definition"></a>Alterar a definição do modelo
-
-O modelo do conjunto de dimensionamento mínimo viável pode ser visto [aqui](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json) e o modelo para implantar o conjunto de dimensionamento de uma imagem personalizada pode ser visto [aqui](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Vamos examinar a comparação usada para criar esse modelo (`git diff minimum-viable-scale-set custom-image`), parte por parte:
+Em um [artigo anterior](virtual-machine-scale-sets-mvss-start.md) tivéssemos criado um modelo de conjunto de dimensionamento básico. Agora podemos usar esse modelo anterior e modificá-lo para criar um modelo que implanta um conjunto de dimensionamento de uma imagem personalizada.  
 
 ### <a name="creating-a-managed-disk-image"></a>Criando uma imagem de disco gerenciada
 
@@ -59,7 +57,7 @@ Em seguida, adicione um recurso do tipo `Microsoft.Compute/images`, que é a ima
    "resources": [
      {
 +      "type": "Microsoft.Compute/images",
-+      "apiVersion": "2016-04-30-preview",
++      "apiVersion": "2019-03-01",
 +      "name": "myCustomImage",
 +      "location": "[resourceGroup().location]",
 +      "properties": {
@@ -84,7 +82,7 @@ No recurso de conjunto de dimensionamento, adicione uma cláusula `dependsOn` re
 
 ```diff
        "location": "[resourceGroup().location]",
-       "apiVersion": "2016-04-30-preview",
+       "apiVersion": "2019-03-01-preview",
        "dependsOn": [
 -        "Microsoft.Network/virtualNetworks/myVnet"
 +        "Microsoft.Network/virtualNetworks/myVnet",
@@ -119,5 +117,3 @@ Neste exemplo, use a função `resourceId` para obter a ID do recurso da imagem 
 ## <a name="next-steps"></a>Próximas etapas
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-
-<!-- Update_Description: update metedata properties -->

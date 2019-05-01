@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/10/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: ff6e08929d5ede86ba0632e7cfb38d81d21ca7ec
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 79c4530878783cbdb62cac630d81b65dc73c52a4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59803221"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733759"
 ---
 <a name="virtual-networking-limits-classic"></a>Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo modelo de implantação clássico por assinatura. Saiba como [exibir seu uso de recursos atual em relação a seus limites de assinatura](../articles/networking/check-usage-against-limits.md).
 
-| Recurso | Limite padrão | Limite máximo |
+| Resource | Limite padrão | Limite máximo |
 | --- | --- | --- |
 | Redes virtuais |50 |100 |
 | Sites de redes locais |20 |Entre em contato com o suporte. |
@@ -40,7 +40,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 > [!NOTE]
 > Recentemente, aumentamos todos os limites padrão para seus limites máximos. Se não houver nenhuma coluna de limite máximo, o recurso não tem limites ajustáveis. Se você tivesse esses limites aumentados pelo suporte no passado e não vir os limites atualizados nas tabelas a seguir, [abrir uma solicitação de suporte do cliente online sem custo adicional](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
-| Recurso | Limite padrão | 
+| Resource | Limite de limite/máximo padrão | 
 | --- | --- |
 | Redes virtuais |1.000 |
 | Sub-redes por rede virtual |3.000 |
@@ -65,7 +65,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Configurações de TAP do adaptador de rede por TAP de rede virtual |100 |
 
 #### <a name="publicip-address"></a>Limites do endereço IP público
-| Recurso | Limite padrão | Limite máximo |
+| Resource | Limite padrão | Limite máximo |
 | --- | --- | --- |
 | Endereços IP públicos - dinâmicos | 1.000 para Basic. |Entre em contato com o suporte. |
 | Endereços IP públicos - estáticos | 1.000 para Basic. |Entre em contato com o suporte. |
@@ -75,7 +75,7 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 #### <a name="load-balancer"></a>Limites do balanceador de carga
 Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure Resource Manager por região e assinatura. Saiba como [exibir seu uso de recursos atual em relação a seus limites de assinatura](../articles/networking/check-usage-against-limits.md).
 
-| Recurso | Limite padrão |
+| Resource | Limite padrão |
 | --- | --- |
 | Balanceadores de carga | 1.000 | 
 | Regras por recurso, Básico | 250 |

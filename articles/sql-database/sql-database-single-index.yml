@@ -6,16 +6,15 @@ metadata:
   title: 'Documentação do Banco de Dados SQL do Azure – tutoriais, referência de API'
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
-  author: jovanpop-msft
-  manager: craigg
   requires-business-manager-approval: false
   ms.service: sql-database
   ms.subservice: single-database
-  ms.tgt_pltfrm: na
-  ms.devlang: null
   ms.topic: overview
-  ms.date: 01/25/2019
+  author: jovanpop-msft
   ms.author: jovanpop-msft
+  ms.reviewer: carlrab
+  manager: craigg
+  ms.date: 04/26/2019
 abstract:
   description: 'O Banco de Dados SQL do Azure é um DBaaS (banco de dados como serviço) relacional baseado na versão estável mais recente do Mecanismo de Banco de Dados do Microsoft SQL Server. O Banco de Dados SQL é um banco de dados seguro, confiável, de alto desempenho e fácil de usar que pode ser usado para criar aplicativos, sites e microsserviços na linguagem de programação de sua escolha, sem a necessidade de gerenciar a infraestrutura. Saiba como usar o Banco de Dados SQL com nossos guias de início rápido, tutoriais e exemplos.'
   aside:

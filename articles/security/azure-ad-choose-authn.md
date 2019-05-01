@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 1f950841946b65d618c7335ea3d8d42993a89481
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 773d4dd28da3165261d75e4f800750c1f54377d0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58805254"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702296"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolha o método de autenticação certo para sua solução de identidade híbrida do Azure Active Directory 
 
@@ -49,7 +49,7 @@ O Azure AD dá suporte aos seguintes métodos de autenticação para soluções 
 ### <a name="cloud-authentication"></a>Autenticação na nuvem
 Quando você escolhe esse método de autenticação, o Azure AD cuida do processo de entrada dos usuários. Juntamente com o SSO (logon único) contínuo, os usuários podem entrar em aplicativos de nuvem sem precisar inserir suas credenciais novamente. Com a autenticação na nuvem, é possível escolher entre duas opções: 
 
-**Sincronização de hash de senha do Azure AD**. A maneira mais simples de habilitar a autenticação para objetos de diretório locais no Azure AD. Os usuários podem usar o mesmo nome de usuário e senha que usam localmente, sem a necessidade de implantar nenhuma infraestrutura adicional. Alguns recursos Premium do Azure AD, como o Identity Protection, exigem a sincronização de hash de senha para o método de autenticação escolhido, seja qual for.
+**Sincronização de hash de senha do Azure AD**. A maneira mais simples de habilitar a autenticação para objetos de diretório locais no Azure AD. Os usuários podem usar o mesmo nome de usuário e senha que usam localmente, sem a necessidade de implantar nenhuma infraestrutura adicional. Alguns recursos do premium do Azure AD, como proteção de identidade e [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync), exigem sincronização de hash de senha, independentemente de qual método de autenticação que você escolher.
 
 > [!NOTE] 
 > As senhas nunca são armazenadas em texto não criptografado ou são criptografadas com um algoritmo reversível no Azure AD. Para obter mais informações sobre o processo real de sincronização de hash de senha, confira [Implementar a sincronização de hash de senha com a sincronização do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization). 
@@ -92,7 +92,7 @@ Detalhes sobre questões de decisão:
 
 * **Experiência do usuário**. Para melhorar a experiência de entrada dos usuários, implante o SSO contínuo com a sincronização de hash de senha. O SSO contínuo elimina prompts desnecessários quando os usuários estão conectados.
 
-* **Cenários avançados**. Se for uma escolha das organizações, é possível usar insights de identidades com relatórios do Azure AD Identity Protection com o Azure AD Premium P2. Um exemplo é o relatório de credenciais vazadas. Tem Windows Hello para empresas [requisitos específicos quando você usar a sincronização de hash de senha](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). 
+* **Cenários avançados**. Se for uma escolha das organizações, é possível usar insights de identidades com relatórios do Azure AD Identity Protection com o Azure AD Premium P2. Um exemplo é o relatório de credenciais vazadas. Tem Windows Hello para empresas [requisitos específicos quando você usar a sincronização de hash de senha](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync) exigem sincronização de hash de senha para provisionar usuários com suas credenciais corporativas no domínio gerenciado.
 
     As organizações que exigem a autenticação multifator com a sincronização de hash de senha precisam usar a autenticação multifator do Azure AD. Essas organizações não podem usar métodos de autenticação multifator local ou de terceiros.
 

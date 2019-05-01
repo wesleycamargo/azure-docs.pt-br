@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cf012a452d1e43134d955e03ccf34e153b1282ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7bc4fd42f64bba09fd20fedf5e06dc30c3b2cc49
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60253815"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64680810"
 ---
 # <a name="common-security-attributes-for-azure-backup"></a>Atributos de segurança comuns para o Backup do Azure
 
@@ -27,7 +27,7 @@ A segurança é integrada a todos os aspectos de um serviço do Azure. Este arti
 | Atributo de segurança | Sim/Não | Observações |
 |---|---|--|
 | Criptografia em repouso:<ul><li>Criptografia no servidor</li><li>Criptografia do lado do servidor com chaves gerenciadas pelo cliente</li><li>Outros recursos de criptografia (como do lado do cliente, Always Encrypted, etc.)</ul>| Sim | Usar a criptografia do serviço de armazenamento para contas de armazenamento. |
-| Criptografia em trânsito:<ul><li>Criptografia do ExpressRoute</li><li>Na criptografia de VNET</li><li>Criptografia de rede virtual a rede virtual</ul>| Não  | Usar HTTPS. |
+| Criptografia em trânsito:<ul><li>Criptografia do ExpressRoute</li><li>Na criptografia de rede virtual</li><li>Criptografia de rede virtual a rede virtual</ul>| Não  | Usar HTTPS. |
 | Tratamento de chaves de criptografia (CMK, BYOK, etc.)| Não  |  |
 | Criptografia de nível de coluna (serviços de dados do Azure)| Não  |  |
 | Chamadas criptografadas à API| Sim |  |
@@ -37,7 +37,7 @@ A segurança é integrada a todos os aspectos de um serviço do Azure. Este arti
 | Atributo de segurança | Sim/Não | Observações |
 |---|---|--|
 | Suporte de ponto de extremidade de serviço| Não  |  |
-| suporte à injeção de rede virtual| Não  |  |
+| Suporte à injeção de rede virtual| Não  |  |
 | Isolamento de rede e suporte de firewall| Sim | Há suporte para túnel forçado no backup de VM. Não há suporte para túnel forçado em cargas de trabalho em execução dentro de VMs. |
 | Forçado suporte por túnel| Não  |  |
 

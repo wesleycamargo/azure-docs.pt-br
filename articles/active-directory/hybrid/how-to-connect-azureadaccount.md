@@ -1,34 +1,33 @@
 ---
-title: 'Sincronização do Azure AD Connect: como gerenciar a conta de serviço do Azure Active Directory | Microsoft Docs'
-description: Este tópico documenta como restaurar a conta de serviço do Azure AD.
+title: Alterar a senha da conta do Azure AD Connector | Microsoft Docs
+description: Este tópico documenta como restaurar a conta do Azure AD Connector.
 services: active-directory
-keywords: 'AADSTS70002, AADSTS50054: Como redefinir a senha da conta de serviço do Conector de sincronização do Azure AD Connect'
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 6077043a-27f1-4304-a44b-81dc46620f24
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 07/12/2017
-ms.date: 11/08/2018
-ms.component: hybrid
-ms.author: v-junlch
-ms.openlocfilehash: f88318c87e29567b40b5eacf10f3b6f259adee8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: conceptual
+ms.date: 04/25/2019
+ms.subservice: hybrid
+ms.author: billmath
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d68c190b51b9bbb5faf21e8ea75b07d1a82005e5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60350994"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571408"
 ---
-# <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Sincronização do Azure AD Connect: como gerenciar a conta de serviço do Azure Active Directory
-A conta de serviço usada pelo Azure AD Connector deve ter serviço gratuito. Se você precisa redefinir suas credenciais, este tópico é indicado para você. Por exemplo, se um Administrador Global tiver redefinido a senha por engano na conta de serviço usando o PowerShell.
+# <a name="change-the-azure-ad-connector-account-password"></a>Alterar a senha da conta do Azure AD Connector
+A conta do Azure AD Connector deve ter serviço gratuito. Se você precisa redefinir suas credenciais, este tópico é indicado para você. Por exemplo, se um Administrador Global tem por engano redefinir a senha da conta usando o PowerShell.
 
 ## <a name="reset-the-credentials"></a>Redefinir as credenciais
-Se a conta de serviço definida no Azure AD Connector não puder contatar o Azure AD devido a problemas de autenticação, a senha poderá ser redefinida.
+Se a conta do Azure AD Connector não pode contatar o Azure AD devido a problemas de autenticação, a senha pode ser redefinida.
 
 1. Entre no servidor de sincronização do Azure AD Connector e inicie o PowerShell.
 2. Execute `Add-ADSyncAADServiceAccount`.  
@@ -38,7 +37,7 @@ Se a conta de serviço definida no Azure AD Connector não puder contatar o Azur
 Esse cmdlet redefinirá a senha da conta de serviço e a atualizará no Azure AD e no mecanismo de sincronização.
 
 ## <a name="known-issues-these-steps-can-solve"></a>Problemas conhecidos que essas etapas podem resolver
-Esta seção é uma lista de erros relatados por clientes que foram corrigidos por uma redefinição de credenciais na conta de serviço do Azure AD.
+Esta seção é uma lista de erros relatados por clientes que foram corrigidos por uma redefinição na conta do Azure AD Connector de credenciais.
 
 - - -
 Evento 6900  
@@ -50,10 +49,9 @@ Evento 659
 Erro ao recuperar a configuração de sincronização de política de senha. Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException:  
 AADSTS70002: Erro ao validar credenciais. AADSTS50054: Uma senha antiga está sendo usada para autenticação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 **Tópicos de visão geral**
 
-- [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
-- [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)
-
+* [Sincronização do Azure AD Connect: Compreender e personalizar a sincronização](how-to-connect-sync-whatis.md)
+* [Integração de suas identidades locais com o Active Directory do Azure](whatis-hybrid-identity.md)
 

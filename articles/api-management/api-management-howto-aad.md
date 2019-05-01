@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 95e501eca0f7765cc5201f7b315703c3ca43df8f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 422c2a8a61b1df36b452c153aa6cd78ba7e2dcef
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60529411"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723635"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizar contas de desenvolvedor usando o Active Directory do Azure no Gerenciamento de API do Azure
 
@@ -79,12 +79,12 @@ Este artigo mostra como habilitar o acesso ao portal do desenvolvedor para os us
 
 Depois que as alterações forem salvas, os usuários na instância do Azure AD poderão entrar no portal do desenvolvedor seguindo as etapas em [Entrar no portal do desenvolvedor usando uma conta do Azure AD](#log_in_to_dev_portal).
 
-
 ## <a name="add-an-external-azure-ad-group"></a>Adicionar um grupo do Azure AD externo
 
 Depois de habilitar acesso para usuários em uma instância do Azure AD, você poderá adicionar grupos do Azure AD no Gerenciamento de API. Em seguida, você pode gerenciar mais facilmente a associação dos desenvolvedores no grupo com os produtos desejados.
 
-Para configurar um grupo do Azure AD externo, você deve primeiro configurar a instância do Azure AD na guia **Identidades**, seguindo o procedimento na seção anterior. 
+ > [!IMPORTANT]
+ > Para adicionar um externo grupo do AD do Azure, primeiro você deve configurar a instância do AD do Azure na **identidades** guia seguindo o procedimento na seção anterior. Além disso, o aplicativo deve ter acesso à API do Graph do Azure AD com `Directory.Read.All` permissão. 
 
 Você adiciona grupos do Azure AD externos na guia **Grupos** da instância Gerenciamento de API.
 

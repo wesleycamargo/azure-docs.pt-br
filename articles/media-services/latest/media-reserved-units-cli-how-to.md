@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/24/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 0dcfa4e7cd792f61d1620a57330f87c5c86e6c9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6e7b3b316a8a6dcde95bdf872dbda4cd1372f072
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322525"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64721818"
 ---
 # <a name="scaling-media-processing"></a>Dimensionamento de processamento de mídia
 
@@ -33,9 +33,9 @@ A tabela a seguir o ajudará a tomar uma decisão ao escolher entre diferentes v
 
 |Tipo de RU|Cenário|Exemplo de resultados para o [7 min 1080p vídeo](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)|
 |---|---|---|
-| **S1**|Codificação de taxa de bits única. <br/>Arquivos com resoluções SD ou inferiores, não sensível ao tempo, de baixo custo.|Codificação para um único arquivo de MP4 de taxa de bits SD resolução usando "H264 única taxa de bits de SD 16X9" leva 10 minutos.|
-| **S2**|Codificação de taxa de bits única e de taxa de bits múltipla.<br/>Uso normal para codificação SD e HD.|A codificação com a predefinição "H264 Taxa de Bits Única 720p" leva cerca de oito minutos.<br/><br/>A codificação com a predefinição "H264 Taxa de Bits Múltipla 720p" leva cerca de 16,8 minutos.|
-| **S3**|Codificação de taxa de bits única e de taxa de bits múltipla.<br/>Vídeos com resolução Full HD e 4K. Codificação urgente com retorno mais rápido.|A codificação com a predefinição "H264 Taxa de Bits Única 1080p" leva cerca de quatro minutos.<br/><br/>A codificação com a predefinição "H264 Taxas de Bits Múltiplas 1080p" leva aproximadamente oito minutos.|
+| **S1**|Codificação de taxa de bits única. <br/>Arquivos com resoluções SD ou inferiores, não sensível ao tempo, de baixo custo.|Codificação para o arquivo de MP4 de taxa de bits única SD resolução usando "H264 única taxa de bits de SD 16X9" leva cerca de 7 minutos.|
+| **S2**|Codificação de taxa de bits única e de taxa de bits múltipla.<br/>Uso normal para codificação SD e HD.|Codificação com "H264 taxa de bits única 720p" predefinição leva cerca de 6 minutos.<br/><br/>Codificação com "H264 taxas de bits múltiplas 720p" predefinição leva cerca de 12 minutos.|
+| **S3**|Codificação de taxa de bits única e de taxa de bits múltipla.<br/>Vídeos com resolução Full HD e 4K. Codificação urgente com retorno mais rápido.|Codificação com "H264 taxa de bits única 1080p" predefinição leva cerca de 3 minutos.<br/><br/>Codificação com "H264 taxas de bits múltiplas 1080p" predefinição leva aproximadamente 8 minutos.|
 
 ## <a name="considerations"></a>Considerações
 
@@ -62,7 +62,7 @@ Execute o comando `mru`.
 O comando [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) a seguir define as Unidades Reservadas de Mídia na conta "amsaccount" usando os parâmetros **count** e **type**.
 
 ```azurecli
-az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
+az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3
 ```
 
 ## <a name="billing"></a>Cobrança

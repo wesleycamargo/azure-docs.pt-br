@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d58c019cf3d801ce938a4ca6eca70b1606bf4ff6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 644054960e12979c231bbf50a5979bc12d343f89
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415847"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694762"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Impor a proteção por senha do Azure AD para o Active Directory do Windows Server
 
-Proteção por senha do AD do Azure é um recurso que aprimora as políticas de senha em uma organização. Proteção de senha de implantação de local usa os dois as globais e personalizadas senha banida listas que são armazenadas no AD do Azure. Ele faz o mesma verificações no local como o Azure AD para alterações com base em nuvem.
+Proteção por senha do AD do Azure é um recurso que aprimora as políticas de senha em uma organização. Implantação de local de proteção por senha usa os dois as globais e personalizadas senha banida listas que são armazenadas no AD do Azure. Ele faz o mesma verificações no local como o Azure AD para alterações com base em nuvem.
 
 ## <a name="design-principles"></a>Princípios de design
 

@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche, glenga
-ms.openlocfilehash: 3cf6a0d080e2d8cafcab8e69a614b59a470c7aba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b673e625e1a50c32e3d8580ec442792ed8611703
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637039"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572607"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Perguntas frequentes sobre a rede no Azure Functions
 
@@ -28,11 +28,14 @@ Implantando uma função em um ambiente de serviço de aplicativo atualmente é 
 Você pode restringir o acesso à internet de duas maneiras:
 
 * [Restrições de IP](../app-service/app-service-ip-restrictions.md): Restringir o tráfego de entrada para seu aplicativo de funções por intervalo de IP.
+    * Sob as restrições de IP, também é possível configurar [pontos de extremidade de serviço](../virtual-network/virtual-network-service-endpoints-overview.md), que restringem a sua função para só aceitar tráfego de entrada de uma rede virtual específica.
 * Remoção de todos os gatilhos HTTP. Para alguns aplicativos, é suficiente para simplesmente evitar gatilhos HTTP e usar qualquer outra fonte de evento para disparar sua função.
 
 Tenha em mente que o editor do portal do Azure requer acesso direto à sua função em execução. Alterações de código por meio do portal do Azure exigirá que o dispositivo que você está usando para navegarem pelo portal para ter sua lista de permissões IP. Mas você ainda pode usar qualquer coisa na guia de recursos de plataforma com restrições de rede em vigor.
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>Como restringir o meu aplicativo de função a uma rede virtual?
+
+É possível restringir **entrada** tráfego para um aplicativo de funções em uma rede virtual utilizando [pontos de extremidade de serviço](./functions-networking-options.md#private-site-access). Essa configuração ainda permite que o aplicativo de funções fazer chamadas de saída à internet.
 
 A única maneira de restringir totalmente uma função, de modo que todo o tráfego flui através de uma rede virtual é usar um ambiente de serviço de aplicativo internamente com balanceamento de carga. Essa opção implanta o seu site em uma infraestrutura dedicada dentro de uma rede virtual e envia todos os disparadores e o tráfego pela rede virtual. 
 
@@ -48,8 +51,11 @@ Usando a integração de rede virtual (atualmente em versão prévia), você pod
 
 ## <a name="how-can-i-trigger-a-function-from-a-resource-in-a-virtual-network"></a>Como é possível disparar uma função de um recurso em uma rede virtual?
 
-Você pode disparar uma função de um recurso em uma rede virtual somente ao implantar seu aplicativo de funções para um ambiente de serviço de aplicativo. Para obter detalhes sobre como usar um ambiente de serviço de aplicativo, consulte [criar e usar um balanceador de carga interno com um ambiente de serviço de aplicativo](../app-service/environment/create-ilb-ase.md).
+Você é capaz de permitir que gatilhos HTTP a ser chamado de uma rede virtual usando [pontos de extremidade de serviço](./functions-networking-options.md#private-site-access). 
 
+Você também pode disparar uma função de um recurso em uma rede virtual implantando seu aplicativo de funções em um ambiente de serviço de aplicativo. Para obter detalhes sobre como usar um ambiente de serviço de aplicativo, consulte [criar e usar um balanceador de carga interno com um ambiente de serviço de aplicativo](../app-service/environment/create-ilb-ase.md).
+
+Os gatilhos Premium e o serviço de aplicativo HTTP de suporte com o plano a partir de uma rede virtual, mas somente um ambiente do serviço de aplicativo dão suporte a todos os outros tipos de gatilho de função por meio de uma rede virtual.
 
 ## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>Como posso implantar meu aplicativo de função em uma rede virtual?
 

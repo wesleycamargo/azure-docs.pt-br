@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 0b1a06d181fc4d2a44d389d47d1f9480c2fdcb40
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 5c01c2721a29bf142ee0ba53c9bc29ec66a7278f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401098"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727918"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Criar perfil de aplicativos ativos do Azure Service Fabric com o Application Insights
 
@@ -32,7 +32,7 @@ O Application Insights Profiler está incluído com o Diagnóstico do Azure. Voc
 
 Para configurar seu ambiente, faça o seguinte:
 
-1. Para garantir que você esteja usando o [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou posterior, basta confirmar se o sistema operacional implantado é o `Windows Server 2012 R2` ou posterior.
+1. Profiler dá suporte ao .NET Framework e.Net Core. Se você estiver usando o .NET Framework, verifique se você estiver usando [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou posterior. É suficiente confirmar que o sistema operacional implantado é `Windows Server 2012 R2` ou posterior. Profiler oferece suporte a .NET Core 2.1 e aplicativos mais recentes.
 
 1. Pesquise a extensão [Diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) no arquivo de modelo de implantação.
 
@@ -59,7 +59,6 @@ Para configurar seu ambiente, faça o seguinte:
 
 1. Reimplante o aplicativo.
 
-> [DICA] Para máquinas virtuais, uma alternativa às etapas baseadas em JSON acima é navegar no portal do Azure para **Máquinas Virtuais** > **Configurações de Diagnóstico** > **Coletores** > **Definir a opção Enviar dados de diagnóstico para o Application Insights como Habilitado** e selecionar uma conta do Application Insights ou uma ikey específica.
 
 ## <a name="next-steps"></a>Próximas etapas
 

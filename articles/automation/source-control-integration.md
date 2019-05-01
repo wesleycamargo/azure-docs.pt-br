@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/15/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 81602f1a30fb753d7a8fcfccace581cd8c7b2f0c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 94912d5aa10ddd2e67c33bcbb416f007c85f105c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880302"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574115"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integração de controle de origem na Automação do Azure
 
@@ -52,14 +52,16 @@ Na página **Resumo de controle do código-fonte**, preencha as informações e 
 |Repositório     | O nome do repositório ou projeto. Os repositórios de 200 primeiros são retornados. Para procurar por um repositório, digite o nome no campo e clique em **pesquisa no GitHub**.|
 |Branch     | O branch do qual o pull dos arquivos de origem é efetuado. Direcionamento de ramificação não está disponível para o tipo de controle de origem TFVC.          |
 |Caminho da pasta     | A pasta que contém os runbooks a serem sincronizados. Exemplo: /Runbooks </br>*Somente runbooks na pasta especificada são sincronizados. Não há suporte para recursão.*        |
-|Sincronização automática     | Ativa ou desativa a sincronização automática quando uma confirmação é feita no repositório de controle do código-fonte         |
+|Auto sincronização<sup>1</sup>     | Ativa ou desativa a sincronização automática quando uma confirmação é feita no repositório de controle do código-fonte         |
 |Publicar runbook     | Se definido como **em**, depois de runbooks são sincronizados do controle de origem que serão publicados automaticamente.         |
 |DESCRIÇÃO     | Um campo de texto para fornecer detalhes adicionais        |
+
+<sup>1</sup> para habilitar a sincronização automática durante a configuração de integração de controle do código-fonte com repositórios do Azure, você deve ser um administrador de projeto.
 
 ![Resumo do controle do código-fonte](./media/source-control-integration/source-control-summary.png)
 
 > [!NOTE]
-> Verifique se você está conectado com a conta correta ao configurar o controle do código-fonte. Se houver alguma dúvida, abra uma nova guia no navegador e faça logoff do visualstudio.com ou do github.com e tente conectar o controle do código-fonte novamente.
+> Seu logon para seu repositório de controle do código-fonte pode ser diferente de seu logon do portal do Azure. Certifique-se de que você está conectado com a conta correta para seu repositório de controle do código-fonte ao configurar o controle de origem. Se houver alguma dúvida, abra uma nova guia no navegador e faça logoff do visualstudio.com ou do github.com e tente conectar o controle do código-fonte novamente.
 
 ## <a name="configure-source-control---powershell"></a>Configurar o controle do código-fonte - PowerShell
 

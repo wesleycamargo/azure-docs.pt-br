@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: ''
 author: chackdan
 ms.author: chackdan
-ms.date: 12/12/2018
+ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 27cf4d31f11eaf861d1cafc093d912aa15c8bec0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 7f3bed454bce90d797ca5829043c7e5f8ce5b051
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979744"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728581"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Perguntas frequentes sobre Malha do Service Fabric
 
@@ -28,7 +28,7 @@ Faça perguntas, obtenha respostas de engenheiros da Microsoft e relate problema
 
 ### <a name="what-is-the-cost-of-participating-in-the-preview"></a>Qual é o custo de participar da versão prévia?
 
-Atualmente, não há custos para implantar aplicativos ou contêineres na versão prévia da Malha. No entanto, é recomendável excluir os recursos que você implanta e não deixá-los em execução, a menos que os esteja testando ativamente.
+Atualmente, não há custos para implantar aplicativos ou contêineres na versão prévia da Malha. No entanto, é recomendável que você exclua os recursos que você implanta e não deixá-los em execução, a menos que você está testando-os ativamente.
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>Há um limite de cota do número de núcleos e RAM?
 
@@ -77,7 +77,9 @@ Por exemplo:
 
 Para excluir o grupo de recursos, use o comando `az group delete <nameOfResourceGroup>`.
 
-## <a name="supported-container-os-images"></a>Imagens de SO do contêiner com suporte
+## <a name="deployments"></a>Implantações
+
+### <a name="what-container-images-are-supported"></a>Quais imagens de contêiner têm suporte?
 
 Se você estiver desenvolvendo em um computador com Windows Fall Creators Update (versão 1709), somente poderá usar as imagens do docker da versão 1709 do Windows.
 
@@ -90,6 +92,10 @@ As imagens do SO do contêiner a seguir podem ser usadas para implantar serviço
     - Windows Server versão 1803
 - Linux
     - Sem limitações conhecidas
+
+### <a name="what-types-of-applications-can-i-deploy"></a>Quais tipos de aplicativos pode implantar? 
+
+Você pode implantar qualquer coisa que é executado em contêineres que se ajustam as restrições colocados em um recurso de aplicativo (consulte acima para obter mais informações sobre cotas). Se detectarmos que você estiver usando a malha para executar cargas de trabalho ilegais ou abuso de sistema (ou seja, de mineração), em seguida, nos reservamos o direito para finalizar suas implantações e a lista de bloqueios sua assinatura em execução no serviço. Entre em contato conosco se tiver alguma dúvida sobre como executar uma carga de trabalho específica. 
 
 ## <a name="developer-experience-issues"></a>Problemas de experiência do desenvolvedor
 

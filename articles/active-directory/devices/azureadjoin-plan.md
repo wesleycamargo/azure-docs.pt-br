@@ -17,12 +17,12 @@ ms.date: 11/21/2018
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b59471cd8af02513186fa4437a2249b056cc324
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12d603ddbba9e36d562c8dcd6e3844af28c91255
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354380"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918828"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: Planejar sua implementação de ingresso no Azure AD
 
@@ -135,7 +135,11 @@ Ingresso no Azure AD:
 
 ### <a name="management-platform"></a>Plataforma de gerenciamento
 
-Gerenciamento de dispositivo para dispositivos ingressados no Azure Active Directory se baseia em uma plataforma MDM, como o Intune) e MDM CSPs. Windows 10 tem um agente MDM interno que funciona com todas as soluções MDM compatíveis.
+Gerenciamento de dispositivo para dispositivos ingressados no Azure AD se baseia em uma plataforma MDM como Intune e MDM CSPs. Windows 10 tem um agente MDM interno que funciona com todas as soluções MDM compatíveis.
+
+> [!NOTE]
+> As políticas de grupo não têm suporte em dispositivos ingressados no Azure AD que não estão conectados ao Active Directory no local. Gerenciamento de dispositivos ingressados no Azure AD só é possível por meio do MDM
+
 
 Há duas abordagens para gerenciar o Azure Active Directory ingressado em dispositivos:
 
@@ -143,7 +147,6 @@ Há duas abordagens para gerenciar o Azure Active Directory ingressado em dispos
 
 - **Cogerenciamento** – um dispositivo é gerenciado por um provedor de MDM e o SCCM. Nessa abordagem, o agente do SCCM é instalado em um dispositivo gerenciado por MDM para determinados aspectos de administrar.
 
-Como os dispositivos do Azure Active Directory ingressado não estão conectados ao Active Directory no local, não há suporte para políticas de grupo.
 
 
 Se você estiver usando políticas de grupo, avalie a paridade de política MDM usando a [Ferramenta de Análise de Migração de MDM (MMAT)](https://github.com/WindowsDeviceManagement/MMAT). 
@@ -357,7 +360,7 @@ Você pode usar essa implementação para [exigir os dispositivos gerenciados pa
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Ingressar um novo dispositivo Windows 10 com o Azure Active Directory durante uma primeira execução](azuread-joined-devices-frx.md)

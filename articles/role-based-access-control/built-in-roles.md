@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 04/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: f505f922685cd192525814df25cca1a1401d2913
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 36a98ea52ea48c9828ca5857dc480742632056fb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749318"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64689871"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções internas para recursos do Azure
 
@@ -87,6 +87,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 | [Colaborador de Conta do DocumentDB](#documentdb-account-contributor) | Pode gerenciar contas do Azure Cosmos DB. O Azure Cosmos DB era anteriormente conhecido como DocumentDB. |
 | [Colaborador de EventGrid EventSubscription](#eventgrid-eventsubscription-contributor) | Permite que você gerencie operações de assinatura de evento EventGrid. |
 | [Leitor de EventGrid EventSubscription](#eventgrid-eventsubscription-reader) | Permite que você gerencie operações de assinatura de evento EventGrid. |
+| [Operador de Cluster do HDInsight](#hdinsight-cluster-operator) | Permite que você ler e modificar configurações de cluster do HDInsight. |
 | [Colaborador dos serviços de domínio do HDInsight](#hdinsight-domain-services-contributor) | Pode ler, criar, modificar e excluir operações relacionadas aos serviços de domínio necessárias para o Enterprise Security Package do HDInsight |
 | [Colaborador de conta do sistemas inteligentes](#intelligent-systems-account-contributor) | Permite gerenciar contas do Intelligent Systems, mas não acessá-las. |
 | [Colaborador do Key Vault](#key-vault-contributor) | Permite gerenciar cofres de chaves, mas não acessá-los. |
@@ -121,6 +122,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 | [Proprietário da conta âncoras espacial](#spatial-anchors-account-owner) | Permite gerenciar âncoras espaciais em sua conta, inclusive excluí-las |
 | [Leitor de conta âncoras espacial](#spatial-anchors-account-reader) | Permite localizar e ler propriedades de âncoras espaciais em sua conta |
 | [Colaborador do banco de dados SQL](#sql-db-contributor) | Permite gerenciar Bancos de Dados SQL, mas não acessá-los. Além disso, não é possível gerenciar as políticas relacionadas à segurança ou respectivos servidores SQL pai. |
+| [Colaborador de instância gerenciada do SQL](#sql-managed-instance-contributor) | Permite gerenciar instâncias gerenciadas do SQL e necessária configuração de rede, mas não pode fornecer acesso a outras pessoas. |
 | [Gerenciador de Segurança do SQL](#sql-security-manager) | Permite você gerenciar as políticas relacionadas à segurança de servidores e bancos de dados SQL, mas não acessá-los. |
 | [Colaborador do SQL Server](#sql-server-contributor) | Permite gerenciar servidores e Bancos de Dados SQL, mas não acessá-los, nem as políticas relacionadas à segurança. |
 | [Colaborador da Conta de Armazenamento](#storage-account-contributor) | Permite gerenciar contas de armazenamento, mas não acessá-las. |
@@ -327,7 +329,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
-> | Microsoft.ApiManagement/service/users/keys/read | Obter lista de chaves do usuário |
+> | Microsoft.ApiManagement/service/users/keys/read | Obter chaves associadas ao usuário |
 > | **DataActions** |  |
 > | *nenhum* |  |
 > | **NotDataActions** |  |
@@ -349,7 +351,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
 > | **NotActions** |  |
-> | Microsoft.ApiManagement/service/users/keys/read | Obter lista de chaves do usuário |
+> | Microsoft.ApiManagement/service/users/keys/read | Obter chaves associadas ao usuário |
 > | **DataActions** |  |
 > | *nenhum* |  |
 > | **NotDataActions** |  |
@@ -1385,6 +1387,28 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
+## <a name="hdinsight-cluster-operator"></a>Operador de Cluster do HDInsight
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Permite que você ler e modificar configurações de cluster do HDInsight. |
+> | **Id** | 61ed4efc-fab3-44fd-b111-e24485cc132a |
+> | **Ações** |  |
+> | Microsoft.HDInsight/*/read |  |
+> | Microsoft.HDInsight/clusters/getGatewaySettings/action | Obter configurações de gateway para Cluster do HDInsight |
+> | Microsoft.HDInsight/clusters/updateGatewaySettings/action | Atualizar as configurações de gateway para Cluster do HDInsight |
+> | Microsoft.HDInsight/clusters/configurations/* |  |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
+> | Microsoft.Resources/deployments/operations/read | Obter ou lista operações de implantação. |
+> | Microsoft.Insights/alertRules/* | Criar e gerenciar regras de alerta do Insights |
+> | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
 ## <a name="hdinsight-domain-services-contributor"></a>Colaborador dos serviços de domínio do HDInsight
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1807,6 +1831,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | **Id** | c12c1c16-33a1-487b-954d-41c89c60f349 |
 > | **Ações** |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Retornar as chaves de acesso da conta de armazenamento especificada. |
+> | Microsoft.Storage/storageAccounts/ListAccountSas/action | Retornar o token SAS da conta para a conta de armazenamento especificada. |
 > | Microsoft.Storage/storageAccounts/read | Retornar a lista de contas de armazenamento ou obter as propriedades da conta de armazenamento especificada. |
 > | **NotActions** |  |
 > | *nenhum* |  |
@@ -2228,6 +2253,34 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+## <a name="sql-managed-instance-contributor"></a>Colaborador de instância gerenciada do SQL
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Permite gerenciar instâncias gerenciadas do SQL e necessária configuração de rede, mas não pode fornecer acesso a outras pessoas. |
+> | **Id** | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
+> | **Ações** |  |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
+> | Microsoft.Resources/deployments/* | Criar e gerenciar implantações do grupo de recursos |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obter ou listar de grupos de recursos. |
+> | Microsoft.Network/networkSecurityGroups/* |  |
+> | Microsoft.Network/routeTables/* |  |
+> | Microsoft.Sql/locations/*/read |  |
+> | Microsoft.Sql/managedInstances/* |  |
+> | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
+> | Microsoft.Network/virtualNetworks/subnets/* |  |
+> | Microsoft.Network/virtualNetworks/* |  |
+> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
+> | Microsoft.Insights/alertRules/* | Criar e gerenciar regras de alerta do Insights |
+> | Microsoft.Insights/metrics/read | Ler métrica |
+> | Microsoft.Insights/metricDefinitions/read | Ler definições de métrica |
+> | **NotActions** |  |
+> | *nenhum* |  |
 > | **DataActions** |  |
 > | *nenhum* |  |
 > | **NotDataActions** |  |

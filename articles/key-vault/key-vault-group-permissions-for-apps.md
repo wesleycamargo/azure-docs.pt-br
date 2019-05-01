@@ -2,23 +2,19 @@
 title: Conceder permissão para vários aplicativos acessarem um Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: Saiba como conceder permissão para vários aplicativos acessarem um Key Vault
 services: key-vault
-documentationcenter: ''
 author: amitbapat
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 785d4e40-fb7b-485a-8cbc-d9c8c87708e6
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: e0008f6eb54dd690fda6833b96cda69fe8e1e954
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39624595b4dd4e72ab1d34082a6ba44a1b3636d0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304958"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64721987"
 ---
 # <a name="grant-several-applications-access-to-a-key-vault"></a>Conceder acesso de vários aplicativos em um cofre de chaves
 
@@ -66,6 +62,6 @@ Set-AzKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.Objec
 
 Se você precisar conceder um conjunto diferente de permissões para um grupo de aplicativos, crie um grupo de segurança do Azure Active Directory separado para tais aplicativos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre como [Proteger seu Key Vault](key-vault-secure-your-key-vault.md).

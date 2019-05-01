@@ -12,18 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 04/08/2019
-ms.author: v-junlch
+ms.date: 09/24/2018
+ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0337f3de40e75ada86c0a5265fc99b34f1c2ecae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ea3e1b951a683d7ee1def09024e531e94dd905b4
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60296803"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918521"
 ---
 # <a name="web-apps"></a>Aplicativos Web
 
@@ -46,7 +45,7 @@ Veja os exemplos de código do navegador da Web para cenários de aplicativo Web
 
 ## <a name="app-registration"></a>Registro do aplicativo
 
-Para registrar um aplicativo Web, confira [Registrar um aplicativo no ponto de extremidade do Azure AD v1.0](quickstart-v1-add-azure-ad-app.md).
+Para registrar um aplicativo web, consulte [registrar um aplicativo](quickstart-register-app.md).
 
 * Locatário único: se você estiver criando um aplicativo apenas para a sua organização, ele deverá ser registrado no diretório da sua empresa usando o portal do Azure.
 * Multilocatário – Se você estiver criando um aplicativo que pode ser usado por usuários fora da sua organização, ele deverá ser registrado no diretório da sua empresa, mas também deverá ser registrado no diretório de cada organização que usará o aplicativo. Para disponibilizar seu aplicativo em seu diretório, você pode incluir um processo de inscrição para os clientes que os permita ter autorização para seu aplicativo. Ao se inscreverem para seu aplicativo, uma caixa de diálogo será apresentada, mostrando as permissões exigidas pelo aplicativo e, em seguida, a opção de consentimento. Dependendo das permissões necessárias, um administrador na outra organização talvez precise dar consentimento. Quando o usuário ou administrador der seu consentimento, o aplicativo é registrado em seu diretório.
@@ -59,5 +58,3 @@ A sessão do usuário expira quando a vida útil do token emitido pelo Azure AD 
 
 * Saiba mais sobre outros [Tipos e cenários de aplicativo](app-types.md)
 * Saiba mais sobre as [noções básicas de autenticação](authentication-scenarios.md) do Azure AD
-
-<!-- Update_Description: wording update -->

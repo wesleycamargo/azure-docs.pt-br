@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7675441316e42c7f0a220abe77bc8c62158ef918
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4169b15304afe1ecc4af9c5354798b29ad9dba38
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351457"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571362"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Use o Azure AD as revisões de acesso para gerenciar usuários excluídos do políticas de acesso condicional
 
@@ -38,7 +38,7 @@ Em outro exemplo, você pode usar [localizações nomeadas](../conditional-acces
 
 ![Localizações nomeadas](./media/conditional-access-exclusion/named-locations.png)
 
-No entanto, em alguns casos, os usuários podem ter um motivo legítimo para se conectar desses países bloqueados. Por exemplo, os usuários podem estar viajando por motivos pessoais ou a trabalho. Neste exemplo, a política de acesso condicional para bloquear esses países poderia ter um grupo de segurança de nuvem dedicado para os usuários excluídos da política. Usuários que precisam de acesso quando estão viajando podem adicionar a si mesmos ao grupo usando o [Gerenciamento de Grupos de Autoatendimento do Azure AD](../users-groups-roles/groups-self-service-management.md).
+No entanto, em alguns casos, os usuários podem ter um motivo legítimo para entrar a partir desses países/regiões bloqueadas. Por exemplo, os usuários podem estar viajando por motivos pessoais ou a trabalho. Neste exemplo, a política de acesso condicional para bloquear esses países/regiões poderia ter um grupo de segurança de nuvem dedicados para os usuários que são excluídos da política. Usuários que precisam de acesso quando estão viajando podem adicionar a si mesmos ao grupo usando o [Gerenciamento de Grupos de Autoatendimento do Azure AD](../users-groups-roles/groups-self-service-management.md).
 
 Outro exemplo pode ser quando você tem uma política de acesso condicional que [bloqueia a autenticação herdada para a maioria dos usuários](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/). A Microsoft recomenda enfaticamente que você bloqueie o uso de protocolos herdados em seu locatário para melhorar sua postura de segurança. No entanto, se houver alguns usuários que realmente precisam usar métodos de autenticação herdados para acessar recursos por meio do Office 2010 ou de clientes baseados em SMTP/IMAP/POP, você poderá excluir esses usuários da política que bloqueia métodos de autenticação herdados.
 
@@ -97,9 +97,9 @@ Agora, você pode criar uma política de acesso condicional que usa esse grupo d
 
 Vamos abordar dois exemplos em que você pode usar as revisões de acesso para gerenciar exclusões nas políticas de acesso condicional.
 
-## <a name="example-1-access-review-for-users-accessing-from-blocked-countries"></a>Exemplo 1: Revisão de acesso para usuários que acessam em países bloqueados
+## <a name="example-1-access-review-for-users-accessing-from-blocked-countriesregions"></a>Exemplo 1: Revisão de acesso para usuários que acessam de países/regiões bloqueadas
 
-Digamos que você tenha uma política de acesso condicional que bloqueia o acesso de certos países. Ela inclui um grupo que é excluído da política. Esta é uma revisão de acesso recomendada em que os membros do grupo são revisados.
+Digamos que você tenha uma política de acesso condicional que bloqueia o acesso de certos países/regiões. Ela inclui um grupo que é excluído da política. Esta é uma revisão de acesso recomendada em que os membros do grupo são revisados.
 
 > [!NOTE]
 > Um Administrador Global ou a função de administrador do usuário é necessário para criar as revisões de acesso.
@@ -110,9 +110,9 @@ Digamos que você tenha uma política de acesso condicional que bloqueia o acess
 
 3. Todos os membros do grupo estarão no escopo da revisão.
 
-4. Cada usuário precisará atestar que ainda precisa ter acesso desses países bloqueados e, portanto, eles ainda precisam ser membros do grupo.
+4. Cada usuário terá automaticamente atestar que eles ainda precisarão ter acesso a partir desses países/regiões bloqueadas, portanto, eles ainda precisam ser um membro do grupo de.
 
-5. Se o usuário não responder à solicitação de revisão, ele será removido automaticamente do grupo e, portanto, não poderá mais acessar o locatário quando estiver viajando para os países em questão.
+5. Se o usuário não responder à solicitação de revisão, eles serão automaticamente removidos do grupo e, portanto, não poderá mais acessar o locatário quando estiverem viajando para estes países/regiões.
 
 6. Habilite as notificações por email para que os usuários sejam notificados do início e da conclusão da revisão de acesso.
 

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 307636b019b53c8457c65261824adbf8e52ca0a9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5c4fa2260b00043e016748010528926b1b9d74a3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875508"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726552"
 ---
 # <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio"></a>Guia de Introdução a idioma no Azure Machine Learning Studio de programação R
 
@@ -1320,7 +1320,7 @@ Existem muitos livros sobre R que podem ajudá-lo a começar. Aqui estão alguns
 * O **Art of R Programming: Um Tour of Statistical Software Design** , de Norman Matloff, é uma excelente introdução à programação em R.  
 * **R Cookbook** por Paul Teetor, fornece uma abordagem de problema e a solução usando R.  
 * **R in Action,** por Robert Kabacoff, é outro livro introdutório útil. O complemento [site Quick R](https://www.statmethods.net/) é um recurso útil.
-* **R Inferno** por Patrick Burns, é um livro surpreendentemente bem-humorado que lida com inúmeros tópicos complicados e difíceis que podem ser encontrados ao programar em R. O livro está disponível gratuitamente em [The R Inferno](http://www.burns-stat.com/documents/books/the-r-inferno/).
+* **R Inferno** por Patrick Burns, é um livro surpreendentemente bem-humorado que lida com inúmeros tópicos complicados e difíceis que podem ser encontrados ao programar em R. O livro está disponível gratuitamente em [The R Inferno](https://www.burns-stat.com/documents/books/the-r-inferno/).
 * Se você quiser aprofundar em tópicos avançados em R, dar uma olhada no livro **R avançados** de Hadley Wickham. A versão online deste livro está disponível gratuitamente em [ http://adv-r.had.co.nz/ ](http://adv-r.had.co.nz/).
 
 Um catálogo de pacotes de série temporal de R pode ser encontrado no [CRAN Task View: Análise de série de tempo](https://cran.r-project.org/web/views/TimeSeries.html). Para obter informações sobre pacotes de objetos de série temporal específicos, consulte a documentação do pacote.

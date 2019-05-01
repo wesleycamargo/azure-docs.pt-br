@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/24/2019
 ms.author: juliako
-ms.openlocfilehash: a182b9ec0fb945b4c2ffddd7a977df8ad9a8d250
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a8812e8a24082bd8c3a2e9bd489e12a12c80c76d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559835"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574135"
 ---
 # <a name="what-is-video-indexer"></a>O que é o Video Indexer?
 
@@ -37,8 +37,8 @@ O Video Indexer do Azure é um aplicativo de nuvem criado com base na Análise d
 
 ## <a name="audio-insights"></a>Insights de áudio
 
-- **Detecção automática de idioma**: Identifica automaticamente o idioma falado dominante. Os idiomas com suporte incluem inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, russo e português (brasileiro). Fará fallback para o inglês quando o idioma não puder ser detectado.
-- **Transcrição de áudio**: Conversão de fala em texto em 12 idiomas e permite extensões. Os idiomas com suporte incluem inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, árabe, russo e português (brasileiro), hindi e coreano.
+- **Detecção automática de idioma**: Identifica automaticamente o idioma falado dominante. Idiomas com suporte incluem o inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, russo e português português será fallback para o inglês quando o idioma não pode ser detectado.
+- **Transcrição de áudio**: Conversão de fala em texto em 12 idiomas e permite extensões. Idiomas com suporte incluem o inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, árabe, russo, português (Brasil), híndi e coreano.
 - **Legendagem oculta**: Cria legendas ocultas em três formatos: VTT, TTML, SRT.
 - **Processamento de dois canais**: Detecta automaticamente, separa a transcrição e mescla em uma única linha do tempo.
 - **Redução de ruído**: Limpa gravações com ruídos ou áudio com telefonia (com base nos filtros do Skype).
@@ -47,7 +47,7 @@ O Video Indexer do Azure é um aplicativo de nuvem criado com base na Análise d
 - **Estatísticas de alto-falante**: Fornece estatísticas das taxas de fala dos alto-falantes.
 - **Moderação de conteúdo visual**: Detecta texto explícito na transcrição de áudio.
 - **Efeitos de áudio**: Identifica efeitos de áudio como palmas, fala e silêncio.
-- **Detecção de emoções**: Identifica emoções com base em indicações de fala e de áudio. A emoção pode ser: alegria, tristeza, raiva ou medo.
+- **Detecção de emoções**: Identifica as emoções com base em fala (o que está sendo dito) e a tonalidade de voz (como ele está sendo dito).  A emoção pode ser: alegria, tristeza, raiva ou medo.
 - **Tradução**: Cria traduções da transcrição de áudio em 54 idiomas diferentes.
 
 ## <a name="audio-and-video-insights-multi-channels"></a>Insights de áudio e vídeo (vários canais)

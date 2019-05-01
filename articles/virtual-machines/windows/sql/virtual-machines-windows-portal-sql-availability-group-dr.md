@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 8f5b470cb3f75f434033a245f4aaa185aeb665c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9e31ac7685d597c741033bc165c6a51280e3d72
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325899"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571735"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configurar um Grupo de Disponibilidade Always On em máquinas virtuais do Azure em diferentes regiões
 
@@ -145,7 +145,7 @@ A réplica no data center remoto é parte do grupo de disponibilidade, mas ele e
 
 Preferencialmente, atualize as cadeias de conexão do cliente para definir `MultiSubnetFailover=Yes`. Consulte [conectar-se ao MultiSubnetFailover](https://msdn.microsoft.com/library/gg471494#Anchor_0).
 
-Se você não pode modificar as cadeias de conexão, você pode configurar o cache de resolução de nome. Consulte [tempos limite de conexão no grupo de disponibilidade de várias sub-redes](https://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/).
+Se você não pode modificar as cadeias de conexão, você pode configurar o cache de resolução de nome. Ver [erro de tempo limite e você não pode se conectar a um ouvinte do grupo de disponibilidade AlwaysOn do SQL Server 2012 em um ambiente de várias sub-redes](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av).
 
 ## <a name="fail-over-to-remote-region"></a>Failover para região remota
 

@@ -1,7 +1,6 @@
 ---
 title: Executar programas MapReduce personalizados - HDInsight do Azure
 description: Quando e como executar programas MapReduce personalizados no HDInsight.
-services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: c9cbea913a86a681620eea4adc0a5c99cc84f920
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: 5ed82fc21aedc9af394922059859f81cfba1867e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53433858"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713097"
 ---
 # <a name="run-custom-mapreduce-programs"></a>Executar programas de MapReduce personalizados
 
@@ -38,7 +37,6 @@ Na maioria dos cenários de processamento do HDInsight é mais simples e eficien
 Mapa personalizado/redução de componentes geralmente são gravados em Java. O Hadoop fornece uma interface de streaming que também permite que os componentes usados sejam desenvolvidos em outras linguagens, como C#, F#, Visual Basic, Python e JavaScript.
 
 * Para uma apresentação sobre como desenvolver programas personalizados MapReduce no Java, consulte [Desenvolver programas MapReduce em Java para Hadoop no HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md).
-* [Desenvolver programas MapReduce de streaming do Python para o HDInsight](apache-hadoop-streaming-python.md).
 
 Considere a criação de seu próprio mapa e a redução de componentes nas seguintes condições:
 
@@ -76,6 +74,5 @@ Os programas de MapReduce mais comuns são gravados em Java e compilados em um a
 
 * [Usar C# com streaming do MapReduce no Apache Hadoop no HDInsight](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 * [Desenvolver programas do MapReduce em Java para o Apache Hadoop no HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-* [Desenvolver programas MapReduce de streaming do Hadoop para o HDInsight](apache-hadoop-streaming-python.md)
 * [Usar o Azure Toolkit for Eclipse para criar aplicativos do Apache Spark para um cluster HDInsight](../spark/apache-spark-eclipse-tool-plugin.md)
 * [Usar UDF (funções definidas pelo usuário) do Python com o Apache Hive e o Apache Pig no HDInsight](python-udf-hdinsight.md)

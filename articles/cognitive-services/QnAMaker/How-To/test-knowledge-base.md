@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 20ebcb502e03f2d817fe18624d8c790e920c667f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ea2381287729579e10d457912c4147f59716bcc4
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61371794"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875706"
 ---
 # <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>Teste sua base de dados de conhecimento interativamente no QnA Maker
 
@@ -24,8 +24,8 @@ Testar a base de conhecimento do QnA Maker é uma parte importante de um process
 
 ## <a name="test-answer-matching"></a>Testar correspondência de resposta
 
-1.  Acesse a base de dados de conhecimento selecionando o nome na página  **Minhas bases de dados de conhecimento**.
-2.  Para acessar o painel extensível Testar, selecione  **Testar**  no painel superior do seu aplicativo.
+1.  Acesse a base de dados de conhecimento, selecionando o nome na página **Minhas bases de dados de conhecimento**.
+2.  Para acessar o painel deslizante de Teste, selecione **Testar** no painel superior do aplicativo.
 
     ![Acessar painel de teste](../media/qnamaker-how-to-test-kb/access-test.png)
 
@@ -35,17 +35,17 @@ Testar a base de conhecimento do QnA Maker é uma parte importante de um process
 
 ## <a name="clear-test-panel"></a>Limpar painel de teste
 
-Para limpar todas as consultas de teste inseridas e seus resultados do console de teste, selecione  **Iniciar de novo**  no canto superior esquerdo do Painel de teste.
+Para limpar todas as consultas de teste inseridas e seus resultados do console de teste, selecione **Iniciar de novo** no canto superior esquerdo do Painel de teste.
 
 ## <a name="close-test-panel"></a>Fechar painel de teste
 
-Para fechar o Painel de teste, selecione o botão  **Testar**  novamente. Enquanto o painel de Teste estiver aberto, não será possível editar o conteúdo da Base de Dados de Conhecimento.
+Para fechar o painel de **Teste**, selecione o botão Testar novamente. Enquanto o painel de Teste estiver aberto, não será possível editar o conteúdo da Base de Dados de Conhecimento.
 
 ## <a name="inspect-score"></a>Inspecionar pontuação
 
 Inspecione detalhes do resultado do teste no painel Inspecionar.
 
-1.  Com o painel deslizante de teste aberto, selecione  **Inspecionar**  para obter mais detalhes sobre essa resposta.
+1.  Com o painel deslizante de Teste aberto, selecione **Inspecionar** para obter mais detalhes sobre essa resposta.
 
     ![Inspecione as respostas](../media/qnamaker-how-to-test-kb/inspect.png)
 

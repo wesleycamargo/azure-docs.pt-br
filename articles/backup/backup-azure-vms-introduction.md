@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 1e80b2083a2fce90259ac0634d9e7f796f459fcd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 93be913182db56941c346ef0cad47f70c0d614c9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880935"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706842"
 ---
 # <a name="about-azure-vm-backup"></a>Sobre o backup de VM do Azure
 
@@ -31,10 +31,14 @@ Aqui está como o Backup do Azure completa um backup para VMs do Azure:
     - Por padrão, o Backup usa backups completos de VSS.
     - Se o Backup não é possível tirar um instantâneo consistente do aplicativo, ele leva um instantâneo consistente com o arquivo do armazenamento subjacente (porque nenhuma gravação de aplicativo ocorre enquanto a VM estiver parada).
 1. Para VMs Linux, o Backup usa um backup consistente com o arquivo. Para instantâneos consistentes com o aplicativo, você precisa personalizar manualmente os scripts pré/pós.
-1. Depois de Backup cria o instantâneo, ele transfere os dados para o cofre. 
+1. Depois de Backup cria o instantâneo, ele transfere os dados para o cofre.
     - O backup é otimizado, fazendo backup de cada disco VM em paralelo.
     - Para cada disco que está sendo feito backup, Backup do Azure lê os blocos no disco e identifica e transfere apenas os blocos de dados que foram alterados (o delta) desde o backup anterior.
     - Dados de instantâneo não podem ser imediatamente copiados no cofre. Esse processo pode levar algumas horas em horários de pico. Tempo total de backup para uma máquina virtual será menor que 24 horas para políticas de backup diárias.
+ 1. As alterações feitas a uma VM do Windows depois que o Backup do Azure está ativado são:
+    -   Microsoft Visual C++ 2013 Redistributable(x64) - 12.0.40660 é instalado na VM
+    -   Tipo de inicialização do serviço de cópias de sombra de Volume (VSS) alterado para automático de manual
+    -   Serviço IaaSVmProvider Windows é adicionado
 
 1. Quando a transferência de dados for concluída, o instantâneo é removido e um ponto de recuperação é criado.
 
@@ -57,7 +61,7 @@ BEKs também passam por backup. Portanto, se o BEKs forem perdidas, os usuários
 
 ## <a name="snapshot-creation"></a>Criação de instantâneos
 
-O Backup do Azure usa instantâneos de acordo com o agendamento de backup. 
+O Backup do Azure usa instantâneos de acordo com o agendamento de backup.
 
 - **VMs do Windows:** Para VMs do Windows, o serviço de Backup coordena com o VSS para criar um instantâneo consistente com o aplicativo os discos de VM.
 
@@ -82,7 +86,7 @@ A tabela a seguir explica os diferentes tipos de consistência de instantâneo:
 **Sistema de arquivos consistente** | Backups consistentes de sistema de arquivos fornecem consistência obtendo um instantâneo de todos os arquivos ao mesmo tempo.<br/><br/> | Quando você estiver recuperando uma VM com um instantâneo consistente do sistema de arquivos, a VM é inicializada. Não há perda ou corrupção de dados. Os aplicativos precisam implementar seus próprios mecanismos de "correção" para garantir a consistência dos dados restaurados. | Windows: Alguns gravadores VSS falharam <br/><br/> Linux: Padrão (se os scripts pré/pós não forem configurados ou falha)
 **Controle de falhas** | Instantâneos consistentes com falhas normalmente ocorrem se uma VM do Azure é fechado no momento do backup. Apenas os dados que já existem no disco no momento do backup são capturados e copiados em backup.<br/><br/> Um ponto de recuperação de controle de falhas não garante a consistência de dados para o sistema operacional ou o aplicativo. | Embora não haja nenhuma garantia, a VM é inicializada normalmente e, em seguida, ele inicia uma verificação de disco para corrigir erros de corrupção. Quaisquer dados na memória ou operações de gravação que não foram transferidas para o disco antes que a falha são perdidas. Os aplicativos implementam sua própria verificação de dados. Por exemplo, um aplicativo de banco de dados pode usar seu log de transações para verificação. Se o log de transações tiver entradas que não estão no banco de dados, o software de banco de dados efetua transações até que os dados são consistentes. | A VM está em estado de desligamento
 
-## <a name="backup-and-restore-considerations"></a>Considerações sobre backup e restauração 
+## <a name="backup-and-restore-considerations"></a>Considerações sobre backup e restauração
 
 **Consideração** | **Detalhes**
 --- | ---
@@ -99,8 +103,8 @@ A tabela a seguir explica os diferentes tipos de consistência de instantâneo:
 Esses cenários comuns podem afetar o tempo total de backup:
 
 - **Adicionando um novo disco a uma VM do Azure protegida:** Se uma VM está passando por backup incremental e um novo disco é adicionado, aumentará o tempo de backup. O tempo total de backup pode durar mais de 24 horas devido a replicação inicial do novo disco, juntamente com a replicação delta de discos existentes.
-- **Discos fragmentados:** Operações de backup são mais rápidas quando as alterações de disco são contíguas. Se as alterações forem distribuídas e fragmentadas em um disco, o backup será mais lento. 
-- **Variação de disco:** Se protegido discos que estão passando por backup incremental tem uma variação de diária de mais de 200 GB, backup pode levar muito tempo (mais de oito horas) para concluir. 
+- **Discos fragmentados:** Operações de backup são mais rápidas quando as alterações de disco são contíguas. Se as alterações forem distribuídas e fragmentadas em um disco, o backup será mais lento.
+- **Variação de disco:** Se protegido discos que estão passando por backup incremental tem uma variação de diária de mais de 200 GB, backup pode levar muito tempo (mais de oito horas) para concluir.
 - **Versões de backup:** A versão mais recente do Backup (conhecida como a versão a restauração instantânea) usa um processo mais otimizado comparação de soma de verificação para identificar as alterações. Mas se você estiver usando a restauração instantânea e ter excluído um instantâneo de backup, o backup alterna para comparação de soma de verificação. Nesse caso, a operação de backup será exceder 24 horas (ou falha).
 
 ## <a name="best-practices"></a>Práticas recomendadas

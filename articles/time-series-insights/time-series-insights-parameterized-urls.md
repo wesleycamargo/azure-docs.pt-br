@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 172e6f53b25a1aeef67afea0c1769e6fcaf497cd
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 3b6c4b8cebdff772ea1bd4ac95e4c8c06043f5d5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487865"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728153"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Compartilhar uma exibição personalizada usando uma URL parametrizada
 
@@ -63,13 +63,13 @@ Os valores aceitos correspondem ao menu **rápida** do explorador do Time Series
 
 O parâmetro `timeSeriesDefinitions=<collection of term objects>` especifica os termos de uma exibição do Time Series Insights, onde:
 
-- "name":"<string>"
+- "name":"\<string>"
   - O nome do *termo*.
-- "splitBy":"<string>"
+- "splitBy":"\<string>"
   - O nome da coluna para *dividido por*.
-- "measureName":"<string>"
+- "measureName":"\<string>"
   - O nome da coluna de *medida*.
-- "predicate":"<string>"
+- "predicate":"\<string>"
   - O cláusula *where* para filtragem do lado do servidor.
 - "useSum":"true"
   - Este é um parâmetro opcional que especifica o uso de soma para a medida.  Observe que, se "Eventos" for a medida selecionada, a contagem será selecionada por padrão.  Se "Eventos" não estiver selecionado, a média será selecionada por padrão.  
@@ -121,4 +121,5 @@ A exibição completa (incluindo o gráfico) teria esta aparência:
 ![Modo de exibição de Gráfico](media/parameterized-url/url2.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-[Consultar dados usando C#](time-series-insights-query-data-csharp.md)
+
+- Saiba como [consulta de dados usando C# ](time-series-insights-query-data-csharp.md).

@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: b7af0149a690e3cc3a357a5cb769751e3674d374
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 49f89d39b3b917ec6357b241d7c413c2790eca25
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61437677"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575609"
 ---
 # <a name="azure-functions-networking-options"></a>O Azure Functions, as opções de rede
 
@@ -31,15 +31,14 @@ Você pode hospedar aplicativos de funções de duas maneiras:
 
 ## <a name="matrix-of-networking-features"></a>Matriz de recursos de rede
 
-|                |[Plano de consumo](functions-scale.md#consumption-plan)|⚠ [Plano Premium](functions-scale.md#premium-plan-public-preview)|[Plano do Serviço de Aplicativo](functions-scale.md#app-service-plan)|[Ambiente do Serviço de Aplicativo](../app-service/environment/intro.md)|
+|                |[Plano de consumo](functions-scale.md#consumption-plan)|[Plano Premium (versão prévia)](functions-scale.md#premium-plan-public-preview)|[Plano do Serviço de Aplicativo](functions-scale.md#app-service-plan)|[Ambiente do Serviço de Aplicativo](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Restrições de IP de entrada](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
+|[Restrições de IP de saída](#private-site-access)|❌No| ❌No|❌No|✅Yes|
 |[Integração de rede virtual](#virtual-network-integration)|❌No|❌No|✅Yes|✅Yes|
-|[Visualização da integração de rede virtual (ExpressRoute do Azure e pontos de extremidade de serviço)](#preview-version-of-virtual-network-integration)|❌No|⚠Sim|⚠Sim|✅Yes|
+|[Visualizar a integração de rede virtual (ExpressRoute do Azure e pontos de extremidade de serviço saídos)](#preview-version-of-virtual-network-integration)|❌No|✅Yes|✅Yes|✅Yes|
 |[Conexões híbridas](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
-|[acesso ao site privado](#private-site-access)|❌No| ❌No|❌No|✅Yes|
-
-⚠ Esse recurso de visualização não é para uso em produção.
+|[acesso ao site privado](#private-site-access)|❌No| ✅Yes|✅Yes|✅Yes|
 
 ## <a name="inbound-ip-restrictions"></a>Restrições de IP de entrada
 
@@ -49,6 +48,10 @@ Você pode usar as restrições de IP para definir uma lista ordenada de priorid
 > Para usar o editor do portal do Azure, o portal deve ser capaz de acessar diretamente o seu aplicativo de função em execução. Além disso, o dispositivo que você está usando para acessar o portal deve ter sua lista de permissões IP. Com as restrições de rede em vigor, você ainda pode acessar qualquer recurso nas **recursos da plataforma** guia.
 
 Para obter mais informações, consulte [restrições de acesso estático do serviço de aplicativo do Azure](../app-service/app-service-ip-restrictions.md).
+
+## <a name="outbound-ip-restrictions"></a>Restrições de IP de saída
+
+Restrições de IP de saída só estão disponíveis para funções implantadas em um ambiente de serviço de aplicativo. Você pode configurar restrições de saída para a rede virtual em que o seu ambiente do serviço de aplicativo é implantado.
 
 ## <a name="virtual-network-integration"></a>Integração de rede virtual
 
@@ -88,7 +91,10 @@ Para obter mais informações, consulte o [documentação do serviço de aplicat
 
 ## <a name="private-site-access"></a>Acesso a site particular
 
-Acesso ao site privado refere-se para tornar seu aplicativo acessível somente de uma rede privada, como de dentro de uma rede virtual do Azure. Acesso de site privado está disponível apenas com um ambiente de serviço de aplicativo configurado com um balanceador de carga interno (ILB). Para obter mais informações, consulte [criar e usar um balanceador de carga interno com um ambiente de serviço de aplicativo](../app-service/environment/create-ilb-ase.md).
+Acesso ao site privado refere-se para tornar seu aplicativo acessível somente de uma rede privada, como de dentro de uma rede virtual do Azure. 
+* Acesso de site privado está disponível no serviço de aplicativo e Premium planejar quando **pontos de extremidade de serviço** estão configurados. Para obter mais informações, consulte [pontos de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoints-overview.md)
+    * Tenha em mente que com pontos de extremidade de serviço, sua função ainda tem total acesso de saída à internet, mesmo com a integração de rede virtual configurada.
+* Acesso de site privado está disponível apenas com um ambiente de serviço de aplicativo configurado com um balanceador de carga interno (ILB). Para obter mais informações, consulte [criar e usar um balanceador de carga interno com um ambiente de serviço de aplicativo](../app-service/environment/create-ilb-ase.md).
 
 Há muitas maneiras de acessar recursos de rede virtual em outras opções de hospedagem. Mas um ambiente de serviço de aplicativo é a única maneira de permitir que gatilhos para uma função ocorrer em uma rede virtual.
 

@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e734b932976896b2fb4d86e2627b7827d40a2545
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 056d0caf2bfc6e99d5d659a2561bc41844feb79a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454852"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918789"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>Planejar para aumentar a segurança de dados usando uma solução de identidade forte
 A primeira etapa na proteção dos dados é identificar quem pode acessá-los. Além disso, é necessário ter uma solução de identidade que possa se integrar com o sistema para fornecer funcionalidades de autenticação e autorização. Autenticação e autorização são frequentemente confundidos um com o outro e suas funções são mal compreendidas. Na verdade, são diferentes, como mostrado na seguinte figura:
 
-![](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
+![ciclo de vida do dispositivo móvel](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
 
 **Estágios do ciclo de vida de gerenciamento de dispositivo móvel**
 
@@ -44,7 +44,7 @@ Na era da mobilidade, a maioria das empresas têm uma meta em comum: permitir qu
 No entanto, há alguns aspectos de segurança que devem ser explorados e validados independentemente do setor.
 
 ## <a name="data-protection-paths"></a>Caminhos de proteção de dados
-![](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
+![Caminhos de proteção de dados](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
 
 **Caminhos de proteção de dados**
 
@@ -84,7 +84,7 @@ A legislação e a conformidade regulatória variará de acordo com a indústria
 > 
 > 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
  [Determinar requisitos de gerenciamento de conteúdo](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)
 
 ## <a name="see-also"></a>Veja também

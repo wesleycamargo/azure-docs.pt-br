@@ -3,19 +3,19 @@ title: Exemplos e as definições de logs de auditoria no Azure Active Directory
 description: Guia e exemplos de como acessar os logs de auditoria do Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 117d58f6f56fe1b24539c7bfe950f1a23d6de51a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdc3578fe78e60086a148e4204019a8293030b83
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317629"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688760"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Acessando os logs de auditoria do Microsoft Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ A categoria **B2C** nos logs de auditoria contém os seguintes tipos de atividad
 |Diretório |Atividades relacionadas aos atributos de diretório recuperados quando um administrador faz logon usando o Portal do Azure |
 |Aplicativo | Operações CRUD nos aplicativos B2C |
 |Chave |Operações CRUD nas chaves armazenadas no contêiner de chave B2C |
-|Recurso |Operações CRUD nos recursos B2C (por exemplo, políticas e provedores de identidade)
+|Resource |Operações CRUD nos recursos B2C (por exemplo, políticas e provedores de identidade)
 |Authentication |Validação de credenciais de usuário e emissão de token|
 
 > [!NOTE]

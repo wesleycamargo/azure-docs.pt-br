@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
 ms.date: 01/15/2019
-ms.openlocfilehash: 660d785baf12052bddf5206d8641116c9ac606aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f82c654b443d58c9ce38c2fb0f48c1654daeb34
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60537693"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922254"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitore, crie e gerencie arquivos SFTP usando SSH e os Aplicativos Lógicos do Azure
 
@@ -32,7 +32,7 @@ Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é 
 
 ## <a name="limits"></a>limites
 
-* Ações de SFTP SSH podem ler ou gravar arquivos que são *1 GB ou menor* por meio do gerenciamento de dados como *partes de 50 MB*, não 1 GB partes.
+* Ações de SFTP SSH podem ler ou gravar arquivos que são *1 GB ou menor* por meio do gerenciamento de dados como *15 MB peças*, não 1 GB partes.
 
 * Para arquivos *maior que 1 GB*, ações podem usar [mensagem agrupamento](../logic-apps/logic-apps-handle-large-messages.md). Atualmente, gatilhos de SFTP SSH não dão suporte a agrupamento.
 
@@ -44,7 +44,7 @@ Para obter mais diferenças, revise [comparar SFTP SSH versus SFTP](#comparison)
 
 Aqui estão outras diferenças importantes entre o conector SFTP-SSH e o conector SFTP, onde o conector SFTP-SSH tem esses recursos:
 
-* Usa a biblioteca <a href="https://github.com/sshnet/SSH.NET" target="_blank">**SSH.NET**</a>, que é uma biblioteca Secure Shell (SSH) de código aberto que suporta o .NET.
+* Usa o [biblioteca SSH.NET](https://github.com/sshnet/SSH.NET), que é uma biblioteca de SSH (Secure Shell) do código-fonte aberto que dá suporte ao .NET.
 
   > [!NOTE]
   >
@@ -54,7 +54,7 @@ Aqui estão outras diferenças importantes entre o conector SFTP-SSH e o conecto
   > * **Algoritmos de criptografia**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC e AES-256-CBC
   > * **Impressão digital**: MD5
 
-* Ações podem ler ou gravar arquivos *até 1 GB* em comparação com o conector SFTP, mas lida com dados em partes de 50 MB, não 1 GB partes. Para arquivos maiores que 1 GB, as ações também podem usar o [agrupamento de mensagem](../logic-apps/logic-apps-handle-large-messages.md). Atualmente, gatilhos de SFTP SSH não dão suporte a agrupamento.
+* Ações podem ler ou gravar arquivos *até 1 GB* em comparação com o conector SFTP, mas lida com dados em partes de 15 MB, não 1 GB partes. Para arquivos maiores que 1 GB, as ações também podem usar o [agrupamento de mensagem](../logic-apps/logic-apps-handle-large-messages.md). Atualmente, gatilhos de SFTP SSH não dão suporte a agrupamento.
 
 * Fornece a ação **Criar pasta**, que cria uma pasta no caminho especificado no servidor SFTP.
 
@@ -136,7 +136,7 @@ Os gatilhos de SFTP-SSH funcionam sondando o sistema de arquivos SFTP e procuran
 
 Quando um gatilho encontra um novo arquivo, o gatilho verifica se ele está concluído e não gravado parcialmente. Por exemplo, um arquivo pode ter alterações em andamento quando o gatilho verifica o servidor de arquivos. Para evitar o retorno de um arquivo gravado parcialmente, o gatilho observa o carimbo de data/hora do arquivo que tem alterações recentes, mas não retorna o arquivo imediatamente. O gatilho retorna o arquivo apenas ao executar a sondagem do servidor novamente. Às vezes, esse comportamento pode causar um atraso que é até duas vezes o intervalo de sondagem do gatilho. 
 
-Ao solicitar o conteúdo do arquivo, os gatilhos não obtêm arquivos com mais de 50 MB. Para obter arquivos maiores que 50 MB, siga este padrão: 
+Ao solicitar o conteúdo do arquivo, os gatilhos não obtém arquivos maiores do que 15 MB. Para obter os arquivos mais de 15 MB, seguem este padrão: 
 
 * Use um gatilho que retorna propriedades de arquivo, como **Quando um arquivo é adicionado ou modificado (somente propriedades)**.
 
@@ -152,7 +152,7 @@ Esse acionador inicia um fluxo de trabalho de aplicativo lógico quando um arqui
 
 **Exemplo corporativo**: você pode usar esse gatilho para monitorar uma pasta SFTP para novos arquivos que representam pedidos de clientes. Em seguida, você pode usar uma ação de SFTP, como **Obter conteúdo de arquivo**, para obter o conteúdo do pedido para processamento posterior e armazenar esse pedido em um banco de dados de pedidos.
 
-Ao solicitar o conteúdo do arquivo, os gatilhos não obtêm arquivos com mais de 50 MB. Para obter arquivos maiores que 50 MB, siga este padrão: 
+Ao solicitar o conteúdo do arquivo, os gatilhos não obtém arquivos maiores do que 15 MB. Para obter os arquivos mais de 15 MB, seguem este padrão: 
 
 * Use um gatilho que retorna propriedades de arquivo, como **Quando um arquivo é adicionado ou modificado (somente propriedades)**.
 
@@ -164,7 +164,7 @@ Ao solicitar o conteúdo do arquivo, os gatilhos não obtêm arquivos com mais d
 
 Esta ação obtém o conteúdo de um arquivo em um servidor SFTP. Por exemplo, você pode adicionar o gatilho do exemplo anterior e uma condição que o conteúdo do arquivo deve atender. Se a condição for verdadeira, a ação que obtém o conteúdo poderá ser executada. 
 
-Ao solicitar o conteúdo do arquivo, os gatilhos não obtêm arquivos com mais de 50 MB. Para obter arquivos maiores que 50 MB, siga este padrão: 
+Ao solicitar o conteúdo do arquivo, os gatilhos não obtém arquivos maiores do que 15 MB. Para obter os arquivos mais de 15 MB, seguem este padrão: 
 
 * Use um gatilho que retorna propriedades de arquivo, como **Quando um arquivo é adicionado ou modificado (somente propriedades)**.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: f431613d9fa1020f523e03c90cbe31f4d42ccf42
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 568ff99364923c43b7199bed1dacd32cf0d18ab9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596041"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571162"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Solução de integridade do agente no Azure Monitor
 A solução de integridade do agente no Azure ajuda você a entender, para todos os agentes que se reportam diretamente ao espaço de trabalho do Log Analytics no Azure Monitor ou um grupo de gerenciamento do System Center Operations Manager conectados ao Azure Monitor, que não estão respondendo e enviando dados operacionais.  Você pode também manter controle de quantos agentes estão implantados, onde eles estão distribuídos geograficamente e executam outras consultas para saber a distribuição dos agentes implantados no Azure, em outros ambientes de nuvem ou no local.    
@@ -63,7 +63,7 @@ Clique no bloco **Integridade do Agente** para abrir o painel **Integridade do A
 | Distribuição por versão do agente | Uma partição de diferentes versões do agente instaladas em seu ambiente e uma contagem de cada uma delas.|
 | Distribuição por categoria de agente | Uma partição das diferentes categorias de agentes que estão enviando eventos de pulsação: agentes diretos, agentes do OpsMgr ou o servidor de gerenciamento do OpsMgr.|
 | Distribuição por grupo de gerenciamento | Uma partição de diferentes grupos de gerenciamento do Operations Manager em seu ambiente.|
-| Localização geográfica de agentes | Uma partição de diferentes países em que você tem agentes e uma contagem total do número de agentes que foram instalados em cada país.|
+| Localização geográfica de agentes | Uma partição de diferentes países/regiões em que você tem agentes e uma contagem total do número de agentes que foram instaladas em cada país/região.|
 | Contagem de gateways instalados | O número de servidores que possuem o Log Analytics Gateway instalado e uma lista desses servidores.|
 
 ![Exemplo de painel da solução Integridade do Agente](./media/solution-agenthealth/agenthealth-solution-dashboard.png)  

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 28e399eaf62731d7c38cea5f5a8cb8ebf876e686
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 404335ce0cd05085c79cbeea29ad95f79008289c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522496"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681944"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Criar tabelas do Hive e carregar dados do Armazenamento de Blobs do Azure
 
@@ -47,7 +47,7 @@ Consultas de Hive podem ser enviadas usando:
 2. [Enviar consultas de Hive com o Editor de Hive](#hive-editor)
 3. [Enviar consultas de Hive com comandos do PowerShell do Azure](#ps)
 
-Consultas de Hive são semelhantes ao SQL. Se já estiver familiarizado com o SQL, talvez você considere o [Roteiro para usuários do Hive para SQL](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) útil.
+Consultas de Hive são semelhantes ao SQL. Se já estiver familiarizado com o SQL, talvez você considere o [Roteiro para usuários do Hive para SQL](https://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) útil.
 
 Ao enviar uma consulta de Hive, você também pode controlar o destino da saída de consultas de Hive, seja na tela, para um arquivo local no nó principal ou para um blob do Azure.
 

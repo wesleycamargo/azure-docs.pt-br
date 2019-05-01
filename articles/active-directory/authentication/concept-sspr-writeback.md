@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fcf2ef10cbc8f6f54a65e596ea003a98f410a7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78889cb3c04b9854a4cebb27c35488d5142ad3a7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414997"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694823"
 ---
 # <a name="what-is-password-writeback"></a>O que é write-back de senha?
 
@@ -85,9 +85,6 @@ Quando um usuário federado ou sincronizado com hash de senha tenta redefinir ou
    * O vínculo do objeto de conector do Active Directory com o MV deve ter a regra de sincronização `Microsoft.InfromADUserAccountEnabled.xxx` no vínculo.
    
    Quando a chamada vem da nuvem, o mecanismo de sincronização usa o atributo **cloudAnchor** para procurar o objeto de espaço do conector do Azure Active Directory. Ele então segue o vínculo de volta para o objeto de MV e segue o vínculo de volta para o objeto do Active Directory. Como pode haver vários objetos do Active Directory (várias florestas) para o mesmo usuário, o mecanismo de sincronização depende do vínculo `Microsoft.InfromADUserAccountEnabled.xxx` para escolher o correto.
-
-   > [!Note]
-   > Como resultado dessa lógica, o Azure AD Connect deve conseguir se comunicar com o Emulador PDC (controlador de domínio primário). Se você precisar habilitar isso manualmente, poderá conectar o Azure AD Connect ao emulador PDC. Clique com o botão direito do mouse nas **propriedades** do conector de sincronização do Active Directory, em seguida, selecione **configurar partições de diretório**. Em seguida, procure a seção **configurações de conexão do controlador de domínio** e marque a caixa **usar somente controladores de domínio preferenciais**. Mesmo se o controlador de domínio preferencial não for um emulador PDC, o Azure AD Connect tentará se conectar ao PDC para fazer o write-back de senha.
 
 1. Depois que a conta do usuário é localizada, será feita uma tentativa para redefinir a senha diretamente na floresta apropriada do Active Directory.
 1. Se a operação de definição de senha for realizada com êxito, o usuário será informado de que a senha foi alterada.

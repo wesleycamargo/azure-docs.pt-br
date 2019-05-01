@@ -2,23 +2,19 @@
 title: Como salvar com segurança as configurações de aplicativo secretas para um aplicativo Web - Azure Key Vault | Microsoft Docs
 description: Como salvar com segurança salvar as configurações de aplicativo secretas, como credenciais do Azure ou chaves de API de terceiros usando o Provedor do Key Vault do ASP.NET Core, o segredo do usuário ou os construtores de configuração do .NET 4.7.1
 services: visualstudio
-documentationcenter: ''
 author: cawaMS
 manager: paulyuk
 editor: ''
-ms.assetid: ''
 ms.service: key-vault
-ms.workload: web, azure
-ms.tgt_pltfrm: vs-getting-started
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: cawa
-ms.openlocfilehash: 79b1c740bca56982243ddc130d8747fdc955247f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b60e03c8888ad2c9726116f1f3b2e49d9a4e1e8
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304791"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722744"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Salvar com segurança as configurações de aplicativo secretas para um aplicativo Web
 

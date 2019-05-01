@@ -3,20 +3,19 @@ title: Localização – Azure Active Directory B2C | Microsoft Docs
 description: Especifica o elemento Localization de uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-origin.date: 09/10/2018
-ms.date: 04/04/2019
-ms.author: v-junlch
+ms.date: 09/10/2018
+ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 8f252b536c80ad997f3c0eb10b10d5cb8c330fc6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2291bdd270a15c4932d79b124616400d2667c891
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401741"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64705854"
 ---
 # <a name="localization"></a>Localização
 
@@ -40,7 +39,7 @@ O elemento **Localization** permite que você dê suporte a várias localidades 
 
 O elemento **Localization** contém os seguintes atributos:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | Enabled | Não  | Valores possíveis: `true` ou `false`. |
 
@@ -55,7 +54,7 @@ O elemento **Localization** contém os seguintes elementos XML
 
 O elemento **SupportedLanguages** contém os seguintes atributos:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | DefaultLanguage | Sim | O idioma a ser usado como o padrão para recursos localizados. |
 | MergeBehavior | Não  | Valores de enumeração de valores mesclados junto com qualquer ClaimType presente em uma política pai com o mesmo identificador. Use esse atributo quando substituir uma declaração especificada na política de base. Valores possíveis: `Append`, `Prepend` ou `ReplaceAll`. O valor `Append` especifica que a coleta de dados presente deve ser acrescentada ao final da coleção especificada na política pai. O valor `Prepend` especifica que a coleta de dados presente deve ser adicionada antes da coleção especificada na política pai. O valor `ReplaceAll` especifica que a coleta de dados definida na política pai deve ser ignorada, em vez disso, usando, em vez disso, os dados definidos na política atual. |
@@ -72,7 +71,7 @@ O elemento **SupportedLanguages** contém os seguintes elementos:
 
 O elemento **LocalizedResources** contém os seguintes atributos:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ID | Sim | Um identificador usado para identificar exclusivamente os recursos localizados. |
 
@@ -95,7 +94,7 @@ O elemento **LocalizedCollections** contém os seguintes elementos:
 
 O elemento **LocalizedCollection** contém os seguintes atributos:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ElementType | Sim | Faz referência a um elemento ClaimType ou um elemento de interface do usuário no arquivo de política. |
 | ElementId | Sim | Uma cadeia de caracteres que contém uma referência a um tipo de declaração já definido na seção ClaimsSchema usada se **ElementType** está definido como um ClaimType. |
@@ -109,7 +108,7 @@ O elemento **LocalizedCollection** contém os seguintes elementos:
 
 O elemento **Item** contém os seguintes atributos:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | Text | Sim | A cadeia de caracteres de exibição amigável deve ser mostrada ao usuário na interface do usuário para essa opção. |
 | Value | Sim | O valor da declaração da cadeia de caracteres associada com essa opção. |
@@ -145,7 +144,7 @@ O elemento **LocalizedStrings** contém os seguintes elementos:
 
 O elemento **LocalizedString** contém os seguintes atributos:
 
-| Atributo | Necessário | DESCRIÇÃO |
+| Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | ElementType | Sim | Uma referência a um elemento de tipo de declaração ou um elemento de interface do usuário na política. Valores possíveis: `ClaimType`, `UxElement`, `ErrorMessage` ou `Predicate`. O valor `ClaimType` é usado para localizar um dos atributos de declaração, conforme especificado em StringId. O valor `UxElement` é usado para localizar um dos elementos de interface do usuário, conforme especificado em StringId. O valor `ErrorMessage` é usado para localizar uma das mensagens de erro do sistema, conforme especificado em StringId. O valor `Predicate` é usado para localizar uma das mensagens de erro [Predicate](predicates.md), conforme especificado em StringId. O valor `InputValidation` é usado para localizar uma das mensagens de erro do grupo [PredicateValidation](predicates.md), conforme especificado em StringId. |
 | ElementId | Sim | Se **ElementType** for definido como `ClaimType`, `Predicate` ou `InputValidation`, esse elemento conterá uma referência a um tipo de declaração já definido na seção ClaimsSchema. | 
@@ -364,7 +363,6 @@ O exemplo a seguir mostra o XML final:
   </Localization>
 </BuildingBlocks>
 ```
-
 
 
 

@@ -3,19 +3,19 @@ title: ClaimsSchema – Azure Active Directory B2C | Microsoft Docs
 description: Especifica o elemento ClaimsSchema de uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5d7036f2c7301223b27c80402dace8e9ea05b7f1
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 81df3532ee466f32ee42f0010de9aa74dbeb6d85
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487814"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64721753"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -65,7 +65,7 @@ O **DefaultPartnerClaimTypes** pode conter o seguinte elemento:
 
 | Elemento | Ocorrências | DESCRIÇÃO |
 | ------- | ----------- | ----------- |
-| Protocolo | 0:n | Lista de protocolos com seu nome de tipo de declaração de parceiro padrão. |
+| Protocol | 0:n | Lista de protocolos com seu nome de tipo de declaração de parceiro padrão. |
 
 O elemento **Protocol** contém os seguintes atributos:
 
@@ -161,8 +161,8 @@ O elemento **Enumeration** contém os seguintes atributos:
 
 | Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| Texto | Sim | A cadeia de caracteres de exibição que é mostrada ao usuário na interface do usuário para essa opção. |
-|Valor | Sim | O valor da declaração associada à seleção dessa opção. |
+| Text | Sim | A cadeia de caracteres de exibição que é mostrada ao usuário na interface do usuário para essa opção. |
+|Value | Sim | O valor da declaração associada à seleção dessa opção. |
 | SelectByDefault | Não  | Indica se esta opção deve ser selecionada ou não por padrão na interface do usuário. Valores possíveis: Verdadeiro ou falso. |
 
 O exemplo a seguir configura uma declaração de lista suspensa **city** com um valor padrão definido como `New York`:

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: ea5495867d5f453db014e000e01d533d049dc628
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f5ec5a64f1de39cd0d196242fb1a93669dbab15d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60849253"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681837"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gerenciar e monitorar backup de bancos de dados do SQL Server
 
@@ -31,7 +31,7 @@ O Backup do Azure mostra todos os trabalhos disparados manualmente na **trabalho
 > O **trabalhos de Backup** portal não mostra os trabalhos de backup agendados. Use o SQL Server Management Studio para monitorar trabalhos de backup agendados, conforme descrito na próxima seção.
 >
 
-Para obter detalhes sobre cenários de monitoramento, acesse [monitoramento no Portal do Azure](backup-azure-monitoring-built-in-monitor.md) e [monitoramento usando o Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
+Para obter detalhes sobre cenários de monitoramento, acesse [de monitoramento no portal do Azure](backup-azure-monitoring-built-in-monitor.md) e [monitoramento usando o Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
 
 
 ## <a name="view-backup-alerts"></a>Exibir alertas de backup
@@ -129,9 +129,9 @@ Cancelar o registro de uma instância do SQL Server depois de desabilitar a prot
 
 3. Em **Servidores Protegidos**, selecione o servidor para cancelar o registro. Para excluir o cofre, você deve cancelar o registro de todos os servidores.
 
-4. O servidor protegido com o botão direito e selecione **excluir**.
+4. O servidor protegido com o botão direito e selecione **Unregister**.
 
-   ![Selecione Excluir](./media/backup-azure-sql-database/delete-protected-server.png)
+   ![Selecione Excluir](./media/backup-azure-sql-database/delete-protected-server.jpg)
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>Registrar novamente a extensão de VM do SQL Server
 

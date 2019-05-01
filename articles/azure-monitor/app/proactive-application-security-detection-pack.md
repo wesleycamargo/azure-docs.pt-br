@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 16dd381301bdc650022ba5580f96a1733aeb32b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 90d58d1b22e893e922aa0f3770198fc95f539419
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60199945"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572893"
 ---
 # <a name="application-security-detection-pack-preview"></a>Pacote de detecção de segurança do aplicativo (visualização)
 
@@ -29,7 +29,7 @@ Este recurso não exige nenhuma configuração especial, diferente de [configura
 Há três tipos de problemas de segurança que são detectados:
 1. Acesso de URL não segura: uma URL no aplicativo que está sendo acessada via HTTP e HTTPS. Normalmente, uma URL que aceita solicitações HTTPS não deve aceitar as solicitações HTTP. Isso pode indicar um problema de segurança ou um erro em seu aplicativo.
 2. Forma não segura: um formulário (ou outra solicitação de "POST") no aplicativo usa HTTP em vez de HTTPS. Usar HTTP pode comprometer os dados do usuário que são enviados pelo formulário.
-3. Atividade de usuário suspeita: o aplicativo está sendo acessado de vários países pelo mesmo usuário em aproximadamente ao mesmo tempo. Por exemplo, o mesmo usuário acessou o aplicativo da Espanha e Estados Unidos na mesma hora. Essa detecção indica uma tentativa de acesso possivelmente mal-intencionado ao seu aplicativo.
+3. Atividade de usuário suspeita: o aplicativo está sendo acessado de vários países/regiões pelo mesmo usuário quase ao mesmo tempo. Por exemplo, o mesmo usuário acessou o aplicativo da Espanha e Estados Unidos na mesma hora. Essa detecção indica uma tentativa de acesso possivelmente mal-intencionado ao seu aplicativo.
 
 ## <a name="does-my-app-definitely-have-a-security-issue"></a>Meu aplicativo realmente tem um problema?
 Não, uma notificação não significa que seu aplicativo realmente tem um problema. A detecção de qualquer um dos cenários acima pode, em muitos casos, indicar um problema de segurança. No entanto, a detecção pode ter uma justificativa comercial natural e pode ser ignorada.
@@ -46,5 +46,5 @@ Não, uma notificação não significa que seu aplicativo realmente tem um probl
 
 ## <a name="how-do-i-fix-the-suspicious-user-activity-detection"></a>Como corrigir a detecção de "atividade de usuário suspeita"?
 1. **Triagem.** A notificação fornece o número de usuários diferentes que exibiu o comportamento suspeito. Isso pode ajudá-lo a atribuir uma prioridade ao problema.
-2. **Escopo.** De quais países as solicitações suspeitas foram originadas? Qual o usuário foi mais suspeito? Essas informações podem ser obtidas na notificação.
-3. **Diagnosticar.** A detecção fornece a lista de usuários suspeitos e a lista de países para cada usuário, para ajudá-lo a diagnosticar o problema.
+2. **Escopo.** De quais países/regiões as solicitações suspeitas foram originadas? Qual o usuário foi mais suspeito? Essas informações podem ser obtidas na notificação.
+3. **Diagnosticar.** A detecção fornece a lista de usuários suspeitos e a lista de países/regiões para cada usuário, para ajudá-lo a diagnosticar o problema.

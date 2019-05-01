@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 6d1ce56ef66d224b89f49a00c2883ebbf22a5745
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1f94b7b2ab71afaa40831446e5e5aede00db7b1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364797"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570855"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Criar e modificar o emparelhamento de um circuito de ExpressRoute
 
@@ -91,7 +91,7 @@ Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de
 
 ### <a name="getmsft"></a>Para exibir detalhes de emparelhamento da Microsoft
 
-Você pode exibir as propriedades de emparelhamento público do Azure selecionando o emparelhamento.
+Você pode exibir as propriedades de emparelhamento selecionando o emparelhamento da Microsoft.
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft3.png)
 
@@ -159,6 +159,10 @@ Você pode remover a configuração de emparelhamento selecionando o ícone Excl
 ## <a name="public"></a>Emparelhamento público do Azure
 
 Esta seção ajuda você a criar, obter, atualizar e excluir a configuração de emparelhamento público do Azure para um circuito do ExpressRoute.
+
+> [!Note]
+> Emparelhamento público do Azure foi preterido para circuitos de novo. Para obter mais informações, consulte [emparelhamento de ExpressRoute](expressroute-circuit-peerings.md).
+>
 
 ### <a name="to-create-azure-public-peering"></a>Criar o emparelhamento público do Azure
 

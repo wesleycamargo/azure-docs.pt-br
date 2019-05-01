@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/27/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47273bf687d88e82afba5de878f08bd53422479c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7711c3476ac9118406a86430e5ade238bec2c028
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381292"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918634"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Determinar requisitos de identidade para sua solução de identidade híbrida
 A primeira etapa na criação de uma solução de identidade híbrida é determinar os requisitos da organização de negócios que aproveitará essa solução.  A identidade híbrida começa como uma função de suporte (ela dá suporte para todas as outras soluções de nuvem fornecendo autenticação) e prossegue fornecendo recursos novos e interessantes que desbloqueiam novas cargas de trabalho para os usuários.  Essas cargas de trabalho ou os serviços que você deseja adotar para seus usuários determinarão os requisitos de design de identidade híbrida.  Esses serviços e cargas de trabalho precisam aproveitar a identidade híbrida no local e na nuvem.  
 
 Você precisa abordar esses aspectos principais do negócio para entender o que é um requisito agora e quais são os planos da empresa para o futuro. Se você não tiver a visualização da estratégia de longo prazo para o design de identidade híbrida, a probabilidade é a de que sua solução não seja escalonável conforme o crescimento e a mudança nas necessidades dos negócios.   O diagrama abaixo mostra um exemplo de uma arquitetura de identidade híbrida e cargas de trabalho que estão sendo desbloqueadas para os usuários. Isso é apenas um exemplo de todos os recursos novos que podem ser desbloqueados e entregues com uma estratégia de identidade híbrida sólida. 
 
-Alguns componentes que são parte da arquitetura de identidade híbrida ![](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
+Alguns componentes que fazem parte da arquitetura de identidade híbrida ![arquitetura de identidade híbrida](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
 
 ## <a name="determine-business-needs"></a>Determinar as necessidades de negócios
 Cada empresa terá requisitos diferentes, mesmo que essas empresas façam parte do mesmo setor; os requisitos reais dos negócios podem variar. Você ainda pode aproveitar as práticas recomendadas do setor, mas acaba sendo as necessidades da empresa que levarão você a definir os requisitos para o design de identidade híbrida. 
@@ -107,7 +107,7 @@ Você também precisa avaliar os requisitos do usuário. Essa avaliação é imp
 > 
 > 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 [Determinar os requisitos de sincronização de diretório](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
 ## <a name="see-also"></a>Consulte também

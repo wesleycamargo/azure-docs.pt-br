@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: b701183fa270b1aad9a622a21c5ce0795fc8057f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 04929de241ff36e4d67f24907747d89a16a73898
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012482"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733750"
 ---
 #### <a name="process-automation"></a>Automação de processos
 
-| Recurso | Limite máximo |Observações|
+| Resource | Limite máximo |Observações|
 | --- | --- |---|
 | Número máximo de novos trabalhos podem ser enviados a cada 30 segundos por conta de automação do Azure (trabalhos não agendados) |100 |Quando esse limite for atingido, as solicitações subsequentes para criar um trabalho falharem. O cliente recebe uma resposta de erro.|
 | Número máximo de trabalhos simultâneos em execução na mesma instância do tempo por conta de automação (trabalhos não agendados) |200 |Quando esse limite for atingido, as solicitações subsequentes para criar um trabalho falharem. O cliente recebe uma resposta de erro.|
@@ -31,6 +31,7 @@ ms.locfileid: "60012482"
 | Número máximo de soquetes de rede permitido por área restrita<sup>1</sup> |1.000 |Aplica-se a áreas de segurança do Azure.|
 | Tempo de execução máximo permitido por runbook<sup>1</sup> |3 horas |Aplica-se a áreas de segurança do Azure.|
 | Número máximo de contas de automação em uma assinatura |Sem limite ||
+| Número máximo de grupos do Hybrid Worker por conta de automação|4.000||
 |Número máximo de trabalhos simultâneos que podem ser executados em um único trabalho de Runbook híbrido|50 ||
 | Tamanho do parâmetro de trabalho de runbook máximo   | 512 Kbps||
 | Parâmetros de runbook máximo   | 50|Se você atingir o limite de 50 parâmetros, você pode passar uma cadeia de caracteres JSON ou XML para um parâmetro e analisá-lo com o runbook.|

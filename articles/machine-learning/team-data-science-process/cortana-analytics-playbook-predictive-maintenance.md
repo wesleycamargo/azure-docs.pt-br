@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 547b6a629677830b6f37883a4be835c12a62e599
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0faad91e9e3ff9384dcae57ed27c21fa21946b5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60233956"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573776"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guia de IA do Azure para soluções de manutenção preditiva
 
@@ -92,7 +92,7 @@ Esta seção se concentra em um conjunto de casos de uso de PdM de vários setor
 |**Financeiro** |                         |
 |_Falha de caixa eletrônico_ é um problema comum no setor de serviços bancários. O problema aqui é relatar a probabilidade que uma transação de saque em caixa eletrônico pode ser interrompida devido a um atolamento de papel ou falha em peça no caso de caixa eletrônico. Com base na previsão de falhas de transação, a manutenção pode ser feita nos caixas eletrônicos para evitar proativamente que ocorram falhas.| Em vez de permitir que o computador falhe no meio de uma transação, a alternativa desejável é programar a máquina par anegar o serviço com base na previsão.|
 |**Energia** |                          |
-|_Falhas de turbinas eólicas_: As turbinas eólicas são a fonte de energia principal em países responsáveis com o meio ambiente e envolvem altos custos de capital. Um componente principal nas turbinas eólicas é o motor gerador. sua falha renderiza a turbina ineficaz. Também é altamente caro corrigir.|KPIs preventivos como MTTF (tempo médio de falha) podem ajudar as empresas de energia a evitar falhas de turbina e a verificar o tempo de inatividade mínimo. As probabilidades de falha informam aos técnicos para monitorar turbinas que provavelmente falharão em breve e agendam regimes com base em tempo de manutenção. Modelos de previsão fornecem insights sobre diferentes fatores que contribuem com a falha, o que ajuda a técnicos entender melhor as causas raizes dos problemas.|
+|_Falhas de turbinas eólicas_: Turbinas eólicas são a fonte de energia principal em países/regiões ecologicamente responsáveis e envolvem custos de capital altos. Um componente principal nas turbinas eólicas é o motor gerador. sua falha renderiza a turbina ineficaz. Também é altamente caro corrigir.|KPIs preventivos como MTTF (tempo médio de falha) podem ajudar as empresas de energia a evitar falhas de turbina e a verificar o tempo de inatividade mínimo. As probabilidades de falha informam aos técnicos para monitorar turbinas que provavelmente falharão em breve e agendam regimes com base em tempo de manutenção. Modelos de previsão fornecem insights sobre diferentes fatores que contribuem com a falha, o que ajuda a técnicos entender melhor as causas raizes dos problemas.|
 |_Falhas de disjuntor_: A distribuição de eletricidade para casas e empresas requer que as linhas de energia estejam operacionais em todos os momentos para garantir o fornecimento de energia. Os disjuntores ajudam a limitar ou evitar danos às linhas de energia durante sobrecarga ou condições climáticas adversas. O problema da empresa aqui é prever falhas do disjuntor.| As soluções de PdM ajudam a reduzir os custos de reparo e a aumentar o ciclo de vida de equipamentos como disjuntores. Ajudam a melhorar a qualidade da rede de energia reduzindo falhas inesperadas e interrupções de serviço.|
 |**Transporte e logística** |    |
 |_Falhas de porta de elevador_: Grandes empresas de elevador fornecem um serviço de pilha completo para milhões de elevadores funcionais em todo o mundo. Segurança, Tempo de atividade, confiabilidade e segurança elevador são a principal preocupação de  seus clientes. Essas empresas rastreiam esses e vários outros atributos por meio de sensores, para ajudá-los com manutenção corretiva e preventiva. Em um elevador, o problema mais importante do cliente é o mal funcionamento das portas do elevador. O problemas das empresas neste caso é fornecer um aplicativo preditivo da base de conhecimento que irá prever as possíveis causas de falhas de porta.| Os elevadores são investimentos de capital para potencialmente um tempo de vida de 20 a 30 anos. Para que cada venda potencial possa ser altamente competitiva; portanto, as expectativas para o serviço de suporte são altas. A manutenção preditiva pode fornecer essas empresas com uma vantagem sobre seus concorrentes em seus produtos e as ofertas de serviço.|

@@ -1,6 +1,6 @@
 ---
-title: Pontos de extremidade de streaming nos Serviços de Mídia do Azure | Microsoft Docs
-description: Este artigo fornece uma explicação sobre o que são os pontos de extremidade de streaming e como são usados pelos Serviços de Mídia do Azure.
+title: Streaming de pontos de extremidade (origem) nos serviços de mídia do Azure | Microsoft Docs
+description: Nos serviços de mídia do Azure, um ponto de extremidade de Streaming (origem) representa um empacotamento dinâmico e o serviço de streaming que pode entregar conteúdo diretamente a um aplicativo de player de cliente ou a rede de entrega um conteúdo (CDN) para distribuição posterior.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,18 +9,20 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 8b6deadca610916a10f719d715fe6a17e29148bb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 1b29e75531c9e24d2f296442d528a28a23ffa947
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125416"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867607"
 ---
-# <a name="streaming-endpoints"></a>Ponto de extremidade de streaming
+# <a name="streaming-endpoints-origin"></a>Pontos de extremidade de streaming (origem)
 
-No AMS (Serviços de Mídia do Microsoft Azure), a entidade [Ponto de Extremidade de Streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) representa um serviço de streaming que pode fornecer conteúdo diretamente a um aplicativo de player cliente ou a uma CDN (Rede de Distribuição de Conteúdo) para distribuição adicional. O fluxo de saída de um serviço de **Ponto de Extremidade de Streaming** pode ser uma transmissão ao vivo ou um Ativo de vídeo sob demanda em sua conta dos Serviços de Mídia. Quando você cria uma conta de Serviços de Mídia, um Ponto de Extremidade de Streaming **padrão** é criado em um estado parado. Não é possível excluir o Ponto de Extremidade de Streaming **padrão**. Ponto de Extremidade de Streaming adicionais podem ser criados na conta. 
+Nos serviços de mídia do Microsoft Azure, uma [ponto de extremidade de Streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) representa um dinâmico (just-in-time) empacotamento e a origem serviço que pode entregar seu conteúdo ao vivo e sob demanda diretamente a um aplicativo de player de cliente, usando uma da mídia protocolos de transmissão comuns (HLS ou DASH). Além disso, o **ponto de extremidade de Streaming** fornece a criptografia dinâmica (just-in-time) para DRMs de líderes do setor.
+
+Quando você cria uma conta de Serviços de Mídia, um Ponto de Extremidade de Streaming **padrão** é criado em um estado parado. Não é possível excluir o Ponto de Extremidade de Streaming **padrão**. Pontos de extremidade de Streaming adicionais podem ser criados sob a conta (consulte [cotas e limitações](limits-quotas-constraints.md)). 
 
 > [!NOTE]
 > Para começar a transmitir vídeos, é necessário iniciar o **Ponto de extremidade de streaming** do qual deseja transmitir o vídeo. 
@@ -35,33 +37,37 @@ Para pontos de extremidade adicionais: `{EndpointName}-{AccountName}-{Datacenter
 
 ## <a name="types"></a>Tipos  
 
-Há dois tipos de **Ponto de extremidade de streaming**: **Standard** e **Premium**. O tipo é definido pelo número de unidades de escala (`scaleUnits`) alocadas para o ponto de extremidade de streaming. 
+Há dois tipos de **Ponto de extremidade de streaming**: **Standard** (visualização) e **Premium**. O tipo é definido pelo número de unidades de escala (`scaleUnits`) alocadas para o ponto de extremidade de streaming. 
 
 A tabela descreve os tipos:  
 
 |Type|Unidades de escala|DESCRIÇÃO|
 |--------|--------|--------|  
-|**Ponto de Extremidade de Streaming Standard** (recomendado)|0|O padrão de ponto de extremidade de Streaming é uma **padrão** de tipo, mas pode ser alterado para o tipo Premium.<br/> O tipo padrão é a opção recomendada para virtualmente todos os cenários de transmissão e tamanhos de público-alvo. O tipo **Standard** dimensiona automaticamente a largura de banda de saída. A taxa de transferência desse tipo de ponto de extremidade de Streaming é até 600 Mbps. Fragmentos de vídeo armazenado em cache na CDN, não use a largura de banda do ponto de extremidade de Streaming.<br/>Para clientes com requisitos extremamente exigentes, os Serviços de Mídia oferecem pontos de extremidade de streaming **Premium**, que podem ser usados para dimensionar a capacidade dos maiores públicos-alvo da Internet. Se você espera grandes públicos e visualizadores simultâneos, entre em contato conosco em amsstreaming\@microsoft.com para obter orientação sobre como se você precisa mover para o **Premium** tipo. |
-|**Ponto de Extremidade de Streaming Premium**|>0|Os pontos de extremidade do streaming **Premium** são adequados para as cargas de trabalho avançadas, fornecendo uma capacidade de largura de banda dimensionável e dedicada. É possível mudar para um tipo **Premium**, ajustando `scaleUnits`. `scaleUnits` fornece capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Ao usar o tipo **Premium**, cada unidade habilitada fornece capacidade adicional de largura de banda ao aplicativo. |
- 
-## <a name="comparing-streaming-types"></a>Comparando tipos de streaming
+|**Standard**|0|O padrão de ponto de extremidade de Streaming é uma **Standard** de tipo, pode ser alterado para o tipo Premium, ajustando `scaleUnits`.|
+|**Premium**|>0|**Premium** pontos de extremidade de Streaming são adequados para cargas de trabalho avançadas, fornecendo a capacidade de largura de banda dimensionável e dedicada. Mover para um **Premium** tipo ajustando `scaleUnits` (unidades de streaming). `scaleUnits` fornece capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Ao usar o tipo **Premium**, cada unidade habilitada fornece capacidade adicional de largura de banda ao aplicativo. |
 
-### <a name="features"></a>Recursos
+> [!NOTE]
+> Para clientes que desejam para fornecer conteúdo a um grande público de internet, é recomendável que você habilitar a CDN no ponto de extremidade de Streaming.
+
+Para obter informações de SLA, consulte [preços e SLA](https://azure.microsoft.com/pricing/details/media-services/).
+
+## <a name="comparing-streaming-types"></a>Comparando tipos de streaming
 
 Recurso|Standard|Premium
 ---|---|---
-Gratuito pelos primeiros 15 dias| Sim |Não 
-Produtividade |Até 600 Mbps quando a Azure CDN não é usada. Escala com CDN.|200 Mbps por UA (unidade de streaming). Escala com CDN.
+Libere os primeiros 15 dias <sup>1</sup>| Sim |Não 
+Produtividade |Até 600 Mbps e pode fornecer uma muito eficaz taxa de transferência maior quando a CDN é usada.|200 Mbps por UA (unidade de streaming). Pode fornecer uma muito eficaz taxa de transferência maior quando a CDN é usada.
 CDN|Azure CDN, CDN de terceiros ou sem CDN.|Azure CDN, CDN de terceiros ou sem CDN.
 A cobrança é rateada| Diário|Diário
 Criptografia dinâmica|Sim|Sim
 Empacotamento dinâmico|Sim|Sim
-Escala|Escala verticalmente automaticamente com a taxa de transferência de destino.|Unidades de streaming adicionais
-Host de filtragem/G20/personalizado da IP <sup>1</sup>|Sim|Sim
+Escala|Escala verticalmente automaticamente com a taxa de transferência de destino.|SUs adicionais
+Host de filtragem/G20/personalizado da IP <sup>2</sup>|Sim|Sim
 Download progressivo|Sim|Sim
-Uso recomendado |Recomendado para a grande maioria dos cenários de streaming.|Uso profissional.<br/>Se você achar que pode ter necessidades além do Standard. Contate-nos (amsstreaming@microsoft.com) se você espera ter uma audiência simultânea superior a 50.000 visualizadores.
+Uso recomendado |Recomendado para a grande maioria dos cenários de streaming.|Uso profissional.
 
-<sup>1</sup> só é usado diretamente no ponto de extremidade de Streaming quando o CDN não está habilitado no ponto de extremidade.
+<sup>1</sup> a avaliação gratuita se aplica somente a contas de serviços de mídia criado recentemente e o padrão ponto de extremidade de Streaming.<br/>
+<sup>2</sup> só é usado diretamente no ponto de extremidade de Streaming quando o CDN não está habilitado no ponto de extremidade.<br/>
 
 ## <a name="properties"></a>propriedades 
 

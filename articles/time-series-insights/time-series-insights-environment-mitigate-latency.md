@@ -12,14 +12,15 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
 ms.custom: seodec18
-ms.openlocfilehash: 3a42570b51811cfbdd4329f196b98d75c8cd53f7
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 6b5cdf8aebdf584216afef9f1d1421eea8c4ba4e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556740"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64685158"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitorar e melhorar a limitação para reduzir a latência no Azure Time Series Insights
+
 Quando a quantidade de dados de entrada excede a configuração do ambiente, você pode enfrentar latência ou limitação no Azure Time Series Insights.
 
 É possível evitar a latência e a limitação configurando corretamente o ambiente para a quantidade de dados que você deseja analisar.
@@ -31,7 +32,7 @@ Provavelmente, você enfrentará latência e limitação quando:
 - Enviar por push grandes quantidades de eventos históricos para uma origem de evento, resultando em um retardo (o Time Series Insights precisará ser atualizado).
 - Unir os dados de referência com a telemetria, resultando em um tamanho de evento maior.  De uma perspectiva de limitação, um pacote de dados recebido com um tamanho de pacote igual a 32 KB é tratado como 32 eventos, cada um com um tamanho de 1 KB. O tamanho máximo permitido do evento é de 32 KB; pacotes de dados maiores que 32 KB são truncados.
 
-## <a name="video"></a>Vídeo: 
+## <a name="video"></a>Vídeo
 
 ### <a name="in-this-video-we-cover-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Neste vídeo, abordamos o comportamento de entrada de dados do Time Series Insights e como planejar isso.</br>
 
@@ -61,7 +62,6 @@ Nessa opção, você pode configurar alertas usando as seguintes métricas:
 |**Tempo de atraso das mensagens de entrada recebidas**    |  Diferença em segundos entre a hora em que a mensagem é enfileirada na origem do evento e a hora em que ela é processada na entrada.      |
 |**Atraso na contagem das mensagens de entrada recebidas**    |  Diferença entre o número de sequência da última mensagem enfileirada na partição da origem do evento e número de sequência da mensagem que está sendo processada na entrada.      |
 
-
 ![Latency](media/environment-mitigate-latency/latency.png)
 
 Se você está sendo limitado, verá um valor para o *Retardo de tempo de mensagens recebidas de entrada*, informando quantos segundos atrasados o TSI está em relação ao tempo real em que a mensagem alcança a origem do evento (excluindo o tempo de indexação de cerca de 30-60 segundos).  *Retardo de contagem de mensagens recebidas de entrada* também deve ter um valor, permitindo que você determine a quantas mensagens atrás você está.  A maneira mais fácil de alcançar é aumentar a capacidade do seu ambiente para um tamanho que permitirá superar a diferença.  
@@ -74,11 +74,14 @@ Por exemplo, se você tiver três unidades S1 provisionadas (ou 2.100 eventos po
 
 Além disso, se suspeitar que está sendo limitado, compare as **Mensagens de Entrada Recebidas** com as mensagens enviadas da origem do evento.  Se a entrada no Hub de Eventos for maior que as **Mensagens de Entrada Recebidas**, provavelmente, o Time Series Insights está sendo limitado.
 
-## <a name="improving-performance"></a>Melhorando o desempenho 
+## <a name="improving-performance"></a>Melhorando o desempenho
+
 Para reduzir a limitação ou a latência enfrentada, a melhor maneira de corrigir isso é aumentar a capacidade do ambiente. 
 
 É possível evitar a latência e a limitação configurando corretamente o ambiente para a quantidade de dados que você deseja analisar. Para obter mais informações sobre como adicionar capacidade ao seu ambiente, consulte [Dimensionar o ambiente](time-series-insights-how-to-scale-your-environment.md).
 
 ## <a name="next-steps"></a>Próximas etapas
+
 - Para obter etapas de solução de problemas adicionais, consulte [Diagnosticar e solucionar problemas no ambiente do Time Series Insights](time-series-insights-diagnose-and-solve-problems.md).
+
 - Para obter mais assistência, inicie uma conversa no [fórum do MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) ou no [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). Também contate o [suporte do Azure](https://azure.microsoft.com/support/options/) para obter opções de suporte assistido.

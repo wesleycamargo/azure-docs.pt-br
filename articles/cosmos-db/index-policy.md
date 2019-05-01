@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: thweiss
-ms.openlocfilehash: 67bc3076be91ade140b39b7dd8037299902546a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a089d8bd4f2197c93d43e70742743db29944b910
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61046311"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872679"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
 
@@ -68,6 +68,8 @@ Qualquer política de indexação deve incluir o caminho raiz `/*` como um inclu
 
 - Inclua o caminho raiz para excluir seletivamente os caminhos que não precisam ser indexados. Isso é a abordagem recomendada, já que permite que o Azure Cosmos DB proativamente qualquer nova propriedade que pode ser adicionada ao seu modelo de índice.
 - Exclua o caminho raiz para seletivamente incluir caminhos que precisam ser indexados.
+
+- Para caminhos com caracteres normais que incluem: alfanuméricos e _ (sublinhado), você não precisa de escape a cadeia de caracteres de caminho em torno de aspas duplas (por exemplo, "/ caminho /?"). Para caminhos com outros caracteres especiais, você precisará escapar a cadeia de caracteres de caminho em torno de aspas duplas (por exemplo, "/\"caminho-abc\"/?"). Se você espera que os caracteres especiais em seu caminho, você pode escapar todos os caminhos para segurança. Funcionalmente não faz nenhuma diferença se você fazer o escape de todos os caminhos Vs apenas aqueles que têm caracteres especiais.
 
 Ver [esta seção](how-to-manage-indexing-policy.md#indexing-policy-examples) para exemplos de política de indexação.
 

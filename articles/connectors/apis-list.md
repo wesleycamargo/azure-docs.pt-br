@@ -9,18 +9,18 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 221bcbfb2517efae41005641321a651dfdf8e39f
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: e008d9fd2734af6a355771c321ecaea9150bcc33
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63759433"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722979"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores de Aplicativos Lógicos do Azure
 
 Conectores fornecem acesso rápido de aplicativos lógicos do Azure, eventos, dados e ações em outros aplicativos, serviços, sistemas, protocolos e plataformas. Usando conectores em seus aplicativos lógicos, é possível expandir os recursos para seus aplicativos de nuvem e locais executar tarefas com os dados que você crie e já tiver.
 
-Embora os Aplicativos Lógicos ofereçam [mais de 200 conectores](https://docs.microsoft.com/connectors), este arquivo descreve conectores mais comuns que são usados com sucesso por milhares de aplicativos e milhões de execuções para processar dados e informações. Para encontrar a lista completa de conectores e informações de referência do cada conector, como gatilhos, ações e limites, examine o conector faz referência a páginas sob [visão geral dos conectores](https://docs.microsoft.com/connectors). Além disso, saiba mais sobre [gatilhos e ações](#triggers-actions).
+Embora os Aplicativos Lógicos ofereçam [mais de 200 conectores](https://docs.microsoft.com/connectors), este arquivo descreve conectores mais comuns que são usados com sucesso por milhares de aplicativos e milhões de execuções para processar dados e informações. Para encontrar a lista completa de conectores e informações de referência do cada conector, como gatilhos, ações e limites, examine as páginas de referência do conector sob [visão geral dos conectores](https://docs.microsoft.com/connectors). Além disso, saiba mais sobre [gatilhos e ações](#triggers-actions).
 
 > [!NOTE]
 > Para integrar um serviço ou uma API que não tem o conector, você pode diretamente chamar o serviço por um protocolo como HTTP ou criar uma [conector personalizado](#custom).
@@ -29,27 +29,32 @@ Conectores estão disponíveis como ações e gatilhos internos ou conectores ge
 
 * [**Internos**](#built-ins): Essas ações internas e gatilhos são "nativos" para aplicativos lógicos do Azure e ajudam a que criar aplicativos lógicos que são executados em agendas personalizadas, se comunicar com outros pontos de extremidade, receberam e respondem a solicitações e chamam funções do Azure, aplicativos de API do Azure (aplicativos Web), suas próprias APIs gerenciado e publicado com o gerenciamento de API e aplicativos lógicos aninhados que podem receber solicitações. Também é possível usar ações internas que ajudam você a organizar e controlar o fluxo de trabalho do aplicativo lógico e trabalhar com dados.
 
-* **Conectores gerenciados**: Implantado e gerenciado pela Microsoft, esses conectores fornecem gatilhos e ações para acessar outros serviços e sistemas, como o Office 365, o armazenamento de BLOBs do Azure, SQL Server, Salesforce e muito mais. Alguns conectores exigem que você primeiro crie conexões, que são gerenciadas pelo aplicativo lógico do Azure. Conectores gerenciados são organizados nestes grupos:
+* **Conectores gerenciados**: Implantado e gerenciado pela Microsoft, esses conectores fornecem gatilhos e ações para acessar os serviços de nuvem, em sistemas locais ou ambos, incluindo o Office 365, o armazenamento de BLOBs do Azure, SQL Server, Dynamics, Salesforce, SharePoint e muito mais. Alguns conectores dão suporte a cenários de comunicação do business-to-business (B2B) e requerem especificamente uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) que esteja vinculado ao seu aplicativo lógico. Antes de usar determinados conectores, você talvez precise primeiro criar conexões, que são gerenciadas pelo aplicativo lógico do Azure. 
+
+  Por exemplo, se você estiver usando o Microsoft BizTalk Server, seus aplicativos lógicos podem se conectar a e se comunicar com o BizTalk Server usando o [BizTalk Server on-premises connector do](#on-premises-connectors). 
+  Você pode, então, estender ou executar operações semelhantes ao BizTalk em seus aplicativos lógicos usando os [conectores de conta de integração](#integration-account-connectors).
+
+  Conectores são classificados como Standard ou Enterprise. 
+  [Conectores empresariais](#enterprise-connectors) fornecem acesso a sistemas empresariais como SAP, IBM MQ e 3270 IBM por um custo adicional. Para determinar se um conector é Standard ou Enterprise, consulte os detalhes técnicos na página de referência do cada conector sob [visão geral dos conectores](https://docs.microsoft.com/connectors). 
+  
+  Você também pode identificar conectores usando essas categorias, embora alguns conectores podem cruzar várias categorias. 
+  Por exemplo, o SAP é um conector empresarial e um conector local:
 
   |   |   |
   |---|---|
-  | [**Conectores de API Gerenciada**](#managed-api-connectors) | Crie aplicativos lógicos que usam serviços como Armazenamento de Blobs do Azure, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online e muito mais. | 
-  | [**Conectores locais**](#on-premises-connectors) | Depois de instalar e configurar o [gateway de dados locais][gateway-doc], esses conectores ajudam seus aplicativos lógicos a acessar sistemas locais, como SQL Server, SharePoint Server, Oracle DB, compartilhamentos de arquivos e outros. | 
-  | [**Conectores da conta de integração**](#integration-account-connectors) | Disponível quando você cria e paga por uma conta de integração, esses conectores transformam e validam XML, codificam e decodificam arquivos simples e processam mensagens B2B (business-to-business) com protocolos AS2, EDIFACT e X12. | 
-  | [**Conectores empresariais**](#enterprise-connectors) | Fornece acesso a sistemas empresariais como SAP e IBM MQ por um custo adicional. |
-  ||| 
-
-  Por exemplo, se você estiver usando o Microsoft BizTalk Server, os aplicativos lógicos poderão se conectar e se comunicar com o BizTalk Server usando o [conector do BizTalk Server](#on-premises-connectors). 
-  Você pode, então, estender ou executar operações semelhantes ao BizTalk em seus aplicativos lógicos usando os [conectores de conta de integração](#integration-account-connectors). 
+  | [**Conectores de API Gerenciada**](#managed-api-connectors) | Crie aplicativos lógicos que usam serviços como Armazenamento de Blobs do Azure, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online e muito mais. |
+  | [**Conectores locais**](#on-premises-connectors) | Depois de instalar e configurar o [gateway de dados locais][gateway-doc], esses conectores ajudam seus aplicativos lógicos a acessar sistemas locais, como SQL Server, SharePoint Server, Oracle DB, compartilhamentos de arquivos e outros. |
+  | [**Conectores da conta de integração**](#integration-account-connectors) | Disponível quando você cria e paga por uma conta de integração, esses conectores transformam e validam XML, codificam e decodificam arquivos simples e processam mensagens B2B (business-to-business) com protocolos AS2, EDIFACT e X12. |
+  |||
 
 > [!NOTE]
-> Para obter a lista completa de conectores e informações de referência de cada conector, tais como ações e quaisquer gatilhos, que são definidos por uma descrição do Swagger, bem como quaisquer limites, você pode encontrar a lista completa na [Visão geral de conectores](/connectors/). Para obter informações sobre preço, veja [Detalhes de preços de Aplicativos Lógicos](https://azure.microsoft.com/pricing/details/logic-apps/) e [Modelo de preços de Aplicativos Lógicos](../logic-apps/logic-apps-pricing.md). 
+> Para obter a lista completa de conectores e informações de referência do cada conector, como ações e gatilhos, que é definido por um OpenAPI (anteriormente conhecido como Swagger) descrição, além de quaisquer limites, você pode encontrar a lista completa sob o [visão geral dos conectores ](/connectors/). Para obter informações sobre preço, veja [Detalhes de preços de Aplicativos Lógicos](https://azure.microsoft.com/pricing/details/logic-apps/) e [Modelo de preços de Aplicativos Lógicos](../logic-apps/logic-apps-pricing.md). 
 
 <a name="built-ins"></a>
 
 ## <a name="built-ins"></a>Internos
 
-Os Aplicativos Lógicos fornecem gatilhos e ações internos para que você possa criar fluxos de trabalho baseados em agendamento, ajudam seus aplicativos lógicos a se comunicarem com outros aplicativos e serviços, controlam o fluxo de trabalho por meio de seus aplicativos lógicos e gerenciam ou manipulam dados. 
+Os Aplicativos Lógicos fornecem gatilhos e ações internos para que você possa criar fluxos de trabalho baseados em agendamento, ajudam seus aplicativos lógicos a se comunicarem com outros aplicativos e serviços, controlam o fluxo de trabalho por meio de seus aplicativos lógicos e gerenciam ou manipulam dados.
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -128,10 +133,10 @@ Aqui estão os conectores para criar soluções de B2B (business-to-business) co
 
 Seus aplicativos lógicos podem acessar sistemas corporativos, como SAP e IBM MQ:
 
-|   |   | 
-|---|---| 
-| [![Ícone da API][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![Ícone da API][sap-icon]<br/>**SAP**][sap-connector-doc] |
-||| 
+|   |   |   | 
+|---|---|---| 
+| [![Ícone de API][ibm-3270-icon]<br/>**3270 IBM**][ibm-3270-doc] | [![Ícone da API][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![Ícone da API][sap-icon]<br/>**SAP**][sap-connector-doc] |
+|||| 
 
 <a name="triggers-actions"></a>
 
@@ -156,9 +161,9 @@ Aqui estão os tipos gerais de gatilhos que aplicativos lógicos do Azure fornec
 
 Gatilhos e ações de cada conector fornecem suas próprias propriedades para a configuração. Muitos conectores também exigem que você primeiro crie uma *conexão* para o serviço de destino ou o sistema e fornecer as credenciais de autenticação ou outros detalhes de configuração antes de usar um gatilho ou ação em seu aplicativo lógico. Por exemplo, você deve autorizar uma conexão para uma conta do Twitter para acessar os dados ou para postar em seu nome. 
 
-Para os conectores que usam o OAuth, criar uma conexão significa entrar no serviço, como Office 365, Salesforce ou GitHub, no qual o token de acesso é criptografado e seguramente armazenado em um repositório secreto do Azure. Outros conectores, como FTP e SQL, requerem uma conexão que tem detalhes de configuração, como o endereço do servidor, nome de usuário e senha. Esse detalhes de configuração de conexão são também criptografadas e armazenadas com segurança. 
+Para os conectores que usam o OAuth, criar uma conexão significa entrar no serviço, como Office 365, Salesforce ou GitHub, no qual o token de acesso é criptografado e seguramente armazenado em um repositório secreto do Azure. Outros conectores, como FTP e SQL, requerem uma conexão que tem detalhes de configuração, como o endereço do servidor, nome de usuário e senha. Esses detalhes de configuração de conexão também são criptografados e armazenados com segurança. 
 
-As conexões podem acessar o serviço de destino ou o sistema para desde que o serviço ou sistema permite. Para serviços que usam conexões OAuth do Azure Active Directory (AD), como o Office 365 e Dynamics, aplicativos lógicos do Azure atualiza os tokens de acesso indefinidamente. Outros serviços podem estabelecer limites quanto a aplicativos lógicos do Azure pode usar um token sem atualizar. Em geral, algumas ações invalidam todos os tokens de acesso, como alterar sua senha.
+As conexões podem acessar o serviço de destino ou o sistema para desde que o serviço ou sistema permite. Para serviços que usam conexões OAuth do Azure Active Directory (AD), como o Office 365 e Dynamics, aplicativos lógicos do Azure atualiza os tokens de acesso indefinidamente. Outros serviços podem ter limites em quanto tempo o aplicativo lógico do Azure pode usar um token sem atualizar. Em geral, algumas ações invalidam todos os tokens de acesso, como alterar sua senha.
 
 <a name="custom"></a>
 
@@ -222,6 +227,7 @@ Para tornar Aplicativos de API personalizado ou conectores público disponíveis
 [google-drive-doc]: ./connectors-create-api-googledrive.md "Conectar-se ao GoogleDrive para interagir com os dados."
 [google-sheets-doc]: ./connectors-create-api-googlesheet.md "Conectar-se ao Google Planilhas para poder pode modificar suas planilhas"
 [google-tasks-doc]: ./connectors-create-api-googletasks.md "Conectar-se ao Google Tasks para gerenciar suas tarefas."
+[ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md "Conectar-se aos aplicativos 3270 em mainframes IBM"
 [ibm-db2-doc]: ./connectors-create-api-db2.md "Conectar-se ao IBM DB2 na nuvem ou no local. Atualizar uma linha, obter uma tabela e muito mais"
 [ibm-informix-doc]: ./connectors-create-api-informix.md "Conectar-se ao Informix na nuvem ou no local. Ler uma linha, listar as tabelas e muito mais"
 [ibm-mq-doc]: ./connectors-create-api-mq.md "Conectar-se a locais do IBM MQ ou ao Azure para enviar e receber mensagens"
@@ -328,6 +334,7 @@ Para tornar Aplicativos de API personalizado ou conectores público disponíveis
 [google-sheets-icon]: ./media/apis-list/google-sheet.png
 [google-tasks-icon]: ./media/apis-list/google-tasks.png
 [hipchat-icon]: ./media/apis-list/hipchat.png
+[ibm-3270-icon]: ./media/apis-list/ibm-3270.png
 [ibm-db2-icon]: ./media/apis-list/ibm-db2.png
 [ibm-informix-icon]: ./media/apis-list/ibm-informix.png
 [ibm-mq-icon]: ./media/apis-list/ibm-mq.png
