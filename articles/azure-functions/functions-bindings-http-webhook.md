@@ -559,7 +559,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 |Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
-| **tipo** | n/d| Obrigatório – deve ser definido como `httpTrigger`. |
+| **type** | n/d| Obrigatório – deve ser definido como `httpTrigger`. |
 | **direction** | n/d| Obrigatório – deve ser definido como `in`. |
 | **name** | n/d| Obrigatório – o nome da variável usado no código da função da solicitação ou do corpo da solicitação. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determina quais chaves, se houver, precisam estar presentes na solicitação para invocar a função. O nível de autorização pode ser um dos seguintes valores: <ul><li><code>anonymous</code>&mdash;Nenhuma chave API é obrigatória.</li><li><code>function</code>&mdash;Uma chave de API específica de função é obrigatória. Esse será o valor padrão se nenhum for fornecido.</li><li><code>admin</code>&mdash;A chave mestra é obrigatória.</li></ul> Para saber mais informações, veja a seção sobre [chaves de autorização](#authorization-keys). |
@@ -802,7 +802,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 |Propriedade  |DESCRIÇÃO  |
 |---------|---------|
-| **tipo** |Deve ser definido como `http`. |
+| **type** |Deve ser definido como `http`. |
 | **direction** | Deve ser definido como `out`. |
 |**name** | O nome da variável usada no código de função para a resposta, ou `$return` para usar o valor de retorno. |
 
