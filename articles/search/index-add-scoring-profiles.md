@@ -20,11 +20,11 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: eae7de00294a6a09cb7f942d11ee2391710fc55f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007804"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844269"
 ---
 # <a name="add-scoring-profiles-to-an-azure-search-index"></a>Adicionar perfis de pontuação a um índice do Azure Search
 
@@ -69,7 +69,7 @@ ms.locfileid: "56007804"
 GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2017-11-11  
 ```  
 
- Essa consulta pesquisa o termo "pousada" e passa a localização atual. Observe que essa consulta inclui outros parâmetros, como `scoringParameter`. Parâmetros de consulta são descritos em [Pesquisar Documentos &#40;API REST do Serviço Azure Search&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).  
+ Essa consulta pesquisa o termo 'estalagem' e passa o local atual. Observe que essa consulta inclui outros parâmetros, como `scoringParameter`. Parâmetros de consulta são descritos em [Pesquisar Documentos &#40;API REST do Serviço Azure Search&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).  
 
  Clique em [Exemplo](#bkmk_ex) para examinar um exemplo mais detalhado de um perfil de pontuação.  
 
@@ -287,4 +287,4 @@ A pontuação de pesquisa é calculada com base nas propriedades estatísticas d
 ## <a name="see-also"></a>Consulte também  
  [REST do Serviço Azure Search](https://docs.microsoft.com/rest/api/searchservice/)   
  [Criar Índice &#40;API REST do Serviço Azure Search&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)   
- [SDK do .NET para Azure Search](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
+ [SDK do .NET paro Azure Search](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

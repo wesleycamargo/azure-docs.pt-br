@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 01/23/2019
 ms.author: glenga
 ms.openlocfilehash: 17e298d88f83716063472ce7947ba95f24dba1d1
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60164519"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61342397"
 ---
 Agora que você criou sua primeira função, vamos adicionar uma associação de saída à função que grava uma mensagem na fila Armazenamento.
 

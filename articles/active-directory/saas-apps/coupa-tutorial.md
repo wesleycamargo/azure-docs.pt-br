@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4156ef264069b5f926f28f766a201dceb29a512b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 29ca16e149852d044fdd6f6ea0baf0b11ccb75cf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834788"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64709582"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Tutorial: Integração do Azure Active Directory ao Coupa
 
@@ -114,16 +114,16 @@ Para configurar o logon único do Azure AD com o Coupa, execute as seguintes eta
 
     | Ambiente  | URL |
     |:-------------|----|
-    | Área restrita | `devsso35.coupahost.com`|
-    | Produção | `prdsso40.coupahost.com`|
+    | Área restrita | `sso-stg1.coupahost.com`|
+    | Produção | `sso-prd1.coupahost.com`|
     | | |
 
     c. Na caixa de texto **URL de resposta**, insira uma URL:
 
     | Ambiente | URL |
     |------------- |----|
-    | Área restrita | `https://devsso35.coupahost.com/sp/ACS.saml2`|
-    | Produção | `https://prdsso40.coupahost.com/sp/ACS.saml2`|
+    | Área restrita | `https://sso-stg1.coupahost.com/sp/ACS.saml2`|
+    | Produção | `https://sso-prd1.coupahost.com/sp/ACS.saml2`|
     | | |
 
 4. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
@@ -156,7 +156,7 @@ Para configurar o logon único do Azure AD com o Coupa, execute as seguintes eta
 
     b. Clique em **Procurar** para carregar os metadados baixados a partir do portal do Azure.
 
-    c. Clique em **Salvar**.
+    c. Clique em **Save** (Salvar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -176,7 +176,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

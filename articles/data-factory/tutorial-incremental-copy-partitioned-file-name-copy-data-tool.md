@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
 ms.openlocfilehash: c89764d746f07e6100b1f250d4c107bb700fe014
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445843"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61098291"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Copiar incrementalmente os novos arquivos com base no nome de arquivo particionada de tempo usando a ferramenta Copy Data
 
@@ -54,7 +54,7 @@ Prepare seu armazenamento de BLOBs para o tutorial executando as seguintes etapa
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
-1. No menu à esquerda, selecione **criar um recurso** > **dados + análise** > **Data Factory**: 
+1. No menu à esquerda, selecione **Criar um recurso** > **Dados + Análise** > **Data Factory**: 
    
    ![Seleção de Data Factory no painel "Novo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -172,7 +172,7 @@ Prepare seu armazenamento de BLOBs para o tutorial executando as seguintes etapa
 10. Observe que a guia **Monitor** à esquerda é selecionada automaticamente.  Você precisa aguardar o pipeline de execução quando ele é acionado automaticamente (sobre após uma hora).  Quando ele é executado, o **ações** coluna inclui links para exibir detalhes da execução da atividade e executar novamente o pipeline. Selecione **Refresh** para atualizar a lista e, em seguida, selecione o **exibir execuções de atividade** link no **ações** coluna. 
 
     ![Monitorar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs1.png)
-11. Há apenas uma atividade (atividade de cópia) no pipeline. Assim, você vê apenas uma entrada. Você pode ver o arquivo de origem (file1.txt) foram copiado do **fonte/2019/02/26/14/** à **destino/2019/02/26/14/** com o mesmo nome de arquivo.  
+11. Há apenas uma atividade (atividade de cópia) no pipeline, assim, você vê apenas uma entrada. Você pode ver o arquivo de origem (file1.txt) foram copiado do **fonte/2019/02/26/14/** à **destino/2019/02/26/14/** com o mesmo nome de arquivo.  
 
     ![Monitorar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
     

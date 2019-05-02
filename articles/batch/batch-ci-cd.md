@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.openlocfilehash: 5b7c44d3ea3394ff728adfb9d9fd72293138fb2e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59494637"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60880747"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Usar Pipelines do Azure para criar e implantar soluções HPC
 
@@ -427,7 +427,7 @@ Há uma série de etapas envolvidas na implantação da infra-estrutura. Como us
     * **Source:** $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/
     * **Tipo de Conexão do Azure**: Azure Resource Manager
     * **Assinatura do Azure:** Selecione a assinatura apropriada do Azure
-    * **Tipo de destino**: Blob do Azure
+    * **Tipo de destino**: blob do Azure
     * **Conta de armazenamento do RM**: $(storageAccountName)
     * **Nome do contêiner**: modelos
     * **URI do contêiner de armazenamento**: templateContainerUri

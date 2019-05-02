@@ -288,7 +288,7 @@ Esta seção descreve as definições de configuração globais disponíveis par
 
 |Propriedade  |Padrão | DESCRIÇÃO |
 |---------|---------|---------| 
-|de|n/d|Endereço de email do remetente em todas as funções.| 
+|from|n/d|Endereço de email do remetente em todas as funções.| 
 
 
 ## <a name="next-steps"></a>Próximas etapas

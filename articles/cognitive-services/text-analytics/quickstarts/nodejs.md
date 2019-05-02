@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: a2fdeeab2e8027dc3b548f7004912906d4574ccc
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 4c77477e31e7513cb806dda968a68fc1ac5030ed
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007416"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694970"
 ---
 # <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: Usando Node.js para chamar o Serviço Cognitivo de Análise de Texto  
 <a name="HOLTop"></a>
@@ -156,7 +156,7 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 
 ## <a name="analyze-sentiment"></a>Analisar sentimento
 
-A API de Análise de Sentimento detecta o sentimento de um conjunto de registros de texto usando o [método Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2-1/operations/56f30ceeeda5650db055a3c9). Análise de Sentimento pode ser usada para descobrir o que os clientes pensam da marca ou tópico, analisando texto bruto em busca de pistas sobre sentimentos positivos ou negativos. O exemplo a seguir fornece pontuações para dois documentos, um em inglês e outro em espanhol.
+A API de Análise de Sentimento detecta o sentimento de um conjunto de registros de texto usando o [método Sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). Análise de Sentimento pode ser usada para descobrir o que os clientes pensam da marca ou tópico, analisando texto bruto em busca de pistas sobre sentimentos positivos ou negativos. O exemplo a seguir fornece pontuações para dois documentos, um em inglês e outro em espanhol.
 
 1. Crie um novo projeto Node.JS no IDE favorito ou em uma pasta na área de trabalho.
 2. Adicione o código fornecido abaixo a um novo arquivo `.js`.
@@ -252,7 +252,7 @@ Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exem
 
 ## <a name="extract-key-phrases"></a>Extraia frases-chave
 
-A API de Extração de Frases-chave extrai as frases-chave de um documento de texto, usando o [método Frases-chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2-1/operations/56f30ceeeda5650db055a3c6). A extração de frases-chave é usada para identificar rapidamente os principais pontos de um documento ou texto. O exemplo a seguir extrai frases-chave para documentos em inglês e em espanhol.
+A API de Extração de Frases-chave extrai as frases-chave de um documento de texto, usando o [método Frases-chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). A extração de frases-chave é usada para identificar rapidamente os principais pontos de um documento ou texto. O exemplo a seguir extrai frases-chave para documentos em inglês e em espanhol.
 
 1. Crie um novo projeto Node.JS no IDE favorito ou em uma pasta na área de trabalho.
 2. Adicione o código fornecido abaixo a um novo arquivo `.js`.

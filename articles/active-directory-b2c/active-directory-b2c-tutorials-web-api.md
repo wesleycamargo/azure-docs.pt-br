@@ -3,19 +3,19 @@ title: Tutorial – Permitir acesso a uma ASP.NET Web API – Azure Active Direc
 description: Tutorial sobre como usar o Active Directory B2C para proteger a ASP.NET Web API e chamá-la de um aplicativo Web ASP .NET.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.author: davidmu
 ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: cc4db0f2fe8f5db41f6e8332a398029bd105f3af
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 77e3eaeffba862c727e021427e5f27967fcf35bd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756335"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687991"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Tutorial: Permitir acesso a uma ASP.NET Web API usando o Azure Active Directory B2C
 
@@ -52,19 +52,19 @@ Os recursos da API Web precisam ser registrados no seu locatário antes de poder
 
 ## <a name="configure-scopes"></a>Configurar escopos
 
-Escopos fornecem uma maneira de controlar o acesso a recursos protegidos. Escopos são usados pela API Web para implementar o controle de acesso com base em escopo. Por exemplo, os usuários da API Web podem ter tanto acesso de leitura quanto de gravação ou somente acesso de leitura. Neste tutorial, você usa escopos para definir as permissões de leitura e gravação da API Web.
+Os escopos fornecem uma maneira de controlar o acesso a recursos protegidos. Escopos são usados pela API Web para implementar o controle de acesso com base em escopo. Por exemplo, os usuários da API Web podem ter tanto acesso de leitura quanto de gravação ou somente acesso de leitura. Neste tutorial, você usa escopos para definir as permissões de leitura e gravação da API Web.
 
-1. Selecione **Aplicativos** e, em seguida, selecione *webapi1*.
+1. Selecione **Aplicativos** e selecione *webapi1*.
 2. Selecione **Escopos publicados**.
-3. Para **escopo**, insira `Hello.Read` e, para a descrição, insira `Read access to hello`.
-4. Para **escopo**, insira `Hello.Write` e, para a descrição, insira `Write access to hello`.
-5. Clique em **Salvar**.
+3. Em **escopo**, insira `Hello.Read` e, na descrição, insira `Read access to hello`.
+4. Em **escopo**, insira `Hello.Write` e, na descrição, insira `Write access to hello`.
+5. Clique em **Save** (Salvar).
 
-Os escopos publicados podem ser usados para conceder uma permissão de aplicativo cliente para a API Web.
+Os escopos publicados podem ser usados para conceder uma permissão de aplicativo cliente à API Web.
 
 ## <a name="grant-permissions"></a>Conceder permissões
 
-Para chamar uma API Web protegida de um aplicativo, é necessário conceder permissões ao aplicativo para a API. No tutorial de pré-requisito, você criou um aplicativo Web no Azure AD B2C chamado *webapp1*. Use este aplicativo para chamar a API Web.
+Para chamar uma API Web protegida de um aplicativo, é necessário conceder permissões de aplicativo à API. No tutorial de pré-requisito, você criou um aplicativo Web no Azure AD B2C chamado *webapp1*. Use este aplicativo para chamar a API Web.
 
 1. Selecione **Aplicativos** e, em seguida, selecione *webapp1*.
 2. Selecione **Acesso à API** e, em seguida, selecione **Adicionar**.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
-ms.openlocfilehash: 6086c182763885b62f28ab093be2a7f3f8282b8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b89e9a48ce20c7c00bd3282623919b8066e34b25
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60803043"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717065"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Gerenciador de Tráfego
 
@@ -320,7 +320,7 @@ Sim. O Gerenciador de Tráfego oferece suporte à investigação por HTTPS. Conf
 O Gerenciador de Tráfego não pode fornecer nenhuma validação de certificado, incluindo:
 
 * Certificados no lado do servidor não estão validados
-* Certificados no lado do servidor SNI não estão validados
+* Certificados do lado do servidor SNI não são validados.
 * Não há suporte para certificados de cliente
 
 ### <a name="do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint"></a>Eu devo usar um endereço IP ou um nome DNS ao adicionar um ponto de extremidade?

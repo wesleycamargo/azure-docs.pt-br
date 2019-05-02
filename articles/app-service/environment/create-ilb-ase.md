@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 01d982d91d772ccfd468ccdac6391f971be4f43b
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 7e4364a06a3d20edc7aafd54a4dcd86dfd039043
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546535"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573563"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Como criar e usar um balanceador de carga interno com um ambiente do Serviço de Aplicativo #
 
@@ -56,7 +56,7 @@ Há algumas coisas que você não pode fazer ao usar um ASE ILB:
 
 Para criar um ASE ILB:
 
-1. No portal do Azure, selecione **Criar um recurso** > **Web** > **Ambiente do Serviço de Aplicativo**.
+1. No portal do Azure, selecione **Criar um recurso** > **Web** > **Ambiente do Serviço de Aplicativo** .
 
 2. Selecione sua assinatura.
 
@@ -66,7 +66,7 @@ Para criar um ASE ILB:
 
 5. Ao selecionar uma VNet existente, você precisa criar uma sub-rede para manter o ASE. Lembre-se de definir um tamanho de sub-rede grande o suficiente para acomodar qualquer crescimento futuro do ASE. O tamanho recomendado é `/24`, que tem 256 endereços e é compatível com um ASE com tamanho máximo e quaisquer necessidades de dimensionamento. 
 
-6. Selecione **Rede Virtual/Local** > **Configuração de Rede Virtual**. Defina o **Tipo de VIP** como **Interno**.
+6. Selecione **Rede Virtual/Local** > **Configuração de Rede Virtual**. Defina o **Tipo de VIP** como **Interno**.
 
 7. Digite um nome de domínio. Esse domínio é usado para aplicativos criados neste ASE. Há algumas restrições. Ele não pode ser:
 
@@ -96,14 +96,14 @@ Na folha **Rede Virtual**, há uma opção **Configuração da Rede Virtual**. V
 
 Depois de selecionar **Interno**, não é possível adicionar mais endereços IP ao seu ASE. Em vez disso, você precisa fornecer o domínio do ASE. Em um ASE com um VIP Externo, o nome do ASE é usado no domínio dos aplicativos criados nesse ASE.
 
-Se você definir **Tipo de VIP** como **Interno**, o nome do ASE não será usado no domínio do ASE. Especifique o domínio explicitamente. Se o domínio for *contoso.corp.net* e você criar um aplicativo nesse ASE chamado *timereporting*, a URL desse aplicativo será timereporting.contoso.corp.net.
+Se você definir **Tipo de VIP** como **Interno**, o nome do ASE não será usado no domínio do ASE. Especifique o domínio explicitamente. Se o domínio for *contoso.corp.net* e você criar um aplicativo nesse ASE chamado *timereporting*, a URL desse aplicativo será timereporting.contoso.corp.net.
 
 
 ## <a name="create-an-app-in-an-ilb-ase"></a>Como criar um aplicativo em uma ASE ILB ##
 
 Você pode criar um aplicativo em uma ASE ILB da mesma maneira que você cria um aplicativo em um ASE.
 
-1. No portal do Azure, selecione **Criar um recurso** > **Web + Celular** > **Aplicativo Web**.
+1. No portal do Azure, selecione **Criar um recurso** > **Web + Celular** > **Aplicativo Web**.
 
 1. Digite o nome do aplicativo.
 
@@ -117,7 +117,7 @@ Você pode criar um aplicativo em uma ASE ILB da mesma maneira que você cria um
 
 1. Selecione ou crie um plano do Serviço de Aplicativo. Se você quiser criar um novo plano do Serviço de Aplicativo, selecione o seu ASE como o local. Selecione o pool de trabalhos no qual deseja criar o seu plano do Serviço de Aplicativo. Ao criar o plano do Serviço de Aplicativo, selecione o ASE como a localização e o pool de trabalhos. Ao especificar o nome do aplicativo, o domínio sob o nome do aplicativo é substituído pelo domínio do ASE.
 
-1. Selecione **Criar**. Se desejar que o aplicativo seja exibido no painel, selecione a caixa de seleção **Fixar no painel** .
+1. Selecione **Criar**. Se você deseja que o aplicativo seja exibido no painel, selecione a caixa de seleção **Fixar no painel**.
 
     ![Criação do plano do Serviço de Aplicativo][2]
 
@@ -127,7 +127,7 @@ Você pode criar um aplicativo em uma ASE ILB da mesma maneira que você cria um
 
 Um ASE com ILB é ligeiramente diferente do ASE que não tem um ILB. Como já foi observado, você precisa gerenciar o seu próprio DNS. Você também precisa fornecer o seu próprio certificado para conexões HTTPS.
 
-Depois de criar o seu ASE, o nome de domínio mostra o domínio especificado. Um novo item aparece no menu **Configuração** chamado **Certificado ILB**. O ASE é criado com um certificado que não especifica o domínio do ASE ILB. Se você usar o ASE com esse certificado, o navegador informará que ele é inválido. Esse certificado facilita o teste de HTTPS, mas você precisa carregar o seu próprio certificado vinculado ao domínio ASE ILB. Essa etapa é necessária independentemente se o seu certificado é auto-assinado ou adquirido de uma autoridade de certificação.
+Depois de criar o seu ASE, o nome de domínio mostra o domínio especificado. Um novo item chamado **Certificado ILB** aparece no menu **Configurações**. O ASE é criado com um certificado que não especifica o domínio do ASE ILB. Se você usar o ASE com esse certificado, o navegador informará que ele é inválido. Esse certificado facilita o teste de HTTPS, mas você precisa carregar o seu próprio certificado vinculado ao domínio ASE ILB. Essa etapa é necessária independentemente se o seu certificado é auto-assinado ou adquirido de uma autoridade de certificação.
 
 ![Nome de domínio ASE ILB][3]
 
@@ -154,7 +154,7 @@ O certificado gerado por comandos do PowerShell é sinalizado por navegadores po
 
 Para carregar seus próprios certificados e testar o acesso:
 
-1. Depois que o ASE for criado, acesse a interface do usuário do ASE. Selecione **ASE** > **Configurações** > **Certificado ILB**.
+1. Depois que o ASE for criado, acesse a interface do usuário do ASE. Selecione **ASE** > **Configurações** > **Certificado ILB**.
 
 1. Para definir o certificado ILB, selecione o arquivo .pfx do certificado e digite a senha. Esta etapa leva algum tempo para processar. Será exibida uma mensagem informando que uma operação de carregamento está em andamento.
 

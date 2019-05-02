@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2674e5ca12269d44e111f140fce77bd8bc0c9ae7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e94b307d562c4317a87713612a62e6da007f9703
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60361394"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570647"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrar sua infraestrutura VPN com a MFA do Azure usando a extensão Servidor de Políticas de Rede para o Azure
 
@@ -76,7 +76,7 @@ Quando a extensão NPS para o Azure é integrada ao NPS, há um fluxo de autenti
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Esta seção apresenta detalhes sobre os pré-requisitos que devem ser concluídos antes que você possa integrar MFA ao Gateway de Área de Trabalho Remota. Antes de começar, você deverá ter os seguintes pré-requisitos em vigor:
+Esta seção fornece detalhes sobre os pré-requisitos que devem ser concluídos antes que você possa integrar MFA a VPN. Antes de começar, você deverá ter os seguintes pré-requisitos em vigor:
 
 * Infraestrutura de VPN
 * Função de Serviços de Acesso e Política de Rede
@@ -338,7 +338,7 @@ Como parte da configuração da extensão do NPS, você deve fornecer credenciai
 
 ### <a name="install-the-nps-extension"></a>Instalar a extensão NPS
 
-A extensão do NPS deve ser instalada em um servidor que tenha a função de Serviços de Acesso e Política de Rede instalada e que funcione como o servidor RADIUS no seu projeto. *Não* instale a extensão NPS no servidor de Área de Trabalho Remota.
+A extensão do NPS deve ser instalada em um servidor que tenha a função de Serviços de Acesso e Política de Rede instalada e que funcione como o servidor RADIUS no seu projeto. Fazer *não* instalar a extensão NPS no servidor VPN.
 
 1. Baixe a extensão NPS do [Centro de Download da Microsoft](https://aka.ms/npsmfa).
 

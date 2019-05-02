@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 0bdad2d59528775d23d882831cfdbdc09471e12e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 31795b0dfb5a9815113ab232a266d9f7f8955068
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109790"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688375"
 ---
 # <a name="get-started"></a>Início Rápido: criar um balanceador de carga público usando o Azure PowerShell
 
@@ -268,7 +268,7 @@ Defina o nome de usuário e a senha de um administrador para as VMs com [Get-Cre
 $cred = Get-Credential
 ```
 
-Agora, é possível criar as VMs com [New-AzVM](/powershell/module/az.compute/new-azvm). O exemplo a seguir cria duas VMs e os componentes de rede virtual necessários, caso ainda não existam. Neste exemplo, as NICs (*VM1* e *VM2*) criadas na etapa anterior são automaticamente atribuídas às máquinas virtuais *VM1* e *VM2*, já que elas têm nomes idênticos e a mesma rede virtual (*myVnet*) e sub-rede (*mySubnet*) são atribuídas a elas. Além disso, já que as NICs estão associadas ao pool de back-end do balanceador de carga, as VMs são automaticamente adicionadas ao pool de back-end.
+Agora, é possível criar as VMs com [New-AzVM](/powershell/module/az.compute/new-azvm). O exemplo a seguir cria duas VMs e os componentes de rede virtual necessários, caso ainda não existam. Neste exemplo, as NICs (*VM1* e *VM2*) criadas na etapa anterior são automaticamente atribuídas às máquinas virtuais *VM1* e *VM2*, já elas que têm nomes idênticos e a mesma rede virtual (*myVnet*) e sub-rede (*mySubnet*) são atribuídas a elas. Além disso, já que as NICs estão associadas ao pool de back-end do balanceador de carga, as VMs são automaticamente adicionadas ao pool de back-end.
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)
@@ -335,7 +335,7 @@ Você pode inserir o endereço IP público em um navegador da Web. O site é exi
 
 ![Testar o balanceador de carga](media/quickstart-create-basic-load-balancer-powershell/load-balancer-test.png)
 
-Para ver o balanceador de carga distribuir o tráfego entre as duas VMs que executam o aplicativo, você poderá forçar a atualização do navegador da Web.
+Para ver o balanceador de carga distribuir o tráfego entre ambas as VMs que executam o aplicativo, você poderá forçar a atualização do navegador da Web.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 784fb99fc2cd721a43c9ca7c767b449a9d0d6cb3
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 887bda92a1165a3dd17e9105e921a5df9e0c5534
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41919856"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61248157"
 ---
 # <a name="provision-devices-across-load-balanced-iot-hubs"></a>Provisionar dispositivos entre Hubs IoT com balanceamento de carga
 
@@ -46,17 +46,17 @@ A lista de registro informa ao Serviço de Provisionamento de Dispositivos qual 
 
 ## <a name="set-the-device-provisioning-service-allocation-policy"></a>Definir a política de alocação no Serviço de Provisionamento de Dispositivos
 
-A política de alocação é uma configuração do Serviço de Provisionamento de Dispositivos que determina como os dispositivos são atribuídos a um Hub IoT. Há três políticas de alocação com suporte: 
+A política de alocação é uma configuração do Serviço de Provisionamento de Dispositivos que determina como os dispositivos são atribuídos a um Hub IoT. Há três políticas de alocação com suporte: 
 
-1. **Menor latência**: dispositivos são provisionados para um Hub IoT com base no hub com a menor latência para o dispositivo.
-2. **Distribuição igualmente ponderada** (padrão): Hubs IoT vinculados têm probabilidades iguais de ter dispositivos provisionados a eles. Esta é a configuração padrão. Se estiver provisionando dispositivos a apenas um Hub IoT, você poderá manter essa configuração. 
-3. **Configuração estática por meio da lista de registro**: a especificação do Hub IoT desejado na lista de registro tem prioridade sobre a política de alocação no nível do Serviço de Provisionamento de Dispositivos.
+1. **Menor latência**: Os dispositivos são provisionados para um Hub IoT com base no hub com a menor latência para o dispositivo.
+2. **Distribuição uniformemente ponderada** (padrão): Hubs IoT vinculados têm probabilidades iguais de ter dispositivos provisionados a eles. Esta é a configuração padrão. Se estiver provisionando dispositivos a apenas um Hub IoT, você poderá manter essa configuração. 
+3. **Configuração estática através da lista de registro**: A especificação do Hub IoT desejado na lista de registro tem prioridade sobre a política de alocação no nível do Serviço de Provisionamento de Dispositivos.
 
 Siga estas etapas para definir a política de alocação:
 
 1. Para definir a política de alocação, na página do Serviço de Provisionamento de Dispositivos, clique em **Gerenciar política de alocação**.
 2. Defina a política de alocação para **Distribuição uniformemente ponderada**.
-3. Clique em **Salvar**.
+3. Clique em **Save** (Salvar).
 
 ## <a name="link-the-new-iot-hub-to-the-device-provisioning-service"></a>Vincular o novo Hub IoT ao Serviço de Provisionamento de Dispositivos
 
@@ -66,7 +66,7 @@ Vincule o Serviço de Provisionamento de Dispositivos e o Hub IoT para que o Ser
 2. Na página do Serviço de Provisionamento de Dispositivos, clique em **Hubs IoT Vinculados**.
 3. Clique em **Adicionar**.
 4. Na página **Adicionar link para o Hub IoT**, use os botões de opção para especificar se o Hub IoT vinculado está localizado na assinatura atual ou em uma diferente. Em seguida, escolha o nome do hub IoT da caixa **Hub IoT**.
-5. Clique em **Salvar**.
+5. Clique em **Save** (Salvar).
 
 ## <a name="next-steps"></a>Próximas etapas
 

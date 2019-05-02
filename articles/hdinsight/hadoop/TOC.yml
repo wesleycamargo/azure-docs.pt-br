@@ -136,8 +136,6 @@
         - name: Usar nós de borda vazios
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
-        - name: Desenvolver programas de streaming Python
-          href: apache-hadoop-streaming-python.md
         - name: Processar e analisar documentos JSON
           href: using-json-in-hive.md
         - name: 'Usar funções definidas pelo usuário C#'

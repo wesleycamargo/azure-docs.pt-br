@@ -14,11 +14,11 @@ ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: de1263d68e96a23bd6b5eca4297e74b56ba22e40
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021622"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60823939"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Mover dados do MySQL usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -68,14 +68,14 @@ A tabela a seguir fornece a descrição para elementos JSON específicos para o 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| Tipo |A propriedade type deve ser definida como: **OnPremisesMySql** |SIM |
-| Servidor |Nome do servidor MySQL. |SIM |
-| Banco de Dados |Nome do banco de dados MySQL. |SIM |
+| type |A propriedade type deve ser definida como: **OnPremisesMySql** |Sim |
+| Servidor |Nome do servidor MySQL. |Sim |
+| Banco de Dados |Nome do banco de dados MySQL. |Sim |
 | schema |Nome do esquema no banco de dados. |Não  |
-| authenticationType |Tipo de autenticação usado para se conectar ao banco de dados MySQL. Os valores possíveis são: `Basic`. |SIM |
-| Nome de Usuário |Especifique o nome de usuário para se conectar ao banco de dados MySQL. |SIM |
-| Senha |Especifique a senha da conta de usuário que você especificou. |SIM |
-| gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados MySQL local. |SIM |
+| authenticationType |Tipo de autenticação usado para se conectar ao banco de dados MySQL. Os valores possíveis são: `Basic`. |Sim |
+| Nome de Usuário |Especifique o nome de usuário para se conectar ao banco de dados MySQL. |Sim |
+| Senha |Especifique a senha da conta de usuário que você especificou. |Sim |
+| gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados MySQL local. |Sim |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 Para obter uma lista completa das seções e propriedades disponíveis para definir conjuntos de dados, confira o artigo [Criando conjuntos de dados](data-factory-create-datasets.md). As seções como structure, availability e policy de um conjunto de dados JSON são similares para todos os tipos de conjunto de dados (SQL Azure, Blob do Azure, Tabela do Azure etc.).
@@ -305,13 +305,13 @@ Ao mover dados para o MySQL os seguintes mapeamentos serão usados dos tipos do 
 | bigint |Int64 |
 | bit |Decimal |
 | blob |Byte[] |
-| bool |BOOLEAN |
+| bool |Boolean |
 | char |Cadeia de caracteres |
-| data |DateTime |
+| date |DateTime |
 | Datetime |DateTime |
 | decimal |Decimal |
-| double precision |Duplo |
-| Duplo |Duplo |
+| double precision |Double |
+| Duplo |Double |
 | enum |Cadeia de caracteres |
 | flutuante |Single |
 | int unsigned |Int64 |
@@ -327,19 +327,19 @@ Ao mover dados para o MySQL os seguintes mapeamentos serão usados dos tipos do 
 | mediumint |Int32 |
 | mediumtext |Cadeia de caracteres |
 | numérico |Decimal |
-| real |Duplo |
+| real |Double |
 | set |Cadeia de caracteres |
 | smallint unsigned |Int32 |
 | smallint |Int16 |
 | text |Cadeia de caracteres |
-| tempo real |timespan |
+| time |TimeSpan |
 |  timestamp |DateTime |
 | tinyblob |Byte[] |
 | tinyint unsigned |Int16 |
 | tinyint |Int16 |
 | tinytext |Cadeia de caracteres |
 | varchar |Cadeia de caracteres |
-| year |int |
+| year |Int |
 
 ## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas de coletor
 Para saber mais sobre mapeamento de colunas no conjunto de dados de origem para colunas no conjunto de dados de coletor, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapeamento de colunas de conjunto de dados no Azure Data Factory).

@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f55ef6f8829db7033790e21653e01a5390be7992
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
-ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323142"
 documentType: LandingData
 title: Documentação da Análise de Séries Temporais do Azure
 metadata:
-  title: Documentação do Azure Time Series Insights - Guias de Início Rápido, Tutoriais, Referência de API | Microsoft Docs
-  description: Saiba como executar a análise do Azure IoT na nuvem com o processamento de eventos totalmente gerenciado. Analise dados em tempo real usando aplicativos, sensores, dispositivos e muito mais.
+  title: 'Documentação do Azure Time Series Insights - Guias de Início Rápido, Tutoriais, Referência de API | Microsoft Docs'
+  description: 'Saiba como executar a análise do Azure IoT na nuvem com o processamento de eventos totalmente gerenciado. Analise dados em tempo real usando aplicativos, sensores, dispositivos e muito mais.'
   services: time-series-insights
   author: anshan
   manager: cshankar
@@ -17,51 +11,51 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 12/07/2018
+  ms.date: 04/23/2019
   ms.author: anshan
 abstract:
-  description: Bem-vindo ao Azure Time Series Insights. O Azure Time Series Insights fornece ferramentas avançadas de exploração e de telemetria de dados para ajudá-lo a refinar a análise operacional. A documentação descreve os diversos recursos do serviço, como começar a usar e as APIs avançadas do Time Series Insights. As informações são apresentadas para duas versões, uma já disponível (Time Series Insights GA) e a outra em versão prévia (versão prévia do Time Series Insights).
+  description: 'Bem-vindo ao Azure Time Series Insights. O Azure Time Series Insights fornece ferramentas avançadas de exploração e de telemetria de dados para ajudá-lo a melhorar a análise operacional. Esta documentação descreve o serviço, como começar a trabalhar com os diversos recursos, o SDK do cliente e as avançadas APIs do Time Series Insights. As informações são apresentadas para duas versões, uma já em disponibilidade geral (Time Series Insights GA) e uma atualização de serviço importante em versão prévia (Versão Prévia do Time Series Insights).'
   aside:
     image:
       alt: Um vídeo de introdução aos recursos do Time Series Insights do Azure IoT.
       height: 110
       src: media/index/new-tsi-intro.png
       width: 250
-    title: Time Series Insights para aplicativos de IoT. (13:31)
-    href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Time-Series-Insights-e2e-solution-for-industrial-IoT-analytics
+    title: 'Time Series Insights para aplicativos de IoT. (13:31)'
+    href: 'https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Time-Series-Insights-e2e-solution-for-industrial-IoT-analytics'
     width: 250
 sections:
-- title: Guia de início rápido de 5 minutos
-  items:
-  - type: paragraph
-    text: Saiba mais sobre o Azure Time Series Insights explorando exemplos rápidos que ajudam você a começar em minutos.
-  - type: list
-    style: icon48
+  - title: Guia de início rápido de 5 minutos
     items:
-    - image:
-        src: https://docs.microsoft.com/azure/time-series-insights/media/index/time-series-insights.svg
-      text: Explorar o Azure Time Series Insights GA
-      href: /azure/time-series-insights/time-series-quickstart
-  - html: <p><a href="/azure/time-series-insights/time-series-insights-update-quickstart">Explorar a versão prévia do Azure Time Series Insights</a></p>
-- title: Tutoriais Passo a Passo
-  items:
-  - type: paragraph
-    text: Saiba como criar ambientes do Azure Time Series Insights, aplicativos web de página única e muito mais por meio de vários exemplos passo a passo.
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Saiba mais sobre o Azure Time Series Insights explorando exemplos rápidos que ajudam você a começar em minutos.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/azure/time-series-insights/media/index/time-series-insights.svg'
+            text: Explorar o Azure Time Series Insights GA
+            href: /azure/time-series-insights/time-series-quickstart
+      - html: <p><a href="/azure/time-series-insights/time-series-insights-update-quickstart">Explorar a versão prévia do Azure Time Series Insights</a></p>
+  - title: Tutoriais Passo a Passo
     items:
-    - title: Azure Time Series Insights GA
-      html: <p><a href="/azure/time-series-insights/tutorial-create-populate-tsi-environment">Criar um ambiente</a></p> <p><a href="/azure/time-series-insights/tutorial-create-tsi-sample-spa">Criar um aplicativo Web de página única</a></p> <p><a href="/azure/time-series-insights/tutorial-explore-js-client-lib">Explorar a biblioteca de clientes JavaScript</a></p>
-    - title: Versão prévia do Azure Time Series Insights
-      html: <p><a href="/azure/time-series-insights/time-series-insights-update-create-environment">Versão prévia do Tutorial</a></p>
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Saiba como criar ambientes do Azure Time Series Insights, aplicativos web de página única e muito mais por meio de vários exemplos passo a passo.'
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Azure Time Series Insights GA
+            html: <p><a href="/azure/time-series-insights/tutorial-create-populate-tsi-environment">Criar um ambiente</a></p> <p><a href="/azure/time-series-insights/tutorial-create-tsi-sample-spa">Criar um aplicativo Web de página única</a></p> <p><a href="/azure/time-series-insights/tutorial-explore-js-client-lib">Explorar a biblioteca de clientes JavaScript</a></p>
+          - title: Versão prévia do Azure Time Series Insights
+            html: <p><a href="/azure/time-series-insights/time-series-insights-update-create-environment">Versão prévia do Tutorial</a></p>
+  - title: Referência
     items:
-    - title: APIs do Time Series Insights GA
-      html: <p><a href="/rest/api/time-series-insights-management">API de Gerenciamento de Recursos</a></p> <p><a href="/rest/api/time-series-insights/ga-query-api">API de consulta</a></p> <p><a href="/rest/api/time-series-insights/ga-query-syntax">Sintaxe de Consulta</a></p>
-    - title: APIs da versão prévia do Time Series Insights
-      html: <p><a href="/rest/api/time-series-insights/preview-query">API de consulta</a></p> <p><a href="/rest/api/time-series-insights/preview-model">API de modelo</a></p> <p><a href="/rest/api/time-series-insights/preview-env">API de ambiente</a></p> <p><a href="/rest/api/time-series-insights/preview-tsx">API de expressão do Time Series</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: APIs do Time Series Insights GA
+            html: <p><a href="/rest/api/time-series-insights-management">API de Gerenciamento de Recursos</a></p> <p><a href="/rest/api/time-series-insights/ga-query-api">API de consulta</a></p> <p><a href="/rest/api/time-series-insights/ga-query-syntax">Sintaxe de Consulta</a></p>
+          - title: APIs da versão prévia do Time Series Insights
+            html: <p><a href="/rest/api/time-series-insights/preview-query">API de consulta</a></p> <p><a href="/rest/api/time-series-insights/preview-model">API de modelo</a></p> <p><a href="/rest/api/time-series-insights/preview-env">API de ambiente</a></p> <p><a href="/rest/api/time-series-insights/preview-tsx">API de expressão do Time Series</a></p>

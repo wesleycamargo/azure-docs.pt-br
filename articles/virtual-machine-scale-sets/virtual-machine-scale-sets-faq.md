@@ -4,7 +4,7 @@ description: Obtenha respostas para as perguntas frequentes sobre os conjuntos d
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2019
+ms.date: 04/25/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 56a31770c374cdccaec4dbee751925a6da00fa59
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b5af6c5007130d71f94e1fa748adc333a8d08a48
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620236"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64689315"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Perguntas frequentes sobre os conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -140,7 +140,7 @@ Para configurar o dimensionamento automático em um conjunto de dimensionamento 
 
 ## <a name="certificates"></a>Certificados
 
-### <a name="how-do-i-securely-ship-a-certificate-to-the-vm-how-do-i-provision-a-virtual-machine-scale-set-to-run-a-website-where-the-ssl-for-the-website-is-shipped-securely-from-a-certificate-configuration-the-common-certificate-rotation-operation-would-be-almost-the-same-as-a-configuration-update-operation-do-you-have-an-example-of-how-to-do-this"></a>Como envio um certificado para a VM com segurança? Como provisiono um conjunto de dimensionamento de máquinas virtuais para executar um site no qual o SSL para o site é fornecido com segurança a partir de uma configuração do certificado? (A operação de rotação comum do certificado seria quase igual a uma operação de atualização da configuração.) Você tem um exemplo de como fazer isso?
+### <a name="how-do-i-securely-ship-a-certificate-to-the-vm"></a>Como envio um certificado para a VM com segurança?
 
 Para enviar com segurança um certificado para a VM, você pode instalar um certificado de cliente diretamente em um armazenamento de certificados do Windows a partir do cofre de chaves do cliente.
 
@@ -167,14 +167,12 @@ O código suporta o Windows e o Linux.
 Para obter mais informações, veja [Criar ou atualizar um conjunto de dimensionamento de máquinas virtuais](https://msdn.microsoft.com/library/mt589035.aspx).
 
 
-### <a name="example-of-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>Exemplo de certificados autoassinados provisionados para Clusters do Azure Service Fabric.
+### <a name="how-do-i-use-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>Como usar certificados autoassinados provisionados para Clusters do Service Fabric do Azure?
 Para ver o exemplo mais recente, use a seguinte instrução da CLI do Azure dentro do shell do Azure e leia a documentação de exemplo do módulo da CLI do Service Fabric, a qual será impressa para stdout:
 
 ```bash
 az sf cluster create -h
 ```
-
-Examine a documentação de keyvaults para as operações de certificado com suporte da API mais recente no Azure.
 
 Os certificados autoassinados não podem ser usados para confiança distribuída fornecida por uma Autoridade de Certificação e não devem ser usados para qualquer Cluster do Service Fabric destinado a hospedar soluções de produção empresarial; para obter diretrizes adicionais do Service Fabric Security, examine [Melhores Práticas de Segurança do Azure Service Fabric](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) e [Cenários de segurança de cluster do Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
 
@@ -202,9 +200,7 @@ Inclua **osProfile** em seu modelo:
 }
 ```
 
-Este bloco JSON é usado no [modelo de início rápido do GitHub 101-vm-sshkey](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
-
-O perfil do SO também é usado no [modelo de início rápido do GitHub grelayhost.json](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
+Este bloco JSON é usado em [esse modelo de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
 Para obter mais informações, veja [Criar ou atualizar um conjunto de dimensionamento de máquinas virtuais](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration).
 
@@ -212,9 +208,9 @@ Para obter mais informações, veja [Criar ou atualizar um conjunto de dimension
 
 Para remover os certificados preteridos, remova o antigo certificado da lista de certificados do cofre. Deixe todos os certificados que você deseja manter em seu computador na lista. Isso não remove o certificado de todas as suas VMs. Também não adiciona o certificado às novas VMs que são criadas no conjunto de dimensionamento de máquinas virtuais.
 
-Para remover o certificado das VMs existentes, você deve escrever uma extensão de script personalizada para remover manualmente os certificados do armazenamento de certificados.
+Para remover o certificado de VMs existentes, use uma extensão de script personalizado para remover manualmente os certificados do repositório de certificados.
 
-### <a name="how-do-i-inject-an-existing-ssh-public-key-into-the-virtual-machine-scale-set-ssh-layer-during-provisioning-i-want-to-store-the-ssh-public-key-values-in-azure-key-vault-and-then-use-them-in-my-resource-manager-template"></a>Como injeto uma chave pública SSH existente na camada SSH do conjunto de dimensionamento de máquinas virtuais durante o provisionamento? Quero armazenar os valores da chave pública SSH no Azure Key Vault e utilizá-los no modelo do Resource Manager.
+### <a name="how-do-i-inject-an-existing-ssh-public-key-into-the-virtual-machine-scale-set-ssh-layer-during-provisioning"></a>Como injeto uma chave pública SSH existente na camada SSH do conjunto de dimensionamento de máquinas virtuais durante o provisionamento?
 
 Se você estiver fornecendo as VMs apenas com uma chave SSH pública, não será necessário colocar as chaves públicas no Cofre de Chaves. As chaves públicas não são secretas.
 
@@ -234,7 +230,7 @@ Você pode fornecer as chaves públicas SSH em texto sem formatação ao criar u
 ```
 
 Nome do elemento linuxConfiguration | Obrigatório | Type | DESCRIÇÃO
---- | --- | --- | --- 
+--- | --- | --- | ---
 ssh | Não  | Coleção | Especifica a configuração da chave SSH para um SO Linux
 caminho | Sim | Cadeia de caracteres | Especifica o caminho de arquivo do Linux no qual as chaves SSH ou o certificado deve estar localizado
 keyData | Sim | Cadeia de caracteres | Especifica uma chave pública SSH codificada em base64
@@ -303,16 +299,6 @@ O componente CRP não persiste os segredos do cliente. Se você executar `stop d
 
 Você não tem esse problema ao dimensionar porque há uma cópia em cache do segredo no Service Fabric do Azure (no modelo de locatário com um fabric).
 
-### <a name="why-do-i-have-to-specify-the-exact-location-for-the-certificate-url-httpsname-of-the-vaultvaultazurenet443secretsexact-location-as-indicated-in-service-fabric-cluster-security-scenarioshttpsazuremicrosoftcomdocumentationarticlesservice-fabric-cluster-security"></a>Por que tenho que especificar o local exato para a URL do certificado (https:\/\/\<nome do cofre >.vault.azure.net:443/secrets/\<exato local >), conforme indicado na [do Service Fabric cenários de segurança de cluster](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)?
-
-A documentação do Azure Key Vault informa que a API REST para Obter Segredo deve retornar a versão mais recente do segredo caso a versão não seja especificada.
-
-Método | URL
---- | ---
-GET | <https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}>
-
-Substitua o {*nome-segredo*} pelo nome e substitua {*versão-segredo*} pela versão do segredo que você deseja recuperar. A versão do segredo pode ser excluída. Neste caso, a versão atual é recuperada.
-
 ### <a name="why-do-i-have-to-specify-the-certificate-version-when-i-use-key-vault"></a>Por que é necessário especificar a versão do certificado quando uso o Cofre de Chaves?
 
 A finalidade da exigência do Cofre de Chaves para especificar a versão do certificado é deixar claro para o usuário qual certificado é implantado em suas VMs.
@@ -325,7 +311,7 @@ Para implantar as chaves públicas .cer em um conjunto de dimensionamento de má
 
 Para obter mais informações, consulte [Método X509Certificate.Export (X509ContentType, String)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx)).
 
-### <a name="i-do-not-see-an-option-for-users-to-pass-in-certificates-as-base64-strings-most-other-resource-providers-have-this-option"></a>Não vejo uma opção para os usuários passarem os certificados como cadeias de caracteres base64. A maioria dos outros provedores de recursos tem essa opção.
+### <a name="how-do-i-pass-in-certificates-as-base64-strings"></a>Como passar em certificados como cadeias de caracteres base64?
 
 Para emular a passagem de um certificado como uma cadeia de caracteres base64, é possível extrair a URL com a versão mais recente em um modelo do Resource Manager. Inclua a seguinte propriedade JSON em seu modelo do Resource Manager:
 
@@ -355,7 +341,7 @@ Para obter mais informações, consulte o [Centro de Confiabilidade da Microsoft
 
 ### <a name="does-managed-identities-for-azure-resourceshttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>[ identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) funcionam com conjuntos de escala de máquina virtual?
 
-Sim. Veja alguns modelos MSI de exemplo nos modelos de Início Rápido do Azure. Linux: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi). Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
+Sim. Você pode ver alguns modelos MSI de exemplo nos modelos de início rápido do Azure para [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) e [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
 
 ## <a name="extensions"></a>Extensões
@@ -378,46 +364,19 @@ Você pode encontrar o valor extensionName em `$vmss`.
 
 Para exemplo de modelo que se integra com os logs do Azure Monitor do conjunto de dimensionamento de máquinas virtuais, consulte o segundo exemplo na [implantar um cluster do Service Fabric do Azure e habilitar o monitoramento por meio de logs do Azure Monitor](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
 
-### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>A extensões parecem ser executadas em paralelo nos conjuntos de dimensionamento de máquinas virtuais. Isso faz com que minha extensão de script personalizada falhe. O que fazer para corrigir isso?
-
-Para saber mais sobre o sequenciamento de extensão nos conjuntos de dimensionamento de máquinas virtuais, consulte o [Sequenciamento de extensão nos conjuntos de dimensionamento de máquinas virtuais do Azure](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
-
-### <a name="how-do-i-reset-the-password-for-vms-in-my-virtual-machine-scale-set"></a>Como redefino a senha para VMs em meu conjunto de dimensionamento de máquinas virtuais?
-
-Há duas maneiras de alterar a senha de VMs em conjuntos de escala.
-
-- Altere o modelo de conjunto de escala de máquina virtual diretamente. Disponível com Computação API 2017-12-01 e posterior.
-
-    Atualize as credenciais de administrador diretamente no modelo do conjunto de escala (por exemplo usando o Gerenciador de recursos do Azure, PowerShell ou CLI). Depois que o conjunto de escala é atualizado, todas as novas máquinas virtuais têm as novas credenciais. Máquinas virtuais existentes têm somente as novas credenciais caso tenham as imagens refeitas.
-
-- Redefina a senha usando as extensões de acesso da VM.
-
-    Use o seguinte exemplo do PowerShell:
-
-    ```powershell
-    $vmssName = "myvmss"
-    $vmssResourceGroup = "myvmssrg"
-    $publicConfig = @{"UserName" = "newuser"}
-    $privateConfig = @{"Password" = "********"}
-
-    $extName = "VMAccessAgent"
-    $publisher = "Microsoft.Compute"
-    $vmss = Get-AzVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
-    $vmss = Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
-    Update-AzVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
-    ```
-
 ### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>Como adiciono uma extensão a todas as VMs em meu conjunto de dimensionamento de máquinas virtuais?
 
 Se a política de atualização estiver definida para **automática**, reimplantar o modelo com as novas propriedades de extensão atualiza todas as VMs.
 
 Se a política de atualização estiver definida para **manual**, primeiro atualize a extensão, em seguida, atualize manualmente todas as instâncias em suas VMs.
 
-### <a name="if-the-extensions-associated-with-an-existing-virtual-machine-scale-set-are-updated-are-existing-vms-affected-that-is-will-the-vms-not-match-the-virtual-machine-scale-set-model-or-are-they-ignored-when-an-existing-machine-is-service-healed-or-reimaged-are-the-scripts-that-are-currently-configured-on-the-virtual-machine-scale-set-executed-or-are-the-scripts-that-were-configured-when-the-vm-was-first-created-used"></a>Se as extensões associadas a um conjunto de dimensionamento de máquinas virtuais existente forem atualizadas, isso afetará as VMs existentes? (Ou seja, as VMs *não* coincidirão com o modelo do conjunto de dimensionamento de máquinas virtuais?) Ou serão ignoradas? Quando uma máquina existente tem o serviço reparado ou a imagem recriada, os scripts configurados atualmente no conjunto de dimensionamento de máquinas virtuais são executados ou os scripts configurados quando a VM foi criada pela primeira vez são usados?
+### <a name="if-the-extensions-associated-with-an-existing-virtual-machine-scale-set-are-updated-are-existing-vms-affected"></a>Se as extensões associadas a um conjunto de dimensionamento de máquinas virtuais existente forem atualizadas, isso afetará as VMs existentes?
 
 Se a definição da extensão no modelo do conjunto de dimensionamento de máquinas virtuais for atualizado e a propriedade upgradePolicy for definida para **automática**, as VMs serão atualizadas. Se a propriedade upgradePolicy for definida para **manual**, as extensões serão sinalizadas como não correspondendo ao modelo.
 
-Se uma VM existente tiver o serviço reparado, parecerá uma reinicialização e as extensões não serão executadas novamente. Se a imagem for recriada, será como substituir a unidade do SO pela imagem de origem. Qualquer especialização do modelo mais recente, como as extensões, será executada.
+### <a name="are-extensions-run-again-when-an-existing-machine-is-service-healed-or-reimaged"></a>Extensões executadas novamente quando uma máquina existente tem o serviço reparado ou refeita?
+
+Se uma VM existente tiver o serviço reparado, ele aparece como uma reinicialização e as extensões não são executadas novamente. Se uma VM é refeita, o processo é semelhante a substituição da unidade do sistema operacional com a imagem de origem. Qualquer especialização do modelo mais recente, como extensões, são executados novamente.
 
 ### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-active-directory-domain"></a>Como faço para ingressar em um conjunto de dimensionamento de máquinas virtuais para um domínio do Active Directory?
 
@@ -450,7 +409,7 @@ Para definir uma extensão, use a propriedade JsonADDomainExtension:
 }
 ```
 
-### <a name="my-virtual-machine-scale-set-extension-is-trying-to-install-something-that-requires-a-reboot-for-example-commandtoexecute-powershellexe--executionpolicy-unrestricted-install-windowsfeature-name-fs-resource-manager-includemanagementtools"></a>Minha extensão do conjunto de dimensionamento de máquinas virtuais está tentando instalar algo que requer uma reinicialização. Por exemplo, "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted Install-WindowsFeature –Name FS-Resource-Manager –IncludeManagementTools"
+### <a name="my-virtual-machine-scale-set-extension-is-trying-to-install-something-that-requires-a-reboot"></a>Minha extensão do conjunto de dimensionamento de máquinas virtuais está tentando instalar algo que requer uma reinicialização.
 
 Se sua extensão do conjunto de dimensionamento de máquinas virtuais estiver tentando instalar algo que requer uma reinicialização, você poderá usar a extensão do DSC (Configuração do Estado Desejado) de Automação do Azure. Se o sistema operacional for o Windows Server 2012 R2, o Azure fará a instalação do Windows Management Framework (WMF) 5.0, irá reinicializar e continuar com a configuração.
 
@@ -473,9 +432,36 @@ Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "IaaSAntimalware" -Publi
 Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $VMSS
 ```
 
-### <a name="i-need-to-execute-a-custom-script-thats-hosted-in-a-private-storage-account-the-script-runs-successfully-when-the-storage-is-public-but-when-i-try-to-use-a-shared-access-signature-sas-it-fails-this-message-is-displayed-missing-mandatory-parameters-for-valid-shared-access-signature-linksas-works-fine-from-my-local-browser"></a>Preciso executar um script personalizado hospedado em uma conta de armazenamento privado. O script é executado com êxito quando o armazenamento é público, mas quando tento usar uma SAS (Assinatura de Acesso Compartilhado), ele falha. Esta mensagem é exibida: "Parâmetros obrigatórios ausentes para uma Assinatura de Acesso Compartilhado válida". O link+SAS funcionam bem em meu navegador local.
+### <a name="how-do-i-execute-a-custom-script-thats-hosted-in-a-private-storage-account"></a>Como posso executar um script personalizado que é hospedado em uma conta de armazenamento privado?
 
-Para executar um script personalizado hospedado em uma conta de armazenamento privado, defina as configurações protegidas com a chave da conta de armazenamento e o nome. Para obter mais informações, consulte [Extensão de Script Personalizado para o Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
+Para executar um script personalizado hospedado em uma conta de armazenamento privado, defina as configurações protegidas com a chave da conta de armazenamento e o nome. Para obter mais informações, consulte [extensão de Script personalizado](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
+
+## <a name="passwords"></a>Senhas
+
+### <a name="how-do-i-reset-the-password-for-vms-in-my-virtual-machine-scale-set"></a>Como redefino a senha para VMs em meu conjunto de dimensionamento de máquinas virtuais?
+
+Há duas maneiras de alterar a senha de VMs em conjuntos de escala.
+
+- Altere o modelo de conjunto de escala de máquina virtual diretamente. Disponível com a API de 2017-12-01 e versões posteriores.
+
+    Atualize as credenciais de administrador diretamente no modelo do conjunto de escala (por exemplo usando o Gerenciador de recursos do Azure, PowerShell ou CLI). Depois que o conjunto de escala é atualizado, todas as novas máquinas virtuais têm as novas credenciais. Máquinas virtuais existentes têm somente as novas credenciais caso tenham as imagens refeitas.
+
+- Redefina a senha usando as extensões de acesso da VM.
+
+    Use o seguinte exemplo do PowerShell:
+
+    ```powershell
+    $vmssName = "myvmss"
+    $vmssResourceGroup = "myvmssrg"
+    $publicConfig = @{"UserName" = "newuser"}
+    $privateConfig = @{"Password" = "********"}
+
+    $extName = "VMAccessAgent"
+    $publisher = "Microsoft.Compute"
+    $vmss = Get-AzVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
+    $vmss = Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
+    Update-AzVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
+    ```
 
 ## <a name="networking"></a>Rede
 
@@ -533,10 +519,6 @@ O método de alocação dos endereços IP do conjunto de dimensionamento de máq
 
 Para implantar um conjunto de dimensionamento de máquinas virtuais para uma rede virtual do Azure existente, consulte [Implantar um conjunto de dimensionamento de máquinas virtuais para uma rede virtual existente](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-existing-vnet).
 
-### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>Como adiciono o endereço IP da primeira VM em um conjunto de dimensionamento de máquinas virtuais à saída de um modelo?
-
-Para adicionar o endereço IP da primeira VM em um conjunto de dimensionamento de máquinas virtuais à saída de um modelo, confira [Azure Resource Manager: Obter os IPs particulares dos conjuntos de dimensionamento de máquinas virtuais](https://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
-
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Posso usar conjuntos de escala com Rede Acelerada?
 
 Sim. Para usar a rede acelerada, defina enableAcceleratedNetworking como true nas configurações de networkInterfaceConfigurations do conjunto de dimensionamento. Por exemplo,
@@ -580,7 +562,7 @@ Para criar um conjunto de dimensionamento de VM que atribui um endereço IP púb
 
 ### <a name="can-i-configure-a-scale-set-to-work-with-multiple-application-gateways"></a>Posso configurar um conjunto de dimensionamento para funcionar com vários Gateways de Aplicativo?
 
-Sim. Você pode adicionar a ID de recurso de vários pools de endereços de back-end do Gateway de Aplicativo à lista _applicationGatewayBackendAddressPools_ na seção _ipConfigurations_ do perfil de rede do conjunto de dimensionamento.
+Sim. Você pode adicionar as IDs de recurso de vários pools de endereços de back-end do Gateway de aplicativo para o _applicationGatewayBackendAddressPools_ lista o _ipConfigurations_ conjunto de seção de dimensionamento da sua rede perfil.
 
 ## <a name="scale"></a>Escala
 
@@ -592,7 +574,7 @@ Outro motivo para criar um conjunto de dimensionamento de máquinas virtuais com
 
 ### <a name="how-do-i-change-the-number-of-vms-in-a-virtual-machine-scale-set"></a>Como altero o número de VMs em um conjunto de dimensionamento de máquinas virtuais?
 
-Para alterar o número de VMs em uma escala de máquina virtual definido no portal do Azure, da configuração de escala VM à seção de propriedades, clique na folha de "Escala" e use a barra deslizante. Para outras maneiras de mudar o contador de instância, veja [Mudar o contador de instância de uma configuração de escala de máquina virtual](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
+Para alterar o número de VMs em uma escala de máquina virtual definido no portal do Azure, da configuração de escala VM à seção de propriedades, clique na folha de "Escala" e use a barra deslizante.
 
 ### <a name="how-do-i-define-custom-alerts-for-when-certain-thresholds-are-reached"></a>Como defino alertas personalizados para quando determinados limites são atingidos?
 
@@ -623,7 +605,7 @@ Há alguma flexibilidade em como lidar com os alertas para os limites especifica
                 },
                 "webhooks": [
                     {
-                        "serviceUri": "https://events.pagerduty.com/integration/0b75b57246814149b4d87fa6e1273687/enqueue",
+                        "serviceUri": "<service uri>",
                         "properties": {
                             "key1": "custommetric",
                             "key2": "scalevmss"
@@ -636,7 +618,6 @@ Há alguma flexibilidade em como lidar com os alertas para os limites especifica
 }
 ```
 
-Neste exemplo, um alerta é emitido para Pagerduty.com quando um limite é atingido.
 
 ## <a name="patching-and-operations"></a>Aplicação de patch e operações
 
@@ -655,8 +636,6 @@ Para atualizar o conjunto de dimensionamento de máquinas virtuais para uma nova
 ### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>Posso usar a operação de recriação de imagem para redefinir uma VM sem alterar a imagem? (Ou seja, quero redefinir uma VM para as configurações de fábrica, em vez de uma nova imagem.)
 
 Sim, você pode usar a operação de recriação de imagem para redefinir uma VM sem alterar a imagem. No entanto, se o conjunto de dimensionamento de máquinas virtuais fizer referência a uma imagem da plataforma com `version = latest`, sua VM poderá atualizar para uma imagem do SO posterior ao chamar `reimage`.
-
-Para obter mais informações, consulte [Gerenciar todas as VMs em um conjunto de dimensionamento de máquinas virtuais](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
 ### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>É possível integrar conjuntos de dimensionamento com os logs do Azure Monitor?
 
@@ -722,25 +701,25 @@ A principal diferença entre excluir uma VM em um conjunto de dimensionamento de
   - Em relação a este cenário, você pode ter criado seu próprio mecanismo de dimensionamento automático e deseja um dimensionamento de ponta a ponta mais rápido.
 - Você tem um conjunto de dimensionamento de máquinas virtuais distribuído sem uniformidade entre os domínios de falha ou os domínios de atualização. Isso pode ser porque você excluiu seletivamente as VMs ou porque as VMs foram excluídas depois do excesso de provisionamento. Executar `stop deallocate` seguido de `start` no conjunto de dimensionamento de máquinas virtuais distribui uniformemente as VMs em domínios de falha ou domínios de atualização.
 
-### <a name="how-do-i-take-a-snapshot-of-a-vmss-instance"></a>Como posso tirar um instantâneo de uma instância do VMSS?
-Crie um instantâneo de uma instância de um VMSS.
+### <a name="how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance"></a>Como posso tirar um instantâneo de uma instância de conjunto de dimensionamento de máquina virtual?
+Crie um instantâneo de uma instância de um conjunto de dimensionamento de máquina virtual.
 
 ```azurepowershell-interactive
 $rgname = "myResourceGroup"
 $vmssname = "myVMScaleSet"
 $Id = 0
 $location = "East US"
- 
+
 $vmss1 = Get-AzVmssVM -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $Id     
 $snapshotconfig = New-AzSnapshotConfig -Location $location -AccountType Standard_LRS -OsType Windows -CreateOption Copy -SourceUri $vmss1.StorageProfile.OsDisk.ManagedDisk.id
 New-AzSnapshot -ResourceGroupName $rgname -SnapshotName 'mySnapshot' -Snapshot $snapshotconfig
-``` 
- 
+```
+
 Crie um disco gerenciado do instantâneo.
 
 ```azurepowershell-interactive
 $snapshotName = "myShapshot"
 $snapshot = Get-AzSnapshot -ResourceGroupName $rgname -SnapshotName $snapshotName  
 $diskConfig = New-AzDiskConfig -AccountType Premium_LRS -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
-$osDisk = New-AzDisk -Disk $diskConfig -ResourceGroupName $rgname -DiskName ($snapshotName + '_Disk') 
+$osDisk = New-AzDisk -Disk $diskConfig -ResourceGroupName $rgname -DiskName ($snapshotName + '_Disk')
 ```
