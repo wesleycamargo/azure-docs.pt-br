@@ -137,7 +137,7 @@ O diagnóstico da automação do Azure cria duas categorias de registros nos log
 | HostName_s | O nome do nó gerenciado. |
 | IPAddress | O endereço IPv4 do nó gerenciado. |
 | Categoria | DscNodeStatus |
-| Recurso | O nome da conta de Automação do Azure. |
+| Resource | O nome da conta de Automação do Azure. |
 | Tenant_g | GUID que identifica o locatário para o Chamador. |
 | NodeId_g |A GUID que identifica o nó gerenciado. |
 | DscReportId_g |A GUID que identifica o relatório. |
@@ -163,7 +163,7 @@ O diagnóstico da automação do Azure cria duas categorias de registros nos log
 | ResultType |Se o recurso está em conformidade. |
 | NodeName_s |O nome do nó gerenciado. |
 | Categoria | DscNodeStatus |
-| Recurso | O nome da conta de Automação do Azure. |
+| Resource | O nome da conta de Automação do Azure. |
 | Tenant_g | GUID que identifica o locatário para o Chamador. |
 | NodeId_g |A GUID que identifica o nó gerenciado. |
 | DscReportId_g |A GUID que identifica o relatório. |

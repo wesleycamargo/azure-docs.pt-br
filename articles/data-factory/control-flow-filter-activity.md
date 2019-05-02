@@ -39,10 +39,10 @@ Você pode usar uma atividade de filtro em um pipeline para aplicar uma express�
 
 Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-Nome | Nome da atividade `Filter`. | Cadeia de caracteres | Sim
-tipo | Deve ser definido como **filtro** | Cadeia de caracteres | Sim
+name | Nome da atividade `Filter`. | Cadeia de caracteres | Sim
+type | Deve ser definido como **filtro** | Cadeia de caracteres | Sim
 condition | Condição a ser usada para filtragem de entrada. | Expression | Sim
-itens | Matriz de entrada na qual o filtro deve ser aplicado. | Expression | Sim
+items | Matriz de entrada na qual o filtro deve ser aplicado. | Expression | Sim
 
 ## <a name="example"></a>Exemplo
 
