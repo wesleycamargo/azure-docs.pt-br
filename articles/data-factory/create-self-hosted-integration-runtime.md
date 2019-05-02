@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: aaa72d3a29fee28ede336a2be350015bf3cbc9b4
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 6e88d8f1c16e7c73f5c62325e41701e6f0ea97fb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565491"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728095"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um tempo de execução da integração auto-hospedada
 O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer funcionalidades de integração de dados entre diferentes ambientes de rede. Para obter detalhes sobre o IR, confira [Visão geral do Integration Runtime](concepts-integration-runtime.md).
@@ -40,7 +40,7 @@ Este documento descreve como você pode criar e configurar o IR auto-hospedado.
 
     ```powershell
 
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
 
     ```
 
@@ -63,7 +63,7 @@ Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a có
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>Considerações para o uso de um IR auto-hospedado
 
 - Um único Integration Runtime auto-hospedado pode ser usado para várias fontes de dados locais. Um único tempo de execução da integração auto-hospedada pode ser compartilhado com outro data factory no mesmo locatário do Azure Active Directory. Para obter mais informações, confira [Compartilhando um tempo de execução da integração auto-hospedada](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories).
-- Você pode ter apenas uma instância do tempo de execução da integração auto-hospedada instalada em um único computador. Se você tiver dois data factories que precisam acessar fontes de dados locais, você precisa instalar o integration runtime auto-hospedado em dois locais computadores cada das fábricas de dados ou usar o [dorecursodecompartilhamentodoIRauto-hospedado](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories)compartilhar um tempo de execução de integração auto-hospedado com outro Data Factory.  
+- Você pode ter apenas uma instância do tempo de execução da integração auto-hospedada instalada em um único computador. Se você tiver dois data factories que precisam acessar fontes de dados local, ou use o [recurso de compartilhamento do IR auto-hospedado](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories) compartilham o tempo de execução de integração auto-hospedado ou instalar o integration runtime auto-hospedado em dois computadores locais, um para cada data factory.  
 - O tempo de execução da integração auto-hospedada não precisa estar no mesmo computador que a fonte de dados. No entanto, ter o tempo de execução da integração auto-hospedada mais perto da fonte de dados reduz o tempo para o tempo de execução da integração auto-hospedada se conectar à fonte de dados. É recomendável instalar o Integration Runtime auto-hospedado em um computador que seja diferente daquele que hospeda a fonte de dados local. Quando a fonte de dados e o tempo de execução da integração auto-hospedada estão em computadores diferentes, o tempo de execução da integração auto-hospedada não compete por recursos com a fonte de dados.
 - Você pode ter vários tempos de execução da integração auto-hospedada em diferentes computadores conectados à mesma fonte de dados local. Por exemplo, pode ter dois tempos de execução da integração auto-hospedada servindo dois data factories, mas a mesma fonte de dados local é registrada com ambos os data factories.
 - Se você já tiver um gateway instalado no computador para atender um cenário do Power BI, instale um tempo de execução da integração auto-hospedada separado para o Azure Data Factory em outro computador.

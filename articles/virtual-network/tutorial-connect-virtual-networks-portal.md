@@ -3,8 +3,8 @@ title: Conectar redes virtuais ao emparelhamento de rede virtual – tutorial �
 description: Neste tutorial, você aprende a conectar redes virtuais com o emparelhamento de rede virtual usando o Portal do Azure.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 08/16/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: e66747cd350d10a5a66ec54b9aae9e9b485b0ba2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 943cad871330e2f3b6e13b33dca582ab545fe4be
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014484"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726573"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Tutorial: Conectar redes virtuais ao emparelhamento de rede virtual usando o portal do Azure
 

@@ -17,12 +17,12 @@ ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: da70b77edeb483cae0e74400e739f018f78d0993
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: aff00978178f63b7324168e9aca765b77decf2b4
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370798"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922896"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Tutorial – Gerenciar discos do Azure com o Azure CLI
 
@@ -46,11 +46,9 @@ Quando uma máquina virtual do Azure é criada, dois discos são automaticamente
 
 **Disco temporário** - Discos temporários utilizam uma unidade de estado sólido localizada no mesmo host do Azure que a máquina virtual. Os discos temporários são altamente eficazes e podem ser usados para operações como o processamento de dados temporário. No entanto, se a VM for movida para um novo host, todos os dados armazenados em um disco temporário serão removidos. O tamanho do disco temporário é determinado pelo tamanho da máquina virtual. Os discos temporários são rotulados */dev/sdb* e têm um ponto de montagem de */mnt*.
 
-
 ## <a name="azure-data-disks"></a>Discos de dados do Azure
 
-Para instalar aplicativos e dados de armazenamento, outros discos de dados podem ser adicionados. Os discos de dados devem ser usados em qualquer situação onde o armazenamento de dados durável e responsivo é desejado. Cada disco de dados tem uma capacidade máxima de 4 TB. O tamanho da máquina virtual determina quantos discos de dados podem ser anexados a uma VM. Para cada vCPU da VM, podem ser anexados quatro discos de dados.
-
+Para instalar aplicativos e dados de armazenamento, outros discos de dados podem ser adicionados. Os discos de dados devem ser usados em qualquer situação onde o armazenamento de dados durável e responsivo é desejado. O tamanho da máquina virtual determina quantos discos de dados podem ser anexados a uma VM. Para cada vCPU da VM, podem ser anexados quatro discos de dados.
 
 ## <a name="vm-disk-types"></a>Tipos de disco da máquina virtual
 

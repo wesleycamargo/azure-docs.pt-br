@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Obter lista de idiomas compatíveis, Java – API de Tradução de Texto'
+title: 'Início Rápido: Obter lista de idiomas compatíveis, Java – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você obtém uma lista dos idiomas com suporte para tradução, transliteração e pesquisa em dicionário usando a API de Tradução de Texto.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: erhopf
-ms.openlocfilehash: 446f83ecf81d344163deca58ac4aaf8487292ab4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8847b5c6e7ceac5bec321ebcf6310a624f16e184
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181037"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916738"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>Início Rápido: Usar a API de Tradução de Texto para obter uma lista dos idiomas com suporte usando Java
 
@@ -172,7 +172,7 @@ gradle run
 
 ## <a name="sample-response"></a>Resposta de exemplo
 
-Localize a abreviação do país nesta [lista de idiomas](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
+Localize a abreviação do país/região nesta [lista de idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 Uma resposta bem-sucedida é retornada em JSON, conforme mostrado no seguinte exemplo:
 

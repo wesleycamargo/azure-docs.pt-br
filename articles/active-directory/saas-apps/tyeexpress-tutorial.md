@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: d3459f7bcfc0e2e61cb55b38a05b7b6a21ea3e9e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d84a7060fadcb3f3d80b7fbbff9d91f8812388b2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283504"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920623"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Tutorial: Integração do Azure Active Directory com o T&E Express
 
@@ -110,7 +110,7 @@ Para configurar o logon único do Azure AD com o T&E Express, siga estas etapas:
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Aqui, sugerimos que você use o valor exclusivo de cadeia de caracteres no Identificador. Contate a [Equipe de suporte do cliente T&E Express](http://www.tyeexpress.com/contacto.aspx) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Aqui, sugerimos que você use o valor exclusivo de cadeia de caracteres no Identificador. Contate a [Equipe de suporte do cliente T&E Express](https://www.tyeexpress.com/contacto.aspx) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 5. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 

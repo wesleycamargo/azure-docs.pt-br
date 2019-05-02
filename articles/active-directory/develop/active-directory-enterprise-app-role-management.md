@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/22/2019
 ms.author: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a354fdf8ea75d9446c2a5e5ee6a70489cf9dbfb5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cb426eb15d20a4bbd628897ed1c3b29c37f32afd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412041"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723295"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como: configurar a declaração de função emitida no token SAML para aplicativos empresariais
 
@@ -152,7 +152,7 @@ Se o aplicativo esperar que as funções personalizadas sejam passadas em uma re
 
 8. Atualize a tabela **Atributos** para definir um mapeamento personalizado da declaração de função.
 
-9. Na seção **Atributos & Declarações do Usuário** da caixa de diálogo **Logon único**, configure o atributo do token SAML como mostra a imagem e execute as etapas abaixo.
+9. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
 
     | Nome do atributo | Valor do atributo |
     | -------------- | ----------------|
@@ -161,11 +161,11 @@ Se o aplicativo esperar que as funções personalizadas sejam passadas em uma re
     >[!NOTE]
     >Se o valor da declaração de função for nulo, em seguida, Azure AD não enviará esse valor no token e esse é o padrão de acordo com o design.
 
-     a. Clique no botão **Editar** para abrir a caixa de diálogo **Atributos de usuário**.
+     a. Clique em **edite** ícone para abrir **atributos de usuário & declarações** caixa de diálogo.
 
       ![Botão "Adicionar atributo"](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
-    b. Selecione **Adicionar atributo** para abrir o painel **Gerenciar declarações do usuário**.
+    b. No **gerenciar declarações de usuário** caixa de diálogo, adicione o atributo do token SAML clicando na **adicionar nova declaração**.
 
       ![Botão "Adicionar atributo"](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 

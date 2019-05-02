@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Traduzir texto, C# – Tradução de Texto'
+title: 'Início Rápido: Traduzir texto, C# – Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você traduzirá o texto de um idioma para outro usando a API de Tradução de Texto com C#.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: fc52512f48050c46894996d5a79b26f36fc6ad6c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 99766c0f2ed5f61cc5c5bd44b77eb7dde6537c76
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183825"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916596"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-c"></a>Início rápido: Usar a API de Tradução de Texto para converter uma cadeia de caracteres usando C#
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-c"></a>Início Rápido: Usar a API de Tradução de Texto para converter uma cadeia de caracteres usando C#
 
 Neste início rápido, você aprenderá a converter uma cadeia de texto de inglês para italiano e alemão usando .NET Core e a API REST de Tradução de Texto.
 
@@ -155,7 +155,7 @@ dotnet run
 
 ## <a name="sample-response"></a>Resposta de exemplo
 
-Localize a abreviação do país nesta [lista de idiomas](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
+Localize a abreviação do país/região nesta [lista de idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 [

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 89e73a4578134493a25ec3cbd2385433a2b36156
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 58abe3a3973986ab489456be7958361ad8ab06f4
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775873"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922817"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Visão geral dos agentes de monitoramento do Azure 
 O Microsoft Azure fornece várias maneiras de coletar diferentes tipos de dados de máquinas virtuais que executam o Microsoft Windows e o Linux hospedados no Azure, no seu datacenter ou em outros provedores de nuvem. Os três tipos de agentes disponíveis para monitorar uma VM são:
@@ -66,7 +66,7 @@ Anteriormente, os vários serviços do Azure foram agrupados como o *Operations 
 
 * [Gerenciamento de atualização de automação do Azure](../../automation/automation-update-management.md) de atualizações do sistema operacional.
 * [Configuração de estado desejado do Automação do Azure](../../automation/automation-dsc-overview.md) para manter o estado de configuração consistente.
-* Rastreie as alterações de configuração com [Rastreamento de alterações e inventário de automação do Azure](../../automation/automation-change-tracking.md).
+* Rastreie as alterações de configuração com [Rastreamento de alterações e inventário de automação do Azure](../../automation/change-tracking.md).
 * Serviços do Azure, como [Application Insights](https://docs.microsoft.com/azure/application-insights/) e [Azure Security Center](https://docs.microsoft.com/azure/security-center/), que armazenam de forma nativa seus dados diretamente no Log Analytics.  
 
 ## <a name="dependency-agent"></a>Agente de dependência

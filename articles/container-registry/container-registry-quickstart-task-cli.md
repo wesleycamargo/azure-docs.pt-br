@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/02/2019
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 61a17842158326c927f049af893a00818f3acc55
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: be120ea8ae588da486c9a5acd4eb7bfdb4e45dee
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793379"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64701562"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Início Rápido: Criar e executar uma imagem de contêiner usando as Tarefas do Registro de Contêiner do Azure
 
@@ -52,7 +52,7 @@ Este exemplo cria um Registro *Básico*, uma opção com otimização de custo p
 Agora, use o Registro de Contêiner do Azure para criar uma imagem. Primeiro, crie um diretório de trabalho e, em seguida, crie um Dockerfile chamado *Dockerfile* com o seguinte conteúdo. Este é um exemplo simples para criar uma imagem de contêiner do Linux, mas é possível criar seu próprio Dockerfile padrão e montar imagens para outras plataformas.
 
 ```bash
-echo "FROM hello-world" > Dockerfile
+echo FROM hello-world > Dockerfile
 ```
 
 Execute o comando [az acr build][az-acr-build] para criar a imagem. Quando montada com êxito, o push da imagem é efetuado para o Registro. O exemplo a seguir efetua push da imagem `sample/hello-world:v1`. O `.` no final do comando define a localização do Dockerfile; neste caso, o diretório atual.

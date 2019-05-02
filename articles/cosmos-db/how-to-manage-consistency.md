@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 04/17/2019
 ms.author: rimman
-ms.openlocfilehash: a93bf9a9f43a0929aeb5f3d3121092739396c6a8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 4a444631de4bc26881ab195333b1b798a7ee6719
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678438"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925327"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gerenciar os níveis de coerência no Azure Cosmos DB
 
@@ -211,7 +211,7 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Monitorar métrica PBS (Desatualização Limitada Probabilística)
 
-Quão eventual é a consistência eventual? Para o caso médio, podemos oferecer limites de desatualização com relação ao histórico de versão e à hora. A métrica [**PBS (desatualização limitada probabilística)**](http://pbs.cs.berkeley.edu/) tenta quantificar a probabilidade de desatualização e mostra-a como uma métrica. Para exibir a métrica PBS, vá para a conta do Azure Cosmos no portal do Azure. Abra o painel **Métricas** e escolha a guia **Consistência**. Examine o gráfico chamado **Probabilidade de leituras altamente consistentes com base em sua carga de trabalho (confira PBS)**.
+Quão eventual é a consistência eventual? Para o caso médio, podemos oferecer limites de desatualização com relação ao histórico de versão e à hora. A métrica [**PBS (desatualização limitada probabilística)**](https://pbs.cs.berkeley.edu/) tenta quantificar a probabilidade de desatualização e mostra-a como uma métrica. Para exibir a métrica PBS, vá para a conta do Azure Cosmos no portal do Azure. Abra o painel **Métricas** e escolha a guia **Consistência**. Examine o gráfico chamado **Probabilidade de leituras altamente consistentes com base em sua carga de trabalho (confira PBS)**.
 
 ![Gráfico PBS no portal do Azure](./media/how-to-manage-consistency/pbs-metric.png)
 

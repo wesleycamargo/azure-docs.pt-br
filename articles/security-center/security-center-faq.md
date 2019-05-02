@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: monhaber
-ms.openlocfilehash: 79faab0dcf2dd4c5592fe0543fa63f2538facf36
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: e21ed77a80892da22c380787dc64ea07db756fdf
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664005"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917643"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a Central de Segurança do Azure
 Estas perguntas frequentes estão relacionadas à Central de Segurança do Azure, um serviço que ajuda você a impedir, detectar e responder a ameaças com maior visibilidade e controle sobre a segurança dos recursos do Microsoft Azure.
@@ -77,7 +77,7 @@ As VMs Windows ou Linux IaaS se qualificam se:
 
 - A extensão do Microsoft Monitoring Agent não está instalada na VM atualmente.
 - A VM está em estado de execução.
-- O Windows ou Linux [agente de máquina Virtual do Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/agent-windows) está instalado.
+- O Windows ou Linux [agente de máquina Virtual do Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) está instalado.
 - A máquina virtual não é usada como um dispositivo, como o firewall de aplicativo Web ou o firewall mais recente.
 
 ### <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Posso excluir os workspaces padrão criados pela Central de Segurança?

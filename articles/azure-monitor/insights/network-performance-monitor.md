@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: vinigam
-ms.openlocfilehash: 29826f7f842f8dfbd7cd2a754c919f06542a161c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5d5a9e07c28ab3059872f4d187c96586456a200
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401803"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916753"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução do Monitor de Desempenho de Rede no Azure
 
@@ -263,8 +263,8 @@ Se você for um usuário NPM de criar um alerta por meio do portal do Azure:
 3. Se optar por usar grupos de ação, você precisará selecionar um grupo criado anteriormente. Você pode aprender a criar um grupo de ação [aqui.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
 4. Quando o alerta for criado com êxito, você poderá usar o link Gerenciar Alertas para gerenciar seus alertas. 
 
-Cada vez que você cria um alerta, o NPM cria uma regra de alerta de log de consulta com base no Azure Monitor. Essa consulta é disparada a cada 5 minutos por padrão. O monitor do Azure não cobra pelas primeiras 250 regras de alerta criadas de log e quaisquer regras de alerta acima limitam de 250 regras de alerta de log serão cobradas de acordo com os [alertas de preços na página de preços do Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/).
-As notificações são cobradas separadamente de acordo com as [notificações de preços na página de preço do Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+Cada vez que você cria um alerta, o NPM cria uma regra de alerta de log de consulta com base no Azure Monitor. Essa consulta é disparada a cada 5 minutos por padrão. O monitor do Azure não cobra pelas primeiras 250 regras de alerta criadas de log e quaisquer regras de alerta acima limitam de 250 regras de alerta de log serão cobradas de acordo com os [alertas de preços na página de preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
+As notificações são cobradas separadamente de acordo com as [notificações de preços na página de preço do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 
 ## <a name="pricing"></a>Preços

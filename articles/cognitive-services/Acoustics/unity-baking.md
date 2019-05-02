@@ -10,18 +10,18 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 8875674b0f9c621a573dda591b4dc2b6f018a83c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2f0fcdcdf781c86179b67eeef0223d46da0fc65b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790222"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916996"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Tutorial de bake do Projeto Acústico do Unity
 Este tutorial descreve a preparação de acústica com o Projeto Acústico no Unity.
 
 Requisitos de software:
-* [Unity 2018.2+](http://unity3d.com) para Windows
+* [Unity 2018.2+](https://unity3d.com) para Windows
 * [Plugin do Projeto Acústico integrado em seu projeto do Unity](unity-integration.md) ou o [conteúdo de exemplo do Projeto Acústico do Unity](unity-quickstart.md)
 * Opcional: Uma [conta do Lote do Azure](create-azure-account.md) para acelerar os bakes usando a computação em nuvem
 

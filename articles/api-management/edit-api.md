@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/08/2017
 ms.author: apimpm
-ms.openlocfilehash: b39259fcfc93cb0a2a1a2dc600e5235da8cc6930
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6f1a0cf6025cb3a398ab93320c6fcb69b1e62429
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488944"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60557988"
 ---
 # <a name="edit-an-api"></a>Editar uma API
 
@@ -27,7 +27,7 @@ As etapas neste tutorial mostram como usar o APIM (Gerenciamento de API) para ed
 + Você pode fazer isso adicionando, excluindo ou renomeando operações na instância de APIM. 
 + Você pode editar o swagger da API.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 + [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md)
 + [Importar e publicar sua primeira API](import-and-publish.md)

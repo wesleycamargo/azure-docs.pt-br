@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
 ms.openlocfilehash: d7d4aa89c4dcf2ac9cc0c393e0481cae1f3aeaf2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58847011"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776045"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Fontes de dados do agente no Azure Monitor
 Os dados coletados pelo Azure Monitor dos agentes são definidos pelas fontes de dados configuradas.  Os dados dos agentes são armazenados como [dados de log](data-platform-logs.md) com um conjunto de registros.  Cada fonte de dados cria registros de um determinado tipo com cada tipo de tendo seu próprio conjunto de propriedades.
@@ -61,7 +61,7 @@ Se o agente não puder se conectar ao Azure Monitor nem ao Operations Manager, e
 ## <a name="log-records"></a>Registros de log
 Todos os dados de log coletados pelo Azure Monitor são armazenados no workspace como registros.  Registros coletados por diferentes fontes de dados terão seu próprio conjunto de propriedades e serão identificados por sua propriedade **Type** .  Consulte a documentação para cada fonte de dados e a solução para obter detalhes sobre cada tipo de registro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 * Conheça as [soluções de monitoramento](../insights/solutions.md) que adicionam funcionalidades ao Azure Monitor e também coletam dados no workspace.
 * Saiba mais sobre as [consultas de log](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções de monitoramento.  
 * Configure [alertas](alerts-overview.md) para notificá-lo de forma proativa sobre dados críticos coletados de fontes de dados e soluções de monitoramento.

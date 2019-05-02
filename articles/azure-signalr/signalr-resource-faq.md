@@ -6,19 +6,19 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 09788f4ded66b43fd5ecae20301a28cd01d77320
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e9e41ffa335aa95b139a5d5658424c1c5915b569
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554827"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64914950"
 ---
 # <a name="azure-signalr-service-faq"></a>Perguntas frequentes sobre o Serviço do Azure SignalR
 
 ## <a name="is-azure-signalr-service-ready-for-production-use"></a>O Serviço do Azure SignalR está pronto para uso em produção?
 
 Sim.
-Para nosso comunicado de disponibilidade geral, confira [Serviço do Azure SignalR agora disponível](https://azure.microsoft.com/en-us/blog/azure-signalr-service-now-generally-available/). 
+Para nosso comunicado de disponibilidade geral, confira [Serviço do Azure SignalR agora disponível](https://azure.microsoft.com/blog/azure-signalr-service-now-generally-available/). 
 
 O [ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction) é totalmente compatível.
 

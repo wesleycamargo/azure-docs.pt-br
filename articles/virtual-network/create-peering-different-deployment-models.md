@@ -3,8 +3,8 @@ title: Criar um emparelhamento de rede virtual do Azure – modelos de implanta�
 description: Saiba como criar um emparelhamento de rede virtual entre redes virtuais criadas com modelos de implantação diferentes que existem na mesma assinatura do Azure.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2018
-ms.author: jdial;anavin
-ms.openlocfilehash: 4aa6fe901a49f4618b4844f9f5d2a94903d49cbd
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.author: kumud;anavin
+ms.openlocfilehash: 56474ee56051c3b0b7482e81b0174b7945537654
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652358"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694723"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Criar um emparelhamento de rede virtual – modelos de implantação diferentes e na mesma assinatura
 
@@ -50,7 +50,7 @@ Você pode usar o portal do Azure, a CLI ([interface de linha de comando](#cli))
     - **Nome da sub-rede**: *padrão*
     - **Intervalo de endereços da sub-rede**: *10.0.0.0/24*
     - **Assinatura**: Selecione sua assinatura
-    - **Grupo de recursos**: Selecione Criar novo e insira *myResourceGroup*
+    - **Grupo de recursos**: Selecione **Criar novo** e insira *myResourceGroup*
     - **Localização**: *Leste dos EUA*
 4. Clique em **+ Novo**. No campo **Pesquisar no Marketplace**, digite *Rede virtual*. Clique em **Rede virtual** quando essa opção aparecer entre os resultados da pesquisa.
 5. Na folha **Rede virtual**, selecione **Clássico** na caixa **Selecionar um modelo de implantação** e clique em **Criar**.

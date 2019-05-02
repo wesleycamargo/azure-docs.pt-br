@@ -1,7 +1,6 @@
 ---
 title: 'Início Rápido: Criar um cluster Spark no HDInsight usando um modelo'
 description: Este início rápido mostra como usar o modelo do Resource Manager para criar um cluster Apache Spark no Azure HDInsight e executar uma consultas simples do Spark SQL.
-services: azure-hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 16ec2f52a3272e774f4743ec730e0b1184d8fb53
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 74c5fcfabe0f24127c4eddb3a019f8ea5debe453
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225630"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714336"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-template"></a>Início Rápido: Criar um cluster do Apache Spark no HDInsight usando um modelo
 

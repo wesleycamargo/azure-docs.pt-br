@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 0ea34fe4862941bde882b3ea8ed5dbaa111ac742
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 9b86df3d08ec6dfcb3100cff333c4dc5653ee1c7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731501"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688353"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook para alertas de log de atividades do Azure
 Como parte da definição de um grupo de ações, você pode configurar pontos de extremidade de webhook para receber notificações de alerta do log de atividades. Os webhooks permitem rotear uma notificação de alerta do Azure para outros sistemas para pós-processamento ou notificações personalizadas. Este artigo mostra a aparência do conteúdo para o HTTP POST para um webhook.
@@ -21,6 +21,10 @@ Como parte da definição de um grupo de ações, você pode configurar pontos d
 Para saber mais sobre alertas do log de atividades, veja como [Criar alertas do log de atividades do Azure](activity-log-alerts.md).
 
 Para saber mais sobre grupos de ações, veja como [criar grupos de ações](../../azure-monitor/platform/action-groups.md).
+
+> [!NOTE]
+> Você também pode usar o [esquema de alerta comum](https://aka.ms/commonAlertSchemaDocs), que fornece a vantagem de ter um único extensível e conteúdo de alerta unificado em todo o alerta de serviços no Azure Monitor para suas integrações de webhook. [Saiba mais sobre as definições de alerta de esquema comuns.](https://aka.ms/commonAlertSchemaDefinitions)
+
 
 ## <a name="authenticate-the-webhook"></a>Autenticar o webhook
 Opcionalmente, o webhook pode usar a autorização baseada em token para autenticação. O URI do webhook é salvo com uma ID de token, por exemplo, `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`.
@@ -173,15 +177,15 @@ Para obter detalhes de esquema específico em todos os outros alertas do log de 
 | conditionType |Sempre "Evento". |
 | Nome |Nome da regra de alerta. |
 | ID |ID do recurso do alerta. |
-| Descrição |Descrição do alerta definida quando o alerta é criado. |
+| description |Descrição do alerta definida quando o alerta é criado. |
 | subscriptionId |Id de assinatura do Azure. |
 |  timestamp |Hora quando o evento foi gerado pelo serviço do Azure que processou a solicitação. |
-| ResourceId |ID de recurso do recurso afetado. |
+| resourceId |ID de recurso do recurso afetado. |
 | resourceGroupName |Nome do grupo de recursos do recurso afetado. |
 | propriedades |Conjunto de pares `<Key, Value>` (ou seja, `Dictionary<String, String>`) que inclui detalhes sobre o evento. |
 | evento |Elemento que contém metadados sobre o evento. |
 | autorização |As propriedades de Controle de Acesso Baseado em Função do evento. Essas propriedades geralmente incluem a ação, função e escopo. |
-| categoria |Categoria do evento. Os valores com suporte são: Administrativo, Alerta, Segurança, ServiceHealth e Recomendação. |
+| category |Categoria do evento. Os valores com suporte são: Administrativo, Alerta, Segurança, ServiceHealth e Recomendação. |
 | chamador |Endereço de email do usuário que realizou a operação, declaração UPN ou declaração SPN com base na disponibilidade. Pode ser nulo para determinadas chamadas do sistema. |
 | correlationId |Geralmente um GUID no formato de cadeia de caracteres. Eventos com correlationId pertencem à mesma ação maior e geralmente compartilham uma correlationId. |
 | eventDescription |Descrição de texto estático do evento. |

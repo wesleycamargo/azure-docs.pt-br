@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a559191bb4e84b3b60529bf20a25e381c72f42a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 845ca13bdd8e3677f559bac373efa078f3b951be
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840929"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920362"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Tutorial: Integração do Azure Active Directory ao TOPdesk – Secure
 
@@ -180,7 +180,7 @@ Para configurar o logon único do Azure AD com o TOPdesk – Secure, execute as 
 
     b. Para carregar o arquivo de certificado, em **Certificado (RSA)**, clique em **Procurar**.
 
-    c. Para **chave privada (RSA, PKCS8, DER)**, você pode carregar sua própria chave privada ou contatar [TOPdesk - equipe de suporte do Secure Client](http://www.topdesk.com/us/support) para obter a chave privada.
+    c. Para **chave privada (RSA, PKCS8, DER)**, você pode carregar sua própria chave privada ou contatar [TOPdesk - equipe de suporte do Secure Client](https://www.topdesk.com/us/support) para obter a chave privada.
 
     d. Para carregar o arquivo de logotipo que você recebeu da equipe de suporte do TOPdesk, em **Ícone do logotipo**, clique em **Procurar**.
 
@@ -188,7 +188,7 @@ Para configurar o logon único do Azure AD com o TOPdesk – Secure, execute as 
 
     f. Na caixa de texto **Nome de exibição** , digite um nome para a sua configuração.
 
-    g. Clique em **Salvar**.
+    g. Clique em **Save** (Salvar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -208,7 +208,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -266,7 +266,7 @@ No caso do TOPdesk - Secure, o provisionamento é uma tarefa manual.
 
     d. Na caixa de texto **Nome de Logon** da seção **Logon no TOPdesk**, digite um nome de logon para o usuário.
 
-    e. Clique em **Salvar**.
+    e. Clique em **Save** (Salvar).
 
 > [!NOTE]
 > É possível usar qualquer outra ferramenta de criação da conta de usuário do TOPdesk - Secure ou APIs fornecidas pelo TOPdesk - Secure para provisionar as contas de usuário do AAD.

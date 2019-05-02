@@ -2,24 +2,17 @@
 title: Serviços Go-To-Market – práticas recomendadas para listagem de ofertas | Azure
 description: Serviços Go-To-Market – esta seção descreve as práticas recomendadas para listagem de uma oferta
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: e5db2f340917705ec29f7b6db4de40914c66efcd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c06a338ec041c83588c3ee5126795b8c445ef469
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57863926"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937979"
 ---
 # <a name="offer-listing-best-practices"></a>Práticas recomendadas de listagem de ofertas
 
@@ -35,7 +28,7 @@ As tabelas nesta seção fornecem sugestões para a criação de ofertas de mark
 | Configuração de vitrine | Melhor prática |
 |:--- |:--- |  
 | Setores: Aplicativos do AppSource e serviços de consultoria apenas | Selecione setores se sua oferta atender a necessidades específicas do setor: <ul><li> Chame recursos específicos do setor na descrição de sua oferta.</li> </ul> **Observação**: O número máximo de opções varia de acordo com o tipo de oferta e é indicado no [Portal Cloud Partner](https://cloudpartner.azure.com/#insights). |
-| Categorias | Selecione as categorias que melhor se alinhem com sua oferta:<br> <ul> <li> Escolha as categorias com cuidado, porque os clientes as usam para pesquisar aplicativos relevantes. </li> <li> Lembre-se de como sua oferta oferece suporte a necessidades específicas de categoria na descrição da oferta. </li> </ul> **Observação**: O número máximo de opções varia de acordo com o tipo de oferta e é indicado no [Portal Cloud Partner](https://cloudpartner.azure.com/#insights). |
+| Categories | Selecione as categorias que melhor se alinhem com sua oferta:<br> <ul> <li> Escolha as categorias com cuidado, porque os clientes as usam para pesquisar aplicativos relevantes. </li> <li> Lembre-se de como sua oferta oferece suporte a necessidades específicas de categoria na descrição da oferta. </li> </ul> **Observação**: O número máximo de opções varia de acordo com o tipo de oferta e é indicado no [Portal Cloud Partner](https://cloudpartner.azure.com/#insights). |
 | Produtos com os quais seu aplicativo funciona (no máx. 3): Somente aplicativos do AppSource | Listar produtos e tecnologias adicionais que sua solução usa ou estende. Por exemplo, Hub IoT do Azure ou Aprendizado de Máquina do Azure. |
 | Palavras-chave para pesquisa (no máx. 3) | Palavras-chave para pesquisa podem ajudar os usuários empresariais a encontrar sua oferta ao pesquisar <ul> <li> no Azure Marketplace </li> <li> no AppSource </li> <li> usando mecanismos de pesquisa </li> </ul> Para que sua listagem apareça nessas pesquisas, você precisa: <ul> <li> Identificar as três principais palavras-chave de pesquisa para sua oferta; </li> <li> incorporar as palavras-chave de pesquisa no resumo da oferta e em sua descrição; </li> <li> listar as palavras-chave de pesquisa aqui. </li> </ul> |
 

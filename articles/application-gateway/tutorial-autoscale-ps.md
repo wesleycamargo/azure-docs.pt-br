@@ -8,19 +8,16 @@ ms.topic: tutorial
 ms.date: 2/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 616a710237c31ef2b4a19c3e1e61838164a78530
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 8ee43a54df019b862d1f8698363d8b0a022bdcb4
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308560"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947143"
 ---
 # <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Tutorial: Criar um gateway de aplicativo que melhora o acesso a aplicativos Web
 
 Se você for um administrador de TI preocupado com o aprimoramento do acesso a aplicativos Web, será possível otimizar o gateway de aplicativo para dimensionar com base na demanda do cliente e abranger várias zonas de disponibilidade. Este tutorial ajuda você a configurar os recursos do Gateway de Aplicativo do Azure que fazem: dimensionamento automático, redundância de zona e VIPs reservados (IP estático). Você usará os cmdlets do Azure PowerShell e o modelo de implantação do Azure Resource Manager para solucionar o problema.
-
-> [!IMPORTANT] 
-> O dimensionamento automático e o gateway de aplicativo com redundância de zona SKU está atualmente em visualização pública. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes. 
 
 Neste tutorial, você aprenderá como:
 

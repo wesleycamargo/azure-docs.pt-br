@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 9e6bc1264e668ba5c6593ce36e721f54e685c391
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b144f126e097a8db9fbbf29e47162fd6a1c2fbe
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461248"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916830"
 ---
 # <a name="what-is-speech-to-text"></a>O que é a conversão de fala em texto?
 
-Conversão de fala em texto fala dos serviços do Azure, também conhecido como conversão de fala em texto, habilita a transcrição em tempo real de fluxos de áudio em texto que podem consumir seus aplicativos, ferramentas ou dispositivos, exibir e agir como entrada de comando. Esse serviço estiver usando a mesma tecnologia de reconhecimento que a Microsoft usa para produtos Cortana e do Office e funciona perfeitamente com o texto em fala e conversão.  Para obter uma lista completa de idiomas de fala em texto disponíveis, consulte [idiomas com suporte](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#speech-to-text).
+Conversão de fala em texto fala dos serviços do Azure, também conhecido como conversão de fala em texto, habilita a transcrição em tempo real de fluxos de áudio em texto que podem consumir seus aplicativos, ferramentas ou dispositivos, exibir e agir como entrada de comando. Esse serviço estiver usando a mesma tecnologia de reconhecimento que a Microsoft usa para produtos Cortana e do Office e funciona perfeitamente com o texto em fala e conversão.  Para obter uma lista completa de idiomas de fala em texto disponíveis, consulte [idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
 
 Por padrão, o serviço de fala em texto usa o modelo de linguagem Universal. Esse modelo foi treinado usando dados de propriedade da Microsoft e é implantado na nuvem. Ele é ideal para o formato de conversação e cenários de ditado. Se estiver usando a conversão de fala em texto para funcionalidades de reconhecimento e transcrição em um ambiente exclusivo, você poderá criar e treinar modelos acústicos, de idioma e de pronúncia personalizados para lidar com o ruído ambiente ou vocabulário específico do setor. 
 
@@ -107,7 +107,7 @@ Se seus aplicativos, ferramentas ou produtos estiver usando as APIs de fala do B
 * [API REST: conversão de texto em fala](rest-text-to-speech.md)
 * [API REST: transcrição e personalização em lote](https://westus.cris.ai/swagger/ui/index)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Obter gratuitamente uma chave de assinatura do Serviço de Fala](get-started.md)
 * [Obtenha o SDK da fala](speech-sdk.md)

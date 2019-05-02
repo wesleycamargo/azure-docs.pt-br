@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: a41bdda303c9e636929fba00a2fe4279002e42b3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6c3a7a8644e0e391f8817a7ae3a4cb9b8af5dab7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280750"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920358"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Tutorial: Integração do Azure Active Directory com o Wingspan eTMF
 
@@ -112,7 +112,7 @@ Para configurar o logon único do Azure AD com o Wingspan eTMF, execute as segui
     c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<customer name>.<instance name>.mywingspan.com/`
 
     > [!NOTE]
-    > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Contate a [equipe de suporte do Cliente Wingspan eTMF](http://www.wingspan.com/contact-us/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Contate a [equipe de suporte do Cliente Wingspan eTMF](https://www.wingspan.com/contact-us/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 5. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -130,7 +130,7 @@ Para configurar o logon único do Azure AD com o Wingspan eTMF, execute as segui
 
 ### <a name="configure-wingspan-etmf-single-sign-on"></a>Configurar o logon único do Wingspan eTMF
 
-Para configurar o logon único no lado do **Wingspan eTMF**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Wingspan eTMF](http://www.wingspan.com/contact-us/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Wingspan eTMF**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Wingspan eTMF](https://www.wingspan.com/contact-us/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -184,7 +184,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 ### <a name="create-wingspan-etmf-test-user"></a>Criar um usuário de teste do Wingspan eTMF
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no Wingspan eTMF. Trabalhe com a  [equipe de suporte do Wingspan eTMF](http://www.wingspan.com/contact-us/) para adicionar os usuários na plataforma Wingspan eTMF. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Wingspan eTMF. Trabalhe com a  [equipe de suporte do Wingspan eTMF](https://www.wingspan.com/contact-us/) para adicionar os usuários na plataforma Wingspan eTMF. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="test-single-sign-on"></a>Testar logon único 
 

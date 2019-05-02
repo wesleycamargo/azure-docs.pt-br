@@ -14,20 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: a7b61ba05aea817d65e7cac991ad460d708a5ea7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 378a90b712af031f9d89758939afb993cee5aafd
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60873403"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869501"
 ---
 # <a name="how-to-check-job-progress"></a>Como verificar o andamento do trabalho
-> [!div class="op_single_selector"]
-> * [Portal](media-services-portal-check-job-progress.md)
-> * [.NET](media-services-check-job-progress.md)
-> * [REST](media-services-rest-check-job-progress.md)
-> 
-> 
+
+> [!NOTE]
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [diretrizes de migração da v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Quando você executa trabalhos, geralmente precisa de uma maneira de acompanhar o andamento do trabalho. Você pode descobrir o status do trabalho, usando a propriedade de estado do trabalho. Para obter mais informações sobre a propriedade de Estado, consulte [Propriedades de entidade de trabalho](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties).
 

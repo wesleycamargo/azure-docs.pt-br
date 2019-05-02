@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: kumud
-ms.openlocfilehash: 0a5bbc0bb4b934ae9e60cbd8233b5efbae2a6e6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 88acfebcc6dd8489703014d790f09313ab9302ec
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60236611"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939900"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Perguntas frequentes sobre Análise de Tráfego
 
@@ -241,7 +241,7 @@ Por exemplo, de acordo o [plano de preços](https://azure.microsoft.com/pricing/
 
 ## <a name="how-frequently-does-traffic-analytics-process-data"></a>A frequência com que a análise de tráfego de processar dados?
 
-Consulte a [seção de agregação de dados](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics-schema#data-aggregation) no documento de agregação de dados e esquema da análise de tráfego
+Consulte a [seção de agregação de dados](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) no documento de agregação de dados e esquema da análise de tráfego
 
 ## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Como a análise de tráfego decide que um IP é mal-intencionado? 
 
@@ -253,14 +253,14 @@ Análise de tráfego não tem suporte interno para alertas. No entanto, como dad
 - Você pode usar o link para o Log Analytics na análise de tráfego. 
 - Use o [esquema documentado aqui](traffic-analytics-schema.md) escrever suas consultas 
 - Clique em "Nova regra de alerta" para criar o alerta
-- Consulte a [documentação de alertas de log](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log) para criar o alerta
+- Consulte a [documentação de alertas de log](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) para criar o alerta
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Como posso navegar usando o teclado na vista de mapa geográfico?
 
 A página do mapa geográfico contém duas seções principais:
     
-- **Faixa**: A faixa na parte superior do mapa geográfico fornece botões para seleção de filtros de distribuição de tráfego (por exemplo, Implantação, Tráfego de países e Mal-intencionado). Quando você seleciona um botão, o respectivo filtro é aplicado no mapa. Por exemplo, se você selecionar o botão Ativo, o mapa destacará os datacenters ativos em sua implantação.
-- **Mapa**: Abaixo da faixa, a seção do mapa mostra a distribuição de tráfego entre os países e os datacenters do Azure.
+- **Faixa**: A faixa na parte superior do mapa geográfico fornece botões para selecionar os filtros de distribuição de tráfego (por exemplo, implantação, o tráfego de países/regiões e mal-intencionado). Quando você seleciona um botão, o respectivo filtro é aplicado no mapa. Por exemplo, se você selecionar o botão Ativo, o mapa destacará os datacenters ativos em sua implantação.
+- **Mapa**: Abaixo da faixa, a seção de mapa mostra a distribuição de tráfego entre os datacenters do Azure e países/regiões.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navegação do teclado no banner
     

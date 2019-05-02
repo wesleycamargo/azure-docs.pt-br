@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bc4118e54b2049f7e5d6cf4ed3b92bfc5e41ae7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 011991a3951adde9a0d062b40584caa74d172023
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904943"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918731"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-domo"></a>Tutorial: integração do Azure Active Directory ao Domo
 
@@ -156,7 +156,7 @@ Para configurar o logon único do Azure AD com o Domo, execute as seguintes etap
 
     f. Clique em **Ok**
 
-    g. Clique em **Salvar**.
+    g. Clique em **Save** (Salvar).
 
 7. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -174,7 +174,7 @@ Para configurar o logon único do Azure AD com o Domo, execute as seguintes etap
 
 ### <a name="configure-domo-single-sign-on"></a>Configurar o logon único do Domo
 
-Para configurar logon único no **Domo**, navegue para o artigo da Base de Dados de Conhecimento do Domo localizado [aqui](http://knowledge.domo.com?cid=azuread), e siga as instruções.
+Para configurar logon único no **Domo**, navegue para o artigo da Base de Dados de Conhecimento do Domo localizado [aqui](https://knowledge.domo.com?cid=azuread), e siga as instruções.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -194,7 +194,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

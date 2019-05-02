@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 96656da078b79474dbf6576455a485d17868db49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fecf6759dd7b277dda10fa2656e6ae9407490370
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406566"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922974"
 ---
 # <a name="monitor-azure-functions"></a>Monitorar Azure Functions
 
 [O Azure Functions](functions-overview.md) oferece integração interna com [do Azure Application Insights](../azure-monitor/app/app-insights-overview.md) para monitorar funções. Este artigo mostra como configurar o Azure Functions para enviar arquivos de log gerados pelo sistema para o Application Insights.
 
-É recomendável usar o Application Insights porque ela coleta dados de erros, desempenho e log. Automaticamente detecta anomalias de desempenho e inclui ferramentas de análise avançadas para ajudar a diagnosticar problemas e entender como suas funções são usadas. Ele foi projetado para ajudar você a aprimorar continuamente o desempenho e a usabilidade do seu aplicativo. Você pode até usar o Application Insights durante o desenvolvimento de projeto de aplicativo de função local. Para obter mais informações, consulte [o que é o Application Insights?](../azure-monitor/app/app-insights-overview.md)
+É recomendável usar o Application Insights porque ela coleta dados de erros, desempenho e log. Automaticamente detecta anomalias de desempenho e inclui ferramentas de análise avançadas para ajudar a diagnosticar problemas e entender como suas funções são usadas. Ele foi projetado para ajudar você a aprimorar continuamente o desempenho e a usabilidade do seu aplicativo. Você pode até usar o Application Insights durante o desenvolvimento de projeto de aplicativo de função local. Para obter mais informações, consulte [o que é o Application Insights?](../azure-monitor/app/app-insights-overview.md).
 
 Como a instrumentação do Application Insights necessária está incorporada ao Azure Functions, tudo o que você precisa é uma chave de instrumentação válido para conectar seu aplicativo de funções a um recurso do Application Insights.
 
@@ -626,7 +626,7 @@ Isso conecta seu aplicativo no log de serviço de streaming e os logs de aplicat
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Você pode habilitar os logs de streaming usando o [Interface de linha de comando do Azure (CLI)](/cli/azure/install-azure-cli). A CLI do Azure, use os comandos a seguir para entrar, escolha sua assinatura e os arquivos de log de fluxo:
+Você pode habilitar os logs de streaming usando o [CLI do Azure](/cli/azure/install-azure-cli). Use os comandos a seguir para entrar, escolha sua assinatura e os arquivos de log de fluxo:
 
 ```azurecli
 az login

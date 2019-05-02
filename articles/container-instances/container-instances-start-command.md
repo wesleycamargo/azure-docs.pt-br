@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 78136a081e52ef3f12d672d01449ce616534462e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: da94a4c79694f511d41e5c8dda8c786fc7049726
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60537642"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64569641"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Defina a linha de comando em uma instância de contêiner para substituir a operação de linha de comando padrão
 
@@ -24,7 +24,15 @@ Como definir [variáveis de ambiente](container-instances-environment-variables.
 
 * Por padrão, a linha de comando Especifica um *único processo que é iniciado sem um shell* no contêiner. Por exemplo, a linha de comando pode executar um script Python ou o arquivo executável. 
 
-* Para executar vários comandos, começar sua linha de comando, definindo um ambiente de shell no sistema de operacional do contêiner (exemplos: `bin/sh`, `/bin/bash`, `cmd`). Siga as convenções do shell para combinar vários comandos para serem executados em sequência.
+* Para executar vários comandos, comece a sua linha de comando, definindo um ambiente de shell que é compatível com o sistema operacional do contêiner. Exemplos:
+
+  |Sistema operacional  |Shell padrão  |
+  |---------|---------|
+  |Ubuntu     |   `/bin/bash`      |
+  |Alpine     |   `/bin/sh`      |
+  | Windows     |    `cmd`     |
+
+  Siga as convenções do shell para combinar vários comandos para serem executados em sequência.
 
 * Dependendo da configuração de contêiner, você talvez precise definir um caminho completo para o executável de linha de comando ou argumentos.
 

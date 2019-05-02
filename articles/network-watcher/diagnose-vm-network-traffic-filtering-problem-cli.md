@@ -3,8 +3,8 @@ title: Diagnosticar um problema de filtro de tráfego de rede de máquina virtua
 description: Neste início rápido, você aprende a diagnosticar um problema no filtro de tráfego de rede da máquina virtual usando a funcionalidade de verificação de fluxo de IP do Observador de Rede do Azure.
 services: network-watcher
 documentationcenter: network-watcher
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
@@ -15,16 +15,16 @@ ms.topic: quickstart
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 2fd297cbbb3d4471d3f03f0fb098bea395482cf9
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 460513e4818cbef8fca0cd1b84d69b3021afaab7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749169"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690440"
 ---
-# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Início rápido: diagnosticar um problema de filtro de tráfego de rede de máquina virtual – CLI do Azure
+# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Início Rápido: diagnosticar um problema de filtro de tráfego de rede de máquina virtual – CLI do Azure
 
 Neste início rápido você implanta uma VM (máquina virtual ) e, em seguida, verifica a comunicação com um endereço IP e uma URL e de um endereço IP. Você determina a causa de uma falha de comunicação e como resolvê-la.
 

@@ -59,7 +59,7 @@
     - name: Controle de Alterações
       items:
         - name: Visão geral do Controle de Alterações
-          href: automation-change-tracking.md
+          href: change-tracking.md
           displayName: 'wildcard, recursion, environment variables, registry'
         - name: Exibir o conteúdo de arquivos rastreados
           href: change-tracking-file-contents.md

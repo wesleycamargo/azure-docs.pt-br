@@ -11,11 +11,11 @@ ms.date: 09/24/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 1697f479cf013f2ef94dd5a8a2fc637d72e6e18a
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549229"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60739856"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Meu primeiro runbook de Fluxo de Trabalho do PowerShell
 
@@ -208,7 +208,7 @@ No momento, o seu runbook inicia a máquina virtual que você codificou no runbo
 
 7. Quando o runbook for concluído, verifique se a máquina virtual foi iniciada.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para começar a usar os runbooks Gráficos, consulte [Meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
 * Para começar a usar os runbooks do PowerShell, veja [Meu primeiro runbook do PowerShell](automation-first-runbook-textual-powershell.md)

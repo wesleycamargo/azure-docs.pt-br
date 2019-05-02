@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 11/3/2018
 ms.author: victorh
 ms.openlocfilehash: b08eae072c2fbe420401424baf97a25b4cbbe87b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086319"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60790735"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Hospedar aplicativos da web do Azure com carga balanceada no apex da zona
 
@@ -30,7 +30,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Você deve ter um nome de domínio disponível para hospedar no DNS do Azure para testar. Você deve ter controle total sobre esse domínio. Controle total inclui a capacidade de definir os registros NS (nomes de servidor) para o domínio.
 
-Para obter instruções hospedar seu domínio no DNS do Azure, consulte [Tutorial: Hospede seu domínio no DNS do Azure](dns-delegate-domain-azure-dns.md).
+Para obter instruções para hospedar seu domínio no DNS do Azure, confira o [Tutorial: Hospede seu domínio no DNS do Azure](dns-delegate-domain-azure-dns.md).
 
 O domínio de exemplo usado neste tutorial é contoso.com, mas use seu próprio nome de domínio.
 
@@ -43,10 +43,10 @@ Crie um grupo de recursos para armazenar todos os recursos usados neste artigo.
 Crie dois planos do Serviço de Aplicativo da Web em seu grupo de recursos usando a tabela a seguir para obter informações de configuração. Para obter mais informações sobre como criar um plano do Serviço de Aplicativo, consulte [Gerenciar um plano do Serviço de Aplicativo no Azure](../app-service/app-service-plan-manage.md).
 
 
-|Nome  |Sistema operacional  |Localizaçãoização  |Tipo de Preço  |
+|NOME  |Sistema operacional  |Local padrão  |Camada de preços  |
 |---------|---------|---------|---------|
 |ASP-01     | Windows|Leste dos EUA|Dev / Teste D1-Compartilhado|
-|ASP-02     | Windows|EUA Central|Dev / Teste D1-Compartilhado|
+|ASP-02     | Windows|Centro dos EUA|Dev / Teste D1-Compartilhado|
 
 ## <a name="create-app-services"></a>Criar Serviços de Aplicativos
 
@@ -58,7 +58,7 @@ Crie dois aplicativos da web, um em cada plano do Serviço de Aplicativo.
 4. Clique em **Criar**.
 5. Aceite os padrões e use a tabela a seguir para configurar os dois aplicativos da Web:
 
-   |Nome<br>(deve ser exclusivo dentro do. azurewebsites.net)|Grupo de Recursos |Plano do serviço de aplicativo/localização
+   |NOME<br>(deve ser exclusivo dentro do. azurewebsites.net)|Grupo de recursos |Plano do serviço de aplicativo/localização
    |---------|---------|---------|
    |App-01|Uso existente<br>Selecione o grupo de recursos|ASP-01(East US)|
    |App-02|Uso existente<br>Selecione o grupo de recursos|ASP-02(Central US)|
@@ -87,10 +87,10 @@ Agora você pode criar os pontos de extremidade para os dois aplicativos web.
 3. Clique em **Adicionar**.
 4. Use a tabela a seguir para configurar os terminais:
 
-   |Digite  |Nome  |Destino  |Localizaçãoização  |Configurações de Cabeçalho Personalizado|
+   |Type  |NOME  |Destino  |Local padrão  |Configurações personalizadas de cabeçalho|
    |---------|---------|---------|---------|---------|
    |Ponto de extremidade externo     |Final-01|Endereço IP que você registrou para o App-01|Leste dos EUA|host:\<a URL que você registrou para o aplicativo 01\><br>Exemplo: **: o aplicativo host-01.azurewebsites.net**|
-   |Ponto de extremidade externo     |Final-02|Endereço IP que você registrou para o aplicativo-02|EUA Central|host:\<a URL que você registrou para o aplicativo-02\><br>Exemplo: **: o aplicativo host-02.azurewebsites.net**
+   |Ponto de extremidade externo     |Final-02|Endereço IP que você registrou para o aplicativo-02|Centro dos EUA|host:\<a URL que você registrou para o aplicativo-02\><br>Exemplo: **: o aplicativo host-02.azurewebsites.net**
 
 ## <a name="create-dns-zone"></a>Criar zona DNS
 
@@ -104,9 +104,9 @@ Quando sua zona DNS estiver pronta, você poderá adicionar um registro de alias
 2. Clique em **conjunto de registros**.
 3. Adicione o registro definido usando a tabela a seguir:
 
-   |Nome  |Digite  |Conjunto de registros de alias  |Tipo de alias  |Recurso do Azure|
+   |NOME  |Type  |Conjunto de registros de alias  |Tipo de alias  |Recursos do Azure|
    |---------|---------|---------|---------|-----|
-   |@     |A|Sim|Recurso do Azure|Gerenciador de tráfego - seu perfil|
+   |@     |O |Sim|Recursos do Azure|Gerenciador de tráfego - seu perfil|
 
 ## <a name="add-custom-hostnames"></a>Adicionar nomes de host personalizados
 

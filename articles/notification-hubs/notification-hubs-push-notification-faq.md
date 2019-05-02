@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 642e586371a0ce6abe362f8b10b54bfd8baff678
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 8af545f5700e90303562174a3c27cc5438b28e24
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998916"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925876"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Enviar notificações por push com Hubs de Notificação do Azure: Perguntas frequentes
 
@@ -218,7 +218,7 @@ Você pode também acessar programaticamente as métricas. Para obter mais infor
 [Tutorial de Push Seguro dos Hubs de Notificação]: https://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [Solução de problemas de Hubs de Notificação]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Métricas de Hubs de Notificação]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
-[Importação/Exportação de Registros]: https://docs.microsoft.com/en-us/azure/notification-hubs/export-modify-registrations-bulk
+[Importação/Exportação de Registros]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
 [Portal do Azure]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [Aplicativos Móveis]: https://azure.microsoft.com/services/app-service/mobile/

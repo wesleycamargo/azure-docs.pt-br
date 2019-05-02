@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 6da2b63b7a9c8dc490bd30bb02ae6e7d932b2f7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bdadd2ac5c7790f9e1da57de925bfba659a5890
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60595986"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916547"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Detalhes da coleta de dados para soluções de gerenciamento no Azure
 Este artigo inclui uma lista de [soluções de gerenciamento](solutions.md) disponíveis na Microsoft com links para a documentação detalhada.  Ele também fornece informações sobre o método e frequência de coleta de dados no Azure Monitor.  É possível usar as informações deste artigo para identificar as diferentes soluções disponíveis e compreender o fluxo de dados e os requisitos de conexão para diferentes soluções de gerenciamento. 
@@ -58,8 +58,8 @@ As explicações das colunas são as seguintes:
 | [Azure SQL Analytics (Visualização)](../../azure-monitor/insights/azure-sql.md) |  Windows | | | | | | 1 minuto |
 | [Backup](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | após a notificação |
 | [Capacidade e Desempenho (versão prévia)](../../azure-monitor/insights/capacity-performance.md) | Windows |&#8226; |&#8226; | | |&#8226; |na chegada |
-| [Controle de alterações](../../automation/automation-change-tracking.md) | Windows |&#8226; |&#8226; | | |&#8226; |[varia de acordo](../../automation/automation-change-tracking.md#change-tracking-data-collection-details) |
-| [Controle de alterações](../../automation/automation-change-tracking.md) |Linux |&#8226; | | | | |[varia de acordo](../../automation/automation-change-tracking.md#change-tracking-data-collection-details) |
+| [Controle de alterações](../../automation/change-tracking.md) | Windows |&#8226; |&#8226; | | |&#8226; |[varia de acordo](../../automation/change-tracking.md#change-tracking-data-collection-details) |
+| [Controle de alterações](../../automation/change-tracking.md) |Linux |&#8226; | | | | |[varia de acordo](../../automation/change-tracking.md#change-tracking-data-collection-details) |
 | [Contêineres](../../azure-monitor/insights/containers.md) | Windows e Linux | &#8226; | &#8226; |  |  |  | 3 minutos |
 | [Análise do Cofre de Chaves](../../azure-monitor/insights/azure-key-vault.md) | Windows | | | | | |após a notificação |
 | [Avaliação de malware](../../security-center/security-center-install-endpoint-protection.md) | Windows |&#8226; |&#8226; | | |&#8226; |por hora |

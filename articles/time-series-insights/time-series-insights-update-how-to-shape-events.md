@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: eb398ad621167ad9f9b245fb8aa98c6942b87668
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 344f3a8b1bdfb789251479baffeb4df15bbf2842
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557420"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64718370"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Formatar eventos com Versão Prévia do Azure Time Series Insights
 
@@ -110,7 +110,7 @@ No exemplo a seguir, há uma única mensagem do Hub IoT, em que a matriz externa
 
 A Versão Prévia do Time Series Insights une uma tabela (após o nivelamento) durante o tempo de consulta. A tabela inclui colunas adicionais, como **Tipo**. O exemplo a seguir demonstra como você pode [formatar](./time-series-insights-send-events.md#json) os dados de telemetria:
 
-| deviceId  | Tipo | L1 | L2 |  timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
+| deviceId  | Type | L1 | L2 |  timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | `FXXX` | Default_Type | REVOLT SIMULATOR | Sistema de Bateria | 2018-01-17T01:17:00Z |    1,0172575712203979 |    34,7 |
 | `FXXX` | LINE_DATA    REVOLT | SIMULADOR |    Sistema de Bateria |    2018-01-17T01:17:00Z | 2,445906400680542 |  49,2 |
@@ -129,6 +129,6 @@ No exemplo anterior, observe os seguintes pontos:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para colocar essas diretrizes em prática, confira [Sintaxe de consulta da Versão Prévia do Azure Time Series Insights](./time-series-insights-query-data-csharp.md). Você aprenderá mais sobre a sintaxe de consulta para a API REST de acesso a dados da Versão Prévia do Time Series Insights.
+- Para colocar essas diretrizes em prática, confira [Sintaxe de consulta da Versão Prévia do Azure Time Series Insights](./time-series-insights-query-data-csharp.md). Você aprenderá mais sobre a sintaxe de consulta para a API REST de acesso a dados da Versão Prévia do Time Series Insights.
 
-Para saber mais sobre formas JSON com suporte, confira [Formas JSON com suporte](./time-series-insights-send-events.md#json).
+- Para saber mais sobre formas JSON com suporte, confira [Formas JSON com suporte](./time-series-insights-send-events.md#json).

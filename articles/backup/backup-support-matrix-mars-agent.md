@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 3e2c6a550a9358656fd0870c7e785d131c5b6380
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9799914cdabf1f64fccfd6bfd891f9498b860e39
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894386"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922995"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para backup com o agente MARS (Serviços de Recuperação do Microsoft Azure)
 
@@ -24,14 +24,14 @@ Você pode usar o [serviço de Backup do Azure](backup-overview.md) para fazer b
 O Backup do Azure usa o agente MARS para fazer backup de dados de máquinas locais e VMs do Azure para um cofre de serviços de recuperação de backup no Azure. O agente do MARS pode:
 - Execute nas máquinas do Windows local para que eles podem fazer backup diretamente em um cofre de serviços de recuperação de backup no Azure.
 - Execute em VMs do Windows para que eles podem fazer backup diretamente em um cofre.
-- Executado no servidor de Backup do Microsoft Azure (MABS) ou um servidor do System Center Data Protection Manager (DPM). Nesse cenário, computadores e cargas de trabalho de backup em MABS ou para o servidor DPM. O agente de MARS, em seguida, faz backup nesse servidor em um cofre no Azure. 
+- Executado no servidor de Backup do Microsoft Azure (MABS) ou um servidor do System Center Data Protection Manager (DPM). Nesse cenário, computadores e cargas de trabalho de backup em MABS ou para o servidor DPM. O agente de MARS, em seguida, faz backup nesse servidor em um cofre no Azure.
 
 As opções de backup dependem de onde o agente está instalado. Para obter mais informações, consulte [arquitetura de Backup do Azure usando o agente do MARS](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders). Para obter informações sobre a arquitetura de backup MABS e o DPM, consulte [fazer backup de DPM ou MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Consulte também [requisitos de](backup-support-matrix-mabs-dpm.md) para a arquitetura de backup.
 
 **Instalação** | **Detalhes**
 --- | ---
 Baixe o agente de MARS mais recente | Você pode baixar do cofre a versão mais recente do agente ou [baixá-lo diretamente](https://aka.ms/azurebackup_agent).
-Instalar diretamente em um computador | Você pode instalar o agente do MARS diretamente em um servidor do Windows local ou em uma VM do Windows que está executando qualquer um dos [sistemas operacionais com suporte](https://docs.microsoft.com/en-us/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
+Instalar diretamente em um computador | Você pode instalar o agente do MARS diretamente em um servidor do Windows local ou em uma VM do Windows que está executando qualquer um dos [sistemas operacionais com suporte](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
 Instalar em um servidor de backup | Quando você configura o DPM ou MABS para fazer backup no Azure, você baixa e instala o agente MARS no servidor. Você pode instalar o agente em [sistemas operacionais com suporte](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) na matriz de suporte do servidor de backup.
 
 > [!NOTE]
@@ -45,8 +45,8 @@ Quando você usa o agente MARS para fazer backup de dados, o agente tira um inst
 
 **Cache** | **Detalhes**
 --- | ---
-Tamanho |  Espaço livre na pasta de cache deve ser pelo menos de 5 a 10 por cento do tamanho geral dos seus dados de backup. 
-Local padrão | A pasta de cache deve ser armazenada localmente no computador que está sendo feito backup, e ele deve estar online. A pasta de cache não deve ser um compartilhamento de rede, mídia removível ou em um volume offline. 
+Tamanho |  Espaço livre na pasta de cache deve ser pelo menos de 5 a 10 por cento do tamanho geral dos seus dados de backup.
+Local padrão | A pasta de cache deve ser armazenada localmente no computador que está sendo feito backup, e ele deve estar online. A pasta de cache não deve ser um compartilhamento de rede, mídia removível ou em um volume offline.
 Pasta | A pasta de cache deve ser criptografada em um volume com eliminação de duplicação ou em uma pasta que é compactado, que é esparsa ou que tem uma nova análise de ponto.
 Alterações de localização | Você pode alterar o local do cache, interrompendo o mecanismo de backup (`net stop bengine`) e copiar a pasta de cache para uma nova unidade. (Certifique-se que a nova unidade tem espaço suficiente.) Em seguida, atualize as duas entradas do registro em **Backup do Azure HKLM\SOFTWARE\Microsoft\Windows** (**Config/ScratchLocation** e **CloudBackupProvider/Config/ScratchLocation**) para o novo local e reinicie o mecanismo.
 
@@ -103,9 +103,9 @@ Windows 7   | 1.700 GB
 
 ## <a name="supported-file-types-for-backup"></a>Tipos de arquivo compatíveis para backup
 
-**Tipo** | **Suporte** 
---- | --- 
-Criptografado   |  Com suporte. 
+**Tipo** | **Suporte**
+--- | ---
+Criptografado   |  Com suporte.
 Compactado |  Com suporte.
 Esparsos |  Com suporte.
 Compactados e esparsos |  Com suporte.
@@ -114,7 +114,7 @@ Ponto de nova análise   | Sem suporte. Ignorado.
 Criptografados e esparsos |  Sem suporte. Ignorado.
 Fluxo compactado   | Sem suporte. Ignorado.
 Fluxo esparso   | Sem suporte. Ignorado.
-OneDrive (arquivos sincronizados são fluxos esparsos)  | Sem suporte. 
+OneDrive (arquivos sincronizados são fluxos esparsos)  | Sem suporte.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Com suporte de unidades ou volumes no backup
 

@@ -3,19 +3,19 @@ title: Tutorial – Permitir acesso a uma API Web do Node.js de um aplicativo da
 description: Tutorial sobre como usar o Active Directory B2C para proteger uma API Web Node.js e chamá-la de um aplicativo de desktop .NET.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.author: davidmu
 ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 90a6a88ff0dc5aab1163e471b24cd1d00e548a1b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: ef48c0f78083217581594b481b15a74a49fef4f9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755111"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64715848"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutorial: Permitir acesso a uma API Web do Node.js de um aplicativo da área de trabalho usando o Azure Active Directory B2C
 
@@ -52,13 +52,13 @@ Os recursos da API Web precisam ser registrados no seu locatário antes de poder
 
 ## <a name="configure-scopes"></a>Configurar escopos
 
-Escopos fornecem uma maneira de controlar o acesso a recursos protegidos. Escopos são usados pela API Web para implementar o controle de acesso com base em escopo. Por exemplo, alguns usuários podem ter acesso de leitura e gravação, enquanto outros usuários podem ter permissões somente leitura. Neste tutorial, você define as permissões de leitura para a API Web.
+Os escopos fornecem uma maneira de controlar o acesso a recursos protegidos. Escopos são usados pela API Web para implementar o controle de acesso com base em escopo. Por exemplo, alguns usuários podem ter acesso de leitura e gravação, enquanto outros usuários podem ter permissões somente leitura. Neste tutorial, você define as permissões de leitura para a API Web.
 
 1. Selecione **Aplicativos** e, em seguida, selecione *webapi1*.
 2. Selecione **Escopos publicados**.
-3. Para **escopo**, insira `Hello.Read` e, para a descrição, insira `Read access to hello`.
-4. Para **escopo**, insira `Hello.Write` e, para a descrição, insira `Write access to hello`.
-5. Clique em **Salvar**.
+3. Em **escopo**, insira `Hello.Read` e, na descrição, insira `Read access to hello`.
+4. Em **escopo**, insira `Hello.Write` e, na descrição, insira `Write access to hello`.
+5. Clique em **Save** (Salvar).
 
 Os escopos publicados podem ser usados para conceder permissão de aplicativo cliente para a API Web.
 

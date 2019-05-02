@@ -3,19 +3,19 @@ title: Gerenciar o acesso de usuários no Azure Active Directory B2C | Microsoft
 description: Saiba como identificar menores, coletar dados de data de nascimento e de país, e obter a aceitação dos termos de uso em seu aplicativo usando o Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 2fb9de7781fae51792e2802002a3cf68974dec83
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cddaf59a1202c9c19018427c06639686e905bb64
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60383949"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691095"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gerenciar o acesso do usuário no Azure Active Directory B2C
 
@@ -173,6 +173,6 @@ Este é um exemplo de consentimento para termos de uso baseado em Versão em uma
 </ClaimsTransformations> 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como excluir e exportar dados do usuário em [Gerenciar dados de usuário](manage-user-data.md).

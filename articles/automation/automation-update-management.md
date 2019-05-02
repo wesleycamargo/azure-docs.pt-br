@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/22/2019
+ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f49b8ef3717675ae6d93d07218a00f2c22890de0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b39d9788372fb0f682bc1e5b737542b400dd4035
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61305843"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919697"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução Gerenciamento de Atualizações no Azure
 
@@ -54,7 +54,9 @@ A solução relata o grau de atualização do computador com base na fonte com a
 
 Você pode implantar e instalar atualizações de software em computadores que precisam de atualizações, criando uma implantação agendada. As atualizações classificadas como *Opcional* não são incluídas no escopo de implantação para computadores Windows. Somente as atualizações necessárias são incluídas no escopo de implantação.
 
-A implantação agendada define quais computadores de destino recebem as atualizações aplicáveis, explicitamente especificando computadores ou selecionando um [grupo de computadores](../azure-monitor/platform/computer-groups.md) que se baseia em pesquisas de log de um conjunto específico de computadores. Você também pode especificar uma agenda para aprovar e definir um período de tempo durante o qual as atualizações podem ser instaladas. Esse período de tempo é chamado da janela de manutenção. Dez minutos da janela de manutenção é reservado para reinicializações, se uma reinicialização é necessária e você tiver selecionado a opção de reinicialização apropriado. Se a aplicação de patch leva mais tempo do que o esperado, e há menos de dez minutos na janela de manutenção, não ocorrerá uma reinicialização.
+A implantação agendada define quais computadores de destino para receber as atualizações aplicáveis, explicitamente especificando computadores ou selecionando uma [grupo de computadores](../azure-monitor/platform/computer-groups.md) que se baseia em pesquisas de log de um conjunto específico de computadores, ou um [Consulta do azure](#azure-machines) que seleciona dinamicamente VMs do Azure com base em critérios especificados. Esses grupos são diferentes das [configuração de escopo](../azure-monitor/insights/solution-targeting.md), que é usado apenas para determinar quais máquinas obtém os pacotes de gerenciamento que permitem que a solução. 
+
+Você também pode especificar uma agenda para aprovar e definir um período de tempo durante o qual as atualizações podem ser instaladas. Esse período de tempo é chamado da janela de manutenção. Dez minutos da janela de manutenção é reservado para reinicializações, se uma reinicialização é necessária e você tiver selecionado a opção de reinicialização apropriado. Se a aplicação de patch leva mais tempo do que o esperado, e há menos de dez minutos na janela de manutenção, não ocorrerá uma reinicialização.
 
 As atualizações são instaladas por runbooks na Automação do Azure. Você não consegue exibir esses runbooks e os runbooks não exigem nenhuma configuração. Quando uma implantação de atualizações é criada, a implantação de atualizações cria uma agenda que inicia um runbook de atualização mestre no momento especificado para os computadores incluídos. O runbook mestre inicia um runbook filho em cada agente para instalar as atualizações necessárias.
 
@@ -76,6 +78,9 @@ A tabela a seguir mostra uma lista de sistemas operacionais com suporte:
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes do Linux devem ter acesso a um repositório de atualização.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Os agentes do Linux devem ter acesso a um repositório de atualização.        |
 |Ubuntu 14.04 LTS, 16.04 LTS, e 18.04 (x86/x64)      |Os agentes do Linux devem ter acesso a um repositório de atualização.         |
+
+> [!NOTE]
+> Conjuntos de dimensionamento de máquina virtual do Azure podem ser gerenciados com o gerenciamento de atualizações. Gerenciamento de atualizações funciona nas instâncias de si mesmos e não a imagem base. Você precisará agendar as atualizações de forma incremental, para não atualizar todas as instâncias VM ao mesmo tempo.
 
 ### <a name="unsupported-client-types"></a>Tipos de clientes sem suporte
 

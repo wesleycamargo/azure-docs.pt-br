@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 95705e7b7a372867e33c86826f44e380407dfee1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: ce7e8788ec807c8ceccb49a7d435041b34e75348
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999307"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917088"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>SDK da Pesquisa Visual Computacional dos Serviços Cognitivos do Azure para Python
 
@@ -216,7 +216,7 @@ for caption in analysis.captions:
 
 ### <a name="get-text-from-image"></a>Obter o texto de uma imagem
 
-Obtenha qualquer texto manuscrito ou impresso de uma imagem. Isso exige duas chamadas ao SDK: [`batch_read_file`](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#batch-read-file-url--mode--custom-headers-none--raw-false----operation-config-) e [`get_read_operation_result`](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#get-read-operation-result-operation-id--custom-headers-none--raw-false----operation-config-). A chamada a `batch_read_file` é assíncrona. Nos resultados da chamada `get_read_operation_result`, você precisa verificar se a primeira chamada é concluída com [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes] antes de extrair os dados de texto. Os resultados incluem o texto, bem como as coordenadas da caixa delimitadora para o texto.
+Obtenha qualquer texto manuscrito ou impresso de uma imagem. Isso exige duas chamadas ao SDK: [`batch_read_file`](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#batch-read-file-url--mode--custom-headers-none--raw-false----operation-config-) e [`get_read_operation_result`](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#get-read-operation-result-operation-id--custom-headers-none--raw-false----operation-config-). A chamada a `batch_read_file` é assíncrona. Nos resultados da chamada `get_read_operation_result`, você precisa verificar se a primeira chamada é concluída com [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes] antes de extrair os dados de texto. Os resultados incluem o texto, bem como as coordenadas da caixa delimitadora para o texto.
 
 ```Python
 # import models

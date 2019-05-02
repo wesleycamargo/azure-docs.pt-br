@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d27f2495c70dbe6e10fb3adf5370a31903be3abf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 88d5cfbbcb29cacc2e8c1c6a226367c5f23e8231
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792394"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926294"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Implantar a amostra de blueprint dos Serviços Compartilhados ISO 27001
 
@@ -99,7 +99,7 @@ Quando a cópia do exemplo de blueprint for **Publicada** com êxito, ele poder�
 1. Depois que todos os parâmetros forem inseridos, selecione **Atribuir** na parte inferior da página. A atribuição de blueprint é criada, e a implantação de artefato é iniciada. A implantação leva aproximadamente uma hora. Para verificar o status da implantação, abra a atribuição de blueprint.
 
 > [!WARNING]
-> As amostras internas de blueprint e o serviço Azure Blueprints são **gratuitos**. Os recursos do Azure são [precificados por produto](https://azure.microsoft.com/en-us/pricing/). Use a [Calculadora de Preços](https://azure.microsoft.com/pricing/calculator/) para estimar o custo da execução de recursos implantados por essa amostra de blueprint.
+> As amostras internas de blueprint e o serviço Azure Blueprints são **gratuitos**. Os recursos do Azure são [precificados por produto](https://azure.microsoft.com/pricing/). Use a [Calculadora de Preços](https://azure.microsoft.com/pricing/calculator/) para estimar o custo da execução de recursos implantados por essa amostra de blueprint.
 
 ## <a name="artifact-parameters-table"></a>Tabela de parâmetros de artefato
 
@@ -107,10 +107,10 @@ A seguinte tabela fornece uma lista dos parâmetros de artefato de blueprint:
 
 |Nome do artefato|Tipo de artefato|Nome do parâmetro|DESCRIÇÃO|
 |-|-|-|-|
-|[Versão prévia]: Implantar o Agente do Log Analytics no VMSS (Conjuntos de Dimensionamento de VMs) do Linux|Atribuição de política|Opcional: Lista de imagens de VM compatíveis com o sistema operacional Linux a serem adicionadas ao escopo|(Opcional) O valor padrão é _["none"]_.|
-|[Versão prévia]: Implantar o Agente do Log Analytics para VMs do Linux|Atribuição de política|Opcional: Lista de imagens de VM compatíveis com o sistema operacional Linux a serem adicionadas ao escopo|(Opcional) O valor padrão é _["none"]_.|
-|[Versão prévia]: Implantar o Agente do Log Analytics no VMSS (Conjuntos de Dimensionamento de VMs) do Windows|Atribuição de política|Opcional: Lista de imagens de VM compatíveis com o sistema operacional Windows a serem adicionadas ao escopo|(Opcional) O valor padrão é _["none"]_.|
-|[Versão prévia]: Implantar o Agente do Log Analytics para VMs do Windows|Atribuição de política|Opcional: Lista de imagens de VM compatíveis com o sistema operacional Windows a serem adicionadas ao escopo|(Opcional) O valor padrão é _["none"]_.|
+|\[Versão Prévia\]: Implantar o Agente do Log Analytics no VMSS (Conjuntos de Dimensionamento de VMs) do Linux|Atribuição de política|Opcional: Lista de imagens de VM compatíveis com o sistema operacional Linux a serem adicionadas ao escopo|(Opcional) O valor padrão é _["none"]_.|
+|\[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Linux|Atribuição de política|Opcional: Lista de imagens de VM compatíveis com o sistema operacional Linux a serem adicionadas ao escopo|(Opcional) O valor padrão é _["none"]_.|
+|\[Versão Prévia\]: Implantar o Agente do Log Analytics no VMSS (Conjuntos de Dimensionamento de VMs) do Windows|Atribuição de política|Opcional: Lista de imagens de VM compatíveis com o sistema operacional Windows a serem adicionadas ao escopo|(Opcional) O valor padrão é _["none"]_.|
+|\[Versão Prévia\]: Implantar o Agente do Log Analytics para VMs do Windows|Atribuição de política|Opcional: Lista de imagens de VM compatíveis com o sistema operacional Windows a serem adicionadas ao escopo|(Opcional) O valor padrão é _["none"]_.|
 |Tipos de recursos permitidos|Atribuição de política|Tipos de recursos permitidos|Lista de tipos de recursos permitidos a serem implantados. Essa lista é composta por todos os tipos de recursos implantados nos Serviços Compartilhados.|
 |SKUs de contas de armazenamento permitidas|Atribuição de política|SKUs de armazenamento permitidos|Lista de SKUs de conta de armazenamento dos logs de diagnóstico permitidos. O valor padrão é _["Standard_LRS"]_.|
 |SKUs de máquinas virtuais permitidas|Atribuição de política|Lista de SKUs de máquina virtual com permissão de serem implantados. O valor padrão é _["Standard_DS1_v2", "Standard_DS2_v2"]_.|

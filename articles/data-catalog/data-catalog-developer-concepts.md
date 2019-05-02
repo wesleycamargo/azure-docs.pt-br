@@ -8,12 +8,12 @@ ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 42e4b545a48bcbd0ad4b7faf077ebdbfe21648b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3cfd6bd453cd06be4676a806997697a71afb0b59
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61002653"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727403"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Conceitos de desenvolvedor do Catálogo de Dados do Azure
 O **Catálogo de Dados do Microsoft Azure** é um serviço de nuvem totalmente gerenciado que fornece recursos para descoberta de fonte de dados e metadados de fonte de dados de crowdsourcing. Os desenvolvedores podem usar o serviço por meio de suas APIs REST. Entender os conceitos implementados no serviço é importante para os desenvolvedores integrarem com êxito o **Catálogo de Dados do Azure**.
@@ -99,7 +99,7 @@ Essas propriedades se aplicam a todos os tipos de anotação não singleton (ano
 
 <table>
 <tr><td><b>Nome da Propriedade</b></td><td><b>Tipo de dados</b></td><td><b>Comentários</b></td></tr>
-<tr><td>chave</td><td>Cadeia de caracteres</td><td>Um usuário especificado chave que identifica exclusivamente a anotação na coleção atual. O comprimento da chave não pode exceder 256 caracteres.</td></tr>
+<tr><td>key</td><td>Cadeia de caracteres</td><td>Um usuário especificado chave que identifica exclusivamente a anotação na coleção atual. O comprimento da chave não pode exceder 256 caracteres.</td></tr>
 </table>
 
 ### <a name="root-asset-types"></a>Tipos de ativos de raiz
@@ -174,9 +174,9 @@ Tipos comuns podem ser usados como os tipos de propriedades, mas não são Itens
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>protocol</td><td>string</td><td>Obrigatório. Descreve um protocolo usado para se comunicar com a fonte de dados. Por exemplo: "tds" para o SQl Server, "oracle" para Oracle etc. Confira <a href="https://docs.microsoft.com/azure/data-catalog/data-catalog-dsr">Especificação de referência de fonte de dados - Estrutura DSL</a> para obter a lista de protocolos com suporte no momento.</td></tr>
-<tr><td></td><td>endereço</td><td>Dicionário<string, object></td><td>Obrigatório. O endereço é um conjunto de dados específicos do protocolo que é usado para identificar a fonte de dados que está sendo referenciada. Os dados de endereço no escopo para um determinado protocolo, o que significa que ele é inútil sem o conhecimento do protocolo.</td></tr>
+<tr><td></td><td>endereço</td><td>Dicionário&lt;cadeia de caracteres, objeto&gt;</td><td>Obrigatório. O endereço é um conjunto de dados específicos do protocolo que é usado para identificar a fonte de dados que está sendo referenciada. Os dados de endereço no escopo para um determinado protocolo, o que significa que ele é inútil sem o conhecimento do protocolo.</td></tr>
 <tr><td></td><td>Autenticação</td><td>string</td><td>Opcional. O esquema de autenticação usado para se comunicar com a fonte de dados. Por exemplo: windows, oauth etc.</td></tr>
-<tr><td></td><td>connectionProperties</td><td>Dicionário<string, object></td><td>Opcional. Informações adicionais sobre como se conectar a uma fonte de dados.</td></tr>
+<tr><td></td><td>connectionProperties</td><td>Dicionário&lt;cadeia de caracteres, objeto&gt;</td><td>Opcional. Informações adicionais sobre como se conectar a uma fonte de dados.</td></tr>
 
 <tr><td>SecurityPrincipal</td><td></td><td></td><td>O back-end não executa nenhuma validação de propriedades fornecidas junto ao AAD durante a publicação.</td></tr>
 <tr><td></td><td>upn</td><td>string</td><td>Endereço de email exclusivo do usuário. Deverá ser especificado se a objectId não for fornecida ou no contexto da propriedade "lastRegisteredBy"; caso contrário, é opcional.</td></tr>
@@ -186,7 +186,7 @@ Tipos comuns podem ser usados como os tipos de propriedades, mas não são Itens
 
 <tr><td>Coluna</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>Nome</td><td>string</td><td>Nome da coluna ou do atributo.</td></tr>
-<tr><td></td><td>tipo</td><td>string</td><td>Tipo de dados da coluna ou do atributo. Os tipos permitidos dependem sourceType de dados do ativo.  Há suporte apenas para um subconjunto de tipos.</td></tr>
+<tr><td></td><td>Tipo</td><td>string</td><td>Tipo de dados da coluna ou do atributo. Os tipos permitidos dependem sourceType de dados do ativo.  Há suporte apenas para um subconjunto de tipos.</td></tr>
 <tr><td></td><td>maxLength</td><td>int</td><td>O comprimento máximo permitido para a coluna ou atributo. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.</td></tr>
 <tr><td></td><td>precisão</td><td>byte</td><td>A precisão para a coluna ou atributo. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.</td></tr>
 <tr><td></td><td>isNullable</td><td>Boolean</td><td>Se a coluna tem permissão para ter um valor nulo ou não. Derivado da fonte de dados. Aplicável somente a alguns tipos de fontes.</td></tr>
@@ -194,7 +194,7 @@ Tipos comuns podem ser usados como os tipos de propriedades, mas não são Itens
 
 <tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>columnName </td><td>string</td><td>O nome da coluna</td></tr>
-<tr><td></td><td>Tipo </td><td>string</td><td>O tipo da coluna</td></tr>
+<tr><td></td><td>tipo </td><td>string</td><td>O tipo da coluna</td></tr>
 <tr><td></td><td>min </td><td>string</td><td>O valor mínimo no conjunto de dados</td></tr>
 <tr><td></td><td>max </td><td>string</td><td>O valor máximo do conjunto de dados</td></tr>
 <tr><td></td><td>avg </td><td>double</td><td>O valor médio do conjunto de dados</td></tr>

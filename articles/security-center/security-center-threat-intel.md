@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
 ms.openlocfilehash: f1e238890b777e2816648ec407e2581f636d1c12
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57239820"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60906016"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Inteligência contra ameaças e mapa de alertas de segurança
 Este artigo ajuda você a usar o mapa de alertas da Central de Segurança do Azure e o mapa de inteligência de ameaças baseada em eventos de segurança para solucionar problemas relacionados à segurança.
@@ -83,7 +83,7 @@ Independentemente do bloco de opções selecionado, o painel exibido se baseia n
 ### <a name="threat-types"></a>Tipos de ameaça
 Selecione o bloco **Tipos de ameaça** para abrir o painel **Pesquisa de Logs**. As opções de filtro aparecem à esquerda e os resultados da consulta aparecem à direita.
 
-![Pesquisa de log](./media/security-center-threat-intel/security-center-threat-intel-fig3.png)
+![Pesquisa de Log](./media/security-center-threat-intel/security-center-threat-intel-fig3.png)
 
 O resultado da consulta mostra as ameaças por nome. Você pode usar o painel esquerdo para selecionar o atributo que deseja filtrar. Por exemplo, para ver apenas as ameaças que estão conectadas às máquinas no momento, em **ESTADO DE SESSÃO**, selecione **Conectado** > **Aplicar**.
 

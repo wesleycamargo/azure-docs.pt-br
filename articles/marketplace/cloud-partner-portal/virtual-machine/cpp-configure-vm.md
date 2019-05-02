@@ -1,25 +1,18 @@
 ---
-title: Configurar a VM hospedada no Microsoft Azure para o Azure Marketplace | Microsoft Docs
+title: Configurar a máquina virtual hospedada no Azure da Microsoft para o Azure Marketplace
 description: Explica como dimensionar, atualizar e generalizar uma VM hospedada no Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 9cf363bc5f4230306c2fec99eb6287b23e598a4c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: pabutler
+ms.openlocfilehash: 3d38efadfb8ad13d072056ef851be99d9540ad4b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57833494"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938423"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configurar a VM hospedada no Azure
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/12/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 3d06024b7fa4356d4ad0e8b52c45c2ead62ef784
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 1c772756a90c3eee4e2b3fb4fd4a0ec9e98fa0da
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549654"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919082"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ações no portal do Azure
 ## <a name="overview"></a>Visão geral ##
@@ -78,7 +78,7 @@ Depois de criar um grupo de ação, ele ficará visível na **grupos de ação**
 
 Você pode ter um número limitado de ações de email em um grupo de ação. Consulte o artigo [informações de limitação da taxa](./../../azure-monitor/platform/alerts-rate-limiting.md)
 
-**ITSM** -você pode ter um número limitado de número limitado de ações de ITSM em um grupo de ação. Ação de ITSM exige uma Conexão de ITSM. Saiba como criar uma [Conexão de ITSM](../../azure-monitor/platform/itsmc-overview.md).
+**ITSM** -você pode ter um número limitado de ações de ITSM em um grupo de ação. Ação de ITSM exige uma Conexão de ITSM. Saiba como criar uma [Conexão de ITSM](../../azure-monitor/platform/itsmc-overview.md).
 
 **Aplicativo lógico** -você pode ter um número limitado de ações do aplicativo lógico em um grupo de ação.
 
@@ -105,15 +105,12 @@ Intervalos de endereços IP de fonte
  - 51.5.148.86
  - 51.5.149.19
 
-Para receber atualizações sobre as alterações para esses endereços IP, recomendamos que você configure um [serviço Alerta de integridade, que monitora para notificações informativas sobre o serviço de grupos de ação.
+Para receber atualizações sobre as alterações para esses endereços IP, é recomendável que você configure um alerta de integridade do serviço, que monitora para notificações informativas sobre o serviço de grupos de ação.
 
-
-## <a name="next-steps"></a>Próximos passos ##
-
+## <a name="next-steps"></a>Próximas etapas ##
 * Saiba mais sobre o [comportamento de alertas por SMS](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * Tenha uma [compreensão do esquema de webhook de alerta do log de atividades](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
 * Saiba mais sobre o [Conector de ITSM](../../azure-monitor/platform/itsmc-overview.md)
 * Saiba mais sobre a [limitação de taxa](../../azure-monitor/platform/alerts-rate-limiting.md) para alertas.
 * Obtenha uma [visão geral dos alertas do log de atividades](../../azure-monitor/platform/alerts-overview.md) e saiba como receber alertas.  
 * Saiba como [configurar alertas sempre que uma notificação de integridade do serviço é postada](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
-

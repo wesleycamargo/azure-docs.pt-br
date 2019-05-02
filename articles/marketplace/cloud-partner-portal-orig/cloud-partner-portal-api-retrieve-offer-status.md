@@ -1,25 +1,18 @@
 ---
-title: Recuperar status da oferta | Microsoft Docs
+title: Recuperar o status da oferta | O Azure Marketplace
 description: API recupera o status atual da oferta.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 9233a5919ad86adcbb7947cd095945654ed015a7
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 26ee8b5b1879c505f8200671558fe065ace068a3
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805279"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935448"
 ---
 <a name="retrieve-offer-status"></a>Recuperar status da oferta 
 =====================
@@ -33,7 +26,7 @@ Recupera o status atual da oferta.
 
 |  **Nome**       |   **Descrição**                            |  **Tipo de dados** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | Identificador do publicador, por exemplo `Contoso`  |     Cadeia de caracteres     |
+|  publisherId    | Identificador do editor, por exemplo `Contoso`  |     Cadeia de caracteres     |
 |  offerId        | GUID que identifica exclusivamente a oferta      |     Cadeia de caracteres     |
 |  api-version    | Última versão da API                        |     Data       |
 |  |  |
@@ -42,7 +35,7 @@ Recupera o status atual da oferta.
 <a name="header"></a>Cabeçalho
 ------
 
-|  NOME           |  Valor               |
+|  NOME           |  Value               |
 |  -------------  | -------------------  |
 |  Tipo de conteúdo   |  `application/json`  |
 |  Autorização  | `Bearer YOUR_TOKEN`  |
@@ -132,14 +125,14 @@ Recupera o status atual da oferta.
 |  **Nome**             |    **Descrição**                                                                             |
 | --------------------  |   -------------------------------------------------------------------------------------------- |
 |  status               | O status da oferta. Para a lista de valores possíveis, consulte [Status da oferta](#offer-status) abaixo. |
-|  da nuvem para o dispositivo             | Matriz de mensagens associadas à oferta                                                    |
+|   da nuvem para o dispositivo             | Matriz de mensagens associadas à oferta                                                    |
 |  etapas                | Matriz das etapas que a oferta passa durante a publicação uma oferta                      |
 |  estimatedTimeFrame   | Estimativa do tempo que levaria para concluir essa etapa, em formato amigável                       |
 |  ID                   | Identificador da etapa                                                                         |
 |  stepName             | Nome da etapa                                                                               |
-|  Descrição          | Descrição da etapa                                                                        |
+|  description          | Descrição da etapa                                                                        |
 |  status               | Status da etapa. Para a lista de valores possíveis, consulte [Status da etapa](#step-status) abaixo.    |
-|  da nuvem para o dispositivo             | Matriz de mensagens relacionadas à etapa                                                          |
+|   da nuvem para o dispositivo             | Matriz de mensagens relacionadas à etapa                                                          |
 |  processPercentage    | Porcentagem de conclusão da etapa                                                              |
 |  previewLinks         | *Não implementado atualmente*                                                                    |
 |  liveLinks            | *Não implementado atualmente*                                                                    |
@@ -163,7 +156,7 @@ Recupera o status atual da oferta.
 |  --------------------------  |  ------------------------------------------------------  |
 |  NeverPublished              | A oferta nunca foi publicada.                          |
 |  NotStarted                  | A oferta é nova e não iniciada.                            |
-|  WaitingForPublisherReview   | A oferta aguarda aprovação do publicador.                 |
+|  WaitingForPublisherReview   | A oferta aguarda aprovação do editor.                 |
 |  Executando                     | O envio da oferta está sendo processado.                     |
 |  Bem-sucedida                   | O envio da oferta concluiu o processamento.               |
 |  Cancelado                    | O envio da oferta foi cancelado.                           |

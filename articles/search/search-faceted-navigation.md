@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3b31e796b07bea8c11bccb3f2bb306a4279f2ca3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 21c75c0f377f55614e2c7fa0bb27628cf598e3e7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61291567"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924581"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Como implementar a navegação facetada no Azure Search
 A navegação facetada é um mecanismo de filtragem que fornece navegação de busca detalhada autodirigida em aplicativos de pesquisa. O termo 'navegação facetada' pode não ser familiar, mas provavelmente você já a usou antes. Como mostra o exemplo a seguir, a navegação facetada é nada mais do que as categorias usadas para filtrar resultados.
@@ -34,7 +34,7 @@ No desenvolvimento do aplicativo, escrever um código que construa consultas con
 ## <a name="sample-code-and-demo"></a>Demonstração e código de exemplo
 Este artigo usa um portal de pesquisa de trabalhos como um exemplo. O exemplo é implementado como um aplicativo ASP.NET MVC.
 
--   Veja e teste a demonstração de trabalho online na [Demonstração do portal do trabalho do Azure Search](http://azjobsdemo.azurewebsites.net/).
+-   Veja e teste a demonstração de trabalho online na [Demonstração do portal do trabalho do Azure Search](https://azjobsdemo.azurewebsites.net/).
 
 -   Baixe o código do [repositório Azure-Samples no GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 

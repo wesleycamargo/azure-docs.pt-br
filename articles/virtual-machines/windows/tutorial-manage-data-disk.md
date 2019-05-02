@@ -17,12 +17,12 @@ ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: be6375972747c5c962bf1a8ef9b9b0093402bb7a
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 4a60d3d77408e7c05311a2bd6bcceeb9331bd1af
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368248"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924692"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Tutorial – Gerenciar discos do Azure com o Azure PowerShell
 
@@ -51,7 +51,7 @@ Quando uma máquina virtual do Azure é criada, dois discos são automaticamente
 
 ## <a name="azure-data-disks"></a>Discos de dados do Azure
 
-Os discos de dados extras podem ser adicionados para instalação de aplicativos e armazenamento de dados. Os discos de dados devem ser usados em qualquer situação onde o armazenamento de dados durável responsivo é necessário. Cada disco de dados tem uma capacidade máxima de 4 terabytes. O tamanho da máquina virtual determina quantos discos de dados podem ser anexados a uma VM. Para cada vCPU da VM, podem ser anexados quatro discos de dados.
+Os discos de dados extras podem ser adicionados para instalação de aplicativos e armazenamento de dados. Os discos de dados devem ser usados em qualquer situação onde o armazenamento de dados durável responsivo é necessário. O tamanho da máquina virtual determina quantos discos de dados podem ser anexados a uma VM. Para cada vCPU da VM, podem ser anexados quatro discos de dados.
 
 ## <a name="vm-disk-types"></a>Tipos de disco da máquina virtual
 
