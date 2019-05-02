@@ -1,25 +1,19 @@
 ---
-title: O que é test drive? | Microsoft Docs
+title: O que é test drive? | Azure Marketplace
 description: Explicação do recurso de test drive do Marketplace
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 0bdff77a4be6a28e2799d4f481492d2c7ba6bda0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.author: pabutler
+ms.openlocfilehash: 5b23a5e93dcbb9c13243240bda760a16d108d731
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457421"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938470"
 ---
 <a name="what-is-test-drive"></a>O que é test drive?
 ===================

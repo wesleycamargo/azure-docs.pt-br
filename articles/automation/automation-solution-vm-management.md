@@ -248,7 +248,7 @@ A Automação cria dois tipos de registros no espaço de trabalho do Log Analyti
 
 |Propriedade | DESCRIÇÃO|
 |----------|----------|
-|Chamador |  Quem iniciou a operação. Os valores possíveis são um endereço de email ou o sistema para trabalhos agendados.|
+|Caller |  Quem iniciou a operação. Os valores possíveis são um endereço de email ou o sistema para trabalhos agendados.|
 |Category | Classificação do tipo de dados. Para a Automação, o valor é JobLogs.|
 |CorrelationId | O GUID que é a ID de correlação do trabalho de runbook.|
 |JobId | GUID que é a ID do trabalho de runbook.|
@@ -269,7 +269,7 @@ A Automação cria dois tipos de registros no espaço de trabalho do Log Analyti
 
 |Propriedade | DESCRIÇÃO|
 |----------|----------|
-|Chamador |  Quem iniciou a operação. Os valores possíveis são um endereço de email ou o sistema para trabalhos agendados.|
+|Caller |  Quem iniciou a operação. Os valores possíveis são um endereço de email ou o sistema para trabalhos agendados.|
 |Category | Classificação do tipo de dados. Para a Automação, o valor é JobStreams.|
 |JobId | GUID que é a ID do trabalho de runbook.|
 |operationName | Especifica o tipo de operação realizada no Azure. Para a Automação, o valor é Job.|

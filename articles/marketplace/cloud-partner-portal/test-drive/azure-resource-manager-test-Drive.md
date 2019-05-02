@@ -1,25 +1,19 @@
 ---
-title: Test Drive do Azure Resource Manager | Microsoft Docs
+title: Unidade de teste do Gerenciador de recursos do Azure | O Azure Marketplace
 description: Criar um test drive do Marketplace usando o Azure Resource Manager
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Patrick .Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 2fe1a1fc1ff82415a5c2f88c72ae707b12cd5283
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.author: pabutler
+ms.openlocfilehash: 7665050dfc9a561f42fec00c40d0a40dfa5cc183
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541155"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64941566"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Test Drive do Azure Resource Manager
 
@@ -90,10 +84,10 @@ Também é importante observar que **todos os parâmetros são opcionais**. Port
 
 | Tipo de metadados   | Tipo de Parâmetro  | DESCRIÇÃO     | Valor de exemplo    |
 |---|---|---|---|
-| **baseuri**     | cadeia de caracteres          | URI base do seu pacote de implantação| https:\//\<\..\>.blob.core.windows.net/\<\..\> |
-| **username**    | cadeia de caracteres          | Novo nome de usuário aleatório.| admin68876      |
+| **baseuri**     | string          | URI base do seu pacote de implantação| https:\//\<\..\>.blob.core.windows.net/\<\..\> |
+| **username**    | string          | Novo nome de usuário aleatório.| admin68876      |
 | **password**    | cadeia de caracteres segura    | Nova senha aleatória | Lp!ACS\^2kh     |
-| **ID da sessão**   | cadeia de caracteres          | ID da sessão exclusiva do Test Drive (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
+| **ID da sessão**   | string          | ID da sessão exclusiva do Test Drive (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
 #### <a name="username"></a>Nome de Usuário
 

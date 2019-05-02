@@ -1,25 +1,18 @@
 ---
-title: Criar uma conta de Desenvolvedor da Microsoft | Microsoft Docs
+title: Criar uma conta Microsoft Developer | O Azure Marketplace
 description: Requisitos e etapas para criar uma conta de Desenvolvedor da Microsoft.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: adfe0af646fae79bc9a954cd5d654626880915d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 4fde5d81fb97bec23fdb46ff53b05874c88d9d67
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326696"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935855"
 ---
 <a name="create-a-microsoft-developer-account"></a>Criar uma conta de Desenvolvedor da Microsoft
 ====================================
@@ -106,7 +99,7 @@ O Centro de Desenvolvimento da Microsoft é usada para registrar as informaçõe
    ![Selecionar país/região](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >Países de "origem de venda": Para vender seus serviços no Azure Marketplace, sua entidade registrada precisa ser proveniente de um dos países aprovados para "origem de venda" mostrados na lista suspensa. Essa restrição é por razões de pagamento e tributação. Para saber mais, confira as políticas de participação no Marketplace.
+    >"De origem de venda" países/regiões: Para vender seus serviços no Azure Marketplace, sua entidade registrada precisa ser um dos aprovados "de origem de venda" países/regiões mostrados na lista suspensa. Essa restrição é por razões de pagamento e tributação. Para saber mais, confira as políticas de participação no Marketplace.
 
 5. Selecione **Empresa** como seu "Tipo de conta" e selecione **Avançar**.
 
@@ -221,6 +214,6 @@ Se você for adicionado como colaborador/proprietário no Portal do Cloud Partne
 [Etapas para gerenciar usuários no Portal do Cloud Partner](./cloud-partner-portal-manage-users.md)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que sua conta está criada e registrada, inicie o processo de publicação no Azure Marketplace.

@@ -16,11 +16,11 @@ ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: 51a2ac93fd2d863855c820ba147418c5397c2a89
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411234"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60851527"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-twitter-login"></a>Como configurar seu aplicativo do Serviço de Aplicativo para usar o logon do Twitter
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -35,7 +35,7 @@ Para concluir o procedimento deste tópico, você deve ter uma conta do Twitter 
 3. Digite o **Nome** e uma **Descrição** para o novo aplicativo. Cole a **URL** do aplicativo no valor **Site**. Em seguida, em **URL de Callback**, cole a **URL de Callback** copiada anteriormente. Esse é o seu gateway de Aplicativo Móvel, acrescentado com o caminho */.auth/login/twitter/callback*. Por exemplo: `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Certifique-se de que você está usando o esquema HTTPS.
 4. Na parte inferior da página, leia e aceite os termos. Em seguida, clique em **Criar seu Aplicativo do Twitter**. Isso registrará o aplicativo e exibirá os detalhes do aplicativo.
 5. Clique na guia **Configurações**, marque **Permitir que este aplicativo seja usado para entrar com o Twitter** e, em seguida, clique em **Atualizar Configurações**.
-6. Selecione a guia **Chaves e Tokens de Acesso** . Tome nota dos valores da **Chave do Consumidor (Chave de API)** e **Segredo do consumidor (Segredo de API)**.
+6. Selecione a guia **Chaves e Tokens de Acesso** . Tome nota dos valores da Chave do Consumidor (Chave de API) e **Segredo do consumidor (Segredo de API)**.
    
    > [!NOTE]
    > O segredo do consumidor é uma credencial de segurança importante. Não compartilhe esse segredo com ninguém nem o distribua com seu aplicativo.

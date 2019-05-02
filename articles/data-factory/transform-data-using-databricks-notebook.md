@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: b8333ae7eb676fd38bf7d654cecdb4dd07ff7c03
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ca208ded54d17c2392d764e4cba67e5f24e03fd3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788788"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60654996"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Executar um Databricks Notebook com a atividade Databricks Notebook no Azure Data Factory
 
@@ -51,7 +51,7 @@ Para ver uma introdução de 11 minutos e uma demonstração desse recurso, assi
 
     ![Cria um novo data factory](media/transform-data-using-databricks-notebook/new-azure-data-factory-menu.png)
 
-1.  No painel **Novo data factory**, digite **ADFTutorialDataFactory** em **Nome**.
+1.  No painel **Novo data factory**, digite **ADFTutorialDataFactory** em **Nome**.
 
     O nome do Azure data factory precisa ser *global exclusivo*. Se você vir o erro a seguir, altere o nome do data factory. (Por exemplo, use **\<seunome\>ADFTutorialDataFactory**). Para obter as regras de nomenclatura para artefatos do Data Factory, confira o artigo [Data Factory – regras de nomenclatura](https://docs.microsoft.com/azure/data-factory/naming-rules) .
 
@@ -85,7 +85,7 @@ Nesta seção, você cria um serviço vinculado Databricks. Esse serviço vincul
 
 ### <a name="create-an-azure-databricks-linked-service"></a>Criar um serviço vinculado do Azure Databricks
 
-1.  Na página **Introdução**, alterne para a guia **Editar** no painel esquerdo.
+1.  Na página **Introdução** , alterne para a guia **Editar** no painel esquerdo.
 
     ![Editar o novo serviço vinculado](media/transform-data-using-databricks-notebook/get-started-page.png)
 
@@ -97,7 +97,7 @@ Nesta seção, você cria um serviço vinculado Databricks. Esse serviço vincul
     
     ![Especifique um serviço vinculado do Databricks](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image7.png)
 
-1.  Na janela **Novo Serviço Vinculado**, conclua as seguintes etapas:
+1.  Na janela **Novo Serviço Vinculado** , conclua as seguintes etapas:
     
     1.  Em **Nome**, insira ***AzureDatabricks\_LinkedService***
     
@@ -131,13 +131,13 @@ Nesta seção, você cria um serviço vinculado Databricks. Esse serviço vincul
 
     ![Criar o parâmetro name](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image11.png)
 
-1.  Na caixa de ferramentas **Atividades**, expanda **Databricks**. Arraste a atividade **Notebook** da caixa de ferramentas **Atividades** para a superfície do designer de pipeline.
+1.  Na caixa de ferramentas **Atividades** , expanda **Databricks**. Arraste a atividade **Notebook** da caixa de ferramentas **Atividades** para a superfície do designer de pipeline.
 
     ![Arrastar o notebook à superfície do designer](media/transform-data-using-databricks-notebook/new-adf-pipeline.png)
 
-1.  Nas propriedades da janela da atividade **Notebook** do **Databricks**, na parte inferior, conclua as seguintes etapas:
+1.  Nas propriedades da janela da atividade **Notebook** do **Databricks** , na parte inferior, conclua as seguintes etapas:
 
-     a. Alterne para a guia **Azure Databricks**.
+     a. Alterne para a guia **Azure Databricks** .
 
     b. Selecione **AzureDatabricks\_LinkedService** (criado no procedimento anterior).
 
@@ -201,13 +201,13 @@ A caixa de diálogo **Execução de Pipeline** solicita o parâmetro **name**. U
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorar a execução de pipeline
 
-1.  Alterne para a guia **Monitorar**. Verifique se o pipeline está sendo executado. Leva aproximadamente 5 a 8 minutos para criar um cluster de trabalho do Databricks onde o notebook é executado.
+1.  Alterne para a guia **Monitorar** . Verifique se o pipeline está sendo executado. Leva aproximadamente 5 a 8 minutos para criar um cluster de trabalho do Databricks onde o notebook é executado.
 
     ![Monitorar o Pipeline](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image22.png)
 
 1.  Selecione **Atualizar** periodicamente para verificar o status da execução de pipeline.
 
-1.  Para ver as execuções de atividade associadas à execução de pipeline, selecione **Exibir Execuções de Atividade** na coluna **Ações**.
+1.  Para ver as execuções de atividade associadas à execução de pipeline, selecione **Exibir Execuções de Atividade** na coluna **Ações** .
 
     ![Exibir as execuções de atividade](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image23.png)
 
