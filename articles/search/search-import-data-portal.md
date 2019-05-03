@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: fcb1e4f32608a1c83b653984dfa066da38e7c451
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0eefe38fdffd04bb95826f960771bd6430ea687
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871078"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024770"
 ---
 # <a name="import-data-wizard-for-azure-search"></a>Assistente de Importação de Dados do Azure Search
 
@@ -27,7 +27,7 @@ O portal do Azure fornece um assistente de **Importação de dados** no painel d
 
 O assistente não pode se conectar a um índice predefinido ou executar um indexador existente, mas dentro do assistente, você pode configurar um novo índice ou o indexador para oferecer suporte à estrutura e aos comportamentos necessários.
 
-Ainda não conhece o Azure Search? Explore o [Início Rápido: importe, indexe e consulte usando as ferramentas do portal](search-get-started-portal.md) para fazer um test drive importando e indexando com a **Importação de dados** e o conjunto de dados de exemplo realestate integrado.
+Ainda não conhece o Azure Search? Explore o [Início Rápido: Importar, indexar e consultar usando ferramentas do portal](search-get-started-portal.md) test drive importando e usando a indexação **importar dados** e o conjunto de dados de exemplo interno de imóveis.
 
 ## <a name="start-importing-data"></a>Iniciar a importação de dados
 
@@ -77,14 +77,14 @@ O assistente de **Importação de Dados** cria um objeto de fonte de dados persi
 * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
 * [Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md) (não tem suporte para pipelines de [pesquisa cognitiva](cognitive-search-concept-intro.md))
 
-Um conjunto de dados bidimensional é uma entrada exigida. Você só pode importar de uma única tabela, exibição do banco de dados ou estrutura de dados equivalente. 
+Você só pode importar de uma única tabela, exibição de banco de dados ou estrutura de dados equivalente, no entanto, a estrutura pode incluir subestruturas hierárquicas ou aninhadas. Para obter mais informações, consulte [como modelar os tipos complexos](search-howto-complex-data-types.md).
 
 Você deve criar essa estrutura de dados antes de executar o assistente, e ele deve conter o conteúdo. Não execute o **importar dados** assistente em uma fonte de dados vazio.
 
 |  Seleção | DESCRIÇÃO |
 | ---------- | ----------- |
 | **Fonte de dados existente** |Se já houver indexadores definidos em seu serviço de pesquisa, selecione uma definição de fonte de dados existente para outra importação. No Azure Search, os objetos das fonte de dados são usados somente por indexadores. Você pode criar um objeto da fonte de dados programaticamente ou por meio do assistente de **Importação de Dados**.|
-| **Exemplos**| O Azure Search hospeda um banco de dados SQL do Azure público e gratuito que você pode usar para aprender sobre importação e solicitações de consulta no Azure Search. Confira [Início Rápido: Importar, indexar e consultar usando as ferramentas do portal](search-get-started-portal.md) para obter uma demonstração passo a passo. |
+| **Exemplos**| O Azure Search hospeda livre global Azure banco de dados SQL que você pode usar para aprender sobre solicitações de importação e a consulta no Azure Search. Confira [Início Rápido: Importar, indexar e consultar usando as ferramentas do portal](search-get-started-portal.md) para obter uma demonstração passo a passo. |
 | **Banco de Dados SQL do Azure** |É possível especificar o nome do serviço, credenciais para um usuário de banco de dados com permissão de leitura e um nome de banco de dados na página ou por meio de uma cadeia de conexão do ADO.NET. Escolha a opção de cadeia de conexão para exibir ou personalizar as propriedades. <br/><br/>A tabela ou exibição que fornece o conjunto de linhas deve ser especificada na página. Essa opção aparece após o êxito da conexão, fornecendo uma lista suspensa para que você possa fazer uma seleção. |
 | **SQL Server em VM do Azure** |Especifique um nome de serviço totalmente qualificado, a ID e a senha de usuário e um banco de dados como uma cadeia de conexão. Para usar esta fonte de dados, você deve ter instalado um certificado no repositório local que criptografa a conexão. Para obter instruções, veja [Conexão de VM do SQL ao Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>A tabela ou exibição que fornece o conjunto de linhas deve ser especificada na página. Essa opção aparece após o êxito da conexão, fornecendo uma lista suspensa para que você possa fazer uma seleção. |
 | **Cosmos DB** |Os requisitos incluem a conta, o banco de dados e a coleção. Todos os documentos na coleção serão incluídos no índice. Você pode definir uma consulta para nivelar ou filtrar o conjunto de linhas, ou deixe a consulta em branco. Uma consulta não é necessário neste assistente.|

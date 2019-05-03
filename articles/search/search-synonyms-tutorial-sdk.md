@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f9cadfcf0c027f4aec4f9d4928872709ee7d3e99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b81e4b9a8773cc8e4cc76582ccf2df88565d3d8
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61281770"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025165"
 ---
 # <a name="example-add-synonyms-for-azure-search-in-c"></a>Exemplo: Adicionar sinônimos para o Azure Search em C#
 
@@ -23,13 +23,15 @@ Os sinônimos expandem uma consulta correspondendo os termos considerados semant
 No Azure Search, os sinônimos são definidos em um *mapa de sinônimos*com *regras de mapeamento* que associam os termos equivalentes. Este exemplo aborda as etapas essenciais para adicionar e usar sinônimos com um índice existente. Você aprenderá como:
 
 > [!div class="checklist"]
-> * Habilitar sinônimos criando e postando regras de mapeamento 
-> * Fazer referência a um mapa de sinônimos em uma cadeia de caracteres de consulta
+> * Criar um mapa de sinônimos usando o [SynonymMap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) classe. 
+> * Defina as [SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) propriedade em campos que deve dar suporte a expansão de consulta por meio de sinônimos.
+
+Você pode consultar um campo habilitada para synonym como faria normalmente. Não há nenhuma sintaxe de consulta adicionais necessária para acessar os sinônimos.
 
 Você pode criar vários mapas de sinônimos, publicá-los como um recurso de todo o serviço disponível em qualquer índice e fazer referência a qual deles usar no nível do campo. No momento da consulta, além de pesquisar um índice, o Azure Search faz uma pesquisa em um mapa de sinônimos, caso um seja especificado nos campos usados na consulta.
 
 > [!NOTE]
-> Os sinônimos têm suporte na API nas últimas versões de API e SDK (api-version=2017-11-11, versão de SDK 5.0.0). Não há suporte do portal do Azure no momento. Se o suporte do portal do Azure para sinônimos é útil para você, forneça seus comentários no [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
+> Sinônimos podem ser criados programaticamente, mas não no portal. Se o suporte do portal do Azure para sinônimos é útil para você, forneça seus comentários no [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -172,7 +174,7 @@ A maneira mais rápida para limpar após um exemplo é excluindo o grupo de recu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este exemplo demonstrou a [API REST dos sinônimos](https://aka.ms/rgm6rq) em C# código para criar e lançar as regras de mapeamento e, em seguida, chamar o mapa de sinônimos em uma consulta. Informações adicionais podem ser encontradas na documentação de referência do [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) e da [API REST](https://docs.microsoft.com/rest/api/searchservice/).
+Este exemplo demonstrou o recurso de sinônimos em C# código para criar e lançar as regras de mapeamento e, em seguida, chamar o mapa de sinônimos em uma consulta. Informações adicionais podem ser encontradas na documentação de referência do [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) e da [API REST](https://docs.microsoft.com/rest/api/searchservice/).
 
 > [!div class="nextstepaction"]
 > [Como usar sinônimos no Azure Search](search-synonyms.md)

@@ -1,7 +1,7 @@
 ---
 title: Sintaxe de expressão do OData para cláusulas filter e order-by – Azure Search
 description: Sintaxe de expressão do OData para cláusulas filter e order-by para consultas do Azure Search.
-ms.date: 03/27/2019
+ms.date: 05/02/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ab98c3be75fb59603be66ee84e0d288de56cdc91
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1f77a9e0a3308098e5f6c699f2fc79e5c437f17
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61317093"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024272"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>Sintaxe de expressão do OData para cláusulas filter e order-by no Azure Search
 
@@ -36,7 +36,7 @@ Uma expressão **$filter** pode ser executada de forma autônoma como uma consul
 
 
 ```POST
-POST /indexes/hotels/docs/search?api-version=2017-11-11
+POST /indexes/hotels/docs/search?api-version=2019-05-06
     {
       "filter": "(baseRate ge 60 and baseRate lt 300) or hotelName eq 'Fancy Stay'"
     }
@@ -45,7 +45,7 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 Outro caso de uso comum é o facetamento combinado de filtros, em que o filtro reduz a área de superfície da consulta com base em uma seleção de navegação de faceta orientada pelo usuário:
 
 ```POST
-POST /indexes/hotels/docs/search?api-version=2017-11-11
+POST /indexes/hotels/docs/search?api-version=2019-05-06
     {
       "search": "test",
       "facets": [ "tags", "baseRate,values:80|150|220" ],

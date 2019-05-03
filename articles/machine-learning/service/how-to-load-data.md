@@ -10,22 +10,24 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 2/22/2019
+ms.date: 02/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 34dd20826928d1ab2ba1fc7980c7d47b796ea663
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7dc07ba7f1d62b49232b1cd892070804099fab8c
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819232"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024013"
 ---
-# <a name="load-and-read-data-with-azure-machine-learning"></a>Carregar e ler dados com o Azure Machine Learning
-
+# <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>Carregar e ler os dados com o SDK do Azure Machine Learning Data Prep
 Neste artigo, você aprenderá a diferentes métodos de carregamento de dados usando o SDK do Azure Machine Learning Data Prep. Para ver a documentação de referência do SDK, consulte o [visão geral](https://aka.ms/data-prep-sdk). O SDK suporta vários recursos de ingestão de dados, incluindo:
 
 * Carregar de muitos tipos de arquivos com inferência de parâmetros de análise (codificação, separador, cabeçalhos)
 * Conversão de tipos usando inferência durante o carregamento de arquivos
 * Suporte de conexão para o MS SQL Server e o Azure Data Lake Storage
+
+> [!Important]
+> Se você estiver criando uma nova solução, tente as [conjuntos de dados do Azure Machine Learning](how-to-explore-prepare-data.md) (visualização) para preparação e exploração de dados. Conjuntos de dados é a próxima versão da SDK, oferecendo funcionalidade expandida para gerenciar conjuntos de dados em soluções de inteligência Artificial a preparação de dados.
 
 A tabela a seguir mostra uma seleção de funções usadas para carregamento de dados de tipos de arquivo comuns.
 

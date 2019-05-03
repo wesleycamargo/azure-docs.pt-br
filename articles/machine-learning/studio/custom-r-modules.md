@@ -1,7 +1,7 @@
 ---
 title: Definir módulos R personalizados
 titleSuffix: Azure Machine Learning Studio
-description: Este tópico descreve como criar e implantar um módulo R personalizado no Azure Machine Learning Studio. Ele explica o que são módulos R personalizados e arquivos que são usados para defini-los.
+description: Este tópico descreve como criar e implantar um estúdio R personalizado. Ele explica o que são módulos R personalizados e arquivos que são usados para defini-los.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0dec86eff9b9df70514be6f32f3aad60bfb311ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6d330340ff09ddb6c2bec04259f964f2298dbffc
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60751189"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025055"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Definir os módulos R personalizados para o Azure Machine Learning Studio
 
-Este tópico descreve como criar e implantar um módulo R personalizado no Azure Machine Learning Studio. Ele explica o que são módulos R personalizados e arquivos que são usados para defini-los. Ilustra como criar os arquivos que definem um módulo e como registrar o módulo para implantação em um workspace de Machine Learning. Os elementos e atributos usados na definição de módulo personalizado, em seguida, são descritos mais detalhadamente. Também é discutido como usar a funcionalidades e arquivos auxiliares, bem como diversas saídas. 
+Este tópico descreve como criar e implantar um estúdio R personalizado. Ele explica o que são módulos R personalizados e arquivos que são usados para defini-los. Ilustra como criar os arquivos que definem um módulo e como registrar o módulo para implantação em um workspace de Machine Learning. Os elementos e atributos usados na definição de módulo personalizado, em seguida, são descritos mais detalhadamente. Também é discutido como usar a funcionalidades e arquivos auxiliares, bem como diversas saídas. 
 
 
 
@@ -159,7 +159,7 @@ As portas **DataTable** opcionais que não forem passadas como entrada em um exp
             <Description>Zip files to be extracted to the R working directory.</Description>
            </Input>
 
-Para os módulos R personalizados, a id de uma porta Zip não precisa corresponder a nenhum parâmetro da função R. Isso ocorre porque o arquivo zip é extraído automaticamente para o diretório de trabalho do R.
+Para módulos R personalizados, a ID de uma porta Zip não precisa corresponder a nenhum parâmetro da função R. Isso ocorre porque o arquivo zip é extraído automaticamente para o diretório de trabalho do R.
 
 **Regras de entrada:**
 
@@ -225,7 +225,7 @@ E retorne a lista de objetos em uma lista na ordem correta em “CustomAddRows.R
 ### <a name="arguments"></a>Argumentos
 Dados adicionais podem ser passados para a função R por meio de parâmetros do módulo definidos no elemento **Argumentos** . Esses parâmetros são exibidos no canto direito do painel mais à direita da interface do usuário do Machine Learning quando o módulo está selecionado. Os argumentos podem ser qualquer um dos tipos com suporte, ou você pode criar uma enumeração personalizada quando necessário. De modo similar aos elementos **Portas**, os elementos **Argumentos** podem ter um elemento **Descrição** opcional que especifica o texto que aparece quando você passa o cursor do mouse sobre o nome do parâmetro.
 Propriedades opcionais de um módulo, como o defaultValue, minValue e maxValue, podem ser adicionadas a qualquer argumento como atributos a um elemento **Propriedades** . As propriedades válidas para o elemento **Propriedades** dependem do tipo de argumento e são descritas com os tipos de argumento com suporte na próxima seção. Argumentos com a propriedade **isOptional** definida como **"true"** não exigem que o usuário insira um valor. Se um valor não for fornecido para o argumento, o argumento não será passado para a função de ponto de entrada. Argumentos da função de ponto de entrada que são opcionais precisam ser manipulados explicitamente pela função, por exemplo, atribuído um valor padrão NULL na definição da função de ponto de entrada. Um argumento opcional somente irá impor as outras restrições de argumento, ou seja, mín. ou máx., se um valor for fornecido pelo usuário.
-Assim como acontece com entradas e saídas, é essencial que cada um dos parâmetros tenha valores de ID exclusivos associados. Em nosso exemplo de início rápido, a ID/parâmetro associado era *troca*.
+Assim como acontece com entradas e saídas, é essencial que cada um dos parâmetros tenha valores de ID exclusivos associados a eles. Em nosso exemplo de início rápido de id/parâmetro associado era *permuta*.
 
 ### <a name="arg-element"></a>Elemento arg
 Um parâmetro de módulo é definido usando o elemento filho **Arg** da seção **Argumentos** do arquivo de definição XML. Assim como acontece com os elementos filho na seção **Portas**, a ordem dos parâmetros na seção **Argumentos** define o layout encontrado na UX. Os parâmetros aparecem de cima para baixo na interface do usuário na mesma ordem em que são definidos no arquivo XML. Os tipos com suporte no Machine Learning para parâmetros são listados aqui. 
@@ -270,7 +270,7 @@ Um parâmetro de módulo é definido usando o elemento filho **Arg** da seção 
 
 * *Propriedades opcionais*: **padrão** e **isOptional**
 
-**ColumnPickerFor**: um parâmetro de seleção de coluna. Esse tipo é renderizado como um seletor de coluna no UX. O elemento **Propriedade** é usado aqui para especificar a ID da porta da qual as colunas são selecionadas, em que o tipo de porta de destino deve ser *DataTable*. O resultado da seleção de coluna é passado para a função R como uma lista de cadeias de caracteres contendo os nomes da coluna selecionada. 
+**ColumnPickerFor**: um parâmetro de seleção de coluna. Esse tipo é renderizado como um seletor de coluna no UX. O **propriedade** elemento é usado aqui para especificar a ID da porta da qual colunas forem selecionadas, em que o tipo de porta de destino deve ser *DataTable*. O resultado da seleção de coluna é passado para a função R como uma lista de cadeias de caracteres contendo os nomes da coluna selecionada. 
 
         <Arg id="colset" name="Column set" type="ColumnPicker">      
           <Properties portId="datasetIn1" allowedTypes="Numeric" default="NumericAll"/>
@@ -278,7 +278,7 @@ Um parâmetro de módulo é definido usando o elemento filho **Arg** da seção 
         </Arg>
 
 
-* *Propriedades obrigatórias*: **portId** – corresponde à ID de um elemento de entrada com o tipo *DataTable*.
+* *Propriedades obrigatórias*: **portId** -corresponde à ID de um elemento de entrada com tipo *DataTable*.
 * *Propriedades opcionais*:
   
   * **allowedTypes** - filtra os tipos de coluna dos quais você pode escolher. Os valores válidos incluem: 
@@ -286,7 +286,7 @@ Um parâmetro de módulo é definido usando o elemento filho **Arg** da seção 
     * Numeric
     * Boolean
     * Categóricos
-    * Cadeia de caracteres
+    * String
     * Rótulo
     * Recurso
     * Pontuação
@@ -327,7 +327,7 @@ Um parâmetro de módulo é definido usando o elemento filho **Arg** da seção 
     </Arg>    
 
 * *Propriedades opcionais*:
-  * **padrão** – o valor da propriedade padrão deve corresponder a um valor de ID de um dos elementos de **Item**.
+  * **padrão** -o valor para a propriedade padrão deve corresponder com um valor de ID de um dos **Item** elementos.
 
 ### <a name="auxiliary-files"></a>Arquivos auxiliares
 Qualquer arquivo que é colocado no arquivo ZIP do módulo personalizado estará disponível para uso durante o momento de execução. Qualquer estrutura de diretório presente é preservada. Isso significa que o fornecimento de arquivos funciona da mesma forma localmente e na execução do Azure Machine Learning Studio. 

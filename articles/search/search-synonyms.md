@@ -6,16 +6,16 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/02/2019
 manager: jlembicz
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 4383cc327d8058ca44acd892f41a7a256e3b1727
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 567124f50745080da12178a458957a0f6c8266b5
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61281795"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024306"
 ---
 # <a name="synonyms-in-azure-search"></a>Sinônimos no Azure Search
 
@@ -23,11 +23,13 @@ Sinônimos nos termos equivalentes associados do mecanismo de pesquisa que expan
 
 No Azure Search, a expansão do sinônimo é feita no momento da consulta. Você pode adicionar mapas de sinônimo a um serviço sem interromper as operações existentes. Você pode adicionar uma propriedade **synonymMaps** a uma definição de campo sem necessidade de recriar o índice.
 
-## <a name="feature-availability"></a>Disponibilidade de recursos
+## <a name="create-synonyms"></a>Criar sinônimos
 
-Há suporte para o recurso de sinônimos nas últimas versões da API (api-version=2017-11-11). Não há suporte do portal do Azure no momento.
+Não há suporte do portal para criar sinônimos, mas você pode usar a API REST ou o SDK do .NET. Para começar com o REST, é recomendável [usando o Postman](search-fiddler.md) e formulação de solicitações que usam essa API: [Criar mapas de sinônimos](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Para C# desenvolvedores, você pode começar a usar com [adicionar sinônimos na pesquisa do Azure usando o C# ](search-synonyms-tutorial-sdk.md).
 
-## <a name="how-to-use-synonyms-in-azure-search"></a>Como usar sinônimos no Azure Search
+Opcionalmente, se você estiver usando [chaves gerenciadas pelo cliente](search-security-manage-encryption-keys.md) para criptografia em repouso no lado do serviço, você pode aplicar essa proteção ao conteúdo de seu mapa de sinônimos.
+
+## <a name="use-synonyms"></a>Usar sinônimos
 
 No Azure Search, suporte a sinônimos baseia-se em mapas de sinônimo que você define e carrega em seu serviço. Esses mapas constituem um recurso independente (como índices ou fontes de dados) e podem ser usados por qualquer campo pesquisável em um índice do serviço de pesquisa.
 
@@ -49,7 +51,7 @@ Os mapas de sinônimos devem estar no formato Apache Solr explicado abaixo. Se v
 
 Crie um novo mapa de sinônimos usando HTTP POST, como no exemplo a seguir:
 
-    POST https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
+    POST https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
     api-key: [admin key]
 
     {
@@ -62,7 +64,7 @@ Crie um novo mapa de sinônimos usando HTTP POST, como no exemplo a seguir:
 
 Como alternativa, use PUT e especifique o nome do mapa de sinônimos no URI. Se o mapa de sinônimos não existir, ele será criado.
 
-    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
+    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
     api-key: [admin key]
 
     {
@@ -74,38 +76,38 @@ Como alternativa, use PUT e especifique o nome do mapa de sinônimos no URI. Se 
 
 ##### <a name="apache-solr-synonym-format"></a>Formato de sinônimo Apache Solr
 
-O formato Solr dá suporte a mapeamentos de sinônimo equivalentes e explícitos. As regras de mapeamento seguem a especificação de filtro de sinônimo de software livre do Apache Solr, descrito neste documento: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Abaixo está um exemplo de regra de sinônimos equivalentes.
+O formato Solr dá suporte a mapeamentos de sinônimo equivalentes e explícitos. Regras de mapeamento aderem à especificação de filtro de sinônimo de código-fonte aberto do Apache Solr, descritos neste documento: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Abaixo está um exemplo de regra de sinônimos equivalentes.
 ```
 USA, United States, United States of America
 ```
 
 Com a regra acima, uma consulta de pesquisa "EUA" será expandida para "EUA" OR "Estados Unidos" OR "Estados Unidos da América".
 
-Mapeamento explícito é indicado por uma seta "=>". Quando especificado, uma sequência de termos de uma consulta de pesquisa que corresponda à esquerda de "=>" será substituída com as alternativas do lado direito. Dada a regra abaixo, consultas de pesquisa "Washington", "Wash." ou "WA" serão regravadas como "WA". Mapeamento explícito só é aplicável na direção especificada e não regrava a consulta "WA" para "Washington" nesse caso.
+Mapeamento explícito é indicado por uma seta "=>". Quando especificado, uma sequência de termos de uma consulta de pesquisa que corresponda à esquerda de "= >" será substituída com as alternativas do lado direito. Dada a regra abaixo, consultas de pesquisa "Washington", "Wash." ou "WA" serão regravadas como "WA". Mapeamento explícito só é aplicável na direção especificada e não regrava a consulta "WA" para "Washington" nesse caso.
 ```
 Washington, Wash., WA => WA
 ```
 
 #### <a name="list-synonym-maps-under-your-service"></a>Liste os mapas de sinônimos em seu serviço.
 
-    GET https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
+    GET https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
     api-key: [admin key]
 
 #### <a name="get-a-synonym-map-under-your-service"></a>Obtenha um mapa de sinônimos em seu serviço.
 
-    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
+    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
     api-key: [admin key]
 
 #### <a name="delete-a-synonyms-map-under-your-service"></a>Exclua um mapa de sinônimos em seu serviço.
 
-    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
+    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
     api-key: [admin key]
 
 ### <a name="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition"></a>Configure um campo de pesquisa para usar o mapa de sinônimos na definição do índice.
 
 Uma nova propriedade de campo **synonymMaps** pode ser usada a fim de especificar um mapa de sinônimos para usar em um campo pesquisável. Mapas de sinônimos são recursos de nível de serviço e podem ser consultados por qualquer campo de um índice no serviço.
 
-    POST https://[servicename].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[servicename].search.windows.net/indexes?api-version=2019-05-06
     api-key: [admin key]
 
     {

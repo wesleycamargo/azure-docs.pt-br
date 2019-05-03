@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/14/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 09695f764ff71b274e125e90835f5314eb25c980
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bad64f439d45581f8f4b55ea1ac849db1e27cb76
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344443"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024593"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Anexar um recurso dos Serviços Cognitivos a um conjunto de habilidades no Azure Search 
 
@@ -28,8 +28,7 @@ Se o pipeline consistir em habilidades não relacionadas à API de Serviços Cog
 > [!NOTE]
 > À medida que você expande o escopo ao aumentar a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, você precisará anexar um recurso faturável dos Serviços Cognitivos. As cobranças são geradas ao chamar APIs nos Serviços Cognitivos e para a extração de imagem como parte do estágio de decodificação de documentos no Azure Search. Não há encargos para extração de texto em documentos.
 >
-> Execução de [habilidades cognitivas internos](cognitive-search-predefined-skills.md) execução será cobrada com o [dos serviços Cognitivos pagamento medida que vá preços](https://azure.microsoft.com/pricing/details/cognitive-services), na mesma taxa como se você executou a tarefa diretamente. Extração de imagem é um encargo de Azure Search, refletido na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
-
+> Execução de habilidades internas é cobrada existente [dos serviços Cognitivos pagamento medida que vá preços](https://azure.microsoft.com/pricing/details/cognitive-services/). Preços de extração de imagem é descrita na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 ## <a name="use-free-resources"></a>Usar recursos gratuitos
 
@@ -100,7 +99,7 @@ Ao definir o conjunto de habilidades de forma programática, adicione uma seçã
 O exemplo a seguir mostra esse padrão. Observe a seção cognitiveServices na parte inferior da definição
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -110,7 +109,7 @@ Content-Type: application/json
     "skills": 
     [
       {
-        "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+        "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
         "categories": [ "Organization" ],
         "defaultLanguageCode": "en",
         "inputs": [
@@ -142,7 +141,7 @@ Para estimar os custos associados à indexação de pesquisa cognitiva, comece c
 + Uma imagem por página (6.000 imagens)
 + 3.000 caracteres por página
 
-Suponha um pipeline que consiste em decifração de documento de cada PDF com extração de imagem e texto, OCR (reconhecimento óptico de caracteres) de imagens e reconhecimento de entidade nomeada de organizações. 
+Suponha que um pipeline que consiste de decodificação de documentos de cada PDF com a extração de imagem e texto, reconhecimento óptico de caracteres (OCR) de imagens e reconhecimento de entidade de organizações. 
 
 Neste exercício, estamos usando o preço mais caro por transação. Os custos reais podem ser inferiores devido a preços graduados. Confira os [preços dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services).
 
@@ -154,7 +153,7 @@ Neste exercício, estamos usando o preço mais caro por transação. Os custos r
 
 Juntando as peças, pagaríamos cerca de US$ 57,00 para ingerir 1.000 documentos PDF dessa natureza com o conjunto de habilidades descrito. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 + [Página de preços do Azure Search](https://azure.microsoft.com/pricing/details/search/)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
 + [Criar conjunto de qualificações (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)

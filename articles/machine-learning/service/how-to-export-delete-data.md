@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: ph-com
 ms.author: pahusban
-ms.date: 09/24/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3f40606d5fae3b3784ac7f1fdcf4977b7fd9eb1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b55282adf56bedb0724eca578b8eaea00c26074
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819426"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023970"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportar ou excluir dados do espaço de trabalho no serviço do Machine Learning 
 
@@ -231,3 +231,29 @@ Modelos podem ser obtidos por:
 Fontes de Dados podem ser obtidas por:
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
+
+## <a name="delete-visual-interface-assets"></a>Excluir ativos da interface visual
+
+Na interface do visual em que você criou seu experimento, exclua ativos individuais:
+
+1. À esquerda, selecione o tipo de ativo que você deseja excluir.
+
+    ![Excluir ativos](media/how-to-export-delete-data.md/delete-experiment.png)
+
+1. Na lista, selecione os ativos individuais para excluir.
+
+1. Na parte inferior, selecione **excluir**.
+
+## <a name="export-visual-interface-data"></a>Exportar dados da interface visual
+
+Na interface do visual em que você criou seu experimento, exporte os dados que foram adicionados:
+
+1. À esquerda, selecione **dados**.
+
+1. Na parte superior, selecione **Meus conjuntos de dados** ou **exemplos** para localizar os dados que você deseja exportar.
+
+    ![Baixar dados](media/how-to-export-delete-data.md/download-data.png)
+
+1. Na lista, selecione os conjuntos de dados individuais para exportar.
+
+1. Na parte inferior, selecione **baixar**.
