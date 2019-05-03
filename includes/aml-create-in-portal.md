@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 05331c710817e575deb7729189c9b2d8ccbafd7d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 57fd69542a5d92b9afd1e003d8b94c1ebb64953e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60753804"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65031757"
 ---
 1. Entre no [portal do Microsoft Azure](https://portal.azure.com/) usando as credenciais de assinatura do Azure que você usará. 
 
@@ -26,7 +26,7 @@ ms.locfileid: "60753804"
 
 1. Na barra de pesquisa, digite **Machine Learning**. Selecione o resultado da pesquisa do **Espaço de trabalho de serviço de Machine Learning**.
 
-   ![Pesquisa de workspace](./media/aml-create-in-portal/allservices-search.PNG)
+   ![Pesquisa de workspace](./media/aml-create-in-portal/allservices-search.png)
 
 1. No painel **Workspace do Machine Learning**, role até a parte inferior e selecione **Criar** para começar.
 
