@@ -255,7 +255,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 |Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
-|**tipo**|| Obrigatório – deve ser definido como `sendGrid`.|
+|**type**|| Obrigatório – deve ser definido como `sendGrid`.|
 |**direction**|| Obrigatório – deve ser definido como `out`.|
 |**name**|| Obrigatório – o nome da variável usado no código da função da solicitação ou do corpo da solicitação. Esse valor é ```$return``` quando há apenas um valor retornado. |
 |**apiKey**|**ApiKey**| O nome de uma configuração de aplicativo que contém sua chave de API. Se não configurado, o nome da configuração do aplicativo padrão é "AzureWebJobsSendGridApiKey".|
