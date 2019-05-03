@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: e4849487c2dd9330dbf9e6b6cf0ed4d1b6b96020
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f773cd298c8faaac90b30d88a74e8ddcb51c3afa
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637511"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021947"
 ---
 # <a name="deprecated-cognitive-search-skills"></a>Habilidades preteridas da pesquisa cognitiva
 
@@ -31,7 +31,7 @@ Este documento descreve as habilidades cognitivas que são consideradas obsoleta
 
 ### <a name="last-available-api-version"></a>Última versão disponível do api
 
-11-11-2017- versão prévia
+2019-05-06-preview
 
 ### <a name="end-of-support"></a>Fim do suporte
 
@@ -43,7 +43,8 @@ Use [ Microsoft.Skills.Text.EntityRecognitionSkill ](cognitive-search-skill-enti
 
 Para migrar para a [Habilidade de Reconhecimento de Entidade](cognitive-search-skill-entity-recognition.md), você terá que executar uma ou mais das seguintes alterações na sua definição de habilidade. Você pode atualizar a definição de habilidade usando a [API Update Skillset](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
 
-_Observação_: Atualmente, não há suporte para a pontuação de confiança como um conceito. Ele terá suporte em um futuro próximo. O `minimumPrecision` parâmetro existe no `EntityRecognitionSkill` para uso futuro e para compatibilidade com versões anteriores.
+> [!NOTE]
+> Atualmente, não há suporte para a pontuação de confiança como um conceito. O `minimumPrecision` parâmetro existe no `EntityRecognitionSkill` para uso futuro e para compatibilidade com versões anteriores.
 
 1. *(Obrigatório)* Altere o `@odata.type` de `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` para `"#Microsoft.Skills.Text.EntityRecognitionSkill"`.
 

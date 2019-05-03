@@ -11,16 +11,33 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: db0eccb542cb4253e6e891fa9fa51e60fb7951a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 242b7cb45e9a73e78ae9f9b62e83311e110e07ee
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60752327"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021100"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemas conhecidos e solução de problemas do serviço Azure Machine Learning
 
 Este artigo ajuda a localizar e corrigir os erros ou as falhas encontrados ao usar o serviço Azure Machine Learning.
+
+## <a name="visual-interface-issues"></a>Problemas da interface Visual
+
+Interface visual para problemas do serviço de aprendizado de máquina.
+
+### <a name="long-compute-preparation-time"></a>Tempo de preparação de computação longos
+
+Criar nova computação ou evocar deixando computação leva tempo, talvez alguns minutos ou mais. A equipe está trabalhando para otimização.
+
+
+### <a name="cannot-run-an-experiment-only-contains-dataset"></a>Não é possível executar um experimento contém apenas conjunto de dados 
+
+Você talvez queira executar um experimento contém apenas o conjunto de dados para visualizar o conjunto de dados. No entanto, ele não tem permissão para executar um experimento contém apenas conjunto de dados hoje mesmo. Estamos ativamente corrigindo o problema.
+ 
+Antes da correção, é possível conectar o conjunto de dados a qualquer módulo de transformação de dados (Selecionar colunas no conjunto de dados, editar metadados, etc. de dados de divisão) e execute o teste. Em seguida, você pode visualizar o conjunto de dados. 
+
+Abaixo da imagem mostra como: ![visulize dados](./media/resource-known-issues/aml-visualize-data.png)
 
 ## <a name="sdk-installation-issues"></a>Problemas de instalação do SDK
 

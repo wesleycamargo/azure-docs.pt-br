@@ -10,18 +10,21 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 92f04d80ea956f3036d7778a5d6de62e53b969ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8644c2c0d4ee5b6ee4dcf16e470e4f2fa478237
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817365"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023688"
 ---
-# <a name="write-and-configure-data-using-azure-machine-learning"></a>Escrever e configurar os dados usando o Azure Machine Learning
+# <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>Escrever e configurar os dados com o SDK do Azure Machine Learning Data Prep
 
 Neste artigo, você aprenderá os diferentes métodos para gravar dados usando o [SDK do Python do Azure Machine Learning dados Prep](https://aka.ms/data-prep-sdk) e como configurar esses dados para experimentação com a [SDK de aprendizado de máquina do Azure para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Dados de saída podem ser gravados em qualquer ponto em um fluxo de dados. As gravações são adicionadas como etapas ao fluxo de dados resultante e essas etapas são executados sempre que o fluxo de dados é executado. Os dados são gravados em vários arquivos de partição para permitir gravações paralelas.
+
+> [!Important]
+> Se você estiver criando uma nova solução, tente as [conjuntos de dados do Azure Machine Learning](how-to-explore-prepare-data.md) (visualização) para transformar seus dados, dados de instantâneo e armazenar definições de conjunto de dados com controle de versão. Conjuntos de dados é a próxima versão da SDK, oferecendo funcionalidade expandida para gerenciar conjuntos de dados em soluções de inteligência Artificial a preparação de dados.
 
 Como não há nenhuma limitação para a quantidade de etapas de gravação em um pipeline, você pode facilmente adicionar mais etapas de gravação para obter resultados intermediários para solução de problemas ou para outros pipelines.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: liamca
 ms.custom: seodec2018
-ms.openlocfilehash: 8a07657d04cee57cb69c9f5f7862fed3e7965716
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32352a857f0a74dc008dc1ad76b4a5951a36b956
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61283536"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024558"
 ---
 # <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-search"></a>Estratégias de implantação e práticas recomendadas para otimizar o desempenho no Azure Search
 
@@ -81,7 +81,7 @@ Há duas opções para manter seus serviços de pesquisa distribuídos em sincro
 
 ### <a name="use-indexers-for-updating-content-on-multiple-services"></a>Usar indexadores para atualizar conteúdo em vários serviços
 
-Se você já estiver usando o indexador em um serviço, você pode configurar um indexador de segundo em um segundo serviço para usar o mesmo objeto de fonte de dados, extraindo dados do mesmo local. Cada serviço em cada região tem seu próprio indexador e um índice de destino (o corpus de pesquisa não é compartilhado, que significa que os dados sejam duplicados), mas cada indexador faz referência a mesma fonte de dados.
+Se você já estiver usando o indexador em um serviço, você pode configurar um indexador de segundo em um segundo serviço para usar o mesmo objeto de fonte de dados, extraindo dados do mesmo local. Cada serviço em cada região tem seu próprio indexador e um índice de destino (o índice de pesquisa não é compartilhado, que significa que os dados sejam duplicados), mas cada indexador faz referência a mesma fonte de dados.
 
 Aqui está um visual de alto nível de como seria a aparência dessa arquitetura.
 

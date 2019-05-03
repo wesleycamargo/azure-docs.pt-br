@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 05/02/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b5ace2e741f900dd4ab7ba6518d0956284af35f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2280af4bf37fdb3cd12482da855f979a9180f0ec
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461573"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020539"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Criar uma palavra de ativação personalizada usando o serviço de Fala
 
@@ -47,29 +47,26 @@ Considere as seguintes diretrizes ao escolher uma palavra de ativação:
 
 ## <a name="create-your-wake-word"></a>Criar sua palavra de ativação
 
-Antes de usar uma palavra de ativação personalizada com seu dispositivo, será preciso criá-la usando o serviço de Geração de Palavra de Ativação Personalizada da Microsoft. Depois de fornecer uma palavra de ativação, produz o serviço um arquivo que você implanta seu kit de desenvolvimento para habilitar a palavra de ativação em seu dispositivo.
+Antes de usar uma palavra de ativação personalizado com seu dispositivo, você precisará criar uma palavra de ativação com o serviço Microsoft personalizado Wake Word geração. Depois de fornecer uma palavra de ativação, produz o serviço um arquivo que você implanta seu kit de desenvolvimento para habilitar a palavra de ativação em seu dispositivo.
 
-1. Vá para o [Portal de serviços de fala personalizado](https://cris.ai/).
+1. Vá para o [Portal de serviços de fala personalizado](https://aka.ms/sdsdk-speechportal) e **entrar** ou se você não tiver uma assinatura de fala escolher [ **criar uma assinatura**](https://go.microsoft.com/fwlink/?linkid=2086754)
 
     ![O Portal de serviços de fala personalizado](media/speech-devices-sdk/wake-word-4.png)
 
-1. Entrar com o endereço de email que recebeu o convite para o Azure Active Directory.
-
-1. A página **Palavra de Ativação Personalizada** não está disponível para o público, portanto, não há nenhum link que leve até ela. O recurso de fala personalizado requer uma assinatura do Azure, mas não o recurso personalizado Wake Word. Se você receber a página de erro **Nenhuma assinatura encontrada.** basta substituir a parte **"Subscriptions?errorMessage=No%20Subscriptions%20found"** por "**customkws**" na URL e pressionar ENTER. A URL deverá ser uma destas opções: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws ou https://northeurope.cris.ai/customkws, dependendo da localização da sua região.
-
-1. Digite a palavra de ativação de sua escolha e, em seguida, selecione **Enviar a palavra**.
+1. No [personalizado Wake Word](https://aka.ms/sdsdk-wakewordportal) página, digite a palavra de ativação de sua escolha e clique em **adicionar wake word**. Temos algumas [diretrizes](#choose-an-effective-wake-word) para ajudar a escolher uma palavra-chave em vigor. Atualmente, só há suporte para idioma en-US.
 
     ![Insira sua palavra de ativação](media/speech-devices-sdk/wake-word-5.png)
 
-1. Pode demorar alguns minutos para os arquivos serem gerados. Você verá um círculo girando na janela do navegador. Após alguns momentos, uma barra de informações será exibida solicitando que você baixe um arquivo .zip.
+1. Três pronúncia alternativa da sua palavra de ativação será criada. Você pode escolher todos os a pronúncia que desejar. Em seguida, selecione **enviar** para gerar a palavra de ativação. Se você quiser alterar a palavra de ativação, remover o já existente em primeiro lugar, ao passar o mouse na linha de pronúncia aparecerá no ícone Excluir.
 
-1. Salve o arquivo .zip no computador. Você precisará desse arquivo para implantar a palavra de ativação personalizada no kit de desenvolvimento. Para implantar a palavra de ativação personalizada, siga as instruções em [Introdução ao SDK de Dispositivos de Fala](speech-devices-sdk-qsg.md).
+    ![Examine o word wake](media/speech-devices-sdk/wake-word-6.png)
 
-1. Selecione **Sair.**
+1. Pode levar até um minuto para o modelo a ser gerado. Você será solicitado a baixar o arquivo.
+
+    ![Baixe o word wake](media/speech-devices-sdk/wake-word-7.png)
+
+1. Salve o arquivo .zip no computador. Você precisará esse arquivo para implantar o word ativação personalizado para o kit de desenvolvimento.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para começar, obtenha uma [Conta gratuita do Azure](https://azure.microsoft.com/free/) e inscreva-se para o SDK de Dispositivos de Fala.
-
-> [!div class="nextstepaction"]
-> [Inscreva-se para o SDK de Dispositivos de Fala](get-speech-devices-sdk.md)
+Testar sua palavra ativação personalizado com [início rápido do SDK de dispositivos de fala](https://aka.ms/sdsdk-quickstart).

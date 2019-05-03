@@ -8,19 +8,19 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seojan2018
-ms.openlocfilehash: 1fcb12fc2cfae98376210e1924a670cce444f4f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5f7ee172563a81d45e3a35da2cfc7e8731de48d
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61343332"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023850"
 ---
 # <a name="custom-web-api-skill"></a>Habilidade da API Web personalizada
 
-A habilidade de **API Web Personalizada** permite que você estenda pesquisa cognitiva ao chamar um ponto de extremidade de API Web fornecendo operações personalizadas. Semelhante a habilidades internas, uma habilidade **API Web Personalizada** tem entradas e saídas. Dependendo das entradas, sua API Web recebe um conteúdo JSON quando o indexador é executado e gera um conteúdo JSON como uma resposta, juntamente com um código de status de êxito. A resposta deve ter as saídas especificadas pela sua habilidade personalizada. Qualquer outra resposta é considerada um erro e nenhum aprimoramento é executado.
+O **API Web personalizada** habilidade permite que você estenda pesquisa cognitiva ao chamar um ponto de extremidade de API da Web fornecendo operações personalizadas. Semelhante a habilidades internas, uma habilidade **API Web Personalizada** tem entradas e saídas. Dependendo das entradas, sua API Web recebe uma carga JSON quando o indexador é executado e gera uma carga JSON como uma resposta, juntamente com um código de status de êxito. A resposta deve ter as saídas especificadas pela sua habilidade personalizada. Qualquer outra resposta é considerada um erro e nenhum aprimoramento é executado.
 
 A estrutura das payloads JSON é descrita mais detalhadamente abaixo neste documento.
 
@@ -38,7 +38,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 | Nome do parâmetro     | DESCRIÇÃO |
 |--------------------|-------------|
-| uri | O URI da API Web para o qual o conteúdo _JSON_ será enviado. Somente o esquema do URI **https** é permitido |
+| uri | O URI da API Web ao qual o _JSON_ carga será enviada. Somente o esquema do URI **https** é permitido |
 | httpMethod | O método a ser usado ao enviar o conteúdo. Os métodos permitidos são `PUT` ou `POST` |
 | httpHeaders | Uma coleção de pares chave-valor em que as chaves representam os nomes de cabeçalho e os valores representam valores de cabeçalho que serão enviados para sua API Web, juntamente com o conteúdo. Os seguintes cabeçalhos são proibidos de estarem nesta coleção: `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
 | Tempo limite | (Opcional) Quando especificado, indica o tempo limite para o cliente http que fez a chamada à API. Ele deve ser formatado como um valor XSD de "dayTimeDuration" (um subconjunto restrito de um [valor de duração ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Por exemplo, `PT60S` por 60 segundos. Se não for definido, um valor padrão de 30 segundos será escolhido. O tempo limite pode ser definido para um máximo de 90 segundos e um mínimo de 1 segundo. |
@@ -139,10 +139,10 @@ Ele sempre segue estas restrições:
 
 ## <a name="sample-output-json-structure"></a>Estrutura JSON de saída de exemplo
 
-A "saída" corresponde à resposta retornada da sua API Web. A API Web deve retornar apenas um conteúdo _JSON_ (verificada examinando o cabeçalho de resposta `Content-Type`) e deve atender às restrições a seguir:
+O "output" corresponde à resposta retornada da sua API da Web. A API da Web deve retornar apenas um _JSON_ carga (verificado ao examinar o `Content-Type` cabeçalho de resposta) e devem atender as restrições a seguir:
 
 * Deve haver uma entidade de nível superior chamada `values`, que deve ser uma matriz de objetos.
-* O número de objetos na matriz deve ser o mesmo que o número de objetos enviados para a API Web.
+* O número de objetos na matriz deve ser o mesmo que o número de objetos enviados para a API da Web.
 * Cada objeto deve ter:
    * Uma propriedade `recordId`
    * Uma propriedade `data`, que é um objeto no qual os campos são aprimoramentos correspondendo aos "nomes" no `output` e cujo valor é considerado o aprimoramento.

@@ -1,7 +1,7 @@
 ---
 title: Adicionar consultas de digitação antecipada para um índice - Azure Search
 description: Habilite ações de consulta de preenchimento automático no Azure Search criando sugestores e formular solicitações que invocam o preenchimento automático ou autosuggested termos de consulta.
-ms.date: 03/22/2019
+ms.date: 05/02/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: a8bc86c2d3511fa04e595b8b2988d9a98bf084b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 400b1613a87d4de65879a512642e16884c7d03b4
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844417"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021887"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Adicionar sugestores a um índice para digitação antecipada no Azure Search
 
@@ -39,9 +39,6 @@ Para implementar esses comportamentos no Azure Search, há um componente de inde
 + O componente do índice é um sugestor. Você pode usar o portal, a API REST ou o SDK do .NET para criar um sugestor. 
 
 + O componente de consulta é uma ação especificada na solicitação de consulta (ação de uma sugestão ou o preenchimento automático). 
-
-> [!Important]
-> Preenchimento automático está atualmente em versão prévia, disponível na visualização de APIs REST e SDK do .NET. Ele não é destinado a aplicativos de produção. 
 
 Suporte de pesquisa-como-você-type está habilitado em uma base por campo. Se você quiser uma experiência semelhante àquela indicada na captura de tela, você pode implementar os dois comportamentos de digitação antecipada dentro da mesma solução de pesquisa. Destino de ambas as solicitações de *documentos* coleção de índice específico e as respostas são retornadas depois que um usuário tenha fornecido pelo menos uma cadeia de caracteres de entrada de três caracteres.
 
@@ -106,7 +103,7 @@ Propriedades que definem um sugestor incluem o seguinte:
 
 |Propriedade      |DESCRIÇÃO      |
 |--------------|-----------------|
-|`name`        |O nome do sugestor. Você usar o nome do sugestor ao chamar o [API REST de sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions) ou [API REST de preenchimento automático (visualização)](https://docs.microsoft.com/rest/api/searchservice/autocomplete).|
+|`name`        |O nome do sugestor. Você usar o nome do sugestor ao chamar o [API REST de sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions) ou [API REST de preenchimento automático](https://docs.microsoft.com/rest/api/searchservice/autocomplete).|
 |`searchMode`  |A estratégia usada para pesquisar frases candidatas. O único modo com suporte atualmente é `analyzingInfixMatching`, que executa a correspondência flexível de frases no início ou no meio da frase.|
 |`sourceFields`|Uma lista de um ou mais campos que são a fonte do conteúdo para obter sugestões. Somente os campos dos tipos `Edm.String` e `Collection(Edm.String)` podem ser fontes de sugestões. Somente os campos que não têm um analisador de idioma personalizado definido podem ser usados.<p/>Especifique apenas os campos que se prestam para uma resposta esperada e apropriada, se ele é uma cadeia de caracteres completa em uma barra de pesquisa ou uma lista suspensa.<p/>Um nome de hotel é um bom candidato porque ele tem a precisão. Campos detalhados como comentários e descrições são muito densos. Da mesma forma, os campos repetitivos, como categorias e marcas, são menos eficazes. Nos exemplos, nós a incluímos "category" mesmo assim para demonstrar que você pode incluir vários campos. |
 
@@ -120,7 +117,7 @@ Se você adicionar um sugestor a um índice existente, onde os campos existentes
 
 Como mencionado anteriormente, você pode usar um sugestor consultas sugeridas, preenchimento automático ou ambos. 
 
-Um sugestor é referenciado na solicitação, juntamente com a operação. Por exemplo, em uma chamada GET REST, especifique `suggest` ou `autocomplete` na coleção de documentos. Para REST, depois que um sugestor é criado, use o [API de sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions) ou o [API de preenchimento automático (visualização)](https://docs.microsoft.com/rest/api/searchservice/autocomplete) em sua lógica de consulta.
+Um sugestor é referenciado na solicitação, juntamente com a operação. Por exemplo, em uma chamada GET REST, especifique `suggest` ou `autocomplete` na coleção de documentos. Para REST, depois que um sugestor é criado, use o [API de sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions) ou o [API de preenchimento automático](https://docs.microsoft.com/rest/api/searchservice/autocomplete) em sua lógica de consulta.
 
 Para .NET, use [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet-preview) ou [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet).
 

@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 609b5d990cffce10733f6fc82e6b1032ad0f06bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 225ac86efba8a32b085a5fb7fc41bed48c499eab
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60951779"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65022174"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>Recursos de documentação para cargas de trabalho de pesquisa cognitivas
 
-A pesquisa cognitiva, agora em visualização pública, é uma nova camada de enriquecimento na indexação de pesquisa do Azure que localiza informações latentes em texto não fontes e texto não-diferenciado, transformando-os em conteúdo de pesquisa de texto completo no Azure Search.
+Pesquisa cognitiva, agora disponível, é uma nova camada de enriquecimento na indexação de Azure Search que localiza informações latentes em fontes não sejam de texto e texto não diferenciado, transformando-os em conteúdo pesquisável de texto completo no Azure Search.
 
 Os artigos a seguir são a documentação completa de pesquisa cognitiva.
 
@@ -51,9 +51,9 @@ Os artigos a seguir são a documentação completa de pesquisa cognitiva.
   + [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md)
   + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
 
-+ [API REST da visualização](search-api-2017-11-11-preview.md)
-  + [Criar conjunto de qualificações (api-version=2017-11-11-Versão prévia)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-  + [Criar Indexador (api-version=2017-11-11-Versão prévia)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [API REST](https://docs.microsoft.com/rest/api/searchservice/)
+  + [Criar conjunto de qualificações (api-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
+  + [Criar indexador (api-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
 ## <a name="see-also"></a>Consulte também
 

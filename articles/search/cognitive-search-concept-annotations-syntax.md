@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bfb8f5ca9b4d204b7a5efdc1b54a0fdd150e5ed6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 637edc0e45daa37a753fbaa15313b076e8af4d7c
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344199"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023871"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Como referenciar anotações em um conjunto de habilidades de pesquisa cognitiva
 
@@ -36,13 +36,13 @@ Antes de examinarmos a sintaxe, vamos rever alguns conceitos importantes para en
 <a name="example-1"></a>
 ## <a name="example-1-simple-annotation-reference"></a>Exemplo 1: Referência de anotação simples
 
-No Armazenamento de Blobs do Azure, suponha que você tenha diversos arquivos que contêm referências a nomes de pessoas que você deseja extrair usando o reconhecimento de entidade nomeada. Na definição de habilidade abaixo, `"/document/content"` é a representação textual de todo o documento e "people" é uma extração de nomes completos para entidades identificadas como pessoas.
+No armazenamento de BLOBs do Azure, suponha que você tem uma variedade de arquivos que contêm referências a nomes de pessoas que você deseja extrair usando o reconhecimento de entidade. Na definição de habilidade abaixo, `"/document/content"` é a representação textual de todo o documento e "people" é uma extração de nomes completos para entidades identificadas como pessoas.
 
 Como o contexto padrão é `"/document"`, a lista de pessoas agora pode ser referenciada como `"/document/people"`. Neste caso específico, `"/document/people"` é uma anotação que agora poderia ser mapeada para um campo em um índice ou usada em outra habilidade do mesmo conjunto de habilidades.
 
 ```json
   {
-    "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+    "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
     "categories": [ "Person"],
     "defaultLanguageCode": "en",
     "inputs": [
@@ -98,7 +98,7 @@ Quando as anotações forem matrizes ou coleções de cadeias de caracteres, tal
 
 Às vezes, você precisa agrupar todas as anotações de um tipo específico para passá-las para uma habilidade específica. Considere uma habilidade personalizada hipotética que identifica o sobrenome mais comum de todos os sobrenomes extraídos no exemplo 2. Para fornecer apenas os sobrenomes à habilidade personalizada, especifique o contexto como `"/document"` e a entrada como `"/document/people/*/lastname"`.
 
-Observe que a cardinalidade de `"/document/people/*/lastname"` é maior que a do documento. Pode haver 10 nós de sobrenome, enquanto há apenas um nó de documento para este documento. Neste caso, o sistema criará automaticamente uma matriz de `"/document/people/*/lastname"` contendo todos os elementos no documento.
+Observe que a cardinalidade de `"/document/people/*/lastname"` é maior do que o documento. Pode haver 10 nós de sobrenome, enquanto há apenas um nó de documento para este documento. Neste caso, o sistema criará automaticamente uma matriz de `"/document/people/*/lastname"` contendo todos os elementos no documento.
 
 ```json
   {
