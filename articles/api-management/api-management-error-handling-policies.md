@@ -79,13 +79,13 @@ A seção de política `on-error` pode ser usada em qualquer escopo. Os editores
   
 | NOME     | Type   | DESCRIÇÃO                                                                                               | Obrigatório |
 |----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| Fonte   | string | Indica o elemento em que ocorreu o erro. Pode ser o nome de uma etapa do pipeline interno ou política.     | Sim      |
-| Motivo   | string | Código de erro amigável para computadores, que pode ser usado no tratamento de erro.                                       | Não        |
-| Mensagem  | string | Descrição de erro legível por humanos.                                                                         | Sim      |
-| Escopo    | string | Nome do escopo em que ocorreu o erro e pode ser um dos "global", "produto", "api" ou "operação" | Não        |
-| Seção  | string | Nome da seção em que ocorreu o erro. Valores possíveis: "inbound", "backend", "outbound" ou "on-error".       | Não        |
-| Caminho     | string | Especifica a política aninhada, por exemplo "choose[3]/when[2]".                                                        | Não        |
-| PolicyId | string | O valor do atributo `id`, se especificado pelo cliente, na política em que ocorreu o erro             | Não        |
+| `Source`   | string | Indica o elemento em que ocorreu o erro. Pode ser o nome de uma etapa do pipeline interno ou política.     | Sim      |
+| Reason   | string | Código de erro amigável para computadores, que pode ser usado no tratamento de erro.                                       | Não        |
+| Message  | string | Descrição de erro legível por humanos.                                                                         | Sim      |
+| Scope    | string | Nome do escopo em que ocorreu o erro e pode ser um dos "global", "produto", "api" ou "operação" | Não        |
+| `Section`  | string | Nome da seção em que ocorreu o erro. Valores possíveis: "inbound", "backend", "outbound" ou "on-error".       | Não        |
+| `Path`     | string | Especifica a política aninhada, por exemplo "choose[3]/when[2]".                                                        | Não        |
+| `PolicyId` | string | O valor do atributo `id`, se especificado pelo cliente, na política em que ocorreu o erro             | Não        |
 
 > [!TIP]
 > É possível acessar o código de status por meio de context.Response.StatusCode.  
