@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: f3522f065d22ce276174fbd165c37df3914e32b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1232cdd156dd473850fde6e7c4f3ce0554155764
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456165"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020398"
 ---
 # <a name="ship-an-application"></a>Enviar um aplicativo
 
@@ -49,19 +49,26 @@ Os arquivos necessários do SDK de Fala podem ser implantados no mesmo diretóri
 
 ## <a name="linux"></a>Linux
 
-O SDK de Fala atualmente é compatível com as distribuições do Ubuntu 16.04 e 18.04.
+O Speech SDK atualmente oferece suporte as distribuições Ubuntu 16.04, 18.04 Ubuntu e Debian 9.
 Para um aplicativo nativo, você precisa enviar a biblioteca do SDK de Fala, `libMicrosoft.CognitiveServices.Speech.core.so`.
 Selecione a versão (x86/x64) que corresponde ao seu aplicativo. Dependendo da versão do Linux, talvez você também precise incluir as seguintes dependências:
 
 * As bibliotecas compartilhadas da biblioteca GNU C (incluindo a biblioteca de programação de Threads POSIX, `libpthreads`)
-* A biblioteca OpenSSL (`libssl.so.1.0.0`)
+* A biblioteca OpenSSL (`libssl.so.1.0.0` ou `libssl.so.1.0.2`)
 * A biblioteca compartilhada para aplicativos ALSA (`libasound.so.2`)
 
 No Ubuntu, as bibliotecas de GNU C já devem estar instaladas por padrão. Os três últimos podem ser instalados usando estes comandos:
 
 ```sh
 sudo apt-get update
-sudo apt-get install libssl1.0.0 libasound2 wget
+sudo apt-get install libssl1.0.0 libasound2
+```
+
+No Debian 9 instale esses pacotes:
+
+```sh
+sudo apt-get update
+sudo apt-get install libssl1.0.2 libasound2
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

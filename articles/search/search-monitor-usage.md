@@ -8,15 +8,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f4a0cba18f27c9cabfc03d1934469e6899c5cd18
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf78cd9b70aa4a82ef96fdd529d3ee5b1641038c
+ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564694"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035363"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Monitorar a atividade de consulta e o consumo de recursos no Azure Search
 
@@ -114,7 +114,7 @@ Os blobs que contêm os logs de tráfego do serviço de pesquisa são estruturad
 | time |datetime |"2018-12-07T00:00:43.6872559Z" |Carimbo de data/hora da operação |
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Seu ResourceId |
 | operationName |string |"Query.Search" |O nome da operação |
-| operationVersion |string |"2017-11-11" |A api-version usada |
+| operationVersion |string |"2019-05-06" |A api-version usada |
 | category |string |"OperationLogs" |constante |
 | resultType |string |"Success" |Valores possíveis: Êxito ou Falha |
 | resultSignature |int |200 |Código do resultado HTTP |
@@ -126,7 +126,7 @@ Os blobs que contêm os logs de tráfego do serviço de pesquisa são estruturad
 | NOME | Type | Exemplo | Observações |
 | --- | --- | --- | --- |
 | DESCRIÇÃO |string |"GET /indexes('content')/docs" |Ponto de extremidade da operação |
-| Consultar |string |"?search=AzureSearch&$count=true&api-version=2017-11-11" |Parâmetros da consulta |
+| Consultar |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Parâmetros da consulta |
 | Documentos |int |42 |Número de documentos processados |
 | IndexName |string |"testindex" |Nome do índice associado à operação |
 
