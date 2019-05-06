@@ -27,16 +27,16 @@ Cada instância de serviço do Gerenciamento de API tem uma coleção de proprie
 
 | Atributo | Type | DESCRIÇÃO |
 | --- | --- | --- |
-| Nome de exibição |string |Cadeia de caracteres alfanuméricos usada para referenciar a propriedade nas políticas. |
+| Display name |string |Cadeia de caracteres alfanuméricos usada para referenciar a propriedade nas políticas. |
 | Value |string |O valor da propriedade. Ele não pode ficar vazio ou conter apenas espaços em branco. |
-|Segredo|boolean|Determina se o valor é um segredo e se deve ser criptografado ou não.|
-| Marcas |matriz de cadeias de caracteres |Marcas opcionais que, quando fornecidas, podem ser usadas para filtrar a lista de propriedades. |
+|Secret|boolean|Determina se o valor é um segredo e se deve ser criptografado ou não.|
+| tags |matriz de cadeias de caracteres |Marcas opcionais que, quando fornecidas, podem ser usadas para filtrar a lista de propriedades. |
 
 ![Valores nomeados](./media/api-management-howto-properties/named-values.png)
 
 Os valores de propriedade podem conter cadeias de caracteres literais e [expressões de política](/azure/api-management/api-management-policy-expressions). Por exemplo, o valor de `ExpressionProperty` é uma expressão de política que retorna uma cadeia de caracteres que contém a data e hora atuais. A propriedade `ContosoHeaderValue` é marcada como um segredo e, portanto, seu valor não é exibido.
 
-| NOME | Value | Segredo | Marcas |
+| NOME | Value | Secret | tags |
 | --- | --- | --- | --- |
 | ContosoHeader |TrackingId |Falso |Contoso |
 | ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
