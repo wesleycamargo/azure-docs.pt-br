@@ -186,7 +186,7 @@
           href: how-to-connect-configure-ad-ds-connector-account.md
         - name: Mudar senha da conta de serviço do Azure ADSync
           href: how-to-connect-sync-change-serviceacct-pass.md
-        - name: Mudar conta do Azure AD Connector
+        - name: Alterar a senha da conta do Conector Azure AD
           href: how-to-connect-azureadaccount.md
         - name: Alterar a senha da conta do Conector AD DS
           href: how-to-connect-sync-change-addsacct-pass.md

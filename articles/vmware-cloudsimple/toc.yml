@@ -1,0 +1,170 @@
+- name: Solução VMware pela CloudSimple
+  href: /azure/vmware-cloudsimple
+  items:
+    - name: Visão geral
+      items:
+        - name: O que é a Solução VMware pela CloudSimple?
+          href: cloudsimple-vmware-solutions-overview.md
+        - name: Principais conceitos de administração
+          href: 'https://docs.azure.cloudsimple.com/key-concepts/'
+    - name: Início rápido
+      expanded: true
+      items:
+        - name: Inicializar e adquirir capacidade
+          href: quickstart-create-cloudsimple-service.md
+        - name: Configurar o ambiente de nuvem privada
+          href: quickstart-create-private-cloud.md
+        - name: Criar VM do VMware na nuvem privada
+          href: 'https://docs.azure.cloudsimple.com/quickstart-create-private-cloud-vmware-virtual-machine/'
+        - name: Consumir VMs do VMware no Azure
+          href: quickstart-create-vmware-virtual-machine.md
+    - name: Conceitos
+      items:
+        - name: Serviço
+          href: 'https://docs.azure.cloudsimple.com/cloudsimple-service/'
+        - name: Nós
+          href: cloudsimple-node.md
+        - name: Nuvem privada
+          href: cloudsimple-private-cloud.md
+        - name: Máquinas virtuais
+          href: cloudsimple-virtual-machines.md
+        - name: VLANs e sub-redes
+          href: cloudsimple-vlans-subnets.md
+        - name: Tabelas de firewall
+          href: cloudsimple-firewall-tables.md
+        - name: Gateways VPN
+          href: cloudsimple-vpn-gateways.md
+        - name: IP público
+          href: cloudsimple-public-ip-address.md
+        - name: Conexão de rede do Azure
+          href: cloudsimple-azure-network-connection.md
+        - name: Gerenciamento de contas
+          href: cloudsimple-account.md
+        - name: Gerenciamento de atividades
+          href: 'https://docs.azure.cloudsimple.com/cloudsimple-activity/'
+        - name: VMware em nuvem privada
+          href: 'https://docs.azure.cloudsimple.com/vmware-components/'
+        - name: Visão geral da segurança
+          href: 'https://docs.azure.cloudsimple.com/cloudsimple-security/'
+        - name: Cota de nós
+          href: 'https://docs.azure.cloudsimple.com/node-quota/'
+        - name: Manutenção e atualizações
+          href: 'https://docs.azure.cloudsimple.com/cloudsimple-maintenance-updates/'
+        - name: Perguntas frequentes
+          href: 'https://docs.azure.cloudsimple.com/cloudsimple-faq/'
+    - name: Tutoriais
+      items:
+        - name: Habilitar provedor de recursos
+          href: 'https://docs.azure.cloudsimple.com/enable-cloudsimple-service/'
+        - name: Criar o serviço CloudSimple
+          href: 'https://docs.azure.cloudsimple.com/create-cloudsimple-service/'
+        - name: Acessar o portal da CloudSimple
+          href: 'https://docs.azure.cloudsimple.com/access-cloudsimple-portal/'
+        - name: Gerenciar nós
+          items:
+            - name: Comprar nós
+              href: create-nodes.md
+        - name: Gerenciar recursos de nuvem privada
+          items:
+            - name: Criar uma nuvem privada
+              href: 'https://docs.azure.cloudsimple.com/create-private-cloud/'
+            - name: Gerenciar suas nuvens privadas
+              href: 'https://docs.azure.cloudsimple.com/manage-private-cloud/'
+            - name: Expandir uma nuvem privada
+              href: 'https://docs.azure.cloudsimple.com/expand-private-cloud/'
+            - name: Reduzir uma nuvem privada
+              href: 'https://docs.azure.cloudsimple.com/shrink-private-cloud/'
+            - name: Exibir a lista de racks de nuvem privada
+              href: 'https://docs.azure.cloudsimple.com/view-cloud-racks/'
+            - name: Mapear sua assinatura do Azure
+              href: 'https://docs.azure.cloudsimple.com/azure-subscription-mapping/'
+            - name: Escalonar privilégios
+              href: 'https://docs.azure.cloudsimple.com/escalate-private-cloud-privileges/'
+        - name: Monitorar atividade da CloudSimple
+          href: 'https://docs.azure.cloudsimple.com/activity/'
+        - name: Configurar rede da nuvem privada
+          items:
+            - name: Criar e gerenciar VLANs e sub-redes
+              href: 'https://docs.azure.cloudsimple.com/create-vlan-subnet/'
+            - name: Configurar regras e tabelas de firewall
+              href: 'https://docs.azure.cloudsimple.com/firewall/'
+            - name: Alocar endereços IP públicos
+              href: 'https://docs.azure.cloudsimple.com/public-ips/'
+            - name: Configurar conexões VPN
+              href: 'https://docs.azure.cloudsimple.com/vpn-gateway/'
+            - name: Obter informações em pares para conexão de rede virtual com a CloudSimple
+              href: 'https://docs.azure.cloudsimple.com/virtual-network-connection/'
+            - name: Acessar privilégios de escalonamento do cliente vSphere para tarefas de administrador
+              href: 'https://docs.azure.cloudsimple.com/vsphere-access/'
+        - name: Gerenciar contas do portal da CloudSimple
+          items:
+            - name: Exibir o resumo da conta
+              href: 'https://docs.azure.cloudsimple.com/account/'
+            - name: Exibir a lista de usuários
+              href: 'https://docs.azure.cloudsimple.com/users/'
+            - name: Exibir o log de uso
+              href: 'https://docs.azure.cloudsimple.com/usage/'
+            - name: Configurar uma conexão de rede virtual com a nuvem privada
+              href: 'https://docs.azure.cloudsimple.com/virtual-network-connection/'
+            - name: Editar seu perfil do usuário
+              href: 'https://docs.azure.cloudsimple.com/editprofile/'
+        - name: Configurar máquinas virtuais do VMware para a nuvem privada
+          items:
+            - name: Criar uma VM no Azure
+              href: 'https://docs.azure.cloudsimple.com/azure-create-vm/'
+    - name: Guias de instruções
+      items:
+        - name: Proteger seu Ambiente
+          href: 'https://docs.azure.cloudsimple.com/private-cloud-secure/'
+        - name: Gerenciamento de nuvem privada
+          items:
+            - name: DNS de carga de trabalho e configuração de DHCP
+              href: 'https://docs.azure.cloudsimple.com/dns-dhcp-setup/'
+            - name: VPN de Camada 2 do NSX para migração
+              href: 'https://docs.azure.cloudsimple.com/migrate-workloads/#migrating-vms-using-nsx-layer-2-vpn'
+        - name: Rede de nuvem privada
+          items:
+            - name: Conexão VPN entre a nuvem local e privada
+              href: 'https://docs.azure.cloudsimple.com/set-up-vpn/'
+            - name: Conexão de rede local com ExpressRoute
+              href: 'https://docs.azure.cloudsimple.com/on-premises-connection/'
+            - name: Conexão de rede virtual do Azure com ExpressRoute
+              href: 'https://docs.azure.cloudsimple.com/azure-expressroute-connection/'
+        - name: Plataforma do VMware
+          items:
+            - name: Conheça o modelo de permissão de nuvem privada
+              href: 'https://docs.azure.cloudsimple.com/learn-private-cloud-permissions/'
+            - name: Fontes de identidade do vCenter
+              href: 'https://docs.azure.cloudsimple.com/set-vcenter-identity/'
+            - name: Gateway de Aplicativo do Azure com VMs do VMware
+              href: 'https://docs.azure.cloudsimple.com/azure-application-gateway/'
+            - name: Balanceador de carga público do Azure com VMs do VMware
+              href: 'https://docs.azure.cloudsimple.com/load-balancers/'
+            - name: Configurar vCenter Server de nuvem privada como ponto de extremidade de automação do vRealize
+              href: 'https://docs.azure.cloudsimple.com/configure-server-vra-endpoint/'
+            - name: Como migrar VMs de carga de trabalho para uma nuvem privada
+              href: 'https://docs.azure.cloudsimple.com/migrate-workloads/'
+            - name: Como garantir alta disponibilidade do aplicativo no VMware no Azure
+              href: 'https://docs.azure.cloudsimple.com/ha-ensuring/'
+        - name: Ecossistema do VMware
+          items:
+            - name: Soluções de recuperação de desastre
+              href: 'https://docs.azure.cloudsimple.com/zerto-solutionguide/'
+            - name: Recuperação de desastre usando o VMware SRM
+              href: 'https://docs.azure.cloudsimple.com/disaster-recovery-srm/'
+            - name: Fazer backup de máquinas virtuais de carga de trabalho
+              href: 'https://docs.azure.cloudsimple.com/veeam/'
+            - name: Guia de solução do VMware Horizon
+              href: 'https://docs.azure.cloudsimple.com/horizon-guide/'
+            - name: Configurar criptografia vSAN para sua nuvem privada
+              href: 'https://docs.azure.cloudsimple.com/vsan-encryption/'
+            - name: Implantação do Oracle RAC na nuvem privada CloudSimple
+              href: 'https://docs.azure.cloudsimple.com/oracle-rac/'
+        - name: Integração do Core do Azure
+          items:
+            - name: Fonte de identidade do Azure AD no vCenter de nuvem privada
+              href: 'https://docs.azure.cloudsimple.com/azure-ad/'
+            - name: Conexão de rede local com ExpressRoute
+              href: 'https://docs.azure.cloudsimple.com/er-connection/'
+            - name: Conexão de rede virtual do Azure com ExpressRoute
+              href: 'https://docs.azure.cloudsimple.com/azure-er-connection/'

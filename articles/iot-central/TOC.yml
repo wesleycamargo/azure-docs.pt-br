@@ -113,6 +113,8 @@
           href: howto-personalize-dashboard.md
         - name: Gerenciar suas preferências
           href: howto-manage-preferences.md
+        - name: Alternar chat ao vivo
+          href: howto-show-hide-chat.md
 - name: Relacionados
   items:
     - name: Soluções

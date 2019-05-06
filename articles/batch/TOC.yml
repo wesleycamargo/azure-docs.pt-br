@@ -49,6 +49,8 @@
       href: batch-pool-vm-sizes.md
     - name: Alta disponibilidade e recuperação de desastres
       href: high-availability-disaster-recovery.md
+    - name: Variável de ambiente do tempo de execução de tarefas
+      href: batch-compute-node-environment-variables.md
 - name: Guias de instruções
   items:
     - name: Gerenciar contas de Lote
@@ -199,8 +201,6 @@
           href: batch-task-complete-event.md
         - name: Evento de falha da tarefa
           href: batch-task-fail-event.md
-    - name: Variáveis de ambiente do nó de computação do lote
-      href: batch-compute-node-environment-variables.md
 - name: Recursos
   items:
     - name: Roteiro do Azure

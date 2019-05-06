@@ -25,7 +25,7 @@
       href: tutorial-custom-images.md
     - name: 5 - VMs altamente disponíveis
       href: tutorial-availability-sets.md
-    - name: 6 - Criar um conjunto de dimensionamento de VM
+    - name: 6 – Criar um conjunto de dimensionamento
       href: tutorial-create-vmss.md
     - name: 7 - VMs de balanceamento de carga
       href: tutorial-load-balancer.md
@@ -251,6 +251,8 @@
               href: shared-images.md
             - name: Criar imagens compartilhadas usando a CLI
               href: ../linux/shared-images.md
+            - name: Portal
+              href: shared-images-portal.md
             - name: Solucionar problemas de imagens compartilhadas
               href: troubleshooting-shared-images.md
         - name: Como localizar e usar imagens

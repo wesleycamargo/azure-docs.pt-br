@@ -4,7 +4,7 @@ title: Documentação de identidade híbrida
 metadata:
   document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275e
   title: Documentação de identidade híbrida
-  meta.description: 'Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for your users for Office 365, Azure, and SaaS applications integrated with Azure AD.'
+  description: 'O Azure AD Connect integrará seus diretórios locais com o Azure Active Directory.  Isso permite que você forneça uma identidade comum para os usuários dos aplicativos do Office 365, Azure e SaaS integrados ao AD do Azure.'
   services: active-directory
   author: billmath
   manager: daveba
@@ -18,7 +18,7 @@ abstract:
   description: 'As soluções de identidade da Microsoft abrangem locais e recursos baseados em nuvem, criando uma identidade de usuário único para autenticação e autorização em todos os recursos, independentemente do local. Chamamos isso de identidade híbrida.</br></br></br>O Azure AD Connect integrará seus diretórios locais com o Azure Active Directory.  Isso permite que você forneça uma identidade comum para os usuários dos aplicativos do Office 365, Azure e SaaS integrados ao AD do Azure. Este tópico guiará você nas etapas de planejamento, implantação e operação. É uma coleção de links para os tópicos relacionados a essa área.'
   aside:
     image:
-      alt: null
+      alt: Vídeo do Canal 9
       height: 110
       src: media/index/video2.png
       width: 250
@@ -36,16 +36,19 @@ sections:
           - href: /azure/active-directory/hybrid/tutorial-password-hash-sync
             html: <p>Saiba como começar a estender suas identidades para a nuvem usando a sincronização de hash da senha</p>
             image:
+              alt: sincronização de hash de senha
               src: media/index/azuread2.png
             title: Integrar uma única floresta do AD usando a sincronização de hash da senha (PHS)
           - href: /azure/active-directory/hybrid/tutorial-passthrough-authentication
             html: <p>Saiba como começar a estender suas identidades para a nuvem usando a autenticação de passagem.</p>
             image:
+              alt: autenticação de passagem
               src: media/index/manage2.png
             title: Integrar uma única floresta do AD usando a autenticação de passagem (PTA)
           - href: /azure/active-directory/hybrid/tutorial-federation
             html: <p>Descubra como federar o Azure Active Directory (Azure AD) Connect com os Serviços de Federação do Active Directory (AD FS) locais e o Azure AD.</p>
             image:
+              alt: federação
               src: media/index/federate2.png
             title: Integrar uma única floresta do AD usando a federação
   - title: Guias de instruções

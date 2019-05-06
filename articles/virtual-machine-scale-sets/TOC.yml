@@ -152,6 +152,8 @@
         - name: Cotas do vCPU
           href: ../virtual-machines/windows/quotas.md
           maintainContext: true
+    - name: Perguntas frequentes sobre conjunto de dimensionamento
+      href: virtual-machine-scale-sets-faq.md
 - name: Como
   items:
     - name: Planejar e projetar
@@ -183,6 +185,9 @@
               href: virtual-machine-scale-sets-autoscale-portal.md
             - name: Dimensionamento automático avançado
               href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
+              maintainContext: true
+            - name: Solucionar problemas de dimensionamento automático
+              href: virtual-machine-scale-sets-troubleshoot.md
         - name: Aplicativos em conjuntos de escala
           href: virtual-machine-scale-sets-deploy-app.md
         - name: Extensões em conjuntos de dimensionamento
@@ -199,6 +204,9 @@
               href: virtual-machine-scale-sets-encrypt-disks-ps.md
             - name: Usar a CLI do Azure
               href: virtual-machine-scale-sets-encrypt-disks-cli.md
+            - name: Criptografia de disco com sequenciamento de extensão
+              href: ../security/azure-security-disk-encryption-extension-sequencing.md
+              maintainContext: true
         - name: Trabalhar com grandes conjuntos de dimensionamento
           href: virtual-machine-scale-sets-placement-groups.md
         - name: Converter um modelo do conjunto de dimensionamento para usar disco gerenciado
@@ -247,14 +255,6 @@
         - name: Dimensionamento automático de um conjunto de dimensionamento
           href: /azure/ansible/ansible-auto-scale-vmss
           maintainContext: true
-    - name: Solucionar problemas
-      items:
-        - name: Autoscale
-          href: virtual-machine-scale-sets-troubleshoot.md
-    - name: Perguntas frequentes
-      items:
-        - name: Perguntas frequentes sobre conjunto de dimensionamento
-          href: virtual-machine-scale-sets-faq.md
 - name: Referência
   items:
     - name: Azure PowerShell

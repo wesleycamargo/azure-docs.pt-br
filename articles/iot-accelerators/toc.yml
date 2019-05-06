@@ -97,7 +97,7 @@
           href: iot-accelerators-remote-monitoring-rbac.md
         - name: Explorar telemetria
           items:
-            - name: Visualizar telemetria com o Power BI
+            - name: Visualizar a telemetria com o Power BI
               href: iot-accelerators-integrate-data-powerbi.md
             - name: Integrar o Azure Time Series Insights com o Monitoramento Remoto
               href: iot-accelerators-remote-monitoring-integrate-time-series-insights.md
@@ -133,26 +133,22 @@
       items:
         - name: O que é o IoT industrial
           href: overview-iot-industrial.md
-        - name: OPC gêmeo
-          items:
-            - name: O que é um OPC gêmeo?
-              href: overview-opc-twin.md
-            - name: Arquitetura de OPC gêmeo
-              href: overview-opc-twin-architecture.md
-        - name: Cofre OPC
-          items:
-            - name: O que é um cofre OPC?
-              href: overview-opc-vault.md
-        - name: Fábrica conectada
-          items:
-            - name: Visão geral de fábrica conectada
-              href: iot-accelerators-connected-factory-features.md
-            - name: Arquitetura da fábrica conectada
-              href: iot-accelerators-connected-factory-sample-walkthrough.md
+        - name: O que é um OPC gêmeo?
+          href: overview-opc-twin.md
+        - name: O que é um cofre OPC?
+          href: overview-opc-vault.md
+        - name: O que é Fábrica conectada?
+          href: iot-accelerators-connected-factory-features.md
     - name: Guia de início rápido
       items:
         - name: Experimente uma solução de fábrica conectada
           href: quickstart-connected-factory-deploy.md
+    - name: Conceitos
+      items:
+        - name: Arquitetura de OPC gêmeo
+          href: overview-opc-twin-architecture.md
+        - name: Arquitetura da fábrica conectada
+          href: iot-accelerators-connected-factory-sample-walkthrough.md
     - name: Guias de instruções
       items:
         - name: Fábrica conectada
