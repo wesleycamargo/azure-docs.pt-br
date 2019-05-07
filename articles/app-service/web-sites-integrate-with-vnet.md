@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 768179f8569eac14166bcbb0a888e1cdbe41d497
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b97fe5d638b5967f533e489a67d4235bbc5a3db1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128408"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198587"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar seu aplicativo Web a uma Rede Virtual do Azure
 Este documento descreve o recurso de visualização de integração de rede virtual do Serviço de Aplicativo do Azure e mostra como configurá-lo com os aplicativos no [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). As VNets ([Redes Virtuais do Azure][VNETOverview]) permitem que você coloque qualquer um dos recursos do Azure em uma rede não roteável para a Internet com acesso controlado. Essas redes podem ser conectadas às redes locais usando tecnologias de VPN. 
@@ -271,9 +271,9 @@ A nova versão está em versão prévia e tem as características a seguir.
 * Você pode acessar recursos em conexões do ExpressRoute sem nenhuma configuração adicional além da integração com a VNet conectada ao ExpressRoute.
 * O aplicativo e a VNet devem estar na mesma região
 * O novo recurso requer uma sub-rede não usada na VNet do Resource Manager.
+* O aplicativo deve estar em uma implantação do Serviço de Aplicativo do Azure capaz de escalar verticalmente para Premium v2.
 * Seu Plano de Serviço de Aplicativo precisa ser um plano Standard, Premium ou PremiumV2
 * Cargas de trabalho de produção não são compatíveis com o novo recurso enquanto ele está em versão prévia
-* O aplicativo deve estar em uma implantação do Serviço de Aplicativo do Azure capaz de escalar verticalmente para Premium v2.
 * O novo recurso de Integração VNet não funciona para aplicativos em um Ambiente do Serviço de Aplicativo.
 * Você não pode excluir uma VNet com um aplicativo integrado.  
 * Tabelas de rotas e emparelhamento global ainda não estão disponíveis com a nova Integração VNet.  

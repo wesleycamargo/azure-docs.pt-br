@@ -16,12 +16,12 @@ ms.date: 01/25/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e988d03b60469940d8750cc07188a61fc7ab8b3a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3973a35acb4cb95d3392a8daa59e7fd9a8c56eb1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709603"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191536"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Referência a eventos de risco do Azure Active Directory Identity Protection
 
@@ -80,7 +80,9 @@ Esse tipo de evento de risco indica as entradas de endereços IP infectados com 
 
 ## <a name="unfamiliar-sign-in-properties"></a>Propriedades de entrada desconhecidas
 
-**Tipo de Detecção:** Em tempo real **nome antigo:** Entradas de locais desconhecidos
+**Tipo de Detecção:** Tempo real  
+**Nome antigo:** Entradas de locais desconhecidos
+
 
 Esse tipo de evento de risco considera histórico de entrada (IP, Latitude / Longitude e ASN) para procurar por entradas anômalas. O sistema armazena informações sobre locais anteriores usados por um usuário e considera esses locais "familiares". O evento de risco é disparado quando a entrada ocorre em uma localização que ainda não está na lista de localizações conhecidas. Usuários recém-criado será em "modo de aprendizado" por um período de tempo em quais propriedades de entrada não familiares eventos de risco serão desativados Embora nossos algoritmos aprender o comportamento do usuário. O aprendizado de duração do modo é dinâmica e depende de quanto tempo ele leva o algoritmo para coletar informações suficientes sobre padrões de logon do usuário. A duração mínima é de cinco dias. Um usuário pode voltar no modo de aprendizado após um longo período de inatividade. O sistema também ignora entradas de dispositivos conhecidos e locais que são geograficamente próximos de uma localização familiar. 
 

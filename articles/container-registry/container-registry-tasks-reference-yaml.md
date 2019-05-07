@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: b2398e7db7ed91dee8d85c0c50058bb15b9f4c7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d50d5bc91fbb86e5c0c3d2acc3b55c7d02c71723
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60827248"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192259"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referência das Tarefas do ACR: YAML
 
@@ -452,8 +452,10 @@ As Tarefas do ACR incluem um conjunto padrão de variáveis que estão disponív
 * `Run.ID`
 * `Run.Registry`
 * `Run.Date`
+* `Run.Commit`
+* `Run.Branch`
 
-### <a name="run46id"></a>Run&#46;ID
+### <a name="runid"></a>Run.ID
 
 Cada execução, por meio de `az acr run`, ou execução baseada em gatilhos de tarefas criadas por meio de `az acr task create`, tem uma ID exclusiva. A ID representa a execução que está sendo executada no momento.
 
@@ -478,6 +480,14 @@ steps:
 ### <a name="rundate"></a>Run.Date
 
 O horário UTC atual em que a execução começou.
+
+### <a name="runcommit"></a>Run.Commit
+
+Para uma tarefa disparada por uma confirmação para um repositório do GitHub, o identificador de confirmação.
+
+### <a name="runbranch"></a>Run.Branch
+
+Para uma tarefa disparada por uma confirmação para um repositório do GitHub, o nome do branch.
 
 ## <a name="next-steps"></a>Próximas etapas
 

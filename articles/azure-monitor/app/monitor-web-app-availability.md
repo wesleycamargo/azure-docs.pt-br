@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: fe8549027bb7fcf9fcfc2db26816c0b6646c9da6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6cd5413d64be2117cc5f64202ecdaaf40f35db4b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916395"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205372"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorar a disponibilidade e a capacidade de resposta de qualquer site
 Após implantar o aplicativo Web ou site em qualquer servidor, você pode configurar testes para monitorar sua disponibilidade e capacidade de resposta. [Application Insights do Azure](../../azure-monitor/app/app-insights-overview.md) envia solicitações da Web ao aplicativo em intervalos regulares de pontos no mundo todo. Ele o alertará se o aplicativo não responder ou responder lentamente.
@@ -274,7 +274,7 @@ Se o teste tiver de entrar usando OAuth, a abordagem geral será:
 
 ## <a name="performance-tests"></a>Testes de desempenho
 > [!NOTE]  
-> O serviço de teste de carga baseado em nuvem foi preterida. Para obter mais informações sobre a substituição, a disponibilidade do serviço e serviços alternativos podem ser encontradas [aqui](https://docs.microsoft.com/en-us/azure/devops/test/load-test/overview?view=azure-devops).
+> O serviço de teste de carga baseado em nuvem foi preterida. Para obter mais informações sobre a substituição, a disponibilidade do serviço e serviços alternativos podem ser encontradas [aqui](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops).
 
 Você pode executar um teste de carga em seu site. Como o teste de disponibilidade, você pode enviar solicitações simples ou solicitações de várias etapas de nossos pontos em todo o mundo. Diferentemente de um teste de disponibilidade, muitas solicitações são enviadas, simulando vários usuários simultâneos.
 

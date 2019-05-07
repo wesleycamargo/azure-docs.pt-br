@@ -14,23 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2573ad64830247d232bbd6d156fac7f50d65f410
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a5deee4209001d8c2212033c2d547d7c4199bd25
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925101"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192616"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Regras de alerta personalizadas na Central de Segurança do Azure (versão prévia)
 Este documento ajuda você a criar regras de alerta personalizadas na Central de Segurança do Azure.
 
 > [!NOTE]
-> Alertas personalizados serão desativadas em breve, leia mais em alternativas serviços abaixo.
+> Alertas personalizados serão desativadas em 30 de junho de 2019.
 
 ## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>Regras de desativação de alerta personalizadas na Central de segurança do Azure
 
 A experiência de alertas personalizados será desativada em 30 de junho de 2019, devido à desativação da infraestrutura subjacente, que ele se baseia. No período de tempo até que a substituição, os usuários poderão editar regras de alerta personalizadas existentes, mas não poderá adicionar novos.
-Os usuários são aconselhados a habilitar [Sentinel Azure](https://azure.microsoft.com/services/azure-sentinel/) com integração de um clique ao migrar seus alertas existentes e criar novas ou como alternativa, recrie seus alertas com o Azure Monitor automaticamente alertas de log.
+Os usuários são aconselhados a qualquer um:
+- Habilitar [Sentinel Azure](https://azure.microsoft.com/services/azure-sentinel/) com integração de um clique ao migrar seus alertas existentes e criar novos automaticamente
+- Recriar seus alertas com alertas do log do Azure Monitor
                                      
 Para manter os alertas existentes e migrá-los para o Azure Sentinel, por favor [inicie o Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview). Como primeira etapa, selecione o espaço de trabalho onde os alertas personalizados são armazenados e, em seguida, selecione o item de menu 'Analytics' migrar automaticamente os alertas.
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 576627c96b19dd3563ab21a5d478b779e4a3ed64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 086f5773a8ae4085a8e5bc0637bdebe5f2df4fb0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60838987"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203341"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Aplicação de patch do sistema operacional e do tempo de execução no Serviço de Aplicativo do Azure
 
@@ -37,7 +37,7 @@ Por motivos de segurança, algumas informações específicas sobre segurança n
 
 O Azure gerencia a aplicação de patch do sistema operacional em dois níveis: nos servidores físicos e nas máquinas virtuais (VMs) convidadas que executam os recursos do Serviço de Aplicativo. Ambos são atualizados mensalmente, o que se alinha ao agendamento do [Patch Tuesday](https://technet.microsoft.com/security/bulletins.aspx) mensal. Essas atualizações são aplicadas automaticamente, de maneira a garantir o SLA de alta disponibilidade dos serviços do Azure. 
 
-Para obter informações detalhadas de como as atualizações são aplicadas, consulte [Desmistificando a mágica por trás das atualizações do sistema operacional do Serviço de Aplicativo](https://blogs.msdn.microsoft.com/appserviceteam/2018/01/18/demystifying-the-magic-behind-app-service-os-updates/).
+Para obter informações detalhadas de como as atualizações são aplicadas, consulte [Desmistificando a mágica por trás das atualizações do sistema operacional do Serviço de Aplicativo](https://azure.github.io/AppService/2018/01/18/Demystifying-the-magic-behind-App-Service-OS-updates.html).
 
 ## <a name="how-does-azure-deal-with-significant-vulnerabilities"></a>Como o Azure lida com vulnerabilidades significativas?
 

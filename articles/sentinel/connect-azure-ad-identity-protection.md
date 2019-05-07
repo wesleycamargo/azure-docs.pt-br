@@ -4,7 +4,7 @@ description: Saiba como se conectar a dados do Azure AD Identity Protection para
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 91c870e5-2669-437f-9896-ee6c7fe1d51d
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: d8306056655809c69af2ed39b5bbf8efebe05d3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 10dc31e21f20618450de6d99b3fce40d63272d31
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60445461"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204364"
 ---
 # <a name="connect-data-from-azure-ad-identity-protection"></a>Conectar-se a dados do Azure AD Identity Protection
 
@@ -49,7 +49,7 @@ Se o Azure AD Identity Protection é implantado e recebendo dados, os dados de a
 
 6. Para usar o esquema relevante no Log Analytics para os alertas do Azure AD Identity Protection, pesquise **IdentityProtectionLogs_CL**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu como conectar o Azure AD Identity Protection para Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [Obtenha visibilidade sobre seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Introdução ao [detecção de ameaças com o Azure Sentinel](tutorial-detect-threats.md).

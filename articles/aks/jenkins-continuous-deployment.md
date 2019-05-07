@@ -8,11 +8,11 @@ ms.author: zarhoads
 ms.topic: article
 ms.date: 01/09/2019
 ms.openlocfilehash: 703aa081c8acf41f9206e2b0ccff45571367d2e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465648"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073778"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implantar o GitHub para o AKS (Serviço de Kubernetes do Azure) com a integração e implantação contínuas do Jenkins
 
@@ -308,7 +308,7 @@ Depois que o build estiver concluído, atualize seu navegador da Web do aplicati
 
 ![Voto do Azure de exemplo no AKS atualizado pelo trabalho de build do Jenkins](media/aks-jenkins/azure-vote-updated.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu a usar o Jenkins como parte de uma solução de CI/CD. O AKS pode ser integrado com outras soluções de CI/CD e ferramentas de automação, como o [Projeto do Azure DevOps][azure-devops] ou [criação de um cluster do AKS com Ansible][aks-ansible].
 

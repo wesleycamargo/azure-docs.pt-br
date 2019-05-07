@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/06/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 42cdf230379665c596761f9846e52454a3d99680
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 5524645153db0468076cc9b567965bff79d915cb
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939665"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192297"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escala horizontal do Azure Analysis Services
 
@@ -51,7 +51,7 @@ Ao executar uma operação de expansão subsequente, por exemplo, aumentando o n
 
 ### <a name="separate-processing-from-query-pool"></a>Separe o processamento do pool de consulta
 
-Para desempenho máximo para operações de processamento e consulta, você pode optar por separar seu servidor de processamento do pool de consulta. Quando separadas, as conexões existentes e novas do cliente são atribuídas a réplicas de consulta apenas no pool de consulta. Se as operações de processamento ocuparem apenas um curto período de tempo, você poderá optar por separar seu servidor de processamento do pool de consulta apenas pelo tempo necessário para executar operações de processamento e sincronização e, em seguida, incluí-lo novamente no pool de consultas. 
+Para desempenho máximo para operações de processamento e consulta, você pode optar por separar seu servidor de processamento do pool de consulta. Quando separados, novas conexões de cliente são atribuídas a réplicas de consulta no pool de consulta apenas. Se as operações de processamento ocuparem apenas um curto período de tempo, você poderá optar por separar seu servidor de processamento do pool de consulta apenas pelo tempo necessário para executar operações de processamento e sincronização e, em seguida, incluí-lo novamente no pool de consultas. Ao separar o servidor de processamento do pool de consulta, ou adicionando-a novamente no pool de consulta pode levar até cinco minutos para a operação seja concluída.
 
 ## <a name="monitor-qpu-usage"></a>Monitorar o uso de QPU
 

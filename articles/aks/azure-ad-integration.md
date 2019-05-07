@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 2a218a48223c81e009b83cb1f129601a8035e18e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: HT
+ms.openlocfilehash: 026c0eefc0c4fe31e72ecad91a4a7b558f367487
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138456"
+ms.locfileid: "65192118"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrar o Azure Active Directory ao Serviço de Kubernetes do Azure
 
@@ -244,6 +244,7 @@ Ao concluir, o token de autenticação é armazenado em cache. Você só é soli
 Caso receba uma mensagem de erro de autorização depois de entrar, verifique se:
 1. O usuário você está tentando entrar como é não um convidado na instância do AD do Azure (esse cenário é geralmente o caso se você usar uma conta federada de um diretório diferente).
 2. O usuário não é um membro de mais de 200 grupos.
+3. Definido no registro do aplicativo para o servidor de segredo não coincide com o valor configurado usando-- aad-server-segredo de aplicativo
 
 ```console
 error: You must be logged in to the server (Unauthorized)

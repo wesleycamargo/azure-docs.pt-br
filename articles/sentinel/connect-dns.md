@@ -4,7 +4,7 @@ description: Saiba como se conectar a dados DNS no Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 77af84f9-47bc-418e-8ce2-4414d7b58c0c
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: e34db2bdc78eb846cf4885b1ef083fd3b21e21b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6429568b33ece3ed4f26614e55e8c3069dd65d71
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60445559"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204399"
 ---
 # <a name="connect-your-domain-name-server"></a>Connect your domain name server
 
@@ -60,7 +60,7 @@ Conexão do DNS é feito pela instalação de um agente no computador do DNS. O 
 
 No Log Analytics, procure o esquema **DnsEvents** e verifique se há eventos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu como conectar dispositivos de locais DNS ao Azure Sentinel. Para saber mais sobre o Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [Obtenha visibilidade sobre seus dados e possíveis ameaças](quickstart-get-visibility.md).
 - Introdução ao [detecção de ameaças com o Azure Sentinel](tutorial-detect-threats.md).

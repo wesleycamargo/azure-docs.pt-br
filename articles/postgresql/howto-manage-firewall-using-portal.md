@@ -1,19 +1,19 @@
 ---
-title: Criar e gerenciar regras de firewall no Banco de Dados do Azure para PostgreSQL
-description: Criar e gerenciar regras de firewall do Banco de Dados do Azure para PostgreSQL usando o Portal do Azure
+title: Criar e gerenciar regras de firewall no banco de dados do Azure para PostgreSQL – servidor único
+description: Criar e gerenciar regras de firewall para o banco de dados do Azure para PostgreSQL – servidor único usando o portal do Azure
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/09/2019
-ms.openlocfilehash: cb142e01009efbeaabd5d4e56dbedfe6384c5fc6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 7eed2e81c6781ca660cffa909f27962a7c5112cb
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420952"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069019"
 ---
-# <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>Criar e gerenciar regras de firewall do Banco de Dados do Azure para PostgreSQL usando o Portal do Azure
+# <a name="create-and-manage-firewall-rules-for-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Criar e gerenciar regras de firewall para o banco de dados do Azure para PostgreSQL – servidor único usando o portal do Azure
 Regras de firewall de nível de servidor podem ser usadas para gerenciar o acesso a um banco de dados do Azure para servidor PostgreSQL de um endereço IP específico ou intervalo de endereços IP.
 
 Regras de VNet (rede) virtuais também podem ser usadas para proteger o acesso ao seu servidor. Saiba mais sobre [criando e gerenciando a rede Virtual regras usando o portal do Azure e pontos de extremidade de serviço](howto-manage-vnet-using-portal.md).

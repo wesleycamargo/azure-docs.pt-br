@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 258113f5201ad3d09df6119dec738d528e640c40
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a4ce1ad347742886e7d89a32bbeb60c2e0281409
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269343"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198571"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configurar o SSL de ponta a ponta usando o Gateway de Aplicativo com o PowerShell
 
@@ -64,7 +64,7 @@ Esta seção orienta você pela criação de um grupo de recursos que contenha o
    Select-Azsubscription -SubscriptionName "<Subscription name>"
    ```
 
-3. Crie um grupos de recursos. (Ignore esta etapa se está usando um grupo de recursos existente.)
+3. Crie um grupo de recursos. (Ignore esta etapa se está usando um grupo de recursos existente.)
 
    ```powershell
    New-AzResourceGroup -Name appgw-rg -Location "West US"
@@ -174,7 +174,7 @@ Todos os itens de configuração são definidos antes da criação do gateway de
    ```
 
    > [!NOTE]
-   > O certificado fornecido nesta etapa deve ser a chave pública do certificado .pfx presente no back-end. Exporte o certificado (não o certificado raiz) instalado no servidor de back-end no formato CER (Claim, Evidence and Reasoning) e use-o nesta etapa. Esta etapa coloca o back-end na lista de permissões do gateway de aplicativo.
+   > O certificado fornecido na etapa anterior deve ser a chave pública do certificado. pfx presente no back-end. Exporte o certificado (não o certificado raiz) instalado no servidor de back-end no formato CER (Claim, Evidence and Reasoning) e use-o nesta etapa. Esta etapa coloca o back-end na lista de permissões do gateway de aplicativo.
 
    Se você estiver usando a SKU do Gateway de Aplicativo v2, crie um certificado raiz confiável, em vez de um certificado de autenticação. Para saber mais, confira [Visão geral de SSL de ponta a ponta com o Gateway de Aplicativo](ssl-overview.md#end-to-end-ssl-with-the-v2-sku):
 

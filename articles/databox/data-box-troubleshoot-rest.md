@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: ee2820d78e95924e09a0219753f87d6910c0e736
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c5ceeb2e6419cab7945454087edd4c821db28343
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782949"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204213"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Solucionar problemas relacionados ao armazenamento de blobs de caixa de dados do Azure
 
@@ -55,7 +55,7 @@ Esta seção apresenta detalhes sobre alguns dos principais problemas enfrentado
 |Mensagem de erro  |Ação recomendada |
 |---------|---------|
 |O valor de um dos cabeçalhos HTTP não está no formato correto. |Não há suporte para a versão instalada da biblioteca de armazenamento do Microsoft Azure para Python pela caixa de dados. Consulte os requisitos de armazenamento de Blob de caixa de dados do Azure para as versões com suporte.|
-|… [SSL: CERTIFICATE_VERIFY_FAILED] …|Antes de executar o Python, defina a variável de ambiente REQUESTS_CA_BUNDLE para o caminho do arquivo de certificado codificado em Base64 SSL (consulte como [baixar o certificado]()). <br>Por exemplo: <br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>Como alternativa, adicione o certificado ao repositório de certificados do sistema e, em seguida, defina essa variável de ambiente para o caminho do repositório. <br> Por exemplo, no Ubuntu: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
+|… [SSL: CERTIFICATE_VERIFY_FAILED] …|Antes de executar o Python, defina a variável de ambiente REQUESTS_CA_BUNDLE para o caminho do arquivo de certificado codificado em Base64 SSL (consulte como [baixar o certificado](data-box-deploy-copy-data-via-rest.md#download-certificate)). <br>Por exemplo: <br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>Como alternativa, adicione o certificado ao repositório de certificados do sistema e, em seguida, defina essa variável de ambiente para o caminho do repositório. <br> Por exemplo, no Ubuntu: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
 
 
 ## <a name="common-errors"></a>Erros comuns

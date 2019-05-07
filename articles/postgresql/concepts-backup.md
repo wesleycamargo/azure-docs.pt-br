@@ -1,19 +1,19 @@
 ---
-title: Backup e restauração no Banco de Dados do Azure para PostgreSQL
-description: Saiba mais sobre backups automáticos e restauração do Banco de Dados do Azure para servidor PostgreSQL.
+title: Backup e restauração no banco de dados do Azure para PostgreSQL – servidor único
+description: Saiba mais sobre backups automáticos e restauração de seu banco de dados do Azure para servidor PostgreSQL - servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: b4086497375bb651f4c88411e3237b27740dfd07
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 08a061a76f1532441817e61d423533bcc0850227
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456250"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068866"
 ---
-# <a name="backup-and-restore-in-azure-database-for-postgresql"></a>Backup e restauração no Banco de Dados do Azure para PostgreSQL
+# <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Backup e restauração no banco de dados do Azure para PostgreSQL – servidor único
 
 O Banco de Dados do Azure para PostgreSQL cria backups de servidor automaticamente e os armazena no armazenamento com redundância geográfica ou local configurado pelo usuário. Os backups podem ser usados para restaurar o servidor pontualmente. Os recursos de backup e restauração são uma parte essencial de qualquer estratégia de continuidade dos negócios, pois eles protegem seus dados contra exclusão ou corrupção acidentais.
 

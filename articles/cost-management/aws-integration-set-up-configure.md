@@ -5,23 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2019
+ms.date: 06/06/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 688bcc02b14d101008afc76662fd6548446cb329
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: a7a020284f44eda0da62f307866c74b0a8df493d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870276"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205694"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Instalar e configurar a integração de relatório de uso e custo do AWS
 
 Com a integração de relatório de uso e custo do Amazon Web Services, você pode monitorar e controlar seus gastos AWS no gerenciamento de custos do Azure. A integração permite que um único local no portal do Azure onde você pode monitorar e controle de gastos para o Azure e AWS. Este artigo explica como configurar a integração e configurá-lo para que você usar os recursos de gerenciamento de custos para analisar os custos e revisar os orçamentos.
 
-Gerenciamento de custos lê o relatório de uso e custo do AWS armazenado em um bucket S3 usando suas credenciais de acesso do AWS para obter definições de relatório e baixar arquivos GZIP CSV do relatório.
+O relatório de uso e custo do AWS armazenado em um bucket S3 usando suas credenciais de acesso do AWS para obter definições de relatório e baixar arquivos GZIP CSV do relatório de custo processos de gerenciamento.
 
 ## <a name="create-a-cost-and-usage-report-in-aws"></a>Criar um relatório de uso e custo no AWS
 
@@ -45,13 +45,15 @@ Use o **relatórios** página do console do gerenciamento de custo e cobrança n
 14. Depois de examinar as configurações para o relatório, clique em **revisão e concluir**.
     Observe a **nome do relatório**. Você o usará em etapas posteriores.
 
-Pode levar até 24 horas para AWS para começar a entrega de relatórios para o bucket do Amazon S3. Após a entrega é iniciado, o AWS atualiza os arquivos de relatório de uso e custo do AWS pelo menos uma vez por dia.
+Pode levar até 24 horas para AWS para começar a entrega de relatórios para o bucket do Amazon S3. Após a entrega é iniciado, o AWS atualiza os arquivos de relatório de uso e custo do AWS pelo menos uma vez por dia. Você pode continuar a configurar o ambiente do AWS sem aguardar a entrega iniciar.
 
 ## <a name="create-a-role-and-policy-in-aws"></a>Criar uma função e a política no AWS
 
 O gerenciamento de custos do Azure acessa o bucket S3 em que o relatório de uso e custo está localizado várias vezes ao dia. Gerenciamento de custos precisa acessar as credenciais para verificar se há novos dados. Criar uma função e a política no AWS para permitir o acesso pelo gerenciamento de custos.
 
 Para habilitar o acesso baseado em função para uma conta do AWS no gerenciamento de custos do Azure, a função é criada no console do AWS. Você precisa ter o _arn da função_ e _ID externa_ do console do AWS. Posteriormente, você usá-los no criar uma página de conector do AWS no gerenciamento de custos do Azure.
+
+Use o Assistente de criação de nova função:
 
 1. Entrar no seu console do AWS e selecione **Services**.
 2. Na lista de serviços, selecione **IAM**.
@@ -64,30 +66,42 @@ Para habilitar o acesso baseado em função para uma conta do AWS no gerenciamen
 8. Clique em **Avançar: Permissões.**
 9. Clique **Criar política**. Uma nova guia do navegador é aberta em que você cria uma nova política.
 10. Clique em **escolher um serviço**.
-11. Tipo de **relatório de uso e custo**.
-12. Selecione **nível de acesso**, **leitura** > **DescribeReportDefinitions**. Isso permite que o gerenciamento de custos ler o que informa CUR são definidos e determinar se eles correspondem o pré-requisito de definição de relatório.
-13. Clique em **adicionar permissões adicionais**.
-14. Clique em **escolher um serviço**.
-15. Tipo de _S3_.
-16. Selecione **nível de acesso**, **lista** > **ListBucket**. Esta ação obtém a lista de objetos no Bucket de S3.
-17. Selecione **nível de acesso**, **leitura** > **GetObject**. Essa ação permite que o download de arquivos de cobrança.
-18. Selecione **recursos**.
-19. Selecione **bucket – adicionar ARN**.
-20. Na **nome do Bucket**, insira o número de buckets usado para armazenar os arquivos CUR.
-21. Selecione **objeto – adicionar ARN**.
-22. Na **nome do Bucket**, insira o número de buckets usado para armazenar os arquivos CUR.
-23. Na **nome do objeto**, selecione **qualquer**.
-24. Clique em **adicionar permissões adicionais**.
-25. Clique em **escolher um serviço**.
-26. Tipo de _serviço do Gerenciador de custo_.
-27. Selecione **ações de todos os serviço de Gerenciador de custo (ce:\*)**. Esta ação valida se a coleção está correta.
-28. Clique em **adicionar permissões adicionais**.
-29. Tipo de **organizações**.
-30. Selecione **nível de acesso, lista** > **ListAccounts**. Esta ação obtém os nomes das contas.
-31. Na **examinar política**, insira um nome para a nova política. Verificação para certificar-se de que você inseriu as informações corretas e, em seguida, clique em **Criar política**.
-32. Volte à guia anterior e atualize a página do seu navegador da web. Na barra de pesquisa, procure a nova política.
-33. Selecione **próxima: revisão**.
-34. Insira um nome para a nova função. Verificação para certificar-se de que você inseriu as informações corretas e, em seguida, clique em **Create Role**.
+
+Configure o relatório de uso e custo de permissão:
+
+1. Tipo de **relatório de uso e custo**.
+2. Selecione **nível de acesso**, **leitura** > **DescribeReportDefinitions**. Isso permite que o gerenciamento de custos ler o que informa CUR são definidos e determinar se eles correspondem o pré-requisito de definição de relatório.
+3. Clique em **adicionar permissões adicionais**.
+
+Configure sua permissão de objetos e o bucket S3:
+
+1. Clique em **escolher um serviço**.
+2. Tipo de _S3_.
+3. Selecione **nível de acesso**, **lista** > **ListBucket**. Esta ação obtém a lista de objetos no Bucket de S3.
+4. Selecione **nível de acesso**, **leitura** > **GetObject**. Essa ação permite que o download de arquivos de cobrança.
+5. Selecione **recursos**.
+6. Selecione **bucket – adicionar ARN**.
+7. Na **nome do Bucket**, insira o número de buckets usado para armazenar os arquivos CUR.
+8. Selecione **objeto – adicionar ARN**.
+9. Na **nome do Bucket**, insira o número de buckets usado para armazenar os arquivos CUR.
+10. Na **nome do objeto**, selecione **qualquer**.
+11. Clique em **adicionar permissões adicionais**.
+
+Configure a permissão de Gerenciador de custo:
+
+1. Clique em **escolher um serviço**.
+2. Tipo de _serviço do Gerenciador de custo_.
+3. Selecione **ações de todos os serviço de Gerenciador de custo (ce:\*)**. Esta ação valida se a coleção está correta.
+4. Clique em **adicionar permissões adicionais**.
+
+Adicione permissão de organizações:
+
+1. Tipo de **organizações**.
+2. Selecione **nível de acesso, lista** > **ListAccounts**. Esta ação obtém os nomes das contas.
+3. Na **examinar política**, insira um nome para a nova política. Verificação para certificar-se de que você inseriu as informações corretas e, em seguida, clique em **Criar política**.
+4. Volte à guia anterior e atualize a página do seu navegador da web. Na barra de pesquisa, procure a nova política.
+5. Selecione **próxima: revisão**.
+6. Insira um nome para a nova função. Verificação para certificar-se de que você inseriu as informações corretas e, em seguida, clique em **Create Role**.
     Observe a **arn da função** e o **ID externa** usado nas etapas anteriores, quando você criou a função. Você irá usá-los posteriormente quando você configura o conector de gerenciamento de custos do Azure.
 
 A política JSON deve se parecer com o exemplo a seguir. Substitua _bucketname_ com o nome do seu bucket de S3.

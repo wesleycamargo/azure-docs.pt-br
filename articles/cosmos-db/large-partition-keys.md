@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: ee1568274792621b8ed9f25d211c40440a82208c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 46df484303237722f4eb66099748f2fcef8240b4
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160029"
+ms.locfileid: "65205843"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Criar contêineres com a chave de partição grande
 
@@ -43,6 +43,17 @@ database,
 Para criar uma chave de partição grande, enquanto você cria um novo contêiner usando o portal do Azure, verifique as **minha chave de partição é maior que 100 bytes** opção. Por padrão, todos os novos contêineres aceitados usando as chaves de partição grande. Se você não precisar de chaves de partição grande ou se você tiver aplicativos em execução na versão de SDKs mais antigo que 1.18, desmarque a caixa de seleção.
 
 ![Criar chaves de partição grande usando o portal do Azure](./media/large-partition-keys/large-partition-key-with-portal.png)
+
+
+## <a name="supported-sdk-versions"></a>Versões com suporte SDK
+
+As chaves de partição grande são compatíveis com as seguintes versões mínimas de SDKs:
+
+|Tipo SDK  | Versão mínima   |
+|---------|---------|
+|.Net     |    1.18     |
+|Sincronização de Java     |   2.4.0      |
+|Async Java   |  2.5.0        |
  
 ## <a name="next-steps"></a>Próximas etapas
 

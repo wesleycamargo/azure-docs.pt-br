@@ -1,21 +1,21 @@
 ---
-title: Análise de Desempenho de Consultas no Banco de Dados do Azure para PostgreSQL
-description: Este artigo descreve o recurso Análise de Desempenho de Consultas no Banco de Dados do Azure para PostgreSQL.
+title: Análise de desempenho de consulta no banco de dados do Azure para PostgreSQL – servidor único
+description: Este artigo descreve o recurso de análise de desempenho de consultas no banco de dados do Azure para PostgreSQL – servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/28/2019
-ms.openlocfilehash: 56abdd819e78312e64209078c3966826385df7bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: d45b79e2ca3b3d478102bebdcff3c8892bef2cb5
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564369"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067551"
 ---
 # <a name="query-performance-insight"></a>Análise de Desempenho de Consultas 
 
-**Aplica-se a:** Banco de Dados do Azure para PostgreSQL 9.6 e 10
+**Aplica-se a:** Banco de dados do Azure para PostgreSQL – servidor único 9.6 e 10
 
 A Análise de Desempenho de Consultas ajuda você a identificar rapidamente quais são suas consultas de execução mais longa, como elas mudam ao longo do tempo e quais esperas as estão afetando.
 

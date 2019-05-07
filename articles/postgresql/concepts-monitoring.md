@@ -1,19 +1,19 @@
 ---
-title: Monitoramento e ajuste no Banco de Dados do Azure para PostgreSQL
-description: Este artigo descreve os recursos de monitoramento e ajuste no Banco de Dados do Azure para PostgreSQL.
+title: Monitorar e ajustar o banco de dados do Azure para PostgreSQL – servidor único
+description: Este artigo descreve os recursos de monitoramento e ajustes no banco de dados do Azure para PostgreSQL – servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/05/2018
-ms.openlocfilehash: 0d5508fe6b07bd5664bd0708960559537d8f6be1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 5e03a3e33d618c393241a649be50fe78632caafe
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456216"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068987"
 ---
-# <a name="monitor-and-tune"></a>Monitorar e ajustar
+# <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Monitorar e ajustar o banco de dados do Azure para PostgreSQL – servidor único
 Monitorar os dados dos seus servidores ajuda a solucionar problemas e otimizar sua carga de trabalho. O Banco de Dados do Azure para PostgreSQL oferece várias opções de monitoramento para fornecer insights sobre o comportamento do servidor.
 
 ## <a name="metrics"></a>Métricas
@@ -33,8 +33,8 @@ Essas métricas estão disponíveis para o Banco de Dados do Azure para PostgreS
 |serverlog_storage_percent|Porcentagem de armazenamento do Log do Servidor|Porcentagem|A porcentagem de armazenamento de log do servidor usada fora do armazenamento de log máximo do servidor.|
 |serverlog_storage_usage|Armazenamento do Log do Servidor usado|Bytes|A quantidade de armazenamento de log do servidor em uso.|
 |serverlog_storage_limit|Limite de armazenamento do Log do Servidor|Bytes|O armazenamento de log do servidor de máximo para esse servidor.|
-|active_connections|Conexões ativas|Contagem|O número de conexões ativas com o servidor.|
-|connections_failed|Conexões com falha|Contagem|O número de conexões com falha com o servidor.|
+|active_connections|Conexões ativas|Count|O número de conexões ativas com o servidor.|
+|connections_failed|Conexões com falha|Count|O número de conexões com falha com o servidor.|
 |network_bytes_egress|Saída da rede|Bytes|Rede-Out em conexões ativas.|
 |network_bytes_ingress|Entrada na rede|Bytes|Entrada de rede em conexões ativas.|
 |backup_storage_used|Backup do Microsoft Azure|Bytes|A quantidade de armazenamento de backup usado.|
