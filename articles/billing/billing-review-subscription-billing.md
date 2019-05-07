@@ -47,8 +47,8 @@ Os cabeçalhos a seguir são necessários:
 
 |Cabeçalho da solicitação|DESCRIÇÃO|
 |--------------------|-----------------|
-|*Tipo de Conteúdo:*|Obrigatório. Defina como `application/json`.|
-|*Autorização:*|Obrigatório. Defina como um `Bearer` [token de acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |
+|*Content-Type:*|Obrigatório. Defina como `application/json`.|
+|*Authorization:*|Obrigatório. Defina como um `Bearer` [token de acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |
 
 ## <a name="response"></a>Response
 
