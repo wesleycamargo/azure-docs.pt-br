@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: f40e53c67f099fea739e45f6bdc6963ee1e235cb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c9ed6f898f4bcf8a5d4b2548cc1f3cf51f71bb2a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026099"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138174"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>Sobre a visualização de assistentes de virtual primeiro de voz personalizada
 
-Assistentes de virtuais personalizados usando os serviços de fala do Azure capacitam os desenvolvedores criem interfaces de conversação natural, humana para seus aplicativos e experiências. Canal de fala de linha direta da estrutura Bot aprimora esses recursos, fornecendo um ponto de coordenada e orquestrada de entrada para um bot compatível que permite a voz em voz interação com baixa latência e alta confiabilidade. Esses bots pode usar o entendimento de linguagem (LUIS da Microsoft) para a interação do idioma natural. Fala de linha direta é acessada por dispositivos que usam a fala dos serviços Software Development Kit (SDK).
+Assistentes de virtuais personalizados usando os serviços de fala do Azure capacitam os desenvolvedores criem interfaces de conversação natural, humana para seus aplicativos e experiências. Canal de fala de linha direta da estrutura Bot aprimora esses recursos, fornecendo um ponto de coordenada e orquestrada de entrada para um bot compatível que permite a voz em voz interação com baixa latência e alta confiabilidade. Esses bots pode usar o entendimento de linguagem (LUIS da Microsoft) para a interação do idioma natural. Fala de linha direta é acessada por dispositivos que usam a fala Software Development Kit (SDK).
 
    ![Diagrama conceitual de fluxo de orquestração de serviço a linha direta fala](media/voice-first-virtual-assistants/overview.png "fluxo o canal de fala")
 
@@ -32,8 +32,8 @@ Fala de linha direta e sua funcionalidade associada para assistentes de virtuais
 |----------|----------|
 |[Palavra de ativação personalizado](speech-devices-sdk-create-kws.md) | Você pode permitir que os usuários iniciar conversas com os bots usando uma palavra-chave personalizada, como "Ei Contoso". Essa tarefa é realizada com um mecanismo de word ativação personalizado no SDK do fala, que pode ser configurado com uma palavra personalizada wake [que você pode gerar aqui](speech-devices-sdk-create-kws.md). O canal de fala de linha direta inclui a verificação de palavra no lado do serviço de ativação que aumenta a precisão da ativação de word wake versus o dispositivo sozinho.
 |[Conversão de fala em texto](speech-to-text.md) | O canal de fala de linha direta inclui transcrição em tempo real de áudio em texto reconhecido usando [fala em texto](speech-to-text.md) fala dos serviços do Azure. Esse texto está disponível para seu bot e seu aplicativo cliente conforme ele é transcrita.
-|[Texto em fala](text-to-speech.md) | Respostas textuais do seu bot serão ser sintetizadas usando [fala](text-to-speech.md) fala dos serviços do Azure. Este síntese será, em seguida, disponibilizado para o aplicativo cliente como um fluxo de áudio. A Microsoft oferece a capacidade de criar suas próprias [voz de TTS Neural personalizado e de alta qualidade](https://aka.ms/customneuraltts) que fornece uma voz a sua marca.
-|[Fala de linha direta](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md) | Como um canal dentro da estrutura de Bot, fala de linha direta permite que uma conexão simples e direta entre o aplicativo cliente, um bot compatível e os recursos dos serviços de fala do Azure. Para obter mais informações sobre como configurar seu bot para usar o canal de fala de linha direta, consulte [sua página na documentação do Bot Framework](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md).
+|[Texto em fala](text-to-speech.md) | Respostas textuais do seu bot serão ser sintetizadas usando [fala](text-to-speech.md) fala dos serviços do Azure. Este síntese será, em seguida, disponibilizado para o aplicativo cliente como um fluxo de áudio. A Microsoft oferece a capacidade de criar sua própria voz TTS Neural personalizado e de alta qualidade que oferece uma voz à sua marca, para saber mais [entre em contato conosco](mailto:mstts@microsoft.com).
+|[Fala de linha direta](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech) | Como um canal dentro da estrutura de Bot, fala de linha direta permite que uma conexão simples e direta entre o aplicativo cliente, um bot compatível e os recursos dos serviços de fala do Azure. Para obter mais informações sobre como configurar seu bot para usar o canal de fala de linha direta, consulte [sua página na documentação do Bot Framework](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
 ## <a name="sample-code"></a>Exemplo de código
 

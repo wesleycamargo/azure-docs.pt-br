@@ -1,6 +1,6 @@
 ---
 title: Gerenciando o agente de Log Analytics do Azure | Microsoft Docs
-description: Este artigo descreve as tarefas de gerenciamento diferentes que você executa normalmente durante o ciclo de vida do Microsoft Monitoring Agent (MMA) implantado em uma máquina.
+description: Este artigo descreve as tarefas de gerenciamento diferentes que você executa normalmente durante o ciclo de vida do Windows do Log Analytics ou agente Linux implantado em uma máquina.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: magoedte
-ms.openlocfilehash: 19530aa676e681f9a6ec50d2cacf77711dcb0110
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1809cc50f3ad3c285e0b69bc6e383a2c7c398238
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730279"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139259"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gerenciar e manter o agente de Log Analytics para o Windows e Linux
 
-Após a implantação inicial do Windows do Log Analytics ou o agente do Linux no Azure Monitor, talvez você precise reconfigurar o agente, atualizá-lo ou removê-lo do computador se tiver alcançado o estágio do ciclo de vida de desativação. Você pode gerenciar facilmente essas tarefas de manutenção de rotina, manualmente ou por meio de automação, o que reduz o erro operacional e as despesas.
+Após a implantação inicial do Windows do Log Analytics ou o agente do Linux no Azure Monitor, talvez você precise reconfigurar o agente, atualizá-lo ou removê-lo do computador se ele tiver alcançado o estágio do ciclo de vida de desativação. Você pode gerenciar facilmente essas tarefas de manutenção de rotina, manualmente ou por meio de automação, o que reduz o erro operacional e as despesas.
 
 ## <a name="upgrading-agent"></a>Atualizar agente
 
@@ -40,7 +40,7 @@ Para atualizar o agente em uma VM do Windows para a versão mais recente não in
 
 Você pode baixar a versão mais recente do agente do Windows do espaço de trabalho do Log Analytics, executando as etapas a seguir.
 
-1. Entre no Portal do Azure.
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
 2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Escolha **workspaces do Log Analytics**.
 
@@ -91,6 +91,7 @@ Execute o seguinte comando para atualizar o agente.
 ## <a name="adding-or-removing-a-workspace"></a>Adicionando ou removendo workspace
 
 ### <a name="windows-agent"></a>Agente do Windows
+As etapas nesta seção são necessárias quando você deseja reconfigurar não apenas o agente do Windows para relatar para um espaço de trabalho diferente ou para remover um espaço de trabalho de sua configuração, mas também quando você deseja configurar o agente para reportar a mais de um espaço de trabalho (normalmente conhecido como hospedagem múltipla). Configurando o agente do Windows para relatar para vários espaços de trabalho só pode ser executada após a configuração inicial do agente e usando os métodos descritos abaixo.    
 
 #### <a name="update-settings-from-control-panel"></a>Atualizar as configurações do painel de controle
 
@@ -140,7 +141,7 @@ $mma.ReloadConfiguration()
 >
 
 ### <a name="linux-agent"></a>Agente do Linux
-As etapas a seguir demonstram como reconfigurar o agente do Linux, se você decidir registrá-lo com um workspace diferente ou quiser remover um workspace da configuração.
+As etapas a seguir demonstram como reconfigurar o agente do Linux, se você decidir registrá-lo com outro espaço de trabalho ou para remover um espaço de trabalho de sua configuração.
 
 1. Para verificar se ele está registrado em um workspace, execute o comando a seguir:
 
@@ -160,7 +161,7 @@ As etapas a seguir demonstram como reconfigurar o agente do Linux, se você deci
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]`
     
-4. Para verificar se as alterações foram afetadas, execute o comando a seguir:
+4. Para verificar que suas alterações está em vigor, execute o seguinte comando:
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -l`
 
@@ -231,7 +232,7 @@ Execute as etapas a seguir se os computadores Linux precisarem se comunicar por 
     ```
 
 ## <a name="uninstall-agent"></a>Desinstalar o agente
-Use um dos procedimentos a seguir para desinstalar o agente do Windows ou Linux usando o assistente de instalação ou de linha de comando.
+Use um dos procedimentos a seguir para desinstalar o agente do Windows ou Linux usando a linha de comando ou o Assistente de instalação.
 
 ### <a name="windows-agent"></a>Agente do Windows
 

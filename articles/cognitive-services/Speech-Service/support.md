@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: bf0916f197ff5bf1a9531fde98fe8cefc8d7727f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fc03db268ab05c6718fb323bc30574a36d0ca092
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460296"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138150"
 ---
 # <a name="support-and-help-options"></a>Opções de Ajuda e suporte
 
@@ -64,13 +64,14 @@ O Stack Overflow é o canal preferido para o desenvolvimento de questões relaci
 
 Se não conseguir encontrar uma resposta para seu problema por meio da pesquisa, envie uma nova pergunta ao Stack Overflow. Use uma das seguintes tags ao formular a pergunta:
 
-|Componente/Área  |Marcas  |
+|Componente/Área  |tags  |
 |---------|---------|
 |Reconhecimento de fala |[[microsoft-cognitivas + fala em texto]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
 |Síntese de fala |[[microsoft-cognitivas + texto em fala]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
 |Tradução de Fala |[[microsoft-cognitivas + conversão]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
 |Intenção de fala |[[microsoft-cognitivas + luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
 |SDK de fala geral |[[microsoft-cognitivas + microsoft-fala-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
+| Assistentes de voz-first Virtual (versão prévia) | [[microsoft-cognitive+virtual-assistant+botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) | 
 
 > [!TIP]
 > As seguintes postagens do Stack Overflow contêm dicas sobre as perguntas de formulário e adicione o código-fonte. As diretrizes a seguir podem ajudar a aumentar as chances de os membros da comunidade avaliarem e responderem à sua pergunta rapidamente:  

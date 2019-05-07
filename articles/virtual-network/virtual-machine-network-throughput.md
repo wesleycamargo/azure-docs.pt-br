@@ -3,8 +3,7 @@ title: Taxa de transferência de rede da máquina virtual do Azure | Microsoft D
 description: Saiba mais sobre a taxa de transferência de rede da máquina virtual do Azure.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: steveesp
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
-ms.author: kumud
-ms.openlocfilehash: 182b3b7dad828e67d006391e00986406729c959d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 4/26/2019
+ms.author: kumud,steveesp, mareat
+ms.openlocfilehash: 9d74e53c754367ecfa63642514db93354fcadf25
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689243"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153715"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Largura de banda de rede da máquina virtual
 
@@ -43,6 +42,30 @@ O limite de taxa de transferência se aplica à máquina virtual. A taxa de tran
 - **Rede acelerada**: Embora o recurso pode ser útil para alcançar o limite publicado, ele não altera o limite.
 - **Destino do tráfego**: Todos os destinos contam para o limite de saída.
 - **Protocolo**: Todo o tráfego de saída em todos os protocolos conta para o limite.
+
+## <a name="network-flow-limits"></a>Limites de fluxo de rede
+
+Além de largura de banda, o número de conexões de rede presentes em uma VM em um determinado momento pode afetar o desempenho de rede. A pilha de rede do Azure mantém o estado para cada direção de uma conexão TCP/UDP em estruturas de dados chamado 'fluxos'. Uma conexão TCP/UDP típico terá 2 fluxos criados, um para a entrada e outro para a direção de saída. 
+
+Transferência de dados entre pontos de extremidade exige a criação de vários fluxos, além daqueles que executam a transferência de dados. Alguns exemplos são fluxos criados para a resolução DNS e fluxos criados para investigações de integridade do balanceador de carga. Também Observe que a rede virtuais NVAs (soluções), como gateways, proxies, firewalls, verá fluxos que estão sendo criados para conexões encerrado no dispositivo e foi originada pelo dispositivo. 
+
+![Contagem de fluxo para a conversa TCP por meio de um dispositivo de encaminhamento](media/virtual-machine-network-throughput/flow-count-through-network-virtual-appliance.png)
+
+## <a name="flow-limits-and-recommendations"></a>Limites de fluxo e recomendações
+
+Hoje, a pilha de rede do Azure dá suporte a fluxos de rede total de 250 mil com bom desempenho para VMs com mais de 8 núcleos de CPU e de 100 mil fluxos total com bom desempenho para VMs com menos de 8 núcleos de CPU. Após essa rede de limite desempenho degrada normalmente para fluxos adicionais até um limite rígido de 1 M total de fluxos, 500 K de entrada e 500 K de saída, após o quais fluxos adicionais são descartados.
+
+||VMs com < 8 núcleos de CPU|VMs com 8 núcleos de CPU|
+|---|---|---|
+|<b>Bom desempenho</b>|100 mil fluxos |Fluxos de 250 mil|
+|<b>Degradação do desempenho</b>|Acima de 100 mil fluxos|Acima de 250 mil fluxos|
+|<b>Limite de fluxo</b>|1M fluxos|1M fluxos|
+
+As métricas estão disponíveis no [do Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) para controlar o número de fluxos de rede e a taxa de criação de fluxo em suas instâncias VM ou VMSS.
+
+![azure-monitor-flow-metrics.png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
+
+As taxas de estabelecimento e encerramento da Conexão também podem afetar o desempenho de rede como conexão estabelecimento e término compartilhamentos de CPU com rotinas de processamento de pacote. É recomendável que você submeter a benchmark as cargas de trabalho em relação a padrões de tráfego esperado e as cargas de trabalho de expansão adequadamente para corresponder às suas necessidades de desempenho. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

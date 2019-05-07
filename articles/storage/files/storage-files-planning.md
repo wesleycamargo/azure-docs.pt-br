@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fecefbbed39f4fc12db79c7466006409e3da7dd1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 82a2330aeadb14bb421260a290a25581232293e5
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574462"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073365"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planejando uma implantação de Arquivos do Azure
 
@@ -111,20 +111,16 @@ Tamanho do compartilhamento pode ser aumentado a qualquer momento, mas pode ser 
 
 A tabela a seguir ilustra alguns exemplos dessas fórmulas para os tamanhos do compartilhamento provisionado:
 
-(Tamanhos indicado por um * estão em visualização pública limitada)
-
 |Capacidade (GiB) | IOPS de linha de base | IOPS de intermitente | Saída (MiB/s) | Entrada (MiB/s) |
 |---------|---------|---------|---------|---------|
 |100         | 100     | Até 300     | 66   | 44   |
 |500         | 500     | Até 1500   | 90   | 60   |
 |1.024       | 1.024   | Até 3.072   | 122   | 81   |
 |5.120       | 5.120   | Até 15.360  | 368   | 245   |
-|10,240 *     | 10,240  | Até 30.720  | 675 | 450   |
-|33,792 *     | 33,792  | Até 100.000 | 2,088 | 1,392   |
-|51,200 *     | 51,200  | Até 100.000 | 3.132 | 2,088   |
-|102,400 *    | 100.000 | Até 100.000 | 6,204 | 4,136   |
-
-Atualmente, tamanhos de compartilhamento de arquivo até 5 TiB estão em visualização pública, enquanto os tamanhos de até 100 TiB estão em visualização pública limitada, para solicitar acesso a visualização pública limitada completa [desta pesquisa.](https://aka.ms/azurefilesatscalesurvey)
+|10,240      | 10,240  | Até 30.720  | 675 | 450   |
+|33,792      | 33,792  | Até 100.000 | 2,088 | 1,392   |
+|51,200      | 51,200  | Até 100.000 | 3.132 | 2,088   |
+|102,400     | 100.000 | Até 100.000 | 6,204 | 4,136   |
 
 ### <a name="bursting"></a>Intermitência
 
@@ -184,7 +180,7 @@ Lembre-se esses pontos ao decidir qual opção de replicação para usar:
 
 ## <a name="data-growth-pattern"></a>Padrão de crescimento de dados
 
-Hoje, o tamanho máximo para um compartilhamento de arquivos do Azure é 5 TiB (visualização pública limitada, compartilham 100 TiB para arquivo premium). Devido a essa limitação atual, você deve considerar o crescimento esperado dos dados durante a implantação de um compartilhamento de Arquivos do Azure.
+Hoje, o tamanho máximo para um compartilhamento de arquivos do Azure é 5 TiB (100 TiB para os compartilhamentos de arquivos de premium, que estão em visualização pública). Devido a essa limitação atual, você deve considerar o crescimento esperado dos dados durante a implantação de um compartilhamento de Arquivos do Azure.
 
 É possível sincronizar vários compartilhamentos de arquivos do Azure em um único Servidor de Arquivos do Windows com a Sincronização de Arquivos do Azure. Isso lhe assegura que os compartilhamentos de arquivos mais antigos e maiores, que talvez você tenha localmente, poderão ser transferidos para a Sincronização de Arquivos do Azure. Para obter mais informações, veja [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-files-planning.md).
 

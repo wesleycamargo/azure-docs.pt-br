@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 29f98e334b0d2527b5159e1a5394109c5041024a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03c5eb2e32a0a8ec51844511276d9efba5651068
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465353"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073770"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Verificar as práticas recomendadas do Kubernetes no seu cluster
 
@@ -21,6 +21,8 @@ Existem várias práticas recomendadas que você deve seguir nas implantações 
 ## <a name="about-kube-advisor"></a>Sobre o Supervisor de kube
 
 A ferramenta [kube-advisor][kube-advisor-github] é um único contêiner projetado para ser executado em seu cluster. Ele consulta o servidor da API do Kubernetes para obter informações sobre suas implementações e retorna um conjunto de melhorias sugeridas.
+
+A ferramenta Supervisor de kube pode relatar sobre a solicitação de recurso e limites não encontrados em aplicativos de PodSpecs para Windows, bem como aplicativos do Linux, mas a ferramenta Supervisor kube em si deve ser agendada em um pod do Linux. Você pode agendar um pod para execução em um pool de nós com um sistema operacional específico usando um [seletor de nó] [ k8s-node-selector] na configuração do pod.
 
 > [!NOTE]
 > A ferramenta kube-advisor é suportada pela Microsoft com base no melhor esforço. Questões e sugestões devem ser arquivadas no GitHub.
@@ -73,3 +75,4 @@ Se você estiver executando a ferramenta em um cluster que não esteja habilitad
 
 [kube-cpumem]: https://github.com/Azure/azure-quickstart-templates
 [kube-advisor-github]: https://github.com/azure/kube-advisor
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

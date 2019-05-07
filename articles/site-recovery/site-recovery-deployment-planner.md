@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mayg
-ms.openlocfilehash: 0597f185df35a92696ed9287d23778180319b3de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 195c70cd887d75eebb23cb7632b5fa250f89661c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61035785"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137753"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Sobre o Planejador de Implantação do Azure Site Recovery para VMware para o Azure
 Este artigo é o guia de usuário do Planejador de Implantações do Azure Site Recovery para implantações de produção do VMware para o Azure.
@@ -104,6 +104,9 @@ A pasta contém vários arquivos e subpastas. O arquivo executável é ASRDeploy
     E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="update-to-the-latest-version-of-deployment-planner"></a>Atualizar para a versão mais recente do Planejador de Implantações
+
+As atualizações mais recentes são resumidas no planejador de implantação [histórico de versão](site-recovery-deployment-planner-history.md).
+
 Se você tiver uma versão anterior do Planejador de Implantações, siga um destes procedimentos:
  * Se a versão mais recente não contém uma correção de criação de perfil, e a criação de perfil já está em andamento na versão atual do planejador, continue a criação de perfil.
  * Se a versão mais recente contém uma correção de criação de perfil, é recomendável parar a criação de perfil na versão atual e reiniciá-la com a nova versão.

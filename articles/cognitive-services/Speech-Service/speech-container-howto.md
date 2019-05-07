@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: e000c034d10efc652f328fa8d1db8d1902fac693
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 2adcbad55236917685ddcdbabe4809f36ab5a730
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026112"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153060"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Instalar e executar contêineres do serviço de fala
 
@@ -107,7 +107,7 @@ Marca a seguir está um exemplo do formato:
 
 A tabela a seguir lista as localidades com suporte para **fala em texto** na 1.1.1 versão do contêiner:
 
-|Localidade do idioma|Marcas|
+|Localidade do idioma|tags|
 |--|--|
 |Chinês|`zh-cn`|
 |Inglês |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
@@ -136,7 +136,7 @@ Marca a seguir está um exemplo do formato:
 
 A tabela a seguir lista as localidades com suporte para **fala** no 1.1.0 versão do contêiner:
 
-|Localidade do idioma|Marcas|Vozes com suporte|
+|Localidade do idioma|tags|Vozes com suporte|
 |--|--|--|
 |Chinês|`zh-cn`|huihuirus<br>kangkang-apollo<br>apollo yaoyao|
 |Inglês |`en-au`|Catherine<br>hayleyrus|
@@ -178,7 +178,7 @@ Depois que o contêiner estiver no [computador host](#the-host-computer), use o 
 
 Use o comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) para executar qualquer um dos três contêineres. O comando usa os seguintes parâmetros:
 
-**Durante a visualização privada**, as configurações de cobrança devem ser válidas para iniciar o contêiner, mas você não será cobrado por uso.
+**Durante a visualização**, as configurações de cobrança devem ser válidas para iniciar o contêiner, mas você não cobrado pelo uso.
 
 | Placeholder | Value |
 |-------------|-------|
@@ -226,7 +226,7 @@ Esse comando:
 
 ### <a name="speech-to-text"></a>Conversão de fala em texto
 
-O contêiner não fornece APIs, que são acessados por meio do ponto de extremidade de consulta com base em websocket [documentação do SDK de serviços de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+O contêiner fornece o ponto de extremidade de consulta com base em websocket APIs, que são acessados por meio de [Speech SDK](index.yml).
 
 Por padrão, o SDK de fala usa serviços de fala on-line. Para usar o contêiner, você precisará alterar o método de inicialização. Consulte os exemplos a seguir.
 

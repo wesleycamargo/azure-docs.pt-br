@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: fdb9b6c09e81ce29d2587fb0faca1aa80d28ea38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5754fc2f7e0fc36a6708bfd4d2d1d3d6f016b27
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450589"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150960"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Implantar o acelerador da solução de monitoramento remoto localmente - Visual Studio
 
@@ -83,7 +83,7 @@ Cada serviço Web abre uma janela do navegador e do prompt de comando. No prompt
 Execute estas etapas para iniciar o trabalho do Stream Analytics:
 
 1. Navegue até o [Portal do Azure](https://portal.azure.com).
-1. Navegue até o **Grupo de recursos** criado para sua solução. O nome do grupo de recursos é o nome da solução que você escolheu quando executou o script **start.cmd****.
+1. Navegue até o **Grupo de recursos** criado para sua solução. O nome do grupo de recursos é o nome da solução que você escolheu quando executou o script **start.cmd**.
 1. Clique no **trabalho do Stream Analytics** na lista de recursos.
 1. Na página **visão geral** do trabalho do Stream Analytics, clique no botão **Iniciar**. Clique em **Iniciar** para iniciar o trabalho.
 

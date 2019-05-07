@@ -1,19 +1,19 @@
 ---
-title: Usar extensões de PostgreSQL no Banco de Dados do Azure para PostgreSQL
-description: Descreve a capacidade de estender a funcionalidade de seu banco de dados usando as extensões no Banco de Dados para PostgreSQL.
+title: Usar extensões de PostgreSQL no banco de dados do Azure para PostgreSQL – servidor único
+description: Descreve a capacidade de estender a funcionalidade do seu banco de dados usando as extensões no banco de dados do Azure para PostgreSQL – servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.openlocfilehash: 8bbb638190928e0478053843264fde585ae17222
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 5/6/2019
+ms.openlocfilehash: 1e3a27f953246ce29de419949362c23b8932b0d5
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720596"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073500"
 ---
-# <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>Extensões de PostgreSQL no Banco de Dados do Azure para PostgreSQL
+# <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Extensões de PostgreSQL no banco de dados do Azure para PostgreSQL – servidor único
 O PostgreSQL fornece a capacidade de estender a funcionalidade de seu banco de dados usando as extensões. As extensões permitem o agrupamento de vários objetos SQL relacionados em um único pacote que pode ser carregado ou removido de seu banco de dados com um único comando. Depois de ser carregada no banco de dados, as extensões podem funcionar como recursos internos. Para obter mais informações sobre extensões do PostgreSQL, consulte  [Empacotando Objetos Relacionados em uma Extensão](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
 
 ## <a name="how-to-use-postgresql-extensions"></a>Como usar as extensões PostgreSQL

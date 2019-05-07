@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: d107a9dae29f18b90ba7c23198c0cc1f97d83c70
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b46e9ee8fc3e14981a01cc2425a8ce55d06c5a9a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309813"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150748"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Migrar dados do StorSimple séries 5000-7000 para a Sincronização de Arquivos do Azure
 
@@ -87,7 +87,7 @@ Execute as etapas a seguir para migrar o compartilhamento de arquivos do Windows
     Ignore essa etapa e prossiga para a próxima etapa, se estiver usando um host diferente do Windows Server. Se você estiver usando o mesmo servidor de arquivos do Windows para AFS, agora passará por alguns minutos de tempo de inatividade. 
     - **Tempo de inatividade inicia** - Exclua o ponto de extremidade de servidor criado na *etapa 1F*. 
     - Crie um novo ponto de extremidade de servidor com o caminho em que você quer que os dados residam daqui em diante.
-    - Depois que o ponto de extremidade de servidor mostrar como Íntegro (isso poderá demorar alguns minutos), você verá os dados nesse novo local. Agora, é possível configurar o host do Windows Server para servir arquivos desse novo local. -**Tempo de inatividade termina**.
+    - Depois que o ponto de extremidade de servidor mostrar como Íntegro (isso poderá demorar alguns minutos), você verá os dados nesse novo local. Agora, é possível configurar o host do Windows Server para servir arquivos desse novo local. - **Tempo de inatividade termina**.
 5.  Se estiver usando outro servidor de arquivos do Windows para Sincronização de Arquivos do Azure, não haverá nenhum tempo de inatividade. 
     - Adicione outro ponto de extremidade de servidor com o caminho do armazenamento local que está preparado para usar como um cache, em vez do dispositivo StorSimple. 
     - Será possível ver os arquivos no novo servidor em poucos minutos. Você poderá alternar o dispositivo StorSimple para esse novo local no host a qualquer momento.
@@ -100,7 +100,7 @@ Se você enfrentar algum problema durante a migração de dados, [Contate o Supo
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Se a AFS não for a solução que você precisa, saiba como [Migrar dados de um StorSimple séries 5000-7000 para um dispositivo da série 8000](storsimple-8000-migrate-from-5000-7000.md).
 

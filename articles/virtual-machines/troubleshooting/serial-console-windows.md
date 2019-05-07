@@ -1,9 +1,9 @@
 ---
-title: O console serial da máquina virtual do Azure para Windows | Microsoft Docs
-description: Console serial bidirecional para máquinas virtuais do Windows Azure.
+title: Console Serial do Azure para Windows | Microsoft Docs
+description: Bi-direcional Console Serial para máquinas virtuais do Azure e conjuntos de dimensionamento de máquina Virtual.
 services: virtual-machines-windows
 documentationcenter: ''
-author: harijay
+author: asinn826
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -12,59 +12,75 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/31/2018
+ms.date: 5/1/2019
 ms.author: harijay
-ms.openlocfilehash: e50243c15b5b783976374bc8b8861a0245ce1b05
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6611c75e61f7e381efd2e437b8281cc70601215
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307133"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141050"
 ---
-# <a name="virtual-machine-serial-console-for-windows"></a>Console serial da máquina virtual para Windows
+# <a name="azure-serial-console-for-windows"></a>Console Serial do Azure para Windows
 
-O console serial da máquina virtual (VM) no portal do Azure fornece acesso a um console baseado em texto para máquinas virtuais do Windows. Essa conexão serial conecta-se à porta serial COM1 da máquina virtual, fornecendo acesso a ela, independentemente do estado da rede ou sistema operacional da máquina virtual. O acesso ao console serial de uma máquina virtual pode ser feito apenas usando o portal do Azure. É permitido apenas para os usuários que têm uma função de acesso do Virtual Machine Contributor ou superior à máquina virtual.
+O Console Serial no portal do Azure fornece acesso a um console baseado em texto para as máquinas virtuais do Windows (VMs) e (conjunto de dimensionamento de máquinas virtuais) instâncias de conjunto de dimensionamento de máquinas virtuais. Essa conexão serial conecta-se à porta serial COM1 da VM ou instância do conjunto de dimensionamento de máquina virtual, fornecendo acesso a ele, independentemente do estado do sistema operacional ou rede. O console serial só pode ser acessado por meio do portal do Azure e é permitido apenas para os usuários que tenham uma função de acesso de Colaborador ou superior para o conjunto de dimensionamento VM ou máquina virtual.
 
-Para documentação do console serial para VMs Linux, consulte [Console serial da máquina virtual para Linux](serial-console-linux.md).
+Console Serial funciona da mesma maneira para VMs e instâncias de conjunto de dimensionamento de máquinas virtuais. Neste documento, todos os menções em VMs implicitamente inclui instâncias de conjunto de dimensionamento de máquina virtual, a menos que indicado de outra forma.
+
+Para obter a documentação do console serial para VMs do Linux e o conjunto de dimensionamento de máquina virtual, consulte [do Console Serial para Linux Azure](serial-console-linux.md).
 
 > [!NOTE]
-> O console serial para máquinas virtuais geralmente está disponível nas regiões globais do Azure. Ainda não está disponível no governo do Azure ou nas nuvens do Azure China.
+> O Console Serial está disponível em regiões globais do Azure. Ainda não está disponível no governo do Azure ou nas nuvens do Azure China.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* A VM na qual você está acessando um console serial deve usar o modelo de implantação de gerenciamento de recursos. Implantações clássicas não são suportadas.
+* A instância de conjunto de dimensionamento VM ou máquina virtual deve usar o modelo de implantação do resource Manager. Implantações clássicas não são suportadas.
+
+- Sua conta que usa o console serial deve ter o [função de Colaborador de máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) para a VM e o [diagnóstico de inicialização](boot-diagnostics.md) conta de armazenamento
+
+- A instância de conjunto de dimensionamento VM ou máquina virtual deve ter um usuário baseado em senha. Você pode criar um com a função [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) da extensão de acesso da VM. Selecione **Redefinir senha** na seção **Suporte + solução de problemas**.
 
 * A VM na qual você está acessando um console serial deve ter [diagnósticos de inicialização](boot-diagnostics.md) ativados.
 
     ![Configurações de diagnóstico de inicialização](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
-* Uma conta que usa um console serial deve ter a [Função de Colaborador da Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) para a VM e a conta de [diagnóstico de inicialização](boot-diagnostics.md) do armazenamento.
-
-* A VM na qual você está acessando um console serial deve ter uma conta baseada em senha. Você pode criar um com a função [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) da extensão de acesso da VM. Selecione **Redefinir senha** na seção **Suporte + solução de problemas**.
-
-
 ## <a name="get-started-with-the-serial-console"></a>Comece com o console serial
-O console serial para máquinas virtuais está acessível somente por meio do portal do Azure:
+O Console Serial para máquinas virtuais e o conjunto de dimensionamento de máquina virtual é acessível apenas por meio do portal do Azure:
 
+### <a name="serial-console-for-virtual-machines"></a>Console Serial para máquinas virtuais
+Console Serial para máquinas virtuais é tão simples como clicar em **console Serial** dentro de **suporte + solução de problemas** seção no portal do Azure.
   1. Abra o [Portal do Azure](https://portal.azure.com).
-  1. No menu à esquerda, selecione **Máquinas Virtuais**.
-  1. Selecione uma VM na lista. A página de visão geral para a VM será aberta.
+
+  1. Navegue até **todos os recursos** e selecione uma máquina Virtual. A página de visão geral da VM é aberta.
+
   1. Role para baixo até a seção **Support + troubleshooting** e selecione **Console serial**. Um novo painel com o console serial abre e inicia a conexão.
 
-## <a name="enable-serial-console-functionality"></a>Habilitar funcionalidade do console serial
+### <a name="serial-console-for-virtual-machine-scale-sets"></a>Console Serial para conjuntos de dimensionamento de máquina Virtual
+Console serial está disponível em uma base por instância para conjuntos de dimensionamento de máquina virtual. Você precisará navegar até a instância individual de um conjunto de dimensionamento de máquina virtual antes de ver os **console Serial** botão. Se seu conjunto de dimensionamento de máquina virtual não tiver habilitado o diagnóstico de inicialização, certifique-se de que atualizar o seu modelo de conjunto de dimensionamento de máquina virtual para habilitar o diagnóstico de inicialização e, em seguida, atualize todas as instâncias para o novo modelo para acessar o console serial.
+  1. Abra o [Portal do Azure](https://portal.azure.com).
+
+  1. Navegue até **todos os recursos** e selecione um conjunto de dimensionamento de máquina Virtual. A página de visão geral de dimensionamento de máquinas virtuais definido é aberta.
+
+  1. Navegue até **instâncias**
+
+  1. Selecione uma instância de conjunto de dimensionamento de máquina virtual
+
+  1. Dos **suporte + solução de problemas** seção, selecione **console Serial**. Um novo painel com o console serial abre e inicia a conexão.
+
+## <a name="enable-serial-console-functionality"></a>Habilitar a funcionalidade do Console Serial
 
 > [!NOTE]
-> Se você não estiver vendo nada no console serial, verifique se o diagnóstico de inicialização está habilitado na VM.
+> Se você não estiver vendo nada no console serial, certifique-se de que o diagnóstico de inicialização está habilitado no seu conjunto de dimensionamento VM ou máquina virtual.
 
 ### <a name="enable-the-serial-console-in-custom-or-older-images"></a>Ativar o console serial em imagens personalizadas ou antigas
 Imagens mais recentes do Windows Server no Azure têm [Console Administrativo Especial](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) habilitado por padrão. O SAC é suportado em versões de servidor do Windows, mas não está disponível em versões de cliente (por exemplo, Windows 10, Windows 8 ou Windows 7).
 
-Para imagens mais antigas do Windows Server (criadas antes de fevereiro de 2018), você pode habilitar automaticamente o console serial por meio do recurso de comando de execução do portal do Azure. No portal do Azure, selecione **Executar comando** e, em seguida, selecione o comando denominado **EnableEM** na lista.
+Para imagens mais antigas do Windows Server (criadas antes de fevereiro de 2018), você pode habilitar automaticamente o console serial por meio do recurso de comando de execução do portal do Azure. No portal do Azure, selecione **execute o comando**, em seguida, selecione o comando nomeado **EnableEMS** na lista.
 
 ![Executar lista de comandos](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-runcommand.png)
 
-Como alternativa, para habilitar manualmente o console serial para máquinas virtuais do Windows criadas antes de fevereiro de 2018, siga estas etapas:
+Como alternativa, para habilitar manualmente o console serial para o conjunto de dimensionamento de máquina Windows VMs/virtual criado antes de fevereiro de 2018, siga estas etapas:
 
 1. Conecte-se à sua máquina virtual do Windows usando a Área de Trabalho Remota
 1. Em um prompt de comando administrativo, execute os seguintes comandos:
@@ -90,7 +106,7 @@ Se [SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) não esti
 
 Se você precisar ativar os prompts do carregador de inicialização do Windows para serem exibidos no console serial, poderá adicionar as seguintes opções adicionais aos dados de configuração da inicialização. Para obter mais informações, consulte [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set).
 
-1. Conecte-se à sua máquina virtual do Windows usando a Área de Trabalho Remota.
+1. Conectar-se à sua VM do Windows ou a instância do conjunto de dimensionamento de máquinas virtuais usando a área de trabalho remota.
 
 1. Em um prompt de comando administrativo, execute os seguintes comandos:
    - `bcdedit /set {bootmgr} displaybootmenu yes`
@@ -102,9 +118,9 @@ Se você precisar ativar os prompts do carregador de inicialização do Windows 
 > [!NOTE]
 > O tempo limite que você definiu para exibir o menu do gerenciador de inicialização afetará o tempo de inicialização do sistema operacional. Se você acha que o valor de tempo limite de 10 segundos é muito curto ou muito longo, defina-o como um valor diferente.
 
-## <a name="use-serial-console"></a>Use o console serial
+## <a name="use-serial-console"></a>Use o Console Serial
 
-### <a name="use-cmd-or-powershell-in-serial-console"></a>Use o CMD ou o PowerShell no console serial
+### <a name="use-cmd-or-powershell-in-serial-console"></a>Use CMD ou o PowerShell no Console Serial
 
 1. Conecte-se ao console serial. Se você se conectar com sucesso, o prompt será **SAC>**:
 
@@ -132,20 +148,23 @@ O console serial pode ser usado para enviar uma NMI para uma máquina virtual do
 Para obter informações sobre como configurar o Windows para criar um arquivo de despejo de memória quando ele recebe uma NMI, consulte [Como gerar um arquivo de despejo de memória usando uma NMI](https://support.microsoft.com/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file).
 
 ### <a name="use-function-keys-in-serial-console"></a>Usar teclas de função no console serial
-As teclas de função estão habilitadas para uso no console serial nas VMs do Windows. A tecla F8 na lista suspensa do console serial fornece a conveniência de acessar facilmente o menu Configurações Avançadas de Inicialização, mas o console serial é compatível com todas as outras teclas de função. Talvez seja necessário pressionar **Fn** + **F1** (ou F2, F3 etc) no seu teclado, dependendo do computador do qual você está usando o console serial.
+As teclas de função estão habilitadas para uso no console serial nas VMs do Windows. A tecla F8 na lista suspensa do console serial fornece a conveniência de acessar facilmente o menu Configurações Avançadas de Inicialização, mas o console serial é compatível com todas as outras teclas de função. Talvez seja necessário pressionar **Fn** + **F1** (ou F2, F3, etc.) no seu teclado, dependendo do computador, você estiver usando o console serial do.
 
 ### <a name="use-wsl-in-serial-console"></a>Use o WSL no console serial
 O Subsistema Windows para Linux (WSL) foi habilitado para o Windows Server 2019 ou posterior, portanto, também é possível habilitar WSL para uso no console serial, se você estiver executando o Windows Server 2019 ou posterior. Isso pode ser benéfico para usuários que estão também familiarizados com os comandos do Linux. Para obter instruções habilitar WSL para o Windows Server, confira o [Guia de instalação](https://docs.microsoft.com/windows/wsl/install-on-server).
 
-### <a name="restart-your-windows-vm-within-serial-console"></a>Reiniciar a VM do Windows no console serial
-Reinicie a VM no console serial navegando para o botão de energia e clicando em "Reiniciar VM". Isso iniciará uma reinicialização da VM e você verá uma notificação no portal do Azure sobre a reinicialização.
+### <a name="restart-your-windows-vmvirtual-machine-scale-set-instance-within-serial-console"></a>Reinicie a instância do conjunto de dimensionamento Windows VM virtual/máquina dentro do Console Serial
+Você pode iniciar uma reinicialização do console serial, navegando até o botão de energia e clicando em "Reiniciar VM". Isso iniciará uma reinicialização da VM e você verá uma notificação no portal do Azure sobre a reinicialização.
 
-Isso é útil em situações em que talvez você deseje acessar o menu de inicialização da VM sem sair da experiência do console serial.
+Isso é útil em situações em que você talvez queira acessar o menu de inicialização sem deixar a experiência do console serial.
 
 ![Reinicialização do console serial do Windows](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-windows.gif)
 
 ## <a name="disable-serial-console"></a>Desabilitar o console serial
 Por padrão, todas as assinaturas têm acesso de console serial habilitado para todas as VMs. Você pode desativar o console serial no nível da assinatura ou no nível da VM.
+
+### <a name="vmvirtual-machine-scale-set-level-disable"></a>Desabilitar o nível de conjunto de dimensionamento máquina virtual/de VM
+O console serial pode ser desativado para uma escala VM ou máquina virtual específica, definida pela desabilitação da configuração de diagnóstico de inicialização. Desative o diagnóstico de inicialização do portal do Azure para desabilitar o console serial para a VM ou o conjunto de dimensionamento de máquina virtual. Se você estiver usando o console serial em um conjunto de dimensionamento de máquina virtual, certifique-se de que atualizar suas instâncias de conjunto de dimensionamento de máquina virtual para o modelo mais recente.
 
 > [!NOTE]
 > Para habilitar ou desabilitar o console serial para uma assinatura, você precisa ter permissões de gravação para a assinatura. Essas permissões incluem, mas não estão limitadas a, funções de administrador ou proprietário. Funções personalizadas também podem ter permissões de gravação.
@@ -181,9 +200,6 @@ Como alternativa, você pode usar o seguinte conjunto de comandos bash no Cloud 
 
     $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/enableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
     ```
-
-### <a name="vm-level-disable"></a>Desabilitação no nível da VM
-O console serial pode ser desativado para uma VM específica, desativando a configuração de diagnóstico de inicialização dessa VM. Desative o diagnóstico de inicialização do portal do Azure para desativar o console serial da VM.
 
 ## <a name="serial-console-security"></a>Segurança de console serial
 
@@ -226,7 +242,7 @@ Interagir com o carregador de inicialização | Acesso BCD através do console s
 
 
 ## <a name="errors"></a>Errors
-Como a maioria dos erros é transitória, tentar novamente sua conexão pode corrigi-los. A tabela a seguir mostra uma lista de erros e atenuações.
+Como a maioria dos erros é transitória, tentar novamente sua conexão pode corrigi-los. A tabela a seguir mostra uma lista de erros e mitigações para ambas as VMs e instâncias de conjunto de dimensionamento de máquinas virtuais.
 
 Erro                            |   Redução
 :---------------------------------|:--------------------------------------------|
@@ -239,7 +255,7 @@ O soquete da Web está fechado ou não pôde ser aberto. | Talvez seja necessár
 Apenas as informações de integridade são mostradas ao se conectar a uma VM do Windows| Este erro ocorre se o Console Administrativo Especial não tiver sido habilitado para sua imagem do Windows. Consulte [Ative o console serial em imagens personalizadas ou antigas](#enable-the-serial-console-in-custom-or-older-images) para obter instruções sobre como ativar manualmente o SAC em sua VM do Windows. Para obter mais informações, consulte [Sinais de integridade do Windows](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 
 ## <a name="known-issues"></a>Problemas conhecidos
-Estamos cientes de algumas questões com o console serial. Aqui está uma lista desses problemas e as etapas de mitigação.
+Estamos cientes de algumas questões com o console serial. Aqui está uma lista desses problemas e as etapas de mitigação. Esses problemas e atenuações se aplicam a ambas as VMs e instâncias de conjunto de dimensionamento de máquinas virtuais.
 
 Problema                             |   Redução
 :---------------------------------|:--------------------------------------------|

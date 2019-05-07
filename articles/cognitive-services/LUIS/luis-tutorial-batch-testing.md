@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: 391a5386a5ecc144b15c35a85d501dfb5ce2d172
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af04ca19961abcfc7ee218824a4a1a804f7ad79c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597269"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146152"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Tutorial: testar conjuntos de dados em lote
 
@@ -28,7 +28,7 @@ Requisitos para o teste em lotes:
 
 * Máximo de 1000 enunciados por teste. 
 * Sem duplicatas. 
-* Tipos de entidades permitidas: apenas entidades de aprendizado de máquina simples, hierárquica (somente pai) e composta. Teste em lotes é útil apenas para intenções e entidades de aprendizado de máquina.
+* Tipos de entidade permitidos: somente as entidades aprendidas máquinas de simples e de composição. Teste em lotes é útil apenas para intenções e entidades de aprendizado de máquina.
 
 Ao usar um aplicativo diferente deste tutorial, *não* use os enunciados de exemplo já adicionados a uma intenção. 
 
@@ -95,7 +95,7 @@ Use as seguintes etapas:
 
 ## <a name="review-batch-results"></a>Examinar resultados do lote
 
-O gráfico do lote exibe quatro quadrantes dos resultados. À direita do gráfico, há um filtro. Por padrão, o filtro é definido para a primeira intenção na lista. O filtro contém todas as intenções e apenas entidades simples, hierárquicas (somente pai) e compostas. Ao selecionar uma [seção do gráfico](luis-concept-batch-test.md#batch-test-results) ou um ponto dentro do gráfico, os enunciados associados são exibidos abaixo do gráfico. 
+O gráfico do lote exibe quatro quadrantes dos resultados. À direita do gráfico, há um filtro. Por padrão, o filtro é definido para a primeira intenção na lista. O filtro contém todas as intenções e entidades só simples e compostas. Ao selecionar uma [seção do gráfico](luis-concept-batch-test.md#batch-test-results) ou um ponto dentro do gráfico, os enunciados associados são exibidos abaixo do gráfico. 
 
 Ao passar o mouse sobre o gráfico, um botão de rolagem do mouse pode ampliar ou reduzir a exibição no gráfico. Isso é útil quando há muitos pontos no gráfico agrupados em conjunto. 
 
@@ -169,7 +169,7 @@ Para verificar se os enunciados no teste em lotes estão previstos corretamente,
 
 ## <a name="create-batch-file-with-entities"></a>Criar arquivo em lotes com entidades 
 
-Para verificar entidades em um teste em lotes, as entidades precisam ser rotuladas no arquivo JSON em lote. Apenas as entidades de aprendizado de máquina são usadas: entidades simples, hierárquicas (somente pai) e compostas. Não adicione entidades que não sejam de aprendizado de máquina, pois sempre são localizadas por meio de expressões regulares ou por correspondências de texto explícitas.
+Para verificar entidades em um teste em lotes, as entidades precisam ser rotuladas no arquivo JSON em lote. Somente as entidades de computador aprendeu são usadas: simples e compostas de entidades. Não adicione entidades que não sejam de aprendizado de máquina, pois sempre são localizadas por meio de expressões regulares ou por correspondências de texto explícitas.
 
 A variação de entidades para contagem total de palavras ([token](luis-glossary.md#token)) pode afetar a qualidade de previsão. Certifique-se de que os dados de treinamento fornecidos à intenção com enunciados rotulados incluem vários comprimentos de entidade. 
 
@@ -205,11 +205,11 @@ O valor de uma entidade **Trabalho**, fornecido nos enunciados de teste, geralme
 
 ## <a name="review-entity-batch-results"></a>Examinar os resultados do lote da entidade
 
-O gráfico é aberto com todas as intenções corretamente previstas. Role para baixo no filtro do lado direito para localizar as previsões de entidade com erro. 
+O gráfico é aberto com todas as intenções corretamente previstas. Role para baixo no lado direito filtro para localizar as previsões de entidade com erros. 
 
 1. Selecione a entidade **Trabalho** no filtro.
 
-    ![Previsões de entidade com erro no filtro](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
+    ![Previsões de entidade de erro no filtro](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
 
     O gráfico é alterado para exibir as previsões de entidade. 
 

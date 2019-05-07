@@ -12,38 +12,43 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 622a3ce0f80bd09bd09fa7ff097f68155318142d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 19a8400a076825f17501fabdb3f38ea05915822e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351158"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138768"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Configurar as declarações de grupo para aplicativos com o Azure Active Directory (visualização pública)
 
 O Azure Active Directory pode fornecer uma informações de associação de grupo de usuários em tokens para uso em aplicativos.  Há suporte para dois padrões principais:
 
-- Grupos identificados por seu identificador de objeto (OID) (geralmente disponível) do Active Directory do Azure
-- Grupos identificados por SAMAccountName ou GroupSID de AD (Active Directory) sincronizadas grupos e usuários (visualização pública)
+- Grupos identificados por seu identificador de objeto do Active Directory do Azure (geralmente disponível) de atributo (OID)
+- Grupos identificados por sAMAccountName ou GroupSID atributos para grupos do Active Directory (AD) sincronizadas e usuários (visualização pública)
 
-> [!Note]
-> Suporte ao uso de locais e nomes de identificadores de segurança (SIDs) foi projetado para permitir a movimentação de aplicativos existentes do AD FS.    Grupos gerenciados no Azure AD não contêm os atributos necessários para emitir essas declarações.
+> [!IMPORTANT]
+> Há um número de avisos para a Observação para essa funcionalidade de visualização:
+>
+>- Suporte ao uso de atributos de SID (identificador) de segurança e sAMAccountName sincronizado do local foi projetado para permitir a mover aplicativos existentes do AD FS e outros provedores de identidade. Grupos gerenciados no Azure AD não contêm os atributos necessários para emitir essas declarações.
+>- Em organizações maiores o número de grupos dos quais que um usuário é um membro da pode exceder o limite que Azure Active Directory será adicionado a um token. grupos de 150 para um token SAML e 200 para JWT. Isso pode levar a resultados imprevisíveis. Se esse for um problema em potencial, é recomendável testar e se for necessário esperar até que adicionamos melhorias para permitir que você restrinja as declarações para grupos relevantes para o aplicativo.  
+>- Para desenvolvimento de novos aplicativos ou em casos em que o aplicativo pode ser configurado para ele, e em que o suporte de grupo aninhado não é necessário, é recomendável que a autorização no aplicativo é baseada em funções de aplicativo em vez de grupos.  Isso limita a quantidade de informações que precisam entrar no token, é mais seguro e separa a atribuição de usuário da configuração de aplicativo.
 
-## <a name="group-claims-for-applications-migrating-from-ad-fs-and-other-idps"></a>Declarações de grupo para aplicativos Migrando do AD FS e outros IDPs
+## <a name="group-claims-for-applications-migrating-from-ad-fs-and-other-identity-providers"></a>Declarações de grupo para aplicativos Migrando do AD FS e outros provedores de identidade
 
-Muitos aplicativos que são configurados para se autenticar com o AD FS se baseiam nas informações de associação de grupo na forma de atributos de grupo do AD do Windows.   Esses atributos são o SAMAccountName, que pode ser o nome qualificado pelo domínio do grupo ou o SID de grupo do Windows.  Quando o aplicativo é federado com o AD FS, o AD FS usa a função TokenGroups para recuperar as associações de grupo para o usuário.
+Muitos aplicativos que são configurados para se autenticar com o AD FS se baseiam nas informações de associação de grupo na forma de atributos de grupo do AD do Windows.   Esses atributos são o sAMAccountName de grupo, que pode ser o nome qualificado por domínio ou o identificador de segurança de grupo do Windows (GroupSID).  Quando o aplicativo é federado com o AD FS, o AD FS usa a função TokenGroups para recuperar as associações de grupo para o usuário.
 
-Para corresponder o token receberia um aplicativo do AD FS, podem ser emitidas a declarações de função e grupo que contém o domínio qualificado SAMAccountName, em vez do objectID do grupo do Active Directory do Azure.
+De acordo com o token que receberia um aplicativo do AD FS, declarações de grupo e função podem ser emitidas a que contém o sAMAccountName de domínio qualificado em vez do objectID do grupo do Active Directory do Azure.
 
 Os formatos com suporte para declarações de grupo são:
 
-- **GroupObjectId de diretório Active Directory do Azure** (disponível para todos os grupos)
+- **ObjectId do grupo do Active Directory do Azure** (disponível para todos os grupos)
 - **SAMAccountName** (disponível para grupos sincronizados do Active Directory)
-- **NetbiosDomain\samAccountName** (disponível para grupos sincronizados do Active Directory)
-- **DNSDomainName\samAccountName** (disponível para grupos sincronizados do Active Directory)
+- **NetbiosDomain\sAMAccountName** (disponível para grupos sincronizados do Active Directory)
+- **DNSDomainName\sAMAccountName** (disponível para grupos sincronizados do Active Directory)
+- **No identificador de segurança do grupo local** (disponível para grupos sincronizados do Active Directory)
 
 > [!NOTE]
-> Atributos SAMAccountName e OnPremisesGroupSID só estão disponíveis em objetos de grupo sincronizados do Active Directory.   Eles não estão disponíveis em grupos criados no Azure Active Directory ou Office 365.   Aplicativos que dependem de atributos de grupo local obtém-los sincronizados apenas para grupos.
+> sAMAccountName e atributos no SID do grupo local só estão disponíveis em objetos de grupo sincronizados do Active Directory.   Eles não estão disponíveis em grupos criados no Azure Active Directory ou Office 365.   Aplicativos configurados no Azure Active Directory para obter atributos de grupo de sincronizados localmente obtém-los sincronizados apenas para grupos.
 
 ## <a name="options-for-applications-to-consume-group-information"></a>Opções para consumo de informações do grupo de aplicativos
 
@@ -51,17 +56,17 @@ Uma maneira para aplicativos para obter informações de grupo é chamar o ponto
 
 No entanto, se um aplicativo existente já espera consumir as informações de grupo por meio de declarações no token, que ele recebe, do Active Directory do Azure pode ser configurado com um número de opções de declarações diferentes para atender às necessidades do aplicativo.  Considere as seguintes opções:
 
-- Ao usar a associação de grupo para uma finalidade de autorização do aplicativo (se a associação de grupo é obtida de token ou de gráfico), é preferível usar o ObjectID do grupo, que é imutável e exclusivo no Azure Active Directory e estão disponíveis para todos os grupos .
-- Se usando o SAMAccountName de grupo para autorização, use nomes de domínio qualificado;  tem menos chance de situações decorrentes havia conflito de nomes. SAMAccountName por conta própria pode ser exclusivo dentro de um domínio do Active Directory, mas se mais de um domínio do Active Directory estiver sincronizado com um locatário do Azure Active Directory há a possibilidade de mais de um grupo tenham o mesmo nome.
+- Ao usar a associação de grupo para fins de autorização em aplicativos é preferível usar o ObjectID do grupo, que é imutável e exclusivo no Azure Active Directory e estão disponíveis para todos os grupos.
+- Se usando o sAMAccountName de grupo local para autorização, use nomes de domínio qualificado;  tem menos chance de situações decorrentes havia conflito de nomes. SAMAccountName por conta própria pode ser exclusivo dentro de um domínio do Active Directory, mas se mais de um domínio do Active Directory estiver sincronizado com um locatário do Azure Active Directory há a possibilidade de mais de um grupo tenham o mesmo nome.
 - Considere o uso de [funções de aplicativo](../../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) para fornecer uma camada de indireção entre a associação de grupo e o aplicativo.   Em seguida, o aplicativo toma decisões de autorização interno com base em clams de função no token.
 - Se o aplicativo é configurado para obter atributos de grupo que são sincronizados do Active Directory e um grupo não contém os atributos que ele não será incluído nas declarações.
-- Declarações de grupo em tokens incluem grupos aninhados.   Se um usuário é membro do GroupB e GroupB é um membro de GroupA, as declarações de grupo para o usuário conterá GroupA e GroupB. Para organizações com uso intenso de grupos aninhados e os usuários com um grande número de associações de grupo, o número de grupos listados no token pode aumentar o tamanho de token.   O Azure Active Directory limita o número de grupos, ele emite um token de 150 para declarações SAML e 200 para JWT.
+- Declarações de grupo em tokens incluem grupos aninhados.   Se um usuário é membro do GroupB e GroupB é um membro de GroupA, as declarações de grupo para o usuário conterá GroupA e GroupB. Para organizações com uso intenso de grupos aninhados e os usuários com um grande número de associações de grupo, o número de grupos listados no token pode aumentar o tamanho de token.   O Azure Active Directory limita o número de grupos, ele emite um token de 150 para declarações SAML e 200 para JWT impedir que tokens fique muito grande.  Se um usuário for membro de um número maior de grupos que o limite, os grupos são emitidos e um link para o ponto de extremidade do Graph para obter informações de grupo.
 
 > Pré-requisitos para o uso de atributos de grupo sincronizados do Active Directory:   Os grupos devem ser sincronizados do Active Directory usando o Azure AD Connect.
 
 Há duas etapas para configurar o Azure Active Directory para a emissão de nomes de grupo para grupos do Active Directory.
 
-1. **Sincronizar os nomes de grupo do Active Directory** antes do Azure Active Directory podem emitir os nomes de grupo ou no grupo local no grupo ou função de declarações de SID, os atributos necessários precisam ser sincronizados do Active Directory.  Você deve estar executando o Azure AD Connect versão 1.2.70 ou posterior.   Antes da versão 1.2.70 do Azure AD Connect sincronizará os objetos de grupo th do Active Directory, mas não inclui os atributos de nome de grupo necessário por padrão.  Você deve atualizar para a versão atual.
+1. **Sincronizar os nomes de grupo do Active Directory** antes do Azure Active Directory podem emitir os nomes de grupo ou no grupo local no grupo ou função de declarações de SID, os atributos necessários precisam ser sincronizados do Active Directory.  Você deve estar executando o Azure AD Connect versão 1.2.70 ou posterior.   Antes da versão 1.2.70 do Azure AD Connect sincronizará os objetos de grupo do Active Directory, mas não inclui os atributos de nome de grupo necessário por padrão.  Você deve atualizar para a versão atual.
 
 2. **Configurar o registro do aplicativo no Azure Active Directory para incluir declarações de grupo nos tokens** declarações de grupo podem ser configurado na seção de aplicativos empresariais do portal para um aplicativo de galeria ou inexistente na Galeria do SSO do SAML, ou usando o manifesto do aplicativo na seção de registros de aplicativo.  Para configurar as declarações de grupo no aplicativo manifesto consulte "Configurando o registro de aplicativo do Active Directory do Azure para os atributos de grupo" abaixo.
 
@@ -81,22 +86,22 @@ Use os botões de opção para selecionar a quais grupos devem ser incluídos no
 |----------|-------------|
 | **Todos os grupos** | Emite a grupos de segurança e distribuição de lista.   Ele também faz com que funções de diretório que o usuário está atribuído a ser emitida em uma declaração 'wids' e quaisquer funções de aplicativo que o usuário está atribuído a ser emitido na declaração de funções. |
 | **Grupos de segurança** | Emite a grupos de segurança que o usuário é membro na declaração grupos |
-| **Lista de distribuição** | Emite a listas de distribuição, de que o usuário é um membro |
-| **Função de diretório** | Se o usuário for atribuído a funções de diretório são emitidos como 'wids' declaração (declaração não será emitida grupos) |
+| **Listas de distribuição** | Emite a listas de distribuição, de que o usuário é um membro |
+| **Funções de diretório** | Se o usuário for atribuído a funções de diretório são emitidos como 'wids' declaração (declaração não será emitida grupos) |
 
 Por exemplo, para emitir todos os grupos de segurança que o usuário é um membro de, selecione os grupos de segurança
 
 ![declarações de interface do usuário](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
+
+Para emitir os grupos usando os atributos do Active Directory sincronizados do Active Directory, em vez de identificações de objeto do AD do Azure para selecionar o formato necessário na lista suspensa.  Isso substitui a ID de objeto nas declarações com valores de cadeia de caracteres que contém os nomes de grupo.   Somente os grupos sincronizados do Active Directory serão incluídos nas declarações.
+
+![declarações de interface do usuário](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
 
 ### <a name="advanced-options"></a>Opções Avançadas
 
 A maneira como as declarações de grupo são emitidas pode ser modificado pelas configurações em Opções avançadas
 
 Personalize o nome da declaração de grupo:  Se selecionado, um tipo de declaração diferentes pode ser especificado para declarações de grupo.   Insira o tipo de declaração no campo de nome e o namespace opcional para a declaração no campo namespace.
-
-![declarações de interface do usuário](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
-
-Para emitir grupos usando o Active Directory atributos em vez do Azure AD objectIDs marque a caixa 'Retornar grupos como nomes, em vez de IDs' em selecionar o formato na lista suspensa.  Isso substitui a ID de objeto nas declarações com valores de cadeia de caracteres que contém os nomes de grupo.   Somente os grupos sincronizados do Active Directory serão incluídos nas declarações.
 
 ![declarações de interface do usuário](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
 

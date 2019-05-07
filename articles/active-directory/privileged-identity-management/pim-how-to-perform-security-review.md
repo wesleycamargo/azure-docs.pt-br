@@ -1,6 +1,6 @@
 ---
-title: Executar uma revisão de acesso das minhas funções do Azure AD no PIM - Azure Active Directory | Microsoft Docs
-description: Saiba como executar uma revisão de acesso das suas funções do Azure AD no Azure AD Privileged Identity Management (PIM).
+title: Examinar o acesso às funções do AD do Azure no PIM - Azure Active Directory | Microsoft Docs
+description: Saiba como examinar acesso das funções do Azure AD no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,15 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66f16e02716ceb94d2c8b10bb246a13dc566229c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3850af026ea13e1920aea65e18358ebb04ef0d25
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287805"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65140977"
 ---
-# <a name="perform-an-access-review-of-my-azure-ad-roles-in-pim"></a>Executar uma revisão de acesso das minhas funções do Azure AD no PIM
+# <a name="review-access-to-azure-ad-roles-in-pim"></a>Examinar o acesso às funções do AD do Azure no PIM
+
 Azure Active Directory (AD) Privileged Identity Management (PIM) simplifica como as empresas gerenciam o acesso privilegiado a recursos no Azure AD e outros Microsoft online services como Office 365 ou Microsoft Intune.  
 
 Se você for atribuído a uma função administrativa, o administrador de função com privilégios de sua organização poderá solicitar que você confirme regularmente que ainda precisa da função para seu trabalho. Você pode receber um email que inclui um link ou pode acessar diretamente o [portal do Azure](https://portal.azure.com). Siga as etapas neste artigo para executar a autorrevisão das suas funções atribuídas.
@@ -47,6 +48,6 @@ Siga estas etapas para localizar e concluir a análise de acesso:
 5. Feche a folha **Funções de análise do AD do Azure** .
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Realizar uma revisão de acesso das minhas funções de recurso do Azure no PIM](pim-resource-roles-perform-access-review.md)

@@ -8,18 +8,15 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 03/11/2019
-ms.openlocfilehash: b53cd54afdf6243769602971ab77145cfa9ba9cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: 0206fd2b2ea0a7cfaf79aaf19052e0174645780b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60506802"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143140"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acessar recursos de rede virtual do Azure a partir dos Aplicativos Lógicos do Azure usando ISEs (Ambientes de Serviço de Integração)
-
-> [!NOTE]
-> Esse recurso está em [ *visualização pública*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Às vezes, os aplicativos lógicos e as contas de integração precisam acessar recursos protegidos, como VMs (máquinas virtuais) e outros sistemas ou serviços em uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Para configurar esse acesso, é possível [criar um *ISE* (ambiente de serviço de integração)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) para executar os aplicativos lógicos e as contas de integração. Quando você cria um ISE, o Azure implanta uma instância privada e isolada do serviço de aplicativos lógicos em sua rede virtual do Azure. Essa instância privada usa recursos dedicados, como o armazenamento, sendo executada separadamente do serviço público "global" de Aplicativos Lógicos. A separação sua instância privada isolada e a instância global pública também ajuda a reduzir o impacto de outros locatários do Azure podem ter no desempenho de seus aplicativos, que também é conhecido como o [efeito de "vizinhos ruidosos"](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
 
@@ -70,11 +67,6 @@ A diferença entre os conectores ISE e não ISE está nos locais em que os gatil
 ## <a name="integration-accounts-with-ise"></a>Contas de integração com ISE
 
 É possível usar contas de integração com aplicativos lógicos dentro de um ISE (ambiente de serviço de integração). No entanto, essas contas de integração devem usar o *mesmo ISE* que os aplicativos lógicos vinculados. Os aplicativos lógicos em um ISE podem fazer referência somente às contas de integração que estão no mesmo ISE. Ao criar uma conta de integração, é possível selecionar o ISE como local para a conta de integração.
-
-## <a name="get-support"></a>Obter suporte
-
-* Em caso de dúvidas, visite o <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Fórum dos Aplicativos Lógicos do Azure</a>.
-* Para enviar ou votar em ideias de recurso, visite o <a href="https://aka.ms/logicapps-wish" target="_blank">site de comentários do usuário de Aplicativos Lógicos</a>.
 
 ## <a name="next-steps"></a>Próximas etapas
 

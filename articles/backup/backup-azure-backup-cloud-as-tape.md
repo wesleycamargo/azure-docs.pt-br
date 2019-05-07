@@ -1,20 +1,18 @@
 ---
 title: Usar o Backup do Azure para substituir a infraestrutura de fita
 description: Saiba como o Backup do Azure fornece semântica semelhante à fita que permite fazer backup e restaurar dados no Azure
-services: backup
-author: trinadhk
-manager: vijayts
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/10/2017
-ms.author: saurse
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59236774f98af927082c78f4b75a1f5880a7cac4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/30/2017
+ms.author: dacurwin
+ms.openlocfilehash: d768f0fae9487a555f6ace12303f8a4bd7cb8bd1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60646882"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146015"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Mover o armazenamento de longo prazo da fita para a nuvem do Azure
 Os clientes do Backup do Azure e do System Center Data Protection Manager podem:
@@ -59,8 +57,7 @@ O número total de “pontos de retenção” (dos quais um cliente pode restaur
 O número total de pontos de recuperação é 56.
 
 > [!NOTE]
-> O backup do Azure não tem uma restrição para o número de pontos de recuperação.
->
+> Usando o Backup do Azure, você pode criar até 9999 pontos de recuperação por instância protegida. Uma instância protegida é um computador, servidor (físico ou virtual) ou carga de trabalho que faz backup de dados no Azure.
 >
 
 ## <a name="advanced-configuration"></a>Configuração avançada

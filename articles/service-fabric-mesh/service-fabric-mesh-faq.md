@@ -9,12 +9,12 @@ ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 7f3bed454bce90d797ca5829043c7e5f8ce5b051
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 950f9ac89b9d3224db29b32fe2d1e403ccc98116
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728581"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143285"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Perguntas frequentes sobre Malha do Service Fabric
 
@@ -28,7 +28,7 @@ Faça perguntas, obtenha respostas de engenheiros da Microsoft e relate problema
 
 ### <a name="what-is-the-cost-of-participating-in-the-preview"></a>Qual é o custo de participar da versão prévia?
 
-Atualmente, não há custos para implantar aplicativos ou contêineres na versão prévia da Malha. No entanto, é recomendável que você exclua os recursos que você implanta e não deixá-los em execução, a menos que você está testando-os ativamente.
+Atualmente, não há encargos para a implantação de aplicativos ou contêineres para a visualização de malha. Assista para atualizações em maio para a habilitação de cobrança. No entanto, é recomendável que você exclua os recursos que você implanta e não deixá-los em execução, a menos que você está testando-os ativamente.
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>Há um limite de cota do número de núcleos e RAM?
 
@@ -88,10 +88,15 @@ Se estiver desenvolvendo em um computador com a atualização de 10 de abril de 
 As imagens do SO do contêiner a seguir podem ser usadas para implantar serviços:
 
 - Windows - windowsservercore e nanoserver
-    - Windows Server versão 1709
-    - Windows Server versão 1803
+    - Windows Server 1709
+    - Windows Server 1803
+    - Windows Server 1809
+    - Windows Server 2019 LTSC
 - Linux
     - Sem limitações conhecidas
+
+> [!NOTE]
+> Ferramentas para a malha do Visual Studio ainda não suporta implantação no Windows Server 2019 e 1809 contêineres.
 
 ### <a name="what-types-of-applications-can-i-deploy"></a>Quais tipos de aplicativos pode implantar? 
 
@@ -138,6 +143,10 @@ Você pode encontrar a disponibilidade de CPU e os limites que estão sendo corr
 Vários aplicativos não podem ser implantados em um cluster de um nó. Para atenuar:
 - Use um cluster de cinco nós durante a implantação de vários aplicativos em um cluster local.
 - Remova os aplicativos que não estão sendo testados.
+
+### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>Ferramentas do VS tem suporte limitado para contêineres do Windows
+
+As ferramentas do Visual Studio dá suporte apenas a implantação de contêineres do Windows com uma versão de sistema operacional base do Windows Server 1709 e 1803 de hoje. 
 
 ## <a name="feature-gaps-and-other-known-issues"></a>Falhas de recurso e outros problemas conhecidos
 
