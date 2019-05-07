@@ -5,15 +5,15 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/13/2018
+ms.date: 04/30/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 36c4757feb367fd39ae94640cb8e8a0f1714a0d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7e4ca54d8f97646192d19d5923bee24a906e8df7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542453"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149694"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
@@ -25,24 +25,12 @@ Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior di
 
 Para concluir o exemplo neste artigo, você precisa ter uma imagem gerenciada existente de uma VM generalizada. Para obter mais informações, confira [Tutorial: Criar uma imagem personalizada de uma VM do Azure com a CLI do Azure 2.0](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). 
 
-## <a name="preview-register-the-feature"></a>Visualização: Registrar o recurso
-
-As Galerias de Imagens Compartilhadas estão na versão prévia, mas você precisa registrar o recurso antes que possa usá-lo. Para registrar o recurso de Galerias de Imagens Compartilhadas:
-
-```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name GalleryPreview
-az provider register -n Microsoft.Compute
-```
-
-Pode levar alguns minutos para registrar o recurso. Você pode verificar o andamento usando:
-
-```azurecli-interactive
-az provider show -n Microsoft.Compute
-```
 
 ## <a name="create-an-image-gallery"></a>Criar uma galeria de imagens 
 
-Uma galeria de imagens é o principal recurso usado para habilitar o compartilhamento de imagens. Os nomes das galerias devem ser exclusivos dentro de sua assinatura. Criar uma galeria de imagens usando [az sig create](/cli/azure/sig#az-sig-create). O exemplo a seguir cria uma galeria chamada *myGallery* em *myGalleryRG*.
+Uma galeria de imagens é o principal recurso usado para habilitar o compartilhamento de imagens. Caracteres permitidos para o nome da galeria são letras maiúsculas ou minúsculas, dígitos, pontos e pontos finais. O nome da Galeria não pode conter traços.   Os nomes das galerias devem ser exclusivos dentro de sua assinatura. 
+
+Criar uma galeria de imagens usando [az sig create](/cli/azure/sig#az-sig-create). O exemplo a seguir cria uma galeria chamada *myGallery* em *myGalleryRG*.
 
 ```azurecli-interactive
 az group create --name myGalleryRG --location WestCentralUS
@@ -50,6 +38,8 @@ az sig create -g myGalleryRG --gallery-name myGallery
 ```
 
 ## <a name="create-an-image-definition"></a>Criar uma definição de imagem
+
+Definições de imagem criar um agrupamento lógico de imagens. Eles são usados para gerenciar informações sobre as versões de imagem que são criados dentro deles. Nomes de definição de imagem podem ser compostos por letras maiusculas ou minúsculas, dígitos, pontos, traços e períodos. Para obter mais informações sobre os valores que você pode especificar para uma definição de imagem, consulte [definições de imagem](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
 
 Crie uma definição de imagem inicial na galeria usando [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
@@ -64,9 +54,15 @@ az sig image-definition create \
    --os-type Linux 
 ```
 
+
 ## <a name="create-an-image-version"></a>Criar uma versão de imagem 
- 
-Crie versões da imagem conforme necessário usando [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create). Você precisará passar a ID da imagem gerenciada para usar como uma linha de base para criar a versão da imagem. Você pode usar [az image list](/cli/azure/image?view#az-image-list) para obter informações sobre as imagens que estão em um grupo de recursos. Neste exemplo, a versão de nossa imagem é *1.0.0* e vamos criar 5 réplicas nos *Centro-Oeste dos EUA* região, 1 réplica no *Centro-Sul dos EUA* região e 1 réplica na *Leste dos EUA 2* região.
+
+Crie versões da imagem conforme necessário usando [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create). Você precisará passar a ID da imagem gerenciada para usar como uma linha de base para criar a versão da imagem. Você pode usar [az image list](/cli/azure/image?view#az-image-list) para obter informações sobre as imagens que estão em um grupo de recursos. 
+
+Caracteres permitidos para a versão da imagem são números e pontos. Os números devem estar dentro do intervalo de um inteiro de 32 bits. Formato: *MajorVersion*. *MinorVersion*. *Patch*.
+
+Neste exemplo, é a versão da nossa imagem *1.0.0* e vamos criar 2 réplicas na *Centro-Oeste dos EUA* região, 1 réplica no *Centro-Sul dos EUA* região e 1 réplica na *Leste dos EUA 2* região.
+
 
 ```azurecli-interactive 
 az sig image-version create \
@@ -75,7 +71,9 @@ az sig image-version create \
    --gallery-image-definition myImageDefinition \
    --gallery-image-version 1.0.0 \
    --target-regions "WestCentralUS" "SouthCentralUS=1" "EastUS2=1" \
-   --replica-count 5 \
+   --replica-count 2 \
    --managed-image "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage"
 ```
 
+> [!NOTE]
+> Você precisa esperar para a versão da imagem concluir completamente que está sendo criado e replicadas antes de você pode usar a mesma imagem gerenciada para criar outra versão da imagem.

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 3bad247263af09462a44e04329e7f911afa3ad5c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 15d6b0d28f926bdb39b35b763b89422cddcccc84
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867710"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150691"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrair dados de texto de expressão com as intenções e entidades
 O LUIS oferece a capacidade de obter informações de declarações de idioma natural de um usuário. As informações são extraídas de forma que possam ser usadas por um programa, aplicativo ou chat bot para executar uma ação. Nas seções a seguir, saiba quais dados são retornados de intenções e entidades com exemplos de JSON.
@@ -48,7 +48,7 @@ Os dados primários são o **nome da intenção** da pontuação mais alta. Usan
 
 |Objeto de dados|Tipo de Dados|Local dos dados|Value|
 |--|--|--|--|
-|Intenção|Cadeia de caracteres|topScoringIntent.intent|"GetStoreInfo"|
+|Intenção|String|topScoringIntent.intent|"GetStoreInfo"|
 
 Se o chatbot ou o aplicativo que chama o LUIS tomar uma decisão com base em mais de uma pontuação de intenção, retorne as pontuações de todas as intenções definindo o parâmetro querystring, `verbose=true`. A resposta do ponto de extremidade é:
 
@@ -77,8 +77,8 @@ As intenções são ordenadas da pontuação mais alta para a mais baixa.
 
 |Objeto de dados|Tipo de Dados|Local dos dados|Value|Pontuação|
 |--|--|--|--|:--|
-|Intenção|Cadeia de caracteres|intents[0].intent|"GetStoreInfo"|0,984749258|
-|Intenção|Cadeia de caracteres|intents[1].intent|"None"|0,0168218873|
+|Intenção|String|intents[0].intent|"GetStoreInfo"|0,984749258|
+|Intenção|String|intents[1].intent|"None"|0,0168218873|
 
 Se você adicionar domínios predefinidos, o nome da intenção indicará o domínio, como `Utilties` ou `Communication`, assim como a intenção:
 
@@ -108,9 +108,9 @@ Se você adicionar domínios predefinidos, o nome da intenção indicará o dom�
 
 |Domínio|Objeto de dados|Tipo de Dados|Local dos dados|Value|
 |--|--|--|--|--|
-|Utilidades|Intenção|Cadeia de caracteres|intents[0].intent|"<b>Utilities</b>.ShowNext"|
-|Comunicação|Intenção|Cadeia de caracteres|intents[1].intent|<b>Communication</b>.StartOver"|
-||Intenção|Cadeia de caracteres|intents[2].intent|"None"|
+|Utilidades|Intenção|String|intents[0].intent|"<b>Utilities</b>.ShowNext"|
+|Comunicação|Intenção|String|intents[1].intent|<b>Communication</b>.StartOver"|
+||Intenção|String|intents[2].intent|"None"|
 
 
 ## <a name="data-from-entities"></a>Dados de entidades
@@ -172,34 +172,6 @@ Os dados retornados do ponto de extremidade incluem o nome da entidade, o texto 
 |--|--|--|
 |Entidade simples|`Customer`|`bob jones`|
 
-## <a name="hierarchical-entity-data"></a>Dados de entidade hierárquica
-
-**Entidades hierárquicas eventualmente serão preteridas. Use [funções de entidade](luis-concept-roles.md) para determinar os subtipos de entidade, em vez de entidades hierárquicas.**
-
-Entidades [hierárquicas](luis-concept-entity-types.md) são de aprendizado de máquina e podem incluir uma palavra ou frase. Filhos são identificados pelo contexto. Se estiver procurando uma relação pai-filho com correspondência exata do texto, use uma entidade [Lista](#list-entity-data).
-
-`book 2 tickets to paris`
-
-Na declaração anterior, `paris` é rotulado como um filho `Location::ToLocation` da entidade hierárquica `Location`.
-
-Os dados retornados do ponto de extremidade incluem o nome da entidade e o nome do filho, o texto descoberto da declaração, o local do texto descoberto e a pontuação:
-
-```JSON
-"entities": [
-  {
-    "entity": "paris",
-    "type": "Location::ToLocation",
-    "startIndex": 18,
-    "endIndex": 22,
-    "score": 0.6866132
-  }
-]
-```
-
-|Objeto de dados|Pai|Filho|Value|
-|--|--|--|--|
-|Entidade hierárquica|Local padrão|ToLocation|"paris"|
-
 ## <a name="composite-entity-data"></a>Dados da entidade composta
 Entidades [compostas](luis-concept-entity-types.md) são de aprendizado de máquina e podem incluir uma palavra ou frase. Por exemplo, considere uma entidade composta de `number` e `Location::ToLocation` predefinidos com a seguinte declaração:
 
@@ -212,53 +184,54 @@ Observe que `2`, o número e `paris`, o ToLocation tem palavras entre eles que n
 Entidades compostas são retornadas em uma matriz `compositeEntities` e todas as entidades com a composta também são retornadas na matriz `entities`:
 
 ```JSON
-  "entities": [
+
+"entities": [
     {
-      "entity": "paris",
-      "type": "Location::ToLocation",
-      "startIndex": 18,
-      "endIndex": 22,
-      "score": 0.956998169
+    "entity": "2 tickets to cairo",
+    "type": "ticketInfo",
+    "startIndex": 0,
+    "endIndex": 17,
+    "score": 0.67200166
     },
     {
-      "entity": "2",
-      "type": "builtin.number",
-      "startIndex": 5,
-      "endIndex": 5,
-      "resolution": {
+    "entity": "2",
+    "type": "builtin.number",
+    "startIndex": 0,
+    "endIndex": 0,
+    "resolution": {
+        "subtype": "integer",
         "value": "2"
-      }
+    }
     },
     {
-      "entity": "2 tickets to paris",
-      "type": "Order",
-      "startIndex": 5,
-      "endIndex": 22,
-      "score": 0.7714499
+    "entity": "cairo",
+    "type": "builtin.geographyV2",
+    "startIndex": 13,
+    "endIndex": 17
     }
-  ],
-  "compositeEntities": [
+],
+"compositeEntities": [
     {
-      "parentType": "Order",
-      "value": "2 tickets to paris",
-      "children": [
+    "parentType": "ticketInfo",
+    "value": "2 tickets to cairo",
+    "children": [
         {
-          "type": "builtin.number",
-          "value": "2"
+        "type": "builtin.geographyV2",
+        "value": "cairo"
         },
         {
-          "type": "Location::ToLocation",
-          "value": "paris"
+        "type": "builtin.number",
+        "value": "2"
         }
-      ]
+    ]
     }
-  ]
+]
 ```    
 
 |Objeto de dados|Nome da entidade|Value|
 |--|--|--|
 |Entidade predefinida – número|"builtin.number"|"2"|
-|Entidade hierárquica – local|"Location::ToLocation"|"paris"|
+|Entidade predefinida - GeographyV2|"Location::ToLocation"|"paris"|
 
 ## <a name="list-entity-data"></a>Dados da entidade Lista
 
@@ -268,8 +241,8 @@ Suponha que o aplicativo tem uma lista, chamada `Cities`, que permite variaçõe
 
 |Item de lista|Sinônimos do item|
 |---|---|
-|Seattle|sea-tac, sea, 98101, 206, +1 |
-|Paris|cdg, roissy, ory, 75001, 1, +33|
+|`Seattle`|`sea-tac`, `sea`, `98101`, `206`, `+1` |
+|`Paris`|`cdg`, `roissy`, `ory`, `75001`, `1`, `+33`|
 
 `book 2 tickets to paris`
 

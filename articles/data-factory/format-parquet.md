@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 5b711fac2a7bc41d11bcc80927f460390888cc3e
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 360b794f0d8ba9c145a92f015f264eb624fbb0f1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64878052"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65144889"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Formato parquet no Azure Data Factory
 
@@ -28,7 +28,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 | Propriedade         | DESCRIÇÃO                                                  | Obrigatório |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| tipo             | A propriedade type do conjunto de dados deve ser definida como **Parquet**. | Sim      |
+| Tipo             | A propriedade type do conjunto de dados deve ser definida como **Parquet**. | Sim      |
 | location         | Configurações de local dos arquivos. Cada conector com base em arquivo tem seu próprio tipo de local e suporte para propriedades em `location`. **Consulte detalhes no artigo de conector -> seção de propriedades do conjunto de dados**. | Sim      |
 | compressionCodec | O codec de compactação a ser usado ao gravar em arquivos Parquet. Ao ler de arquivos Parquet, o Data Factory determine automaticamente o codec de compactação com base nos metadados do arquivo.<br>Tipos com suporte são "**none**","**gzip**","**snappy**" (padrão), e "**lzo**". Observe, no momento, atividade de cópia não dá suporte a LZO. | Não        |
 
@@ -46,7 +46,7 @@ Abaixo está um exemplo de conjunto de dados Parquet no armazenamento de BLOBs d
             "referenceName": "<Azure Blob Storage linked service name>",
             "type": "LinkedServiceReference"
         },
-        "schema": [ < physical schema, optional, auto retrieved during authoring > ],
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "location": {
                 "type": "AzureBlobStorageLocation",
@@ -78,7 +78,7 @@ As propriedades a seguir têm suporte na atividade de cópia ***\*coletor\**** s
 
 | Propriedade      | DESCRIÇÃO                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | A propriedade type da fonte da atividade de cópia deve ser definida como **ParquetSink**. | Sim      |
+| Tipo          | A propriedade type da fonte da atividade de cópia deve ser definida como **ParquetSink**. | Sim      |
 | storeSettings | Um grupo de propriedades sobre como gravar dados em um armazenamento de dados. Cada conector com base em arquivo tem suas próprias configurações de gravação com suporte em `storeSettings`. **Consulte detalhes no artigo de conector -> seção de propriedades de atividade de cópia**. | Não        |
 
 ## <a name="mapping-data-flow-properties"></a>Propriedades do mapeamento de fluxo de dados

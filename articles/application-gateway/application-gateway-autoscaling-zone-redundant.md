@@ -5,23 +5,23 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/30/2019
+ms.date: 5/7/2019
 ms.author: victorh
-ms.openlocfilehash: 86693e829ab08c3cb7befc6f0047472e8faa61fa
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 0506ef82a00b46bf9be14757f15195bcbf8ab432
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947234"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148894"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>Dimensionamento automático e o Gateway de aplicativo com redundância de zona 
 
-Gateway de aplicativo e de Firewall de aplicativo da Web (WAF) também estão disponíveis em um Standard_v2 e SKU WAF_v2 que oferece aprimoramentos de desempenho e adiciona suporte para novos recursos críticos, como o dimensionamento automático, redundância de zona e suporte para os VIPs estáticos. Os recursos existentes em padrão e SKU do WAF continuam a ter suporte no SKU do novo v2, com algumas exceções listadas na seção de comparação. 
+Gateway de aplicativo e de Firewall de aplicativo da Web (WAF) também estão disponíveis em um SKU de WAF_v2 e Standard_v2. O SKU do v2 oferece aprimoramentos de desempenho e adiciona suporte para novos recursos críticos, como o dimensionamento automático, redundância de zona e suporte para os VIPs estáticos. Os recursos sob o padrão e SKU do WAF existentes continuarão a ter suporte na nova SKU v2, com algumas exceções listadas na [comparação](#differences-with-v1-sku) seção.
 
 A nova SKU v2 inclui os seguintes aprimoramentos:
 
 - **Dimensionamento automático**: implantações do Gateway de Aplicativo ou do WAF com o SKU de dimensionamento automático podem ser expandidas ou reduzidas com base na mudança dos padrões de carga de tráfego. O escalonamento automático também remove o requisito de escolher um tamanho de implantação ou contagem de instâncias durante o provisionamento. Essa SKU oferece a verdadeira elasticidade. No Standard_v2 e WAF_v2 SKU, o Gateway de aplicativo pode operar em capacidade fixa (dimensionamento automático desabilitado) e no modo de dimensionamento automático habilitado. O modo de capacidade fixa é útil para cenários com cargas de trabalho consistentes e previsíveis. Modo de dimensionamento automático é útil para aplicativos que ver variação no tráfego de aplicativo.
-- **Redundância de Zona**: Um Gateway de aplicativo ou implantação do WAF pode abranger várias zonas de disponibilidade a remover a necessidade de provisionar instâncias de Gateway de aplicativo separadas em cada zona com um Gerenciador de tráfego. Você pode escolher uma única zona ou várias zonas nas quais as instâncias do Application Gateway são implantadas, garantindo assim a resiliência de falha de zona. O pool de back-end para aplicativos pode ser distribuído de maneira semelhante em Zonas de Disponibilidade.
+- **Redundância de Zona**: Um Gateway de aplicativo ou implantação do WAF pode abranger várias zonas de disponibilidade a remover a necessidade de provisionar instâncias de Gateway de aplicativo separadas em cada zona com um Gerenciador de tráfego. Você pode escolher uma única zona ou em várias zonas em que as instâncias de Gateway de aplicativo são implantadas, que torna mais resistente a falhas de zona. O pool de back-end para aplicativos pode ser distribuído de maneira semelhante em Zonas de Disponibilidade.
 - **VIP estático**: Tipo de aplicativo gateway v2 SKU dá suporte ao VIP estático exclusivamente. Isso garante que o VIP associado ao gateway de aplicativo não seja alterado para o ciclo de vida da implantação, mesmo após uma reinicialização.
 - **Reconfiguração do cabeçalho**: O Gateway de aplicativo permite que você adicionar, remover ou atualizar os cabeçalhos de solicitação e resposta HTTP com SKU de v2. Para obter mais informações, consulte [cabeçalhos HTTP de reconfiguração com o Gateway de aplicativo](rewrite-http-headers.md)
 - **Integração do Key Vault (versão prévia)**: V2 do Gateway de aplicativo dá suporte à integração com o Key Vault (em visualização pública) para certificados de servidor que estão anexados para os ouvintes HTTPS habilitado. Para obter mais informações, consulte [terminação SSL com certificados do Key Vault](key-vault-certs.md).
@@ -33,7 +33,7 @@ A nova SKU v2 inclui os seguintes aprimoramentos:
 
 ## <a name="supported-regions"></a>Regiões com suporte
 
-O Standard_v2 e WAF_v2 SKU está disponível nas seguintes regiões: Centro-Norte dos EUA, Centro-Sul dos EUA, Oeste dos EUA, Oeste dos EUA 2, Leste dos EUA, Leste dos EUA 2, Centro dos EUA, Europa Setentrional, Europa Ocidental, Sudeste Asiático, França Central, Oeste do Reino Unido, Leste do Japão, Oeste do Japão. Há suporte para regiões adicionais futuro.
+O Standard_v2 e WAF_v2 SKU está disponível nas seguintes regiões: Centro-Norte dos EUA, Centro-Sul dos EUA, Oeste dos EUA, Oeste dos EUA 2, Leste dos EUA, Leste dos EUA 2, Centro dos EUA, Europa Setentrional, Europa Ocidental, Sudeste Asiático, França Central, Oeste do Reino Unido, Leste do Japão, Oeste do Japão. Regiões adicionais serão adicionadas no futuro.
 
 ## <a name="pricing"></a>Preços
 
@@ -42,12 +42,12 @@ Com o SKU do v2, o modelo de preços é orientado pelo consumo e não está mais
 - **Preço fixo** -isso é por hora (ou hora parcial) preço para provisionar um Standard_v2 ou WAF_v2 Gateway.
 - **Preço unitário da capacidade** -isso é o custo baseado em consumo que é cobrado adicionais ao custo fixo. Encargo de unidade de capacidade é também calculado por hora ou parcial por hora. Há três dimensões para a unidade de capacidade – taxa de transferência, as conexões persistentes e unidade de computação. Unidade de computação é uma medida de capacidade de processador consumida. Fatores que afetam a unidade de computação são conexões de TLS/s, cálculos de reescrita de URL e o processamento da regra WAF. Conexão persistente é uma medida de conexões TCP estabelecidas para o gateway de aplicativo em um determinado intervalo de cobrança. Taxa de transferência é médio Megabits/s processadas pelo sistema em um determinado intervalo de cobrança.
 
-Cada unidade de capacidade é composta por no máximo: 1 unidade, ou as conexões persistentes 2500 ou taxa de transferência 2,22 Mbps de computação.
+Cada unidade de capacidade é composta de no máximo: 1 unidade, ou as conexões persistentes 2500 ou taxa de transferência 2.22 Mbps de computação.
 
 Diretrizes de unidade de computação:
 
 - **Standard_v2** -cada unidade de computação é capaz de aproximadamente 50 conexões por segundo com certificado TLS de chave RSA de 2048 bits.
-- **WAF_v2** - cada unidade de computação é capaz de cerca de 10 solicitações simultâneas por segundo para solicitações de 30 a 70% mistura de tráfego com 70% menor do que 2 KB GET/POST e restantes superior. Desempenho de WAF não é afetado pelo tamanho da resposta no momento.
+- **WAF_v2** - cada computação unidade pode dar suporte a aproximadamente 10 solicitações simultâneas por segundo para solicitações de 30 a 70% mistura de tráfego com 70% menor do que 2 KB GET/POST e restantes superior. Desempenho de WAF não é afetado pelo tamanho da resposta no momento.
 
 > [!NOTE]
 > Cada instância pode atualmente dar suporte a aproximadamente 10 unidades de capacidade.
@@ -83,7 +83,7 @@ Preço total = $148.8 + 23,81 = US $172.61
 
 **Exemplo 3**
 
-Um WAF_v2 de Gateway de aplicativo é provisionado por um mês e durante esse tempo, ele recebe 25 novo SSL conexões/s, média de transferência de dados 8.88 Mbps e faz 80 solicitações por segundo. Supondo que as conexões são de curtas duração, e que o cálculo de unidade de computação para o aplicativo dá suporte a 10 RPS por unidade de computação, o preço seria:
+Um WAF_v2 de Gateway de aplicativo é provisionado por um mês. Durante esse tempo, ele recebe 25 novo SSL conexões/s, média de transferência de dados 8.88 Mbps e faz 80 solicitações por segundo. Supondo que as conexões são de curtas duração, e que o cálculo de unidade de computação para o aplicativo dá suporte a 10 RPS por unidade de computação, o preço seria:
 
 Preço fixo = 744(hours) * US $0,36 = US $267.84
 
@@ -97,8 +97,8 @@ O [página de preços](https://azure.microsoft.com/en-us/pricing/details/applica
 
 O Gateway de aplicativo e WAF podem ser configurados para escala em dois modos:
 
-- **Dimensionamento automático** - com dimensionamento automático habilitado o Gateway de aplicativo e os SKUs do WAF v2 serão escalar verticalmente com base nos requisitos de tráfego do aplicativo. Esse modo oferece melhor elasticidade ao seu aplicativo e elimina a necessidade de adivinhar a contagem de tamanho ou a instância de gateway do aplicativo. Esse modo também permite que você economize ao não exigir a execução de gateways com capacidade de máxima provisionada para a carga de tráfego máximo esperado. Os clientes devem especificar uma contagem de instância, opcionalmente, máximo e mínimo. Capacidade mínima garante que o Gateway de aplicativo e WAF v2 não se enquadram abaixo da contagem de instâncias mínima especificada até mesmo na ausência de tráfego. Você será cobrado para essa capacidade mínima até mesmo na ausência de qualquer tráfego. Você também pode especificar contagem máxima de instâncias que garante que o Gateway de aplicativo não ultrapassará o número especificado de instâncias. Você continuará a ser cobrado pela quantidade de tráfego atendido pelo Gateway. As contagens de instância podem variar de 0 para 125. Valor padrão para a contagem máxima de instâncias é 20, se não for especificado.
-- **Manual** – como alternativa, você pode escolher em que o gateway será dimensione automaticamente de modo Manual. Nesse modo, se mais o tráfego é enviado de que o Gateway de aplicativo ou WAF é capaz de lidar, isso poderá resultar em perda de tráfego. Com o modo manual especificando contagem de instâncias é obrigatória. Contagem de instâncias pode variar de 1 a instâncias de 125.
+- **Dimensionamento automático** – com o dimensionamento automático habilitado, o Gateway de aplicativo e WAF v2 SKUs escalar ou reduzir verticalmente com base nos requisitos de tráfego do aplicativo. Esse modo oferece melhor elasticidade ao seu aplicativo e elimina a necessidade de adivinhar a contagem de tamanho ou a instância de gateway do aplicativo. Esse modo também permite que você economize ao não exigir a execução de gateways com capacidade de máxima provisionada para a carga de tráfego máximo esperado. Os clientes devem especificar uma contagem de instância, opcionalmente, máximo e mínimo. Capacidade mínima garante que o Gateway de aplicativo e WAF v2 não se enquadram abaixo da contagem mínima de instâncias especificada, mesmo na ausência de tráfego. Você será cobrado por essa capacidade mínima até mesmo na ausência de qualquer tráfego. Você também pode especificar uma contagem máxima de instâncias, que garante que o Gateway de aplicativo não ultrapassará o número especificado de instâncias. Você continuará a ser cobrado pela quantidade de tráfego atendido pelo Gateway. As contagens de instância podem variar de 0 para 125. O valor padrão para a contagem máxima de instâncias é 20, se não especificado.
+- **Manual** – como alternativa, você pode escolher em que o gateway não usa dimensionamento automático de modo Manual. Nesse modo, se houver mais tráfego do que o Gateway de aplicativo ou WAF é capaz de lidar, ele pode resultar em perda de tráfego. Com o modo manual, especificando a contagem de instâncias é obrigatório. Contagem de instâncias pode variar de 1 a instâncias de 125.
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Comparação de recursos entre o SKU de v1 e v2 SKU
 
@@ -125,7 +125,7 @@ A tabela a seguir compara os recursos disponíveis com cada SKU.
 | Descarregamento de conexão                               | &#x2713; | &#x2713; |
 
 > [!NOTE]
-> O dimensionamento automático e o gateway de aplicativo com redundância de zona SKU agora dá suporte a [investigações de integridade padrão](application-gateway-probe-overview.md#default-health-probe) para monitorar a integridade de todos os recursos em seu pool de back-end e realce os membros de back-end que são considerados automaticamente não íntegro. O colocará de investigação de integridade padrão configurado automaticamente para todos os back-ends para o qual você não configurou nenhuma configuração de investigação personalizada. Para obter mais informações, consulte [investigações de integridade no gateway de aplicativo](application-gateway-probe-overview.md).
+> A v2 de dimensionamento automático agora é compatível com a SKU [investigações de integridade padrão](application-gateway-probe-overview.md#default-health-probe) para monitorar a integridade de todos os recursos em seu pool de back-end e realce os membros de back-end que são considerados não íntegro automaticamente. Investigação de integridade padrão é configurada automaticamente para o back-ends que não têm qualquer configuração de investigação personalizada. Para obter mais informações, consulte [investigações de integridade no gateway de aplicativo](application-gateway-probe-overview.md).
 
 ## <a name="differences-with-v1-sku"></a>Diferenças com o SKU do v1
 
@@ -140,6 +140,7 @@ A tabela a seguir compara os recursos disponíveis com cada SKU.
 |Modo FIPS|Essas não atualmente têm suporte.|
 |Modo somente de ILB|Não há suporte para esse recurso no momento. Público e o modo ILB juntos tem suporte.|
 |Integração do Netwatcher|Sem suporte.|
+|Integração do Centro de suporte do Azure|Ainda não está disponível.
 
 ## <a name="next-steps"></a>Próximas etapas
 

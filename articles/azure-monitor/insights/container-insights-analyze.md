@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 05/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 8fb1d0083796671119de2b4d7feefe738b602fe2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed387f7038c5dee1a1685c918abcae49942cd55d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60497021"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148839"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Compreender o desempenho de cluster do AKS com o Azure Monitor para contêineres 
 Com o Azure Monitor para contêineres, você pode usar os gráficos de desempenho e o status de integridade para monitorar a carga de trabalho dos clusters do AKS (Serviço de Kubernetes do Azure) por meio de duas perspectivas: diretamente em um cluster do AKS ou todos os clusters do AKS em uma assinatura no Azure Monitor. Também é possível exibir ACI (Instâncias de Contêiner do Azure) ao monitorar um cluster específico do AKS.
@@ -27,7 +27,19 @@ Este artigo ajudará você a entender a experiência com as duas perspectivas e 
 
 Para obter informações sobre como habilitar o Azure Monitor para contêineres, consulte [Integrar o Azure Monitor para contêineres](container-insights-onboard.md).
 
-O Azure Monitor oferece uma exibição de vários clusters, mostrando o status de integridade de todos os clusters monitorados do AKS implantados nos grupos de recursos de suas assinaturas.  Ele mostra clusters do AKS descobertos que não são monitorados pela solução. Imediatamente você saberá a integridade do cluster e, então, poderá fazer drill down até a página de desempenho do nó e do controlador ou navegar para ver gráficos de desempenho do cluster.  Para clusters do AKS descobertos e identificados como não monitorados, é possível habilitar o monitoramento para esse cluster a qualquer momento.  
+> [!IMPORTANT]
+> O Azure Monitor para suporte a contêineres para monitorar um cluster do AKS executando o Windows Server 2019 está atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+O Azure Monitor fornece uma exibição de cluster com vários mostrando o status de integridade de todos os clusters AKS monitorados que executam o Linux e Windows Server 2019 implantadas em grupos de recursos em suas assinaturas.  Ele mostra clusters do AKS descobertos que não são monitorados pela solução. Imediatamente você saberá a integridade do cluster e, então, poderá fazer drill down até a página de desempenho do nó e do controlador ou navegar para ver gráficos de desempenho do cluster.  Para clusters do AKS descobertos e identificados como não monitorados, é possível habilitar o monitoramento para esse cluster a qualquer momento.  
+
+As principais diferenças monitorando um cluster do Windows Server com o Azure Monitor para contêineres em comparação comparados um cluster do Linux são os seguintes:
+
+- Métrica de RSS de memória não está disponível para os contêineres e o nó do Windows 
+- Informações de capacidade de armazenamento de disco não estão disponíveis para nós do Windows
+- Suporte de logs dinâmicos está disponível com exceção dos logs de contêiner do Windows.
+- Somente ambientes são monitoradas de pod, não ambientes do Docker.
+- Com a versão prévia, há suporte para um máximo de 30 contêineres do Windows Server. Essa limitação não se aplica a contêineres do Linux.  
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 Entre no [Portal do Azure](https://portal.azure.com). 
@@ -35,7 +47,7 @@ Entre no [Portal do Azure](https://portal.azure.com).
 ## <a name="multi-cluster-view-from-azure-monitor"></a>Exibição de vários clusters do Azure Monitor 
 Para exibir o status de integridade de todos os clusters do AKS implantados, selecione **Monitor** no painel esquerdo no portal do Azure.  Na seção **Insights**, selecione **Contêineres**.  
 
-![Exemplo de painel com vários clusters no Azure Monitor](./media/container-insights-analyze/azmon-containers-multiview-1018.png)
+![Exemplo de painel com vários clusters no Azure Monitor](./media/container-insights-analyze/azmon-containers-multiview.png)
 
 Na guia **Clusters monitorados**, você pode obter as seguintes informações:
 
@@ -128,11 +140,11 @@ Você pode aplicar [divisão](../platform/metrics-charts.md#apply-splitting-to-a
 
 ## <a name="analyze-nodes-controllers-and-container-health"></a>Analisar a integridade do contêiner, controladores e nós
 
-Quando você alterna para os **Nós**, **Controladores**, e guia **Contêineres**, exibido automaticamente no lado direito da página está o painel de propriedade.  Ele mostra as propriedades do item selecionado, incluindo rótulos que você definir para organizar objetos Kubernetes. Clique no **>>** link no painel de visualizar\ocultar o painel.  
+Quando você alterna para os **Nós**, **Controladores**, e guia **Contêineres**, exibido automaticamente no lado direito da página está o painel de propriedade. Ele mostra as propriedades do item selecionado, incluindo rótulos que você definir para organizar objetos Kubernetes. Quando um nó do Linux é selecionado, ele também mostra na seção **capacidade de disco Local** por cento usados para cada disco apresentado para o nó e espaço em disco disponível. Clique no **>>** link no painel de visualizar\ocultar o painel. 
 
 ![Exemplo do painel de propriedades de perspectivas de Kubernetes](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
-Como expandir os objetos na hierarquia, as atualizações de painel de propriedades com base no objeto selecionado. No painel também, você também pode exibir eventos de Kubernetes com pesquisas de log predefinidas, clicando no link **Exibir logs de eventos de Kubernetes** na parte superior do painel. Para obter mais informações sobre como exibir dados de log do Kubernetes, confira [Pesquisar logs para analisar dados](container-insights-log-search.md). Ao examinar os contêineres na exibição **Contêineres**, você pode ver logs de contêiner em tempo real. Para obter mais informações sobre esse recurso e sobre a configuração necessária para conceder e controlar o acesso, confira [Como exibir logs de contêiner em tempo real com o Azure Monitor para contêineres](container-insights-live-logs.md). 
+Como expandir os objetos na hierarquia, as atualizações de painel de propriedades com base no objeto selecionado. No painel também, você também pode exibir eventos de Kubernetes com pesquisas de log predefinidas, clicando no link **Exibir logs de eventos de Kubernetes** na parte superior do painel. Para obter mais informações sobre como exibir dados de log do Kubernetes, confira [Pesquisar logs para analisar dados](container-insights-log-search.md). Durante a análise de recursos de cluster, você pode ver os logs do contêiner e eventos em tempo real. Para obter mais informações sobre esse recurso e a configuração necessária para conceder e controlar o acesso, consulte [como exibir logs em tempo real com o Azure Monitor para contêineres](container-insights-live-logs.md). 
 
 Use o **+ Adicionar filtro** opção na parte superior da página para filtrar os resultados para o modo de exibição por **Service**, **nó**, **Namespace**, ou  **Pool de nós** e depois de selecionar o escopo do filtro, você, em seguida, selecione um dos valores mostrados na **selecionar valores** campo.  Após ser configurado, o filtro é aplicado globalmente ao exibir qualquer perspectiva do cluster do AKS.  A fórmula dá suporte apenas ao sinal de igual.  Você pode adicionar mais filtros depois do primeiro para restringir ainda mais os resultados.  Por exemplo, se você tiver especificado um filtro por **Nó**, o segundo filtro permitirá selecionar apenas **Serviço** ou **Namespace**.  
 
@@ -143,6 +155,10 @@ Um filtro especificado em uma guia continua sendo aplicado quando você selecion
 Alterne para a guia **Nós**, a hierarquia de linhas seguirá o modelo de objeto do Kubernetes começando com um nó no cluster. Expanda o nó e poderá exibir um ou mais pods em execução no nó. Se mais de um contêiner for agrupado em um pod, eles serão exibidos como a última linha na hierarquia. Você também poderá exibir quantas cargas de trabalho não relacionadas a pod estão em execução no host se o host tiver pressão de memória ou processador.
 
 ![Exemplo de hierarquia de nós do Kubernetes no modo de exibição de desempenho](./media/container-insights-analyze/containers-nodes-view.png)
+
+Contêineres do Windows Server executando o sistema operacional de 2019 do Windows Server são mostrados após todos os nós com base em Linux na lista. Quando você expande um nó do Windows Server, você pode exibir um ou mais pods e contêineres em execução no nó. Quando um nó é selecionado, o painel Propriedades mostra informações de versão, excluindo as informações de agentes, pois nós do Windows Server não tem um agente instalado.  
+
+![Hierarquia de nós de exemplo com nós do Windows Server listadas](./media/container-insights-analyze/nodes-view-windows.png) 
 
 Os Nós Virtuais de Instâncias de Contêiner do Azure executando o sistema operacional Linux são mostrados após o último nó de cluster do AKS na lista.  Ao expandir um Nó Virtual de ACI, você pode exibir um ou mais pods e contêineres de ACI em execução no nó.  As métricas não são coletadas e relatadas para nós, somente para os pods.
 

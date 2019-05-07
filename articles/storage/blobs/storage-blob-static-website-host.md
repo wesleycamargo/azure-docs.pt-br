@@ -2,18 +2,19 @@
 title: 'Tutorial: Hospedar um site estático no Armazenamento de Blobs – Armazenamento do Azure'
 description: Saiba como configurar uma conta de armazenamento para hospedagem de sites estáticos e como implantar um site estático no Armazenamento do Azure.
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.topic: tutorial
 ms.date: 12/31/2018
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: seguler
 ms.custom: seodec18
-ms.openlocfilehash: eb472465c0d35150f2a13563058905751219411d
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e3f2dd74d00b36016549cd33d76b866de241d977
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976453"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148491"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
@@ -54,7 +55,7 @@ A primeira etapa é configurar sua conta de armazenamento para hospedar um site 
 1. Selecione **Ativado** para habilitar a hospedagem de site estático para a conta de armazenamento.
 1. No campo **Nome do documento de índice**, especifique uma página de índice padrão *index.html*. A página de índice padrão é exibida quando um usuário navega para a raiz do site estático.  
 1. No campo **Caminho do documento de erro**, especifique uma página de erro padrão *404.html*. A página de erro padrão é exibida quando o usuário tenta navegar até uma página que não existe no site estático.
-1. Clique em **Salvar**. Agora, o portal do Azure exibe seu ponto de extremidade do site estático. 
+1. Clique em **Save** (Salvar). Agora, o portal do Azure exibe seu ponto de extremidade do site estático. 
 
     ![Habilitar a hospedagem de site estático para uma conta de armazenamento](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 544ef8947f3a593071cabea018c722db96ab1475
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d62632d6c28ac137095307e95dbbdab7e8573bbc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266198"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137873"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de preparo no Serviço de Aplicativo do Azure
 <a name="Overview"></a>
@@ -265,6 +265,8 @@ Para permitir que os usuários aceitem seu aplicativo beta, defina o mesmo parâ
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 ```
+
+Por padrão, novos slots recebem uma regra de roteamento de `0%`, conforme mostrado em cinza. Definindo explicitamente esse valor como `0%` (mostrado em texto preto), os usuários podem acessar o slot de preparo manualmente usando o `x-ms-routing-name` parâmetro de consulta, mas eles não serão roteados para o slot automaticamente como o percentual de roteamento está definido como 0. Isso é um cenário avançado, onde você pode "oculta" o slot de preparo do público, permitindo que equipes internas testar as alterações no slot.
 
 <a name="Delete"></a>
 

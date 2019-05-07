@@ -17,12 +17,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 427e293c28f634df9f66a7210d79e0df0d4d063c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df0d0b02efe7e99253b64ba02a5d9e77bb968993
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410341"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138349"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Como: adicionar funções de aplicativo em seu aplicativo e recebê-las no token
 
@@ -51,7 +51,9 @@ Essas funções de aplicativo são definidas no [portal do Azure](https://portal
 1. Edite o manifesto do aplicativo localizando a configuração `appRoles` e adicionando todas as suas Funções de aplicativo.
 
      > [!NOTE]
-     > Cada definição de função neste manifesto deve ter um **Guid** válido diferente para a propriedade "Id". A propriedade `"value"` de cada função deve corresponder exatamente às cadeias de caracteres usadas no código no aplicativo.
+     > Cada definição de função de aplicativo no manifesto deve ter um GUID válido diferente para o `id` propriedade. 
+     > 
+     > O `value` propriedade de cada definição de função de aplicativo deve corresponder exatamente as cadeias de caracteres que são usadas no código do aplicativo. O `value` propriedade não pode conter espaços. Se isso acontecer, você receberá um erro ao salvar o manifesto.
      
 1. Salve o manifesto.
 

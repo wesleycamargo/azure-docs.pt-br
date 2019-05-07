@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 2d56aba6d62d70c482ed1489a09276eeaa11f956
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6d602491c66669007ae220c3b8143ce3e805246f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025839"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148000"
 ---
 # <a name="fine-tune-text-to-speech-output"></a>Ajustar a saída de texto em fala
 
@@ -43,7 +43,7 @@ Antes de começar a ajustar a saída de texto em fala com a ferramenta de ajuste
    * Localize e selecione **todas as assinaturas**.  
    * Selecione **conectar-se a assinatura existente**.  
      ![Conectar-se uma assinatura existente](./media/custom-voice/custom-voice-connect-subscription.png).
-   * Insira sua chave de assinatura de serviços de fala do Azure do portal do Azure e, em seguida, selecione **adicionar**. Suas chaves de assinatura estão disponíveis no portal do Azure do painel de gerenciamento de recursos.  Você também pode obter as chaves da lista de assinatura no portal do ajuste de voz.
+   * Insira sua chave de assinatura de serviços de fala do Azure, em seguida, selecione **adicionar**. Suas chaves de assinatura estão disponíveis no portal de personalização de fala dos [página de assinatura](https://go.microsoft.com/fwlink/?linkid=2090458). Você também pode obter as chaves no painel de gerenciamento de recursos do [portal do Azure](https://portal.azure.com/). 
    * Se você tiver mais de uma assinatura de serviços de fala que você planeja usar, repita essas etapas para cada assinatura.
 
 ## <a name="customize-the-text-to-speech-output"></a>Personalizar a saída de texto em fala

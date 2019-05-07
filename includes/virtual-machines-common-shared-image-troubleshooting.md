@@ -5,15 +5,15 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/20/2018
+ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 0eb47c8ec470ef05f3c6ae37bdc75e5bb1043eb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1476830313296615591a69a2cadd04bcc56b22bc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418636"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149647"
 ---
 Se você encontrar problemas ao executar quaisquer operações em galerias de imagens compartilhadas, definições de imagem e versões de imagem, execute o comando com falha novamente no modo de depuração. O modo de depuração é ativado passando a opção **-debug** com a CLI e a opção **-Debug** com o PowerShell. Depois de localizar o erro, siga este documento para solucionar os erros.
 
@@ -24,7 +24,7 @@ Possíveis causas:
 
 *O nome da galeria é inválido.*
 
-Caracteres permitidos para o nome da galeria são letras maiúsculas ou minúsculas, dígitos, pontos e pontos finais. O nome da galeria não pode ter traços. Altere o nome da galeria e tente novamente. 
+Caracteres permitidos para o nome da galeria são letras maiúsculas ou minúsculas, dígitos, pontos e pontos finais. O nome da Galeria não pode conter traços. Altere o nome da galeria e tente novamente. 
 
 *O nome da galeria não é exclusivo na sua assinatura.*
 
@@ -37,7 +37,7 @@ Possíveis causas:
 
 *o nome da definição de imagem é inválido.*
 
-Os caracteres permitidos para a definição da imagem são letras maiúsculas ou minúsculas, dígitos, pontos, traços e pontos finais. Altere o nome da definição de imagem e tente novamente.
+Caracteres permitidos para a definição da imagem são letras maiusculas ou minúsculas, dígitos, pontos, traços e períodos. Altere o nome da definição de imagem e tente novamente.
 
 *As propriedades obrigatórias para criar uma definição de imagem não são preenchidas.*
 
@@ -62,20 +62,7 @@ Verifique se a imagem de origem existe e está na mesma região que a versão da
 
 Verifique se o estado de provisionamento da imagem gerenciada de origem é **Êxito**.
 
-*Ainda não há suporte para a região de origem.*
-
-Use a tabela a seguir para ver se a região de origem pretendida tem suporte:
-<br>
-
-| Criar galeria no ou "região de origem"   | Replicar a versão ou "região de destino" |
-|----------------------------------------|-------------------------------------------|
-| Centro-Oeste dos EUA                        | Todas as regiões de Nuvem Pública do Azure            |
-| Centro-Sul dos Estados Unidos                       |                                           |
-| Leste dos EUA 2                              |                                           |
-| Sudeste Asiático                         |                                           |
-| Europa Ocidental                            |                                           |
-
-<br>
+*Lista de regiões de destino não inclui a região de origem.*
 
 A lista de regiões de destino deve incluir a região de origem da versão da imagem. Inclua a região de origem na lista de regiões de destino para as quais você deseja que o Azure replique sua versão da imagem.
 
@@ -101,7 +88,7 @@ Verifique se que o **OSType** da versão da imagem da qual você está tentando 
 
 ## <a name="unable-to-share-resources"></a>Não é possível compartilhar recursos
 
-O compartilhamento de recursos de versão de imagem, definição de imagem e galeria de imagens compartilhadas entre assinaturas é habilitado por meio do RBAC ([Controle de Acesso Baseado em Função](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)). 
+O compartilhamento de recursos de versão de imagem, definição de imagem e Galeria de imagens compartilhadas entre assinaturas é habilitado por meio [controle de acesso baseado em função](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
 
 ## <a name="replication-is-slow"></a>A replicação é lenta
 

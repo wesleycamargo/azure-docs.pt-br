@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 392782310d8bc3b38a3dd1349cb1760ca287acd1
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: ac677a7f9586dbe893cbcbc480564aceac0149a0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875579"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147918"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Desativação de recursos da Central de segurança (julho de 2019)
 
@@ -155,7 +155,7 @@ Esse recurso está em visualização e será desativado.
 
 ### <a name="edit-security-configurations---new-experience"></a>Editar configurações de segurança - nova experiência
 
-A Central de segurança dará suporte a [agente no convidado](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) em um futuro próximo, permitindo que um conjunto de recursos muito mais sofisticado - incluindo suporte para sistemas operacionais adicionais e integração com a configuração de convidado com as políticas do Azure (no convidado políticas). Isso também fornecerá a capacidade de controlar em grande escala e aplicar automaticamente em novos recursos.
+A Central de segurança dará suporte a [agente de configuração do convidado](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) em um futuro próximo, permitindo que um conjunto de recursos muito mais sofisticado - incluindo suporte para sistemas operacionais adicionais e integração com a configuração de convidado com as políticas do Azure ( políticas de convidado). Isso também fornecerá a capacidade de controlar em grande escala e aplicar automaticamente em novos recursos.
 
 ## Segurança e auditoria dashboard (usado originalmente no portal do OMS) para espaços de trabalho do Log Analytics<a name="menu_securityomsdashboard"></a>
 

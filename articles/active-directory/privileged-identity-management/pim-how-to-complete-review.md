@@ -1,6 +1,6 @@
 ---
-title: Concluir uma revisão de acesso para funções do Azure AD no PIM - Azure Active Directory | Microsoft Docs
-description: Saiba como concluir uma revisão de acesso para funções do Azure AD no Azure AD Privileged Identity Management (PIM) e exibir os resultados
+title: Concluir uma revisão de acesso das funções do Azure AD no PIM - Azure Active Directory | Microsoft Docs
+description: Saiba como concluir uma revisão de acesso das funções do Azure AD no Azure AD Privileged Identity Management (PIM) e exibir os resultados
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed53c8bb3cb735822fc40aab86ca40bef7b9607a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: decba8f46432891a44a2b231890da4214bd5b1bb
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288282"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65140984"
 ---
-# <a name="complete-an-access-review-for-azure-ad-roles-in-pim"></a>Concluir uma revisão de acesso para funções do Azure AD no PIM
+# <a name="complete-an-access-review-of-azure-ad-roles-in-pim"></a>Concluir uma revisão de acesso das funções do Azure AD no PIM
 Os administradores de função com privilégios podem examinar o acesso privilegiado quando uma [revisão de acesso tiver sido iniciada](pim-how-to-start-security-review.md). Azure Active Directory (Azure AD) Identity Management PIM (Privileged) automaticamente enviará um email solicitando que os usuários revisem seu acesso. Se um usuário não tiver recebido um email, você poderá enviar para ele as instruções sobre [como executar uma revisão de acesso](pim-how-to-perform-security-review.md).
 
 Depois do fim do período da revisão de acesso, ou quando todos os usuários tiverem terminado a autorrevisão, siga as etapas neste artigo para gerenciar a revisão e ver os resultados.

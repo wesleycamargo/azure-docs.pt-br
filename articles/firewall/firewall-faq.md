@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 4/17/2019
+ms.date: 5/3/2019
 ms.author: victorh
-ms.openlocfilehash: 5e009d5659a503fe8168f21a26939acff9944f2f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4c4a6776e3bb56026a48963ec83fe582380c68d0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718800"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145953"
 ---
 # <a name="azure-firewall-faq"></a>Perguntas frequentes do Firewall do Azure
 
@@ -123,11 +123,9 @@ Sim. No entanto, configurar as UDRs para redirecionar o tráfego entre sub-redes
 
 Não há suporte para o túnel forçado por padrão, mas ele pode ser habilitado com a Ajuda de suporte.
 
-Firewall do Azure deve ter conectividade direta com a Internet. Por padrão, AzureFirewallSubnet tem uma rota 0.0.0.0/0 com o valor de NextHopType definido como **Internet**.
+Firewall do Azure deve ter conectividade direta com a Internet. Se seu AzureFirewallSubnet aprende uma rota padrão à sua rede local por meio do BGP, você deve substituí-lo com um UDR 0.0.0.0/0 com o **NextHopType** o valor definido como **Internet** manter direto Conectividade com a Internet. Por padrão, o Firewall do Azure não dá suporte a túnel forçado para uma rede local.
 
-Se você habilitar o túnel forçado para o local por meio do Gateway de VPN ou ExpressRoute, você precisa configurar uma rota definida pelo usuário de 0.0.0.0/0 (UDR) com o conjunto de valores de NextHopType como a Internet e associá-la ao seu AzureFirewallSubnet explicitamente. Isso substitui um gateway padrão de potencial anúncio de BGP para sua rede local.
-
-Se sua organização exige que o túnel forçado para o Firewall do Azure direcionar o tráfego de gateway padrão voltar por meio de sua rede local, contate o suporte. Podemos colocar sua assinatura para garantir que o firewall necessário conectividade com a Internet é mantida.
+No entanto, se sua configuração exigir um túnel forçado para uma rede local, a Microsoft oferecerá suporte-lo caso a caso. Contate o suporte para que possamos examinar seu caso. Se aceita, vamos lista branca de sua assinatura e verifique se que a conectividade de Internet de firewall necessárias é mantida.
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>Há qualquer firewall restrições no grupo de recursos?
 

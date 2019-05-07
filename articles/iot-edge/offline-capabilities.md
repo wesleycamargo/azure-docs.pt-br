@@ -9,19 +9,17 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: e82c842ec8fce703c48c98eaf09ea5c8d91be9be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 74d2601c2319ccad9cc980b83894a3242705aa46
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60998497"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148112"
 ---
-# <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Entender os recursos offline estendidos para dispositivos, módulos e dispositivos filho do IoT Edge (versão prévia)
+# <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Entender os recursos estendidos de offline para dispositivos do IoT Edge, módulos e dispositivos filho
 
 O Azure IoT Edge é compatível com operações offline estendidas em seus dispositivos do IoT Edge e também permite operações offline em dispositivos filho que não são do Edge. Contanto que um dispositivo do IoT Edge tenha tido uma oportunidade de se conectar ao Hub IoT, ele e todos os dispositivos filho podem continuar a funcionar com uma conexão com a Internet intermitente ou sem nenhuma conexão. 
 
->[!NOTE]
->O suporte offline para o IoT Edge está em [versão prévia pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="how-it-works"></a>Como ele funciona
 
@@ -61,24 +59,49 @@ Para um dispositivo do IoT Edge estender suas funcionalidades offline estendidas
 
 ### <a name="assign-child-devices"></a>Atribuir dispositivos filho
 
-Dispositivos filho podem ser qualquer dispositivo que não é do Edge registrado no mesmo Hub IoT. Você pode gerenciar a relação pai-filho na criação de um novo dispositivo ou da página de detalhes do dispositivo do IoT Edge pai ou do filho. 
+Dispositivos filho podem ser qualquer dispositivo que não é do Edge registrado no mesmo Hub IoT. Dispositivos pai podem ter vários dispositivos de filho, mas um dispositivo filho pode ter apenas um pai. Há três opções para definir os dispositivos de filho para um dispositivo de borda:
+
+#### <a name="option-1-iot-hub-portal"></a>Opção 1: Portal do Hub IoT
+
+ Você pode gerenciar a relação pai-filho na criação de um novo dispositivo ou da página de detalhes do dispositivo do IoT Edge pai ou do filho. 
 
    ![Gerenciar dispositivos filho da página de detalhes do dispositivo do IoT Edge](./media/offline-capabilities/manage-child-devices.png)
 
-Dispositivos pai podem ter vários dispositivos de filho, mas um dispositivo filho pode ter apenas um pai.
+
+#### <a name="option-2-use-the-az-command-line-tool"></a>Opção 2: Use o `az` ferramenta de linha de comando
+
+Usando o [interface de linha de comando do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) com [extensão de IoT](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 ou mais recente), você pode gerenciar relações pai-filho com o [identidade do dispositivo](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) subcomandos. No exemplo a seguir, podemos executar uma consulta para atribuir dispositivos no hub do IoT Edge em todos os não como dispositivos de filho de um dispositivo IoT Edge. 
+
+```shell
+# Set IoT Edge parent device
+egde_device="edge-device1"
+
+# Get All IoT Devices
+device_list=$(az iot hub query \
+        --hub-name replace-with-hub-name \
+        --subscription replace-with-sub-name \
+        --resource-group replace-with-rg-name \
+        -q "SELECT * FROM devices WHERE capabilities.iotEdge = false" \
+        --query 'join(`, `, [].deviceId)' -o tsv)
+
+# Add all IoT devices to IoT Edge (as child)
+az iot hub device-identity add-children \
+  --device-id $egde_device \
+  --child-list $device_list \
+  --hub-name replace-with-hub-name \
+  --resource-group replace-with-rg-name \
+  --subscription replace-with-sub-name 
+```
+
+Você pode modificar os [consulta](../iot-hub/iot-hub-devguide-query-language.md) para selecionar um subconjunto diferente de dispositivos. O comando pode levar vários segundos se você especificar um grande conjunto de dispositivos.
+
+#### <a name="option-3-use-iot-hub-service-sdk"></a>Opção 3: Usar o SDK do serviço de Hub IoT 
+
+Por fim, você pode gerenciar relações pai-filho por meio de programação usando o C#, Java ou do SDK do serviço de Hub IoT do Node. js. Aqui está uma [exemplo de atribuição de um dispositivo filho](https://aka.ms/set-child-iot-device-c-sharp) usando o C# SDK.
 
 ### <a name="specifying-dns-servers"></a>Especificar servidores DNS 
 
-Para melhorar a robustez, é recomendável que você especificar os endereços de servidor DNS usados em seu ambiente. Por exemplo, no Linux, atualize **/etc/docker/daemon.json** (talvez seja necessário criar o arquivo) para incluir:
-
-```json
-{
-    "dns": ["1.1.1.1"]
-}
-```
-
-Se você estiver usando um servidor DNS local, substitua o 1.1.1.1 com o endereço IP do servidor DNS local. Reinicie o serviço de encaixe para que as alterações entrem em vigor.
-
+Para aumentar a robustez, é altamente recomendável que você especificar os endereços de servidor DNS usados em seu ambiente. Consulte a [duas opções para fazer isso no artigo de solução de problemas](troubleshoot.md#resolution-7).
 
 ## <a name="optional-offline-settings"></a>Configurações offline opcionais
 
@@ -86,7 +109,7 @@ Se você pretende coletar todas as mensagens que seus dispositivos geram durante
 
 ### <a name="time-to-live"></a>Vida útil
 
-A configuração de vida útil é a quantidade de tempo (em segundos) que uma mensagem pode esperar para ser entregue antes de expirar. O padrão é 7200 segundos (duas horas). 
+A configuração de vida útil é a quantidade de tempo (em segundos) que uma mensagem pode esperar para ser entregue antes de expirar. O padrão é 7200 segundos (duas horas). O valor máximo é limitado somente pelo valor máximo de uma variável de inteiro, que é aproximadamente 2 bilhões. 
 
 Essa configuração é uma propriedade desejada do hub do IoT Edge, que é armazenada no gêmeo do módulo. Você pode configurá-la no portal do Azure, na seção **Definir configurações avançadas do tempo de execução do Edge** ou diretamente no manifesto de implantação. 
 

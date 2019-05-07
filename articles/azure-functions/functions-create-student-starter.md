@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: 5fd9f51185b8461269d498b254d9e9d9f4118270
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 860fedb13e84054e8ba264116be4e452445b7e9b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57343947"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143092"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Criar uma função usando o Microsoft Azure for Students Starter
 
@@ -76,8 +76,6 @@ Você deve ter um aplicativo de funções para hospedar a execução de suas fun
 
 8. Selecione **Ir para recursos** para exibir o novo aplicativo de funções.
 
-> [!TIP]
-> Se tiver problemas para localizar seus aplicativos de funções no portal, tente [adicionar os Aplicativos de funções aos seus favoritos no portal do Azure](./functions-how-to-use-azure-function-app-settings.md#favorite).
 Em seguida, crie uma nova função no novo aplicativo de funções.
 
 ## <a name="create-function"></a>Criar uma função disparada por HTTP

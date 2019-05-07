@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: eaafee304f606ae4d511a6cea1824c26db838635
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 16a03840f6bbf44853cf01e50189a194672d153e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62119122"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145163"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Resolver erros quando soluções de integração
 
@@ -78,6 +78,36 @@ Para implantar a solução com êxito, você precisa considerar alterar a polít
   * Revisando o conjunto de recursos ao qual a política foi configurada para negar.
 
 Verifique as notificações no canto superior direito do portal do Azure ou navegue até o grupo de recursos que contém sua conta de automação e selecione **implantações** sob **configurações** para exibir com falha implantação. Para saber mais sobre o Azure Policy visite: [Visão geral do Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
+
+### <a name="unlink"></a>Cenário: Erros ao tentar desvincular um espaço de trabalho
+
+#### <a name="issue"></a>Problema
+
+Você receberá o seguinte erro ao tentar desvincular um espaço de trabalho:
+
+```error
+The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions.
+```
+
+#### <a name="cause"></a>Causa
+
+Esse erro ocorre quando você ainda tem soluções Active Directory em seu espaço de trabalho do Log Analytics que dependem de seu espaço de trabalho de conta de automação e análise de Log que está sendo vinculado.
+
+### <a name="resolution"></a>Resolução
+
+Para resolver esse problema, você precisará remover as seguintes soluções de seu espaço de trabalho, se você estiver usando-os:
+
+* Gerenciamento de atualizações
+* Controle de Alterações
+* Iniciar/Parar VMs durante os horários inativos
+
+Depois de remover as soluções, é possível desvincular o espaço de trabalho. É importante limpar quaisquer artefatos existentes dessas soluções da conta de automação e espaço de trabalho também.  
+
+* Gerenciamento de atualizações
+  * Remover implantações de atualização (agendas) da sua conta de automação
+* Iniciar/Parar VMs durante os horários inativos
+  * Remover todos os bloqueios nos componentes da solução em sua conta de automação no **as configurações** > **bloqueios**.
+  * Para obter as etapas adicionais para remover a iniciar/parar VMs durante a solução de fora do horário vir, [remover a VM iniciar/parar durante a solução de fora do horário](../automation-solution-vm-management.md##remove-the-solution).
 
 ## <a name="mma-extension-failures"></a>falhas de extensão do MMA
 

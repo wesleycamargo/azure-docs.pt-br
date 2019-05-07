@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: amishu
-ms.openlocfilehash: 75eaea22c4809eda78e54514961d13113b4a5f3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8f470647c218188705cfa65cba7077e62d1b2ac
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60696844"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148020"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Habilitar o registro no SDK de fala
 
-Log de arquivo é um recurso opcional para o SDK de fala. Durante o desenvolvimento de registro em log fornece informações adicionais e diagnósticos de componentes de núcleo de Speeck SDK. Ele pode ser habilitado configurando a propriedade `Speech_LogFilename` em um objeto de configuração de fala para o local e o nome do arquivo de log. Registro em log será ativado globalmente depois que um reconhecedor é criado a partir dessa configuração e não pode ser desabilitado posteriormente. Você não pode alterar o nome de um arquivo de log durante um sessão de log de execução.
+Log de arquivo é um recurso opcional para o SDK de fala. Durante o desenvolvimento de registro em log fornece informações adicionais e diagnósticos de componentes de núcleo do SDK de fala. Ele pode ser habilitado configurando a propriedade `Speech_LogFilename` em um objeto de configuração de fala para o local e o nome do arquivo de log. Registro em log será ativado globalmente depois que um reconhecedor é criado a partir dessa configuração e não pode ser desabilitado posteriormente. Você não pode alterar o nome de um arquivo de log durante um sessão de log de execução.
 
 > [!NOTE]
 > Registro em log está disponível em todas as linguagens de programação, com exceção de JavaScript de SDK com suporte do fala.
@@ -115,7 +115,7 @@ Para acessar um arquivo criado, adicione a abaixo propriedades para o `Info.plis
 
 Mais sobre iOS sistema de arquivos está disponível [aqui](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Explorar nossos exemplos no GitHub](https://aka.ms/csspeech/samples)
