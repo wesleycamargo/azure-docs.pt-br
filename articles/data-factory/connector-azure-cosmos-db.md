@@ -57,7 +57,7 @@ As propriedades a seguir têm suporte no serviço vinculado do Azure Cosmos DB (
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **type** deve ser definida como **CosmosDb**. | Sim |
+| type | A propriedade **type** deve ser definida como **CosmosDb**. | Sim |
 | connectionString |Especifique as informações necessárias para se conectar ao banco de dados do Azure Cosmos DB.<br />**Observação**: Você deve especificar informações de banco de dados na cadeia de conexão conforme mostrado nos exemplos a seguir. <br/>Marque esse campo como SecureString para armazená-lo com segurança no Data Factory. Você também pode colocar a chave de conta no Azure Key Vault e efetuar pull da configuração `accountKey` da cadeia de conexão. Confira os exemplos a seguir e o artigo [Armazenar credenciais no Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. |Sim |
 | connectVia | O [Tempo de Integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você poderá usar o Azure Integration Runtime ou um tempo de execução da integração auto-hospedada (se o armazenamento de dados estiver localizado em uma rede privada). Se essa propriedade não for especificada, o Azure Integration Runtime padrão será usado. |Não  |
 
@@ -121,7 +121,7 @@ Para copiar dados de ou para o Azure Cosmos DB (API do SQL), defina a propriedad
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **type** do conjunto de dados deve ser definida como **DocumentDbCollection**. |Sim |
+| type | A propriedade **type** do conjunto de dados deve ser definida como **DocumentDbCollection**. |Sim |
 | collectionName |O nome da coleção de documentos do Azure Cosmos DB. |Sim |
 
 **Exemplo**
@@ -167,7 +167,7 @@ As seguintes propriedades são suportadas na seção **source** da atividade de 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **type** da fonte da atividade de cópia deve ser definida como **DocumentDbCollectionSource**. |Sim |
+| type | A propriedade **type** da fonte da atividade de cópia deve ser definida como **DocumentDbCollectionSource**. |Sim |
 | query |Especifique a consulta do Azure Cosmos DB para ler dados.<br/><br/>Exemplo:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Não  <br/><br/>Se não for especificada, esta instrução SQL será executada: `select <columns defined in structure> from mycollection` |
 | nestingSeparator |Um caractere especial para indicar que o documento está aninhado e como nivelar o conjunto de resultados.<br/><br/>Por exemplo, se uma consulta do Azure Cosmos DB retornar o resultado aninhado `"Name": {"First": "John"}`, a Atividade de Cópia identificará o nome da coluna como `Name.First`, com o valor "John", quando o valor **nestedSeparator** for **.** (ponto). |Não <br />(o padrão é **.** (ponto)) |
 
@@ -211,7 +211,7 @@ As seguintes propriedades são suportadas na seção **source** da atividade de 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **type** do coletor da atividade de cópia deve ser definida como **DocumentDbCollectionSink**. |Sim |
+| type | A propriedade **type** do coletor da atividade de cópia deve ser definida como **DocumentDbCollectionSink**. |Sim |
 | writeBehavior |Descreve como gravar dados no Azure Cosmos DB. Valores permitidos são **insert** e **upsert**.<br/><br/>O comportamento de **upsert** é substituir o documento se um documento com a mesma ID já existir; caso contrário, inserir o documento.<br /><br />**Observação**: O Data Factory gerará automaticamente uma ID para um documento se uma ID não for especificada no documento original ou pelo mapeamento de coluna. Isso significa que, para **upsert** funcionar conforme esperado, o documento deve ter uma ID. |Não <br />(o padrão é **insert**) |
 | writeBatchSize | O Data Factory usa a [biblioteca de executor em massa do Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) para gravar dados no Azure Cosmos DB. A propriedade **writeBatchSize** controla o tamanho dos documentos fornecidos pelo ADF à biblioteca. Você pode tentar aumentar o valor de **writeBatchSize** para melhorar o desempenho e diminuir o valor se o tamanho do documento for grande - veja as dicas abaixo. |Não <br />(o padrão é **10.000**) |
 | nestingSeparator |Um caractere especial no nome da coluna **fonte** para indicar que esse documento aninhado é necessário. <br/><br/>Por exemplo, `Name.First` na estrutura do conjunto de dados de saída gera a seguinte estrutura JSON no documento do Azure Cosmos DB quando o **nestedSeparator** é **.** (ponto): `"Name": {"First": "[value maps to this column from source]"}`  |Não <br />(o padrão é **.** (ponto)) |
