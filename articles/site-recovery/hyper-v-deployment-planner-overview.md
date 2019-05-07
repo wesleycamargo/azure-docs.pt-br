@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/18/2019
 ms.author: mayg
-ms.openlocfilehash: aecbe666814a9ae80611de7798b4ab21fe15e219
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a793de302eb0833c959f2486fc2cda1f2eec4674
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60946485"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149119"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Saiba mais sobre o Planejador de Implantações do Azure Site Recovery para recuperação de desastre do Hyper-V para o Azure
 
@@ -120,6 +120,9 @@ Exemplo: Copie o arquivo .zip para a unidade E:\ e extraia-o. E:\ASR Deployment 
 E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Atualização para a versão mais recente do Planejador de Implantações
+
+As atualizações mais recentes são resumidas no planejador de implantação [histórico de versão](site-recovery-deployment-planner-history.md).
+
 Se você tiver uma versão anterior do Planejador de Implantações, siga um destes procedimentos:
  * Se a versão mais recente não contém uma correção de criação de perfil, e a criação de perfil já está em andamento na versão atual do planejador, continue a criação de perfil.
  * Se a versão mais recente contém uma correção de criação de perfil, é recomendável parar criação de perfil na versão atual e reiniciá-la com a nova versão.

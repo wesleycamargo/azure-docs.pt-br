@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 11/02/2018
+ms.date: 05/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a392fd03016f83f86364d8f92e8bb4da0aa3364a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2caca430de5ad666f4f4341e0723bc3173d6d91a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381424"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137797"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Perguntas frequentes do Azure Active Directory Connect
 
@@ -78,6 +78,47 @@ A maneira mais simples de fazer isso é usar o SQL Server Management Studio inst
 
 Para manter as coisas simples, é recomendável que os usuários que instalam o Azure AD Connect ser administradores do sistema no SQL. No entanto, com compilações recentes, agora é possível usar administradores SQL delegados, conforme descrito em [ Instalar o Azure AD Connect usando permissões de administrador delegadas do SQL ](how-to-connect-install-sql-delegation.md).
 
+**P: Quais são algumas das práticas recomendadas do campo?**  
+
+Veja a seguir um documento informativo que apresenta algumas práticas recomendadas que dão suporte à engenharia, e nossos consultores desenvolvidos ao longo dos anos.  Isso é apresentado em uma lista com marcadores que pode ser referenciada rapidamente.  Embora essa lista tenta ser abrangente, pode haver outras práticas recomendadas que podem não ter tenham feito na lista.
+
+- Se usando SQL completo e em seguida, ele deve permanecer local versus remoto
+    - Menos saltos
+    - Mais fácil solucionar problemas
+    - Menos complexidade
+    - Precisa designar recursos para SQL e permitir que a sobrecarga para o Azure AD Connect e do sistema operacional
+- Ignorar Proxy se possível, se não for possível ignorar o proxy, você precisará garantir que o valor de tempo limite é maior que 5 minutos.
+- Se o proxy for necessário, em seguida, você deve adicionar o proxy para o arquivo Machine. config
+- Lembre-se de trabalhos do SQL locais e de manutenção e como elas afetarão o Azure AD Connect – particularmente reindexação
+- Certifique-se de que o DNS pode resolver externamente
+- Certifique-se de que [especificações de servidor](how-to-connect-install-prerequisites.md#hardware-requirements-for-azure-ad-connect) são por recomendação se você estiver usando servidores físicos ou virtuais
+- Certifique-se de que se você estiver usando um servidor virtual dedicados de recursos necessários
+- Certifique-se de que você tenha o disco e a configuração do disco atende as práticas recomendadas para o SQL Server
+- Instalar e configurar o Azure AD Connect Health para monitoramento
+- Use o limite excluir é incorporado ao Azure AD Connect.
+- Revisão de atualizações de versão cuidadosamente para estar preparado para todas as alterações e novos atributos que podem ser adicionados
+- Backup de tudo
+    - Chaves de backup
+    - Regras de sincronização de backup
+    - Configuração do servidor de backup
+    - Banco de dados SQL de backup
+- Certifique-se de que não há nenhum 3ª agentes de backup de terceiros que estiver fazendo backup do SQL sem o gravador VSS do SQL (comum em servidores virtuais com instantâneos de terceiros 3ª)
+- Limitar a quantidade de regras de sincronização personalizadas que são usadas como eles adicionam complexidade
+- O deleite do Azure AD conectar servidores conforme a camada 0 servidores
+- Ser desconfiada modificando as regras de sincronização de nuvem sem excelente Noções básicas sobre o impacto e os drivers de negócios
+- Certifique-se de que a URL correta e as portas de Firewall estão abertas para o suporte do Azure AD Connect e Azure AD Connect Health
+- Aproveite o atributo filtrado de nuvem para solucionar problemas e impedir que objetos fantasma
+- Verifique se que você está usando o Documentador de configuração de conectar-se de AD do Azure para manter a consistência entre os servidores com o servidor de preparo
+- Servidores de preparo devem estar em data centers separados (locais físicos
+- Servidores de preparo não pretendem ser uma solução de alta disponibilidade, mas você pode ter vários servidores de preparo
+- Apresentando um servidores de preparo "Latência" possa atenuar um potencial tempo de inatividade em caso de erro
+- Testar e validar todas as atualizações no servidor de preparo primeiro
+- Sempre valide exportações antes de alternar para o preparo serverLeverage o servidor de preparo para importações completas e sincronizações completas reduzir o impacto nos negócios
+- Manter a consistência de versão entre os servidores do AD do Azure se conectar tanto quanto possível 
+
+**P: Pode permitir que o Azure AD Connect criar a conta do Azure AD Connector no computador de grupo de trabalho?**
+Não.  Para permitir que o Azure AD Connect para criar automaticamente a conta do conector do AD do Azure, a máquina deve estar ingressado no domínio.  
+
 ## <a name="network"></a>Rede
 **P: Tenho um firewall, um dispositivo de rede ou outro item que limita o tempo que as conexões podem permanecer abertas na minha rede. O que meu limite de tempo limite do lado do cliente deve ser quando usa o Azure AD Connect?**  
 Todos os softwares de rede, dispositivos físicos ou qualquer outra coisa que limite o tempo máximo que as conexões podem permanecer abertas deve usar um limiar de pelo menos 300 minutos (300 segundos) para conectividade entre o servidor no qual o cliente do Azure AD Connect está instalado e o Active Directory do Azure. Esta recomendação também se aplica a todas as ferramentas de sincronização do Microsoft Identity lançadas anteriormente.
@@ -107,6 +148,9 @@ Use as diretrizes descritas no artigo [Renovar certificados](how-to-connect-fed-
 ## <a name="environment"></a>Ambiente
 **P: É possível renomear o servidor após a instalação do Azure AD Connect?**  
 Não. Alterar o nome do servidor torna o mecanismo de sincronização incapaz de se conectar à instância do banco de dados SQL e o serviço não pode ser iniciado.
+
+**P: Regras de sincronização da próxima geração criptográfico (NGC) têm suporte em um computador habilitado para FIPS?**  
+Não.  Não há suporte para eles.
 
 ## <a name="identity-data"></a>Dados de identidade
 **P: Por que o atributo userPrincipalName (UPN) do Azure AD não corresponde ao UPN local?**  
