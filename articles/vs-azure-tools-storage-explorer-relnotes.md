@@ -14,18 +14,113 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 68d16a7e25e6f9a294dee1f077d53aa4551cda5e
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: c6416e36d7d2723577ca0d2009fb7bbad24f3b6a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924806"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154709"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de versão do Gerenciador de Armazenamento do Microsoft Azure
 
 Este artigo contém as notas sobre a versão do Gerenciador de Armazenamento do Azure 1.4.3, bem como notas sobre a versão das versões anteriores.
 
 O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo que permite que você trabalhe facilmente com dados do Armazenamento do Azure no Windows, macOS e Linux.
+
+## <a name="version-180"></a>Versão 1.8.0
+5/1/2019
+
+### <a name="download-azure-storage-explorer-180"></a>Baixar o Gerenciador de armazenamento do Azure 1.8.0
+- [Gerenciador de armazenamento do Azure 1.8.0 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [1.8.0 do Gerenciador de armazenamento do Azure para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Gerenciador de armazenamento do Azure 1.8.0 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Novo
+
+* A versão integrada do AzCopy atualizou a versão 10.1.0.
+* CTRL / Cmd + R agora pode ser usado para atualizar o editor focalizado no momento. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
+* A versão da API de armazenamento do Azure Stack mudou para 2017-04-17.
+* O diálogo Gerenciar acesso para ADLS Gen2 agora manterá a máscara em sincronia, de forma semelhante a outras ferramentas de permissões POSIX. A interface do usuário também avisará você se for feita uma alteração que faz com que as permissões de um usuário ou grupo para exceder os limites da máscara. [#1253](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1253)
+* Para carregamentos do AzCopy, o sinalizador para calcular e definir o hash MD5 agora está habilitado. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
+
+
+### <a name="preview-features"></a>Recursos de Visualização
+
+* Entrada de fluxo de código de dispositivo no agora está disponível para visualização. Para habilitá-lo, vá para "Preview" → "Use código fluxo de logon de dispositivo". Recomendamos que todos os usuários que tiveram problemas com o windows de entrada em branco para experimentar este recurso, ele pode se revelar uma forma mais confiável de entrar.
+* O Gerenciador de armazenamento integrado com o AzCopy está disponível para visualização. Para habilitá-lo, vá para "Preview" → "Use AzCopy para aprimorado Blob carregar e baixar". Transferências de blob concluídas com o AzCopy devem ser mais rápidas e mais funcionais.
+
+### <a name="fixes"></a>Correções
+
+* A caixa de diálogo de políticas de acesso não definirá uma data de expiração nas políticas de acesso de armazenamento que não têm uma expiração. [#764](https://www.github.com/Microsoft/AzureStorageExplorer/issues/764)
+* Algumas alterações foram feitas na caixa de diálogo Gerar SAS para garantir que políticas de acesso armazenado estão sendo usadas corretamente ao gerar uma SAS. [#1269](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1269)
+* Ao tentar carregar um não - 512 bytes alinhado arquivo para um Blob de página, o Gerenciador de armazenamento agora irá expor um erro mais relevantes. [#1050](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1050)
+* Copiar um contêiner de Blob que utilizou um nome de exibição falharia. Agora, o nome real do contêiner de BLOBs é usado. [#1166](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1166)
+* A tentativa de executar determinadas ações em uma pasta de Gen2 ADLS que tinha caracteres unicode em seu nome falharia. Todas as ações agora devem funcionar. [#980](https://www.github.com/Microsoft/AzureStorageExplorer/issues/980)
+
+### <a name="known-issues"></a>Problemas conhecidos
+
+* Ao executar um download de Blob não - AzCopy, o MD5 para arquivos grandes não está sendo verificado. Isso ocorre devido a um bug no SDK do armazenamento. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* Ao usar o RBAC, o Gerenciador de armazenamento requer algumas permissões de camada de gerenciamento para acessar seus recursos de armazenamento. Consulte a [guia de solução](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
+* A tentativa de acessar os Blobs de Gen2 ADLS quando atrás de um proxy pode falhar.
+* Desanexar de um recurso anexado por meio de URI de SAS, como um contêiner de blob, pode causar um erro que impede que outros anexos apareçam corretamente. Para contornar esse problema, basta atualizar o nó do grupo. Veja # 537 para mais informações.
+* Se você usar o VS para Mac e já tiver criado uma configuração do AAD personalizada, talvez não consiga se conectar. Para contornar o problema, exclua o conteúdo de ~/.IdentityService/AadConfigurations. Se isso não desbloquear você, comente sobre este assunto.
+* O Azurite ainda não implementou totalmente todas as APIs de Armazenamento. Por causa disso, pode haver um comportamento ou erros inesperados ao usar o Azurite para armazenamento de desenvolvimento.
+* Em casos raros, o foco da árvore pode ficar preso no Acesso Rápido. Para liberar o foco, você pode Atualizar Tudo.
+* Carregar da sua pasta do OneDrive não funciona por causa de um bug no NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Electron. Para solucionar esse problema ao carregar ou fazer o download de um contêiner de blob, você pode usar o recurso experimental do AzCopy.
+* Pode ocorrer uma falha ao carregar certos arquivos como blobs acrescentados durante o direcionamento para o Azure Stack.
+* Depois de clicar em "Cancelar" em uma tarefa, talvez demore algum tempo para a tarefa ser cancelada. Isso ocorre porque estamos usando a solução alternativa de filtro de cancelamento descrita aqui.
+* Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
+* Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
+* O Azure Stack não suporta os seguintes recursos. A tentativa de usar esses recursos ao trabalhar com recursos do Azure Stack pode resultar em erros inesperados.
+   * Compartilhamentos de arquivos
+   * Níveis de acesso
+   * Exclusão reversível
+   * ADLS Gen2
+* O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* A execução do Gerenciador de armazenamento no Linux exige determinadas dependências para ser instalado primeiro. Verifique o Gerenciador de armazenamento [guia de solução](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) para obter mais informações.
+
+## <a name="previous-releases"></a>Versões anteriores
+
+* [Versão 1.7.0](#version-170)
+* [Versão 1.6.2](#version-162)
+* [Versão 1.6.1](#version-161)
+* [Versão 1.6.0](#version-160)
+* [Versão 1.5.0](#version-150)
+* [Version 1.4.4](#version-144)
+* [Versão 1.4.3](#version-143)
+* [Versão 1.4.2](#version-142)
+* [Versão 1.4.1](#version-141)
+* [Versão 1.3.0](#version-130)
+* [Versão 1.2.0](#version-120)
+* [Version 1.1.0](#version-110)
+* [Versão 1.0.0](#version-100)
+* [Versão 0.9.6](#version-096)
+* [Versão 0.9.5](#version-095)
+* [Versões 0.9.4 e 0.9.3](#version-094-and-093)
+* [Versão 0.9.2](#version-092)
+* [Versões 0.9.1 e 0.9.0](#version-091-and-090)
+* [Versão 0.8.16](#version-0816)
+* [Versão 0.8.14](#version-0814)
+* [Versão 0.8.13](#version-0813)
+* [Versão 0.8.12 e 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
+* [Versões 0.8.9 e 0.8.8](#version-089-and-088)
+* [Versão 0.8.7](#version-087)
+* [Versão 0.8.6](#version-086)
+* [Versão 0.8.5](#version-085)
+* [Versão 0.8.4](#version-084)
+* [Versão 0.8.3](#version-083)
+* [Versão 0.8.2](#version-082)
+* [Versão 0.8.0](#version-080)
+* [Versão 0.7.20160509.0](#version-07201605090)
+* [Versão 0.7.20160325.0](#version-07201603250)
+* [Versão 0.7.20160129.1](#version-07201601291)
+* [Versão 0.7.20160105.0](#version-07201601050)
+* [Versão 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-170"></a>Versão 1.7.0
 3/5/2019
@@ -96,43 +191,6 @@ O [Gerenciador de Armazenamento do Microsoft Azure](./vs-azure-tools-storage-man
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Versões anteriores
-
-* [Versão 1.6.2](#version-162)
-* [Versão 1.6.1](#version-161)
-* [Versão 1.6.0](#version-160)
-* [Versão 1.5.0](#version-150)
-* [Version 1.4.4](#version-144)
-* [Versão 1.4.3](#version-143)
-* [Versão 1.4.2](#version-142)
-* [Versão 1.4.1](#version-141)
-* [Versão 1.3.0](#version-130)
-* [Versão 1.2.0](#version-120)
-* [Version 1.1.0](#version-110)
-* [Versão 1.0.0](#version-100)
-* [Versão 0.9.6](#version-096)
-* [Versão 0.9.5](#version-095)
-* [Versões 0.9.4 e 0.9.3](#version-094-and-093)
-* [Versão 0.9.2](#version-092)
-* [Versões 0.9.1 e 0.9.0](#version-091-and-090)
-* [Versão 0.8.16](#version-0816)
-* [Versão 0.8.14](#version-0814)
-* [Versão 0.8.13](#version-0813)
-* [Versão 0.8.12 e 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
-* [Versões 0.8.9 e 0.8.8](#version-089-and-088)
-* [Versão 0.8.7](#version-087)
-* [Versão 0.8.6](#version-086)
-* [Versão 0.8.5](#version-085)
-* [Versão 0.8.4](#version-084)
-* [Versão 0.8.3](#version-083)
-* [Versão 0.8.2](#version-082)
-* [Versão 0.8.0](#version-080)
-* [Versão 0.7.20160509.0](#version-07201605090)
-* [Versão 0.7.20160325.0](#version-07201603250)
-* [Versão 0.7.20160129.1](#version-07201601291)
-* [Versão 0.7.20160105.0](#version-07201601050)
-* [Versão 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-162"></a>Versão 1.6.2
 09/01/2019

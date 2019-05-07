@@ -2,18 +2,19 @@
 title: Como criar um blob no Armazenamento do Azure usando a biblioteca de clientes para Java v7 | Microsoft Docs
 description: Crie uma conta de armazenamento e um contêiner no armazenamento de objeto (Blob). Em seguida, use a biblioteca cliente do Armazenamento do Azure para o Java v7 para carregar um blob no Armazenamento do Microsoft Azure, fazer o download de um blob e listar os blobs em um contêiner.
 services: storage
-author: roygara
+author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: conceptual
 ms.date: 02/04/2019
-ms.author: rogarana
-ms.openlocfilehash: c9aaa22a656d1164ad4e9f9c1ed7539a93dd0457
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.author: mhopkins
+ms.reviewer: seguler
+ms.openlocfilehash: f7cae5b3c7b0a7da6420674635ff9c3420a6436a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128899"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154408"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Como carregar, baixar e listar blobs usando a biblioteca de clientes para Java v7
 

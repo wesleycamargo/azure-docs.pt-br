@@ -2,18 +2,19 @@
 title: Como monitorar uma conta de Armazenamento do Azure | Microsoft Docs
 description: Saiba como monitorar uma conta de armazenamento no Azure usando o portal do Azure.
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 07/31/2018
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 64cfac0d689df88c4d432e772bcd0a0cc7ab4ade
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5a28d69ae5ba9f3b7eeb28b6824ad9a458832bb3
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478064"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153629"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorar uma conta de armazenamento no portal do Azure
 

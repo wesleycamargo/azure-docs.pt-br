@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a3dd7f78362b5f5c99dc4a74fe0a32c4d26be5b7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a3b6327b9e05b039696cc1743fc2d16c5e945e26
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125926"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152628"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Atualize o daemon de segurança do IoT Edge e o tempo de execução
 
@@ -50,25 +50,15 @@ apt-get install libiothsm iotedge
 
 ### <a name="windows-devices"></a>Dispositivos Windows
 
-Em dispositivos Windows, use o script do PowerShell para desinstalar e reinstalar o daemon de segurança. O script de instalação extrai automaticamente a versão mais recente do daemon de segurança. 
-
-Desinstale o daemon de segurança em uma sessão do PowerShell de administrador. 
+Em dispositivos Windows, use o script do PowerShell para atualizar o daemon de segurança. O script aciona automaticamente a versão mais recente do daemon de segurança. 
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Uninstall-SecurityDaemon
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux>
 ```
 
-Executando o `Uninstall-SecurityDaemon` comando sem parâmetros apenas remove o daemon de segurança do seu dispositivo, juntamente com as duas imagens de contêiner de tempo de execução. O arquivo config.yaml é mantido no dispositivo, bem como os dados do mecanismo de contêiner Moby. Mantendo as informações de configuração significa que você não precisa fornecer a cadeia de caracteres de conexão ou informações de serviço de provisionamento de dispositivo para seu dispositivo novamente durante o processo de instalação. 
+Executando o comando Update-IoTEdge remove o daemon de segurança do seu dispositivo, juntamente com as duas imagens de contêiner de tempo de execução. O arquivo config. YAML é mantido no dispositivo, bem como os dados do mecanismo de contêiner Moby (se você estiver usando contêineres do Windows). Mantendo as informações de configuração significa que você não precisa fornecer a cadeia de caracteres de conexão ou informações de serviço de provisionamento de dispositivo para seu dispositivo novamente durante o processo de atualização. 
 
-Reinstale o daemon de segurança, dependendo de se o dispositivo IoT Edge usa contêineres do Windows ou do Linux. Substituir a frase **\<Windows ou Linux\>** com os sistemas operacionais de contêiner apropriado. Use o sinalizador **-ExistingConfig** para apontar para o arquivo config.yaml existente em seu dispositivo. 
-
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Install-SecurityDaemon -ExistingConfig -ContainerOS <Windows or Linux>
-```
-
-Se você quiser instalar uma versão específica do daemon de segurança, baixe o arquivo iotedged-windows.zip apropriado das [versões do IoT Edge](https://github.com/Azure/azure-iotedge/releases). Em seguida, use o parâmetro `-OfflineInstallationPath` para apontar para o local do arquivo. Para obter mais informações, consulte [Instalação offline](how-to-install-iot-edge-windows.md#offline-installation).
+Se você quiser instalar uma versão específica do daemon de segurança, baixe o arquivo Microsoft-Azure-IoTEdge.cab apropriado da [do IoT Edge libera](https://github.com/Azure/azure-iotedge/releases). Em seguida, use o parâmetro `-OfflineInstallationPath` para apontar para o local do arquivo. Para obter mais informações, consulte [Instalação offline](how-to-install-iot-edge-windows.md#offline-installation).
 
 ## <a name="update-the-runtime-containers"></a>Atualizar os contêineres de tempo de execução
 

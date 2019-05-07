@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 09f9731f78093354f324f263899519bc5d31fa5d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8f50188480b963d13460c79175ea6972d3e68f6a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682157"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153073"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure v3
 
@@ -34,9 +34,19 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 
 Para obter mais informações, consulte [Guia de migração para migrar do Serviços de Mídia v2 para v3](migrate-from-v2-to-v3.md#known-issues).
 
+## <a name="may-2019"></a>Maio de 2019
+
+### <a name="performance-improvements"></a>Aprimoramentos de desempenho
+
+* O tamanho máximo do arquivo com suporte para o processamento foi atualizado. Consulte, [cotas e limitações](limits-quotas-constraints.md).
+* [Aprimoramentos de velocidades de codificação](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
+
 ## <a name="april-2019"></a>Abril de 2019
 
-[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) foi adicionado para as predefinições do analisador interno.
+### <a name="new-presets"></a>Novas predefinições
+
+* [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) foi adicionado para as predefinições do analisador interno.
+* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) foi adicionado para as predefinições do codificador interno. Para obter mais informações, consulte [codificação com suporte a conteúdo](cae-experimental.md). 
 
 ## <a name="march-2019"></a>Março de 2019
 
@@ -205,7 +215,7 @@ Os recursos a seguir estão presentes no SDK do .NET:
 
 * Ao enviar um trabalho, você pode especificar para ingerir o vídeo de origem usando URLs HTTPS, URLs SAS ou caminhos para arquivos localizados no Armazenamento de Blobs do Azure. Atualmente, o AMS v3 não oferece suporte à codificação de transferência em partes sobre URLs HTTPS.
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, comentários, obtenha atualizações
 
 Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
 

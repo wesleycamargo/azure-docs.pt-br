@@ -1,20 +1,20 @@
 ---
-title: Regras de firewall do Banco de Dados do Azure para servidor PostgreSQL
-description: Este artigo descreve as regras de firewall do Banco de Dados do Azure para servidor PostgreSQL.
+title: Regras de firewall no banco de dados do Azure para PostgreSQL – servidor único
+description: Este artigo descreve as regras de firewall para o banco de dados do Azure para PostgreSQL – servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 793a68ee829d87a8433d5bdd77fe7b43e2f3af19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 40a675fbefe9743f5de1f9766cf33ae7dba9e5a7
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560169"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073581"
 ---
-# <a name="azure-database-for-postgresql-server-firewall-rules"></a>Regras de firewall do Banco de Dados do Azure para servidor PostgreSQL
-O firewall do servidor do Banco de Dados do Azure para PostgreSQL bloqueia todo o acesso ao seu servidor de banco de dados até você especificar quais computadores têm permissão. O firewall concede acesso ao servidor com base no endereço IP de origem de cada solicitação.
+# <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>Regras de firewall no banco de dados do Azure para PostgreSQL – servidor único
+Banco de dados do Azure para o firewall do servidor PostgreSQL impede todo acesso ao seu servidor de banco de dados até que você especifique quais computadores têm permissão. O firewall concede acesso ao servidor com base no endereço IP de origem de cada solicitação.
 Para configurar seu firewall, você deve criar regras de firewall que especifiquem intervalos de endereços IP aceitáveis. Você pode criar regras de firewall no nível de servidor.
 
 **Regras de firewall:** Essas regras permitem que os clientes acessem todo o servidor do Banco de Dados do Azure para PostgreSQL, ou seja, todos os bancos dentro do mesmo servidor lógico. As regras de firewall no nível de servidor podem ser configuradas por meio do Portal do Azure ou usando comandos da CLI do Azure. Para criar regras de firewall no nível de servidor, você deve ser o proprietário da assinatura ou um colaborador da assinatura.

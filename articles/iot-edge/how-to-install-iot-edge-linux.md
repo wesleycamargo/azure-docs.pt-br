@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 5829606f3ad226507c49f18dcc8ac4831d573b17
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b519ed21b4d2e0e258c48bd1dc12750176281c9e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126300"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152860"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Instalar o tempo de execução do Azure IoT Edge no Linux (x64)
 
@@ -23,7 +23,7 @@ O tempo de execução do Azure IoT Edge é o que transforma um dispositivo em um
 
 Para obter mais informações, consulte [entender o tempo de execução do Azure IoT Edge e sua arquitetura](iot-edge-runtime.md).
 
-Este artigo lista as etapas para instalar o tempo de execução do Azure IoT Edge no seu Ubuntu Linux x64 (Intel/AMD) dispositivo IoT Edge. Consulte a [suporte do Azure IoT Edge](support.md#operating-systems) para obter uma lista dos sistemas operacionais de AMD64.
+Este artigo lista as etapas para instalar o tempo de execução do Azure IoT Edge no seu Ubuntu Linux x64 (Intel/AMD) dispositivo IoT Edge. Consulte a [sistemas com suporte do Azure IoT Edge](support.md#operating-systems) para obter uma lista dos sistemas operacionais de AMD64.
 
 > [!NOTE]
 > Os pacotes nos repositórios de software do Linux estão sujeitos aos termos de licença localizados em cada pacote (/usr/share/doc/ *package-name* ). Leia os termos da licença antes de usar o pacote. Sua instalação e uso do pacote constitui sua aceitação desses termos. Se você não concorda com os termos de licença, não utilize o pacote.

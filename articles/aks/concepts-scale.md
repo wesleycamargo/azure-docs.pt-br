@@ -2,18 +2,17 @@
 title: Conceitos – dimensionar aplicativos no AKS (Serviço de Kubernetes do Azure)
 description: Saiba mais sobre como dimensionar no AKS (Serviço de Kubernetes do Azure), incluindo dimensionador automático de pod horizontal, dimensionador automático do cluster e conector de Instâncias de Contêiner do Azure.
 services: container-service
-author: rockboyfor
+author: zr-msft
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 02/28/2019
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: d7df4d2c7e824f143201e2c6af220730bcd38fb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 02/28/2019
+ms.author: zarhoads
+ms.openlocfilehash: 2070c79a6ce0627280b1793e412002783f385cc0
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466915"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074031"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções dimensionamento para aplicativos no AKS (Serviço de Kubernetes do Azure)
 
@@ -58,6 +57,8 @@ Para responder às mudanças nas demandas dos pod, Kubernetes tem um autoscaler 
 
 O dimensionador automático do cluster normalmente é usado junto com o dimensionador automático de pod horizontal. Quando combinadas, o dimensionador automático de pod horizontal aumenta ou diminui o número de pods com base na demanda do aplicativo e o dimensionador automático de cluster ajusta o número de nós conforme necessário para executar os pods adicionais adequadamente.
 
+Dimensionador automático de cluster deve ser testado somente no modo de visualização em clusters AKS com um pool de nó único.
+
 Para começar a usar o dimensionador automático de cluster no AKS, confira [Dimensionador automático de cluster no AKS][aks-cluster-autoscaler].
 
 ### <a name="scale-up-events"></a>Eventos de aumento
@@ -88,7 +89,7 @@ Seu aplicativo não requer modificação para usar os nós virtuais. As implanta
 
 Nós virtuais são implantados em uma sub-rede adicional na mesma rede virtual que o seu cluster do AKS. Essa configuração de rede virtual permite que o tráfego entre ACI e AKS seja protegido. Como um cluster do AKS, uma instância ACI é um recurso de computação segura e lógica isolado de outros usuários.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para começar a dimensionar aplicativos, primeiro siga o [guia de início rápido para criar um cluster do AKS com a CLI do Azure][aks-quickstart]. Em seguida, você pode começar a dimensionar manual ou automaticamente aplicativos em seu cluster do AKS:
 

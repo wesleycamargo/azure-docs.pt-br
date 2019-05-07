@@ -10,16 +10,28 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
-ms.openlocfilehash: 33a03b24de56ab1090cc8e07c9619eda17f33e27
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9147f02f6ef2e2f3f776e67aa1f103e95ef132aa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711892"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153028"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Notas de versão do SDK dos Dispositivos de Fala dos Serviços Cognitivos
 
 As seções a seguir listam as alterações nas versões mais recentes.
+
+## <a name="cognitive-services-speech-devices-sdk-150-2019-may-release"></a>Serviços cognitivos de fala dispositivos SDK 1.5.0: Versão de maio de 2019
+
+*   SDK de dispositivos de fala agora está GA e não mais de uma versão prévia restrita.
+*   Atualizado o [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) componente para a versão 1.5.0. Para obter mais informações, consulte [notas de versão](https://aka.ms/csspeech/whatsnew).
+*   Nova tecnologia ativação de word traz melhorias significativas de qualidade, consulte alterações significativas.
+*   Novo pipeline de processamento de áudio para reconhecimento de distante campo aprimorado.
+
+**Alterações da falha**
+
+*   Devido a nova tecnologia de palavra de ativação todas as palavras de ativação devem ser recriadas em nosso portal de word wake aprimorado. Para remover completamente o antigas palavras-chave do dispositivo desinstalar o aplicativo antigo.
+    - desinstalar o adb com.microsoft.coginitiveservices.speech.samples.sdsdkstarterapp
 
 ## <a name="cognitive-services-speech-devices-sdk-140-2019-apr-release"></a>Serviços cognitivos de fala dispositivos SDK 1.4.0: Versão de abril de 2019 
 

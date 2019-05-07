@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 385eee6223487e9d7ca5cc3b213d180bb0f1da46
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6ada4a25f24a6dcbb1ebd54daad15b37127f7a21
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710874"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154186"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas de Gerenciador de armazenamento do Azure
 
@@ -235,7 +235,7 @@ Se você anexou acidentalmente usando uma URL da SAS inválida e não é possív
 
 Em geral, os seguintes pacotes são necessários para executar o Gerenciador de armazenamento no Linux:
 
-* [O tempo de execução do .NET core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [Tempo de execução 2.0 do .NET core](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) Observação: O Gerenciador de armazenamento versão 1.7.0 e anteriormente requerem o .NET Core 2.0. Se você tiver uma versão mais recente do .NET Core instalado, em seguida, você precisará de correção do Gerenciador de armazenamento (veja abaixo). Se você estiver executando o Gerenciador de armazenamento 1.8.0 ou maior, em seguida, você poderá usar o para .NET Core 2.2. Versões posteriores 2.2 não tiverem sido verificadas para trabalhar no momento.
 * `libgnome-keyring-common` e `libgnome-keyring-dev`
 * `libgconf-2-4`
 

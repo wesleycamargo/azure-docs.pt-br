@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: 4288eb7d051c44149a6f1970430dc8c409ca957d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1048b4e2ac3a8523d5539ddc1a1bdaca3ec2d912
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572871"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074255"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Escalar recursos de banco de dados individual no Banco de Dados SQL do Azure
 
-Este artigo descreve como dimensionar os recursos de computação e armazenamento disponíveis para um banco de dados na camada de computação provisionada. 
+Este artigo descreve como dimensionar os recursos de computação e armazenamento disponíveis para um banco de dados na camada de computação provisionada. Como alternativa, o [camada de computação sem servidor (visualização)](sql-database-serverless.md) fornece dimensionamento automático de computação e cobra por segundo para computação usada.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]

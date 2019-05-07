@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 8eaca83b7ea89737a63fe56a18505c8df7e93fdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 215ae29c571e56b7e3af589149123083223023c7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889366"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153466"
 ---
 # <a name="work-with-databases-containers-and-items"></a>Como trabalhar com bancos de dados, contêineres e itens
 
@@ -77,7 +77,7 @@ Um contêiner do Azure Cosmos tem um conjunto de propriedades definidas pelo sis
 
 | **Propriedade definida pelo sistema** | **Sistema gerado ou configurável pelo usuário** | **Finalidade** | **API do SQL** | **API do Cassandra** | **API do Azure Cosmos DB para MongoDB** | **API do Gremlin** | **API de Tabela** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|_rid | Gerada pelo sistema | Identificador exclusivo do contêiner | Sim | Não | Não | Não | Não  |
+|_id | Gerada pelo sistema | Identificador exclusivo do contêiner | Sim | Não | Não | Não | Não  |
 |_etag | Gerada pelo sistema | Marca da entidade usada para controle de simultaneidade otimista | Sim | Não | Não | Não | Não  |
 |_ts | Gerada pelo sistema | Último carimbo de data/hora atualizado do contêiner | Sim | Não | Não | Não | Não  |
 |_self | Gerada pelo sistema | URI endereçável do contêiner | Sim | Não | Não | Não | Não  |

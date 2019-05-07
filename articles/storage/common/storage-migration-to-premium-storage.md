@@ -2,18 +2,19 @@
 title: Migrando VMs para o Armazenamento Premium do Azure | Microsoft Docs
 description: Migre VMs existentes para o Armazenamento Premium do Azure. O Armazenamento Premium dá suporte ao disco de alto desempenho e baixa latência para cargas de trabalho que usam muita E/S em execução em máquinas virtuais do Azure.
 services: storage
-author: yuemlu
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 06/27/2017
-ms.author: yuemlu
+ms.author: rogarana
+ms.reviewer: yuemlu
 ms.subservice: common
-ms.openlocfilehash: fdca10c54c798bd47a34eb0f8af091908bcc2711
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 5cfb96bd3115c8f3116a28926e93df89dff54351
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372311"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153774"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrando para o Armazenamento Premium do Azure (Discos não gerenciados)
 
@@ -255,7 +256,7 @@ Agora que você tem o VHD no diretório local, pode usar o AzCopy ou o AzurePowe
 Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 ```
 
-Um exemplo <Uri> pode ser ***"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"***. Um exemplo <FileInfo> pode ser ***"C:\path\to\upload.vhd"***.
+Um exemplo \<Uri > pode ser ***"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"***. Um exemplo \<FileInfo > pode ser ***"C:\path\to\upload.vhd"***.
 
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>Opção 2: Usar o AzCopy para carregar o arquivo .vhd
 Usando o AzCopy, é possível carregar o VHD facilmente pela Internet. Dependendo do tamanho dos VHDs, isso pode levar tempo. Lembre-se de verificar os limites de entrada/saída da conta de armazenamento ao usar essa opção. Consulte [Metas de Desempenho e Escalabilidade do Armazenamento do Azure](storage-scalability-targets.md) para obter detalhes.
