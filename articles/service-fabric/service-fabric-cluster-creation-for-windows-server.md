@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: 3e9e3afd5172783c6b5ed8e6342ce9927353d006
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed775bfca2db02b9bfddebb85bbd3f1f668cf3e0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386833"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142685"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Criar um cluster autônomo em execução no Windows Server
 Você pode usar o Azure Service Fabric para criar clusters do Service Fabric em qualquer máquina virtual ou computador que estiver executando o Windows Server. Isso significa que você pode implantar e executar os aplicativos do Service Fabric em qualquer ambiente que tenha um conjunto de computadores com o Windows Server interconectados, seja localmente ou em qualquer provedor de nuvem. O Service Fabric fornece um pacote de instalação para criar os clusters do Service Fabric denominado pacote do Windows Server autônomo.
@@ -27,7 +27,7 @@ Você pode usar o Azure Service Fabric para criar clusters do Service Fabric em 
 Este artigo guia você pelas etapas para criação de um cluster do Service Fabric.
 
 > [!NOTE]
-> Este pacote autônomo do Windows Server está disponível para venda e pode ser usado para implantações de produção. Este pacote pode conter novos recursos do Service Fabric que estão em “Visualização”. Role para baixo até “[Recursos de visualização incluídos neste pacote](#previewfeatures_anchor)”. para obter uma lista dos recursos da visualização. Você pode [baixar uma cópia do EULA](https://go.microsoft.com/fwlink/?LinkID=733084) agora.
+> Este pacote do Windows Server autônomo está comercialmente disponível sem custo e pode ser usado para implantações de produção. Este pacote pode conter novos recursos do Service Fabric que estão em “Visualização”. Role para baixo até “[Recursos de visualização incluídos neste pacote](#previewfeatures_anchor)”. para obter uma lista dos recursos da visualização. Você pode [baixar uma cópia do EULA](https://go.microsoft.com/fwlink/?LinkID=733084) agora.
 > 
 > 
 

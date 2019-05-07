@@ -6,25 +6,25 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: bf783c988c0163fe562669a8331c332dbf8d535e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9dc3e19f9429a6055a799f3f013c732538fa370d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61067314"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65070859"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solucionar problemas comuns nas Instâncias de Contêiner do Azure
 
-Este artigo mostra como solucionar problemas ao gerenciar ou implantar contêineres para Instâncias de Contêiner do Azure.
+Este artigo mostra como solucionar problemas ao gerenciar ou implantar contêineres para Instâncias de Contêiner do Azure. Consulte também [perguntas frequentes](container-instances-faq.md).
 
 ## <a name="naming-conventions"></a>Convenções de nomenclatura
 
 Ao definir a especificação de contêiner, alguns parâmetros exigem aderência às restrições de nomenclatura. Abaixo está uma tabela com requisitos específicos para o contêiner de propriedades do grupo. Para obter mais informações sobre convenções de nomenclatura do Azure, consulte [Convenções de nomenclatura][azure-name-restrictions] no Azure Architecture Center.
 
-| Escopo | Comprimento | Capitalização | Caracteres válidos | Padrão sugerido | Exemplo |
+| Scope | Comprimento | Capitalização | Caracteres válidos | Padrão sugerido | Exemplo |
 | --- | --- | --- | --- | --- | --- |
 | Nome do grupo de contêineres | 1-64 |Não diferencia maiúsculas de minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Nome do contêiner | 1-64 |Não diferencia maiúsculas de minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>-<role>-CG<number>` |`web-batch-CG1` |
@@ -46,11 +46,7 @@ Se você especificar uma imagem sem suporte das Instâncias de Contêiner do Azu
 }
 ```
 
-Esse erro geralmente ocorre ao implantar imagens do Windows que baseiam-se em uma versão do SAC (Canal Semestral). Por exemplo, o as versões 1709 e 1803 do Windows são versões de SAC e geram esse erro após a implantação.
-
-As Instâncias de Contêiner do Azure atualmente dão suporte a imagens do Windows com base somente na versão **LTSC (Canal de Atendimento de Longo Prazo) do Windows Server 2016**. Para atenuar esse problema ao implantar contêineres do Windows, sempre implante imagens baseadas em Windows Server 2016 (LTSC). Não há suporte para imagens baseadas no Windows Server 2019 (LTSC).
-
-Para obter detalhes sobre as versões LTSC e SAC do Windows, consulte [Visão geral do Canal Semestral do Windows Server][windows-sac-overview].
+Esse erro geralmente ocorre quando implantando imagens do Windows que se baseiam no canal semestral versão 1709 ou 1803, que não têm suporte. Para imagens do Windows com suporte nas instâncias de contêiner do Azure, consulte [perguntas frequentes](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
 ## <a name="unable-to-pull-image"></a>Não é possível efetuar pull da imagem
 
@@ -102,7 +98,7 @@ az container create -g MyResourceGroup --name myapp --image ubuntu --command-lin
 
 ```azurecli-interactive 
 ## Deploying a Windows container
-az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2016
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2019
  --command-line "ping -t localhost"
 ```
 
@@ -156,7 +152,7 @@ Os dois principais fatores que contribuem para o tempo de inicialização do con
 * [Tamanho da imagem](#image-size)
 * [Local da imagem](#image-location)
 
-Imagens do Windows têm [considerações adicionais](#cached-windows-images).
+Imagens do Windows têm [considerações adicionais](#cached-images).
 
 ### <a name="image-size"></a>Tamanho da imagem
 
@@ -176,14 +172,12 @@ A chave para manter os tamanhos de imagem pequenos é garantir que sua imagem fi
 
 Outra maneira de reduzir o impacto do pull da imagem no tempo de inicialização do contêiner é hospedar a imagem de contêiner no [Registro de Contêiner do Azure](/azure/container-registry/) na mesma região em que você pretende implantar as instâncias de contêiner. Isso reduz o caminho de rede que a imagem de contêiner precisa percorrer, reduzindo significativamente o tempo de download.
 
-### <a name="cached-windows-images"></a>Imagens armazenadas em cache do Windows
+### <a name="cached-images"></a>Imagens armazenadas em cache
 
-As instâncias de contêiner do Azure usa um mecanismo de cache para ajudar a acelerar o tempo de inicialização de contêiner para imagens com base em imagens comuns do Windows e Linux. Para obter uma lista detalhada de marcas e imagens armazenadas em cache, use o [lista de imagens armazenadas em cache] [ list-cached-images] API.
+As instâncias de contêiner do Azure usa um mecanismo de cache para ajudar a acelerar o tempo de inicialização de contêiner para imagens criadas em comum [imagens base do Windows](container-instances-faq.md#what-windows-base-os-images-are-supported), incluindo `nanoserver:1809`, `servercore:ltsc2019`, e `servercore:1809`. Normalmente usado imagens do Linux, como `ubuntu:1604` e `alpine:3.6` também são armazenados em cache. Para obter uma lista atualizada de imagens armazenadas em cache e marcas, use o [lista de imagens armazenadas em cache] [ list-cached-images] API.
 
-Para garantir o menor tempo de inicialização do contêiner do Windows, use uma da **três versões mais recentes** das **duas imagens** seguintes como a imagem base:
-
-* [Windows Server Core 2016] [ docker-hub-windows-core] (LTSC somente)
-* [Windows Server 2016 Nano Server][docker-hub-windows-nano]
+> [!NOTE]
+> Uso de imagens com base no Windows Server 2019 nas instâncias de contêiner do Azure está em visualização.
 
 ### <a name="windows-containers-slow-network-readiness"></a>Preparação de rede lenta de contêineres do Windows
 

@@ -1,21 +1,19 @@
 ---
-title: Criar usuários em um Banco de Dados do Azure para o servidor PostgreSQL
-description: Este artigo descreve como você pode criar novas contas de usuário para interagir com um servidor de Banco de Dados do Azure para PostgreSQL.
-author: WenJason
-ms.author: v-jay
-editor: jasonwhowell
+title: Criar usuários no banco de dados do Azure para PostgreSQL – servidor único
+description: Este artigo descreve como você pode criar novas contas de usuário para interagir com um banco de dados do Azure para PostgreSQL – servidor único.
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 10/16/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 33c107c46b314136fa3d43f8e7881e096afa374c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: ce6188732720bc43c5849fa492237c7ab98487c6
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422263"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067493"
 ---
-# <a name="create-users-in-azure-database-for-postgresql-server"></a>Criar usuários em um Banco de Dados do Azure para o servidor PostgreSQL 
+# <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Criar usuários no banco de dados do Azure para PostgreSQL – servidor único
 Este artigo descreve como você pode criar usuários em um servidor de Banco de Dados do Azure para PostgreSQL.
 
 ## <a name="the-server-admin-account"></a>A conta do administrador do servidor
@@ -74,7 +72,7 @@ A conta de usuário administrador do servidor pode ser usada para criar usuário
 5. Faça logon no servidor, especificando o banco de dados designado, usando o novo nome de usuário e senha. Este exemplo mostra a linha de comando do psql. Com este comando, será solicitada a senha para o nome de usuário. Substitua seu próprio nome de servidor, o nome do banco de dados e o nome de usuário.
 
    ```azurecli-interactive
-   psql --host=mydemoserver.postgres.database.chinacloudapi.cn --port=5432 --username=db_user@mydemoserver --dbname=newdb
+   psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=db_user@mydemoserver --dbname=newdb
    ```
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -1,21 +1,21 @@
 ---
-title: Conectar o Serviço de Kubernetes do Azure (AKS) ao Banco de Dados do Azure para PostgreSQL
-description: Saiba mais sobre a conexão do Serviço de Kubernetes do Azure com o Banco de Dados do Azure para PostgreSQL
+title: Conectar-se o serviço de Kubernetes do Azure (AKS) com o banco de dados do Azure para PostgreSQL – servidor único
+description: Saiba mais sobre como conectar-se o serviço Kubernetes do Azure com o banco de dados do Azure para PostgreSQL – servidor único
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.date: 11/27/2018
+ms.date: 5/6/2019
 ms.topic: conceptual
-ms.openlocfilehash: f25d87c7c557404071d777f4efcf22e53886d96d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a98d9b89db0406d67d1b067c3e53eb5c3dae7957
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456182"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068948"
 ---
-# <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql"></a>Conectar o Serviço de Kubernetes do Azure e o Banco de Dados do Azure para PostgreSQL
+# <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql---single-server"></a>Conectando-se o serviço de Kubernetes do Azure e banco de dados do Azure para PostgreSQL – servidor único
 
-O Serviço de Kubernetes do Azure (AKS) fornece cluster de Kubernetes gerenciado que você pode usar no Azure. Abaixo estão algumas opções a considerar ao usar o AKS e o Banco de Dados do Azure para PostgreSQL juntos para criar um aplicativo.
+O Serviço do Kubernetes do Azure (AKS) fornece um cluster Kubernetes gerenciado que você pode usar no Azure. Abaixo estão algumas opções a considerar ao usar o AKS e o Banco de Dados do Azure para PostgreSQL juntos para criar um aplicativo.
 
 
 ## <a name="accelerated-networking"></a>Redes aceleradas

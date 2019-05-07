@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 93803a7d885bb68c1d5d6637eaf90fb090dabeb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7c3b93db18cb8e2660118927da47ffe95abb900f
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598935"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072998"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar os contêineres de docker LUIS
  
@@ -337,19 +337,28 @@ Os envios de contêiner LUIS cobrança informações do Azure, usando um _dos se
 
 Para obter mais informações sobre essas opções, consulte [Configurar contêineres](luis-container-configuration.md).
 
-## <a name="unsupported-dependencies"></a>Dependências sem suporte
+## <a name="supported-dependencies-for-latest-container"></a>Suporte para as dependências para `latest` contêiner
+
+O contêiner mais recente, lançado em 2019 / / compilação, que dará suporte:
+
+* Verificação ortográfica do Bing: solicitações para o ponto de extremidade de previsão de consulta com o `&spellCheck=true&bing-spell-check-subscription-key={bingKey}` parâmetros de cadeia de caracteres de consulta. Use o [verificação ortográfica do Bing v7 tutorial](luis-tutorial-bing-spellcheck.md) para saber mais. Se esse recurso é usado, o contêiner envia a expressão para o recurso do Bing ortográfica verificar V7.
+* [Novos domínios predefinidos](luis-reference-prebuilt-domains.md): esses domínios voltada para enterprise incluem entidades, declarações de exemplo e padrões. Estenda esses domínios para seu próprio uso. 
+
+<a name="unsupported-dependencies"></a>
+
+## <a name="unsupported-dependencies-for-latest-container"></a>Sem suporte de dependências para `latest` contêiner
+
+Se seu aplicativo LUIS, não tem suporte dependências, você não conseguirá [exportar para o contêiner](#export-packaged-app-from-luis) até que você remova recursos sem suporte. Quando você tenta exportar para o contêiner, o portal de LUIS relatórios recursos sem suporte, que você precisa remover.
 
 Você pode usar um aplicativo LUIS se ele **não inclui** nenhuma das seguintes dependências:
 
 Configurações de aplicativo sem suporte|Detalhes|
 |--|--|
-|Culturas de contêiner sem suporte| Alemão (de-DE)<br>Holandês (nl-NL)<br>Japonês (ja-JP)<br>|
-|Domínios sem suporte|Domínios predefinidos, incluindo as entidades e intenções de domínio predefinidas|
+|Culturas de contêiner sem suporte| Holandês (nl-NL)<br>Japonês (ja-JP)<br>Alemão só é compatível com o [1.0.1 tokenizer ou posterior](luis-language-support.md#custom-tokenizer-versions).|
 |Entidades sem suporte para todas as culturas|Entidade predefinida [KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) para todas as culturas|
 |Entidades sem suporte para a cultura Inglês (en-US)|Entidades predefinidas [GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2)|
 |Preparação da fala|Não há suporte para dependências externas no contêiner.|
 |Análise de sentimento|Não há suporte para dependências externas no contêiner.|
-|Verificação Ortográfica do Bing|Não há suporte para dependências externas no contêiner.|
 
 ## <a name="summary"></a>Resumo
 
@@ -364,7 +373,7 @@ Neste artigo, você aprendeu conceitos e fluxo de trabalho para baixar, instalar
 > [!IMPORTANT]
 > Os contêineres dos Serviços Cognitivos não estão licenciados para execução sem estarem conectados ao Azure para medição. Os clientes precisam ativar os contêineres para comunicar informações de cobrança com o serviço de medição em todos os momentos. Os contêineres de Serviços Cognitivos não enviam dados do cliente (por exemplo, a imagem ou o texto que está sendo analisado) para a Microsoft.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Revise [Configurar contêineres](luis-container-configuration.md) para configurações
 * Consulte a [Solução de problemas](troubleshooting.md) para resolver problemas relacionados à funcionalidade LUIS.

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a336f7faae24517aa4e29c991886107c6a82d2b5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b80f11ef97a10728f07cebe1fe80b954e506da52
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692550"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147886"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Desenvolver com os serviços de mídia APIs v3
 
@@ -88,7 +88,7 @@ Os serviços de mídia tem as seguintes operações de longa execução:
 
 Consulte [filtragem, ordenação, paginação de entidades de serviços de mídia do Azure](entities-overview.md)
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, comentários, obtenha atualizações
 
 Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
 

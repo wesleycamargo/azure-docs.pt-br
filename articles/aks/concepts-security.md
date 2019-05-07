@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 8fd5b726c01b056d38e7e187cec8270ee4e127a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2e655627267546d88f76a2487817bca3153ee91d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466726"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074028"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceitos de segurança para aplicativos e clusters no AKS (Serviço de Kubernetes do Azure)
 
@@ -34,9 +34,11 @@ Por padrão, o servidor de API do Kubernetes usa um endereço IP público e com 
 
 ## <a name="node-security"></a>Segurança do nó
 
-Nós do AKS são máquinas virtuais do Azure que você gerenciar e manter. Os nós executam uma distribuição Ubuntu Linux otimizada usando o tempo de execução do contêiner Moby. Quando um cluster do AKS é criado ou dimensionado, os nós são implantados automaticamente com as configurações e atualizações de segurança do sistema operacional mais recentes.
+Nós do AKS são máquinas virtuais do Azure que você gerenciar e manter. Executar uma distribuição otimizada do Ubuntu usando o tempo de execução do contêiner Moby nós do Linux. Nós do Windows Server (atualmente em visualização no AKS) executados um otimizado 2019 de servidor do Windows de versão e também usam o tempo de execução do contêiner Moby. Quando um cluster do AKS é criado ou dimensionado, os nós são implantados automaticamente com as configurações e atualizações de segurança do sistema operacional mais recentes.
 
-A plataforma Azure aplica automaticamente patches de segurança do sistema operacional aos nós todas as noites. Se uma atualização de segurança do sistema operacional exigir uma reinicialização do host, essa reinicialização não será executada automaticamente. Você pode reinicializar os nós manualmente, ou uma abordagem comum é usar [Kured][kured], um daemon de reinicialização de software livre para Kubernetes. O Kured é executado como um [DaemonSet][aks-daemonsets] e monitora cada nó para a presença de um arquivo que indica que uma reinicialização é necessária. As reinicializações são gerenciadas no cluster usando o mesmo [o processo de cordon e drenagem](#cordon-and-drain) como uma atualização do cluster.
+A plataforma Azure aplica automaticamente OS patches de segurança para nós do Linux em uma base noturna. Se uma atualização de segurança do sistema operacional Linux requer uma reinicialização do host, essa reinicialização não será executada automaticamente. Você pode reinicializar os nós do Linux manualmente, ou uma abordagem comum é usar [Kured][kured], um daemon de reinicialização do código-fonte aberto para o Kubernetes. O Kured é executado como um [DaemonSet][aks-daemonsets] e monitora cada nó para a presença de um arquivo que indica que uma reinicialização é necessária. As reinicializações são gerenciadas no cluster usando o mesmo [o processo de cordon e drenagem](#cordon-and-drain) como uma atualização do cluster.
+
+Para nós do Windows Server (atualmente em visualização no AKS), atualização do Windows executado automaticamente e aplicar as atualizações mais recentes. Em um agendamento regular em todo o ciclo de lançamento do Windows Update e seu próprio processo de validação, você deve realizar uma atualização sobre os pools de nó do Windows Server no cluster do AKS. Este processo de atualização cria nós que executam a imagem mais recente do Windows Server e os patches, em seguida, remove os nós mais antigos. Para obter mais informações sobre esse processo, consulte [Upgrade de um pool de nós no AKS][nodepool-upgrade].
 
 Nós são implantados em uma sub-rede de rede virtual privada, sem nenhum endereço IP público atribuído. Para fins de solução de problemas e gerenciamento, o SSH é habilitado por padrão. Esse acesso SSH só está disponível usando o endereço IP interno.
 
@@ -50,12 +52,12 @@ Para segurança e conformidade, ou para usar os recursos mais recentes, o Azure 
 
 ### <a name="cordon-and-drain"></a>Cordon e drenagem
 
-Durante o processo de atualização, nós do AKS são individualmente isolados do cluster para que novos pods não sejam agendados neles. Os nós então são drenados e atualizados da seguinte maneira:
+Durante o processo de atualização, nós AKS individualmente são isolados do cluster para que novos pods não são agendados neles. Os nós então são drenados e atualizados da seguinte maneira:
 
-- Pods existentes normalmente são encerrados normalmente e agendados em nós restantes.
-- O nó é reinicializado, o processo de atualização é concluído e, em seguida, une-se novamente ao cluster do AKS.
-- Os pods são agendados para serem executados neles novamente.
-- O próximo nó no cluster é isolado e esvaziado usando o mesmo processo até que todos os nós sejam atualizados com êxito.
+- Um novo nó é implantado para o pool de nó. Este nó é executado, os patches e a imagem de sistema operacional mais recente.
+- Um de nós existentes é identificado para atualização. Pods neste nó são normalmente encerrados e agendados nos outros nós no pool de nó.
+- Esse nó existente é excluído do cluster do AKS.
+- O próximo nó no cluster é isolado e esvaziados a usando o mesmo processo até que todos os nós são substituídos com êxito como parte do processo de atualização.
 
 Para obter mais informações, consulte [atualizar um cluster AKS][aks-upgrade-cluster].
 
@@ -73,7 +75,7 @@ Um *Segredo* do Kubernetes é usado para injetar dados confidenciais em pods, co
 
 O uso de Segredos reduz as informações confidenciais definidas no manifesto YAML de pod ou serviço. Em vez disso, você pode solicitar o Segredo armazenado no servidor de API do Kubernetes como parte do seu manifesto YAML. Essa abordagem fornece apenas ao pod específico acesso ao Segredo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para começar a proteger seus clusters do AKS, confira [Atualizar um cluster do AKS][aks-upgrade-cluster].
 
@@ -102,3 +104,4 @@ Para obter informações adicionais sobre os principais conceitos do Kubernetes 
 [aks-concepts-network]: concepts-network.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 50f3ecf69561313a5bda67827cfb02d2f61d461f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e62d106a42dfbec897e5e14cf68fd3d7fd823c4
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60653654"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65070809"
 ---
 # <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>Interromper ou iniciar contêineres em instâncias de contêiner do Azure manualmente
 
@@ -24,7 +24,7 @@ Pare manualmente um grupo de contêineres em execução - por exemplo, usando o 
 
 *Quando um grupo de contêineres entra no estado parado, ele encerra e recicla todos os contêineres no grupo. Ele não preserva o estado do contêiner.*
 
-Embora os contêineres em um grupo de contêineres parado forem reciclados, o [recursos](container-instances-container-groups.md#resource-allocation) permanecem alocadas para seu uso. Portanto, a cobrança continuará para um grupo de contêineres de parado.
+Quando os contêineres são reciclados, o [recursos](container-instances-container-groups.md#resource-allocation) são desalocadas e a cobrança é interrompido para o grupo de contêineres.
 
 A ação de parada não tem nenhum efeito se o grupo de contêineres já finalizado (está no estado de um êxito ou falha). Por exemplo, um grupo de contêiner com as tarefas de execução única de contêiner que foi executado com êxito termina com o estado de êxito. Tenta interromper o grupo de estado não alteram o estado. 
 

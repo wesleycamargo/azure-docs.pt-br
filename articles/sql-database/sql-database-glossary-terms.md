@@ -12,18 +12,20 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: cae806953721f3cedead023f013c7d1d585efeb6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fb628358c91d80a3117b065cadb284fd1665daa3
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573376"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073677"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Glossário de termos do Banco de Dados SQL do Azure
 
 |Contexto|Termo|Mais informações|
 |:---|:---|:---|
 |Nome do serviço do Azure|Banco de Dados SQL do Azure ou Banco de Dados SQL|[O serviço de Banco de Dados SQL do Azure](sql-database-technical-overview.md)|
+|Camada de computação|Serverless (visualização)|[Camada de computação sem servidor](sql-database-serverless.md)
+||Provisionado|[Camada de computação sem servidor](sql-database-serverless.md)
 |Opções de implantação |Banco de dados individual|[Bancos de dados únicos](sql-database-single-database.md)|
 ||Pool elástico|[Pool elástico](sql-database-elastic-pool.md)|
 ||Instância gerenciada|[Instância gerenciada](sql-database-managed-instance.md)|

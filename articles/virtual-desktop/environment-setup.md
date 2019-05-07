@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: ceed6a8bb74206b7c6689ce542482148800e4ba9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6aa6c7326759e480235df5fe9d4b0878cd11024d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870312"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142377"
 ---
 # <a name="windows-virtual-desktop-preview-environment"></a>Ambiente de visualização de área de trabalho Virtual do Windows
 
@@ -63,5 +63,5 @@ Para saber como configurar seu locatário de área de trabalho Virtual do Window
 
 Para saber como se conectar à área de trabalho Virtual do Windows, consulte um dos seguintes artigos:
 
-- [Conectar-se ao cliente da Área de Trabalho Remota no Windows 7 e no Windows 10](connect-windows-7-and-10.md)
-- [Conectar-se ao cliente Web da Versão Prévia da Área de Trabalho Virtual do Windows](connect-web.md)
+- [Conectar-se do Windows 10 ou Windows 7](connect-windows-7-and-10.md)
+- [Conectar-se de um navegador da web](connect-web.md)

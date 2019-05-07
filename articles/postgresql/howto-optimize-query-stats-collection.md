@@ -1,20 +1,19 @@
 ---
-title: Otimizar a coleção de estatísticas de consulta em um servidor do Banco de Dados do Azure para PostgreSQL
-description: Este artigo descreve como é possível otimizar a coleção de estatísticas de consulta em um servidor do Banco de Dados do Azure para PostgreSQL.
-author: WenJason
-ms.author: v-jay
+title: Otimizar a coleta de estatísticas de consulta em um banco de dados do Azure para PostgreSQL – servidor único
+description: Este artigo descreve como você pode otimizar a coleta de estatísticas de consulta em um banco de dados do Azure para PostgreSQL – servidor único
+author: dianaputnam
+ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 10/25/2018
-ms.date: 02/18/2019
-ms.openlocfilehash: 428a22f79008130448bef65f14322d6880b1b367
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 7425ee7916fd71625f336a7af35f6481d1ed2474
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422689"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068953"
 ---
-# <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql-server"></a>Otimizar a coleção de estatísticas de consulta no servidor do Banco de Dados do Azure para PostgreSQL 
+# <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql---single-server"></a>Otimizar a coleta de estatísticas de consulta em um banco de dados do Azure para PostgreSQL – servidor único
 Este artigo descreve como otimizar a coleção de estatísticas de consulta em um servidor do Banco de Dados do Azure para PostgreSQL.
 
 ## <a name="use-pgstatsstatements"></a>Usar pg_stats_statements

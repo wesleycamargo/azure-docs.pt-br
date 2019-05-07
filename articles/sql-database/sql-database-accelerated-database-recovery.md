@@ -11,14 +11,14 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: bb88da48f8961969176fd67bf6e5fa346655aeac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 77bc33747964a5f4ee1a67aba777dc3ed76b9a51
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388704"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073460"
 ---
-# <a name="accelerated-database-recovery-preview"></a>Recuperação Acelerada de Banco de Dados (versão prévia)
+# <a name="accelerated-database-recovery"></a>Recuperação acelerada de banco de dados
 
 **ADR (Accelerated Database Recovery - Recuperação Acelerada de Banco de Dados)** é um novo recurso de mecanismo de banco de dados SQL que melhora bastante a disponibilidade do banco de dados, especialmente na presença de transações de longa duração, reprojetando o processo de recuperação do mecanismo de banco de dados SQL. A ADR está atualmente disponível para bancos de dados individuais e em pool no Banco de Dados SQL do Azure, bem como em bancos de dados no SQL Data Warehouse do Azure. Principais benefícios da ADR são:
 
@@ -65,7 +65,7 @@ O ADR soluciona os problemas acima, redesenhando completamente o processo de rec
 - Torne constante o tempo / instantâneo, evitando ter que escanear o log de / para o início da transação ativa mais antiga. Com o ADR, só é processado no log de transações do último ponto de verificação bem-sucedida (ou número de sequência de Log (LSN) da página suja mais antiga). Como resultado, o tempo de recuperação não é afetado por longa execução de transações.
 - Minimize o espaço de log de transações necessário, pois não há mais necessidade de processar o log para toda a transação. Como resultado, o log de transações pode ser truncado de forma agressiva à medida que os pontos de verificação e backups ocorrem.
 
-Em um nível alto, o ADR obtém uma rápida recuperação do banco de dados, modificando todas as modificações físicas do banco de dados e apenas desfazendo as operações lógicas, que são limitadas e podem ser desfeitas quase instantaneamente. Qualquer transação que estava ativa no momento de uma falha é marcada como abortada e, portanto, qualquer versão gerada por essas transações pode ser ignorada por consultas de usuários simultâneas.
+Em um alto nível, o ADR atinge recuperação rápida de banco de dados pelo controle de versão de todas as modificações de banco de dados físico e somente desfazer operações lógicas, que são limitadas e podem ser desfeitas quase instantaneamente. Qualquer transação que estava ativa no momento de uma falha é marcada como abortada e, portanto, qualquer versão gerada por essas transações pode ser ignorada por consultas de usuários simultâneas.
 
 O processo de recuperação do ADR tem as mesmas três fases que o processo de recuperação atual. Como essas fases operam com ADR é ilustrado no diagrama a seguir e explicado com mais detalhes seguindo o diagrama.
 
@@ -128,6 +128,3 @@ Os seguintes tipos de clientes devem considerar a ativação do ADR:
 - Clientes que viram casos em que transações ativas estão fazendo com que o log de transações aumentará significativamente.  
 - Clientes que passaram por longos períodos de indisponibilidade do banco de dados devido à recuperação longa do SQL Server (como reinicialização inesperada do SQL Server ou reversão de transação manual).
 
-## <a name="to-enable-adr-during-this-preview-period"></a>Para habilitar o ADR durante este período de pré-visualização
-
-Durante o período de visualização deste recurso, envie um e-mail para [adr@microsoft.com](mailto:adr@microsoft.com) para saber mais e experimentar o ADR (Accelerated Database Recovery). No email, inclua o nome do seu servidor do Banco de Dados SQL (para bancos de dados individuais e em pool no Banco de Dados SQL, bem como para bancos de dados no Data Warehouse do Azure). Como esse é um recurso de visualização, seu servidor de teste deve ser um servidor que não seja de produção.

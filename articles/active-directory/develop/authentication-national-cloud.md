@@ -1,10 +1,10 @@
 ---
-title: Autenticação usando o Azure AD nas nuvens nacionais
+title: Autenticação usando o Azure Active Directory nas nuvens nacionais
 description: Saiba mais sobre o registro do aplicativo e os pontos de extremidade de autenticação para nuvens nacionais.
 services: active-directory
 documentationcenter: ''
 author: negoe
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/20/2018
+ms.date: 05/07/2019
 ms.author: negoe
-ms.reviewer: negoe,andret,saeeda,CelesteDG
+ms.reviewer: negoe,CelesteDG
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4feaf97de7b833514113af6c91b3745be0503eff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0d4586df23548854f4acbfefd32081a36906097
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411106"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067912"
 ---
 # <a name="national-clouds"></a>Nuvens nacionais
 
-Nuvens nacionais (também conhecidas como nuvens soberanas) são instâncias isoladas fisicamente do Azure. Essas regiões do Azure são projetadas para garantir que os requisitos de residência, de soberania e de conformidade de dados sejam respeitados dentro de limites geográficos.
+Nuvens nacionais são instâncias isoladas fisicamente do Azure. Essas regiões do Azure são projetadas para garantir que os requisitos de residência, de soberania e de conformidade de dados sejam respeitados dentro de limites geográficos.
 
 Incluindo nuvem global, o Azure Active Directory é implantado nas seguintes nuvens nacionais:  
 
@@ -42,12 +42,12 @@ Há um portal do Azure separado para cada uma das nuvens nacionais. Para integra
 
 A tabela a seguir lista as URLs base para os pontos de extremidade do Azure AD (Azure Active Directory) usados para registrar um aplicativo para cada nuvem nacional.
 
-| Nuvem nacional | Ponto de extremidade do portal do Azure AD
-| --- | --- |
-| Azure AD for US Government |`https://portal.azure.us`
-|Azure AD Alemanha |`https://portal.microsoftazure.de`
-|Azure AD China operado pela 21Vianet |`https://portal.azure.cn`
-|Azure AD (serviço global)|`https://portal.azure.com` 
+| Nuvem nacional | Ponto de extremidade do portal do Azure AD |
+|----------------|--------------------------|
+| Azure AD for US Government | `https://portal.azure.us` |
+| Azure AD Alemanha | `https://portal.microsoftazure.de` |
+| Azure AD China operado pela 21Vianet | `https://portal.azure.cn` |
+| Azure AD (serviço global) |`https://portal.azure.com` |
 
 ## <a name="azure-ad-authentication-endpoints"></a>Pontos de extremidade de autenticação do Azure AD
 
@@ -55,12 +55,12 @@ Todas as nuvens nacionais autenticam usuários separadamente em cada ambiente e 
 
 A tabela a seguir lista as URLs base para os pontos de extremidade do Azure AD (Azure Active Directory) usados para obter tokens para chamar o Microsoft Graph para cada nuvem nacional.
 
-| Nuvem nacional | Ponto de extremidade de autenticação do Azure AD
-| --- | --- |
-| Azure AD for US Government |`https://login.microsoftonline.us`
-|Azure AD Alemanha| `https://login.microsoftonline.de`
-|Azure AD China operado pela 21Vianet | `https://login.chinacloudapi.cn`
-|Azure AD (serviço global)|`https://login.microsoftonline.com`
+| Nuvem nacional | Ponto de extremidade de autenticação do Azure AD |
+|----------------|-------------------------|
+| Azure AD for US Government | `https://login.microsoftonline.us` |
+| Azure AD Alemanha| `https://login.microsoftonline.de` |
+| Azure AD China operado pela 21Vianet | `https://login.chinacloudapi.cn` |
+| Azure AD (serviço global)| `https://login.microsoftonline.com` |
 
 - As solicitações para os pontos de extremidade de token ou autorização do Azure AD podem ser formadas usando a URL base específica da região apropriada. Por exemplo, para o Azure Alemanha:
 
@@ -69,21 +69,23 @@ A tabela a seguir lista as URLs base para os pontos de extremidade do Azure AD (
 
 - Para aplicativos de locatário único, substitua o comum nas URLs anteriores por sua ID de locatário ou nome, por exemplo, `https://login.microsoftonline.de/contoso.com`.
 
->[!NOTE]
+> [!NOTE]
 > A [autorização do Azure AD v2.0]( https://docs.microsoft.com/azure/active-directory/develop/active-directory-appmodel-v2-overview) e os pontos de extremidade de token só estão disponíveis para o serviço global. Ele ainda não tem suporte para implantações de nuvem nacional.
 
 ## <a name="microsoft-graph-api"></a>API do Microsoft Graph
 
 Para saber como chamar as APIs do Microsoft Graph no ambiente de Nuvem Nacional, acesse [Microsoft Graph na nuvem nacional](https://developer.microsoft.com/graph/docs/concepts/deployments).
 
-
-
 > [!IMPORTANT]
 > Determinados serviços e recursos que estão em regiões específicas do serviço global podem não estar disponíveis em todas as nuvens Nacionais. Para descobrir quais serviços estão disponíveis, acesse [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).
 
-## <a name="next-steps"></a>Próximos passos
+Siga esse [tutorial de biblioteca de autenticação da Microsoft (MSAL)](msal-national-cloud.md) para aprender a criar um aplicativo usando a plataforma de identidade da Microsoft. Especificamente, este aplicativo irá entrar em um usuário, obter um token de acesso para chamar a API do Microsoft Graph.
 
-- Saiba mais sobre o [Azure Governamental](https://docs.microsoft.com/azure/azure-government/).
-- Saiba mais sobre o [Azure China 21Vianet](https://docs.microsoft.com/azure/china/).
-- Saiba mais sobre o [Azure Alemanha](https://docs.microsoft.com/azure/germany/).
-- Conheça as [noções básicas de autenticação do Azure AD](authentication-scenarios.md).
+## <a name="next-steps"></a>Próximas etapas
+
+Saiba mais sobre:
+
+- [Azure Governamental](https://docs.microsoft.com/azure/azure-government/)
+- [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)
+- [Azure Alemanha](https://docs.microsoft.com/azure/germany/)
+- [Noções básicas de autenticação do AD do Azure](authentication-scenarios.md)

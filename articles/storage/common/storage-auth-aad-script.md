@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 96be1e600c8d5895cc0eb5b058ce17f7265fa0a9
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.openlocfilehash: 41ca1c5f413e5e15691f336d203edb918f21dc1a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149641"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147304"
 ---
 # <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Executar comandos da CLI do Azure ou do PowerShell com credenciais do Azure AD para acessar dados de blob ou fila
 
@@ -126,7 +127,7 @@ O exemplo a seguir mostra como criar um contêiner em uma nova conta de armazena
     New-AzStorageContainer -Name $containerName -Context $ctx
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre as funções RBAC para o armazenamento do Azure, consulte [gerenciar direitos de acesso aos dados do armazenamento com RBAC](storage-auth-aad-rbac.md).
 - Para saber mais sobre como usar identidades gerenciadas de recursos do Azure com o armazenamento do Azure, consulte [autenticar o acesso a blobs e filas com o Azure Active Directory e identidades gerenciadas para recursos do Azure](storage-auth-aad-msi.md).

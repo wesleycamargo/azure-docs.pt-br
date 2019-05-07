@@ -1,6 +1,6 @@
 ---
-title: Executar uma revisão de acesso de minhas funções de recurso do Azure no PIM - Azure Active Directory | Microsoft Docs
-description: Saiba como executar uma revisão de acesso de suas funções de recurso do Azure no Azure AD PIM (Privileged Identity Management).
+title: Examinar o acesso a funções de recurso do Azure no PIM - Azure Active Directory | Microsoft Docs
+description: Saiba como examinar acesso das funções de recurso do Azure no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc503e5c11f8e3a00fe9c258ad2a7cad5b6ade7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4e49f0077444f86eabeed22cc7cecf5e0ac7f8b5
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287368"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141196"
 ---
-# <a name="perform-an-access-review-of-my-azure-resource-roles-in-pim"></a>Realizar uma revisão de acesso das minhas funções de recurso do Azure no PIM
+# <a name="review-access-to-azure-resource-roles-in-pim"></a>Examinar o acesso a funções de recurso do Azure no PIM
 Azure Active Directory (Azure AD) Identity Management PIM (Privileged) simplifica como as empresas gerenciam o acesso privilegiado aos recursos no Azure. 
 
 Se você for atribuído a uma função administrativa, o administrador de função com privilégios de sua organização poderá solicitar que você confirme regularmente que ainda precisa da função para seu trabalho. Você pode receber um email que inclui um link ou pode acessar diretamente o [portal do Azure](https://portal.azure.com). Siga as etapas neste artigo para executar a autorrevisão das suas funções atribuídas.
@@ -52,6 +52,6 @@ Siga estas etapas para localizar e concluir a análise de acesso:
 
    ![Captura de tela Revisar detalhes](media/azure-pim-resource-rbac/rbac-access-review-choice.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Executar uma revisão de acesso das minhas funções do Azure AD no PIM](pim-how-to-perform-security-review.md)

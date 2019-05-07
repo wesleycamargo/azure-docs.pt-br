@@ -1,21 +1,21 @@
 ---
-title: Configurar e acessar os logs de servidor para PostgreSQL no Portal do Azure
-description: Este artigo descreve como configurar e acessar os logs de servidor no Banco de Dados do Azure para PostgreSQL no Portal do Azure.
+title: Configurar e acessar logs do servidor do banco de dados do Azure para PostgreSQL - único servidor no Portal do Azure
+description: Este artigo descreve como configurar e acessar os logs do servidor no banco de dados do Azure para PostgreSQL - servidor único do Portal do Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 509c3af66e8228f142126dae6938ad74daf1d7ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 13a8c1ee4b7ca114211f93245d74866e5aa5d52c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421825"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067442"
 ---
-# <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configurar e acessar os logs de servidor no Portal do Azure
+# <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-in-the-azure-portal"></a>Configurar e acessar o banco de dados do Azure para PostgreSQL – logs de servidor único no portal do Azure
 
-É possível configurar, listar e baixar os [logs de servidor do Banco de Dados do Azure para PostgreSQL](concepts-server-logs.md) no Portal do Azure.
+Você pode configurar, listar e baixar o [banco de dados do Azure para PostgreSQL logs](concepts-server-logs.md) do portal do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para seguir este guia de instruções, você precisa:

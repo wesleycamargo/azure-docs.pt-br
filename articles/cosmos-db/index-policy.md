@@ -4,14 +4,14 @@ description: Saiba como configurar e alterar a política para a indexação auto
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: a089d8bd4f2197c93d43e70742743db29944b910
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: c7f2ccd2c074f2488c86b45a09859b308655df8d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872679"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068597"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
 
@@ -72,6 +72,36 @@ Qualquer política de indexação deve incluir o caminho raiz `/*` como um inclu
 - Para caminhos com caracteres normais que incluem: alfanuméricos e _ (sublinhado), você não precisa de escape a cadeia de caracteres de caminho em torno de aspas duplas (por exemplo, "/ caminho /?"). Para caminhos com outros caracteres especiais, você precisará escapar a cadeia de caracteres de caminho em torno de aspas duplas (por exemplo, "/\"caminho-abc\"/?"). Se você espera que os caracteres especiais em seu caminho, você pode escapar todos os caminhos para segurança. Funcionalmente não faz nenhuma diferença se você fazer o escape de todos os caminhos Vs apenas aqueles que têm caracteres especiais.
 
 Ver [esta seção](how-to-manage-indexing-policy.md#indexing-policy-examples) para exemplos de política de indexação.
+
+## <a name="composite-indexes"></a>Índices compostos
+
+Consultas que `ORDER BY` duas ou mais propriedades exigem um índice composto. Atualmente, os índices compostos somente são utilizados pelo Multi `ORDER BY` consultas. Por padrão, não há índices compostos são definidos para que você deve [adicionar índices compostos](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) conforme necessário.
+
+Ao definir um índice composto, especifique:
+
+- Dois ou mais caminhos de propriedade. A sequência na qual propriedade caminhos são definidos é importante.
+- A ordem (crescente ou decrescente).
+
+As considerações a seguir são usadas ao usar índices compostos:
+
+- Se os caminhos de índice composto não corresponderem a sequência das propriedades na cláusula ORDER BY, em seguida, o índice composto não oferece suporte a consulta
+
+- A ordem dos caminhos de índice composto (em ordem crescente ou decrescente) também deve corresponder à ordem na cláusula ORDER BY.
+
+- O índice composto também dá suporte a uma cláusula ORDER BY com ordem oposta em todos os caminhos.
+
+Considere o exemplo a seguir onde um índice composto é definido nas propriedades de a, b e c:
+
+| **Índice composto**     | **Exemplo `ORDER BY` consulta**      | **Suporte ao índice?** |
+| ----------------------- | -------------------------------- | -------------- |
+| ```(a asc, b asc)```         | ```ORDER BY  a asc, bcasc```        | ```Yes```            |
+| ```(a asc, b asc)```          | ```ORDER BY  b asc, a asc```        | ```No```             |
+| ```(a asc, b asc)```          | ```ORDER BY  a desc, b desc```      | ```Yes```            |
+| ```(a asc, b asc)```          | ```ORDER BY  a asc, b desc```       | ```No```             |
+| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc, c asc``` | ```Yes```            |
+| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc```        | ```No```            |
+
+Você deve personalizar sua política de indexação para que você possa servir todas as mídias necessárias `ORDER BY` consultas.
 
 ## <a name="modifying-the-indexing-policy"></a>Modificando a política de indexação
 

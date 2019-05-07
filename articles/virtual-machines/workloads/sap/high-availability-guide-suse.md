@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: 328aa4c80c830014de8ee8b573d13ae56af73efc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 44f99ed1af65eb1e487295c11077fd558ce4285c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925813"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142963"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Alta disponibilidade do SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server para aplicativos SAP
 
@@ -87,6 +87,9 @@ Para obter alta disponibilidade, o SAP NetWeaver requer um servidor NFS. O servi
 
 O servidor NFS, ASCS do SAP NetWeaver, SCS do SAP NetWeaver, ERS do SAP NetWeaver e o banco de dados SAP HANA usam um nome do host virtual e endereços IP virtuais. No Azure, um balanceador de carga é necessário para usar um endereço IP virtual. A lista a seguir mostra a configuração do balanceador de carga (A) SCS e ERS.
 
+> [!IMPORTANT]
+> Clustering de multi-SID de ASCS/ERS do SAP com o SUSE Linux como sistema operacional convidado em VMs do Azure está **não tem suporte**. Clustering de vários SID descreve a instalação de várias instâncias do SAP ASCS/ERS com SIDs diferentes em um cluster do Pacemaker
+
 ### <a name="ascs"></a>(A)SCS
 
 * Configuração de front-end
@@ -114,6 +117,7 @@ O servidor NFS, ASCS do SAP NetWeaver, SCS do SAP NetWeaver, ERS do SAP NetWeave
 * Porta de Investigação
   * Porta 621<strong>&lt;nr&gt;</strong>
 * Regras de balanceamento de carga
+  * 32<strong>&lt;nr&gt;</strong> TCP
   * 33<strong>&lt;nr&gt;</strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
   * 5<strong>&lt;nr&gt;</strong>14 TCP
@@ -202,7 +206,7 @@ Primeiro, você precisa criar as máquinas virtuais para este cluster NFS. Poste
          * Repita as etapas acima para criar uma investigação de integridade para ERS (por exemplo, 621**02** e **nw1-aers-hp**)
    1. Regras de balanceamento de carga
       1. 32**00** TCP para ASCS
-         1. Clique no balanceador de carga, escolha as regras de balanceamento de carga e clique em Adicionar
+         1. Abra o balanceador de carga, selecione as regras de balanceamento de carga e clique em Adicionar
          1. Insira o nome da nova regra do balanceador de carga (por exemplo, **nw1-lb-3200**)
          1. Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade criados anteriormente (por exemplo, **nw1-ascs-frontend**)
          1. Mantenha o protocolo **TCP**, insira a porta **3200**
@@ -587,7 +591,7 @@ Se usando uma arquitetura de servidor 2 enqueue ([ENSA2](https://help.sap.com/vi
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
-  Se você estiver atualizando de uma versão mais antiga e alternar para o servidor de enfileiramento 2, consulte a nota sap [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
+  Se você estiver atualizando de uma versão mais antiga e alternar para o servidor de enfileiramento 2, consulte SAP Observação [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
 
    Verifique se o status do cluster é ok e se todos os recursos estão iniciados. Não importa em qual nó os recursos estão sendo executados.
 

@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: c6746dc4bd5732a13c25793ed572a85acfca82d4
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4e224a1abf72bfa068bebaf971e34c492b15d7c0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925795"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143002"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Alta disponibilidade de máquinas virtuais do Azure para SAP NetWeaver no Red Hat Enterprise Linux
 
@@ -87,6 +87,9 @@ Para obter alta disponibilidade, o SAP NetWeaver requer armazenamento compartilh
 
 O SAP NetWeaver ASCS, o SAP NetWeaver SCS, o SAP NetWeaver ERS e o banco de dados SAP HANA usam o nome do host virtual e os endereços IP virtuais. No Azure, um balanceador de carga é necessário para usar um endereço IP virtual. A lista a seguir mostra a configuração do balanceador de carga (A) SCS e ERS.
 
+> [!IMPORTANT]
+> Clustering de multi-SID do SAP ASCS/ERS com Red Hat Linux como sistema operacional convidado em VMs do Azure está **não tem suporte**. Clustering de vários SID descreve a instalação de várias instâncias do SAP ASCS/ERS com SIDs diferentes em um cluster do Pacemaker.
+
 ### <a name="ascs"></a>(A)SCS
 
 * Configuração de front-end
@@ -113,6 +116,7 @@ O SAP NetWeaver ASCS, o SAP NetWeaver SCS, o SAP NetWeaver ERS e o banco de dado
 * Porta de Investigação
   * Porta 621<strong>&lt;nr&gt;</strong>
 * Regras de balanceamento de carga
+  * 32<strong>&lt;nr&gt;</strong> TCP
   * 33<strong>&lt;nr&gt;</strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
   * 5<strong>&lt;nr&gt;</strong>14 TCP
@@ -124,11 +128,11 @@ O SAP NetWeaver requer um armazenamento compartilhado para o diretório de perfi
 
 ## <a name="setting-up-ascs"></a>Configuração do (A)SCS
 
-Você pode usar um modelo do Azure do github para implantar todos os recursos necessários do Azure, incluindo as máquinas virtuais, o conjunto de disponibilidade e o balanceador de carga, ou implantar os recursos manualmente.
+Você pode usar um Modelo do Azure do GitHub para implantar todos os recursos do Azure necessários, incluindo as máquinas virtuais, o conjunto de disponibilidade e balanceador de carga ou você pode implantar os recursos manualmente.
 
 ### <a name="deploy-linux-via-azure-template"></a>Implantar o Linux por meio do Modelo do Azure
 
-O Azure Marketplace contém uma imagem do Red Hat Enterprise Linux, você pode usar para implantar novas máquinas virtuais. Você pode usar um dos modelos de início rápido no github para implantar todos os recursos necessários. O modelo implanta as máquinas virtuais, o balanceador de carga, o conjunto de disponibilidade etc. Siga estas etapas para implantar o modelo:
+O Azure Marketplace contém uma imagem do Red Hat Enterprise Linux, você pode usar para implantar novas máquinas virtuais. Você pode usar um dos modelos de início rápido no GitHub para implantar todos os recursos necessários. O modelo implanta as máquinas virtuais, o balanceador de carga, o conjunto de disponibilidade etc. Siga estas etapas para implantar o modelo:
 
 1. Abra o [modelo de ASCS/SCS][template-multisid-xscs] no portal do Azure  
 1. Defina os seguintes parâmetros
@@ -145,7 +149,7 @@ O Azure Marketplace contém uma imagem do Red Hat Enterprise Linux, você pode u
    1. Disponibilidade do sistema  
       Selecione HA
    1. Chave de Admin Username, a senha de administrador ou SSH  
-      É criado um novo usuário que pode ser usado para fazer logon no computador.
+      Um novo usuário é criado que pode ser usado para fazer logon máquina.
    1. ID da Sub-rede  
    Se você deseja implantar a VM em uma rede virtual existente em que você tem uma sub-rede definida para a qual a VM deve ser designada, nomeie a identificação dessa sub-rede específica. A ID geralmente tem esta aparência: /subscriptions/**&lt;ID da assinatura&gt;**/resourceGroups/**&lt;nome do grupo de recursos&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nome de rede virtual&gt;**/subnets/**&lt;nome da sub-rede&gt;**
 
@@ -194,7 +198,7 @@ Você primeiro precisa criar as máquinas virtuais para este cluster. Posteriorm
          * Repita as etapas acima para criar uma investigação de integridade para ERS (por exemplo, 621**02** e **nw1-aers-hp**)
    1. Regras de balanceamento de carga
       1. 32**00** TCP para ASCS
-         1. Clique no balanceador de carga, escolha as regras de balanceamento de carga e clique em Adicionar
+         1. Abra o balanceador de carga, selecione as regras de balanceamento de carga e clique em Adicionar
          1. Insira o nome da nova regra do balanceador de carga (por exemplo, **nw1-lb-3200**)
          1. Selecione o endereço IP de front-end, o pool de back-end e a investigação de integridade criados anteriormente (por exemplo, **nw1-ascs-frontend**)
          1. Mantenha o protocolo **TCP**, insira a porta **3200**
@@ -527,7 +531,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    sudo pcs property set maintenance-mode=false
    </code></pre>
 
-   Se você estiver atualizando de uma versão mais antiga e alternar para o servidor de enfileiramento 2, consulte a nota sap [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
+   Se você estiver atualizando de uma versão mais antiga e alternar para o servidor de enfileiramento 2, consulte SAP Observação [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
 
    Verifique se o status do cluster é ok e se todos os recursos estão iniciados. Não importa em qual nó os recursos estão sendo executados.
 

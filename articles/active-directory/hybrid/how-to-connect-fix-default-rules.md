@@ -13,184 +13,187 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 761f3e6e72319a2e63d6b66f2893130ec5a82ebf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d2f0956b44d6df64fb73e5eee7844574237d8755
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60352748"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067626"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Corrigir regras padrão modificadas no Azure AD Connect
 
-O Azure AD Connect é fornecido com as regras padrão para sincronização.  Infelizmente, essas regras não aplicam universalmente a todas as organizações e pode haver ocasiões, com base em seus requisitos, quando você precisar modificá-los.
-
- Se você tiver modificado as regras padrão ou estiver planejando modificá-los, reserve um tempo para ler este documento.
-
-Este documento apresenta 2 exemplos das personalizações mais comuns realizadas pelos usuários e explica a maneira correta de alcançar essas personalizações.
+Azure Active Directory (Azure AD) Connect usa as regras padrão para sincronização.  Infelizmente, essas regras não se aplicam universalmente para todas as organizações. De acordo com suas necessidades, talvez seja necessário modificá-los. Este artigo discute dois exemplos das personalizações mais comuns e explica a maneira correta de alcançar essas personalizações.
 
 >[!NOTE] 
-> Modificar as regras do padrão existente para atingir uma personalização necessária não é suportada - ao fazer isso que impedirá de atualizar essas regras para a versão mais recente em versões futuras. Isso impedirá que você receber novos recursos e correções de bugs necessárias.  Este documento explicará como obter o mesmo resultado sem modificar as regras padrão existentes. 
+> Modificar as regras padrão existentes para alcançar uma personalização necessária não tem suporte. Se você fizer isso, impede que atualizar essas regras para a versão mais recente em futuras versões. Você não obterá as correções de bug que você precisa, ou novos recursos. Este documento explica como obter o mesmo resultado sem modificar as regras padrão existentes. 
 
-## <a name="how-to-identify-modified-default-rules"></a>Como identificar as regras padrão modificado?
-Começando com a versão 1.3.7.0 dos **do Azure AD Connect**, agora é fácil identificar a regra padrão modificadas. Você pode ir para aplicativos na área de trabalho e clique em **Editor de regras de sincronização**.
+## <a name="how-to-identify-modified-default-rules"></a>Como identificar as regras padrão modificado
+Começando pela versão 1.3.7.0 do Azure AD Connect, é fácil identificar a regra padrão modificadas. Vá para **aplicativos na área de trabalho**e selecione **Editor de regras de sincronização**.
 
-![Editor](media/how-to-connect-fix-default-rules/default1.png)
+![Azure AD Connect, com o Editor de regras de sincronização realçado](media/how-to-connect-fix-default-rules/default1.png)
 
-No Editor de regras padrão modificado serão mostradas com um ícone na frente do nome conforme mostrado abaixo:
+No Editor de regras padrão modificadas são mostradas com um ícone de aviso na frente do nome.
 
-![ícone](media/how-to-connect-fix-default-rules/default2.png)
+![Ícone de aviso](media/how-to-connect-fix-default-rules/default2.png)
 
- Além disso, você verá uma regra desabilitada com o mesmo nome que é a regra padrão ao lado dele:
+ Desabilitado de regra com o mesmo nome próximo a ele também aparece (essa é a regra padrão).
 
-![regras padrão](media/how-to-connect-fix-default-rules/default2a.png)
+![Editor de regras de sincronização, mostrando a regra padrão e a regra padrão modificado](media/how-to-connect-fix-default-rules/default2a.png)
 
 ## <a name="common-customizations"></a>Personalizações comuns
 A seguir estão as personalizações comuns para as regras padrão:
 
-- [Alterando o fluxo de atributos](#changing-attribute-flow)
-- [Alterar o filtro de escopo](#changing-scoping-filter)
-- [Alterar a condição de junção](#changing-join-condition)
+- Alterar o fluxo de atributos
+- Altere o filtro de escopo
+- Condição de junção de alteração
 
-## <a name="before-changing-any-rules"></a>Antes de alterar todas as regras
-- Desabilite o Agendador de sincronização.  O Agendador é executado a cada 30 minutos por padrão. Verifique se ele não está iniciando enquanto você está fazendo alterações e solucionando os problemas das novas regras. Para desabilitar temporariamente o agendador, inicie o PowerShell e execute `Set-ADSyncScheduler -SyncCycleEnabled $false`.
- ![regras padrão](media/how-to-connect-fix-default-rules/default3.png)
+Antes de alterar todas as regras:
 
-- A alteração no filtro de escopo pode resultar na exclusão de objetos no diretório de destino. Por favor, tenha cuidado antes de fazer alterações em como o escopo de objetos. É recomendável fazer alterações para um servidor de preparo antes de fazer alterações no servidor do Active Directory.
-- Execute uma visualização em um único objeto, conforme mencionado na [Validar regra de sincronização](#validate-sync-rule) seção, depois de adicionar qualquer nova regra.
-- Execute uma sincronização completa depois de adicionar uma nova regra ou modificar qualquer regra de sincronização personalizadas. Esta sincronização aplicará as novas regras para todos os objetos.
+- Desabilite o Agendador de sincronização. O Agendador é executado a cada 30 minutos por padrão. Verifique se que ele não está iniciando enquanto você estiver fazendo alterações e solução de problemas de suas novas regras. Para desabilitar temporariamente o Agendador, inicie o PowerShell e execute `Set-ADSyncScheduler -SyncCycleEnabled $false`.
+ ![Comandos do PowerShell para desabilitar o Agendador de sincronização](media/how-to-connect-fix-default-rules/default3.png)
 
-## <a name="changing-attribute-flow"></a>Alterando o fluxo de atributos
-Há 3 cenários diferentes para o fluxo de atributo, vamos dar uma olhada em como fazer isso sem alterar as regras padrão.
-- Adicionando um novo atributo
-- Substituindo o valor de atributo existente
-- Não sincronizar atributo existente
+- A alteração no filtro de escopo pode resultar na exclusão de objetos no diretório de destino. Tenha cuidado antes de fazer alterações em como o escopo de objetos. É recomendável que você faça alterações para um servidor de preparo antes de fazer alterações no servidor do Active Directory.
+- Executar uma visualização em um único objeto, conforme mencionado na [Validar regra de sincronização](#validate-sync-rule) seção, depois de adicionar qualquer nova regra.
+- Execute uma sincronização completa após uma nova regra de adição ou modificação de qualquer regra de sincronização personalizadas. Esta sincronização se aplica a novas regras para todos os objetos.
 
-### <a name="adding-new-attribute"></a>Adicionando um novo atributo:
-Se você achar que um atributo não está fluindo do seu diretório de origem para o diretório de destino e em seguida, você pode usar o [Azure AD Connect sync: Extensões de diretório](how-to-connect-sync-feature-directory-extensions.md) para os novos atributos de fluxo.
+## <a name="change-attribute-flow"></a>Alterar o fluxo de atributos
+Há três cenários diferentes para alterar o fluxo de atributo:
+- Adicionando um novo atributo.
+- Substituindo o valor de um atributo existente.
+- Escolha não sincronizar um atributo existente.
 
-Observe que a sua primeira opção deve ser usar [Azure AD Connect sync: Extensões de diretório](how-to-connect-sync-feature-directory-extensions.md), um fora do recurso de caixa fornecido pelo Azure AD Connect. No entanto, se ele não funcionar para você em seguida, percorra as seguintes etapas para fluir um atributo sem modificar a regra de sincronização padrão existente, você pode fazer isso adicionando duas novas regras de sincronização.
+Você pode fazer essas sem alterar as regras padrão.
+
+### <a name="add-a-new-attribute"></a>Adicionar um novo atributo
+Se você encontrar um atributo não está fluindo do seu diretório de origem para o diretório de destino, use o [Azure AD Connect sync: Extensões de diretório](how-to-connect-sync-feature-directory-extensions.md) para corrigir esse problema.
+
+Se as extensões não funcionarem para você, tente adicionar duas novas regras de sincronização, descritas nas seções a seguir.
 
 
-#### <a name="add-an-inbound-sync-rule"></a>Adicione uma regra de sincronização de entrada:
-Regra de sincronização de entrada significa que a fonte para o atributo é um espaço do conector e o destino é o metaverso. Por exemplo, para fazer fluir um novo atributo de diretório Active Directory local ao Azure Active Directory, criar uma nova regra de sincronização de entrada iniciando o **Editor de regra de sincronização**, em seguida, selecione a direção como **Inbound** e clique em **adicionar nova regra**. 
+#### <a name="add-an-inbound-sync-rule"></a>Adicionar uma regra de sincronização de entrada
+Uma regra de sincronização de entrada significa que a fonte para o atributo é um espaço do conector e o destino é o metaverso. Por exemplo ter um novo atributo flua do local do Active Directory ao Azure Active Directory, crie uma nova regra de sincronização de entrada. Inicie o **Editor de regras de sincronização**, selecione **Inbound** como a direção e selecione **adicionar nova regra**. 
 
- ![regras padrão](media/how-to-connect-fix-default-rules/default3a.png)
+ ! Sincronização regras Editor](media/how-to-connect-fix-default-rules/default3a.png)
 
-Execute sua própria convenção de nomenclatura para nomear a regra, aqui a usamos **personalizados em do AD – usuário**, isso significa que a regra é uma regra personalizada e uma regra de entrada do espaço conector do AD para o metaverso.   
+Execute sua própria convenção de nomenclatura para nomear a regra. Aqui, usaremos **personalizado em do AD – usuário**. Isso significa que a regra é uma regra personalizada e é uma regra de entrada do espaço do conector do Active Directory para o metaverso.   
 
- ![regras padrão](media/how-to-connect-fix-default-rules/default3b.png)
+ ![Criar regra de sincronização de entrada](media/how-to-connect-fix-default-rules/default3b.png)
 
-Fornecer sua própria descrição da regra para que a manutenção futura da regra é fácil, como o que é o objetivo desta regra e por que ela foi necessária.
-Selecione um sistema conectado (floresta), a origem do atributo. Em seguida, selecione o tipo de objeto do sistema conectado e o tipo de objeto do metaverso.
+Fornece sua própria descrição da regra, para que a manutenção futura da regra é fácil. Por exemplo, a descrição pode ser com base no qual é o objetivo da regra e por que ela é necessária.
 
-Especifique o valor de precedência entre 0 e 99 (diminuir o número, maior a precedência). Mantenha os outros campos como 'Tag', 'Habilitar a sincronização de senha' e 'Desabilitados' como padrão.
+Faça suas seleções o **sistema conectado**, **tipo de objeto de sistema conectado**, e **tipo de objeto do metaverso** campos.
 
-Manter 'filtro de escopo' vazio, isso significa que a regra será aplicada a todos os objetos Unidos entre o sistema conectado do AD e o metaverso.
+Especifique o valor de precedência de 0 a 99 (quanto menor o número, maior a precedência). Para o **marca**, **habilitar a sincronização de senha**, e **desabilitado** campos, use as seleções padrão.
 
-Mantenha a esvaziar regras de associação, que significa que essa regra será pegar carona na condição de junção definida na regra padrão. Essa é outra razão para não desabilitar/excluir a regra padrão porque se não houver nenhuma condição de junção acumule, em seguida, o atributo não fluirão. 
+Manter **filtro de escopo** vazio. Isso significa que a regra se aplica a todos os objetos associados entre os sistemas conectado do Active Directory e o metaverso.
 
-Adicione a transformação apropriada para seu atributo, você pode atribuir constante para um valor constante para o atributo de destino de fluxo ou direcionar o mapeamento entre o atributo de origem ou destino, ou uma expressão para o atributo. Aqui estão vários [funções de expressão](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-functions-reference) você pode usar.
+Manter **regras de junção** vazio. Isso significa que essa regra usa a condição de junção definida na regra padrão. Essa é outra razão para não desabilitar ou excluir a regra padrão. Se não houver nenhuma condição de junção, o atributo de fluxo não. 
 
-#### <a name="add-an-outbound-sync-rule"></a>Adicione uma regra de sincronização de saída:
-Até agora, adicionando apenas uma regra de sincronização de entrada fizemos metade do trabalho, porque o atributo ainda não está vinculado para o diretório de destino. Para vincular o atributo para o Diretor de destino, você precisará criar uma regra de saída, o que significa que o código-fonte é o metaverso e o destino é o sistema conectado. Para criar uma regra de saída, inicie **Editor de regra de sincronização**, altere o **direção** para **Outbound** e clique em **adicionar nova regra**. 
+Adicione transformações apropriadas para seu atributo. Você pode atribuir uma constante, para tornar uma constante de valor de fluxo para o atributo de destino. Você pode usar o mapeamento direto entre o atributo de origem ou destino. Ou, você pode usar uma expressão para o atributo. Aqui estão vários [funções de expressão](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-functions-reference) você pode usar.
 
-![regras padrão](media/how-to-connect-fix-default-rules/default3c.png)
+#### <a name="add-an-outbound-sync-rule"></a>Adicionar uma regra de sincronização de saída
+Para vincular o atributo para o diretório de destino, você precisará criar uma regra de saída. Isso significa que a fonte é o metaverso e o destino é o sistema conectado. Para criar uma regra de saída, inicie o **Editor de regras de sincronização**, altere o **direção** para **Outbound**e selecione **adicionar nova regra**. 
 
-Como a regra de entrada, você pode usar sua própria convenção de nomenclatura para **nome** a regra. Selecione o **sistema conectado** como locatário do AD do Azure, selecione o objeto de sistema conectado ao qual você deseja definir o valor do atributo. Definir a precedência entre 0 - 99. 
+![Editor de Regras de Sincronização](media/how-to-connect-fix-default-rules/default3c.png)
 
-![regras padrão](media/how-to-connect-fix-default-rules/default3d.png)
+Como com a regra de entrada, você pode usar sua própria convenção de nomenclatura para nomear a regra. Selecione o **sistema conectado** como o locatário do Azure AD e selecione o sistema conectado o objeto ao qual você deseja define o valor do atributo. Defina a precedência de 0 a 99. 
 
-Manter **filtro de escopo** vazio, keep **regras de junção** vazias, preencha a transformação como constante, direta ou expressão. 
+![Criar regra de sincronização de saída](media/how-to-connect-fix-default-rules/default3d.png)
 
-Neste exemplo demonstramos como fluir um novo atributo para um objeto de usuário do Active Directory ao Azure Active Directory. Você pode usar estas etapas para mapear qualquer atributo de qualquer objeto de origem e destino.  Para obter mais informações, consulte [criando regras de sincronização personalizadas](how-to-connect-create-custom-sync-rule.md) e [preparar para provisionar usuários](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization).
+Manter **filtro de escopo** e **regras de junção** vazio. Preencha a transformação como constante, direta ou expressão. 
 
-### <a name="overriding-value-of-existing-attribute"></a>Substituindo o valor de atributo existente
-É possível que você deseja substituir o valor do atributo já mapeado, por exemplo você sempre queira definir o valor Null para um atributo no Azure AD, você pode fazer isso, simplesmente criando apenas uma regra de entrada conforme mencionado na etapa anterior e fluxo  **AuthoritativeNull** valor constante para o atributo de destino. Observe que usamos AuthoritativeNulll em vez de Null nesse caso. Isso ocorre porque o valor não nulo substituirá o valor nulo, mesmo se ele tem uma precedência mais baixa (maior valor numérico na regra). No entanto, o AuthoritativeNull será tratado como Null e não será substituído pelo valor não nulo por outras regras. 
+Agora você sabe como fazer um novo atributo para um fluxo do objeto de usuário do Active Directory ao Azure Active Directory. Você pode usar estas etapas para mapear qualquer atributo de qualquer objeto de origem e destino. Para obter mais informações, consulte [criando regras de sincronização personalizadas](how-to-connect-create-custom-sync-rule.md) e [preparar para provisionar usuários](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization).
+
+### <a name="override-the-value-of-an-existing-attribute"></a>Substituir o valor de um atributo existente
+Talvez você queira substituir o valor de um atributo que já foi mapeado. Por exemplo, se você quiser sempre definir um valor nulo para um atributo no Azure AD, simplesmente crie apenas uma regra de entrada. Verifique o valor da constante, `AuthoritativeNull`, fluxo para o atributo de destino. 
+
+>[!NOTE] 
+> Use `AuthoritativeNull` em vez de `Null` nesse caso. Isso é porque o valor não nulo substitui o valor nulo, mesmo se ele tem uma precedência mais baixa (um valor mais alto número na regra). `AuthoritativeNull`, por outro lado, não é substituído por um valor não nulo por outras regras. 
 
 ### <a name="dont-sync-existing-attribute"></a>Não sincronizar atributo existente
-Se você desejar excluir um atributo da sincronização, você pode usar o atributo de filtragem de recurso fornecido no Azure AD Connect. Inicie **do Azure AD Connect** no ícone da área de trabalho e selecione **personalizar opções de sincronização**.
+Se você desejar excluir um atributo da sincronização, use o atributo fornecido no Azure AD Connect do recurso de filtragem. Inicie **do Azure AD Connect** do ícone da área de trabalho e, em seguida, selecione **personalizar opções de sincronização**.
 
-![regras padrão](media/how-to-connect-fix-default-rules/default4.png)
+![Opções de tarefas adicionais do Azure AD Connect](media/how-to-connect-fix-default-rules/default4.png)
 
- Certifique-se **aplicativo do Azure AD e a filtragem de atributo** está selecionado e clique em **próxima**.
+ Certifique-se **aplicativo do Azure AD e a filtragem de atributo** está selecionado e selecione **próxima**.
 
-![regras padrão](media/how-to-connect-fix-default-rules/default5.png)
+![Recursos opcionais do Azure AD Connect](media/how-to-connect-fix-default-rules/default5.png)
 
 Desmarque os atributos que você deseja excluir da sincronização.
 
-![regras padrão](media/how-to-connect-fix-default-rules/default6a.png)
+![Atributos do Azure AD Connect](media/how-to-connect-fix-default-rules/default6a.png)
 
-## <a name="changing-scoping-filter"></a>Alterar o filtro de escopo
-Sincronização do Azure AD cuida da maioria dos objetos, você pode reduzir o escopo dos objetos e reduzi-lo menos objetos a serem exportados de uma maneira com suporte sem alterar as regras de sincronização padrão. No caso de você desejar aumentar o escopo dos objetos, em seguida, você pode **editar** a regra existente, cloná-lo e desabilitar a regra original. A Microsoft recomenda que você não aumentar o escopo configurado pelo Azure AD Connect. Aumento no escopo de objetos será mais difícil para a equipe de suporte para entender as personalizações e suporte do produto.
+## <a name="change-scoping-filter"></a>Altere o filtro de escopo
+Sincronização do Azure AD cuida da maioria dos objetos. Você pode reduzir o escopo dos objetos e reduzir o número de objetos a serem exportados, sem alterar as regras de sincronização padrão. 
 
-Aqui está como você pode reduzir o escopo dos objetos sincronizados ao AD do Azure. Observe que, se você reduzir o escopo do **usuários** sendo sincronizado a sincronização de hash de senha também será interrompida para os usuários de saída filtrada. Se os objetos são já está sincronizando, em seguida, após a redução de escopo, os objetos filtrados-out será excluído do diretório de destino, trabalhe no escopo com muito cuidado.
-Aqui estão as maneiras com suporte para reduzir o escopo dos objetos que você estiver sincronizando.
+Use um dos seguintes métodos para reduzir o escopo dos objetos que você está sincronizando:
 
-- [atributo cloudFiltered](#cloudfiltered-attribute)
-- [Filtragem de UO](#ou-filtering)
+- atributo cloudFiltered
+- Filtragem de unidade de organização
+
+Se você reduzir o escopo de usuários que estão sendo sincronizados, a sincronização de hash de senha também é interrompido para os usuários de saída filtrada. Se os objetos já estiver sincronizando, depois que você reduzir o escopo, os objetos filtrados horizontalmente são excluídos do diretório de destino. Por esse motivo, certifique-se de que você definir o escopo com muito cuidado.
+
+>[!IMPORTANT] 
+> Não é recomendado aumentar o escopo dos objetos configurado pelo Azure AD Connect. Isso torna difícil para a equipe de suporte da Microsoft entender as personalizações. Se você precisa aumentar o escopo dos objetos, edite a regra existente, cloná-lo e desabilitar a regra original. 
 
 ### <a name="cloudfiltered-attribute"></a>atributo cloudFiltered
-Observe que isso não é um atributo que pode ser definido no Active Directory. Você precisa definir o valor desse atributo, adicionando uma nova regra de entrada, conforme mencionado na **substituindo o valor de atributo existente** seção. Em seguida, você pode usar o **Transformation** e use **expressão** definir esse atributo no metaverso. Aqui está um exemplo que você não deseja sincronizar tudo do usuário cujo nome de departamento começa com maiusculas e minúsculas **HRD**:
+É possível definir esse atributo no Active Directory. Defina o valor desse atributo, adicionando uma nova regra de entrada. Você pode usar **Transformation** e **expressão** definir esse atributo no metaverso. O exemplo a seguir mostra que você não deseja sincronizar todos os usuários cujo nome de departamento começa com **HRD** (diferencia maiusculas de minúsculas):
 
 `cloudFiltered <= IIF(Left(LCase([department]), 3) = "hrd", True, NULL)`
 
-Primeiro convertemos o departamento de origem (Active Directory) em letras minúsculas. Em seguida, usando a função Left, podemos levou apenas 3 primeiros caracteres e comparado-lo com HDR. Se ele tiver uma correspondência, em seguida, defina o valor como NULL caso contrário, True. Observe que definimos o valor NULL, para que outra regra com menor precedência (valor de número mais alto) pode gravar nele com condição diferente. Execute a visualização em um objeto para validar a regra de sincronização conforme mencionado na [Validar regra de sincronização](#validate-sync-rule) seção.
+Podemos convertida primeiro o departamento de origem (Active Directory) em minúsculas. Em seguida, usando o `Left` função, podemos levou apenas os três primeiros caracteres e comparado-o com `hrd`. Se ele tiver uma correspondência, o valor é definido como `True`; caso contrário, `NULL`. No definindo o valor como nulo, outra regra com menor precedência (um valor de número mais alto) pode dar a ele com uma condição diferente. Visualização de execução em um objeto para validar a regra de sincronização, conforme mencionado na [regra de sincronização de validar](#validate-sync-rule) seção.
 
-![regras padrão](media/how-to-connect-fix-default-rules/default7a.png)
+![Criar opções de regra de sincronização de entrada](media/how-to-connect-fix-default-rules/default7a.png)
 
+### <a name="organizational-unit-filtering"></a>Filtragem de unidade organizacional
+Você pode criar uma ou mais unidades organizacionais (OUs) e mover os objetos que você não deseja sincronizar a essas UOs. Em seguida, configure a Azure AD Connect de filtragem da UO. Inicie **do Azure AD Connect** no ícone da área de trabalho e selecione as opções a seguir. Você também pode configurar a filtragem no momento da instalação do Azure AD Connect da UO. 
 
-
-### <a name="ou-filtering"></a>Filtragem de UO
-Você pode criar uma ou mais OUs e mover os objetos que você não deseja sincronizar a essas UOs. Em seguida, configure a filtragem no Azure AD Connect iniciando da UO **do Azure AD Connect** no ícone da área de trabalho e selecione as opções conforme mostrado abaixo. Você também pode configurar a filtragem no momento da instalação do Azure AD Connect da UO. 
-
-![regras padrão](media/how-to-connect-fix-default-rules/default8.png)
+![Tarefas adicionais do Azure AD Connect](media/how-to-connect-fix-default-rules/default8.png)
 
 Siga o assistente e, em seguida, desmarque as UOs que você não deseja sincronizar.
 
-![regras padrão](media/how-to-connect-fix-default-rules/default9.png)
+![Opções de filtragem de UO e conecte-se de domínio do AD do Azure](media/how-to-connect-fix-default-rules/default9.png)
 
-## <a name="changing-join-condition"></a>Alterar a condição de junção
-A Microsoft recomenda que você use o padrão ingressar condições configurados pelo Azure AD Connect. Alterar as condições de junção padrão tornará difícil para a equipe de suporte para entender as personalizações e suporte do produto.
+## <a name="change-join-condition"></a>Condição de junção de alteração
+Use as condições de junção padrão configuradas pelo Azure AD Connect. Alterar as condições de junção padrão torna difícil para o suporte da Microsoft entender as personalizações e suporte do produto.
 
 ## <a name="validate-sync-rule"></a>Validar a regra de sincronização
-Você pode validar a regra de sincronização adicionado recentemente usando o recurso de visualização sem executar o ciclo de sincronização completa. Inicie **serviço de sincronização** interface do usuário.
+Você pode validar a regra de sincronização adicionado recentemente usando o recurso de visualização, sem executar o ciclo de sincronização completa. No Azure AD Connect, selecione **serviço de sincronização**.
 
-![regras padrão](media/how-to-connect-fix-default-rules/default10.png)
+![Azure AD Connect, com o serviço de sincronização realçado](media/how-to-connect-fix-default-rules/default10.png)
 
-Clique no **pesquisa de metaverso**, selecione o objeto de escopo como **pessoa**, **Adicionar cláusula** e mencione a seus critérios de pesquisa. Clique em **pesquisa** botão e clique duas vezes no objeto do **os resultados da pesquisa** Observe que você execute a importação e sincronização na floresta antes de executar essa etapa, isso é para garantir que os dados no Azure AD Connect está atualizado para esse objeto.
+Selecione **pesquisa de metaverso**. Selecione o objeto de escopo como **pessoa**, selecione **Adicionar cláusula**e mencione a seus critérios de pesquisa. Em seguida, selecione **pesquisa**e clique duas vezes o objeto nos resultados da pesquisa. Certifique-se de que seus dados no Azure AD Connect são atualizados para o objeto, executando de importação e sincronização na floresta antes de executar esta etapa.
 
-![regras padrão](media/how-to-connect-fix-default-rules/default11.png)
+![Synchronization Service Manager](media/how-to-connect-fix-default-rules/default11.png)
 
+Na **propriedades do objeto de metaverso**, selecione **conectores**, selecione o objeto no conector correspondente (floresta) e selecione **propriedades...** .
 
+![Propriedades de Objeto do Metaverso](media/how-to-connect-fix-default-rules/default12.png)
 
-Selecione **conectores**, selecione o objeto em connector(forest) correspondente, clique em **propriedades...** .
+Selecione **visualização...**
 
-![regras padrão](media/how-to-connect-fix-default-rules/default12.png)
+![Propriedades de objeto do espaço do conector](media/how-to-connect-fix-default-rules/default13a.png)
 
-Clique no **visualização...**
+Na janela de visualização, selecione **gerar visualização** e **fluxo de atributos de importação** no painel esquerdo.
 
-![regras padrão](media/how-to-connect-fix-default-rules/default13a.png)
-
-Clique em **gerar visualização** e **fluxo de atributos de importação** no painel esquerdo.
-
-![regras padrão](media/how-to-connect-fix-default-rules/default14.png)
+![Visualização](media/how-to-connect-fix-default-rules/default14.png)
  
-Aqui você vai notar que a regra recém-adicionado é executada no objeto e tiver definido o atributo cloudFiltered como True.
+Aqui, observe que a regra recém-adicionado é executada no objeto e tiver definido o `cloudFiltered` atributo como true.
 
-![regras padrão](media/how-to-connect-fix-default-rules/default15a.png)
+![Visualização](media/how-to-connect-fix-default-rules/default15a.png)
  
-Como comparar regra modificada com a regra padrão?
-Você pode exportar as regras separadamente como arquivos de texto. Essas regras serão exportadas como arquivo de script do powershell. Você pode compará-los usando qualquer ferramenta de comparação de arquivo para ver quais tipos de alterações são feitas. Aqui neste exemplo, eu usei windiff para comparar dois arquivos.
+Para comparar a regra modificada com a regra padrão, exporte ambos das regras o separadamente, como arquivos de texto. Essas regras são exportadas como um arquivo de script do PowerShell. Você pode compará-los usando qualquer ferramenta de comparação de arquivo (por exemplo, o windiff) para ver as alterações. 
  
-Você pode observar que, no usuário modificado regra, atributo msExchMailboxGuid é alterado para **expressão** em vez de **direto** com o valor como **nulo** e  **ExecuteOnce** opção. Você pode ignorar as diferenças de precedência e identificados. 
+Observe que a regra modificada, o `msExchMailboxGuid` atributo é alterado para o **expressão** tipo, em vez de **direto**. Além disso, o valor é alterado para **nulo** e **ExecuteOnce** opção. Você pode ignorar as diferenças de precedência e identificados. 
 
-![regras padrão](media/how-to-connect-fix-default-rules/default17.png)
+![saída da ferramenta WinDiff](media/how-to-connect-fix-default-rules/default17.png)
  
-Como corrigir uma regra padrão modificado?
-Para corrigir as regras para as configurações padrão, você pode excluir a regra modificada e habilitar a regra padrão, conforme mostrado abaixo e, em seguida, executar uma **sincronização completa**. Antes de fazer isso, execute ações corretivas, como mencionado acima, para que você não perca a personalização que você está tentando alcançar # # próximas etapas
+Para corrigir as regras para alterá-las de volta para as configurações padrão, exclua a regra modificada e habilite a regra padrão. Certifique-se de que você não perca a personalização que você está tentando atingir. Quando estiver pronto, execute **sincronização completa**.
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Pré-requisitos e hardware](how-to-connect-install-prerequisites.md) 
 - [Configurações Expressas](how-to-connect-install-express.md)
 - [Configurações personalizadas](how-to-connect-install-custom.md)
+
+
 

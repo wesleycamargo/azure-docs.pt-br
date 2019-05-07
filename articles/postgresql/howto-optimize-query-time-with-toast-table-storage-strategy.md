@@ -1,19 +1,17 @@
 ---
-title: Otimizar o tempo de consulta no Banco de Dados do Azure para PostgreSQL usando a estratégia de armazenamento de tabela TOAST
-description: Este artigo descreve como otimizar o tempo de consulta com a estratégia de armazenamento de tabela TOAST em um Banco de Dados do Azure para PostgreSQL.
-author: WenJason
-ms.author: v-jay
-editor: jasonwhowell
+title: Otimizar o tempo de consulta usando a estratégia de armazenamento de tabela do sistema no banco de dados do Azure para PostgreSQL – servidor único
+description: Este artigo descreve como otimizar o tempo de consulta com a estratégia de armazenamento de tabela do sistema em um banco de dados do Azure para PostgreSQL – servidor único.
+author: dianaputnam
+ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 10/22/2018
-ms.date: 02/18/2019
-ms.openlocfilehash: 96793cb1785a7ffa86331285f401453641b50dac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: ac1dc43a2b89bc1cc748947ec08e6ada87edbfcb
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421049"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65066994"
 ---
 # <a name="optimize-query-time-with-the-toast-table-storage-strategy"></a>Otimizar o tempo de consulta com a estratégia de armazenamento de tabela TOAST 
 Este artigo descreve como otimizar os tempos de consulta com a estratégia de armazenamento de tabela TOAST (técnica de armazenamento de atributo de tamanho grande).
@@ -30,7 +28,7 @@ Se suas consultas acessarem tipos de dados que podem usar TOAST, considere usar 
 
 Se você tiver uma carga de trabalho que usa um esquema com tabelas amplas e altas contagens de caracteres, considere usar as tabelas TOAST do PostgreSQL. Um exemplo de tabela de clientes tinha mais de 350 colunas com várias colunas que abrangiam 255 caracteres. Após sua conversão na estratégia Principal da tabela TOAST, o tempo de consulta de benchmarks foi reduzido de 4203 segundos para 467 segundos. É uma melhoria de 89%.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Analise sua carga de trabalho quanto às características anteriores. 
 
 Examine a seguinte documentação do PostgreSQL: 

@@ -1,20 +1,20 @@
 ---
-title: Conectar-se para visualização de área de trabalho Virtual do Windows com o Windows 7 e Windows 10 - Azure
-description: Como se conectar ao serviço de visualização de área de trabalho Virtual do Windows com o Windows 7 ou Windows 10.
+title: Conectar-se para visualização da área de trabalho Virtual do Windows do Windows 10 ou Windows 7 – Azure
+description: Como se conectar à visualização de área de trabalho Virtual do Windows do Windows 10 ou Windows 7.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/27/2019
+ms.date: 04/24/2019
 ms.author: helohr
-ms.openlocfilehash: 8b5a649d767dae9ae9c0fb077f550451a7f83601
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b7d7b25d0355f2379b90313f17e2b595234df827
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60328843"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145980"
 ---
-# <a name="connect-with-windows-7-and-windows-10"></a>Conectar-se com o Windows 7 e Windows 10
+# <a name="connect-from-windows-10-or-windows-7"></a>Conectar-se do Windows 10 ou Windows 7
 
 > Aplica-se a: O Windows 7 e Windows 10.
 
@@ -25,11 +25,11 @@ Um cliente que pode ser baixado está disponível que fornece acesso aos recurso
 
 ## <a name="install-the-client"></a>Instalar o cliente
 
-[Baixe](https://go.microsoft.com/fwlink/?linkid=2068602) e instalar o cliente a seu computador local. Isso requer direitos de administrador.
+[Baixe](https://go.microsoft.com/fwlink/?linkid=2068602) e instalar o cliente a seu computador local. A instalação requer direitos de administrador.
 
 ## <a name="subscribe-to-a-feed"></a>Inscrever-se em um feed
 
-Obter a lista de recursos disponíveis para você do seu computador local ao assinar o feed fornecido pelo seu administrador.
+Obter a lista de recursos gerenciados disponíveis para você ao assinar o feed fornecido pelo seu administrador. Inscrever-se torna os recursos disponíveis em seu computador local.
 
 Para se inscrever em um feed:
 
@@ -44,6 +44,33 @@ Você pode iniciar recursos por um dos dois métodos.
 - Na página principal do cliente, clique duas vezes em um recurso para iniciá-lo.
 - Inicie um recurso, como normalmente faria com outros aplicativos no Menu Iniciar.
   - Você também pode procurar os aplicativos na barra de pesquisa.
+
+Depois de inscrito em um feed, o conteúdo do feed é atualizado automaticamente regularmente. Recursos podem ser adicionados, alterados ou removidos com base nas alterações feitas pelo seu administrador.
+
+## <a name="view-the-details-of-a-feed"></a>Exibir os detalhes de um feed
+
+Após a assinatura, você pode exibir informações adicionais sobre o feed, acessando o painel de detalhes.
+
+1. Na página principal do cliente, selecione as reticências (**...** ) à direita do nome do feed.
+1. No menu suspenso, selecione **detalhes**.
+1. O painel de detalhes aparece no lado direito do cliente.
+
+O painel de detalhes contém informações úteis sobre o feed:
+
+- A URL e o nome de usuário usado para assinar
+- O número de aplicativos e áreas de trabalho
+- A data/hora da última atualização
+- O status da última atualização
+
+Se necessário, você pode iniciar uma atualização manual, selecionando na **atualizar agora**.
+
+## <a name="unsubscribe-from-a-feed"></a>Cancelar a assinatura de um feed
+
+Esta seção ensinará como cancelar a assinatura de um feed. Você pode cancelar a inscrição para assinar novamente com uma conta diferente ou remova os recursos do sistema.
+
+1. Na página principal do cliente, selecione as reticências (**...** ) à direita do nome do feed.
+1. No menu suspenso, selecione **Unsubscribe**.
+1. Examine e marque **continuar** na caixa de diálogo.
 
 ## <a name="update-the-client"></a>Atualizar o cliente
 

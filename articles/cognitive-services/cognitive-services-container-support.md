@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 61d958ae4e53b5f2b123f3fa3660ef62a6cdcabe
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 241bda5c684197a43cc5564e950e924fed668b89
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021502"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147577"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Suporte de contêiner nos Serviços Cognitivos do Azure
 
@@ -26,6 +26,7 @@ O suporte a contêiner nos Serviços Cognitivos do Azure permite que os desenvol
 * [Detecção Facial](Face/Overview.md)
 * [Reconhecedor de formulário](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
 * [Compreensão de idioma](LUIS/luis-container-howto.md) (LUIS)
+* [Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
 * [API do Serviço de Fala](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
 * [Análise de Texto](text-analytics/overview.md)
 
@@ -56,6 +57,7 @@ Os contêineres dos Serviços Cognitivos do Azure fornecem o seguinte conjunto d
 |[Detecção Facial](Face/face-how-to-install-containers.md) |F0, S0|**Detecção Facial** |Detecta rostos humanos em imagens e identifica atributos, incluindo referências faciais (como narizes e olhos), sexo, idade e outras características faciais previstas pelo computador. Além de detectar, a Detecção Facial pode verificar se duas faces na mesma imagem ou imagens diferentes são iguais usando uma pontuação de confiança, ou comparar faces em relação a um banco de dados para ver se uma face semelhante ou idêntica já existe. Além disso, também pode organizar rostos semelhantes em grupos, usando traços visuais compartilhados.<br>[Solicitar acesso](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[Reconhecedor de formulário](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) |F0, S0|**Reconhecedor de formulário** |Noções básicas sobre o formulário se aplica a tecnologia de aprendizado de máquina para identificar e extrair pares chave-valor e tabelas de formulários.<br>[Solicitar acesso](https://aka.ms/FormRecognizerContainerRequestAccess)|
 |[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS** ([imagem](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|Carrega um modelo de reconhecimento vocal treinado ou publicado, também conhecido como um aplicativo LUIS, para um contêiner do Docker e fornece acesso às previsões de consulta dos pontos de extremidade da API do contêiner. Você pode coletar logs de consulta do contêiner e carregá-los novamente no [portal do LUIS](https://www.luis.ai) para aumentar a precisão da previsão do aplicativo.|
+|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Personalizer do Azure é um serviço de API baseado em nuvem que permite que você escolha a melhor experiência para mostrar aos seus usuários, aprendendo com o seu comportamento em tempo real.|
 |[API do Serviço de Fala](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Conversão de fala em texto** |Transcreve fala em tempo real contínua em texto.<br>[Solicitar acesso](https://aka.ms/speechcontainerspreview/)|
 |[API do Serviço de Fala](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Conversão de texto em fala** |Converte o texto em fala que soa natural.<br>[Solicitar acesso](https://aka.ms/speechcontainerspreview/)|
 |[Análise de Texto](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |F0, S|**Extração de Frases-Chave** ([imagem](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Extrai frases-chave para identificar os principais pontos. Por exemplo, para o texto de entrada "A comida estava deliciosa e a equipe era maravilhosa", a API retorna os principais pontos de discussão: "comida" e "equipe maravilhosa". |
@@ -103,5 +105,6 @@ Instale e explore a funcionalidade fornecida pelos contêineres nos Serviços Co
 * [Contêineres de detecção facial](Face/face-how-to-install-containers.md)
 * [Contêineres do reconhecedor de formulário](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
 * [Contêineres de Luis (reconhecimento vocal) de linguagem](LUIS/luis-container-howto.md)
+* [Contêineres de personalizer](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
 * [Contêineres de API do serviço de fala](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
 * [Contêineres de análise de texto](text-analytics/how-tos/text-analytics-how-to-install-containers.md)

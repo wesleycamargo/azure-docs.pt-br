@@ -1,5 +1,5 @@
 ---
-title: Sobre a v1.0 | Azure
+title: Azure Active Directory para visão geral de desenvolvedores (v1.0)
 description: Este artigo fornece uma visão geral sobre como se conectar às contas corporativa e de estudante da Microsoft usando o ponto de extremidade v1.0 do Azure Active Directory e a plataforma.
 services: active-directory
 author: CelesteDG
@@ -17,14 +17,14 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd39ee1dc22fb6143a8d098276172c453388170b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2af95d979e90f25c013f5112322d830232199a4b
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60297166"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067658"
 ---
-# <a name="about-v10"></a>Sobre a v1.0
+# <a name="azure-active-directory-for-developers-v10-overview"></a>Azure Active Directory para visão geral de desenvolvedores (v1.0)
 
 O Azure Active Directory (Azure AD) é um serviço de identidade de nuvem que permite aos desenvolvedores criar aplicativos que conectam com segurança qualquer usuário com uma conta corporativa ou de estudante da Microsoft. O Azure Active Directory oferece tanto suporte a desenvolvedores que criam aplicativos de linha de negócios (LOB) com locatário único quanto a desenvolvedores que buscam desenvolver aplicativos de multilocação. Além da conexão básica, o Azure Active Directory também permite que aplicativos chamem as APIs Microsoft como [Microsoft Graph](https://docs.microsoft.com/graph/overview) e as APIs personalizadas que são criadas na plataforma do Azure Active Directory. A documentação mostra como adicionar suporte ao Azure Active Directory para o seu aplicativo usando protocolos padrão como OAuth2.0 e OpenID Connect.
 

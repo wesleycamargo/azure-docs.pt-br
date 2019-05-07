@@ -1,19 +1,19 @@
 ---
-title: Logs de servidor no Banco de Dados do Azure para PostgreSQL
-description: Este artigo descreve como o Banco de Dados do Azure para PostgreSQL gera logs de erros e consultas e como a retenção de log é configurada.
+title: Logs de servidor no banco de dados do Azure para PostgreSQL – servidor único
+description: Este artigo descreve o banco de dados como o Azure para PostgreSQL - servidor único gera consultas e logs de erros e como retenção de log está configurada.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.openlocfilehash: 99deef907818ffdb1ce858c8e988e26cbd53a1a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 4d1cf2c59e324cedd9b747b1ac65d6edcb9deb45
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871513"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067404"
 ---
-# <a name="server-logs-in-azure-database-for-postgresql"></a>Logs de servidor no Banco de Dados do Azure para PostgreSQL 
+# <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>Logs de servidor no banco de dados do Azure para PostgreSQL – servidor único
 Banco de Dados do Azure para PostgreSQL gera logs de consulta e de erro. Os logs de erro e consulta podem ser usados para identificar, solucionar problemas e reparar erros de configuração e desempenho abaixo do ideal. (O acesso aos logs de transação não está incluído). 
 
 ## <a name="configure-logging"></a>Configurar o registro em log 
@@ -50,7 +50,7 @@ A tabela a seguir descreve o que está em cada log. Dependendo do ponto de extre
 | Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | Nível de log, exemplo: LOG, ERROR, NOTICE |
-| Mensagem | Mensagem de log primária | 
+| Message | Mensagem de log primária | 
 | Domínio | Versão do servidor, o exemplo: postgres-10 |
 | Detalhes | Mensagem de log secundária (se aplicável) |
 | ColumnName | Nome da coluna (se aplicável) |

@@ -1,19 +1,19 @@
 ---
-title: Tipo de preço para Banco de Dados do Azure para PostgreSQL
-description: Este artigo descreve os tipos de preço do Banco de Dados do Azure para PostgreSQL.
+title: Tipos de preço para banco de dados do Azure para PostgreSQL – servidor único
+description: Este artigo descreve os tipos de preço para banco de dados do Azure para PostgreSQL – servidor único.
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: 4109679c03b13303c16cef8edd92ecddb6ca5e5f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 5/6/2019
+ms.openlocfilehash: e2580a57f943ad8da16cfbaeda2ee35d0f4bb691
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712355"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073192"
 ---
-# <a name="azure-database-for-postgresql-pricing-tiers"></a>Tipos de preço do Banco de Dados do Azure para PostgreSQL
+# <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Tipos de preço no banco de dados do Azure para PostgreSQL – servidor único
 
 Você pode criar um servidor do Banco de Dados do Azure para PostgreSQL em um dos três tipos de preço diferentes: Básico, Uso Geral e Otimizado para Memória. Os tipos de preço são diferenciados pela quantidade de computação nos vCores que pode ser provisionada, pela memória por vCore e pela tecnologia de armazenamento usada para armazenar os dados. Todos os recursos são provisionados no nível do servidor PostgreSQL. Um servidor pode ter um ou vários bancos de dados.
 

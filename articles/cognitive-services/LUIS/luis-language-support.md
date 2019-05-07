@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 10fe5d90e7a7a59a1b543209a37b998376fdda1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8f067bc005c4de9ddc87ed598b1717f8fbb29a6a
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196211"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072370"
 ---
 # <a name="language-and-region-support-for-luis"></a>Suporte de idioma e região para o LUIS
 
@@ -102,7 +102,7 @@ As culturas a seguir têm versões de criador de token personalizado:
 |Cultura|Version|Finalidade|
 |--|--|--|
 |Alemão<br>`de-de`|1.0.0|Cria tokens palavras dividindo-os usando um tokenizer baseada em aprendizado de máquina que tenta dividir palavras compostas em seus componentes únicos.<br>Se um usuário digita `Ich fahre einen krankenwagen` como uma expressão, ele será transformado em `Ich fahre einen kranken wagen`. Permitindo que a marcação da `kranken` e `wagen` independentemente como entidades diferentes.|
-|Alemão<br>`de-de`|1.0.1|Cria tokens palavras dividindo-os em espaços.<br> Se um usuário inserir `Ich fahre einen krankenwagen` como uma expressão, ele permanecerá um único token. Portanto, `krankenwagen` está marcado como uma única entidade. |
+|Alemão<br>`de-de`|1.0.2|Cria tokens palavras dividindo-os em espaços.<br> Se um usuário inserir `Ich fahre einen krankenwagen` como uma expressão, ele permanecerá um único token. Portanto, `krankenwagen` está marcado como uma única entidade. |
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migrando entre as versões do criador de token
 <!--

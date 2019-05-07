@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 8d15eb03055aed32c8a99121b750ee5767a87b50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 05e7dd11274bb120e40df4a63d428ac6b6d7489f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60647880"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143342"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Fluxo de trabalho do backup offline do DPM e do Servidor de Backup do Azure
 O Backup do Azure tem vários mecanismos internos eficientes que reduzem os custos de armazenamento e de rede durante os primeiros backups 'completos' de dados no Azure. Os primeiros backups "completos" transferem grandes quantidades de dados e, portanto, exigem mais largura de banda em comparação com os backups subsequentes, que transferem apenas os deltas/incrementais. O Backup do Azure compacta os backups inicias. O processo de propagação offline, o Backup do Azure pode usar discos para carregar os dados de backup iniciais compactados de forma offline no Azure.
@@ -98,7 +98,7 @@ As informações desta seção ajudam você a concluir o fluxo de trabalho de ba
 ### <a name="prepare-sata-drives-and-ship-to-azure"></a>Preparar unidades SATA e enviar para o Azure
 O utilitário *AzureOfflineBackupDiskPrep* é usado para preparar as unidades SATA que são enviadas para o Datacenter do Azure mais próximo. Este utilitário está disponível no diretório de instalação do agente de Serviços de Recuperação no caminho a seguir:
 
-   *\Microsoft* *Azure* *Recovery* *Services* \*Agent\Utils\*
+*\\Agente de serviços de recuperação do Microsoft Azure\\Utils\\*
 
 1. Vá até o diretório e copie o diretório **AzureOfflineBackupDiskPrep** para um computador de cópia no qual as unidades SATA a serem preparadas estejam conectadas. Verifique os itens a seguir em relação ao computador de cópia:
 

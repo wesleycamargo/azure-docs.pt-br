@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/14/2017
+ms.date: 04/29/2019
 ms.author: roiyz
-ms.openlocfilehash: 7c56b54f2d5be2bd47644e07369120468bb6015e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2287a0c39a82509e21ff35d8c3786cf1c85b1b24
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61468373"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142873"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do Azure Monitor para Windows
 
@@ -32,7 +32,10 @@ Os logs do Azure Monitor fornece recursos de monitoramento em ativos de nuvem e 
 
 ### <a name="operating-system"></a>Sistema operacional
 
-A extensão do agente do Log Analytics para Windows pode ser executada nas versões do Windows Server 2008 R2, 2012, 2012 R2 e 2016.
+A extensão do agente do Log Analytics para o Windows dá suporte aos seguintes versões do sistema operacional Windows:
+
+- Windows Server 2019
+- Windows Server 2008 R2, 2012, 2012 R2, 2016, versão 1709 e 1803
 
 ### <a name="azure-security-center"></a>Central de Segurança do Azure
 
@@ -43,7 +46,7 @@ A extensão do agente Log Analytics para Windows requer que a máquina virtual d
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O seguinte JSON mostra o esquema para a extensão do agente do Log Analytics. A extensão requer a ID do espaço de trabalho e a chave do espaço de trabalho do espaço de trabalho do Log Analytics de destino. Esses podem ser encontrado nas configurações para o workspace no portal do Azure. Como a chave do workspace deve ser tratada como um dado confidencial, ela é armazenada em uma configuração protegida. Os dados de configuração protegidos pela extensão da VM do Azure são criptografados, sendo descriptografados apenas na máquina virtual de destino. Observe que **workspaceId** e **workspaceKey** diferenciam maiúsculas de minúsculas.
+O seguinte JSON mostra o esquema para a extensão do agente do Log Analytics. A extensão requer a ID do espaço de trabalho e a chave do espaço de trabalho do Log Analytics de destino. Esses podem ser encontrado nas configurações para o workspace no portal do Azure. Como a chave do workspace deve ser tratada como um dado confidencial, ela é armazenada em uma configuração protegida. Os dados de configuração protegidos pela extensão da VM do Azure são criptografados, sendo descriptografados apenas na máquina virtual de destino. Observe que **workspaceId** e **workspaceKey** diferenciam maiúsculas de minúsculas.
 
 ```json
 {
@@ -84,6 +87,9 @@ O seguinte JSON mostra o esquema para a extensão do agente do Log Analytics. A 
 ## <a name="template-deployment"></a>Implantação de modelo
 
 Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. O esquema JSON detalhado na seção anterior pode ser usado em um modelo do Azure Resource Manager para executar a extensão do agente do Log Analytics durante uma implantação de modelo do Azure Resource Manager. Um exemplo de modelo que inclui a extensão de VM do agente do Log Analytics pode ser encontrado na [Galeria de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+
+>[!NOTE]
+>O modelo não dá suporte à especificação mais de uma ID de espaço de trabalho e a chave do espaço de trabalho quando você deseja configurar o agente para relatar para vários espaços de trabalho. Para configurar o agente para relatar para vários espaços de trabalho, consulte [adicionando ou removendo um espaço de trabalho](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace).  
 
 O JSON para uma extensão da máquina virtual pode ser aninhado dentro do recurso de máquina virtual ou localizado no nível de raiz ou superior de um modelo JSON do Resource Manager. O posicionamento do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [Definir o nome e o tipo de recursos filho](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources). 
 

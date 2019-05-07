@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: a907e35e8e39b9dadd9106e7fd99063db28647a5
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 02c3fb309755964f1a4b196189b7742fa3f91a9a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869667"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148221"
 ---
 # <a name="dynamic-packaging"></a>Empacotamento dinâmico
 
@@ -198,7 +198,7 @@ Filtragem dinâmica é usado para controlar o número de faixas, formatos, taxas
 > [!NOTE]
 > Atualmente, você não pode usar o portal do Azure para gerenciar recursos da v3. Use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](developers-guide.md) com suporte.
 
-## <a name="provide-feedback"></a>Fornecer comentários
+## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, comentários, obtenha atualizações
 
 Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
 

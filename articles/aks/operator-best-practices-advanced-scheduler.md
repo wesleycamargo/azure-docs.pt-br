@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 9aa394a405e5b4392f900d1e7520d93e6d152e49
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 78f54e9e86de7a8b1b80300e0ed79a5e54f29282
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690460"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074194"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para os recursos do agendador avançado no Serviço de Kubernetes do Azure (AKS)
 
@@ -30,6 +30,8 @@ Este artigo sobre práticas recomendadas se concentra em recursos de agendamento
 **Diretrizes de práticas recomendadas** - limitar o acesso para aplicativos de uso intensivo de recursos, como controladores de entrada a nós específicos. Manter os recursos de nó disponíveis para cargas de trabalho os exigem e não permitir o agendamento de outras cargas de trabalho em nós.
 
 Quando você cria um cluster do AKS, você pode implantar nós com suporte de GPU ou um grande número de CPUs avançadas. Esses nós geralmente são usados para cargas de trabalho de processamento de dados grandes, como aprendizado de máquina (ML) ou a inteligência artificial (AI). Como esse tipo de hardware geralmente é um recurso de nó caro de implantar, limite as cargas de trabalho que podem ser agendadas em nós. Em vez disso, talvez você queira dedicar alguns nós do cluster para executar serviços de entrada e impedir outras cargas de trabalho.
+
+Esse suporte para nós diferentes é fornecido por meio de vários pools de nó. Um cluster do AKS fornece um ou mais pools de nó. Suporte para vários pools de nós no AKS está atualmente em visualização.
 
 O Agendador Kubernetes pode usar taints e tolerations para restringir quais cargas de trabalho podem ser executados em nós.
 
@@ -53,13 +55,13 @@ spec:
   containers:
   - name: tf-mnist
     image: microsoft/samples-tf-mnist-demo:gpu
-  resources:
-    requests:
-      cpu: 0.5
-      memory: 2Gi
-    limits:
-      cpu: 4.0
-      memory: 16Gi
+    resources:
+      requests:
+        cpu: 0.5
+        memory: 2Gi
+      limits:
+        cpu: 4.0
+        memory: 16Gi
   tolerations:
   - key: "sku"
     operator: "Equal"
@@ -72,6 +74,8 @@ Quando esse pod é implantado, como o uso de `kubectl apply -f gpu-toleration.ya
 Ao aplicar taints, trabalhe com seus desenvolvedores de aplicativos e proprietários para permitir que definam os tolerations necessários em suas implantações.
 
 Para obter mais informações sobre taints e tolerations, consulte [Aplicar taints e tolerations][k8s-taints-tolerations].
+
+Para obter mais informações sobre como usar vários pools de nós no AKS, consulte [criar e gerenciar vários pools de nós para um cluster AKS][use-multiple-node-pools].
 
 ### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Comportamento de taints e tolerations no AKS
 
@@ -195,3 +199,4 @@ Este artigo se concentra nos recursos avançados de agendador Kubernetes. Para o
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
+[use-multiple-node-pools]: use-multiple-node-pools.md
