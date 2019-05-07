@@ -58,7 +58,7 @@ Este início rápido contém um exemplo de código que demonstra como um aplicat
 >      - Na seção **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)**.
 >      - Selecione **Registrar** para criar o aplicativo.
 > 1. Na lista de páginas para o aplicativo, selecione **Autenticação**.
-> 1. Expanda a seção **Desktop + dispositivos**.  (Se **Desktop + dispositivos** não está visível, primeiro clique na faixa superior para exibir a experiência de Autenticação em versão prévia)
+> 1. Expanda a seção **Desktop + dispositivos**.  (Se **Desktop + dispositivos** não estiver visível, primeiro clique na faixa superior para exibir a experiência de Autenticação em versão prévia)
 > 1. Na seção **URI de redirecionamento**, selecione **Adicionar URI**.  Digite **urn:ietf:wg:oauth:2.0:oob**.
 > 1. Clique em **Salvar**.
 

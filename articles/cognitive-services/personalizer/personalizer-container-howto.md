@@ -56,7 +56,7 @@ Cada núcleo precisa ser de pelo menos 2,6 GHz (gigahertz) ou mais rápido.
 
 Memória e núcleo correspondem às configurações `--cpus` e `--memory`, que são usadas como parte do comando `docker run`.
 
-O contêiner deve ser capaz de conectar-se ao Hub de Eventos do Azure para retransmitir informações nas chamadas de Classificação e Recompensa para o servidor do Personalizador no Azure, e deve ser capaz de conectar-se à API do Personalizador para carregar a configuração necessária e os modelos de machine learning mais recentes.
+O contêiner deve ser capaz de conectar-se ao Hub de Eventos do Azure para retransmitir informações nas chamadas de Classificação e Recompensa para o servidor do Personalizador no Azure, além de conectar-se à API do Personalizador para carregar a configuração necessária e os modelos de machine learning mais recentes.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Obter a imagem de contêiner com `docker pull`
 
@@ -128,7 +128,7 @@ Esse comando:
 
 Se você pretende executar vários contêineres com portas expostas, execute cada contêiner com uma porta diferente. Por exemplo, execute o primeiro contêiner na porta 5000 e o segundo contêiner na porta 5001.
 
-Substitua `<container-registry>` e `<container-name>` pelos valores dos contêineres que você usa. Eles não precisam estar no mesmo contêiner. Você pode ter o contêiner do Personalizador e o contêiner do LUIS em execução no HOST juntos, ou pode ter vários contêineres do Personalizador em execução. 
+Substitua `<container-registry>` e `<container-name>` pelos valores dos contêineres que você usa. Eles não precisam estar no mesmo contêiner. Você pode ter o contêiner do Personalizador e o contêiner do LUIS em execução no HOST juntos ou pode ter vários contêineres do Personalizador em execução. 
 
 Execute o primeiro contêiner na porta 5000. 
 

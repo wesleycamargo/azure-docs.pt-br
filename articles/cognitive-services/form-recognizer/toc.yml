@@ -1,0 +1,43 @@
+- name: Documentação do Reconhecimento de Formulários
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: O que é o Reconhecimento de Formulários?
+      href: overview.md
+- name: Guia de início rápido
+  expaned: true
+  items:
+    - name: Treinar o modelo e extrair dados
+      items:
+        - name: Usando a API REST
+          items:
+            - name: cURL
+              href: quickstarts/curl-train-extract.md
+            - name: Python
+              href: quickstarts/python-train-extract.md
+- name: Guias de instruções
+  items:
+    - name: Usar contêineres
+      items:
+        - name: Instalar e executar contêineres
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
+          href: form-recognizer-container-howto.md
+        - name: Configurar contêineres
+          href: form-recognizer-container-configuration.md
+          displayName: 'docker, container, run, billing, apikey, logging'
+- name: Referência
+  items:
+    - name: API de Reconhecimento de Formulários
+      href: 'https://aka.ms/form-recognizer/api'
+- name: Recursos
+  items:
+    - name: Preços e limites
+      href: 'https://go.microsoft.com/fwlink/?linkid=2087258'
+    - name: UserVoice
+      href: 'https://go.microsoft.com/fwlink/?linkid=2090535'
+    - name: Stack Overflow
+      href: 'https://go.microsoft.com/fwlink/?linkid=2087186'
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
+    - name: Disponibilidade regional
+      href: 'https://go.microsoft.com/fwlink/?linkid=2087185'

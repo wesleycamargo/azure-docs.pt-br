@@ -1,0 +1,57 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentação do serviço Azure Blockchain
+metadata:
+  title: 'Documentação do Serviço Azure Blockchain – Tutoriais, referência da API'
+  description: 'Saiba como criar aplicativos de blockchain. Tutoriais, referências da API e outros tipos de documentação mostram como usar o serviço Azure Blockchain para criar, desenvolver e gerenciar aplicativos de blockchain no Azure.'
+  services: azure-blockchain
+  author: patricka
+  manager: femila
+  ms.service: azure-blockchain
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 03/13/2019
+  ms.author: patricka
+abstract:
+  description: 'Saiba como criar aplicativos de blockchain. Tutoriais, referências da API e outros tipos de documentação mostram como usar o serviço Azure Blockchain para criar, desenvolver e usar aplicativos de blockchain no Azure.'
+sections:
+  - title: Guia de início rápido de 5 minutos
+    items:
+      - type: paragraph
+        text: Saiba como criar e se conectar aos membros do consórcio no Azure.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ./media/index/deploy.svg
+            text: Criar um membro do consórcio
+            href: /azure/blockchain/service/create-member
+          - image:
+              src: ./media/index/multi-connect.svg
+            text: Conectar-se usando o MetaMask
+            href: /azure/blockchain/service/connect-metamask
+          - image:
+              src: ./media/index/cligeneric.svg
+            text: Conectar-se usando o Geth
+            href: /azure/blockchain/service/connect-geth
+          - image:
+              src: ./media/index/code-blocks.svg
+            text: Conectar-se usando o Truffle
+            href: /azure/blockchain/service/connect-truffle
+  - title: Tutoriais Passo a Passo
+    items:
+      - type: paragraph
+        text: 'Saiba como criar, configurar e desenvolver aplicativos de blockchain no Azure.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/blockchain/service/send-transaction">Criar um membro do serviço Azure Blockchain e enviar uma transação</a>
+  - title: Referência
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/blockchain">API REST</a></p>'

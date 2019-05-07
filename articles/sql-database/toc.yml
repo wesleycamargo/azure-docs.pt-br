@@ -120,6 +120,8 @@
           href: sql-database-service-tiers-vcore.md
         - name: Camadas de serviço DTU
           href: sql-database-service-tiers-dtu.md
+        - name: Camada de computação sem servidor
+          href: sql-database-serverless.md
         - name: Pagar antecipadamente por capacidade reservada
           href: sql-database-reserved-capacity.md
         - name: Migrar da camada de serviço Premium RS

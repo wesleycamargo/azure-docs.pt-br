@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Plataforma de identidade da Microsoft (Azure Active Directory para desenvolvedores)
+title: Plataforma de identidade da Microsoft (conhecida anteriormente como Azure Active Directory para desenvolvedores)
 metadata:
   title: Plataforma de identidade da Microsoft (Azure Active Directory para desenvolvedores)
   description: 'Saiba como usar a plataforma de identidade da Microsoft para compilar aplicativos que conectam os usuários com segurança em todas as identidades da Microsoft e obtenha tokens para chamar o Microsoft Graph, outras APIs da Microsoft ou APIs que os desenvolvedores criaram.'
@@ -12,10 +12,10 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/24/2018
+  ms.date: 05/07/2019
   ms.author: celested
 abstract:
-  description: 'A plataforma de identidade da Microsoft é uma evolução da plataforma de desenvolvedor e serviço de identidade do Azure AD (Azure Active Directory). Ela permite que os desenvolvedores criem aplicativos que se conectam a todas as identidades da Microsoft e obtêm tokens para chamar APIs da Microsoft, tais como o Microsoft Graph ou APIs que os desenvolvedores criaram. É uma plataforma completa que consiste em um serviço de autenticação compatível com o padrão OAuth 2.0 e OpenID Connect, bibliotecas de software livre, configuração e registro de aplicativo, documentação de referência e conceitual consistente, "exemplos de início rápido", exemplos de código, tutoriais e guias de instruções.'
+  description: 'A plataforma de identidade da Microsoft é uma evolução da plataforma de desenvolvedor e serviço de identidade do Azure AD (Azure Active Directory). Ela permite que os desenvolvedores criem aplicativos que se conectam a todas as identidades da Microsoft e obtêm tokens para chamar APIs da Microsoft, tais como o Microsoft Graph ou APIs que os desenvolvedores criaram. É uma plataforma completa composta por um serviço de autenticação compatível com os padrões OAuth 2.0 e OpenID Connect, bibliotecas de open-source, registro e configuração de aplicativo, documentação conceitual e de referência robusta, exemplos de início rápido, exemplos de código, tutoriais e guias de instruções.'
   aside:
     image:
       alt: null
@@ -36,81 +36,42 @@ sections:
             html: <p>Saiba mais sobre a plataforma de identidade da Microsoft e seus recursos e funcionalidades.</p>
             image:
               src: ./media/index/i_get-started.svg
-            title: Sobre a plataforma de identidade da Microsoft
+            title: Evolução da plataforma de identidade da Microsoft
+          - href: /azure/active-directory/develop/v2-overview
+            html: '<p>Crie aplicativos que se conectam a todas as identidades da Microsoft e receba tokens para chamar APIs da Microsoft, como o Microsoft Graph, ou APIs criadas por desenvolvedores.</p>'
+            image:
+              src: ./media/index/i_investigate.svg
+            title: v2.0
           - href: /azure/active-directory/develop/azure-ad-developers-guide/
             html: '<p>Autentique identidades do Azure AD (contas corporativas e de estudante) solicitando tokens do ponto de extremidade do Azure AD v 1.0, usando a ADAL (Biblioteca de Autenticação do Active Directory), o portal do Azure e a API do Graph do Azure AD.</p>'
             image:
               src: ./media/index/i_advanced.svg
             title: v1.0
-          - href: /azure/active-directory/develop/v2-overview
-            html: '<p>Autentique um conjunto mais amplo de identidades da Microsoft usando o que era conhecido como ponto de extremidade do Azure AD v2.0 usando a MSAL (Biblioteca de Autenticação da Microsoft), o portal do Azure e a API do Microsoft Graph.</p>'
-            image:
-              src: ./media/index/i_investigate.svg
-            title: v2.0
+  - title: Cenários de aplicativos
+    items:
+      - type: paragraph
+        text: 'Trabalhar com identidades não precisa ser difícil. Escolha um cenário adequado para você. Cada caminho de cenário tem uma visão geral, diretrizes de configuração e registro de aplicativos, exemplos de código para adquirir um token e chamar uma API e recomendações para mover o aplicativo para a produção.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/develop/scenario-spa-overview">Aplicativo de página única</a>
+          - html: <a href="/azure/active-directory/develop/scenario-web-app-sign-user-overview">Aplicativo Web que conecta os usuários</a>
+          - html: <a href="/azure/active-directory/develop/scenario-web-app-call-api-overview">Aplicativo Web que chama as APIs Web</a>
+          - html: <a href="/azure/active-directory/develop/scenario-protected-web-api-overview">API Web protegida</a>
+          - html: <a href="/azure/active-directory/develop/scenario-web-api-call-api-overview">API Web que chama APIs Web downstream</a>
+          - html: <a href="/azure/active-directory/develop/scenario-desktop-overview">Aplicativo da área de trabalho que chama APIs Web</a>
+          - html: <a href="/azure/active-directory/develop/scenario-daemon-overview">Aplicativo daemon</a>
+          - html: <a href="/azure/active-directory/develop/scenario-mobile-overview">Aplicativo móvel</a>
   - title: Guia de início rápido
     items:
       - type: paragraph
-        text: 'Siga esses guias de início rápido para criar rapidamente um aplicativo e adicionar funcionalidades como obtenção de tokens, atualização de tokens, conexão do usuário, exibição de algumas informações do usuário e muito mais.'
-      - type: paragraph
-        text: <b>Aplicativos de página única</b>
+        text: 'Siga estes inícios rápidos para saber como usar um exemplo de código que demonstra como um aplicativo pode conectar usuários, receber um token de acesso para chamar a API do Microsoft Graph ou qualquer API Web e muito mais.'
       - type: table
         style: dataMatrix
         columns:
-          - image:
-              src: ./media/index/angularjs-shield.svg
-            title: AngularJS
           - image:
               src: ./media/index/logo_js.svg
             title: JavaScript
-        rows:
-          - title: v1.0
-            values:
-              - href: quickstart-v1-angularjs-spa.md
-              - href: 'https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi'
-          - title: v2.0
-            values:
-              - href: null
-              - href: quickstart-v2-javascript.md
-      - type: paragraph
-        text: <b>Aplicativos Web</b>
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: ./media/index/logo_NET.svg
-            title: ASP .NET
-          - image:
-              src: ./media/index/logo_NETcore.svg
-            title: ASP .NET Core
-          - image:
-              src: ./media/index/logo_java.svg
-            title: Java
-          - image:
-              src: ./media/index/logo_nodejs.svg
-            title: NodeJS
-          - image:
-              src: ./media/index/logo_python.svg
-            title: Python
-        rows:
-          - title: v1.0
-            values:
-              - href: quickstart-v1-aspnet-webapp.md
-              - href: null
-              - href: 'https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect'
-              - href: quickstart-v1-openid-connect-code.md
-              - href: 'https://github.com/Azure-Samples/active-directory-python-webapp-graphapi'
-          - title: v2.0
-            values:
-              - href: quickstart-v2-aspnet-webapp.md
-              - href: quickstart-v2-aspnet-core-webapp.md
-              - href: null
-              - href: 'https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs'
-              - href: null
-      - type: paragraph
-        text: <b>APIs da Web</b>
-      - type: table
-        style: dataMatrix
-        columns:
           - image:
               src: ./media/index/logo_NET.svg
             title: ASP .NET
@@ -120,22 +81,6 @@ sections:
           - image:
               src: ./media/index/logo_nodejs.svg
             title: NodeJS
-        rows:
-          - title: v1.0
-            values:
-              - href: quickstart-v1-dotnet-webapi.md
-              - href: null
-              - href: quickstart-v1-nodejs-webapi.md
-          - title: v2.0
-            values:
-              - href: 'https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet'
-              - href: 'https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2'
-              - href: null
-      - type: paragraph
-        text: <b>Aplicativos móveis e de área de trabalho</b>
-      - type: table
-        style: dataMatrix
-        columns:
           - image:
               src: ./media/index/logo_android.svg
             title: Android
@@ -149,77 +94,77 @@ sections:
               src: ./media/index/logo_Windows.svg
             title: .NET da Área de trabalho do Windows
           - image:
-              src: ./media/index/logo_xamarin.svg
-            title: Xamarin
+              src: ./media/index/logo_NET.svg
+            title: .NET
         rows:
-          - title: v1.0
+          - title: Aplicativo de página única
             values:
-              - href: quickstart-v1-android.md
-              - href: quickstart-v1-ios.md
+              - href: quickstart-v2-javascript.md
               - href: null
-              - href: quickstart-v1-dotnet.md
-              - href: quickstart-v1-xamarin.md
-          - title: v2.0
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+          - title: Aplicativo Web
             values:
+              - href: null
+              - href: quickstart-v2-aspnet-webapp.md
+              - href: quickstart-v2-aspnet-core-webapp.md
+              - href: 'https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs'
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+          - title: API Web
+            values:
+              - href: null
+              - href: 'https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet'
+              - href: 'https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2'
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+          - title: Aplicativo móvel e da área de trabalho
+            values:
+              - href: null
+              - href: null
+              - href: null
+              - href: null
               - href: quickstart-v2-android.md
               - href: quickstart-v2-ios.md
               - href: quickstart-v2-uwp.md
               - href: quickstart-v2-windows-desktop.md
               - href: null
-      - type: paragraph
-        text: <b>Aplicativos de serviço a serviço e daemon</b>
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: ./media/index/logo_NET.svg
-            title: .NET
-        rows:
-          - title: v1.0
+          - title: Aplicativo daemon
             values:
-              - href: sample-v1-code.md
-          - title: v2.0
-            values:
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
               - href: quickstart-v2-netcore-daemon.md
-  - title: Tutoriais passo a passo
+  - title: Tutoriais
     items:
       - type: paragraph
-        text: 'Use a plataforma de identidade da Microsoft e siga procedimentos detalhados, baseados em cenário, para as principais tarefas de desenvolvedor de autenticação, como obter tokens de acesso, implementar a conexão com a Microsoft e muito mais.'
-      - type: paragraph
-        text: <b>Aplicativos de página única</b>
+        text: 'Use a plataforma de identidade da Microsoft e siga procedimentos detalhados e baseados em cenários para as principais tarefas de autenticação do desenvolvedor, como conectar um usuário, receber um token de acesso para chamar a API do Microsoft Graph e fazer uma solicitação básica à API do Microsoft Graph.'
       - type: table
         style: dataMatrix
         columns:
           - image:
               src: ./media/index/logo_js.svg
             title: JavaScript
-        rows:
-          - title: v1.0
-            values:
-              - href: null
-          - title: v2.0
-            values:
-              - href: tutorial-v2-javascript-spa.md
-      - type: paragraph
-        text: <b>Aplicativos Web</b>
-      - type: table
-        style: dataMatrix
-        columns:
           - image:
               src: ./media/index/logo_NET.svg
             title: ASP .NET
-        rows:
-          - title: v1.0
-            values:
-              - href: null
-          - title: v2.0
-            values:
-              - href: tutorial-v2-asp-webapp.md
-      - type: paragraph
-        text: <b>Aplicativos móveis e de área de trabalho</b>
-      - type: table
-        style: dataMatrix
-        columns:
           - image:
               src: ./media/index/logo_android.svg
             title: Android
@@ -233,14 +178,26 @@ sections:
               src: ./media/index/logo_Windows.svg
             title: .NET da Área de trabalho do Windows
         rows:
-          - title: v1.0
+          - title: Aplicativo de página única
+            values:
+              - href: tutorial-v2-javascript-spa.md
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+          - title: Aplicativo Web
+            values:
+              - href: null
+              - href: tutorial-v2-asp-webapp.md
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+          - title: Aplicativo móvel e da área de trabalho
             values:
               - href: null
               - href: null
-              - href: null
-              - href: null
-          - title: v2.0
-            values:
               - href: tutorial-v2-android.md
               - href: tutorial-v2-ios.md
               - href: tutorial-v2-windows-uwp.md
@@ -252,5 +209,5 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/active-directory/develop/sample-v1-code">Exemplos de código por cenário v1.0</a>
           - html: <a href="/azure/active-directory/develop/sample-v2-code">Exemplos de código por cenário v2.0</a>
+          - html: <a href="/azure/active-directory/develop/sample-v1-code">Exemplos de código por cenário v1.0</a>

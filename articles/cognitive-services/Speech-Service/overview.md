@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 04/03/2019
+ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 61f22568aa6e6cf04963b40ad7c47163e87b9800
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2e82e033e56af10bd8e676570e9409941753eb38
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010185"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020977"
 ---
 # <a name="what-are-the-speech-services"></a>O que é o Serviço de Fala?
 
-O Serviço de Fala do Azure é a unificação do reconhecimento de fala, da conversão de texto em fala e da tradução de fala em uma única assinatura do Azure. É fácil habilitar serviços de fala em seus aplicativos, ferramentas e dispositivos usando o [SDK de Fala](speech-sdk-reference.md), o [SDK de Dispositivos de Fala](speech-devices-sdk-qsg.md) ou [APIs REST](rest-apis.md).
+O Serviço de Fala do Azure é a unificação do reconhecimento de fala, da conversão de texto em fala e da tradução de fala em uma única assinatura do Azure. É fácil habilitar serviços de fala em seus aplicativos, ferramentas e dispositivos usando o [SDK de Fala](speech-sdk-reference.md), o [SDK de Dispositivos de Fala](https://aka.ms/sdsdk-quickstart) ou [APIs REST](rest-apis.md).
 
 > [!IMPORTANT]
 > O Serviço de Fala substituiu a API de Fala do Bing, a Tradução de Fala e a Fala Personalizada. Confira *Guias de instruções > Migração* para obter instruções de migração.
@@ -30,6 +30,7 @@ Esses recursos compõem o Serviço de Fala do Azure. Use os links nesta tabela p
 |---------|---------|-------------|-----|------|
 | [Conversão de fala em texto](speech-to-text.md) | Conversão de fala em texto | A conversão de fala em texto transcreve, em tempo real, fluxos de áudio em texto que seus aplicativos, ferramentas ou dispositivos podem consumir ou exibir. Use a conversão de fala em texto com o [LUIS (Reconhecimento vocal)](https://docs.microsoft.com/azure/cognitive-services/luis/) para derivar intenções do usuário de dados de fala transcrita e agir com base em comandos de voz. | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Transcrição em lote](batch-transcription.md) | A Transcrição em lote permite a transcrição de fala em texto assíncrona de grandes volumes de dados. Trata-se de um serviço baseado em REST que usa o mesmo ponto de extremidade que o gerenciamento de modelos e a personalização. | Não  | [Sim](https://westus.cris.ai/swagger/ui/index) |
+| | [Serviço de transcrição de conversas](conversation-transcription-service.md) | Permite o reconhecimento de fala em tempo real, a identificação do locutor e a diarização. É perfeito para transcrição de reuniões presenciais com a capacidade de distinguir os locutores. | Sim | Não  |
 | | [Personalização](#customize-your-speech-experience) | Se estiver usando a conversão de fala em texto para funcionalidades de reconhecimento e transcrição em um ambiente exclusivo, você poderá criar e treinar modelos acústicos, de idioma e de pronúncia personalizados para lidar com o ruído ambiente ou vocabulário específico do setor. | Não  | [Sim](https://westus.cris.ai/swagger/ui/index) |
 | [Conversão de Texto em Fala](text-to-speech.md) | Conversão de texto em fala | A conversão de texto em fala converte o texto de entrada em uma fala sintetizada semelhante à humana. Escolha entre as vozes padrão e vozes neurais (consulte [Suporte para idiomas](language-support.md)). | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Personalização](#customize-your-speech-experience) | Crie fontes de voz personalizadas exclusivas para sua marca ou produto. | Não  | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
@@ -39,7 +40,8 @@ Esses recursos compõem o Serviço de Fala do Azure. Use os links nesta tabela p
 
 Saiba o que há de novo no Serviço de Fala do Azure.
 
-* Abril de 2019 – lançamento do SDK de Fala 1.4.0 com suporte para conversão de texto em fala (beta) para C++, C# e Java no Windows e no Linux. Além disso, o SDK agora dá suporte aos formatos de áudio MP3 e Opus/Ogg para C++ e C# no Linux. Para obter uma lista completa de atualizações, melhorias e problemas conhecidos, confira [Notas sobre a versão](releasenotes.md). 
+* Maio de 2019 – lançamento do SDK de Fala 1.5.0. Para obter uma lista completa de atualizações, melhorias e problemas conhecidos, confira [Notas sobre a versão](releasenotes.md).
+* Abril de 2019 – lançamento do SDK de Fala 1.4.0 com suporte para conversão de texto em fala (beta) para C++, C# e Java no Windows e no Linux. Além disso, o SDK agora dá suporte aos formatos de áudio MP3 e Opus/Ogg para C++ e C# no Linux. Para obter uma lista completa de atualizações, melhorias e problemas conhecidos, confira [Notas sobre a versão](releasenotes.md).
 * Março de 2019 – um novo ponto de extremidade de TTS (conversão de texto em fala) que retorna uma lista completa das vozes disponíveis em uma região específica está disponível. Além disso, agora há suporte para as novas regiões para TTS. Para obter mais informações, veja [Referência da API de conversão de texto em fala (REST)](rest-text-to-speech.md).
 * Fevereiro de 2019 – lançado SDK de Fala 1.3.0 com suporte para [Unity (beta)](quickstart-csharp-unity.md). Adicionado suporte para a classe `AudioInput`, que permite que você escolha a fonte do streaming de áudio. Para obter uma lista completa de aperfeiçoamentos e problemas conhecidos, confira as [Notas sobre a versão](releasenotes.md).
 * Dezembro de 2018 – lançado o SDK de Fala 1.2.0 com suporte para [Python](quickstart-python.md) e [Node.js](quickstart-js-node.md), assim como o Ubuntu 18.04 LTS. Para obter mais informações, confira as [Notas sobre a versão](releasenotes.md).

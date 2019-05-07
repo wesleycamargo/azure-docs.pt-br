@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2021c5028637a6f7e732df61b6f7c034ef79324f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 4f242afb717557a35b81515ab718971bdc398b5a
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547390"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64992785"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>Início Rápido: Conectar usuários e adquirir um token de acesso de um SPA (aplicativo de página única) do JavaScript
 
@@ -49,7 +49,7 @@ A seguinte configuração será necessária para este início rápido:
 >
 > 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 > 1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina sua sessão do portal para o locatário desejado do Azure AD.
-> 1. Acesse o novo painel do [portal do Azure – Registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs).
+> 1. Acesse o novo painel do [portal do Azure – Registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs).
 > 1. Insira um nome para o aplicativo e clique em **Registrar**.
 > 1. Siga as instruções para baixar e configurar automaticamente o novo aplicativo com apenas um clique.
 >
@@ -81,27 +81,32 @@ A seguinte configuração será necessária para este início rápido:
 #### <a name="step-2-download-the-project"></a>Etapa 2: Baixe o projeto
 
 Você pode escolher a opção mais adequada para seu ambiente de desenvolvimento.
-* [Baixar os principais arquivos do projeto para um servidor Web local, como Node.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
-* [Baixar o projeto do Visual Studio](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
+* [Baixe os principais arquivos de projeto](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) para executar com um servidor Web que usa o Node.js. Para abrir os arquivos, use um editor como [Visual Studio Code](https://code.visualstudio.com/).
 
-Extraia o arquivo zip para uma pasta local, por exemplo, **C:\Azure-Samples**.
-Para abrir os arquivos na pasta, use um editor como [Visual Studio Code](https://code.visualstudio.com/).
+* (Opcional) [Baixe o projeto do Visual Studio](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip), para executar com o servidor IIS. Extraia o arquivo zip para uma pasta local, por exemplo, **C:\Azure-Samples**.
+
+
 
 #### <a name="step-3-configure-your-javascript-app"></a>Etapa 3: Configurar o aplicativo JavaScript
 
 > [!div renderon="docs"]
-> Na pasta *JavaScriptSPA*, edite `index.html` e defina os valores `clientID` e `authority` em `applicationConfig`.
+> Na pasta *JavaScriptSPA*, edite `index.html` e defina os valores `clientID` e `authority` em `msalConfig`.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> Na pasta *JavaScriptSPA*, edite `index.html` e substitua `applicationConfig` por:
+> Na pasta *JavaScriptSPA*, edite `index.html` e substitua `msalConfig` por:
 
 ```javascript
-var applicationConfig = {
-    clientID: "Enter_the_Application_Id_here",
-    authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
-    graphScopes: ["user.read"],
-    graphEndpoint: "https://graph.microsoft.com/v1.0/me"
+var msalConfig = {
+    auth: {
+        clientId: "Enter_the_Application_Id_here",
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
+    },
+    cache: {
+        cacheLocation: "localStorage",
+        storeAuthStateInCookie: true
+    }
 };
+
 ```
 > [!div renderon="docs"]
 >
@@ -110,10 +115,11 @@ var applicationConfig = {
 > - `Enter_the_Tenant_Info_Here` - é definido como uma das seguintes opções:
 >   - Se seu aplicativo dá suporte a **Contas neste diretório organizacional**, substitua esse valor pela **ID do Locatário** ou pelo **Nome do locatário** (por exemplo, contoso.microsoft.com)
 >   - Se seu aplicativo dá suporte a **Contas em qualquer diretório organizacional**, substitua esse valor por `organizations`
->   - Se seu aplicativo dá suporte a **Contas em qualquer diretório organizacional e contas pessoais da Microsoft**, substitua esse valor por `common`
+>   - Se o seu aplicativo der suporte a **Contas em qualquer diretório organizacional e contas pessoais Microsoft**, substitua esse valor por `common`. Para restringir o suporte a *contas pessoais da Microsoft*, substitua esse valor por `consumers`.
 >
 > > [!TIP]
 > > Para encontrar os valores de **ID do aplicativo (cliente)**, **ID de diretório (locatário)** e **Tipos de conta com suporte**, vá para a página **Visão Geral** do aplicativo no portal do Azure.
+>
 
 #### <a name="step-4-run-the-project"></a>Etapa 4: Executar o projeto
 
@@ -141,13 +147,16 @@ Depois que o navegador carregar o aplicativo, clique em **Entrar**.  Na primeira
 MSAL é a biblioteca usada para conectar usuários e solicitar tokens usados para acessar uma API protegida pela plataforma de identidade da Microsoft. O *index.html* do início rápido contém uma referência à biblioteca:
 
 ```html
-<script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.4/js/msal.min.js"></script>
+<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0-preview.4/js/msal.min.js"></script>
 ```
+> [!TIP]
+> É possível substituir a versão acima da versão lançada mais recente nas [versões MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
 
-Como alternativa, se tiver o Node instalado, você poderá fazer o download dele pelo npm:
+
+Como alternativa, se você tiver instalado o Node, poderá baixar a versão prévia mais recente por meio do npm:
 
 ```batch
-npm install msal
+npm install msal@preview
 ```
 
 ### <a name="msal-initialization"></a>Inicialização da MSAL
@@ -155,29 +164,48 @@ npm install msal
 O código de início rápido também mostra como inicializar a biblioteca:
 
 ```javascript
-var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, applicationConfig.authority, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
+var msalConfig = {
+    auth: {
+        clientId: "Enter_the_Application_Id_here",
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
+    },
+    cache: {
+        cacheLocation: "localStorage",
+        storeAuthStateInCookie: true
+    }
+};
+
+var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 ```
 
 > |Where  |  |
 > |---------|---------|
 > |`ClientId`     |ID do aplicativo referente ao aplicativo registrado no portal do Azure|
-> |`authority`    |É a URL da autoridade. Passar *null* define a autoridade padrão como `https://login.microsoftonline.com/common`. Se seu aplicativo for de locatário único (direcionamento de contas em apenas um diretório), defina esse valor como `https://login.microsoftonline.com/<tenant name or ID>`|
-> |`tokenReceivedCallback`| O método de retorno de chamada é solicitado depois que a autenticação é redirecionada para o aplicativo. Aqui, passa-se `acquireTokenRedirectCallBack`. Isso será nulo se usar loginPopup.|
-> |`options`  |Uma coleção de parâmetros opcionais. Nesse caso `storeAuthStateInCookie` e `cacheLocation` são a configuração opcional. Consulte a [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL-basics#configuration-options) para obter mais detalhes sobre as opções. |
+> |`authority`    | (Opcional) É a URL de autoridade conforme descrito na seção de configuração acima para dar suporte a tipos de conta. A autoridade padrão é `https://login.microsoftonline.com/common`. |
+> |`cacheLocation`  | (Opcional) Isso define o armazenamento do navegador para o estado de autenticação. O padrão é sessionStorage.   |
+> |`storeAuthStateInCookie`  | (Opcional) A biblioteca armazenará o estado de solicitação de autenticação necessário para a validação dos fluxos de autenticação nos cookies do navegador. Isso é definido para os navegadores IE e Edge mitigarem certos [problemas conhecidos](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues). |
+
+ Confira a [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL-basics#configuration-options) para obter mais detalhes sobre as opções configuráveis disponíveis.
 
 ### <a name="sign-in-users"></a>Conectar usuários
 
 O trecho de código a seguir mostra como realizar a conexão de usuários:
 
 ```javascript
-myMSALObj.loginPopup(applicationConfig.graphScopes).then(function (idToken) {
-    //Callback code here
-})
+var request = {
+    scopes: ["user.read"]
+};
+
+myMSALObj.loginPopup(request).then(function (loginResponse) {
+    //Login Success callback code here
+}).catch(function (error) {
+    console.log(error);
+});
 ```
 
 > |Where  |  |
 > |---------|---------|
-> | `scopes`   | (Opcional) Contém os escopos que estão sendo solicitados para o consentimento do usuário no momento do logon. Por exemplo, `[ "user.read" ]` para o Microsoft Graph ou `[ "<Application ID URL>/scope" ]` para as APIs Web personalizadas (ou seja, `api://<Application ID>/access_as_user`). Aqui, passa-se `applicationConfig.graphScopes`. |
+> | `scopes`   | (Opcional) Contém os escopos que estão sendo solicitados para o consentimento do usuário no momento do logon. Por exemplo, `[ "user.read" ]` para o Microsoft Graph ou `[ "<Application ID URL>/scope" ]` para as APIs Web personalizadas (ou seja, `api://<Application ID>/access_as_user`). |
 
 > [!TIP]
 > Como alternativa, talvez você queira usar o método `loginRedirect` para redirecionar a página atual para a página de entrada, em vez de uma janela pop-up.
@@ -191,14 +219,21 @@ A MSAL tem três métodos usados para adquirir tokens: `acquireTokenRedirect`, `
 O método `acquireTokenSilent` manipula as aquisições e a renovação de tokens sem nenhuma interação do usuário. Após o método `loginRedirect` ou `loginPopup` ser executado pela primeira vez, `acquireTokenSilent` é o método normalmente usado para obter tokens usados para acessar recursos protegidos nas próximas chamadas. As chamadas para solicitar ou renovar tokens são feitas no modo silencioso.
 
 ```javascript
-myMSALObj.acquireTokenSilent(applicationConfig.graphScopes).then(function (accessToken) {
+var request = {
+    scopes: ["user.read"]
+};
+
+myMSALObj.acquireTokenSilent(request).then(function (tokenResponse) {
     // Callback code here
-})
+    console.log(tokenResponse.accessToken);
+}).catch(function (error) {
+    console.log(error);
+});
 ```
 
 > |Where  |  |
 > |---------|---------|
-> | `scopes`   | Contém os escopos solicitados para retorno no token de acesso da API. Por exemplo, `[ "user.read" ]` para o Microsoft Graph ou `[ "<Application ID URL>/scope" ]` para as APIs Web personalizadas (ou seja, `api://<Application ID>/access_as_user`). Aqui, passa-se `applicationConfig.graphScopes`.|
+> | `scopes`   | Contém os escopos solicitados para retorno no token de acesso da API. Por exemplo, `[ "user.read" ]` para o Microsoft Graph ou `[ "<Application ID URL>/scope" ]` para as APIs Web personalizadas (ou seja, `api://<Application ID>/access_as_user`).|
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de usuário interativamente
 
@@ -207,18 +242,24 @@ Há situações em que é necessário forçar os usuários a interagir com o pon
 * Seu aplicativo está solicitando acesso a escopos de recursos adicionais com os quais o usuário precisa concordar
 * A autenticação de dois fatores é necessária
 
-O padrão usual recomendado para a maioria dos aplicativos é chamar `acquireTokenSilent` primeiro, depois capturar a exceção e, em seguida, chamar `acquireTokenRedirect` (ou `acquireTokenPopup`) para iniciar uma solicitação interativa.
+O padrão usual recomendado para a maioria dos aplicativos é chamar `acquireTokenSilent` primeiro, depois capturar a exceção e, em seguida, chamar `acquireTokenPopup` (ou `acquireTokenRedirect`) para iniciar uma solicitação interativa.
 
-Chamar o `acquireTokenPopup(scope)` resulta em uma janela pop-up para entrar (ou `acquireTokenRedirect(scope)` resulta no redirecionamento dos usuários para o ponto de extremidade da plataforma de identidade da Microsoft) em que os usuários precisam interagir confirmando as credenciais deles ou fornecendo consentimento para o recurso necessário, ou ainda concluindo a autenticação de dois fatores.
+Chamar o `acquireTokenPopup` resulta em uma janela pop-up para entrar (ou `acquireTokenRedirect` resulta no redirecionamento dos usuários para o ponto de extremidade da plataforma de identidade da Microsoft) em que os usuários precisam interagir confirmando as credenciais deles ou fornecendo consentimento para o recurso necessário, ou ainda concluindo a autenticação de dois fatores.
 
 ```javascript
-myMSALObj.acquireTokenPopup(applicationConfig.graphScopes).then(function (accessToken) {
-    // Callback code here
-})
-```
+var request = {
+    scopes: ["user.read"]
+};
 
+myMSALObj.acquireTokenPopup(request).then(function (tokenResponse) {
+    // Callback code here
+    console.log(tokenResponse.accessToken);
+}).catch(function (error) {
+    console.log(error);
+});
+```
 > [!NOTE]
-> Esse início rápido usa os métodos `loginRedirect` e `acquireTokenRedirect` quando o navegador usado é o Internet Explorer devido a um [problema conhecido](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) relacionado à manipulação de janelas pop-up pelo navegador Internet Explorer.
+> Este início rápido usa os métodos `loginRedirect` e `acquireTokenRedirect` quando o navegador usado é o Internet Explorer devido a um [problema conhecido](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) relacionado À manipulação de janelas pop-up pelo navegador Internet Explorer.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -11,12 +11,12 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c1c00fec5f56fc81b2cb73404728b214b5aaf3f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a717fa4191c57c21705d24884397ebb485726492
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698341"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025109"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Tutorial: Preparar dados para modelagem de regressão
 
@@ -41,18 +41,16 @@ Vá para [Configurar seu ambiente de desenvolvimento](#start) para ler as etapas
     * O SDK de Preparação de Dados do Azure Machine Learning para Python
 * O notebook do tutorial
 
-Obtenha todos esses pré-requisitos de qualquer uma das seções a seguir.
-
-* Usar o [Azure Notebooks](#azure)
+* Usar um [servidor de notebook de nuvem em seu workspace](#azure) 
 * Usar [seu próprio servidor de notebook](#server)
 
-### <a name="azure"></a>Usar o Azure Notebooks: notebooks gratuitos do Jupyter na nuvem
+### <a name="azure"></a>Usar um servidor de notebook de nuvem em seu workspace
 
-É fácil começar a usar o Azure Notebooks! O SDK de Preparação de Dados do Azure Machine Learning já está instalado e configurado para você no [Azure Notebooks](https://notebooks.azure.com/). A instalação e as atualizações futuras são gerenciadas automaticamente por meio dos serviços do Azure.
-
-Após concluir as etapas abaixo, execute o notebook **tutorials/regression-part1-data-prep.ipynb** em seu projeto de **Introdução**.
+É fácil começar a usar seu próprio servidor de notebook baseado em nuvem. O [SDK do Azure Machine Learning para Python](https://aka.ms/aml-sdk) já está instalado e configurado depois que você cria este recurso de nuvem.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+* Depois de iniciar a página da Web do notebook, execute o notebook **tutorials/regression-part1-data-prep.ipynb**.
 
 ### <a name="server"></a>Use seu próprio servidor do Jupyter Notebook
 

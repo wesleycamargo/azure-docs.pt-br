@@ -1,0 +1,70 @@
+- name: Documentação do Personalizador
+  href: index.yml
+- name: Visão geral
+  expanded: true
+  items:
+    - name: O que é o Personalizador?
+      href: what-is-personalizer.md
+      displayName: 'loop, context, feature, action, rank, reward, developer, use case'
+- name: Guia de início rápido
+  items:
+    - name: Criar e usar um loop de comentários
+      href: csharp-quickstart-commandline-feedback-loop.md
+      displayName: 'code, sample, quickstart, c#'
+- name: Conceitos
+  items:
+    - name: Como funciona o Personalizador
+      href: how-personalizer-works.md
+      displayName: 'rank, reward, api, explore, exploit, score, design, research, loop, action, context, feature, JSON, event, inactive, model'
+    - name: Em que situações o Personalizador pode ser usado?
+      href: where-can-you-use-personalizer.md
+      displayName: 'checklist, considerations, effectiveness, recommendation engine'
+    - name: Ética e uso responsável
+      href: ethics-responsible-use.md
+      displayName: 'best practice, design'
+    - name: Conceitos fundamentais
+      items:
+        - name: 'Recursos: Ação e contexto'
+          href: concepts-features.md
+          displayName: 'action, context, feature, namespace, JSON, best practice, set'
+        - name: Aprendizado de reforço
+          href: concepts-reinforcement-learning.md
+          displayName: 'RL, contextual bandits, Vowpal Wabbit'
+    - name: Análise
+      items:
+        - name: Avaliação offline
+          href: concepts-offline-evaluation.md
+          displayName: 'learning policy, Counterfactual, features'
+- name: Guias de instruções
+  items:
+    - name: Configurar o Personalizador
+      href: how-to-settings.md
+      displayName: 'azure, portal, settings, evaluation, offline, policy'
+    - name: Analise
+      items:
+        - name: Avaliação offline
+          href: how-to-offline-evaluation.md
+- name: Referência
+  items:
+    - name: Exemplos
+      href: 'https://aka.ms/personalizer-samples'
+    - name: referência da API REST
+      href: 'https://aka.ms/personalizer-rest-api-docs'
+    - name: SDKs
+      items:
+        - name: Referência do SDK do .NET
+          href: 'https://aka.ms/personalizer-dotnet-sdk-docs'
+        - name: Pacote NuGet
+          href: 'https://aka.ms/personalizer-nuget-sdk'
+- name: Recursos
+  items:
+    - name: Disponibilidade regional
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Roteiro do Azure
+      href: 'https://aka.ms/personalizer-roadmap'
+    - name: Preços
+      href: 'https://aka.ms/personalizer-pricing'
+    - name: Stack Overflow
+      href: 'https://aka.ms/personalizer-stackoverflow'
+    - name: UserVoice
+      href: 'https://aka.ms/personalizer-uservoice'

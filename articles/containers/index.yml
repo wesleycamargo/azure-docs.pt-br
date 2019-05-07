@@ -63,6 +63,7 @@ sections:
           - html: <a href="/azure/app-service/containers/tutorial-multi-container-app">Criar um aplicativo de vários contêineres no Aplicativo Web para Contêineres</a>
           - html: <a href="/azure/container-registry/container-registry-tutorial-quick-task">Criar e implantar imagens de contêiner com as Tarefas do Registro de Contêiner do Azure</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Criar e implantar um contêiner nas Instâncias de Contêiner do Azure</a>
+          - html: <a href="/azure/openshift/tutorial-create-cluster">Criar um cluster do Red Hat OpenShift no Azure</a>
   - title: Desenvolva suas habilidades com o Microsoft Learn
     items:
       - type: list

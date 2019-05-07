@@ -12,7 +12,7 @@ metadata:
   ms.date: 12/06/2018
   ms.custom: seodec18
 abstract:
-  description: 'Saiba como executar a análise da IoT (Internet das Coisas) na nuvem com o Stream Analytics, um mecanismo de processamento de eventos totalmente gerenciado. Os tutoriais e as outras documentações mostram como analisar dados em tempo real desde aplicativos, sensores, dispositivos, mídia social e muito mais.'
+  description: 'O Stream Analytics é um mecanismo de processamento de eventos totalmente gerenciado e sem servidor que permite analisar fluxos de dados de aplicativos e dispositivos IoT em tempo real. Saiba como usar o Azure Stream Analytics com nossos inícios rápidos, tutoriais e exemplos.'
   aside:
     image:
       alt: null

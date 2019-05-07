@@ -112,6 +112,8 @@
           href: disk-scalability-targets.md
         - name: Backup e recuperação de desastres para discos
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: Discos do SO Efêmero
+          href: ephemeral-os-disks.md
     - name: Rede
       href: network-overview.md
     - name: Aplicativos de dimensionamento automático
@@ -253,16 +255,32 @@
           href: reserved-vm-instance-size-flexibility.md
     - name: Como usar imagens
       items:
-        - name: Galerias de imagens compartilhadas (versão prévia)
+        - name: Galerias de imagens compartilhadas
           items:
             - name: Visão geral
               href: shared-image-galleries.md
-            - name: Criar imagens compartilhadas usando a CLI
+            - name: CLI
               href: shared-images.md
             - name: Portal
               href: shared-images-portal.md
+            - name: Compartilhar imagens entre locatários
+              href: share-images-across-tenants.md
             - name: Solucionar problemas de imagens compartilhadas
               href: troubleshooting-shared-images.md
+        - name: Construtor de imagens (versão prévia)
+          items:
+            - name: Visão geral
+              href: image-builder-overview.md
+            - name: Usar a CLI
+              href: image-builder.md
+            - name: Referência de modelo
+              href: image-builder-json.md
+            - name: Usar com galerias
+              href: image-builder-gallery.md
+            - name: Atualizar uma versão de imagem
+              href: image-builder-gallery-update-image-version.md
+            - name: Solucionar problemas
+              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: Como localizar e usar imagens
           href: cli-ps-findimage.md
         - name: Criar imagem personalizada
