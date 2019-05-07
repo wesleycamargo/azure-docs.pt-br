@@ -1,10 +1,10 @@
 ---
-title: Práticas Recomendadas de Segurança de Dados e Criptografia | Microsoft Docs
+title: Segurança de dados e criptografia de práticas recomendadas – Microsoft Azure
 description: Este artigo fornece um conjunto de práticas recomendadas de segurança de dados e criptografia usando recursos internos do Azure.
 services: security
 documentationcenter: na
-author: barclayn
-manager: mbalwin
+author: TerryLanfear
+manager: barbkess
 editor: TomSh
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
@@ -12,33 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
-ms.author: barclayn
-ms.openlocfilehash: 686d4a8ac5239af12206b57072cc00aa10114d79
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 05/06/2019
+ms.author: terrylan
+ms.openlocfilehash: 9955450b468ef38ba456d7ee73d9681de677494d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125112"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190718"
 ---
-# <a name="azure-data-security-and-encryption-best-practices"></a>Práticas Recomendadas de Segurança de Dados e Criptografia do Azure
+# <a name="azure-data-security-and-encryption-best-practices"></a>Práticas recomendadas de segurança e criptografia de dados do Azure
+Este artigo descreve as práticas recomendadas para segurança de dados e criptografia.
 
+As recomendações baseiam-se um consenso de opinião, e trabalhar com recursos da plataforma Windows Azure atuais e conjuntos de recursos. As opiniões e as tecnologias mudam ao longo do tempo e este artigo será atualizado regularmente para refletir essas alterações.
+
+## <a name="protect-data"></a>Proteger dados
 Para ajudar a proteger os dados na nuvem, você precisa levar em consideração os possíveis estados em que seus dados podem ocorrer e quais controles estão disponíveis para esse estado. Práticas recomendadas para criptografia e segurança de dados do Azure se relacionam aos seguintes estados de dados:
 
 - Em repouso: Isso inclui todos os objetos de armazenamento, contêineres e tipos de informações que existem estaticamente em mídia física, seja ela magnética ou disco óptico.
 - Em trânsito: Quando os dados estão sendo transferidos entre componentes, locais ou programas, estará em trânsito. Os exemplos são a transferência pela rede, através de um barramento de serviço (do local para a nuvem e vice-versa, incluindo conexões híbridas, como o ExpressRoute), ou durante um processo de entrada/saída.
-
-Neste artigo, veremos uma coleção de práticas de recomendadas de segurança de dados e criptografia do Azure. Essas práticas recomendadas derivam da nossa experiência com segurança de dados e criptografia do Azure e da experiência de clientes como você.
-
-Para cada prática recomendada, vamos explicar:
-
-* O que é a prática recomendada
-* Por que é ideal habilitar essa prática recomendada
-* O que poderá acontecer se você não habilitar a prática recomendada
-* Possíveis alternativas à prática recomendada
-* Como você pode aprender a habilitar a prática recomendada
-
-Este artigo Práticas Recomendadas de Segurança de Dados e Criptografia do Azure baseiam-se em um consenso e nos recursos da plataforma Azure e em conjuntos de recursos, tal como existiam no momento em que o artigo foi escrito. As opiniões e as tecnologias mudam ao longo do tempo e este artigo será atualizado regularmente para refletir essas alterações.
 
 ## <a name="choose-a-key-management-solution"></a>Escolha uma solução de gerenciamento de chaves
 
@@ -95,7 +87,7 @@ A [criptografia de dados em repouso](https://cloudblogs.microsoft.com/microsofts
 
 Dados em repouso de armazenamento de criptografia do Armazenamento do Microsoft Azure e Banco de Dados SQL do Azure por padrão e muitos serviços oferecem criptografia como uma opção. Você pode usar o Azure Key Vault para manter o controle das chaves que acessam e criptografar seus dados. Consulte [suporte ao modelo de criptografia de provedores do recurso do Azure para saber mais](azure-security-encryption-atrest.md#azure-resource-providers-encryption-model-support).
 
-**Práticas recomendadas**: Usar criptografia para ajudar a atenuar os riscos relacionados ao acesso não autorizado.
+**Práticas recomendadas**: Usar criptografia para ajudar a atenuar os riscos relacionados ao acesso não autorizado.   
 **Detalhe**: Criptografe as unidades antes de gravar dados confidenciais nelas.
 
 Organizações que não impõem criptografia de dados estão mais expostas a problemas de confidencialidade de dados. Por exemplo, usuários não autorizados ou não autorizados podem roubar dados nas contas comprometidas ou acesso não autorizado a dados codificados em Clear Format. As empresas também devem provar que são diligentes e que usam controles de segurança corretos para melhorar a segurança de seus dados para estar em conformidade com as regulamentações do setor.
@@ -118,7 +110,7 @@ Estas são melhores práticas específicas para o uso de HTTPS, SSL/TLS e o Gate
 **Detalhe**: Use [ExpressRoute](../expressroute/expressroute-introduction.md). Se você optar por usar o ExpressRoute, também poderá criptografar os dados no nível do aplicativo usando [SSL/TLS](https://support.microsoft.com/kb/257591) ou outros protocolos para proteção adicional.
 
 **Melhor prática**: Interagir com o Armazenamento do Azure por meio do portal do Azure.   
-**Detalhe**: Todas as transações ocorrerão via HTTPS. Você também pode usar [API REST de armazenamento](https://msdn.microsoft.com/library/azure/dd179355.aspx) via HTTPS para interagir com [Armazenamento do Microsoft Azure](https://azure.microsoft.com/services/storage/) e [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/).
+**Detalhe**: Todas as transações ocorrerão via HTTPS. Você também pode usar [API REST de armazenamento](https://msdn.microsoft.com/library/azure/dd179355.aspx) via HTTPS para interagir com [armazenamento do Azure](https://azure.microsoft.com/services/storage/).
 
 As organizações que não protegem dados em trânsito são mais suscetíveis a [ataques man-in-the-middle](https://technet.microsoft.com/library/gg195821.aspx), [espionagem](https://technet.microsoft.com/library/gg195641.aspx)e sequestro de sessão. Esses ataques podem ser a primeira etapa na obtenção de acesso a dados confidenciais.
 

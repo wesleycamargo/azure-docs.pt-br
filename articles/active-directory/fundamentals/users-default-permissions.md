@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26178066b2f5353cba99c5965bb2f3055556784c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1736b120b60ab6583a3c38bb13c985d312c021b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60246542"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190952"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quais são as permissões de usuário padrão no Azure Active Directory?
 No Azure Active Directory (Azure AD), a todos os usuários é concedido um conjunto de permissões padrão. Um acesso do usuário é composto por tipo de usuário, suas [atribuições de função](active-directory-users-assign-role-azure-portal.md) e sua posse de objetos individuais. Este artigo descreve as permissões padrão e contém uma comparação entre os padrões do usuário membro e convidado. As permissões de usuário padrão podem ser alteradas somente nas configurações do usuário no Azure AD.
@@ -49,6 +49,8 @@ Permissões padrão para usuários membro podem ser restringidas das seguintes m
 
 Permissão | Configurar explicação
 ---------- | ------------
+Os usuários podem registrar aplicativo | Definir essa opção como não impede que usuários criem registros de aplicativo. A capacidade de, em seguida, pode ser concedida para indivíduos específicos adicionando-os à função de desenvolvedor do aplicativo.
+Permitir que os usuários conectem a conta corporativa ou de estudante ao LinkedIn | Definir essa opção como não impede que os usuários se conectem a sua conta corporativa ou de Estudante com sua conta do LinkedIn.  Ver [compartilhamento de dados de conexões e o consentimento da conta LinkedIn](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/linkedin-user-consent) para obter mais informações.
 Capacidade de criar grupos de segurança | Definir essa opção como Não impede que os usuários criem grupos de segurança. Os administradores globais e administradores de usuário ainda podem criar grupos de segurança. Consulte [Cmdlets do Active Directory do Azure para definir as configurações de grupo](../users-groups-roles/groups-settings-cmdlets.md) para saber como.
 Capacidade de criar grupos do Office 365 | Definir essa opção como Não impede que os usuários criem grupos do Office 365. Definir essa opção para Alguns permite que um conjunto selecionado de usuários crie grupos do Office 365. Os administradores globais e administradores de usuários ainda poderão criar grupos do Office 365. Consulte [Cmdlets do Active Directory do Azure para definir as configurações de grupo](../users-groups-roles/groups-settings-cmdlets.md) para saber como.
 Restringir o acesso ao portal de administração do Azure AD | Definir essa opção como Não, impede que os usuários acessam o Microsoft Azure Active Directory.
@@ -67,7 +69,7 @@ When a user adds a new enterprise application, they are automatically added as a
 
 Quando um usuário cria um grupo, ele é automaticamente adicionado como um proprietário desse grupo. Como proprietário, eles podem gerenciar as propriedades do grupo, como o nome, bem como gerenciar a associação ao grupo. Um proprietário também pode adicionar ou remover outros proprietários. Diferentemente dos administradores globais e administradores de usuário, proprietários só podem gerenciar grupos que possuem. Para atribuir um proprietário do grupo, consulte [Gerenciando proprietários para um grupo](active-directory-accessmanagement-managing-group-owners.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Para saber mais sobre como atribuir funções de administrador do Microsoft Azure Active Directory consulte [Atribuir um usuário a funções de administrador no Microsoft Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * Para saber mais sobre como o acesso aos recursos é controlado no Microsoft Azure, confira [Noções básicas sobre o acesso a recursos no Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)

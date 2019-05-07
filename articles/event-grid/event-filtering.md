@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 87599b05a3569bf6f28880352185a131f48a7f52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f284fea701220906a994cf108ed58cb6998aef9
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61436164"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65187650"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Compreender a filtragem para assinaturas da Grade de Eventos
 
@@ -43,7 +43,7 @@ Para filtragem simples por assunto, especifique um valor inicial ou final para o
 
 Ao publicar eventos em tópicos personalizados, crie assuntos para os eventos que tornem mais fácil aos assinantes reconhecer se estão interessados no evento. Os assinantes usam a propriedade de assunto para filtrar e rotear eventos. Considere adicionar o caminho do acontecimento do evento para que os assinante possam filtrar por segmentos desse caminho. O caminho permite que os assinantes filtrem eventos de maneira restrita ou ampla. Se você fornecer um caminho de três segmentos como `/A/B/C` no assunto, os assinantes poderão filtrar pelo primeiro segmento `/A` para obter um conjunto amplo de eventos. Esses assinantes recebem eventos com assuntos como `/A/B/C` ou `/A/D/E`. Outros assinantes podem filtrar por `/A/B` para obter um conjunto de eventos mais restrito.
 
-A sintaxe JSON para filtrar por tipo de evento é:
+A sintaxe JSON para a filtragem, o assunto é:
 
 ```json
 "filter": {
@@ -117,7 +117,7 @@ Para eventos no esquema de Grade de Eventos do Azure, use os seguintes valores p
 Para eventos no esquema de Eventos de Nuvem, use os seguintes valores para a chave:
 
 * EventId
-* Fonte
+* `Source`
 * EventType
 * EventTypeVersion
 * Dados de evento (como Data.key1)

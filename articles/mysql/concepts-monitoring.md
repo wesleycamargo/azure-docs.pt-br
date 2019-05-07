@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.openlocfilehash: 9dcb79e7f4ebd43da3f6c6fd35fa0707898d7ec8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/06/2019
 ms.locfileid: "60525551"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitoramento no Banco de Dados do Azure para MySQL
@@ -33,9 +33,9 @@ Essas métricas estão disponíveis para o Banco de Dados do Azure para MySQL:
 |serverlog_storage_usage|Armazenamento do Log do Servidor usado|Bytes|A quantidade de armazenamento de log do servidor em uso.|
 |serverlog_storage_limit|Limite de armazenamento do Log do Servidor|Bytes|O armazenamento de log do servidor de máximo para esse servidor.|
 |storage_limit|Limite de armazenamento|Bytes|O armazenamento máximo para esse servidor.|
-|active_connections|Conexões ativas|Contagem|O número de conexões ativas com o servidor.|
-|connections_failed|Conexões com falha|Contagem|O número de conexões com falha com o servidor.|
-|seconds_behind_master|Retardo de replicação em segundos|Contagem|O número de segundos que o servidor de réplica está atrasando contra o servidor mestre.|
+|active_connections|Conexões ativas|Count|O número de conexões ativas com o servidor.|
+|connections_failed|Conexões com falha|Count|O número de conexões com falha com o servidor.|
+|seconds_behind_master|Retardo de replicação em segundos|Count|O número de segundos que o servidor de réplica está atrasando contra o servidor mestre.|
 |network_bytes_egress|Saída da rede|Bytes|Rede-Out em conexões ativas.|
 |network_bytes_ingress|Entrada na rede|Bytes|Entrada de rede em conexões ativas.|
 |backup_storage_used|Backup do Microsoft Azure|Bytes|A quantidade de armazenamento de backup usado.|
@@ -43,7 +43,7 @@ Essas métricas estão disponíveis para o Banco de Dados do Azure para MySQL:
 ## <a name="server-logs"></a>Logs do servidor
 É possível habilitar o registro de consulta no servidor. Esses logs também estão disponíveis por meio dos Logs de diagnóstico do Azure na conta de armazenamento, Hubs de eventos e logs do Azure Monitor. Para saber mais sobre o registro, visite a página  [logs do servidor](concepts-server-logs.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Consulte [Como configurar alertas](howto-alert-on-metric.md) para obter orientação sobre como criar um alerta em uma métrica.
 - Para obter mais informações sobre como acessar e exportar métricas usando o Portal do Azure, a API REST ou a CLI, consulte a [Visão geral das métricas no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 - Leia nosso blog sobre [práticas recomendadas para monitorar seu servidor](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-mysql-monitoring/).

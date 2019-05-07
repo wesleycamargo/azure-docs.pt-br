@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/05/2019
+ms.date: 05/02/2019
 ms.author: kumud
-ms.openlocfilehash: a42a56b8a4a54c33297461a427a2b64b72357020
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5f52829f5895b30afd160cc8ded755332aca5c5
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591455"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190164"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexões de saída no Azure
 
@@ -176,13 +176,13 @@ As alocações de portas SNAT são o protocolo de transporte IP específico (TCP
 
 ### <a name="tcp-snat-port-release"></a>Liberação da porta TCP SNAT
 
-- Se tanto o servidor/cliente enviar a porta FIN/ACK, SNAT, será liberado após 240 segundos.
+- Se o servidor/cliente enviar FINACK, porta SNAT será liberada após 240 segundos.
 - Se um RST for visto, a porta SNAT será liberada após 15 segundos.
-- o tempo limite de ociosidade foi atingido
+- Se o tempo limite de ociosidade foi atingido, a porta é liberada.
 
 ### <a name="udp-snat-port-release"></a>Liberação da porta UDP SNAT
 
-- o tempo limite de ociosidade foi atingido
+- Se o tempo limite de ociosidade foi atingido, a porta é liberada.
 
 ## <a name="problemsolving"></a> Solução de problemas 
 

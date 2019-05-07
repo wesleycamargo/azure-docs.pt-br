@@ -1,9 +1,9 @@
 ---
-title: Melhores práticas de segurança do banco de dados do Azure | Microsoft Docs
+title: Práticas recomendadas de segurança - Microsoft Azure do banco de dados
 description: Este artigo fornece um conjunto de melhores práticas de segurança do banco de dados do Azure.
 services: security
 documentationcenter: na
-author: unifycloud
+author: TerryLanfear
 manager: barbkess
 editor: tomsh
 ms.assetid: ''
@@ -13,27 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
-ms.author: tomsh
-ms.openlocfilehash: 3e244f89904ce9aca161ed1ea435f4137e42bc5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: terrylan
+ms.openlocfilehash: f59d349da023f9a1b21477a05750d4f8e9aef500
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587506"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65187753"
 ---
 # <a name="azure-database-security-best-practices"></a>Melhores práticas de segurança do banco de dados do Azure
+Este artigo descreve as práticas recomendadas de segurança de banco de dados.
+
+As recomendações baseiam-se um consenso de opinião, e trabalhar com recursos da plataforma Windows Azure atuais e conjuntos de recursos. As opiniões e as tecnologias mudam ao longo do tempo e este artigo será atualizado regularmente para refletir essas alterações.
+
+## <a name="secure-databases"></a>Bancos de dados seguros
 A segurança é uma das principais preocupações para o gerenciamento de bancos de dados e sempre foi uma prioridade para o [Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/). Seus bancos de dados podem ser totalmente protegidos para ajudar a atender a maioria dos requisitos regulamentares ou de segurança, como HIPAA, ISO 27001/27002 e PCI DSS Nível 1. Uma lista atual das certificações de conformidade de segurança está disponível no [site da Central de Confiabilidade da Microsoft](https://azure.microsoft.com/support/trust-center/services/). Você também pode optar por colocar seus bancos de dados em datacenters do Azure específico com base em requisitos regulamentares.
-
-Neste artigo, veremos uma coleção de melhores práticas de segurança de banco de dados do Azure. Essas melhores práticas derivam da nossa experiência com segurança de banco de dados do Azure e da experiência de clientes como você.
-
-Para cada prática recomendada, vamos explicar:
-
--   O que é a prática recomendada
--   Por que é ideal habilitar essa prática recomendada
--   O que poderá acontecer se você não habilitar a prática recomendada
--   Como você pode aprender a habilitar a prática recomendada
-
-Este artigo Melhores práticas de segurança de banco de dados do Azure baseia-se em um consenso e nos recursos da plataforma Azure e em conjuntos de recursos tal como existiam no momento em que o artigo foi escrito. As opiniões e as tecnologias mudam ao longo do tempo e este artigo será atualizado regularmente para refletir essas alterações.
 
 ## <a name="use-firewall-rules-to-restrict-database-access"></a>Usar regras de firewall para restringir o acesso ao banco de dados
 O Banco de Dados SQL do Microsoft Azure fornece um serviço de banco de dados relacional para o Azure e outros aplicativos baseados na Internet. Para fornecer segurança de acesso, Banco de Dados SQL controla o acesso com:

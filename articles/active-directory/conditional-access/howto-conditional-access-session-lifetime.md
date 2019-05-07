@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 884b3c2d3f4414427df87ee5f04138416f363b1c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0ff9ad850b111cf080447b699d35b4ef8205e006
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577219"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190213"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar o gerenciamento de sessão de autenticação com o acesso condicional
 
@@ -53,7 +53,7 @@ O padrão do AD do Azure para persistência de sessão de navegador permite que 
 Acesso condicional é um recurso do Azure AD Premium e requer uma licença premium. Se você quiser saber mais sobre acesso condicional, consulte [O que é acesso condicional no Azure Active Directory?](overview.md#license-requirements-for-using-conditional-access)
 
 > [!WARNING]
-> Se você estiver usando o [tempo de vida de token configurável](../develop/active-directory-configurable-token-lifetimes.md) recurso atualmente em visualização pública, observe que não oferecemos suporte ao criar duas políticas diferentes para a mesma combinação de usuário ou aplicativo: uma com esse recurso e outro com recurso de tempo de vida de token configurável. A Microsoft planeja desativar o recurso de tempo de vida de token configurável em 1º de novembro e substituí-lo com o recurso de gerenciamento de sessão de autenticação de acesso condicional.  
+> Se você estiver usando o [tempo de vida de token configurável](../develop/active-directory-configurable-token-lifetimes.md) recurso atualmente em visualização pública, observe que não oferecemos suporte ao criar duas políticas diferentes para a mesma combinação de usuário ou aplicativo: uma com esse recurso e outro com recurso de tempo de vida de token configurável. A Microsoft planeja desativar o recurso de tempo de vida de token configurável no dia 15 de outubro e substituí-lo com o recurso de gerenciamento de sessão de autenticação de acesso condicional.  
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Política 1: Frequência de entrada de controle
 

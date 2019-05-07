@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d90af62c8d6267001ede567c71b7e1204f6ce74
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 73d3c2846ed97b725d745cc76714738ac34ed1a0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917224"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190200"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Como: Habilitar o SSO entre aplicativos no iOS usando o ADAL
 
@@ -165,7 +165,7 @@ Para SSO não assistido por agente entre aplicativos, os SDKs gerenciam grande p
 
 Para habilitar o SSO entre aplicativos que você possui, é necessário fazer o seguinte:
 
-1. Certifique-se de que todos os seus aplicativos usem a mesma ID de Cliente ou de Aplicativo.
+1. Verifique se que todos os seus aplicativos usam a mesma ID de cliente ou de aplicativo.
 2. Certifique-se de que todos os aplicativos compartilhem o mesmo certificado de assinatura da Apple para que você possa compartilhar os conjuntos de chaves.
 3. Solicite o mesmo direito de conjunto de chaves para cada um dos seus aplicativos.
 4. Conte aos SDKs sobre o conjunto de chaves compartilhado que você deseja usar.

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/16/2019
+ms.date: 05/06/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78889cb3c04b9854a4cebb27c35488d5142ad3a7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 491545aabd3415850eb1b1d712a46401b73ad845
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694823"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190721"
 ---
 # <a name="what-is-password-writeback"></a>O que é write-back de senha?
 
@@ -165,6 +165,9 @@ O tamanho de cada mensagem descrita anteriormente normalmente é inferior a 1 KB
 * **Operações do administrador sem suporte**
    * Qualquer redefinição de senha do usuário final iniciada pelo administrador no [portal de gerenciamento do Office](https://portal.office.com)
    * Qualquer redefinição de senha do usuário final iniciada pelo administrador do PowerShell versão 1, versão 2 ou da API do Graph do Azure AD
+
+> [!WARNING]
+> Não há suporte para o uso da caixa de seleção "usuário deve alterar a senha no próximo logon" em Ferramentas administrativas do Active Directory local, como usuários do Active Directory e computadores ou o Centro Administrativo do Active Directory. Ao alterar uma senha local não marque esta opção. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 05/06/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb9333845a78204ea1c6e56e17b3b6f9e5513c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c254ef3a71e95b33df2a779c728d47fff3c3759
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357981"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190364"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Como distribuir com sucesso a redefinição de senha de autoatendimento
 
@@ -32,6 +32,10 @@ Para garantir uma distribuição uniforme da funcionalidade de autoatendimento d
    * Você forneceu as URLs para registro e redefinição?
       * Registro:  https://aka.ms/ssprsetup
       * Redefinir: https://aka.ms/sspr
+
+   > [!WARNING]
+   > Não há suporte para o uso da caixa de seleção "usuário deve alterar a senha no próximo logon" em Ferramentas administrativas do Active Directory local, como usuários do Active Directory e computadores ou o Centro Administrativo do Active Directory. Ao alterar uma senha local não marque esta opção. 
+
 1. Instrua os usuários.
    * As seções a seguir deste documento examinam a comunicação de exemplo, portais de senha, forçando o registro e preenchendo dados de autenticação.
    * O grupo de produtos do Active Directory do Azure criou um [plano de implantação passo a passo](https://aka.ms/SSPRDeploymentPlan) que as organizações podem usar em paralelo com a documentação encontrado nesse site para tornar um caso de negócios e o plano para a implantação de autoatendimento redefinição de senha.
@@ -78,7 +82,7 @@ Considere [preencher previamente alguns dados de autenticação dos usuários](h
 
 Se a organização decidir desabilitar a redefinição de senha de autoatendimento, será um processo simples. Abra o seu locatário do Azure AD e vá para **Redefinição de senha** > **Propriedades** e, em seguida, selecione **Nenhum** em **Redefinição de senha do serviço de autoatendimento habilitada**. Os usuários ainda manterão seus métodos de autenticação registrado para uso futuro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Redefinir ou alterar sua senha](../user-help/active-directory-passwords-update-your-own-password.md)
 * [Registro de redefinição de senha de autoatendimento](../user-help/active-directory-passwords-reset-register.md)

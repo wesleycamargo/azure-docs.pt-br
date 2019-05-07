@@ -17,12 +17,12 @@ ms.date: 04/10/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8827a51a23b2ea274d8096a154e630c9cecbba7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0d8f1024ba660bc0e879940f20db70d547eea40e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351980"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190486"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planejar a sua implementação do ingresso do Azure Active Directory híbrido
 
@@ -41,7 +41,7 @@ Caso tenha um ambiente local do Active Directory e queira ingressar dispositivos
 Este artigo presume que você esteja familiarizado com o [Introdução ao gerenciamento de dispositivos no Active Directory do Azure](../device-management-introduction.md).
 
 > [!NOTE]
-> O mínimo necessário funcional de domínio e níveis funcionais de floresta para ingresso no Azure AD Híbrido Windows 10 é o Windows Server 2008 R2. Em versões anteriores, o usuário pode não obter um primário Token de atualização durante o logon do Windows devido a problemas de LSA.
+> O mínimo necessário funcional de domínio e níveis funcionais de floresta para ingresso no Azure AD Híbrido Windows 10 é o Windows Server 2008 R2.
 
 ## <a name="plan-your-implementation"></a>Planejar sua implementação
 
@@ -121,6 +121,9 @@ Se seu ambiente tiver domínios gerenciados, ingresso no Azure AD híbrido ofere
 
 - PTA (Autenticação de Passagem)
 - PHS (Sincronização de Hash de Senha)
+
+> [!NOTE]
+> Azure AD não oferece suporte a cartões inteligentes ou certificados em domínios gerenciados.
 
 A partir da versão 1.1.819.0, o Azure AD Connect fornece um assistente para configurar o ingresso no Azure AD híbrido. O assistente permite simplificar significativamente o processo de configuração. Para obter mais informações, consulte:
 
