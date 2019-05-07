@@ -68,9 +68,9 @@ As propriedades a seguir têm suporte no serviço vinculado do Azure Data Explor
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **tipo** deve ser definida como **AzureDataExplorer** | Sim |
+| type | A propriedade **tipo** deve ser definida como **AzureDataExplorer** | Sim |
 | endpoint | URL de ponto de extremidade do cluster do Azure Data Explorer com o formato `https://<clusterName>.<regionName>.kusto.windows.net`. | Sim |
-| Banco de Dados | Nome do banco de dados. | Sim |
+| database | Nome do banco de dados. | Sim |
 | tenant | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. Esse é o que normalmente conhecido como "**identificação da autoridade**" no [cadeia de caracteres de conexão Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Recupere-o focalizando com o mouse no canto superior direito do portal do Azure. | Sim |
 | servicePrincipalId | Especifique a ID do cliente do aplicativo. Esse é o que normalmente conhecido como "**ID do cliente de aplicativo AAD**" no [cadeia de caracteres de conexão Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Sim |
 | servicePrincipalKey | Especifique a chave do aplicativo. Esse é o que normalmente conhecido como "**chave de aplicativo do AAD**" no [cadeia de caracteres de conexão Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Marque esse campo como **SecureString** para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim |
@@ -106,8 +106,8 @@ Há suporte para as seguintes propriedades:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **type** deve ser definida como **AzureDataExplorerTable** | Sim |
-| tabela | O nome da tabela à qual o serviço vinculado se refere. | Não para coletor; não para fonte |
+| type | A propriedade **type** deve ser definida como **AzureDataExplorerTable** | Sim |
+| table | O nome da tabela à qual o serviço vinculado se refere. | Não para coletor; não para fonte |
 
 **Exemplo de Propriedades do Conjunto de Dados**
 
@@ -137,7 +137,7 @@ Para copiar dados do Azure Data Explorer, defina a propriedade **type** na fonte
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **type** da fonte da atividade de cópia deve ser definida como: **AzureDataExplorerSource** | Sim |
+| type | A propriedade **type** da fonte da atividade de cópia deve ser definida como: **AzureDataExplorerSource** | Sim |
 | query | Uma solicitação somente leitura fornecida em um [formato KQL](/azure/kusto/query/). Use a consulta KQL personalizada como referência. | Sim |
 | queryTimeout | O tempo de espera antes que a solicitação de consulta expire. O valor padrão é 10 min (00:10:00); o valor máximo permitido é 1 hora (01: 00:00). | Não  |
 
@@ -183,7 +183,7 @@ Para copiar dados do Azure Data Explorer, defina a propriedade type no coletor d
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **type** do coletor da atividade de cópia deve ser definida como: **AzureDataExplorerSink** | Sim |
+| type | A propriedade **type** do coletor da atividade de cópia deve ser definida como: **AzureDataExplorerSink** | Sim |
 | ingestionMappingName | Nome do criada previamente **[mapeamento](/azure/kusto/management/mappings#csv-mapping)** em uma tabela do Kusto. Para mapear as colunas de origem para o Azure Data Explorer - aplica-se ao **[todos com suporte/formatos de repositórios de origem](copy-activity-overview.md#supported-data-stores-and-formats)** incluindo em JSON/CSV/Avro formatos etc., você pode usar a atividade de cópia [coluna Mapeando](copy-activity-schema-and-type-mapping.md) (implicitamente por nome ou explicitamente, conforme configurado) e/ou mapeamentos de Gerenciador de dados do Azure. | Não  |
 
 **Exemplo:**
