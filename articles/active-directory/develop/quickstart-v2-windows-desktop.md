@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6d3d98c91b2a373e4ed8b1ae556d402cb29d0dd
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 2c9600c20349627c1da2bdf4f1bbc2f3d7a55549
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59520740"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067770"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Início Rápido: Adquirir um token e chamar a API do Microsoft Graph de um aplicativo da área de trabalho do Windows
 
@@ -51,13 +51,14 @@ Neste início rápido, você aprenderá a programar um aplicativo WPF (Windows P
 >
 > 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
 > 1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina sua sessão do portal para o locatário desejado do Azure AD.
-> 1. Navegue até a página [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) da plataforma de identidade da Microsoft para desenvolvedores.
+> 1. Navegue até a página [Registros de aplicativo](https://aka.ms/MobileAppReg) da plataforma de identidade da Microsoft para desenvolvedores.
 > 1. Selecione **Novo registro**.
 >      - Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo, por exemplo, `Win-App-calling-MsGraph`.
 >      - Na seção **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)**.
 >      - Selecione **Registrar** para criar o aplicativo.
 > 1. Na lista de páginas para o aplicativo, selecione **Autenticação**.
-> 1. Na seção **URIs de redirecionamento**, localize a seção **URIs de redirecionamento sugeridos para clientes públicos (dispositivos móvel, área de trabalho)** e selecione **"urn:ietf:wg:oauth:2.0:oob**.
+> 1. Expanda a seção **Desktop + dispositivos**.  (Se **Desktop + dispositivos** não está visível, primeiro clique na faixa superior para exibir a experiência de Autenticação em versão prévia)
+> 1. Na seção **URI de redirecionamento**, selecione **Adicionar URI**.  Digite **urn:ietf:wg:oauth:2.0:oob**.
 > 1. Clique em **Salvar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
