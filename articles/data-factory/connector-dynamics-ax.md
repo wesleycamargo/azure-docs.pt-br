@@ -56,7 +56,7 @@ As propriedades a seguir têm suporte no serviço vinculado do Dynamics AX:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **tipo** deve ser definida como: **DynamicsAX**. |Sim |
+| type | A propriedade **tipo** deve ser definida como: **DynamicsAX**. |Sim |
 | url | Ponto de extremidade OData da instância do Dynamics AX (ou Dynamics 365 Finance and Operations). |Sim |
 | servicePrincipalId | Especifique a ID do cliente do aplicativo. | Sim |
 | servicePrincipalKey | Especifique a chave do aplicativo. Marque esse campo como **SecureString** para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Sim |
@@ -100,8 +100,8 @@ Para copiar dados do Dynamics AX, defina a propriedade **tipo** do conjunto de d
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **tipo** do conjunto de dados deve ser definida como **DynamicsAXResource**. | Sim |
-| caminho | Caminho para a entidade OData do Dynamics AX. | Sim |
+| type | A propriedade **tipo** do conjunto de dados deve ser definida como **DynamicsAXResource**. | Sim |
+| path | Caminho para a entidade OData do Dynamics AX. | Sim |
 
 **Exemplo**
 
@@ -133,7 +133,7 @@ Para copiar dados do Dynamics AX, defina o **tipo** de fonte em Copiar atividade
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **tipo** da fonte Copiar atividade deve ser definida como **DynamicsAXSource**. | Sim |
+| type | A propriedade **tipo** da fonte Copiar atividade deve ser definida como **DynamicsAXSource**. | Sim |
 | query | Opções de consulta OData para filtrar dados. Exemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Observação**: O conector copia os dados da URL combinada: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Para saber mais, confira as [Componentes da URL do OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não  |
 
 **Exemplo**
