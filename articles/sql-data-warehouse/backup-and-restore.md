@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/01/2019
+ms.date: 04/30/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ebe45bf8f562b5be9ae2afda9d5940296396f155
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 914513bc19cc81da29efef12d50a6485233d169f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679300"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236583"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Faça o backup e restauração no SQL Data Warehouse
 
@@ -27,7 +27,7 @@ Um *instantâneo de data warehouse* cria um ponto de restauração que pode ser 
 
 A *restauração de um data warehouse* é um novo data warehouse criado por meio de um ponto de restauração de um data warehouse existente ou excluído. Restaurar o seu banco de dados é uma parte essencial de qualquer estratégia de recuperação de desastre e de continuidade dos negócios, porque ela recria seus dados após uma exclusão ou corrupção acidental. O data warehouse também é um mecanismo eficiente para criar cópias do seu data warehouse para fins de teste ou desenvolvimento.  As taxas de restauração do SQL Data Warehouse podem variar dependendo do tamanho do banco de dados e local do depósito de dados de origem e destino. Em média na mesma região, as taxas de restauração normalmente levar cerca de 20 minutos. 
 
-## <a name="automatic-restore-points"></a>Pontos de restauração automática
+## <a name="automatic-restore-points"></a>Pontos de Restauração Automática
 
 Os instantâneos são um recurso interno do serviço que cria pontos de restauração. Não é necessário habilitar essa funcionalidade. No momento, os pontos de restauração automática não podem ser excluídos por usuários em que o serviço utiliza tais pontos de restauração para manter SLAs para recuperação.
 
@@ -42,7 +42,7 @@ order by run_id desc
 ;
 ```
 
-## <a name="user-defined-restore-points"></a>Pontos de restauração definidos pelo usuário
+## <a name="user-defined-restore-points"></a>Pontos de Restauração Definido Pelo Usuário
 
 Esse recurso permite que você manualmente instantâneos de gatilho para criar pontos de restauração de seu data warehouse antes e depois de grandes modificações. Essa funcionalidade garante que os pontos de restauração são logicamente consistentes, que fornece proteção de dados adicionais em caso de quaisquer interrupções de carga de trabalho ou erros de usuário para o tempo de recuperação rápida. Os pontos de restauração definidos pelo usuário ficam disponíveis por sete dias e são excluídos automaticamente em seu nome. Não é possível alterar o período de retenção de pontos de restauração definidos pelo usuário. Garantimos apenas **42 pontos de restauração definidos pelo usuário** a qualquer momento; é necessário [excluir](https://go.microsoft.com/fwlink/?linkid=875299) algum ponto antes da criação de outro ponto de restauração. É possível disparar instantâneos para criar pontos de restauração definidos pelo usuário por meio do [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint#examples) ou do Portal do Azure.
 
@@ -83,7 +83,7 @@ O custo total para o data warehouse primário e de sete dias de alterações de 
 
 Se você estiver usando armazenamento com redundância geográfica, você receberá uma cobrança de armazenamento separada. O armazenamento com redundância geográfica é cobrado segundo a taxa padrão de RA-GRS (Armazenamento com Redundância Geográfica com Acesso de Leitura).
 
-Para obter mais informações sobre os preços do SQL Data Warehouse, consulte [Preços do SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) e [taxas de saída](https://azure.microsoft.com/pricing/details/bandwidth/) para restauração em região diferente.
+Para obter mais informações sobre preços do SQL Data Warehouse, consulte [SQL Data Warehouse Pricing]. Você não é cobrado pela saída de dados durante a restauração entre regiões.
 
 ## <a name="restoring-from-restore-points"></a>Restauração a partir dos pontos de restauração
 

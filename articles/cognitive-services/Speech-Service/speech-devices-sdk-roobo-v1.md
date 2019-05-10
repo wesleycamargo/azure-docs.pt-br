@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 0e5dc73c1f24ccbc2032cecbb857587eb20c6806
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 7c1a13a44d9db8ed029ce798f0bb34944a1a65a7
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026203"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409070"
 ---
 # <a name="device-roobo-smart-audio-dev-kit"></a>Dispositivo: Kit de desenvolvimento de áudio Roobo inteligente
 
@@ -69,7 +69,7 @@ Para obter mais informações de desenvolvimento, consulte o [guia de desenvolvi
 
 ## <a name="audio"></a>Áudio
 
-Roobo fornece uma ferramenta que captura todos os áudio memória Flash. Isso pode ajudá-lo a solucionar problemas de áudio. Uma versão da ferramenta é fornecida para cada configuração do kit de desenvolvimento. Sobre o [site Roobo](http://ddk.roobo.com/), selecione seu dispositivo e, em seguida, selecione o **Roobo ferramentas** link na parte inferior da página.
+Roobo fornece uma ferramenta que captura todos os áudio memória Flash. Isso pode ajudá-lo a solucionar problemas de áudio. Uma versão da ferramenta é fornecida para cada configuração do kit de desenvolvimento. Sobre o [site Roobo](https://ddk.roobo.com/), selecione seu dispositivo e, em seguida, selecione o **Roobo ferramentas** link na parte inferior da página.
 
 ## <a name="next-steps"></a>Próximas etapas
 

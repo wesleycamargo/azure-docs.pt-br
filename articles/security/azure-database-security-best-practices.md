@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: f59d349da023f9a1b21477a05750d4f8e9aef500
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b4744201f506730303e190783acc60bfaa383720
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65187753"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409817"
 ---
 # <a name="azure-database-security-best-practices"></a>Melhores práticas de segurança do banco de dados do Azure
 Este artigo descreve as práticas recomendadas de segurança de banco de dados.
@@ -40,7 +40,7 @@ Os firewalls impedem todo acesso ao seu servidor de banco de dados até que voc�
 
 A figura a seguir mostra em que local você defini um firewall de servidor no Banco de Dados SQL:
 
-![Regras de firewall](./media/azure-database-security-best-practices/azure-database-security-best-practices-Fig1.png)
+![Regras de Firewall](./media/azure-database-security-best-practices/azure-database-security-best-practices-Fig1.png)
 
 O serviço Banco de dados SQL do Azure só está disponível na porta TCP 1433. Para acessar um banco de dados SQL do seu computador, certifique-se de que o firewall do computador cliente permita a comunicação TCP de saída na porta TCP 1433. Bloqueie conexões de entrada na porta TCP 1433 usando regras de firewall se você não precisar dessas conexões para outros aplicativos.
 

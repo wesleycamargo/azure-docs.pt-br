@@ -1,23 +1,21 @@
 ---
 title: Executar a atividade de fluxo de dados no Azure Data Factory | Microsoft Docs
-description: A atividade de fluxo de dados do execute executa fluxos de dados.
+description: Como executar dados flui de dentro de um pipeline do data factory.
 services: data-factory
 documentationcenter: ''
 author: kromerm
-manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: 856f4bd9c2b04ff10ed598c5e641955e1de99398
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1d4ce355f34014d5099c4b46f4420d032363fce
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60557510"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236681"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Executar a atividade de fluxo de dados no Azure Data Factory
 Use a atividade de fluxo de dados execute para executar seu fluxo de dados ADF em execuções de depuração (área restrita) do pipeline em execuções de pipeline disparada.
@@ -59,15 +57,13 @@ Escolha o ambiente de computação para essa execução do fluxo de dados. O pad
 
 ![Botão de depuração](media/data-flow/debugbutton.png "no botão depurar")
 
-Use os dados de fluxo de depuração para utilizar um cluster warmed para seus fluxos de dados de teste interativamente em uma execução de depuração do pipeline. Use a opção de depuração Pipleine para testar seus fluxos de dados dentro de um pipeline.
+Use os dados de fluxo de depuração para utilizar um cluster warmed para seus fluxos de dados de teste interativamente em uma execução de depuração do pipeline. Use a opção de Pipeline de depuração para testar seus fluxos de dados dentro de um pipeline.
 
-### <a name="compute-type"></a>Tipo de computação
+### <a name="run-on"></a>Executar em
 
-Você pode escolher o uso geral, computação otimizada ou com otimização de memória, dependendo dos requisitos do fluxo de dados.
+Este é um campo obrigatório que define qual tempo de execução de integração a ser usado para a execução de atividade de fluxo de dados. Por padrão, o Data Factory usará o tempo de execução de integração do Azure do padrão de resolução automática. No entanto, você pode criar seus próprios tempos de execução de integração do Azure que definem a regiões específicas, TTL, contagens de núcleos e tipo de computação para a execução de atividade de fluxo de dados.
 
-### <a name="core-count"></a>Contagem de núcleos
-
-Escolha quantos núcleos que você deseja atribuir ao trabalho. Para trabalhos menores, menos núcleos funcionará melhor.
+A configuração padrão para execuções de fluxo de dados é de 8 núcleos de computação geral com um TTL de 60 minutos.
 
 ### <a name="staging-area"></a>Área de preparação
 
@@ -82,6 +78,8 @@ Se você estiver usando conjuntos de dados com parâmetros, certifique-se de def
 ### <a name="debugging-parameterized-data-flows"></a>Depuração de fluxos de dados com parâmetros
 
 Só é possível depurar fluxos de dados com conjuntos de dados com parâmetros de Pipeline depurar executados usando a atividade de fluxo de dados execute. Atualmente, as sessões de depuração interativa no fluxo de dados de ADF não funcionam com conjuntos de dados com parâmetros. Execuções de pipeline e execuções de depuração funcionará com parâmetros.
+
+É uma boa prática compilar seu fluxo de dados com um conjunto de dados estático para que você tenha a propagação de coluna de metadados completos disponível em tempo de design. Em seguida, substitua o conjunto de dados estático com um conjunto de dados com parâmetros dinâmico quando você operacionaliza seu pipeline de fluxo de dados.
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte outras atividades de fluxo de controle com suporte pelo Data Factory: 

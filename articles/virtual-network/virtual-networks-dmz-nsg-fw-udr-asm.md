@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 668862714b416bd89d3b5f82caf8b0305fccae54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a7927868a9a4bebc80ec995baefbae4c45d747f
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362877"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410468"
 ---
 # <a name="example-3-build-a-perimeter-network-to-protect-networks-with-a-firewall-udr-and-nsgs"></a>Exemplo 3: Crie uma rede de perímetro para proteger as redes com um firewall, UDR e NSGs
 
@@ -150,7 +150,7 @@ Este exemplo usa os comandos a seguir para criar a tabela de rotas, adicionar um
        -RouteTableName $BERouteTableName
    ```
 
-## <a name="ip-forwarding"></a>Encaminhamento IP
+## <a name="ip-forwarding"></a>Encaminhamento de IP
 
 Encaminhamento de IP é um recurso complementar para UDR. Essa configuração em um dispositivo virtual permite que ele receba o tráfego não endereçado para a solução e, em seguida, encaminhar esse tráfego para seu destino final.
 
@@ -203,7 +203,7 @@ Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
     -SubnetName $BESubnet -VirtualNetworkName $VNetName
 ```
 
-## <a name="firewall-rules"></a>Regras de firewall
+## <a name="firewall-rules"></a>Regras de Firewall
 
 Você deve criar regras de encaminhamento no firewall. Como o firewall bloqueia ou encaminha todo o tráfego de entrada, saído e rede intrafamiliares virtuais, você precisa de várias regras de firewall. Além disso, o firewall tem que processar todo o tráfego de entrada para o endereço IP público do serviço de segurança (em portas diferentes). Para evitar retrabalho mais tarde, siga a prática recomendada por fluxos de lógica antes de configurar as sub-redes e as regras de firewall de diagramação. A figura a seguir é uma exibição lógica das regras de firewall para este exemplo:
 
@@ -635,7 +635,7 @@ Modifique as variáveis definidas pelo usuário nos arquivos conforme necessári
 Depois de definir as variáveis definidas pelo usuário, execute este script para:
 
 1. Conectar-se a uma assinatura do Azure
-1. Criar uma nova conta de armazenamento
+1. Criar uma conta de armazenamento
 1. Criar uma nova rede virtual e três sub-redes, conforme definido no arquivo de configuração de rede
 1. Criar cinco máquinas virtuais: um firewall e quatro VMs do Windows Server
 1. Configure o UDR:
@@ -989,7 +989,7 @@ Execute este PowerShell script localmente em uma internet computador ou servidor
 Salve esse arquivo XML com localização atualizada. Alterar o `$NetworkConfigFile` variável no script completo acima para vincular ao arquivo de configuração de rede salvo.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>
@@ -1023,7 +1023,7 @@ Salve esse arquivo XML com localização atualizada. Alterar o `$NetworkConfigFi
     </NetworkConfiguration>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Você pode instalar um aplicativo de exemplo para ajudá-lo com este exemplo de rede de perímetro.
 

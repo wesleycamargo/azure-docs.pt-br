@@ -2,20 +2,20 @@
 title: Solucionar problemas de sincronização de arquivos do Azure | Microsoft Docs
 description: Solucionar problemas comuns com a Sincronização de arquivos do Azure.
 services: storage
-author: roygara
+author: jeffpatt24
 ms.service: storage
 ms.topic: article
 ms.date: 01/31/2019
-ms.author: rogarana
+ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e399566a67161219e1d778ba1c6f874f7cede251
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2893960c3351b1f8a5caf0c69ca961851528007d
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190075"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510833"
 ---
-# <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
+# <a name="troubleshoot-azure-file-sync"></a>Solução de problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
 
 Este artigo foi projetado para ajudá-lo a solucionar problemas e resolver problemas encontrados com a implantação da Sincronização de arquivos do Azure. Nós também descrevemos como coletar logs importantes do sistema para ajudar em uma investigação mais profunda dos problemas. Se você não vir a resposta para sua pergunta aqui, poderá entrar em contato conosco pelos seguintes canais (em ordem progressiva):
@@ -86,7 +86,7 @@ Esse problema ocorre quando a conta de usuário não tem direitos suficientes pa
 Para criar um ponto de extremidade de nuvem, sua conta de usuário deve ter as seguintes permissões de Autorização da Microsoft:  
 * Ler: Obter a definição da função
 * Gravação: Criar ou atualizar definição de função personalizada
-* Ler: Obter a atribuição da função
+* Ler: Obter atribuição de função
 * Gravação: Criar atribuição de função
 
 As seguintes funções internas têm as permissões de Autorização da Microsoft adequadas:  
@@ -275,7 +275,7 @@ A tabela abaixo contém todos os caracteres unicode que o Azure File Sync ainda 
 | **HRESULT** | 0x800704c7 |
 | **HRESULT (decimal)** | -2147023673 | 
 | **Cadeia de caracteres de erro** | ERROR_CANCELLED |
-| **Correção necessária** | Não  |
+| **Correção necessária** | Não |
 
 As sessões de sincronização podem falhar por diversos motivos, incluindo o servidor que está sendo reiniciado ou atualizado, instantâneos do VSS etc. Embora esse erro pareça exigir acompanhamento, é seguro ignorar esse erro, a menos que ele persista por um período de várias horas.
 
@@ -297,7 +297,7 @@ As sessões de sincronização podem falhar por diversos motivos, incluindo o se
 | **HRESULT** | 0x80c8004c |
 | **HRESULT (decimal)** | -2134376372 |
 | **Cadeia de caracteres de erro** | ECS_E_USER_REQUEST_THROTTLED |
-| **Correção necessária** | Não  |
+| **Correção necessária** | Não |
 
 Nenhuma ação é necessária; o servidor tentará novamente. Se esse erro persistir por mais de algumas horas, crie uma solicitação de suporte.
 
@@ -432,7 +432,7 @@ Remova essas regras para corrigir esse problema.
 | **HRESULT** | 0x80c80219 |
 | **HRESULT (decimal)** | -2134375911 |
 | **Cadeia de caracteres de erro** | ECS_E_SYNC_METADATA_WRITE_LOCK_TIMEOUT |
-| **Correção necessária** | Não  |
+| **Correção necessária** | Não |
 
 Esse erro geralmente se resolve e pode ocorrer se houver:
 
@@ -527,7 +527,7 @@ Este erro ocorre porque o volume foi preenchido. Esse erro geralmente ocorre por
 | **HRESULT** | 0x80c8300f |
 | **HRESULT (decimal)** | -2134364145 |
 | **Cadeia de caracteres de erro** | ECS_E_REPLICA_NOT_READY |
-| **Correção necessária** | Não  |
+| **Correção necessária** | Não |
 
 Esse erro ocorre porque há alterações no compartilhamento de arquivos do Azure diretamente e a detecção de alterações está em andamento. A sincronização começará quando a detecção de alterações for concluída.
 
@@ -566,7 +566,7 @@ Nos casos em que há muitos erros de sincronização por arquivo, as sessões de
 | **Cadeia de caracteres de erro** | ECS_E_SYNC_INVALID_PATH |
 | **Correção necessária** | Sim |
 
-Assegure-se de que o caminho exista, esteja em um volume NTFS local e não seja um ponto de nova análise ou um terminal do servidor existente.
+Verifique se o caminho existe, está em um volume NTFS local e não é um ponto de nova análise ou ponto de extremidade existente do servidor.
 
 <a id="-2134375817"></a>**Falha na sincronização porque a versão do driver de filtro não é compatível com a versão do agente**  
 
@@ -586,7 +586,7 @@ Esse erro ocorre porque a versão do driver do filtro de Camada de Nuvem (Storag
 | **HRESULT** | 0x80c8004b |
 | **HRESULT (decimal)** | -2134376373 |
 | **Cadeia de caracteres de erro** | ECS_E_SERVICE_UNAVAILABLE |
-| **Correção necessária** | Não  |
+| **Correção necessária** | Não |
 
 Este erro ocorre porque o serviço de Sincronização de Arquivos do Azure está indisponível. Esse erro será resolvido automaticamente quando o serviço de Sincronização de Arquivos do Azure estiver disponível novamente.
 
@@ -597,7 +597,7 @@ Este erro ocorre porque o serviço de Sincronização de Arquivos do Azure está
 | **HRESULT** | 0x80c8020e |
 | **HRESULT (decimal)** | -2134375922 |
 | **Cadeia de caracteres de erro** | ECS_E_SYNC_METADATA_WRITE_LEASE_LOST |
-| **Correção necessária** | Não  |
+| **Correção necessária** | Não |
 
 Este erro ocorre devido a um problema interno com o banco de dados de sincronização. Esse erro será resolvido automaticamente quando o Azure File Sync for sincronizado novamente. Se esse erro persistir por um período prolongado, crie uma solicitação de suporte e entraremos em contato para ajudá-lo a resolver esse problema.
 

@@ -10,32 +10,34 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: ecb97860e70141a744833aa9b9a4fcea3f3688f0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1a48f8620fb99f1cf8787dabc738d328a796d093
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149836"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510627"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Início Rápido: Usar um servidor do notebook baseado em nuvem para começar a usar o Azure Machine Learning
 
 Crie um servidor de notebook baseado em nuvem e use-o.  Neste início rápido, você executará o código Python que registra valores no [workspace do Serviço do Azure Machine Learning](concept-azure-machine-learning-architecture.md). O workspace é o bloco fundamental na nuvem usado para experimentar, treinar e implantar modelos de machine learning com o Machine Learning. 
 
 Este início rápido mostra como criar um recurso de nuvem no workspace do Azure Machine Learning, configurado com o ambiente do Python necessário para executar o Azure Machine Learning. Em vez disso, para usar seu próprio ambiente, consulte [Início Rápido: Usar seu próprio servidor do notebook para começar a usar o Azure Machine Learning](quickstart-run-local-notebook.md).  
- 
+
 Neste início rápido, você realiza as seguintes ações:
 
 * Criar um novo servidor de notebook baseado em nuvem em seu workspace.
 * Iniciar a interface da Web do Jupyter.
 * Abra um notebook que contém código para estimar o pi e registrar erros em cada iteração.
 * Execute o notebook.
-* Exiba os valores de erro registrados em log no workspace. Este exemplo mostra como o espaço de trabalho pode ajudar a manter o controle das informações geradas em um script. 
+* Exiba os valores de erro registrados em log no workspace. Este exemplo mostra como o espaço de trabalho pode ajudar a manter o controle das informações geradas em um script.
 
-Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Teste hoje mesmo a [versão gratuita ou paga do Serviço do Azure Machine Learning](https://aka.ms/AMLFree).
+Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Serviço do Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="create-a-workspace"></a>Criar um workspace
 
-- Um Workspace do Azure Machine Learning.  [Crie seu workspace](setup-create-workspace.md#portal) agora se você não tiver um.
+Se você tiver um workspace do Serviço do Azure Machine Learning, passe para a [próxima seção](#create-a-cloud-based-notebook-server). Caso contrário, crie um agora.
+
+[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
 ## <a name="create-a-cloud-based-notebook-server"></a>Criar um servidor de notebook baseado em nuvem
 
@@ -57,7 +59,6 @@ Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de co
     ![Criar uma nova VM](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
 1. Aguarde aproximadamente de 4 a 5 minutos, até que o status mude para **Executando**.
-
 
 ## <a name="launch-jupyter-web-interface"></a>Iniciar interface da Web do Jupyter
 
@@ -102,10 +103,9 @@ Execute um notebook que estima o pi e registra o erro em seu workspace.
 
     Na maior célula de código, você vê `run.log` usado em vários lugares. Cada `run.log` adiciona seu valor ao seu workspace.
 
-
 ## <a name="view-logged-values"></a>Exibir valores registrados em log
 
-1. A saída da célula `run` contém um link para o portal do Azure para exibir os resultados do experimento em seu workspace. 
+1. A saída da célula `run` contém um link para o portal do Azure para exibir os resultados do experimento em seu workspace.
 
     ![Exibir experimentos](./media/quickstart-run-cloud-notebook/view-exp.png)
 
@@ -117,7 +117,7 @@ Execute um notebook que estima o pi e registra o erro em seu workspace.
 
 Já que o código para aproximar o pi usa valores aleatórios, seus gráficos mostrarão valores diferentes.  
 
-## <a name="clean-up-resources"></a>Limpar recursos 
+## <a name="clean-up-resources"></a>Limpar recursos
 
 ### <a name="stop-the-notebook-vm"></a>Interromper a VM de notebook
 

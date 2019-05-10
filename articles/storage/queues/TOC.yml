@@ -7,9 +7,6 @@
       href: storage-queues-introduction.md
 - name: Guia de início rápido
   items:
-    - name: Criar uma conta de armazenamento
-      displayName: 'resource manager, resource manager template, template, ARM'
-      href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Gerenciar filas sem código
       items:
         - name: Portal do Azure
@@ -94,8 +91,11 @@
               href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Como
   items:
-    - name: Gerenciar contas de armazenamento
+    - name: Criar e gerenciar contas de armazenamento
       items:
+        - name: Criar uma conta de armazenamento
+          displayName: 'resource manager, resource manager template, template, ARM'
+          href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Gerenciar uma conta de armazenamento
           href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Atualizar uma conta de armazenamento
@@ -195,7 +195,7 @@
         - name: 'Blobs, Filas, Tabelas e Arquivos'
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
         - name: Movimentação de dados
-          href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement'
+          href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement'
         - name: Gerenciador de Recursos
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
     - name: Java

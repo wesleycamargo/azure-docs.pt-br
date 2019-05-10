@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 4f8851248c395a1f03c46490c8eb5e71221dd133
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b2691f543cf38a56eefb1e8521169aeccbf3221
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733293"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409278"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Nuvens e regiões em que os Serviços de Mídia do Azure v3 existem
 
@@ -35,10 +35,7 @@ Os Serviços de Mídia do Azure v3 estão disponíveis por meio do manifesto do 
 
 ## <a name="regionsgeographieslocations"></a>Regiões/geografias/locais
 
-* [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/)
-* [Produtos por região](https://azure.microsoft.com/global-infrastructure/services/)
-* [Geografias do Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
-* [Locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/)
+[Regiões em que o serviço de serviços de mídia do Azure é implantado](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
 
 ### <a name="region-code-name"></a>Nome do código da região 
 
@@ -98,6 +95,12 @@ Por exemplo, para a região Oeste dos EUA 2 (exibida abaixo) do Azure, você usa
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
 | Authentication | `https://login.chinacloudapi.cn/` |
 | Público do token |  `https://management.core.chinacloudapi.cn/` |
+
+## <a name="see-also"></a>Consulte também
+
+* [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/)
+* [Geografias do Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
+* [Locais do Azure](https://azure.microsoft.com/global-infrastructure/locations/)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -607,7 +607,7 @@ Verification successful
 Dados | DESCRIÇÃO
 -----|------------
 nonce | Cadeia de caracteres opcional fornecida pelo usuário com a solicitação. Se nenhuma nonce tiver sido fornecida na solicitação, o carimbo de data/hora UTC atual será retornado
-plan | O [Plano](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) de uma VM em uma imagem do Azure Marketplace, contém nome, produto e editor
+plan | O [Plano](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) de uma VM em uma imagem do Azure Marketplace contém nome, produto e editor
 timestamp/createdOn | O carimbo de data/hora em que o primeiro documento assinado foi criado
 timestamp/expiresOn | O carimbo de data/hora em que o documento assinado expira
 vmId |  [Identificador exclusivo](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para a máquina virtual
