@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Executar operações de imagem – Java'
+title: Executar operações de imagem – Java
 titlesuffix: Azure Cognitive Services
 description: Explore um aplicativo Java Swing básico que usa a API da Pesquisa Visual Computacional nos Serviços Cognitivos do Azure. Execute o OCR, crie miniaturas e trabalhe com recursos visuais em uma imagem.
 services: cognitive-services
@@ -7,18 +7,18 @@ author: KellyDF
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: tutorial
+ms.topic: conceptual
 ms.author: kefre
 ms.custom: seodec18
-ms.date: 09/21/2017
-ms.openlocfilehash: 4f6af31ba6b04ddbecb7cb42cebe345b6af720ac
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.date: 04/30/2019
+ms.openlocfilehash: a22308e0c7ff924205f715692d011a4572b2bdb8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868082"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232637"
 ---
-# <a name="tutorial-computer-vision-api-java"></a>Tutorial: API da Pesquisa Visual Computacional Java
+# <a name="use-computer-vision-features-with-the-rest-api-and-java"></a>Usar recursos de pesquisa Visual computacional com a API REST e o Java
 
 Este tutorial mostra os recursos da API REST da Pesquisa Visual Computacional dos Serviços Cognitivos do Azure.
 
@@ -34,7 +34,7 @@ Este tutorial abordará como usar a Pesquisa Visual Computacional para:
 > * Ler texto impresso em uma imagem
 > * Ler texto manuscrito em uma imagem
 
-O aplicativo de formulário Java Swing já foi gravado, mas não tem funcionalidades. Neste tutorial, você adiciona o código específico da API da Pesquisa Visual Computacional para concluir a funcionalidade do aplicativo.
+O aplicativo de formulário Java Swing já foi gravado, mas não tem nenhuma funcionalidade. Neste tutorial, você adiciona o código específico da API da Pesquisa Visual Computacional para concluir a funcionalidade do aplicativo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,13 +42,13 @@ O aplicativo de formulário Java Swing já foi gravado, mas não tem funcionalid
 
 Este tutorial foi desenvolvido usando o IDE NetBeans. Especificamente, a versão **Java SE** do NetBeans, que você pode [baixar aqui](https://netbeans.org/downloads/index.html).
 
-### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Inscrever-se na API da Pesquisa Visual Computacional e obter uma chave de assinatura 
+### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Inscrever-se na API da Pesquisa Visual Computacional e obter uma chave de assinatura
 
-Antes de criar o exemplo, é necessário assinar a API da Pesquisa Visual Computacional, que faz parte dos Serviços Cognitivos do Azure. Para detalhes de assinatura e gerenciamento de chaves, consulte [Assinaturas](https://azure.microsoft.com/try/cognitive-services/). As chaves primária e secundária são válidas para uso neste tutorial. 
+Antes de criar o exemplo, você deve inscrever-se à API de visão do computador que faz parte dos serviços Cognitivos do Azure. Para detalhes de assinatura e gerenciamento de chaves, consulte [Assinaturas](https://azure.microsoft.com/try/cognitive-services/). As chaves primária e secundária são válidas para uso neste tutorial.
 
-## <a name="acquire-the-incomplete-tutorial-project"></a>Adquirir o projeto do tutorial incompleto
+## <a name="acquire-incomplete-tutorial-project"></a>Adquirir o projeto do tutorial incompleto
 
-### <a name="download-the-tutorial-project"></a>Baixar o projeto de tutorial
+### <a name="download-the-project"></a>Baixe o projeto
 
 1. Acesse o repositório do [Tutorial da Pesquisa Visual Computacional Java dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-java-computer-vision-tutorial).
 1. Clique no botão **Clonar ou baixar**.
@@ -78,7 +78,7 @@ Importe o arquivo **cognitive-services-java-computer-vision-tutorial-master.zip*
 
 1. Saia do aplicativo de tutorial.
 
-## <a name="add-the-tutorial-code-to-the-project"></a>Adicione o código do tutorial ao projeto
+## <a name="add-tutorial-code-to-the-project"></a>Adicione o código do tutorial ao projeto
 
 O aplicativo Java Swing é configurado com seis guias. Cada guia demonstra uma função diferente da Pesquisa Visual Computacional (analisar, OCR. e assim por diante). As seis seções do tutorial não têm interdependências, portanto é possível adicionar uma seção, todas as seis seções ou qualquer subconjunto. É possível adicionar as seções em qualquer ordem.
 
@@ -88,7 +88,7 @@ O recurso Analisar da Pesquisa Visual Computacional examina uma imagem para mais
 
 Para concluir o recurso Analisar do aplicativo de tutorial, execute as etapas a seguir:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do manipulador de eventos do botão do formulário
+#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>Adicione o código de manipulador de eventos para o botão analisar
 
 O método do manipulador de eventos **analyzeImageButtonActionPerformed** limpa o formulário, exibe a imagem especificada na URL e, em seguida, chama o método **AnalyzeImage** para analisar a imagem. Quando **AnalyzeImage** é retornado, o método exibe a resposta JSON formatada na área de texto **Resposta**, extrai a primeira legenda do **JSONObject** e exibe a legenda e o nível de confiança de que a legenda está correta.
 
@@ -202,7 +202,7 @@ Copie e cole o método **AnalyzeImage** logo embaixo do método **analyzeImageBu
     }
  ```
 
-#### <a name="run-the-application"></a>Executar o aplicativo
+#### <a name="run-the-analyze-function"></a>Executar a função de analisar
 
 Pressione **F6** para executar o aplicativo. Coloque a chave de assinatura no campo **Chave de assinatura** campo e verifique se você está usando a região correta em **Região de Assinatura**. Insira uma URL de uma imagem para analisar e clique no botão**Analisar Imagem** para analisar uma imagem e ver o resultado.
 
@@ -326,7 +326,7 @@ Copie e cole o método **LandmarkImage** logo embaixo do método **landmarkImage
     }
 ```
 
-#### <a name="run-the-application"></a>Executar o aplicativo
+#### <a name="run-the-landmark-function"></a>Executar a função de ponto de referência
 
 Pressione **F6** para executar o aplicativo. Coloque a chave de assinatura no campo **Chave de assinatura** campo e verifique se você está usando a região correta em **Região de Assinatura**. Clique na guia **Ponto de Referência**, insira uma URL para uma imagem de um ponto de referência e, em seguida, clique no botão **Analisar imagem** para analisar uma imagem e veja o resultado.
 
@@ -336,7 +336,7 @@ O recurso Celebridades da Pesquisa Visual Computacional analisa uma imagem de pe
 
 Para concluir o recurso Celebridades do aplicativo de tutorial, execute as seguintes etapas:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do manipulador de eventos do botão do formulário
+#### <a name="add-the-event-handler-code-for-the-celebrities-button"></a>Adicione o código de manipulador de eventos para o botão de celebridades
 
 O método do manipulador de eventos **celebritiesImageButtonActionPerformed** limpa o formulário, exibe a imagem especificada na URL e, em seguida, chama o método **CelebritiesImage** para analisar a imagem. Quando **CelebritiesImage** é retornado, o método exibe a resposta JSON formatada na área de texto **Resposta** e, em seguida, extrai o primeiro nome da celebridade do **JSONObject** e exibe o nome na janela juntamente com o nível de confiança de que a celebridade foi identificada corretamente.
 
@@ -450,7 +450,7 @@ Copie e cole o método **CelebritiesImage** logo embaixo do método **celebritie
     }
 ```
 
-#### <a name="run-the-application"></a>Executar o aplicativo
+#### <a name="run-the-celebrities-function"></a>Executar a função de celebridades
 
 Pressione **F6** para executar o aplicativo. Coloque a chave de assinatura no campo **Chave de assinatura** campo e verifique se você está usando a região correta em **Região de Assinatura**. Clique na guia **Celebridades**, insira uma URL para uma imagem de uma celebridade e, em seguida, clique no botão **Analisar imagem** para analisar uma imagem e veja o resultado.
 
@@ -460,7 +460,7 @@ O recurso Miniatura da Pesquisa Visual Computacional gera uma miniatura de uma i
 
 Para concluir o recurso Miniatura do aplicativo de tutorial, execute as seguintes etapas:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do manipulador de eventos do botão do formulário
+#### <a name="add-the-event-handler-code-for-the-thumbnail-button"></a>Adicione o código de manipulador de eventos para o botão de miniatura
 
 O método do manipulador de eventos **thumbnailImageButtonActionPerformed** limpa o formulário, exibe a imagem especificada na URL e, em seguida, chama o método **getThumbnailImage** para criar a miniatura. Quando **getThumbnailImage** é retornado, o método exibe a miniatura gerada.
 
@@ -573,7 +573,7 @@ Copie e cole o seguinte método **getThumbnailImage** logo embaixo do método **
     }
 ```
 
-#### <a name="run-the-application"></a>Executar o aplicativo
+#### <a name="run-the-thumbnail-function"></a>Executar a função em miniatura
 
 Pressione **F6** para executar o aplicativo. Coloque a chave de assinatura no campo **Chave de assinatura** campo e verifique se você está usando a região correta em **Região de Assinatura**. Clique na guia **Miniatura**, insira uma URL para uma imagem e, em seguida, clique no botão **Gerar miniatura** para analisar uma imagem e veja o resultado.
 
@@ -583,7 +583,7 @@ O recurso OCR (Reconhecimento Óptico de Caracteres) da Pesquisa Visual Computac
 
 Para concluir o recurso OCR do aplicativo de tutorial, execute as etapas a seguir:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do manipulador de eventos do botão do formulário
+#### <a name="add-the-event-handler-code-for-the-ocr-button"></a>Adicione o código de manipulador de eventos para o botão de OCR
 
 O método do manipulador de eventos **ocrImageButtonActionPerformed** limpa o formulário, exibe a imagem especificada na URL e, em seguida, chama o método **OcrImage** para analisar a imagem. Quando **OcrImage** é retornado, o método exibe o texto detectado como JSON formatado na área de texto **Resposta**.
 
@@ -684,7 +684,7 @@ Copie e cole o seguinte método **OcrImage** logo embaixo do método **ocrImageB
     }
 ```
 
-#### <a name="run-the-application"></a>Executar o aplicativo
+#### <a name="run-the-ocr-function"></a>Executar a função de OCR
 
 Pressione **F6** para executar o aplicativo. Coloque a chave de assinatura no campo **Chave de assinatura** campo e verifique se você está usando a região correta em **Região de Assinatura**. Clique na guia **OCR**, insira uma URL para uma imagem de texto impresso e, em seguida, clique no botão **Ler imagem** para analisar uma imagem e veja o resultado.
 
@@ -694,7 +694,7 @@ O recurso Reconhecimento de Manuscrito da Pesquisa Visual Computacional analisa 
 
 Para concluir o recurso Reconhecimento de Manuscrito do aplicativo de tutorial, execute as etapas a seguir:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do manipulador de eventos do botão do formulário
+#### <a name="add-the-event-handler-code-for-the-handwriting-button"></a>Adicione o código de manipulador de eventos para o botão de manuscrito
 
 O método do manipulador de eventos **handwritingImageButtonActionPerformed** limpa o formulário, exibe a imagem especificada na URL e, em seguida, chama o método **HandwritingImage** para analisar a imagem. Quando **HandwritingImage** é retornado, o método exibe o texto detectado como JSON formatado na área de texto **Resposta**.
 
@@ -842,11 +842,12 @@ Copie e cole o seguinte método **HandwritingImage** logo embaixo do método **h
     }
 ```
 
-#### <a name="run-the-application"></a>Executar o aplicativo
+#### <a name="run-the-handwriting-function"></a>Executar a função de manuscrito
 
 Para executar o aplicativo, pressione **F6**. Coloque a chave de assinatura no campo **Chave de assinatura** campo e verifique se você está usando a região correta em **Região de Assinatura**. Clique na guia **Ler texto manuscrito**, insira uma URL para um texto manuscrito e, em seguida, clique no botão **Ler imagem** para analisar uma imagem e veja o resultado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [API da Pesquisa Visual Computacional C&#35; Tutorial](CSharpTutorial.md)
-- [Tutorial do Python da API da Pesquisa Visual Computacional](PythonTutorial.md)
+Neste guia, você usou a API REST da pesquisa Visual computacional com Java para testar muitos dos recursos de análise de imagem disponível. Em seguida, consulte a documentação de referência para saber que mais sobre as APIs envolvidos.
+
+- [Pesquisa Visual computacional API REST](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)

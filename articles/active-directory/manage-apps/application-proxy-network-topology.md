@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d80f58215b1a8f1b93db158cd2f47186ba6354a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f5b87e452b0c79ae9cdc1d7f9f391a611dceda2f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443314"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231504"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Considerações de topologia de rede ao usar o Proxy de Aplicativo do Azure Active Directory
 
@@ -39,7 +39,7 @@ Quando um aplicativo é publicado por meio do Proxy de Aplicativo do Azure AD, o
 
 ## <a name="tenant-location-and-application-proxy-service"></a>Local do locatário e serviço Proxy de Aplicativo
 
-Quando você se inscreve para um locatário do Azure AD, a região do seu locatário é determinada pelo país especificado. Quando você habilita o Proxy de Aplicativo, as instâncias do serviço Proxy de Aplicativo de seu locatário são escolhidas ou criadas na mesma região que seu locatário do Azure AD, ou na região mais próxima a ele.
+Quando você se inscreve para um locatário do Azure AD, a região do seu locatário é determinada pelo país/região que você especificar. Quando você habilita o Proxy de Aplicativo, as instâncias do serviço Proxy de Aplicativo de seu locatário são escolhidas ou criadas na mesma região que seu locatário do Azure AD, ou na região mais próxima a ele.
 
 Por exemplo, se a região ou país do seu locatário do Azure AD for o Reino Unido, todos os conectores do Proxy de Aplicativo usarão instâncias de serviço em datacenters na UE. Quando seus usuários acessarem aplicativos publicados, o tráfego deles passará por instâncias do serviço Proxy de Aplicativo nessa localização.
 
@@ -78,7 +78,7 @@ Se você tiver um link dedicado de VPN ou do ExpressRoute entre o Azure e sua re
 
 ## <a name="focus-your-optimization-strategy"></a>Concentrar-se em sua estratégia de otimização
 
-Não há muito que você pode fazer para controlar a conexão entre os usuários e o serviço Proxy de Aplicativo. Os usuários podem acessar seus aplicativos de uma rede doméstica, de uma cafeteria ou de um país diferente. Em vez disso, você pode otimizar as conexões do serviço Proxy de Aplicativo para os conectores de Proxy de Aplicativo para os aplicativos. Considere a possibilidade de incorporar os padrões a seguir em seu ambiente.
+Não há muito que você pode fazer para controlar a conexão entre os usuários e o serviço Proxy de Aplicativo. Os usuários podem acessar seus aplicativos de uma rede doméstica, de uma cafeteria ou de um país/região diferente. Em vez disso, você pode otimizar as conexões do serviço Proxy de Aplicativo para os conectores de Proxy de Aplicativo para os aplicativos. Considere a possibilidade de incorporar os padrões a seguir em seu ambiente.
 
 ### <a name="pattern-1-put-the-connector-close-to-the-application"></a>Padrão 1: colocar o conector perto do aplicativo
 
@@ -172,7 +172,7 @@ Você também pode considerar o uso de uma outra variante nessa situação. Se a
 
 ![Diagrama mostrando os usuários, o proxy e o conector nos EUA e o aplicativo na UE](./media/application-proxy-network-topology/application-proxy-pattern5c.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Habilitar Proxy de aplicativo](application-proxy-add-on-premises-application.md)
 - [Habilitar o logon único](application-proxy-configure-single-sign-on-with-kcd.md)

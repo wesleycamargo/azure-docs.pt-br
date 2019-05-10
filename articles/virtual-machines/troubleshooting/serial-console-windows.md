@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: harijay
-ms.openlocfilehash: c6611c75e61f7e381efd2e437b8281cc70601215
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 31811d3d48f791e11bd6b709f59f5f6aaa18be0e
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141050"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442122"
 ---
 # <a name="azure-serial-console-for-windows"></a>Console Serial do Azure para Windows
 
-O Console Serial no portal do Azure fornece acesso a um console baseado em texto para as máquinas virtuais do Windows (VMs) e (conjunto de dimensionamento de máquinas virtuais) instâncias de conjunto de dimensionamento de máquinas virtuais. Essa conexão serial conecta-se à porta serial COM1 da VM ou instância do conjunto de dimensionamento de máquina virtual, fornecendo acesso a ele, independentemente do estado do sistema operacional ou rede. O console serial só pode ser acessado por meio do portal do Azure e é permitido apenas para os usuários que tenham uma função de acesso de Colaborador ou superior para o conjunto de dimensionamento VM ou máquina virtual.
+O Console Serial no portal do Azure fornece acesso a um console baseado em texto para as máquinas virtuais do Windows (VMs) e instâncias de conjunto de dimensionamento de máquinas virtuais. Essa conexão serial conecta-se à porta serial COM1 da VM ou instância do conjunto de dimensionamento de máquina virtual, fornecendo acesso a ele, independentemente do estado do sistema operacional ou rede. O console serial só pode ser acessado por meio do portal do Azure e é permitido apenas para os usuários que tenham uma função de acesso de Colaborador ou superior para o conjunto de dimensionamento VM ou máquina virtual.
 
 Console Serial funciona da mesma maneira para VMs e instâncias de conjunto de dimensionamento de máquinas virtuais. Neste documento, todos os menções em VMs implicitamente inclui instâncias de conjunto de dimensionamento de máquina virtual, a menos que indicado de outra forma.
 
@@ -244,7 +244,7 @@ Interagir com o carregador de inicialização | Acesso BCD através do console s
 ## <a name="errors"></a>Errors
 Como a maioria dos erros é transitória, tentar novamente sua conexão pode corrigi-los. A tabela a seguir mostra uma lista de erros e mitigações para ambas as VMs e instâncias de conjunto de dimensionamento de máquinas virtuais.
 
-Erro                            |   Redução
+Erro                            |   Atenuação
 :---------------------------------|:--------------------------------------------|
 Não é possível recuperar as configurações de diagnóstico de inicialização para *&lt;VMNAME &gt;*. Para usar o console serial, verifique se o diagnóstico de inicialização está habilitado para essa VM. | Verifique se a VM tem [diagnósticos de inicialização](boot-diagnostics.md) habilitados.
 A VM está em estado desalocado interrompido. Inicie a máquina virtual e tente estabelecer novamente a conexão de console serial. | A máquina virtual deve estar em um estado iniciado para acessar o console serial
@@ -257,7 +257,7 @@ Apenas as informações de integridade são mostradas ao se conectar a uma VM do
 ## <a name="known-issues"></a>Problemas conhecidos
 Estamos cientes de algumas questões com o console serial. Aqui está uma lista desses problemas e as etapas de mitigação. Esses problemas e atenuações se aplicam a ambas as VMs e instâncias de conjunto de dimensionamento de máquinas virtuais.
 
-Problema                             |   Redução
+Problema                             |   Atenuação
 :---------------------------------|:--------------------------------------------|
 Pressionando **Enter** depois que o banner de conexão não faz com que um prompt de login seja exibido. | Para mais informações, consulte [Hitting enter não faz nada](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Esse erro pode ocorrer se você estiver executando uma VM personalizada, um appliance reforçado ou uma configuração de inicialização que faça com que o Windows não consiga se conectar corretamente à porta serial. Esse erro também ocorrerá se você estiver executando uma VM cliente do Windows 10, porque somente as VMs do Windows Server estão configuradas para habilitar o EMS.
 Não é possível digitar no prompt do SAC se a depuração de kernel está habilitado. | RDP para VM e execute `bcdedit /debug {current} off` a partir de um prompt de comandos com privilégios elevados. Se você não puder RDP, poderá anexar o disco do sistema operacional a outra VM do Azure e modificá-lo enquanto estiver conectado como um disco de dados, executando `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off` e, em seguida, trocando o disco de volta.

@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: da746d80e3ae1fa5cc02683a8bb0ff0402722b8e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 926629660c9593c59362bd1bc49c5115ac5e3187
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61071442"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441061"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Visão geral da Configuração de Estado da Automação do Azure
 
@@ -81,6 +81,16 @@ Se os nós estão localizados em uma rede privada, a porta e as URLs a seguir s�
 * URL global: *.azure-automation.net
 * URL global do EUA Gov Virgínia: *.azure automation.us
 * Serviço de agente: https://\<workspaceId\>.agentsvc.azure-automation.net
+
+#### <a name="proxy-support"></a>Suporte do proxy
+
+Suporte de proxy para o agente de DSC está disponível na versão 1809 e versões posterior do Windows.
+Para configurar essa opção, defina o valor para **ProxyURL** e **ProxyCredential** no [script de metaconfiguração](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) usado para registrar os nós.
+Proxy não está disponível no DSC para versões anteriores do Windows.
+
+Para nós do Linux, o agente do DSC dá suporte a proxy e utilizará a variável http_proxy para determinar a url.
+
+#### <a name="azure-state-configuration-network-ranges-and-namespace"></a>Namespace e intervalos de rede de configuração de estado do azure
 
 É recomendável usar os endereços listados ao definir exceções. Para endereços IP, baixe os [Intervalos de IP do Datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Esse arquivo é atualizado semanalmente e tem os intervalos atualmente implantados e as alterações futuras nos intervalos de IP.
 

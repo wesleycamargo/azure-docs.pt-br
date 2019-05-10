@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 316406b25558b7652329bf2690eaebfa4b52c4ce
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: HT
+ms.openlocfilehash: 1ff20322f1d4f6024d4f41037ca18c327a0cc21f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142946"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233190"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copiar dados de ou para o Armazenamento de Blobs do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -419,7 +419,7 @@ Para copiar dados do armazenamento de BLOBs no formato de texto delimitado ou Pa
 | wildcardFileName         | O nome de arquivo com caracteres curinga sob o contêiner fornecido + folderPath/wildcardFolderPath para filtrar arquivos de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único); use `^` para escape se o nome de pasta atual tiver curinga ou esse caractere interno de escape.  Veja mais exemplos em [Exemplos de filtro de pastas e arquivos](#folder-and-file-filter-examples). | Sim se `fileName` não for especificado no conjunto de dados |
 | modifiedDatetimeStart    | Filtro de arquivos com base no atributo: Última Modificação. Os arquivos serão selecionados se a hora da última alteração estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br> As propriedades podem ser NULL, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de dados.  Quando `modifiedDatetimeStart` tem o valor de data e hora, mas `modifiedDatetimeEnd` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é maior ou igual ao valor de data e hora.  Quando `modifiedDatetimeEnd` tem o valor de data e hora, mas `modifiedDatetimeStart` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é menor que o valor de data e hora. | Não                                             |
 | modifiedDatetimeEnd      | Mesmo que acima.                                               | Não                                             |
-| maxConcurrentConnections | O número das conexões para se conectar ao repositório de armazenamento simultaneamente. Especifique somente quando você quiser limitar a conexão simultâneo ao armazenamento de dados. | Não                                             |
+| maxConcurrentConnections | O número das conexões para se conectar ao repositório de armazenamento simultaneamente. Especifique somente quando você quiser limitar a conexão simultâneo ao armazenamento de dados. | Não                                            |
 
 > [!NOTE]
 > Para o formato de texto delimitado por Parquet /, **BlobSource** ainda tem suporte como origem de atividade de cópia de tipo mencionada na próxima seção-é para compatibilidade com versões anteriores. São sugeridas para usar esse novo modelo no futuro, e o ADF criação da interface do usuário foi alternada para gerar esses novos tipos.
@@ -520,7 +520,7 @@ Para copiar dados para o armazenamento de BLOBs no formato de texto delimitado o
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | A propriedade type sob `storeSettings` deve ser definida como **AzureBlobStorageWriteSetting**. | Sim      |
 | copyBehavior             | Define o comportamento de cópia quando a fonte for de arquivos de um armazenamento de dados baseado em arquivo.<br/><br/>Valores permitidos são:<br/><b>– PreserveHierarchy (padrão)</b>: Preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><b>– FlattenHierarchy</b>: Todos os arquivos da pasta de origem estão no primeiro nível da pasta de destino. Os arquivos de destino têm os nomes gerados automaticamente. <br/><b>– MergeFiles</b>: Mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo ou do blob for especificado, o nome do arquivo mesclado será o nome especificado. Caso contrário, ele será um nome de arquivo gerado automaticamente. | Não        |
-| maxConcurrentConnections | O número das conexões para se conectar ao repositório de armazenamento simultaneamente. Especifique somente quando você quiser limitar a conexão simultâneo ao armazenamento de dados. | Não        |
+| maxConcurrentConnections | O número das conexões para se conectar ao repositório de armazenamento simultaneamente. Especifique somente quando você quiser limitar a conexão simultâneo ao armazenamento de dados. | Não       |
 
 > [!NOTE]
 > Para o formato de texto delimitado por Parquet /, **BlobSink** ainda há suporte para o coletor de atividade de cópia de tipo mencionada na próxima seção como-é para compatibilidade com versões anteriores. São sugeridas para usar esse novo modelo no futuro, e o ADF criação da interface do usuário foi alternada para gerar esses novos tipos.

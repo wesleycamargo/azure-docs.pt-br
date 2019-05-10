@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/06/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
-ms.openlocfilehash: c7edc64e6bacfc1ea9c2184e57a384152e02190a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b80ff38e2afb5e9da6227537ea9c483566d03e4d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142481"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232603"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Início Rápido: Usar o .NET para criar uma fila no Armazenamento do Azure
 
@@ -145,7 +145,7 @@ Em seguida, vamos percorrer o código de exemplo para que você possa entender c
 
 ### <a name="try-parsing-the-connection-string"></a>Tentar analisar a cadeia de conexão
 
-Primeiro, o exemplo verificar se a variável de ambiente contém uma cadeia de conexão que pode ser analisada para criar um objeto [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount) apontando para a conta de armazenamento. Para verificar se a cadeia de conexão é válida, o exemplo usa o método [TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse). Se **TryParse** for bem-sucedido, ele inicializará a variável *storageAccount* e retornará **true**.
+Primeiro, o exemplo verificar se a variável de ambiente contém uma cadeia de conexão que pode ser analisada para criar um objeto [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) apontando para a conta de armazenamento. Para verificar se a cadeia de conexão é válida, o exemplo usa o método [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse). Se **TryParse** for bem-sucedido, ele inicializará a variável *storageAccount* e retornará **true**.
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored

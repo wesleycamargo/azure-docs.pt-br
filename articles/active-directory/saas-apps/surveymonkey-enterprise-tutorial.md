@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fa05181d777d25af1f682e827a2c43a09da7302
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7f354d0413d023e7af6d1719d86e0fbff59cf2b2
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65157254"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441388"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-surveymonkey-enterprise"></a>Tutorial: Integração do Azure Active Directory ao SurveyMonkey Enterprise
 
@@ -192,8 +192,8 @@ Ao clicar no bloco do SurveyMonkey Enterprise no Painel de Acesso, você deverá
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
