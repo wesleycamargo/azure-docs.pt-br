@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7a327c963f32d6bf5b0cf7751557c61327fd26e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd91b83bc808d811fc50293fbf1726d609ad5b46
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60911537"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234075"
 ---
 # <a name="azure-security-center-data-security"></a>Segurança dos Dados da Central de Segurança do Azure
 Para ajudar os clientes a evitarem, detectarem e responderem às ameaças, a Central de Segurança do Azure coleta e processa dados relacionados à segurança, incluindo informações da configuração, metadados, logs de eventos, arquivos de despejo corrompidos e mais. A Microsoft obedece às diretrizes rígidas de conformidade e segurança — da codificação à operação de um serviço.
@@ -46,12 +46,18 @@ A Central de Segurança do Azure analisa os dados das seguintes fontes para forn
 
 **Seus workspaces**: um workspace é especificado para as áreas geográficas a seguir e os dados coletados de suas máquinas virtuais do Azure, incluindo os despejos de memória e alguns tipos de dados de alerta, são armazenados no workspace mais próximo.
 
-| Replicação geográfica de VM                        | Replicação Geográfica do Workspace |
-|-------------------------------|---------------|
-| Estados Unidos, Brasil, Canadá | Estados Unidos |
-| Europa, Reino Unido        | Europa        |
-| Pacífico Asiático, Japão, Índia    | Pacífico Asiático  |
-| Austrália                     | Austrália     |
+| Replicação geográfica de VM                              | Replicação Geográfica do Workspace |
+|-------------------------------------|---------------|
+| Estados Unidos, Brasil, África do Sul | Estados Unidos |
+| Canadá                              | Canadá        |
+| Europa (exceto no Reino Unido)   | Europa        |
+| Reino Unido                      | Reino Unido |
+| Asiático (exceto Índia, Japão, Coreia, China)   | Pacífico Asiático  |
+| Coreia do Sul                              | Pacífico Asiático  |
+| Índia                               | Índia         |
+| Japão                               | Japão         |
+| China                               | China         |
+| Austrália                           | Austrália     |
 
 
 Os instantâneos de disco da VM são armazenados na mesma conta de armazenamento do disco da VM.

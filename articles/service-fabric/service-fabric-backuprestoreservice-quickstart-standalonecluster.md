@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: 1a1c1bafd0a575b01e9774e79a98515d34646f7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 28378b4b769e0d0e70a82a45baac0872d1476036
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61471785"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413633"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Backup e restauração periódicos no Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -56,7 +56,21 @@ O Service Fabric fornece um conjunto de APIs para obter a funcionalidade a segui
 ## <a name="prerequisites"></a>Pré-requisitos
 * Cluster do Service Fabric com Fabric versão 6.2 e superior. O cluster deve ser configurado no Windows Server. Consulte o [artigo](service-fabric-cluster-creation-for-windows-server.md) para ver as etapas para baixar o pacote necessário.
 * Certificado X.509 para criptografia de segredos necessária para se conectar ao armazenamento para armazenar backups. Consulte o [artigo](service-fabric-windows-cluster-x509-security.md) para saber como adquirir ou criar um certificado X.509 autoassinado.
-* Aplicativo Service Fabric Reliable Stateful criado usando o SDK do Service Fabric versão 3.0 ou superior. Para aplicativos destinados ao .NET Core 2.0, aplicativo deve ser criado usando o SDK do Service Fabric versão 3.1 ou superior.
+
+* Aplicativo Service Fabric Reliable Stateful criado usando o SDK do Service Fabric versão 3.0 ou superior. Para aplicativos voltados para o .Net Core 2.0, o aplicativo deve ser criado usando o SDK do Service Fabric versão 3.1 ou superior.
+* Instale o módulo de Microsoft.ServiceFabric.Powershell.Http [versão prévia em] para fazer chamadas de configuração.
+
+```powershell
+    Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
+```
+
+* Certifique-se de que o Cluster está conectado usando o `Connect-SFCluster` comando antes de fazer qualquer solicitação de configuração usando o módulo Microsoft.ServiceFabric.Powershell.Http.
+
+```powershell
+
+    Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.southcentralus.cloudapp.azure.com:19080'   -X509Credential -FindType FindByThumbprint -FindValue '1b7ebe2174649c45474a4819dafae956712c31d3' -StoreLocation 'CurrentUser' -StoreName 'My' -ServerCertThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'  
+
+```
 
 ## <a name="enabling-backup-and-restore-service"></a>Habilitando o serviço de backup e restauração
 Primeiro, você precisa habilitar o _serviço de backup e restauração_ no seu cluster. Obtenha o modelo para o cluster que você deseja implantar. Você pode usar os [modelos de exemplo](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples). Habilite o _serviço de backup e restauração_ com as seguintes etapas:
@@ -114,6 +128,16 @@ A primeira etapa é criar a política de backup que descreve a agenda de backup,
 
 Para armazenamento de backup, crie o compartilhamento de arquivos e conceda acesso ReadWrite a ele para todos os computadores do nó do Service Fabric. Este exemplo supõe que o compartilhamento com o nome `BackupStore` existe em `StorageServer`.
 
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell usando o módulo Microsoft.ServiceFabric.Powershell.Http
+
+```powershell
+
+New-SFBackupPolicy -Name 'BackupPolicy1' -AutoRestoreOnDataLoss $true -MaxIncrementalBackups 20 -FrequencyBased -Interval 00:15:00 -FileShare -Path '\\StorageServer\BackupStore' -Basic -RetentionDuration '10.00:00:00'
+
+```
+#### <a name="rest-call-using-powershell"></a>Chamada de REST usando o Powershell
+
 Execute o seguinte script do PowerShell para invocar a API REST necessária para criar nova política.
 
 ```powershell
@@ -152,6 +176,14 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ### <a name="enable-periodic-backup"></a>Habilitar backup periódico
 Depois de definir a política para atender aos requisitos de proteção de dados do aplicativo, a política de backup deve ser associada ao aplicativo. Dependendo do requisito, a política de backup pode ser associada um aplicativo, serviço ou partição.
 
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell usando o módulo Microsoft.ServiceFabric.Powershell.Http
+
+```powershell
+Enable-SFApplicationBackup -ApplicationId 'SampleApp' -BackupPolicyName 'BackupPolicy1'
+```
+
+#### <a name="rest-call-using-powershell"></a>Chamada de REST usando o Powershell
 Execute o seguinte script do PowerShell para invocar a API REST necessária para associar a política de backup com o nome `BackupPolicy1` criada no etapa anterior com o aplicativo `SampleApp`.
 
 ```powershell
@@ -167,13 +199,21 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 ### <a name="verify-that-periodic-backups-are-working"></a>Verificar se os backups periódicos estão funcionando
 
-Depois de habilitar o backup para o aplicativo, todas as partições que pertencem aos serviços confiáveis com estado e ao Reliable Actors nesse aplicativo passarão por backup periódicos de acordo com a política de backup associada. 
+Depois de habilitar o backup para o aplicativo, todas as partições que pertencem aos serviços confiáveis com estado e ao Reliable Actors nesse aplicativo passarão por backup periódicos de acordo com a política de backup associada.
 
 ![Evento de integridade do backup de partição][0]
 
 ### <a name="list-backups"></a>Listar Backups
 
 Backups associados a todas as partições que pertencem aos serviços confiáveis com estado e Reliable Actors do aplicativo podem ser enumerados usando a API _GetBackups_. Dependendo do requisito, os backups podem ser enumerados por aplicativo, serviço ou partição.
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell usando o módulo Microsoft.ServiceFabric.Powershell.Http
+
+```powershell
+    Get-SFApplicationBackupList -ApplicationId WordCount     
+```
+
+#### <a name="rest-call-using-powershell"></a>Chamada de REST usando o Powershell
 
 Execute o seguinte script do PowerShell para invocar a API HTTP para enumerar os backups criados para todas as partições dentro do aplicativo `SampleApp`.
 
@@ -185,6 +225,7 @@ $response = Invoke-WebRequest -Uri $url -Method Get
 $BackupPoints = (ConvertFrom-Json $response.Content)
 $BackupPoints.Items
 ```
+
 Exemplo de saída da execução acima:
 
 ```
@@ -231,7 +272,7 @@ FailureError            :
 - O serviço de Restauração de Backup não é exibido no cluster protegido com segurança baseada em gMSA.
 
 ## <a name="limitation-caveats"></a>Limite/Limitações
-- Nenhum cmdlet do PowerShell interno ao Service Fabric.
+- Cmdlets do PowerShell do Service Fabric estão no modo de visualização.
 - Não há suporte para clusters do Service Fabric no Linux.
 
 ## <a name="next-steps"></a>Próximas etapas

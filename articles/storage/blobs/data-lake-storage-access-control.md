@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 8fd73b1e0fcde6bcd69c7ce76b888d1adda37de4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 0b8139f11f937ddae30e25f4153e35287289a4d1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939559"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233974"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controle de acesso no Azure Data Lake Storage Gen2
 
@@ -37,7 +37,7 @@ Enquanto usar atribuições de função RBAC é um mecanismo poderoso para contr
 Quando uma entidade de segurança tem as permissões RBAC dados por meio de um [função interna](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), ou por meio de uma função personalizada, essas permissões são avaliadas pela primeira vez após a autorização de uma solicitação. Se a operação solicitada é autorizada por atribuições de RBAC da entidade de segurança e em seguida, a autorização é resolvida imediatamente e não adicionais serão executadas verificações ACL. Como alternativa, se a entidade de segurança não tem uma atribuição de RBAC ou operação da solicitação não coincide com a permissão atribuída, verificações de ACL serão executadas para determinar se a entidade de segurança está autorizada a executar a operação solicitada.
 
 > [!NOTE]
-> Se a entidade de segurança tiver sido atribuída a [dados de Blob de armazenamento]() atribuição de função interna de proprietário e, em seguida, a entidade de segurança é considerado um *superusuário* e é concedido acesso completo a todos os mutação operações, inclusive definindo o proprietário de um diretório ou arquivo, bem como as ACLs para diretórios e arquivos para os quais eles não forem o proprietário. O acesso de superusuário é a única maneira autorizada para alterar o proprietário de um recurso.
+> Se a entidade de segurança recebeu a atribuição de função interna de proprietário de dados de Blob de armazenamento, a entidade de segurança é considerada um *superusuário* e terão acesso completo a todas as operações de mutação, incluindo a configuração de proprietário de um diretório ou arquivo, bem como as ACLs para diretórios e arquivos para os quais eles não forem o proprietário. O acesso de superusuário é a única maneira autorizada para alterar o proprietário de um recurso.
 
 ## <a name="shared-key-and-shared-access-signature-sas-authentication"></a>Autenticação de chave compartilhada e assinatura de acesso compartilhado (SAS)
 
@@ -101,7 +101,7 @@ As permissões em um objeto do sistema de arquivos são **Ler**, **Gravar** e **
 | 7            | `RWX`        | Ler + Gravar + Executar |
 | 5            | `R-X`        | Ler + Executar         |
 | 4            | `R--`        | Ler                   |
-| 0            | `---`        | Nenhuma permissão         |
+| 0            | `---`        | Sem permissões         |
 
 #### <a name="permissions-inheritance"></a>Herança de permissões
 

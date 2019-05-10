@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 82a2330aeadb14bb421260a290a25581232293e5
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 82c0aa53fa8905e0e58cb784a478ade474ec5601
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073365"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232767"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planejando uma implantação de Arquivos do Azure
 
@@ -94,7 +94,7 @@ Os compartilhamentos de arquivos (versão prévia) Premium são provisionados co
 
 Com base no melhor esforço, todos os compartilhamentos poderão acumular até três IOPS por GiB de armazenamento provisionado por 60 minutos ou mais, dependendo do tamanho do compartilhamento. Os novos compartilhamentos começam com o crédito de intermitência completa com base na capacidade provisionada.
 
-Compartilhamentos devem ser provisionados em incrementos de 1 GiB. Tamanho mínimo é de 100 GiB, próximo tamanho é GIB 101 e assim por diante.
+Compartilhamentos devem ser provisionados em incrementos de 1 GiB. Tamanho mínimo é de 100 GiB, próximo tamanho é GiB 101 e assim por diante.
 
 > [!TIP]
 > Linha de base de IOPS = 1 * provisionado GiB. (Até um máximo de 100.000 IOPS).

@@ -7,12 +7,12 @@ ms.service: service-health
 ms.topic: landing-page
 ms.date: 03/4/2019
 ms.author: stbaron
-ms.openlocfilehash: cf7084b569e2c90337e475beb9f49563214941d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa00d4b08725eaf4b667fc7b53b225198db95a02
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60506856"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441649"
 ---
 # <a name="azure-service-health-documentation"></a>Documentação do Azure Service Health
 
@@ -25,6 +25,11 @@ A **[Integridade do Serviço do Azure](service-health-overview.md)** fornece uma
 O **[Azure Resource Health](resource-health-overview.md)** fornece informações sobre a integridade de seus recursos de nuvem individuais, como uma instância de máquina virtual específica. Usando o Azure Monitor, você também pode configurar alertas para notificá-lo de alterações de disponibilidade para seus recursos de nuvem. O Azure Resource Health juntamente com as notificações do Azure Monitor ajudará você a ficar mais bem informado sobre a disponibilidade de seus recursos de minuto a minuto e avaliar rapidamente se um problema ocorreu devido a uma complicação no seu lado ou está relacionado a um evento da plataforma do Azure.
 
 Juntas, essas experiências fornecem uma visão abrangente da integridade do Azure, na granularidade mais relevante para você.
+
+### <a name="watch-an-overview-of-the-azure-status-page-azure-service-health-and-azure-resource-health"></a>Assista a uma visão geral da página Status do Azure, Integridade do Serviço do Azure e Azure Resource Health
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OgX6]
+
 
 <ul class="panelContent cardsFTitle">
     <li>
