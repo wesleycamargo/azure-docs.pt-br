@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 895fb0d83e383618818325263ac80c5919a0ee7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f2a3bb666e40f1aafd921d70d93133ca9139b38
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60428784"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406967"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Tutorial: Integrar o Azure Active Directory ao E Sales Manager Remix
 
@@ -158,7 +158,7 @@ Habilite o logon único do Microsoft Azure Active Directory no portal do Azure e
     
     b. Na seção **item Colaboração**, na lista suspensa, selecione **email**.
 
-    c. Na caixa do item Colaboração, cole o **valor de declaração** copiado anteriormente do Portal do Azure (ou seja, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
+    c. Na caixa do item Colaboração, cole o **valor de declaração** copiado anteriormente do Portal do Azure (ou seja, **https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
 
     d. Na caixa **Emissor (ID da entidade)**, cole o valor do identificador que você copiou do portal do Azure na seção **Domínio e URLs do E Sales Manager Remix**.
 

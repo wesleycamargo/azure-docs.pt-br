@@ -12,19 +12,19 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b8cba8d0a400efb720d8374cdca886a2a638938
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: db23c8af7eaa4a86691ccb0bb831ce2cc28d635c
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023782"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471829"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformar dados com o SDK de preparação de dados do Azure Machine Learning
 
-Neste artigo, você aprenderá a métodos diferentes para transformar os dados usando o SDK do Azure Machine Learning Data Prep. O SDK oferece funções que simplificam a adicionar colunas, filtrar as colunas ou linhas indesejadas e imputar valores ausentes. Para ver a documentação de referência do SDK, consulte o [visão geral](https://aka.ms/data-prep-sdk).
+Neste artigo, você aprenderá os diferentes métodos de transformação de dados usando o `azureml-dataprep` pacote. O pacote oferece funções que simplificam a adicionar colunas, filtrar as colunas ou linhas indesejadas e imputar valores ausentes. Consulte a documentação de referência completa para o [pacote dataprep azureml](https://aka.ms/data-prep-sdk).
 
 > [!Important]
-> Se você estiver criando uma nova solução, tente as [conjuntos de dados do Azure Machine Learning](how-to-explore-prepare-data.md) (visualização) para transformar seus dados, dados de instantâneo e armazenar definições de conjunto de dados com controle de versão. Conjuntos de dados é a próxima versão da SDK, oferecendo funcionalidade expandida para gerenciar conjuntos de dados em soluções de inteligência Artificial a preparação de dados.
+> Se você estiver criando uma nova solução, tente as [conjuntos de dados do Azure Machine Learning](how-to-explore-prepare-data.md) (visualização) para transformar seus dados, dados de instantâneo e armazenar definições de conjunto de dados com controle de versão. Conjuntos de dados é a próxima versão da SDK, oferecendo funcionalidade expandida para gerenciar conjuntos de dados em soluções de inteligência Artificial a preparação de dados. Se você usar o `azureml-dataprep` pacote para criar um fluxo de dados com transformações em vez de usar o `azureml-datasets` pacote para criar um conjunto de dados, você não poderá usar instantâneos ou conjuntos de dados com controle de versão posterior.
 
 Estas instruções mostram exemplos para as seguintes tarefas:
 
@@ -46,7 +46,7 @@ dflow = dprep.read_csv(path=r'data\crime0-10.csv')
 dflow.head(3)
 ```
 
-||ID|Número do Caso|Data|Bloco|IUCR|Texto Primário|DESCRIÇÃO|Descrição do Local|Detenção|Nacional|...|Ward|Área da Comunidade|Código do FBI|Coordenada X|Coordenada Y|Ano|Atualizado Em|Latitude|Longitude|Local padrão|
+||ID|Número do Caso|Data|Bloquear|IUCR|Texto Primário|Descrição|Descrição do Local|Detenção|Nacional|...|Ward|Área da Comunidade|Código do FBI|Coordenada X|Coordenada Y|Ano|Atualizado Em|Latitude|Longitude|Local padrão|
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
 |0|10140490|HY329907|05/07/2015 11:50:00 pm|050XX N NEWLAND AVE|0820|ROUBO|US $500 E ABAIXO DE|RUA|falso|falso|...|41|10|06|1129230|1933315|2015|12/07/2015 12:42:46 pm|41,973309466|-87,800174996|(41,973309466, -87,800174996)|
 |1|10139776|HY329265|05/07/2015 11:30:00 pm|011XX W MORSE AVE|0460|BATERIA|SIMPLES|RUA|falso|verdadeiro|...|49|1|08B|1167370|1946271|2015|12/07/2015 12:42:46 pm|42,008124017|-87,65955018|(42,008124017, -87,65955018)|
@@ -63,7 +63,7 @@ case_category = dflow.add_column(new_column_name='Case Category',
 case_category.head(3)
 ```
 
-||ID|Número do Caso|Categoria do Caso|Data|Bloco|IUCR|Texto Primário|DESCRIÇÃO|Descrição do Local|Detenção|Nacional|...|Ward|Área da Comunidade|Código do FBI|Coordenada X|Coordenada Y|Ano|Atualizado Em|Latitude|Longitude|Local padrão|
+||ID|Número do Caso|Categoria do Caso|Data|Bloquear|IUCR|Texto Primário|Descrição|Descrição do Local|Detenção|Nacional|...|Ward|Área da Comunidade|Código do FBI|Coordenada X|Coordenada Y|Ano|Atualizado Em|Latitude|Longitude|Local padrão|
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|------|
 |0|10140490|HY329907|HY|05/07/2015 11:50:00 pm|050XX N NEWLAND AVE|0820|ROUBO|US $500 E ABAIXO DE|RUA|falso|falso|...|41|10|06|1129230|1933315|2015|12/07/2015 12:42:46 pm|41,973309466|-87,800174996|(41,973309466, -87,800174996)|
 |1|10139776|HY329265|HY|05/07/2015 11:30:00 pm|011XX W MORSE AVE|0460|BATERIA|SIMPLES|RUA|falso|verdadeiro|...|49|1|08B|1167370|1946271|2015|12/07/2015 12:42:46 pm|42,008124017|-87,65955018|(42,008124017, -87,65955018)|
@@ -270,7 +270,7 @@ dflow = builder.to_dataflow()
 df = dflow.to_pandas_dataframe()
 ```
 
-## <a name="filtering"></a>Filtragem
+## <a name="filtering"></a>Filtrando
 
 O SDK inclui os métodos [ `drop_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow) e [ `filter()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py) para permitir que você filtre colunas ou linhas.
 
@@ -345,7 +345,7 @@ dflow.head(2)
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|
 |0|01-08-2013 19:33:28|01-08-2013 19:33:21|5|.00|0.08|0|4.58|
-|1|05-08-2013 13:16:38|05-08-2013 13:18:24|1|.00|0,30|0|3.8|
+|1|05-08-2013 13:16:38|05-08-2013 13:18:24|1|.00|0.30|0|3.8|
 
 ### <a name="filtering-rows-with-complex-expressions"></a>Filtrar linhas com expressões complexas
 
@@ -387,7 +387,7 @@ dflow.head(2)
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|
 |0|13-08-2013 06:11:06+00:00|13-08-2013 06:30:28+00:00|1.0|9.57|7.47|5.33|44.80|
-|1|23-08-2013 06:30:28+00:00|23-08-2013 12:50:28+00:00|2,0|8.22|8.08|5.33|40.41|
+|1|23-08-2013 06:30:28+00:00|23-08-2013 12:50:28+00:00|2.0|8.22|8.08|5.33|40.41|
 
 ## <a name="custom-python-transforms"></a>Transformações personalizadas de Python
 
@@ -500,5 +500,4 @@ dflow.head(2)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Consulte o SDK [visão geral](https://aka.ms/data-prep-sdk) para padrões de design e exemplos de uso
 * Consulte o SDK do Azure Machine Learning Data Prep [tutorial](tutorial-data-prep.md) para obter um exemplo de resolver um cenário específico

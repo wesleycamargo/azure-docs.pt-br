@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: b35a06fc4e100d71e787e183299825b61d342e69
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: 0831f08eaa3e8e6f6a0d3f68bc50cd927167b7ba
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64993157"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507918"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Serviço de Metadados do Azure: Eventos Agendados para VMs do Linux
 
@@ -46,7 +46,7 @@ Com Eventos Agendados, seu aplicativo pode descobrir quando a manutenção ocorr
 
 Os eventos agendados fornecem eventos nos seguintes casos de uso:
 
-- [Manutenção iniciada na plataforma](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/maintenance-and-updates) (por exemplo, VM reinicialização, migração ao vivo ou atualizações para o host de preservação da memória)
+- [Manutenção iniciada na plataforma](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates) (por exemplo, VM reinicialização, migração ao vivo ou atualizações para o host de preservação da memória)
 - Hardware degradado
 - Manutenção iniciada pelo usuário (por exemplo, um usuário reinicia ou reimplanta uma VM)
 - [Remoção de VMs de baixa prioridade](https://azure.microsoft.com/blog/low-priority-scale-sets) conjuntos de dimensionamento
@@ -55,7 +55,7 @@ Os eventos agendados fornecem eventos nos seguintes casos de uso:
 
   O Serviço de Metadados do Azure expõe informações sobre a execução de VMs usando um ponto de extremidade REST acessível de dentro da VM. As informações estão disponíveis por meio de um IP não roteável para que ele não seja exposto fora da VM.
 
-### <a name="scope"></a>Escopo
+### <a name="scope"></a>Scope
 Os eventos agendados são entregues a:
 
 - Máquinas virtuais de autônomas.
@@ -79,7 +79,7 @@ O serviço de Eventos Agendados tem controle de versão. As versões são obriga
 | - | - | - | - | 
 | 2017-11-01 | Disponibilidade geral | Todos | <li> Adicionado suporte para remoção de VMs de baixa prioridade EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilidade geral | Todos | <li> Removido o sublinhado inicial dos nomes de recursos para as VMs de IaaS<br><li>Requisito de cabeçalho de metadados imposto para todas as solicitações | 
-| 2017-03-01 | Visualização | Todos | <li>Versão inicial
+| 2017-03-01 | Visualizar | Todos | <li>Versão inicial
 
 
 > [!NOTE] 
@@ -127,7 +127,7 @@ No caso de haver eventos agendados, a resposta contém uma matriz de eventos.
 ```
 
 ### <a name="event-properties"></a>Propriedades do evento
-|Propriedade  |  DESCRIÇÃO |
+|Propriedade  |  Descrição |
 | - | - |
 | EventId | Identificador global exclusivo para esse evento. <br><br> Exemplo: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | EventType | Impacto desse evento. <br><br> Valores: <br><ul><li> `Freeze`: A máquina Virtual está agendada para pausar por alguns segundos. Conectividade de rede e CPU pode ser suspenso, mas não há nenhum impacto na memória ou em arquivos abertos.<li>`Reboot`: A Máquina Virtual está agendada para ser reinicializada (a memória não persistente é perdida). <li>`Redeploy`: A Máquina Virtual está agendada para ser movida para outro nó (os discos efêmeros são perdidos). <li>`Preempt`: A máquina Virtual de baixa prioridade está sendo excluída (discos efêmeros são perdidos).|
@@ -142,7 +142,7 @@ Cada evento é agendado uma quantidade mínima de tempo no futuro com base no ti
 |EventType  | Aviso mínimo |
 | - | - |
 | Congelamento| 15 minutos |
-| Reboot | 15 minutos |
+| Reinicializar | 15 minutos |
 | Reimplantar | 10 minutos |
 | Antecipe | 30 segundos |
 

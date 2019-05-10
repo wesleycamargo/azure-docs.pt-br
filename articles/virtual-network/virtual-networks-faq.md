@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: bf36de1965a8c819af0ef5af98a2393d4cefa1b3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b072314bdbec1d5a6184e6f20e98c35a9135a5b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205712"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508416"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a rede virtual do Azure (FAQ)
 
@@ -67,7 +67,9 @@ Sim. Para obter mais informações sobre intervalos de endereços IP públicos, 
 Sim. Consulte [Limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) para obter detalhes. Espaços de endereço de sub-rede não podem se sobrepor.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>Existem restrições quanto ao uso de endereços IP dentro dessas sub-redes?
-Sim. O Azure reserva cinco endereços IP dentro de cada sub-rede. Os primeiros e últimos endereços IP de cada sub-rede são reservados para conformidade de protocolo, juntamente com os endereços x.x.x.1-x.x.x.3 de cada sub-rede, que são utilizados para serviços do Azure.
+Sim. O Azure reserva cinco endereços IP dentro de cada sub-rede. Esses são x.x.x.0-x.x.x.3 e o último endereço da sub-rede.    
+- x.x.x.0 e o último endereço da sub-rede são reservados para conformidade de protocolo.
+- x.x.x.1-x.x.x.3 é reservado em cada sub-rede para serviços do Azure.
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>Que tamanho, máximo e mínimo, as redes virtuais e sub-redes podem ter?
 A sub-rede menor com suporte é / 29 e a maior é /8 (utilizando definições de sub-rede CIDR).
@@ -281,6 +283,9 @@ Não. Não há suporte para emparelhamento transitivo. É necessário emparelhar
 
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>Há alguma limitação de largura de banda para conexões de emparelhamento?
 Não. O emparelhamento VNet, seja local ou global, não impõe restrições de largura de banda. A largura de banda é limitada apenas pela VM ou pelo recurso de computação.
+
+### <a name="how-can-i-troubleshoot-vnet-peering-issues"></a>Como solucionar problemas de emparelhamento de rede virtual?
+Aqui está um [guia de solução de problemas] (https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) você pode experimentar.
 
 ## <a name="virtual-network-tap"></a>TAP de rede virtual
 
