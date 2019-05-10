@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 577a047fb88208d7e14e8ba06a1b9e7e87c5ef91
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 90c20bcd289c3bcf4a7fa3c41d245f2b7f159582
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58884221"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154088"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Início Rápido: Crie seu primeiro fluxo de trabalho automatizado com os Aplicativos Lógicos do Azure – Portal do Azure
 
@@ -26,11 +26,11 @@ Este início rápido apresenta como criar seu primeiro fluxo de trabalho automat
 
 Para seguir este guia de início rápido, você precisa de uma conta de email com qualquer provedor de email compatível com aplicativos lógicos do Azure, como o Office 365 Outlook, Outlook.com ou Gmail. Para outros provedores, [revise a lista de conectores aqui](https://docs.microsoft.com/connectors/). Esso aplicativo lógico usa uma conta do Outlook do Office 365. Se você usar outra conta de email, as etapas gerais são as mesmos, mas a interface do usuário pode ser ligeiramente diferente. 
 
-Caso você não tenha uma assinatura do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">crie uma conta gratuita do Azure</a>.
+Caso você não tenha uma assinatura do Azure, [crie uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Entre no <a href="https://portal.azure.com" target="_blank">portal do Azure</a> com suas credenciais da conta do Azure.
+Entre no [portal do Azure](https://portal.azure.com) com suas credenciais da conta do Azure.
 
 ## <a name="create-your-logic-app"></a>Criar seu aplicativo lógico 
 
@@ -38,7 +38,7 @@ Entre no <a href="https://portal.azure.com" target="_blank">portal do Azure</a> 
 
    ![Criar aplicativo lógico](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
 
-3. Em **Criar aplicativo lógico**, forneça os detalhes sobre seu aplicativo lógico, conforme mostrado aqui. Quando terminar, escolha **Criar**.
+1. Em **Criar aplicativo lógico**, forneça os detalhes sobre seu aplicativo lógico, conforme mostrado aqui. Quando terminar, escolha **Criar**.
 
    ![Defina os detalhes do aplicativo lógico](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
@@ -51,7 +51,7 @@ Entre no <a href="https://portal.azure.com" target="_blank">portal do Azure</a> 
    | **Log Analytics** | Desativar | Mantenha a configuração **Desligado** para o log de diagnósticos. | 
    |||| 
 
-3. Depois que o Azure implanta o aplicativo lógico, o Designer de Aplicativos Lógicos é exibido e mostra uma página com um vídeo de introdução os gatilhos normalmente usados. Em **Modelos**, escolha **Aplicativo lógico em branco**.
+1. Depois que o Azure implanta o aplicativo lógico, o Designer de Aplicativos Lógicos é exibido e mostra uma página com um vídeo de introdução os gatilhos normalmente usados. Em **Modelos**, escolha **Aplicativo lógico em branco**.
 
    ![Escolha o modelo de aplicativo lógico em branco](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
@@ -61,11 +61,13 @@ Em seguida, adicione um [gatilho](../logic-apps/logic-apps-overview.md#logic-app
 
 ## <a name="check-rss-feed-with-a-trigger"></a>Verifique o RSS feed com um gatilho
 
-1. No designer, digite "rss" na caixa de pesquisa. Selecione este gatilho: **RSS – Quando um item do feed é publicado**
+1. No Designer de Aplicativos Lógicos, na caixa de pesquisa, escolha **Tudo**.
+
+1. Na caixa de pesquisa, insira "rss". Na lista de gatilhos, selecione este gatilho: **Quando um item de feed é publicado – RSS**
 
    ![Selecione o gatilho: "RSS – Quando um item do feed é publicado"](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss.png)
 
-2. Forneça essas informações para o gatilho como mostrado e descrito: 
+1. Forneça essas informações para o gatilho como mostrado e descrito:
 
    ![Configurar um gatilho com o RSS feed, frequência e intervalo](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss-settings.png)
 
@@ -79,23 +81,25 @@ Em seguida, adicione um [gatilho](../logic-apps/logic-apps-overview.md#logic-app
    Juntos, o intervalo e a frequência definem o agendamento para o gatilho do aplicativo lógico. 
    Este aplicativo lógico verifica o feed a cada minuto.
 
-3. Por enquanto, para ocultar os detalhes do gatilho, clique na barra de título do gatilho.
+1. Por enquanto, para ocultar os detalhes do gatilho, clique na barra de título do gatilho.
 
    ![Recolher forma para ocultar detalhes](./media/quickstart-create-first-logic-app-workflow/collapse-trigger-shape.png)
 
-4. Salve seu aplicativo lógico. Clique em **Salvar** na barra de ferramentas do designer. 
+1. Salve seu aplicativo lógico. Clique em **Salvar** na barra de ferramentas do designer.
 
 Seu aplicativo lógico agora está ativo, mas ele não faz nada além de verificar o RSS feed. Portanto, adicione uma ação que responde quando o gatilho é acionado.
 
 ## <a name="send-email-with-an-action"></a>Enviar email com uma ação
 
-Agora adicione uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) que envia email quando um novo item é exibido no RSS feed. 
+Agora adicione uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) que envia email quando um novo item é exibido no RSS feed.
 
 1. No gatilho **Quando um item do feed é publicado**, escolha **Nova etapa**.
 
    ![Adicionar uma ação](./media/quickstart-create-first-logic-app-workflow/add-new-action.png)
 
-2. Em **Escolher uma ação**, insira "enviar um email" na caixa de pesquisa. Na caixa de pesquisa, escolha **Todos**. Na lista de ações, selecione a ação "enviar um email" para o provedor de email que você deseja. 
+1. Em **Escolha uma ação** e na caixa de pesquisa, escolha **Todas**.
+
+1. Na caixa de pesquisa, digite "enviar um email". Na lista de ações, selecione a ação "enviar um email" para o provedor de email que você deseja.
 
    ![Selecione esta ação: "Office 365 Outlook – enviar um email"](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
 
@@ -104,9 +108,9 @@ Agora adicione uma [ação](../logic-apps/logic-apps-overview.md#logic-app-conce
    * Para as contas corporativas ou de estudante do Azure, selecione o Outlook do Office 365. 
    * Para contas pessoais da Microsoft, selecione Outlook.com.
 
-3. Se forem solicitadas credenciais, entre na sua conta de email para que os Aplicativos Lógicos criem uma conexão à sua conta de email.
+1. Se forem solicitadas credenciais, entre na sua conta de email para que os Aplicativos Lógicos criem uma conexão à sua conta de email.
 
-4. Na ação **Enviar um email**, especifique os dados que você deseja incluir no email. 
+1. Na ação **Enviar um email**, especifique os dados que você deseja incluir no email.
 
    1. Na caixa **Para**, insira o endereço de email do destinatário. 
    Para fins de teste, você pode usar seu próprio endereço de email.
@@ -114,11 +118,11 @@ Agora adicione uma [ação](../logic-apps/logic-apps-overview.md#logic-app-conce
       Por enquanto, ignore a lista **Adicionar conteúdo dinâmico** que forem exibidas. 
       Quando você clica em algumas caixas de edição, essa lista é exibida e mostra os parâmetros disponíveis de etapa anterior que você pode incluir em seu fluxo de trabalho como entradas. 
 
-   2. Na caixa **Assunto**, digite este texto com um espaço em branco à direita: ```New RSS item:```
+   1. Na caixa **Assunto**, digite este texto com um espaço em branco à direita: ```New RSS item:```
 
       ![Insira o assunto do email](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject.png)
- 
-   3. Na lista **Adicionar conteúdo dinâmico**, selecione **Título do feed** para incluir o título do item do RSS.
+
+   1. Na lista **Adicionar conteúdo dinâmico**, selecione **Título do feed** para incluir o título do item do RSS.
 
       ![Lista de conteúdo dinâmico - “Título do feed”](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject-dynamic-content.png)
 
@@ -131,7 +135,7 @@ Agora adicione uma [ação](../logic-apps/logic-apps-overview.md#logic-app-conce
       Dessa forma, seu aplicativo lógico executará a mesma ação em cada item da matriz. 
       Para remover o loop, escolha as **elipses** (**...**) na barra de título do loop e, em seguida, escolha **Excluir**.
 
-   4. Na caixa **Corpo**, insira o texto e selecione esses tokens para o corpo do email. 
+   1. Na caixa **Corpo**, insira o texto e selecione esses tokens para o corpo do email. 
    Para adicionar linhas em branco em uma caixa de edição, pressione Shift + Enter. 
 
       ![Adicionar conteúdos no corpo do email](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
@@ -141,9 +145,9 @@ Agora adicione uma [ação](../logic-apps/logic-apps-overview.md#logic-app-conce
       | **Título do feed** | O título do item | 
       | **Feed publicado em** | A data e a hora de publicação do item | 
       | **Link principal do feed** | A URL para o item | 
-      ||| 
-   
-5. Salve seu aplicativo lógico.
+      |||
+
+1. Salve seu aplicativo lógico.
 
 Em seguida, teste o seu aplicativo lógico.
 
@@ -168,7 +172,7 @@ Quando você não precisar mais deste exemplo, exclua o grupo de recursos que co
 
    ![“Grupos de recursos” > “Visão Geral” > “Excluir grupo de recursos”](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
 
-2. Insira o nome do grupo de recursos como confirmação e escolha **Excluir**.
+1. Insira o nome do grupo de recursos como confirmação e escolha **Excluir**.
 
    ![Confirmar exclusão](./media/quickstart-create-first-logic-app-workflow/delete-resource-group-2.png)
 
@@ -177,8 +181,7 @@ Quando você não precisar mais deste exemplo, exclua o grupo de recursos que co
 
 ## <a name="get-support"></a>Obtenha suporte
 
-* Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](https://aka.ms/logicapps-wish).
+Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/home?forum=azurelogicapps).
 
 ## <a name="next-steps"></a>Próximas etapas
 

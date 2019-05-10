@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: fc02e830953f8612a077fb219c7fef4e86bc3827
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e542ad59f6fd64b52aef9438ed0f646e9e36fc4a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479167"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209635"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usar o serviço de Importação/ Exportação do Azure para exportar dados do Armazenamento de Blobs do Azure
 Este artigo fornece instruções passo a passo sobre como usar o serviço de Importação/Exportação do Azure para exportar com segurança grandes quantidades de dados do Armazenamento de Blobs do Azure. O serviço requer que você envie unidades vazias para o datacenter do Azure. O serviço exporta os dados de sua conta de armazenamento para as unidades e, em seguida, envia as unidades de volta.
@@ -52,7 +52,7 @@ Execute as etapas a seguir para criar um trabalho de exportação no portal do A
     - Digite um nome descritivo para o trabalho de exportação. Use o nome escolhido para acompanhar o andamento dos trabalhos. 
         - O nome só pode conter letras minúsculas, números, hifens e sublinhados.
         - O nome deve começar com uma letra e não pode conter espaços. 
-    - Selecione uma assinatura.
+    - Selecionar uma assinatura.
     - Insira ou selecione um grupo de recursos.
 
         ![Noções básicas](./media/storage-import-export-data-from-blobs/export-from-blob3.png) 
@@ -83,7 +83,7 @@ Execute as etapas a seguir para criar um trabalho de exportação no portal do A
 4. Em **Retornar informações de envio**:
 
     - Selecione a operadora na lista suspensa. Se você quiser usar uma operadora que não seja FedEx/DHL, escolha uma opção existente na lista suspensa. Entre em contato com operações de caixa de dados do Azure de equipe em `adbops@microsoft.com` com as informações sobre o carro que você planeja usar.
-    - Insira um número válido de conta de operadora que você criou com essa operadora. A Microsoft usará essa conta para enviar de volta as unidades para você após a conclusão do seu trabalho de importação. 
+    - Insira um número válido de conta de operadora que você criou com essa operadora. A Microsoft usa essa conta para enviar as unidades para você quando seu trabalho de exportação for concluído. 
     - Forneça um nome de contato completo e válido, telefone, email, endereço, cidade, CEP, estado/município e país/região.
 
         > [!TIP] 
@@ -139,7 +139,7 @@ Essa etapa *opcional* ajuda você a determinar o número de unidades necessária
 
     Os parâmetros estão descritos na tabela a seguir:
     
-    |Parâmetro de linha de comando|DESCRIÇÃO|  
+    |Parâmetro de linha de comando|Descrição|  
     |--------------------------|-----------------|  
     |**/logdir:**|Opcional. O diretório de log. Os arquivos de log detalhados são gravados nesse diretório. Se nenhum for especificado, o diretório atual será usado como o diretório de log.|  
     |**/sn:**|Obrigatório. O nome da conta de armazenamento do trabalho de exportação.|  
@@ -193,7 +193,7 @@ Number of drives needed:        3
 
 A tabela a seguir mostra exemplos de caminhos de blob válidos:
    
-   | Seletor | Caminho do Blob | DESCRIÇÃO |
+   | Seletor | Caminho do Blob | Descrição |
    | --- | --- | --- |
    | Começa com |/ |Exporta todos os blobs na conta de armazenamento |
    | Começa com |/$root/ |Exporta todos os blobs no contêiner raiz |

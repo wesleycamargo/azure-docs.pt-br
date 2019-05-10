@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3940adfaa42de8ac9c3f32a9eadc8f6d643ce3ce
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c0bb8d7a5a1ea30b704b44c9337cd28043597ff7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149506"
+ms.locfileid: "65209518"
 ---
 # <a name="quickstart---consume-vmware-vms-on-azure"></a>Guia de início rápido - consuma a VMs do VMware no Azure
 
@@ -37,7 +37,7 @@ Crie uma máquina virtual em sua nuvem privada da interface do usuário do vCent
 
     ![Criar máquina virtual de CloudSimple - Noções básicas](media/create-cloudsimple-virtual-machine-basic-info.png)
 
-    | Campo | DESCRIÇÃO |
+    | Campo | Descrição |
     | ------------ | ------------- |
     | Assinatura | Assinatura do Azure associada à sua nuvem privada.  |
     | Grupo de recursos | Grupo de recursos ao qual a VM será atribuída. Você pode selecionar um grupo existente ou criar um novo. |
@@ -60,7 +60,7 @@ Crie uma máquina virtual em sua nuvem privada da interface do usuário do vCent
 
     Para interfaces de rede, clique em **interface de rede Add** e defina as seguintes configurações.
     
-    | Controle | DESCRIÇÃO |
+    | Controle | Descrição |
     | ------------ | ------------- |
     | NOME | Insira um nome para identificar a interface.  |
     | Rede | Selecione na lista de grupo distribuído de porta configurada no vSphere sua nuvem privada.  |
@@ -69,12 +69,12 @@ Crie uma máquina virtual em sua nuvem privada da interface do usuário do vCent
 
     Para discos, clique em **adicionar disco** e defina as seguintes configurações.
 
-    | item | DESCRIÇÃO | 
+    | item | Descrição | 
     | ------------ | ------------- | 
     | NOME | Insira um nome para identificar o disco.  | 
     | Tamanho | Selecione um dos tamanhos disponíveis.  | 
     | Controlador SCSI | Selecione um controlador SCSI para o disco.  |
-    | Mode | Determina como o disco participa de instantâneos. Escolha uma destas opções: <br> -Independente persistente: Todos os dados gravados no disco são gravados permanentemente.<br> -Independente não persistente: As alterações gravadas no disco são descartadas quando você desligar ou redefinir a máquina virtual.  Modo de não persistentes independente permite que você sempre reiniciar a máquina virtual no mesmo estado. Para obter mais informações, consulte o <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">documentação do VMware</a>.
+    | Modo | Determina como o disco participa de instantâneos. Escolha uma destas opções: <br> -Independente persistente: Todos os dados gravados no disco são gravados permanentemente.<br> -Independente não persistente: As alterações gravadas no disco são descartadas quando você desligar ou redefinir a máquina virtual.  Modo de não persistentes independente permite que você sempre reiniciar a máquina virtual no mesmo estado. Para obter mais informações, consulte o <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">documentação do VMware</a>.
 
 7. Depois que a validação é concluída, examine as configurações e clique em **criar**. Para fazer alterações, clique nas guias na parte superior ou clique em.
 
@@ -82,5 +82,5 @@ Crie uma máquina virtual em sua nuvem privada da interface do usuário do vCent
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Exibir uma lista de máquinas virtuais de CloudSimple](https://docs.azure.cloudsimple.com/azure-manage-vm/)
-* [Gerenciar CloudSimple máquina de virtual do Azure](https://docs.azure.cloudsimple.com/azure-create-vm/#view-list-of-cloudsimple-virtual-machines)
+* [Exibir uma lista de máquinas virtuais de CloudSimple](https://docs.azure.cloudsimple.com/azure-create-vm/#view-list-of-cloudsimple-virtual-machines)
+* [Gerenciar CloudSimple máquina de virtual do Azure](https://docs.azure.cloudsimple.com/azure-manage-vm/)

@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: pafarley
-ms.openlocfilehash: 5d4374b329049e2e55966a28567c5232be77abda
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c7d5d9421ec89f1d75723d3538ee9a73e56dc6a3
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025418"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143033"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Instalar e executar contêineres do Reconhecimento de Formulários
 O Reconhecimento de Formulários aplica a tecnologia de aprendizado de máquina para identificar e extrair pares chave-valor e tabelas de formulários. Ele associa valores e entradas de tabelas a eles e, em seguida, gera dados estruturados que incluem as relações no arquivo original. Chame seu modelo personalizado do Reconhecimento de Formulários usando uma API REST simples para reduzir a complexidade e integrá-lo com facilidade ao seu processo de automação de fluxo de trabalho ou a outro aplicativo. Apenas cinco documentos (ou um formulário vazio) são necessários, de modo que você possa obter resultados com rapidez e precisão, adaptados ao seu conteúdo específico, sem intervenção manual intensa nem ampla experiência em ciência de dados. Não exige rotulagem nem anotação de dados.
@@ -34,7 +34,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 |Mecanismo Docker| É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`.|
 |CLI do Azure| É necessário instalar a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) no host.|
-|Recurso da API de Pesquisa Visual Computacional| Para processar imagens e documentos digitalizados, é necessário ter um **recurso da Pesquisa Visual Computacional**. Acesse o recurso **Reconhecimento de Texto** como um recurso do Azure (API REST ou SDK) ou como um contêiner do `cognitive-services-recognize-text`. Os valores de cobrança normais se aplicam. <br><br>É necessário passar a chave e o ponto de extremidade de cobrança para o recurso específico da Pesquisa Visual Computacional (nuvem do Azure ou contêiner dos Serviços Cognitivos). Use essa chave e o ponto de extremidade de cobrança como {COMPUTER_VISION_API_KEY} e {COMPUTER_VISION_BILLING_ENDPOINT_URI}.<br><br> Se você usar o **contêiner do `cognitive-services-recognize-text`**, verifique se:<br><br>*A chave da Pesquisa Visual Computacional para o contêiner do Reconhecimento de Formulários é a chave especificada no comando `docker run` da Pesquisa Visual Computacional para o contêiner do `cognitive-services-recognize-text`.<br>*O ponto de extremidade de cobrança é o ponto de extremidade do contêiner, como `https://localhost:5000`. Se você usar os contêineres da Pesquisa Visual Computacional e do Reconhecimento de Formulários juntos no mesmo host, eles não poderão ser iniciados com a porta padrão `5000`.  |  
+|Recurso da API de Pesquisa Visual Computacional| Para processar imagens e documentos digitalizados, é necessário ter um **recurso da Pesquisa Visual Computacional**. Acesse o recurso **Reconhecimento de Texto** como um recurso do Azure (API REST ou SDK) ou como um [contêiner](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull) do `cognitive-services-recognize-text`. Os valores de cobrança normais se aplicam. <br><br>É necessário passar a chave e o ponto de extremidade de cobrança para o recurso específico da Pesquisa Visual Computacional (nuvem do Azure ou contêiner dos Serviços Cognitivos). Use essa chave e o ponto de extremidade de cobrança como {COMPUTER_VISION_API_KEY} e {COMPUTER_VISION_BILLING_ENDPOINT_URI}.<br><br> Se você usar o **contêiner do `cognitive-services-recognize-text`**, verifique se:<br><br>*A chave da Pesquisa Visual Computacional para o contêiner do Reconhecimento de Formulários é a chave especificada no comando `docker run` da Pesquisa Visual Computacional para o contêiner do `cognitive-services-recognize-text`.<br>*O ponto de extremidade de cobrança é o ponto de extremidade do contêiner, como `https://localhost:5000`. Se você usar os contêineres da Pesquisa Visual Computacional e do Reconhecimento de Formulários juntos no mesmo host, eles não poderão ser iniciados com a porta padrão `5000`.  |  
 |Recurso do Reconhecimento de Formulários |Para usar esses contêineres, será necessário ter:<br><br>Um recurso do Azure do _Reconhecimento de Formulários_ para obter a chave de cobrança e o URI do ponto de extremidade de cobrança associados. Ambos os valores estão disponíveis nas páginas Visão Geral e Chaves do **Reconhecimento de Formulários** do portal do Azure e são necessários para iniciar o contêiner.<br><br>**{BILLING_KEY}**: chave do recurso<br><br>**{BILLING_ENDPOINT_URI}**: exemplo de URI de terminal é: `https://westus.api.cognitive.microsoft.com/forms/v1.0`| 
 
 ## <a name="request-access-to-the-container-registry"></a>Solicitar acesso ao Registro de contêiner
@@ -65,13 +65,19 @@ Memória e núcleo correspondem às configurações `--cpus` e `--memory`, que s
 > [!Note]
 > Os valores mínimos e recomendados se baseiam nos limites do Docker e *não* nos recursos do computador host.
 
-## <a name="get-the-container-image-with-docker-pull"></a>Obter a imagem de contêiner com `docker pull`
+## <a name="get-the-container-image-with-docker-pull-command"></a>Obtenha a imagem de contêiner com o comando docker pull
 
 Estão disponíveis imagens de contêiner para o Reconhecimento de Formulários.
 
 | Contêiner | Repositório |
 |-----------|------------|
 | cognitive-services-form-recognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest` |
+
+Se você pretende usar o [contêiner](../Computer-vision/computer-vision-how-to-install-containers.md##get-the-container-image-with-docker-pull) do `cognitive-services-recognize-text` em vez do serviço de Reconhecimento de Formulários, use o comando `docker pull` com o nome do contêiner correto: 
+
+```
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
+```
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -144,7 +150,7 @@ FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \
 FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
 ```
 
-Executar o segundo contêiner na porta 5001.
+Execute o segundo contêiner na porta 5001.
 
 
 ```bash 

@@ -1,22 +1,22 @@
 ---
-title: 'Início Rápido: Criar um índice ativado por IA no portal do Azure – Azure Search'
+title: 'Início Rápido: criar um índice aprimorado por IA no portal do Azure – Azure Search'
 description: Habilidades de extração de dados, idioma natural e de processamento de imagens em um portal de indexação do Azure Search, usando o portal do Azure e dados de exemplo.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 161d3ff3e00f7e9e979527533f6b8ac365c41490
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: cb029530d2c6cdac82fd0d257e10717386eebf0e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265008"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65022105"
 ---
-# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-and-sample-data"></a>Início Rápido: Criar um pipeline de indexação de IA usando habilidades cognitivas e dados de exemplo
+# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-in-azure-search"></a>Início Rápido: criar um pipeline de indexação de IA usando habilidades cognitivas no Azure Search
 
 O Azure Search é integrado aos [Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/), adicionando habilidades de extração de conteúdo, NLP (processamento em idioma natural) e processamento de imagem a um pipeline de indexação do Azure Search, tornando o conteúdo não pesquisável ou não estruturado mais pesquisável. 
 
@@ -30,12 +30,12 @@ Neste início rápido, crie seu primeiro pipeline de enriquecimento no [portal d
 > * Execute o Assistente (uma habilidade de entidade detecta pessoas, local e organizações)
 > * Usar o [**Gerenciador de pesquisa**](search-explorer.md) para consultar os dados enriquecidos
 
-Este Início Rápido é executado no serviço Gratuito, mas o número de transações gratuitas é limitado a 20 documentos por dia. Caso deseje executar este Início Rápido mais de uma vez no mesmo dia, use um arquivo menor definido para que você pode encaixar mais execuções.
+Este Início Rápido é executado no serviço Gratuito, mas o número de transações gratuitas é limitado a 20 documentos por dia. Para executar este início rápido mais de uma vez por dia, use um conjunto de arquivos menor para poder adicionar mais execuções.
 
 > [!NOTE]
-> Conforme você expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, você precisará anexar um recurso faturável dos Serviços Cognitivos. As cobranças são geradas ao chamar APIs nos Serviços Cognitivos e para a extração de imagem como parte do estágio de decodificação de documentos no Azure Search. Não há encargos para extração de texto em documentos.
+> À medida que expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, você precisará [anexar um recurso de Serviços Cognitivos faturável](cognitive-search-attach-cognitive-services.md). As cobranças são geradas ao chamar APIs nos Serviços Cognitivos e para a extração de imagem como parte do estágio de decodificação de documentos no Azure Search. Não há encargos para extração de texto em documentos.
 >
-> A execução das habilidades internas é cobrada com base no [preço de pagamento conforme o uso dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/). O preço da extração de imagem é cobrado com o preço da versão prévia, o que está descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Saiba [mais](cognitive-search-attach-cognitive-services.md).
+> A execução de habilidades integradas é cobrada nos [preços pagos conforme o uso dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. O preço de extração de imagem é descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

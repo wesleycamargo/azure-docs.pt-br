@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: e5d04fd136848684e866fae9768b252e3b6ca77f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d27adadc9720dd2ad6a0dd133524bfaf32e63045
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138121"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65227980"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (visualização)
 
@@ -97,7 +97,7 @@ Se você selecionar **grupo de ação** no botão de alternância, adicione um g
 Por fim, configure os seguintes detalhes para a regra de ação
 * NOME
 * Grupo de recursos no qual ele será salvo
-* DESCRIÇÃO 
+* Descrição 
 
 ## <a name="example-scenarios"></a>Cenários de exemplo
 
@@ -142,11 +142,11 @@ A partir daqui, você pode regras de ação de habilitar/desabilitar/excluir em 
 
 ## <a name="best-practices"></a>Práticas recomendadas
 
-Log de alertas criados com o ['número de resultados'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) opção Gerar **uma única instância de alerta** usando o resultado de pesquisa inteiro (o que poderia ser em vários computadores por exemplo). Nesse cenário, se uma regra de ação usa o filtro de "Contexto de alerta (carga)", ele atuará na instância do alerta enquanto houver uma correspondência. No cenário 2 conforme descrito anteriormente, se os resultados da pesquisa para o alerta de log gerados contêm 'Computador-01' e 'Computador-02', a notificação inteira será suprimida (ou seja, não há nenhuma notificação gerada para 'Computador-02' em todos os).
+Log de alertas criados com o ['número de resultados'](alerts-unified-log.md) opção Gerar **uma única instância de alerta** usando o resultado de pesquisa inteiro (o que poderia ser em vários computadores por exemplo). Nesse cenário, se uma regra de ação usa o filtro de "Contexto de alerta (carga)", ele atuará na instância do alerta enquanto houver uma correspondência. No cenário 2 conforme descrito anteriormente, se os resultados da pesquisa para o alerta de log gerados contêm 'Computador-01' e 'Computador-02', a notificação inteira será suprimida (ou seja, não há nenhuma notificação gerada para 'Computador-02' em todos os).
 
 ![Regras de ação e alertas do log (número de resultados)](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
-Para alertas do log de aproveitar melhor com as regras de ação, aconselhamos que você criar alertas do log com o ['medição métrica'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) opção. Usando essa opção, instâncias separadas de alertas são geradas com base no campo de grupo definida. Em seguida, no cenário 2, instâncias separadas de alertas são geradas para 'Computador-01' e 'Computador-02'. Com a regra de ação descrita no cenário, somente a notificação para 'Computador-01' poderia ser suprimida enquanto a notificação para 'Computador-02' continuará a ser acionado como normal.
+Para alertas do log de aproveitar melhor com as regras de ação, aconselhamos que você criar alertas do log com o ['medição métrica'](alerts-unified-log.md) opção. Usando essa opção, instâncias separadas de alertas são geradas com base no campo de grupo definida. Em seguida, no cenário 2, instâncias separadas de alertas são geradas para 'Computador-01' e 'Computador-02'. Com a regra de ação descrita no cenário, somente a notificação para 'Computador-01' poderia ser suprimida enquanto a notificação para 'Computador-02' continuará a ser acionado como normal.
 
 ![Regras de ação e alertas do log (número de resultados)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 

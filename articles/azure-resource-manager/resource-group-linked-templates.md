@@ -98,7 +98,7 @@ Para aninhar o modelo no modelo principal, use a propriedade **modelo** e especi
 > ],
 > ```
 >
-> Não é possível usar o `reference` função na seção de saídas de um modelo aninhado. Para retornar os valores de um recurso implantado em um modelo aninhado, converta seu modelo aninhado em um modelo vinculado.
+> Não é possível usar a função `reference` na seção de saídas de um modelo aninhado. Para retornar os valores de um recurso implantado em um modelo aninhado, converta seu modelo aninhado em um modelo vinculado.
 
 O modelo aninhado requer as [mesmas propriedades](resource-group-authoring-templates.md) como um modelo padrão.
 
