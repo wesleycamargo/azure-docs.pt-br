@@ -4,14 +4,14 @@ description: Saiba como gerenciar conflitos no Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/16/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: fb9850548f0bfb71b797830eb0d5fdfddbc32306
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: a6e57dc5b4bcfa3f02e323253e24d68381c3535d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997012"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068745"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gerenciar políticas de resolução de conflitos no Azure Cosmos DB
 
@@ -86,7 +86,7 @@ udp_collection = self.try_create_document_collection(create_client, database, ud
 
 ## <a name="create-a-custom-conflict-resolution-policy-using-a-stored-procedure"></a>Criar uma política de resolução de conflitos personalizada usando um procedimento armazenado
 
-Estes exemplos mostram como configurar um contêiner com uma política de resolução de conflitos personalizada com procedimento armazenado para resolver o conflito. Esses conflitos não aparecem no feed de conflitos se não houver um erro em seu procedimento armazenado. Depois que a política é criada com o contêiner, você precisa criar o procedimento armazenado. O exemplo de SDK do .NET a seguir mostra um exemplo disso. Essa política tem suporte apenas na API Core (SQL).
+Estes exemplos mostram como configurar um contêiner com uma política de resolução de conflitos personalizada com procedimento armazenado para resolver o conflito. Esses conflitos não aparecem no feed de conflitos se não houver um erro em seu procedimento armazenado. Depois que a política é criada com o contêiner, você precisa criar o procedimento armazenado. O exemplo de SDK do .NET a seguir mostra um exemplo. Essa política tem suporte apenas na API Core (SQL).
 
 ### <a name="sample-custom-conflict-resolution-stored-procedure"></a>Exemplo de procedimento armazenado de resolução de conflitos personalizado
 
@@ -361,7 +361,7 @@ Saiba mais sobre os conceitos do Azure Cosmos DB a seguir:
 
 * [Distribuição global – nos bastidores](global-dist-under-the-hood.md)
 * [Como configurar vários mestres em seus aplicativos](how-to-multi-master.md)
-* [Configurar clientes para multihoming](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [Configurar clientes para multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [Como adicionar/remover regiões da conta do Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Como configurar vários mestres nos aplicativos](how-to-multi-master.md).
 * [Particionamento e distribuição de dados](partition-data.md)

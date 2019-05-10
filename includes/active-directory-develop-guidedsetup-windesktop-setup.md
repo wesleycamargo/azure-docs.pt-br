@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2019
-ms.author: jmprieur
+origin.date: 04/10/2019
+ms.date: 05/10/2019
+ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: ce95e8d0249a886e031e3ae0fe9dd8e20804f391
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ae6d590cdada24638ec2d24c83609b8e6addfaf0
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799517"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416251"
 ---
 ## <a name="set-up-your-project"></a>Configurar o seu projeto
 
@@ -69,7 +70,7 @@ Nesta etapa, você cria uma classe para lidar com a interação com a MSAL, por 
         static App()
         {
             _clientApp = PublicClientApplicationBuilder.Create(ClientId)
-                .WithAuthority(AzureCloudInstance.AzurePublic, Tenant)
+                .WithAuthority(AzureCloudInstance.AzureChina, Tenant)
                 .Build();
         }
 
@@ -111,3 +112,4 @@ Um arquivo *MainWindow.xaml* deve ser criado automaticamente como parte de seu m
     </StackPanel>
 </Grid>
 ```
+

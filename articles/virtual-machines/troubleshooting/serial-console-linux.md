@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: harijay
-ms.openlocfilehash: 7019d80c05a1953f4e57f0f42d46588310911791
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9577a81af3da98c6e8802c586ec468a6e44e46cf
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141107"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442036"
 ---
 # <a name="azure-serial-console-for-linux"></a>Console Serial do Azure para Linux
 
-O Console Serial no portal do Azure fornece acesso a um console baseado em texto para máquinas virtuais do Linux (VMs) e (conjunto de dimensionamento de máquinas virtuais) instâncias de conjunto de dimensionamento de máquinas virtuais. Essa conexão serial conecta-se à porta serial COM1 da VM ou instância do conjunto de dimensionamento de máquina virtual, fornecendo acesso a ele, independentemente do estado do sistema operacional ou rede. O console serial só pode ser acessado por meio do portal do Azure e é permitido apenas para os usuários que tenham uma função de acesso de Colaborador ou superior para o conjunto de dimensionamento VM ou máquina virtual.
+O Console Serial no portal do Azure fornece acesso a um console baseado em texto para máquinas virtuais do Linux (VMs) e instâncias de conjunto de dimensionamento de máquinas virtuais. Essa conexão serial conecta-se à porta serial COM1 da VM ou instância do conjunto de dimensionamento de máquina virtual, fornecendo acesso a ele, independentemente do estado do sistema operacional ou rede. O console serial só pode ser acessado por meio do portal do Azure e é permitido apenas para os usuários que tenham uma função de acesso de Colaborador ou superior para o conjunto de dimensionamento VM ou máquina virtual.
 
 Console Serial funciona da mesma maneira para VMs e instâncias de conjunto de dimensionamento de máquinas virtuais. Neste documento, todos os menções em VMs implicitamente inclui instâncias de conjunto de dimensionamento de máquina virtual, a menos que indicado de outra forma.
 
@@ -180,7 +180,7 @@ O console serial possui suporte ao leitor de tela embutido. Navegar ao redor com
 ## <a name="errors"></a>Errors
 Como a maioria dos erros é transitória, tentar novamente sua conexão pode corrigi-los. A tabela a seguir mostra uma lista de erros e atenuações. Esses erros e mitigações se aplicam a ambas as VMs e instâncias de conjunto de dimensionamento de máquinas virtuais.
 
-Erro                            |   Redução
+Erro                            |   Atenuação
 :---------------------------------|:--------------------------------------------|
 Não é possível recuperar as configurações de diagnóstico de inicialização para *&lt;VMNAME &gt;*. Para usar o console serial, verifique se o diagnóstico de inicialização está habilitado para essa VM. | Verifique se a VM tem [diagnósticos de inicialização](boot-diagnostics.md) habilitados.
 A VM está em estado desalocado interrompido. Inicie a máquina virtual e tente estabelecer novamente a conexão de console serial. | A VM deve estar em um estado iniciado para acessar o console serial.
@@ -192,7 +192,7 @@ Uma resposta "Proibido" foi encontrada ao acessar a conta de armazenamento do di
 ## <a name="known-issues"></a>Problemas conhecidos
 Estamos cientes de algumas questões com o console serial. Aqui está uma lista desses problemas e as etapas de mitigação. Esses problemas e atenuações se aplicam a ambas as VMs e instâncias de conjunto de dimensionamento de máquinas virtuais.
 
-Problema                           |   Redução
+Problema                           |   Atenuação
 :---------------------------------|:--------------------------------------------|
 Pressionando **Enter** depois que o banner de conexão não faz com que um prompt de login seja exibido. | Para mais informações, consulte [Hitting enter não faz nada](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Esse problema pode ocorrer se você estiver executando uma VM personalizada, o dispositivo avançado ou a configuração do GRUB que faz com que o Linux para conseguir se conectar à porta serial.
 O texto do console serial ocupa apenas uma parte do tamanho da tela (geralmente depois de usar um editor de texto). | Os consoles seriais não dão suporte à negociação do tamanho da janela ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), o que significa que nenhum sinal SIGWINCH será enviado para atualizar o tamanho da tela e a VM não saberá o tamanho do seu terminal. Instale o xterm ou um utilitário semelhante para fornecer o comando `resize` e, em seguida, execute `resize`.

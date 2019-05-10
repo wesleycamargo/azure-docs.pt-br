@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6fe74852824c10d24729f785e5e33a17b793161
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b137b8cd4e3a2b7a308170904e9b3d09b11137f9
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411295"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231334"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como: Personalizar declarações emitidas no token SAML para aplicativos empresariais
 
@@ -59,7 +59,7 @@ Se a solicitação SAML não contiver um elemento para NameIDPolicy, o Azure AD 
 
 Dos **formato do identificador de escolha** menu suspenso, você pode selecionar uma das opções a seguir.
 
-| Formato de NameID | DESCRIÇÃO |
+| Formato de NameID | Descrição |
 |---------------|-------------|
 | **Padrão** | Azure AD usará o formato de fonte padrão. |
 | **Persistent** | Azure AD usará persistente como o formato de NameID. |
@@ -73,7 +73,7 @@ Para saber mais sobre o atributo NameIDPolicy, consulte [protocolo SAML de logon
 
 Selecione a fonte desejada para a declaração `NameIdentifier` (ou NameID). Você pode selecionar entre as opções a seguir.
 
-| NOME | DESCRIÇÃO |
+| NOME | Descrição |
 |------|-------------|
 | Email | Endereço de email do usuário |
 | userprincipalName | Nome principal do usuário (UPN) do usuário |
@@ -89,7 +89,7 @@ Para obter mais informações, consulte [tabela 3: Valores de ID válidos por or
 
 Você também pode usar as funções de transformações de declarações.
 
-| Função | DESCRIÇÃO |
+| Função | Descrição |
 |----------|-------------|
 | **ExtractMailPrefix()** | Remove o sufixo do domínio do endereço de email ou nome principal do usuário. Isso extrai somente a primeira parte do nome de usuário que está sendo passada (por exemplo, "joe_smith" em vez de joe_smith@contoso.com). |
 | **Join()** | Une um atributo a um domínio verificado. Se o valor do identificador de usuário selecionado tiver um domínio, ele extrairá o nome de usuário para anexar o domínio verificado selecionado. Por exemplo, se você selecionar o email (joe_smith@contoso.com) como o valor de identificador de usuário e selecionar contoso.onmicrosoft.com como o domínio verificado, isso resultará em joe_smith@contoso.onmicrosoft.com. |
@@ -108,7 +108,7 @@ Para adicionar declarações específicas de aplicativo:
 
 Você também pode usar as funções de transformações de declarações.
 
-| Função | DESCRIÇÃO |
+| Função | Descrição |
 |----------|-------------|
 | **ExtractMailPrefix()** | Remove o sufixo do domínio do endereço de email ou nome principal do usuário. Isso extrai somente a primeira parte do nome de usuário que está sendo passada (por exemplo, "joe_smith" em vez de joe_smith@contoso.com). |
 | **Join()** | Cria um novo valor ao unir dois atributos. Opcionalmente, você pode usar um separador entre os dois atributos. |
@@ -116,7 +116,7 @@ Você também pode usar as funções de transformações de declarações.
 | **ToUpper()** | Converte os caracteres do atributo selecionado em caracteres maiúsculos. |
 | **Contains()** | Gera um atributo ou uma constante se a entrada corresponde ao valor especificado. Caso contrário, você pode especificar o outra saída se não houver nenhuma correspondência.<br/>Por exemplo, se você quiser emitir uma declaração onde o valor é o endereço de email do usuário, se ele contém o domínio "@contoso.com", caso contrário, você deseja o nome UPN de saída. Para fazer isso, você poderia configurar os seguintes valores:<br/>*Parâmetro 1(input)*: User<br/>*Valor*: "@contoso.com"<br/>O parâmetro 2 (saída): User<br/>O parâmetro 3 (se não houver nenhuma correspondência de saída): User. userPrincipalName |
 | **EndWith()** | Gera um atributo ou uma constante se a entrada termina com o valor especificado. Caso contrário, você pode especificar o outra saída se não houver nenhuma correspondência.<br/>Por exemplo, se você quiser emitir uma declaração em que o valor é o employeeid do usuário se employeeid termina com "000", caso contrário, você deseja gerar um atributo de extensão. Para fazer isso, você poderia configurar os seguintes valores:<br/>*Parâmetro 1(input)*: EmployeeID<br/>*Valor*: "000"<br/>O parâmetro 2 (saída): EmployeeID<br/>O parâmetro 3 (se não houver nenhuma correspondência de saída): user.extensionattribute1 |
-| **StartWith()** | Gera a saída de um atributo ou uma constante de entrada começa com o valor especificado. Caso contrário, você pode especificar o outra saída se não houver nenhuma correspondência.<br/>Por exemplo, se você quiser emitir uma declaração onde o valor é o employeeid do usuário, se o país começa com "US", caso contrário, você deseja gerar um atributo de extensão. Para fazer isso, você poderia configurar os seguintes valores:<br/>*Parâmetro 1(input)*: User. Country<br/>*Valor*: "US"<br/>O parâmetro 2 (saída): EmployeeID<br/>O parâmetro 3 (se não houver nenhuma correspondência de saída): user.extensionattribute1 |
+| **StartWith()** | Gera a saída de um atributo ou uma constante de entrada começa com o valor especificado. Caso contrário, você pode especificar o outra saída se não houver nenhuma correspondência.<br/>Por exemplo, se você quiser emitir uma declaração em que o valor é o employeeid do usuário, se o país/região começa com "US", caso contrário, você deseja gerar um atributo de extensão. Para fazer isso, você poderia configurar os seguintes valores:<br/>*Parâmetro 1(input)*: User. Country<br/>*Valor*: "US"<br/>O parâmetro 2 (saída): EmployeeID<br/>O parâmetro 3 (se não houver nenhuma correspondência de saída): user.extensionattribute1 |
 | **Extract () - após a correspondência** | Retorna a subcadeia de caracteres depois que ele corresponde ao valor especificado.<br/>Por exemplo, se o valor da entrada é "Finance_BSimon", o valor correspondente é "Finance_", então saída da declaração é "BSimon". |
 | **Extract () - antes da correspondência** | Retorna a subcadeia de caracteres até que ele corresponde ao valor especificado.<br/>Por exemplo, se o valor da entrada é "BSimon_US", o valor correspondente é "_US", então saída da declaração é "BSimon". |
 | **Extract () - entre correspondência** | Retorna a subcadeia de caracteres até que ele corresponde ao valor especificado.<br/>Por exemplo, se o valor da entrada é "Finance_BSimon_US", o primeiro valor correspondente é "Finance_", o segundo valor correspondente é "_US" e saída da declaração é "BSimon". |

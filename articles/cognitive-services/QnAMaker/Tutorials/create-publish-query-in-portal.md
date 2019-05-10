@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 299dd61055503f0b5a11cbe97e137e4760edadda
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 85f8643a0936209c8f280498df92555a7b40c533
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266924"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149919"
 ---
 # <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>Tutorial: No portal do QnA Maker, crie uma base de dados de conhecimento
 
@@ -68,7 +68,7 @@ Este tutorial requer um [serviço QnA Maker](../How-To/set-up-qnamaker-service-a
     |--|--|--|
     |URL|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |O conteúdo das Perguntas frequentes nessa URL é formatado com um ponto de interrogação seguido de uma resposta. O QnA Maker pode interpretar esse formato para extrair perguntas e as respostas associadas.|
     |Arquivo |_não usado neste tutorial_|Isso carrega arquivos para perguntas e respostas. |
-    |Personalidade do bate-papo|O amigo|Isso oferece uma personalidade casual e amigável para perguntas e respostas comuns. Você pode editar essas perguntas e respostas mais tarde. |
+    |Personalidade do bate-papo|Amigável|Isso oferece uma personalidade casual e amigável para perguntas e respostas comuns. Você pode editar essas perguntas e respostas mais tarde. |
 
     ![Etapa 4 do processo de criação da base de dados de conhecimento](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
 
@@ -84,9 +84,9 @@ Este tutorial requer um [serviço QnA Maker](../How-To/set-up-qnamaker-service-a
 
 1. Selecione a última página de perguntas e respostas na parte inferior da tabela. A página mostra as perguntas e respostas da Personalidade do bate-papo. 
 
-1. Na barra de ferramentas acima da lista de perguntas e respostas, selecione o ícone de metadados. Isso mostra as marcas de metadados para cada pergunta e resposta. As perguntas de bate-papo têm os metadados **editorial: bate-papo** já definidos. Esses metadados são retornados para o aplicativo cliente com a resposta selecionada. O aplicativo cliente, como um chatbot, pode usar esses metadados filtrados para determinar outros processamentos ou interações com o usuário.
+1. Na barra de ferramentas acima da lista de perguntas e respostas, selecione o ícone **Opções de exibição** e selecione **Mostrar metadados**. Isso mostra as marcas de metadados para cada pergunta e resposta. As perguntas de bate-papo têm os metadados **editorial: bate-papo** já definidos. Esses metadados são retornados para o aplicativo cliente com a resposta selecionada. O aplicativo cliente, como um chatbot, pode usar esses metadados filtrados para determinar outros processamentos ou interações com o usuário.
 
-    ![Exibir marcas de Metadados](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
+    ![![View Metadata tags](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png#lightbox)
 
 1. Selecione **Salvar e treinar** na barra de menus superior.
 

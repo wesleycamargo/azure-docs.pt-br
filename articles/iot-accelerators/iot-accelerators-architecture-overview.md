@@ -1,6 +1,6 @@
 ---
 title: Arquitetura de referência de aceleradores de solução do IoT - Azure | Microsoft Docs
-description: Saiba mais sobre a arquitetura de referência dos aceleradores de solução de IoT do Azure. Os aceleradores de solução existentes aproveitam essa arquitetura de referência. Você também pode usar a arquitetura de referência quando você cria suas próprias soluções personalizadas de IoT.
+description: Saiba mais sobre a arquitetura de referência de aceleradores de solução de IoT do Azure. Os aceleradores de solução existentes aproveitam essa arquitetura de referência. Você também pode usar a arquitetura de referência quando você cria suas próprias soluções personalizadas de IoT.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/04/2018
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: philmea
-ms.openlocfilehash: ba5eb50dcf800c186124db348ac584ff6f55cebb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e3ec677f2c3ce2a7f942c47269fe1f70885ac02
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450289"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466452"
 ---
 # <a name="introduction-to-the-azure-iot-reference-architecture"></a>Introdução à arquitetura de referência do IoT do Azure
 
@@ -38,11 +38,11 @@ A [arquitetura de referência do IoT do Azure](https://aka.ms/iotrefarchitecture
 
 A arquitetura de referência identifica os principais subsistemas mostrados no diagrama a seguir:
 
-![Subsistemas principais](media/iot-accelerators-architecture-overview/CoreSubsystems.png)
+![Subsistemas principais](media/iot-accelerators-architecture-overview/coresubsystems1.png)
 
 As seções a seguir descrevem como os componentes do acelerador de solução de monitoramento remoto são mapeados nos principais subsistemas.
 
-### <a name="iot-devices"></a>Dispositivos IoT
+### <a name="iot-devices"></a>Dispositivos de IoT
 
 Uma solução de IoT deve habilitar a comunicação segura, eficiente e robusta entre quase todo tipo de dispositivo e um gateway de nuvem. Os dispositivos são ativos comerciais que variam de sensores de temperatura simples a linhas de produção de fábrica complexas com centenas de componentes e sensores.
 

@@ -9,12 +9,12 @@ ms.subservice: ink-recognizer
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: febc6e72ed40541a230c606a3ec96a8bffef5036
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 651474fd538123e760022ac59efbbaf0b9b83d70
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026372"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519670"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Início Rápido: Reconhecer tinta digital com a API de REST do reconhecedor de tinta e o JavaScript
 
@@ -26,12 +26,12 @@ Normalmente, você chamaria a API de um aplicativo de tinta digital. Neste iníc
 
 ![uma imagem de texto manuscrito](../media/handwriting-sample.jpg)
 
-O código-fonte deste Início Rápido pode ser encontrado no [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502).
+O código-fonte deste Início Rápido pode ser encontrado no [GitHub](https://go.microsoft.com/fwlink/?linkid=2089905).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Um navegador da Web
-- Os dados de traço de tinta de exemplo para este início rápido podem ser encontrados no [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502).
+- Os dados de traço de tinta de exemplo para este início rápido podem ser encontrados no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-ink-strokes.json).
 
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
@@ -157,7 +157,7 @@ O código-fonte deste Início Rápido pode ser encontrado no [GitHub](https://go
 
 ## Run the application and view the response
 
-This application can be run within your web browser. A successful response is returned in JSON format. You can also find the JSON response on [GitHub](https://go.microsoft.com/fwlink/?linkid=2089502):
+This application can be run within your web browser. A successful response is returned in JSON format. You can also find the JSON response on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-response.json):
 
 ## Next steps
 

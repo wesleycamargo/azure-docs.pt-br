@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: c13a01b392b9bbc93fff2e997cb6d168a441ad07
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 6c332861bcaf228e4c1e0a619cf4f84e3be0ba15
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679912"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204174"
 ---
-# <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Início rápido: executar o primeiro trabalho do Lote do Azure com a API do .NET
+# <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Início Rápido: Executar o primeiro trabalho em Lote do Azure com a API do .NET
 
 Este guia de início rápido executa um trabalho do Lote do Azure de um aplicativo em C# criado na API do .NET do Lote do Azure. O aplicativo carrega vários arquivos de dados de entrada no armazenamento do Azure e, em seguida, cria um *pool* de nós de computação (máquinas virtuais) do Lote. Em seguida, ele cria um exemplo de *trabalho* que executa *tarefas* para processar cada arquivo de entrada no pool usando um comando básico. Depois de concluir este guia de início rápido, você entenderá os conceitos principais do serviço Lote e estará pronto para experimentar o Lote com cargas de trabalho mais realistas em maior escala.
 
@@ -113,7 +113,7 @@ Confira o arquivo `Program.cs` e as seções a seguir para obter mais detalhes.
 
 ### <a name="preliminaries"></a>Etapas preliminares
 
-Para interagir com a conta de armazenamento, o aplicativo usa a Biblioteca de Clientes de Armazenamento do Azure para .NET. Podemos criar uma referência à conta com [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount) e dela criar um [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient).
+Para interagir com a conta de armazenamento, o aplicativo usa a Biblioteca de Clientes de Armazenamento do Azure para .NET. Podemos criar uma referência à conta com [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) e dela criar um [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient).
 
 ```csharp
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();

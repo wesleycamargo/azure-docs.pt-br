@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: crdun
-ms.openlocfilehash: 289d50fc9d71ee5ea8960fd077e91ef6f68027cb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 959c1ff8b199320105f650a7eb62a04bedb03b3b
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127974"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412777"
 ---
 # <a name="create-a-windows-app-with-an-azure-backend"></a>Criar um aplicativo do Windows com um back-end do Azure
 
@@ -39,7 +39,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 * Uma conta ativa do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 aplicativos móveis gratuitos que você pode continuar a usar mesmo após o fim do seu período de avaliação. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Windows 10.
-* [Visual Studio Community 2017].
+* [Visual Studio Community].
 * Familiaridade com o desenvolvimento de aplicativos UWP. Visite a [documentação do UWP](https://docs.microsoft.com/windows/uwp/) para saber como [se preparar](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) para criar aplicativos UWP.
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>Criar um novo back-end de aplicativo móvel do Azure
@@ -70,7 +70,7 @@ Quando você tiver configurado o back-end do Aplicativo Móvel, poderá criar um
     Isso envia uma solicitação POST para o novo back-end de aplicativo móvel hospedado no Azure.
 
 > [!TIP]
-> Adicione o projeto de aplicativo UWP à mesma solução que o projeto de servidor, se você estiver usando o back-end .NET. Isso torna mais fácil depurar e testar o aplicativo e o back-end na mesma solução do Visual Studio. Para adicionar um projeto de aplicativo UWP à solução de back-end, você deve estar usando o Visual Studio 2017.
+> Adicione o projeto de aplicativo UWP à mesma solução que o projeto de servidor, se você estiver usando o back-end .NET. Isso torna mais fácil depurar e testar o aplicativo e o back-end na mesma solução do Visual Studio. Para adicionar um projeto de aplicativo UWP à solução de back-end, você deve estar usando o Visual Studio 2017 ou posterior.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -86,4 +86,4 @@ Quando você tiver configurado o back-end do Aplicativo Móvel, poderá criar um
 <!-- URLs. -->
 [Mobile App SDK]: https://go.microsoft.com/fwlink/?LinkId=257545
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2017]: https://go.microsoft.com/fwLink/p/?LinkID=534203
+[Visual Studio Community]: https://go.microsoft.com/fwLink/p/?LinkID=534203

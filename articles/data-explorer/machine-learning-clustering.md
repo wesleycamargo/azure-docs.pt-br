@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: 2358cb2ea411a0077f34798183da30bd32ae067b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: bc72cc21ab525ec82d9ce4b24e80ce82d92a5d21
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925119"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233497"
 ---
 # <a name="machine-learning-capability-in-azure-data-explorer"></a>O recurso no Gerenciador de dados do Azure de aprendizado de máquina
 
@@ -59,7 +59,7 @@ demo_clustering1
 | count
 ```
 
-|Contagem |
+|Count |
 |---------|
 |972    |
 
@@ -96,7 +96,7 @@ demo_clustering1
 | 2016-08-23 15:00:58.2222707 | scus   | su5       | 9dbd1b161d5b4779a73cf19a7836ebd6 | 10007007   | 8215dcf6-2de0-42bd-9c90-181c70486c9c |
 | 2016-08-23 15:00:59.9382620 | scus   | su3       | 90d3d2fc7ecc430c9621ece335651a01 | 10007006   | 451e3c4c-0808-4566-a64d-84d85cf30978 |
 
-### <a name="use-autocluster-for-single-record-set-clustering"></a>Use `autocluster()` para registro individual, definir o clustering
+### <a name="use-autocluster-for-single-record-set-clustering"></a>Use autocluster() para registro individual, definir o clustering
 
 Mesmo que haja menos de mil exceções, é ainda difícil localizar segmentos comuns, como há vários valores em cada coluna. Você pode usar [ `autocluster()` ](/azure/kusto/query/autoclusterplugin) plug-in para extrair uma pequena lista de segmentos comuns e localizar o interessante instantaneamente clusters em até dois minutos do pico, conforme mostrado na consulta a seguir:
 
@@ -108,7 +108,7 @@ demo_clustering1
 | evaluate autocluster()
 ```
 
-| SegmentId | Contagem | Porcentagem | Região | ScaleUnit | DeploymentId | ServiceHost |
+| SegmentId | Count | Percentual | Região | ScaleUnit | DeploymentId | ServiceHost |
 |-----------|-------|------------------|--------|-----------|----------------------------------|--------------------------------------|
 | 0 | 639 | 65.7407407407407 | EAU | su7 | b5d1d4df547d4a04ac15885617edba57 | e7f60c5d-4944-42b3-922a-92e98a8e7dec |
 | 1 | 94 | 9.67078189300411 | scus | su5 | 9dbd1b161d5b4779a73cf19a7836ebd6 |  |
@@ -120,7 +120,7 @@ Você pode ver nos resultados acima que o segmento mais dominantes nos contém 6
 
 Autocluster usa um algoritmo de proprietário para várias dimensões de mineração e extrair segmentos interessantes. "Interessante" significa que cada segmento tem cobertura significativa do que o conjunto de registros e o conjunto de recursos. Os segmentos são divergidos também, o que significa que cada um deles é significativamente diferente das outras. Um ou mais desses segmentos podem ser relevantes para o processo RCA. Para minimizar a avaliação e revisão de segmento, autocluster extrai apenas uma lista pequena de segmento.
 
-### <a name="use-basket-for-single-record-set-clustering"></a>Use `basket()` para registro individual, definir o clustering
+### <a name="use-basket-for-single-record-set-clustering"></a>Use basket() para registro individual, definir o clustering
 
 Você também pode usar o [ `basket()` ](/azure/kusto/query/basketplugin) plug-in, conforme mostrado na consulta a seguir:
 
@@ -132,7 +132,7 @@ demo_clustering1
 | evaluate basket()
 ```
 
-| SegmentId | Contagem | Porcentagem | Região | ScaleUnit | DeploymentId | Tracepoint | ServiceHost |
+| SegmentId | Count | Percentual | Região | ScaleUnit | DeploymentId | Tracepoint | ServiceHost |
 |-----------|-------|------------------|--------|-----------|----------------------------------|------------|--------------------------------------|
 | 0 | 639 | 65.7407407407407 | EAU | su7 | b5d1d4df547d4a04ac15885617edba57 |  | e7f60c5d-4944-42b3-922a-92e98a8e7dec |
 | 1 | 642 | 66.0493827160494 | EAU | su7 | b5d1d4df547d4a04ac15885617edba57 |  |  |

@@ -99,6 +99,10 @@
           href: howto-administer.md
         - name: Preparar e carregar a imagem
           href: howto-prepare-images.md
+        - name: Configurar o painel do aplicativo
+          href: howto-configure-homepage.md
+        - name: Personalizar a interface do usuário do aplicativo
+          href: howto-customize-ui.md
         - name: Gerenciar usando o portal do Azure
           href: howto-manage-iot-central-from-portal.md
         - name: Gerenciar usando a CLI do Azure
@@ -106,9 +110,7 @@
         - name: Gerenciar usando o Azure PowerShell
           href: howto-manage-iot-central-from-powershell.md
         - name: Criar e gerir um aplicativo enquanto CSP
-          href: howto-create-and-manage-applications-as-CSP.md
-        - name: Configurar o painel do aplicativo
-          href: howto-configure-homepage.md
+          href: howto-create-and-manage-applications-csp.md
     - name: Personalização
       items:
         - name: Criar painéis pessoais

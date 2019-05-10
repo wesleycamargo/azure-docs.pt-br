@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 77e322e32d19433d9ce4629c2e04c8bbd7e17f3f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 79ba86fd32248da240706fda2d8b5fcf8323263d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57858228"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143192"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início rápido: Criar um balanceador de carga padrão para VMs usando o Portal do Azure
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início Rápido: Criar um balanceador de carga padrão para VMs usando o Portal do Azure
 
 O balanceamento de carga fornece um nível mais alto de disponibilidade e escala por distribuir as solicitações de entrada entre várias máquinas virtuais. Você pode usar o Portal do Azure para criar um balanceador de carga para balancear a carga de máquinas virtuais (VMs). Este início rápido mostra como carregar a carga de VMs usando um balanceador de carga padrão.
 
@@ -79,8 +79,8 @@ Para permitir que o Load Balancer monitore o status de seu aplicativo, use uma i
     | Protocolo | Selecione **HTTP**. |
     | Porta | Insira *80*.|
     | Intervalo | Insira *15* para o número de **Intervalo** em segundos entre tentativas de investigação. |
-    | Limite não íntegro | Insira *2* para o número de **Limite não íntegro** ou falhas de investigação consecutivas que devem ocorrer antes que uma VM seja considerada não íntegra.|
-    | Investigação de integridade | Selecione *myHealthProbe*. |
+    | Limite não íntegro | Insira **2** para o número de **Limite não íntegro** ou falhas de investigação consecutivas que devem ocorrer antes que uma VM seja considerada não íntegra.|
+    | | |
 4. Selecione **OK**.
 
 ### <a name="create-a-load-balancer-rule"></a>Criar uma regra do Load Balancer
@@ -99,11 +99,11 @@ Uma regra do Load Balancer é usada para definir como o tráfego é distribuído
     | Pool de back-end | Selecione *myBackendPool*.|
     | Investigação de integridade | Selecione *myHealthProbe*. |
 4. Deixe o restante dos padrões e selecione **OK**.
-4. Selecione **OK**.
+
 
 ## <a name="create-backend-servers"></a>Criar servidores de back-end
 
-Nesta seção, crie uma rede virtual, crie duas máquinas virtuais para o pool de back-end do Load Balancer e, em seguida, instalar o IIS nas máquinas virtuais para ajudar a testar o Load Balancer.
+Nesta seção, crie uma rede virtual, crie três máquinas virtuais para o pool de back-end do Load Balancer e, em seguida, instalar o IIS nas máquinas virtuais para ajudar a testar o Load Balancer.
 
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 1. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Rede** > **Rede virtual**.
@@ -122,9 +122,9 @@ Nesta seção, crie uma rede virtual, crie duas máquinas virtuais para o pool d
 1. Deixe o restante dos padrões e selecione **Criar**.
 
 ### <a name="create-virtual-machines"></a>Criar máquinas virtuais
-O Standard Load Balancer só dá suporte a VMs com endereços IP Standard no pool de back-end. Nesta seção, você criará duas VMs (*myVM1* e *myVM2*) com um endereço IP público Standard em duas regiões diferentes (*Zona 1* e *Zona 2*) que são adicionados ao pool de back-end do Standard Load Balancer que foi criado anteriormente.
+O Standard Load Balancer só dá suporte a VMs com endereços IP Standard no pool de back-end. Nesta seção, você criará três VMs (*myVM1*, *myVM2* e *myVM3*) com um endereço IP público Standard em três regiões diferentes (*Zona 1*, *Zona 2* e *Zona 3*) que serão adicionados ao pool de back-end do Standard Load Balancer que foi criado anteriormente.
 
-1. No canto superior esquerdo do portal, selecione **Criar um recurso** > **Computação** > **Windows Server 2016 Datacenter**. 
+1. No canto superior esquerdo do portal, selecione **Criar um recurso** > **Computação** > **Windows Server 2019 Datacenter**. 
    
 1. Em **Criar uma máquina virtual**, insira ou selecione os seguintes valores na guia **Configurações básicas**:
    - **Assinatura** > **Grupo de Recursos**: Selecione **myResourceGroupSLB**.
@@ -132,26 +132,35 @@ O Standard Load Balancer só dá suporte a VMs com endereços IP Standard no poo
    - **Detalhes da Instância** > **Região** > selecione **Oeste da Europa**.
    - **Detalhes da Instância** > **Opções de Disponibilidade** > selecione **Zonas de disponibilidade**. 
    - **Detalhes da Instância** > **Zona de disponibilidade** > selecione **1**.
+   - **Conta de administrador**> Insira as informações de **Nome de usuário**, **Senha** e **Confirmar senha**.
+   - Selecione a guia **Rede** ou selecione **Avançar: Discos**, em seguida, **Avançar: Rede**.
   
-1. Selecione a guia **Rede** ou selecione **Avançar: Discos**, em seguida, **Avançar: Rede**. 
-   
-   - Selecione os itens abaixo:
-       - **Rede virtual**: *myVnet*
-       - **Sub-rede**: *myBackendSubnet*
-       - **IP público** > selecione **Criar** e, na janela **Criar endereço IP público**, para **SKU**, selecione **Standard** e, para **Zona de disponibilidade**, selecione **Com redundância de zona** e, sem seguida, selecione **OK**.
+1. Na guia **Rede** verifique se os itens abaixo estão selecionados:
+   - **Rede virtual**: *myVnet*
+   - **Sub-rede**: *myBackendSubnet*
+   - **IP público** > selecione **Criar** e, na janela **Criar endereço IP público**, para **SKU**, selecione **Standard** e, para **Zona de disponibilidade**, selecione **Com redundância de zona** e, sem seguida, selecione **OK**.
    - Para criar um novo NSG (grupo de segurança de rede), um tipo de firewall, em **Grupo de segurança de rede**, selecione **Avançado**. 
        1. No campo **Configurar grupo de segurança de rede**, selecione **Criar novo**. 
        1. Insira *myNetworkSecurityGroup* e selecione **OK**.
    - Para tornar a VM em uma parte do pool de back-end do Load Balancer, conclua as seguintes etapas:
         - Em **Balanceamento de Carga**, para **Colocar esta máquina virtual por trás de uma solução de balanceamento de carga existente?**, selecione **Sim**.
         - Em **Configurações de balanceamento de carga**, para **Opções de balanceamento de carga**, selecione **Azure Load Balancer**.
-        - Para **Selecionar um balanceador de carga**, escolha *myLoadBalancer*. 
-1. Selecione a guia **Gerenciamento** ou selecione **Avançar** > **Gerenciamento**. Em **Monitoramento**, defina **Diagnóstico de inicialização** como **Desativado**. 
+        - Para **Selecionar um balanceador de carga**, escolha *myLoadBalancer*.
+        - Selecione a guia **Gerenciamento** ou selecione **Avançar** > **Gerenciamento**.
+2. Na guia **Gerenciamento**, em **Monitoramento**, defina **Diagnóstico de inicialização** como **Desativado**. 
 1. Selecione **Examinar + criar**.   
 1. Examine as configurações e selecione **Criar**.
-1. Siga as etapas para criar uma segunda VM denominada *myVM2*, com um endereço IP público de SKU Standard denominado *myVM2-ip* e a **Zona de disponibilidade** configurada como **2**, e todas as outras configurações iguais a *myVM1*. 
+1. Siga as etapas de 2 a 6 para criar duas VMs adicionais com os seguintes valores e todas as outras configurações iguais à *myVM1*:
 
-### <a name="create-nsg-rule"></a>Como criar regra NSG
+    | Configuração | VM 2| VM 3|
+    | ------- | ----- |---|
+    | NOME |  *myVM2* |*myVM3*|
+    | Zona de disponibilidade | 2 |3|
+    |IP público| SKU **Standard**|SKU **Standard**|
+    | IP público – Zona de disponibilidade| **Redundância de zona** |**Redundância de zona**|
+    | Grupo de segurança de rede | Selecionar o *Grupo myNetworkSecurity* existente| Selecionar o *Grupo myNetworkSecurity* existente|
+
+ ### <a name="create-nsg-rule"></a>Como criar regra NSG
 
 Nesta seção, você criará uma regra de grupo de segurança de rede para permitir conexões de entrada usando HTTP.
 
@@ -166,30 +175,38 @@ Nesta seção, você criará uma regra de grupo de segurança de rede para permi
     - *100* - para **Prioridade**
     - *myHTTPRule* - para nome
     - *Allow HTTP* - para descrição
-4. Selecione **OK**.
+4. Selecione **Adicionar**.
  
 ### <a name="install-iis"></a>Instalar o IIS
 
 1. Selecione **Todos os serviços** no menu à esquerda, selecione **Todos os recursos** e, em seguida, na lista de recursos, selecione **myVM1** que está localizado no grupo de recursos *myResourceGroupSLB*.
 2. Na página **Visão Geral**, selecione **Conectar** para habilitar o RDP na VM.
-3. Faça logon na VM com nome de usuário *azureuser*.
-4. Na área de trabalho do servidor, navegue até **Ferramentas Administrativas do Windows**>**Gerenciador do Servidor**.
-5. No Gerenciador do Servidor, selecione **Adicionar funções e recursos**.
-6. No **Assistente Adicionar Funções e Recursos**, use os seguintes valores:
-    - Na página **Selecionar tipo de instalação**, selecione **Instalação baseada em função ou em recurso**.
-    - Na página **Selecionar servidor de destino**, selecione **myVM1**
-    - Na página **Selecionar função de servidor**, selecione **Servidor Web (IIS)**
-    - Siga as instruções para concluir o restante do assistente 
-7. Repita as etapas 1 a 6 para a máquina virtual *myVM2*.
+5. Faça logon na VM com as credenciais que você forneceu durante a criação dessa VM. Isso inicia uma sessão de área de trabalho remota com a máquina virtual - *myVM1*.
+6. Na área de trabalho do servidor, navegue até **Ferramentas Administrativas do Windows**>**Windows PowerShell**.
+7. Na janela do PowerShell, execute os comandos a seguir para instalar o servidor IIS, remova o arquivo padrão iisstart.htm, e adicione um novo arquivo iisstart.htm que exibe o nome da VM:
+
+   ```azurepowershell-interactive
+    
+    # install IIS server role
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    
+    # remove default htm file
+     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    
+    # Add a new htm file that displays server name
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+   ```
+6. Feche a sessão RDP com *myVM1*.
+7. Repita as etapas de 1 a 6 para instalar o IIS e o arquivo iisstart.htm atualizado em *myVM2* e *myVM3*.
 
 ## <a name="test-the-load-balancer"></a>Testar o Load Balancer
 1. Localize o endereço IP público para o Load Balancer na tela **Visão Geral**. Clique em **Todos os serviços** no menu à esquerda, selecione **Todos os recursos** e depois selecione **myPublicIP**.
 
 2. Copie o endereço IP público e cole-o na barra de endereços do seu navegador. A página padrão do servidor Web do IIS é exibida no navegador.
 
-      ![Servidor Web do IIS](./media/load-balancer-standard-public-portal/9-load-balancer-test.png)
+   ![Servidor Web do IIS](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
-Para ver o Load Balancer distribuir tráfego entre todas as três VMs que executam seu aplicativo, você poderá forçar a atualização de seu navegador da Web.
+Para ver o Load Balancer distribuir o tráfego entre as três VMs, você pode personalizar a página padrão do servidor Web do IIS de cada VM e forçar a atualização de seu navegador da web no computador cliente.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

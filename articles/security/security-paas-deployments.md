@@ -1,6 +1,6 @@
 ---
-title: Proteção de implantações de PaaS | Microsoft Docs
-description: " Entenda as vantagens de segurança do PaaS em comparação com outros modelos de serviço de nuvem e saiba mais sobre as melhores práticas para proteger a implantação de PaaS do Azure. "
+title: Práticas recomendadas para implantações de PaaS seguras – Microsoft Azure
+description: Conheça as práticas recomendadas para design, criação e gerenciamento seguro na nuvem aplicativos no Azure e entenda as vantagens de segurança de PaaS em comparação com outros modelos de serviço de nuvem.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
+ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: e833317fa16576fa0006a774226d12974fd93ed8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 9da7a3b91223b8a6fd25814a10a0cbafd645d132
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107426"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231125"
 ---
 # <a name="securing-paas-deployments"></a>Proteção de implantações de PaaS
 
@@ -29,6 +29,8 @@ Este artigo fornece informações que ajudam você a:
 - Avaliar as vantagens de segurança de PaaS (plataforma como serviço) em comparação com outros modelos de serviço de nuvem
 - Alterar o foco de segurança de uma abordagem de segurança de perímetro centrada na rede para uma centrada em identidade
 - Implementar as recomendações de práticas recomendadas de segurança de PaaS gerais
+
+[Desenvolver aplicativos seguros no Azure](abstract-develop-secure-apps.md) é um guia geral para as perguntas de segurança e os controles que você deve considerar em cada fase do ciclo de vida de desenvolvimento de software durante o desenvolvimento de aplicativos para a nuvem.
 
 ## <a name="cloud-security-advantages"></a>Vantagens da segurança na nuvem
 Há vantagens de segurança de estar na nuvem. Em um ambiente local, as organizações provavelmente têm responsabilidades não atendidas e recursos limitados disponíveis para investir em segurança, o que cria um ambiente em que os invasores podem explorar vulnerabilidades em todas as camadas.
@@ -113,7 +115,7 @@ A tabela a seguir lista as ameaças STRIDE e fornece algumas mitigações de exe
 | --- | --- | --- |
 | Falsificação | Authentication | Exigir conexões HTTPS. |
 | Violação | Integridade | Validar certificados SSL. |
-| Repúdio | Não repúdio | Habilitar o [monitoramento e diagnóstico](https://docs.microsoft.com/azure/architecture/best-practices/monitoring) do Azure. |
+| Repúdio | Não recusa | Habilitar o [monitoramento e diagnóstico](https://docs.microsoft.com/azure/architecture/best-practices/monitoring) do Azure. |
 | Divulgação de informações confidenciais | Confidencialidade | Criptografar dados confidenciais em repouso usando [certificados de serviço](https://docs.microsoft.com/rest/api/appservice/certificates). |
 | Negação de serviço | Disponibilidade | Monitorar as métricas de desempenho quanto a possíveis condições de negação de serviço. Implementar filtros de conexão. |
 | Elevação de privilégio | Autorização | Usar o [Privileged Identity Management](../active-directory/privileged-identity-management/subscription-requirements.md). |
@@ -155,6 +157,10 @@ Use o [Azure Application Insights](https://azure.microsoft.com/documentation/ser
 
 O Application Insights tem ferramentas abrangentes para interagir com os dados que coleta. O Application Insights armazena seus dados em um repositório comum. Ele pode tirar proveito dos recursos compartilhados, como alertas, painéis e uma análise profunda com a linguagem de consulta do Kusto.
 
+## <a name="perform-security-penetration-testing"></a>Executar testes de penetração de segurança
+Validar defesas de segurança é tão importante quanto testar qualquer outra funcionalidade. Tornar [testes de penetração](azure-security-pen-testing.md) uma parte padrão de seu processo de compilação e implantação. Agende testes de segurança regular e verificação de vulnerabilidades nos aplicativos implantados e monitorar ataques, os pontos de extremidade e portas abertas.
+
+O teste de difusão é um método para localizar falhas do programa (erros de código), fornecendo dados de entrada malformados para interfaces de programa (pontos de entrada) que analisam e consumam esses dados. [Detecção de riscos de segurança da Microsoft](https://www.microsoft.com/en-us/security-risk-detection/) é uma ferramenta baseada em nuvem que você pode usar para procurar erros e outras vulnerabilidades de segurança em seu software antes de implantá-lo para o Azure. A ferramenta foi projetada para detectar vulnerabilidades antes de implantar o software para que você não precise corrigir um bug, lidar com falhas ou responder a um ataque após o lançamento de software.
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -166,6 +172,8 @@ Neste artigo, nos concentramos nas vantagens de segurança de uma implantação 
 - Cache Redis do Azure
 - Barramento de Serviço do Azure
 - Firewalls de aplicativo Web
+
+Ver [desenvolver aplicativos seguros no Azure](abstract-develop-secure-apps.md) para perguntas de segurança e controles, você deve considerar em cada fase do ciclo de vida de desenvolvimento de software durante o desenvolvimento de aplicativos para a nuvem.
 
 Veja [Melhores práticas e padrões de segurança do Azure](security-best-practices-and-patterns.md) para obter melhores práticas segurança complementares a serem usadas ao projetar, implantar e gerenciar as soluções de nuvem, usando o Azure.
 

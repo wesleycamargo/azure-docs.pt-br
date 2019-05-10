@@ -8,12 +8,12 @@
   items:
     - name: 1. Criar um locatário na Área de Trabalho Virtual do Windows
       href: tenant-setup-azure-active-directory.md
-    - name: 2. Criar um pool de host com o Azure Marketplace
-      href: create-host-pools-azure-marketplace.md
-    - name: 3. Gerenciar grupos de aplicativos
-      href: manage-app-groups.md
-    - name: 4. Criar entidades de serviço e atribuições de função com o PowerShell
+    - name: 2. Criar entidades de serviço e atribuições de função com o PowerShell
       href: create-service-principal-role-powershell.md
+    - name: 3. Criar um pool de host com o Azure Marketplace
+      href: create-host-pools-azure-marketplace.md
+    - name: 4. Gerenciar grupos de aplicativos
+      href: manage-app-groups.md
 - name: Instruções
   items:
     - name: Conectar-se a recursos de Área de Trabalho Virtual do Windows

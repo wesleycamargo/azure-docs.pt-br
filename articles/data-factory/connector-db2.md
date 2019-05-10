@@ -194,7 +194,7 @@ Ao copiar dados do DB2, os seguintes mapeamentos são usados de tipos de dados d
 | Real |Single |
 | SmallInt |Int16 |
 | Time |TimeSpan |
-| Timestamp |DateTime |
+| Timestamp |Datetime |
 | VarBinary |Byte[] |
 | VarChar |String |
 | VarGraphic |String |

@@ -7,12 +7,12 @@ ms.date: 04/15/2019
 ms.topic: reference
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 0de3e0add804290cdfe27e2e97d8b1a0f240e0a6
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.openlocfilehash: dc72113a8f5ed978d64d35c43e94dc9e19e4cdb1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63769295"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209426"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funções para uso com as especificações técnicas do Azure
 
@@ -35,17 +35,17 @@ Retorna que um objeto de propriedades preenchido com esse artefato do blueprint 
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | artifactName |Sim |string |O nome de um artefato de blueprint. |
 
 ### <a name="return-value"></a>Valor de retorno
 
-Um objeto de propriedades de saída. As propriedades de saída são dependentes do tipo de artefato de blueprint que está sendo referenciado. Todos os tipos de seguem o formato:
+Um objeto de propriedades de saída. O **saídas** propriedades dependem do tipo de artefato de blueprint que está sendo referenciado. Todos os tipos de seguem o formato:
 
 ```json
 {
-  "output": {collectionOfOutputProperties}
+  "outputs": {collectionOfOutputProperties}
 }
 ```
 
@@ -53,7 +53,7 @@ Um objeto de propriedades de saída. As propriedades de saída são dependentes 
 
 ```json
 {
-    "output": {
+    "outputs": {
         "policyAssignmentId": "{resourceId-of-policy-assignment}",
         "policyAssignmentName": "{name-of-policy-assignment}",
         "policyDefinitionId": "{resourceId-of-policy-definition}",
@@ -63,13 +63,13 @@ Um objeto de propriedades de saída. As propriedades de saída são dependentes 
 
 #### <a name="resource-manager-template-artifact"></a>Artefato de modelo do Resource Manager
 
-O **saída** propriedades do objeto retornado são definidas no modelo do Resource Manager e retornadas pela implantação.
+O **saídas** propriedades do objeto retornado são definidas no modelo do Resource Manager e retornadas pela implantação.
 
 #### <a name="role-assignment-artifact"></a>Artefato de atribuição de função
 
 ```json
 {
-    "output": {
+    "outputs": {
         "roleAssignmentId": "{resourceId-of-role-assignment}",
         "roleDefinitionId": "{resourceId-of-role-definition}",
         "principalId": "{principalId-role-is-being-assigned-to}",
@@ -107,14 +107,14 @@ Um artefato de modelo do Resource Manager com a ID _myTemplateArtifact_ propried
 
 Alguns exemplos de recuperação de dados das _myTemplateArtifact_ exemplo são:
 
-| Expression | Type | Value |
+| Expressão | Type | Value |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").output.myArray]` | Matriz | \["first", "second"\] |
-|`[artifacts("myTemplateArtifact").output.myArray[0]]` | Cadeia de caracteres | "first" |
-|`[artifacts("myTemplateArtifact").output.myString]` | Cadeia de caracteres | "meu valor de cadeia de caracteres" |
-|`[artifacts("myTemplateArtifact").output.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
-|`[artifacts("myTemplateArtifact").output.myObject.myProperty]` | Cadeia de caracteres | "meu valor" |
-|`[artifacts("myTemplateArtifact").output.myObject.anotherProperty]` | Bool | True |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | Matriz | \["first", "second"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | "first" |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | String | "meu valor de cadeia de caracteres" |
+|`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "meu valor" |
+|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Booleano | True |
 
 ## <a name="concat"></a>concat
 
@@ -124,10 +124,10 @@ Combina vários valores de cadeia de caracteres e retorna o resultado concatenad
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | string1 |Sim |string |O primeiro valor de concatenação. |
-| argumentos adicionais |Não  |string |Valores adicionais em ordem sequencial para concatenação |
+| argumentos adicionais |Não |string |Valores adicionais em ordem sequencial para concatenação |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -149,7 +149,7 @@ Retorna um valor de parâmetro de especificações técnicas. O nome do parâmet
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | parameterName |Sim |string |O nome do parâmetro a retornar. |
 
@@ -270,7 +270,7 @@ Retorna um objeto que representa o artefato de grupo de recursos especificado. A
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
+| Parâmetro | Obrigatório | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | placeholderName |Sim |string |O nome do espaço reservado do artefato de grupo de recursos para retornar. |
 
@@ -324,7 +324,7 @@ Em seguida, use o `resourceGroups()` função a partir do contexto de qualquer a
 }
 ```
 
-## <a name="subscription"></a>subscription
+## <a name="subscription"></a>assinatura
 
 `subscription()`
 

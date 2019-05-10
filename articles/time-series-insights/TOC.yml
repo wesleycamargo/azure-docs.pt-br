@@ -52,7 +52,7 @@
           href: time-series-insights-update-tsm.md
         - name: Consultas de dados
           href: time-series-insights-update-tsq.md
-        - name: Visualizar os dados na atualização do explorador
+        - name: Visualizar os dados na atualização do gerenciador
           href: time-series-insights-update-explorer.md
     - name: Desenvolver
       items:

@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: c566d1fd4b151efc0d28b7059504e60a1451c034
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f0aca3e387d675064cf798b4efdeb66cfe906520
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025506"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153543"
 ---
 # <a name="quickstart-personalize-content-using-c"></a>Início Rápido: Personalizar o conteúdo usando o C# 
 
@@ -34,7 +34,7 @@ A introdução à personalização envolve as seguintes etapas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* É necessário ter uma chave de assinatura e uma URL do serviço de emissão de token.
+* Você precisa de um [serviço do Personalizador](how-to-settings.md) para obter sua chave de assinatura e url de serviço para emissão de token. 
 * [Visual Studio 2015 ou 2017](https://visualstudio.microsoft.com/downloads/).
 * O pacote NuGet do SDK de Microsoft.Azure.CognitiveServices.Personalization. As instruções de instalação são fornecidas abaixo.
 
@@ -62,35 +62,32 @@ Get the latest code as a Visual Studio solution from [GitHub] (add link).
 O código C# a seguir é uma listagem completa para passar informações de usuário, recursos e informações sobre o conteúdo, as _ações_, para o Personalizador usando o SDK. O Personalizador retorna a ação com a melhor classificação a ser mostrada ao usuário.  
 
 ```csharp
-using Microsoft.Azure.CognitiveServices.Personalization;
-using Microsoft.Azure.CognitiveServices.Personalization.Models;
+using Microsoft.Azure.CognitiveServices.Personalizer;
+using Microsoft.Azure.CognitiveServices.Personalizer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 
-namespace PersonalizationExample
+namespace PersonalizerExample
 {
     class Program
     {
-        // The key specific to your personalization service instance; e.g. "0123456789abcdef0123456789ABCDEF"
-        private const string serviceKey = "";
+        // The key specific to your personalizer service instance; e.g. "0123456789abcdef0123456789ABCDEF"
+        private const string ApiKey = "";
 
-        // The endpoint specific to your personalization service instance; e.g. https://westus2.api.cognitive.microsoft.com/
-        private const string serviceEndpoint = "";
+        // The endpoint specific to your personalizer service instance; e.g. https://westus2.api.cognitive.microsoft.com/
+        private const string ServiceEndpoint = "";
 
         static void Main(string[] args)
         {
             int iteration = 1;
             bool runLoop = true;
 
-            Uri url = new Uri(serviceEndpoint);
-
-            // Get the actions list to choose from personalization with their features.
+            // Get the actions list to choose from personalizer with their features.
             IList<RankableAction> actions = GetActions();
 
-            // Initialize Personalization client.
-            PersonalizationClient client = InitializePersonalizationClient(url);
+            // Initialize Personalizer client.
+            PersonalizerClient client = InitializePersonalizerClient(ServiceEndpoint);
 
             do
             {
@@ -106,7 +103,7 @@ namespace PersonalizationExample
                     new { taste = tasteFeature }
                 };
 
-                // Exclude an action for personalization ranking. This action will be held at its current position.
+                // Exclude an action for personalizer ranking. This action will be held at its current position.
                 IList<string> excludeActions = new List<string> { "juice" };
 
                 // Generate an ID to associate with the request.
@@ -116,7 +113,7 @@ namespace PersonalizationExample
                 var request = new RankRequest(actions, currentContext, excludeActions, eventId);
                 RankResponse response = client.Rank(request);
 
-                Console.WriteLine("\nPersonalization service thinks you would like to have: " + response.RewardActionId + ". Is this correct? (y/n)");
+                Console.WriteLine("\nPersonalizer service thinks you would like to have: " + response.RewardActionId + ". Is this correct? (y/n)");
 
                 float reward = 0.0f;
                 string answer = GetKey();
@@ -136,7 +133,7 @@ namespace PersonalizationExample
                     Console.WriteLine("\nEntered choice is invalid. Service assumes that you didn't like the recommended food choice.");
                 }
 
-                Console.WriteLine("\nPersonalization service ranked the actions with the probabilities as below:");
+                Console.WriteLine("\nPersonalizer service ranked the actions with the probabilities as below:");
                 foreach (var rankedResponse in response.Ranking)
                 {
                     Console.WriteLine(rankedResponse.Id + " " + rankedResponse.Probability);
@@ -152,15 +149,14 @@ namespace PersonalizationExample
         }
 
         /// <summary>
-        /// Initializes the personalization client.
+        /// Initializes the personalizer client.
         /// </summary>
         /// <param name="url">Azure endpoint</param>
-        /// <returns>Personalization client instance</returns>
-        static PersonalizationClient InitializePersonalizationClient(Uri url)
+        /// <returns>Personalizer client instance</returns>
+        static PersonalizerClient InitializePersonalizerClient(string url)
         {
-            PersonalizationClient client = new PersonalizationClient(url,
-            new ApiKeyServiceClientCredentials(serviceKey),
-            new DelegatingHandler[] { });
+            PersonalizerClient client = new PersonalizerClient(
+                new ApiKeyServiceClientCredentials(ApiKey)) {Endpoint = url};
 
             return client;
         }
@@ -202,9 +198,9 @@ namespace PersonalizationExample
         }
 
         /// <summary>
-        /// Creates personalization actions feature list.
+        /// Creates personalizer actions feature list.
         /// </summary>
-        /// <returns>List of actions for personalization.</returns>
+        /// <returns>List of actions for personalizer.</returns>
         static IList<RankableAction> GetActions()
         {
             IList<RankableAction> actions = new List<RankableAction>

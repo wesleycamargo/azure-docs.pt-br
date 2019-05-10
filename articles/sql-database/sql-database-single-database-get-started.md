@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/11/2019
-ms.openlocfilehash: b8395b5e67660f2b6fb1b671a7be6a20b4fceddd
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 04/23/2019
+ms.openlocfilehash: 18dde6b028365cc04343b6d2f461cdb8c1a2bede
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004968"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074325"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Início Rápido: Criar um banco de dados individual no Banco de Dados SQL do Azure usando o portal do Azure
 
@@ -29,67 +29,71 @@ Para todas as etapas deste início rápido, entre no [portal do Azure](https://p
 
 ## <a name="create-a-single-database"></a>Criar um banco de dados individual
 
-Um banco de dados individual tem um conjunto definido de recursos de computação, memória, E/S e armazenamento usando um dos dois [modelos de compra](sql-database-purchase-models.md). Quando você cria um banco de dados individual, você também define um [servidor do Banco de Dados SQL](sql-database-servers.md) para gerenciá-lo e colocá-lo no [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) em uma região especificada.
+Um banco de dados individual pode ser criado na camada de computação (versão prévia) provisionada ou sem servidor.
+
+- Um banco de dados individual na camada de computação provisionada tem uma quantidade definida de recursos de computação pré-alocados, além de um conjunto de recursos de memória e armazenamento usando um dos dois [modelos de compra](sql-database-purchase-models.md).
+- Um banco de dados individual na camada de computação sem servidor tem uma variedade de recursos de computação que são dimensionados automaticamente, além de uma quantidade especificada de memória por núcleo e uma quantidade especificada de recursos de armazenamento e está disponível apenas nos [modelos de compra baseado em vCore ](sql-database-service-tiers-vcore.md).
+
+Quando você cria um banco de dados individual, você também define um [servidor do Banco de Dados SQL](sql-database-servers.md) para gerenciá-lo e colocá-lo no [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) em uma região especificada.
+
+> [!NOTE]
+> Este início rápido usa o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) e a camada de serviço [sem servidor](sql-database-serverless.md), mas o [modelo de compra baseado em DTU](sql-database-service-tiers-DTU.md) também está disponível.
 
 Para criar um banco de dados individual que contém os dados de exemplo AdventureWorksLT:
 
 1. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure.
-2. Selecione **Bancos de Dados** e, em seguida, **Banco de Dados SQL** para abrir a página **Criar Banco de Dados SQL**. 
+2. Selecione **Bancos de Dados** e, em seguida, **Banco de Dados SQL** para abrir a página **Criar Banco de Dados SQL**.
 
    ![Criar banco de dados individual](./media/sql-database-get-started-portal/create-database-1.png)
 
-1. Na guia **Informações Básicas** da seção **Detalhes do Projeto**, digite ou selecione os seguintes valores:
+3. Na guia **Informações Básicas** da seção **Detalhes do Projeto**, digite ou selecione os seguintes valores:
 
    - **Assinatura**: Selecione a lista suspensa e escolha a assinatura correta, caso ela não seja exibida.
    - **Grupo de recursos**: Selecione **Criar novo**, digite `myResourceGroup` e selecione **OK**.
 
-   ![Novo banco de dados SQL – guia Informações Básicas](media/sql-database-get-started-portal/new-sql-database-basics.png)
+     ![Novo banco de dados SQL – guia Informações Básicas](media/sql-database-get-started-portal/new-sql-database-basics.png)
 
-
-1. Na seção **Detalhes do Banco de Dados**, digite ou selecione os seguintes valores: 
+4. Na seção **Detalhes do Banco de Dados**, digite ou selecione os seguintes valores:
 
    - **Nome do banco de dados**: Digite `mySampleDatabase`.
-   - **Servidor**: Selecione **Criar novo**, insira os valores a seguir e, em seguida, escolha **Selecionar**. 
-       - **Nome do servidor**: Digite `mysqlserver`, juntamente com alguns números para exclusividade. 
+   - **Servidor**: Selecione **Criar novo**, insira os valores a seguir e, em seguida, escolha **Selecionar**.
+       - **Nome do servidor**: Digite `mysqlserver`, juntamente com alguns números para exclusividade.
        - **Logon de administrador do servidor**: Digite `azureuser`.
-       - **Senha**: Digite uma senha complexa que atenda aos requisitos de senha. 
-       - **Localização**: Escolha uma localização na lista suspensa, como `West US 2`. 
+       - **Senha**: Digite uma senha complexa que atenda aos requisitos de senha.
+       - **Localização**: Escolha uma localização na lista suspensa, como `West US 2`.
 
-       ![Novo servidor](media/sql-database-get-started-portal/new-server.png)
+         ![Novo servidor](media/sql-database-get-started-portal/new-server.png)
 
-        > [!IMPORTANT]
-        > Lembre-se de registrar o logon de administrador do servidor e a senha para fazer logon no servidor e nos bancos de dados deste e de outros inícios rápidos. Caso esqueça seu logon ou a senha, obtenha o nome de logon ou redefina a senha na página **SQL Server**. Para abrir a página **SQL Server**, selecione o nome do servidor na página **Visão Geral** do banco de dados após a criação do banco de dados.
-
-      ![Detalhes do Banco de Dados SQL](media/sql-database-get-started-portal/sql-db-basic-db-details.png)
-
-   - **Deseja usar o pool elástico SQL?**: Selecione a opção **Não**. 
-   - **Computação + armazenamento**: Selecione **Configurar banco de dados** para este Início Rápido, selecione a camada de serviço **Standard** e, em seguida, use o controle deslizante para selecionar **10 DTUs (S0)** e **1** GB de armazenamento. Escolha **Aplicar**. 
-
-    ![Configurar a camada](media/sql-database-get-started-portal/create-database-s1.png) 
-
-
-      > [!NOTE]
-      > Este início rápido usa o [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md), mas o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) também está disponível.
       > [!IMPORTANT]
-      > Mais de 1 TB de armazenamento na camada Premium está atualmente disponível em todas as regiões, exceto: Leste da China, Norte da China, Alemanha Central, Nordeste da Alemanha, Centro-oeste dos EUA, regiões US DoD e US Government Central. Nessas regiões, o armazenamento máximo na camada Premium é limitado a 1 TB.  Para obter mais informações, confira [Limitações atuais de P11-P15](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
+      > Lembre-se de registrar o logon de administrador do servidor e a senha para fazer logon no servidor e nos bancos de dados deste e de outros inícios rápidos. Caso esqueça seu logon ou a senha, obtenha o nome de logon ou redefina a senha na página **SQL Server**. Para abrir a página **SQL Server**, selecione o nome do servidor na página **Visão Geral** do banco de dados após a criação do banco de dados.
 
-    
+        ![Detalhes do Banco de Dados SQL](media/sql-database-get-started-portal/sql-db-basic-db-details.png)
 
+   - **Deseja usar o pool elástico SQL?**: Selecione a opção **Não**.
+   - **Computação + armazenamento**: Selecione **Configurar banco de dados** e, nesse início rápido, selecione as **opções de compra baseado em vCore**
 
+     ![Opções de compra baseado em vCore](media/sql-database-get-started-portal/create-database-vcore.png)
 
-1. Selecione a guia **Configurações adicionais**. 
-1. Na seção **Fonte de dados**, em **Usar dados existentes**, selecione `Sample`. 
+   - Selecione **Sem servidor**.
+
+     ![camada de computação sem servidor](media/sql-database-get-started-portal/create-database-serverless.png)
+
+   - Examine as configurações para **Máx vCores**, **Mín vCores**, **Atraso de pausa automática** e **Tamanho máximo de dados**. Altere-as conforme desejado.
+   - Aceite os termos de versão prévia e clique em **OK**.
+   - Escolha **Aplicar**.
+
+5. Selecione a guia **Configurações adicionais**. 
+6. Na seção **Fonte de dados**, em **Usar dados existentes**, selecione `Sample`. 
 
    ![Configurações adicionais do BD SQL](media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
 
    > [!IMPORTANT]
    > Selecione os dados da **Amostra (AdventureWorksLT)** para seguir com facilidade este e outros Guias de Início Rápido do Banco de Dados SQL do Azure que usam esses dados.
 
-1. Mantenha o restante dos valores como padrão e selecione **Examinar + Criar** na parte inferior do formulário. 
-1. Examine as configurações finais e selecione **Criar**. 
+7. Mantenha o restante dos valores como padrão e selecione **Examinar + Criar** na parte inferior do formulário.
+8. Examine as configurações finais e selecione **Criar**.
 
-8. No formulário **Banco de Dados SQL**, selecione **Criar** para implantar e provisionar o grupo de recursos, o servidor e o banco de dados.
-
+9. No formulário **Banco de Dados SQL**, selecione **Criar** para implantar e provisionar o grupo de recursos, o servidor e o banco de dados.
 
 ## <a name="query-the-database"></a>Consultar o banco de dados
 
@@ -131,5 +135,6 @@ Quando terminar de usar esses recursos, você poderá excluí-los da seguinte ma
 - Depois de criar uma regra de firewall no nível do servidor, [conecte-se e consulte](sql-database-connect-query.md) seu banco de dados usando várias ferramentas e linguagens diferentes.
   - [Conectar e consultar usando o SQL Server Management Studio](sql-database-connect-query-ssms.md)
   - [Conectar e consultar usando o Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
-- Para criar um banco de dados individual usando a CLI do Azure, confira [Amostras da CLI do Azure](sql-database-cli-samples.md).
-- Para criar um banco de dados individual usando o Azure PowerShell, confira [Amostras do Azure PowerShell](sql-database-powershell-samples.md).
+- Para criar um banco de dados individual na camada de computação provisionada usando a CLI do Azure, confira [Exemplos de CLI do Azure](sql-database-cli-samples.md).
+- Para criar um banco de dados individual na camada de computação provisionada usando o Azure PowerShell, confira [Exemplos de CLI do Azure](sql-database-powershell-samples.md).
+- Para criar um banco de dados na camada de computação sem servidor usando o Azure Powershell, confira [Criar banco de dados sem servidor usando o PowerShell](sql-database-serverless.md#create-new-database-using-powershell)

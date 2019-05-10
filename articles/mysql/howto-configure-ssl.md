@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: 0eec75767ab61aef9322e7475515871bdd36b5d4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f7346d5f40e0fe7dd4dbe892e96549f7ff181cb2
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572394"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511002"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Configurar conectividade SSL em seu aplicativo para se conectar com segurança ao Banco de Dados do Azure para MySQL
 O Banco de Dados do Azure para MySQL dá suporte à conexão de seu servidor de Banco de Dados do Azure para MySQL para aplicativos cliente usando o protocolo SSL. Impor conexões SSL entre seu servidor de banco de dados e os aplicativos cliente ajuda a proteger contra ataques de "intermediários" criptografando o fluxo de dados entre o servidor e seu aplicativo.
@@ -53,7 +53,7 @@ mysql> status
 ```
 Confirme se a conexão está criptografada, revisando a saída, a qual deverá mostrar:  **SSL: A criptografia em uso é AES256-SHA** 
 
-## <a name="sample-code"></a>Exemplo de código
+## <a name="sample-code"></a>Código de exemplo
 Para estabelecer uma conexão segura com o Banco de Dados do Azure para MySQL sobre SSL de seu aplicativo, veja os exemplos de código a seguir:
 
 ### <a name="php"></a>PHP
@@ -64,6 +64,13 @@ mysqli_real_connect($conn, 'mydemoserver.mysql.database.azure.com', 'myadmin@myd
 if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
+```
+### <a name="php-using-pdo"></a>PHP (usando PDO)
+```phppdo
+$options = array(
+    PDO::MYSQL_ATTR_SSL_CA => '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'
+);
+$db = new PDO('mysql:host=mydemoserver.mysql.database.azure.com;port=3306;dbname=databasename', 'username@mydemoserver', 'yourpassword', $options);
 ```
 ### <a name="python-mysqlconnector-python"></a>Python (MySQLConnector Python)
 ```python

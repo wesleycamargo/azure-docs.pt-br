@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: 92f4616a415c4ddebd0d9b2e466536b2f30c486f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f8803a498e62958a5488f2ac8830137c37533e54
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146377"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413709"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Dimensionar automaticamente os clusters de HDInsight do Azure (visualização)
 
@@ -21,16 +21,19 @@ Recurso de dimensionamento automático de cluster do HDInsight do Azure dimensio
 
 ## <a name="cluster-compatibility"></a>Compatibilidade de cluster
 
+> [!Important]
+> O recurso de dimensionamento automático funciona somente para clusters criados após a disponibilidade pública do recurso em maio de 2019. Isso não funcionará para clusters já existentes.
+
 A tabela a seguir descreve os tipos de cluster e versões que são compatíveis com o recurso de dimensionamento automático.
 
 | Version | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 sem ESP | Sim | sim | Não | Não | Não | Não | Não  |
-| HDInsight 4.0 sem ESP | Sim | sim | Não | Não | Não | Não | Não  |
-| HDInsight 3.6 com ESP | Sim | sim | Não | Não | Não | Não | Não  |
-| HDInsight 3.6 com ESP | Sim | sim | Não | Não | Não | Não | Não  |
+| HDInsight 3.6 sem ESP | Sim | sim | Não | Não | Não | Não | Não |
+| HDInsight 4.0 sem ESP | Sim | sim | Não | Não | Não | Não | Não |
+| HDInsight 3.6 com ESP | Sim | sim | Não | Não | Não | Não | Não |
+| HDInsight 3.6 com ESP | Sim | sim | Não | Não | Não | Não | Não |
 
-## <a name="how-it-works"></a>Como ele funciona
+## <a name="how-it-works"></a>Como funciona
 
 Você pode escolher dimensionamento com base em carga ou com base no agendamento de dimensionamento para seu cluster HDInsight. Dimensionamento com base em carga altera o número de nós no cluster, dentro de um intervalo que você definir, para garantir que a utilização da CPU ideal e minimizar os custos em execução.
 
@@ -199,7 +202,7 @@ Todas as mensagens de status do cluster que você pode ver são explicadas na li
 
 | Status do cluster | Explicação |
 |---|---|
-| Executando | O cluster está funcionando normalmente. Todas as atividades de dimensionamento automático anteriores foram concluídas com êxito. |
+| Em execução | O cluster está funcionando normalmente. Todas as atividades de dimensionamento automático anteriores foram concluídas com êxito. |
 | Atualizando  | A configuração de dimensionamento automático do cluster está sendo atualizada.  |
 | Configuração do HDInsight  | Um cluster de escalar verticalmente ou reduzir verticalmente a operação está em andamento.  |
 | Erro de atualização  | HDInsight problemas encontrados durante a atualização de configuração de dimensionamento automático. Os clientes podem escolher repetir a atualização ou desabilitar o dimensionamento automático.  |

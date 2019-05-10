@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: f9087d1fda7574043879983e31d7b608dbe58798
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f4e7fcbe403017a6d957a60a8e5664f2e6c5ba26
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204963"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409836"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Explorar e preparar dados com a classe de conjunto de dados (visualização)
 
@@ -63,7 +63,7 @@ top_n_sample_dataset = dataset.sample('top_n', {'n': 5})
 top_n_sample_dataset.to_pandas_dataframe()
 ```
 
-||ID|Número do Caso|Data|Bloco|IUCR|Texto Primário|...|
+||ID|Número do Caso|Data|Bloquear|IUCR|Texto Primário|...|
 -|--|-----------|----|-----|----|------------|---
 0|10498554|HZ239907|4/4/2016 23:56|007XX E 111TH ST|1153|PRÁTICA ENGANOSA|...
 1|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|ROUBO|...
@@ -80,7 +80,7 @@ simple_random_sample_dataset = dataset.sample('simple_random', {'probability':0.
 simple_random_sample_dataset.to_pandas_dataframe()
 ```
 
-||ID|Número do Caso|Data|Bloco|IUCR|Texto Primário|...|
+||ID|Número do Caso|Data|Bloquear|IUCR|Texto Primário|...|
 -|--|-----------|----|-----|----|------------|---
 0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|ROUBO|...
 1|10519196|HZ261252|4/15/2016 10:00|104XX S SACRAMENTO AVE|1154|PRÁTICA ENGANOSA|...
@@ -103,7 +103,7 @@ sample_dataset = dataset.sample('stratified', {'columns': ['Primary Type'], 'fra
 sample_dataset.to_pandas_dataframe()
 ```
 
-||ID|Número do Caso|Data|Bloco|IUCR|Texto Primário|...|
+||ID|Número do Caso|Data|Bloquear|IUCR|Texto Primário|...|
 -|--|-----------|----|-----|----|------------|---
 0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|ROUBO|...
 1|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|ROUBO|...
@@ -117,15 +117,15 @@ sample_dataset.to_pandas_dataframe()
 dataset.get_profile()
 ```
 
-||Type|Min|max|Count|Contagem faltando|Sem contagem faltando|Percentual faltando|Contagem de erros|Contagem vazia|0,1% quantil|1% quantil|5% quantil|25% quantil|50% quantil|75% quantil|95% quantil|99% quantil|99,9% quantil|Média|Desvio padrão|Variação|Distorção|Curtose
+||Type|Min.|Máx|Count|Contagem faltando|Sem contagem faltando|Percentual faltando|Contagem de erros|Contagem vazia|0,1% quantil|1% quantil|5% quantil|25% quantil|50% quantil|75% quantil|95% quantil|99% quantil|99,9% quantil|Média|Desvio Padrão|Variação|Distorção|Curtose
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
 ID|FieldType.INTEGER|1.04986e + 07|1.05351e + 07|10.0|0,0|10.0|0,0|0,0|0,0|1.04986e + 07|1.04992e + 07|1.04986e + 07|1.05166e + 07|1.05209e + 07|1.05259e + 07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e + 08|-0.495701|-1.02814
 Número do Caso|FieldType.STRING|HZ239907|HZ278872|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
 Data|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
-Bloco|FieldType.STRING|004XX S KILBOURN AVE|113XX S PRAIRIE AVE|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
+Bloquear|FieldType.STRING|004XX S KILBOURN AVE|113XX S PRAIRIE AVE|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
 IUCR|FieldType.INTEGER|810|1154|10.0|0,0|10.0|0,0|0,0|0,0|810|850|810|890|1136|1153|1154|1154|1154|1058.5|137.285|18847.2|-0.785501|-1.3543
 Texto Primário|FieldType.STRING|PRÁTICA ENGANOSA|ROUBO|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
-DESCRIÇÃO|FieldType.STRING|VERIFICAÇÃO DE FALSA|AO LONGO DE US $500|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
+Descrição|FieldType.STRING|VERIFICAÇÃO DE FALSA|AO LONGO DE US $500|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
 Descrição do Local|FieldType.STRING||ESCOLA, PÚBLICA, CRIANDO|10.0|0,0|10.0|0,0|0,0|1.0||||||||||||||
 Detenção|FieldType.BOOLEAN|Falso|Falso|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
 Nacional|FieldType.BOOLEAN|Falso|Falso|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
@@ -256,7 +256,7 @@ ds_def = ds_def.assert_value('Longitude', (value <= 180) & (value >= -87), error
 ds_def.get_profile()
 ```
 
-||Type|Min|max|Count|Contagem faltando|Sem contagem faltando|Percentual faltando|Contagem de erros|Contagem vazia|0,1% quantil|1% quantil|5% quantil|25% quantil|50% quantil|75% quantil|95% quantil|99% quantil|99,9% quantil|Média|Desvio padrão|Variação|Distorção|Curtose
+||Type|Min.|Máx|Count|Contagem faltando|Sem contagem faltando|Percentual faltando|Contagem de erros|Contagem vazia|0,1% quantil|1% quantil|5% quantil|25% quantil|50% quantil|75% quantil|95% quantil|99% quantil|99,9% quantil|Média|Desvio Padrão|Variação|Distorção|Curtose
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
 ID|FieldType.INTEGER|1.04986e + 07|1.05351e + 07|10.0|0,0|10.0|0,0|0,0|0,0|1.04986e + 07|1.04992e + 07|1.04986e + 07|1.05166e + 07|1.05209e + 07|1.05259e + 07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e + 08|-0.495701|-1.02814
 Detenção|FieldType.BOOLEAN|Falso|Falso|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
@@ -288,7 +288,7 @@ dataset = Dataset.auto_read_files('./data/crime.csv')
 dataset.head(3)
 ```
 
-||ID|Número do Caso|Data|Bloco|...|
+||ID|Número do Caso|Data|Bloquear|...|
 -|---------|-----|---------|----|---
 0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|...
 1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|...

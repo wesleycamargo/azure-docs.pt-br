@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 968bb5317e06b5cf9ac1f939eaf56288122a1ae0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 00d40b9910f9b549443373c84b079c543037ce62
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724409"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236327"
 ---
 # <a name="manage-your-application-preferences"></a>Gerenciar as preferências do aplicativo
 
@@ -23,13 +23,16 @@ O IoT Central fornece a flexibilidade para personalizar seus aplicativos de acor
 
 ## <a name="changing-language"></a>Alterar idioma
 
-IoT Central é compatível com vários idiomas. Você pode alternar o idioma de sua preferência usando o **seletor de idioma** no ícone de configurações na barra de navegação superior. Depois de alterar o idioma, IoT Central lembra sua seleção e aplica-se em todos os seus aplicativos. Observe que essa personalização dentro do aplicativo que tais imagens dashboard não estão localizadas.
+IoT Central é compatível com vários idiomas. Você pode alternar o idioma de sua preferência usando o **seletor de idioma** no ícone de configurações na barra de navegação superior. Depois de alterar o idioma, IoT Central lembra sua seleção e aplica-se em todos os seus aplicativos. Personalização de dentro do aplicativo que tais imagens dashboard não estão localizadas.
 
 ## <a name="changing-theme"></a>Alterando o tema
 
-Temos suporte para o tema escuro e o tema claro. Enquanto o tema claro é o padrão, você pode alterar isso selecionando o ícone de configurações na barra de navegação superior.
+Temos suporte para o tema escuro e o tema claro. Enquanto o tema claro é o padrão, você pode alterar o tema, selecionando o ícone de configurações na barra de navegação superior.
 
 ![Seletor de tema do IoT Central](media/howto-manage-preferences/settings.png)
+
+> [!NOTE]
+> A opção de escolher entre os temas claras e escuros não estará disponível se o administrador tiver configurado um tema personalizado para o aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

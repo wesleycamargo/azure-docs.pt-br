@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: c0dcfc4ad7edf4d9203b807aa799eb047c753bed
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 387adcdf8bdabf90bc1e691a7a8ec9ae0a8e90dc
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551521"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64993278"
 ---
 ## <a name="register-your-application"></a>Registre seu aplicativo
 
@@ -52,17 +52,21 @@ ms.locfileid: "59551521"
 1. No arquivo `index.html` criado durante a configuração do projeto, inclua as informações de registro do aplicativo. Adicione o seguinte código na parte superior dentro das marcas `<script></script>` no corpo do arquivo `index.html`:
 
     ```javascript
-    var applicationConfig = {
-        clientID: "Enter_the_Application_Id_here",
-        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
-        graphScopes: ["user.read"],
-        graphEndpoint: "https://graph.microsoft.com/v1.0/me"
+    var msalConfig = {
+        auth: {
+            clientId: "Enter_the_Application_Id_here",
+            authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
+        },
+        cache: {
+            cacheLocation: "localStorage",
+            storeAuthStateInCookie: true
+        }
     };
     ```
 
     Em que:
     - `Enter_the_Application_Id_here` - é a **ID do aplicativo (cliente)** que você registrou.
     - `Enter_the_Tenant_Info_Here` - é definido como uma das seguintes opções:
-       - Se seu aplicativo dá suporte a **Contas neste diretório organizacional**, substitua esse valor pela **ID do Locatário** ou pelo **Nome do locatário** (por exemplo, contoso.microsoft.com)
+       - Se o seu aplicativo for compatível com **Contas neste diretório organizacional**, substitua esse valor pelo **ID do locatário** ou **Nome do locatário** (por exemplo, Contoso.microsoft.com)
        - Se seu aplicativo dá suporte a **Contas em qualquer diretório organizacional**, substitua esse valor por `organizations`
-       - Se seu aplicativo dá suporte a **Contas em qualquer diretório organizacional e contas pessoais da Microsoft**, substitua esse valor por `common`
+       - Se seu aplicativo for compatível com **Contas em qualquer diretório organizacional e contas pessoais da Microsoft**, substitua esse valor por `common`. Para restringir a compatibilidade *Somente a conta pessoais da Microsoft*, substitua esse valor por `consumers`.

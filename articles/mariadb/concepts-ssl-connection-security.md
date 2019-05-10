@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 15bb28846b3409dd31bcdf8d42990facc94fd06d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/06/2019
 ms.locfileid: "60332679"
 ---
 # <a name="ssl-connectivity-in-azure-database-for-mariadb"></a>Conectividade SSL no Banco de Dados do Azure para MariaDB
@@ -25,6 +25,6 @@ Cadeias de conexão para várias linguagens de programação são mostradas no P
 
 Para saber como habilitar ou desabilitar a conexão SSL durante o desenvolvimento de aplicativos, consulte [Como configurar o SSL](howto-configure-ssl.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre [regras de firewall de servidor](concepts-firewall-rules.md)
 - Saiba como [configurar o SSL](howto-configure-ssl.md).

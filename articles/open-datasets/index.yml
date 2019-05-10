@@ -1,0 +1,30 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentação da versão prévia de conjuntos de dados abertos
+metadata:
+  title: 'Documentação da versão prévia de conjuntos de dados abertos do Azure – Tutoriais, referências de API | Microsoft Docs'
+  description: 'Saiba como usar os conjuntos de dados abertos do Azure e dados limpos e estruturados que podem ser usados com um mínimo de preparação. Conjuntos de dados abertos são dados públicos como dados climáticos, de censo e feriados, que podem aprimorar os modelos de machine learning. Documentos de referência de API, exemplos e tutoriais mostram como usá-los.'
+  ms.service: open-datasets
+  ms.topic: landing-page
+  author: cjgronlund
+  ms.author: cgronlun
+  ms.date: 05/02/2019
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+abstract:
+  description: 'Saiba como usar os conjuntos de dados abertos do Azure e dados limpos e estruturados que podem ser usados com um mínimo de preparação. Conjuntos de dados abertos incluem dados públicos, como dados climáticos, de censo e feriados, que podem aprimorar os modelos de machine learning. Documentos de referência de API, exemplos e tutoriais mostram como usá-los.'
+sections:
+  - title: Tutorial passo a passo
+    items:
+      - type: paragraph
+        text: <a href="tutorial-opendatasets-automl">Criar um modelo de regressão com aprendizado de máquina automatizado</a>
+  - title: Exemplos
+    items:
+      - type: paragraph
+        text: <a href="samples">Notebooks para aprimorar conjuntos de dados</a>
+  - title: Referência
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://aka.ms/open-datasets-api">Referência de API</a>'

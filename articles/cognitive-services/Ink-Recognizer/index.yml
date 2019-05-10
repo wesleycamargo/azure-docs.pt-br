@@ -59,7 +59,7 @@ sections:
       - type: paragraph
         text: 'Use estes programas de exemplo para ver como a API de Reconhecimento de Tinta Digital pode ser integrada aos seus aplicativos:'
       - type: paragraph
-        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089502">C# e UWP (Plataforma Universal do Windows)</a>'
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089503">C# e UWP (Plataforma Universal do Windows)</a>'
       - type: paragraph
         text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089804">C# e WPF (Windows Presentation Foundation)</a>'
       - type: paragraph

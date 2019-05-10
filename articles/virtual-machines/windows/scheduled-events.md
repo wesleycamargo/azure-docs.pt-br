@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 1a82b9256405e2cac12f4c5611ee3bdad459162b
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: e6a376803d8617e01ee279e40a33f6c1c3b748fd
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64992932"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508191"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Serviço de Metadados do Azure: Eventos Agendados para VMs do Windows
 
@@ -45,7 +45,7 @@ Muitos aplicativos podem se beneficiar do tempo para se preparar para a manuten�
 Usando eventos agendados, seu aplicativo pode descobrir quando a manutenção ocorrerá e acionará tarefas para limitar seu impacto. Habilitar eventos agendados, oferece sua máquina virtual uma quantidade mínima de tempo antes que a atividade de manutenção é realizada. Consulte a seção de agendamento do evento abaixo para obter detalhes.
 
 Os eventos agendados fornecem eventos nos seguintes casos de uso:
-- [Manutenção iniciada na plataforma](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/maintenance-and-updates) (por exemplo, VM reinicialização, migração ao vivo ou atualizações para o host de preservação da memória)
+- [Manutenção iniciada na plataforma](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (por exemplo, VM reinicialização, migração ao vivo ou atualizações para o host de preservação da memória)
 - Hardware degradado
 - Manutenção iniciada pelo usuário (por exemplo, o usuário reinicia ou reimplanta uma VM)
 - [Remoção de VMs de baixa prioridade](https://azure.microsoft.com/blog/low-priority-scale-sets) conjuntos de dimensionamento
@@ -68,7 +68,7 @@ O serviço de eventos agendados tem controle de versão. As versões são obriga
 | - | - | - | - |
 | 2017-11-01 | Disponibilidade geral | Todos | <li> Adicionado suporte para remoção de VMs de baixa prioridade EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilidade geral | Todos | <li> Removido o sublinhado inicial dos nomes de recursos para as VMs de IaaS<br><li>Requisito de cabeçalho de metadados imposto para todas as solicitações | 
-| 2017-03-01 | Visualização | Todos |<li>Versão inicial
+| 2017-03-01 | Visualizar | Todos |<li>Versão inicial
 
 > [!NOTE] 
 > Versões de visualização anteriores de eventos agendados compatíveis {mais recentes} como a api-version. Esse formato não é mais suportado e será substituído no futuro.
@@ -91,7 +91,7 @@ Ao consultar o Serviço de Metadados você deverá fornecer o cabeçalho `Metada
 ### <a name="query-for-events"></a>Consulta de eventos
 Você pode consultar Eventos agendados realizando a chamada a seguir:
 
-#### <a name="powershell"></a>Powershell
+#### <a name="powershell"></a>PowerShell
 ```
 curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01 -H @{"Metadata"="true"}
 ```
@@ -116,7 +116,7 @@ No caso de haver eventos agendados, a resposta contém uma matriz de eventos:
 O DocumentIncarnation é uma ETag e fornece uma maneira fácil de inspecionar se a carga de eventos foi alterada desde a última consulta.
 
 ### <a name="event-properties"></a>Propriedades do evento
-|Propriedade  |  DESCRIÇÃO |
+|Propriedade  |  Descrição |
 | - | - |
 | EventId | Identificador global exclusivo para esse evento. <br><br> Exemplo: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | EventType | Impacto desse evento. <br><br> Valores: <br><ul><li> `Freeze`: A máquina Virtual está agendada para pausar por alguns segundos. Conectividade de rede e CPU pode ser suspenso, mas não há nenhum impacto na memória ou em arquivos abertos. <li>`Reboot`: A Máquina Virtual está agendada para ser reinicializada (a memória não persistente é perdida). <li>`Redeploy`: A Máquina Virtual está agendada para ser movida para outro nó (os discos efêmeros são perdidos). <li>`Preempt`: A máquina Virtual de baixa prioridade está sendo excluída (discos efêmeros são perdidos).|
@@ -131,7 +131,7 @@ Cada evento é agendado uma quantidade mínima de tempo no futuro com base no ti
 |EventType  | Aviso mínimo |
 | - | - |
 | Congelamento| 15 minutos |
-| Reboot | 15 minutos |
+| Reinicializar | 15 minutos |
 | Reimplantar | 10 minutos |
 | Antecipe | 30 segundos |
 
@@ -159,7 +159,7 @@ A seguir vemos o json esperado no corpo da solicitação `POST`. A solicitação
 }
 ```
 
-#### <a name="powershell"></a>Powershell
+#### <a name="powershell"></a>PowerShell
 ```
 curl -H @{"Metadata"="true"} -Method POST -Body '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01
 ```

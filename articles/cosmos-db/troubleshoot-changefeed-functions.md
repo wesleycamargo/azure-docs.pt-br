@@ -7,12 +7,12 @@ ms.date: 04/16/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 40d9aba4ff8fd78f6369729ddc16238e65bfc169
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8f0b9c8bf1bfb846f13306f58bcb1721ed6b422
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60404680"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510538"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnosticar e solucionar problemas ao usar o gatilho do Azure Cosmos DB no Azure Functions
 
@@ -27,17 +27,19 @@ O gatilho do Azure Cosmos DB e associações dependem os pacotes de extensão ao
 
 Este artigo sempre fará referência ao Azure Functions V2 sempre que o tempo de execução é mencionado, a menos que explicitamente especificado.
 
-## <a name="consuming-the-cosmos-db-sdk-separately-from-the-trigger-and-bindings"></a>Consumindo o SDK do Cosmos DB separadamente do gatilho e associações
+## <a name="consume-the-azure-cosmos-db-sdk-independently"></a>Consumir o SDK do Azure Cosmos DB de forma independente
 
 A principal funcionalidade do pacote de extensão é fornecer suporte para o gatilho do Azure Cosmos DB e associações. Ele também inclui o [SDK do .NET do Azure Cosmos DB](sql-api-sdk-dotnet-core.md), que é útil se você deseja interagir com o Azure Cosmos DB programaticamente sem usar o gatilho e associações.
 
-Se quiser usar o SDK do Azure Cosmos DB, certifique-se de que você não adicionar ao seu projeto outra referência de pacote do NuGet. Em vez disso, **permitem que a referência SDK resolver por meio do pacote de extensão do Azure Functions**.
+Se quiser usar o SDK do Azure Cosmos DB, certifique-se de que você não adicionar ao seu projeto outra referência de pacote do NuGet. Em vez disso, **permitem que a referência SDK resolver por meio do pacote de extensão do Azure Functions**. Consumir o SDK do Azure Cosmos DB separadamente do gatilho e associações
 
 Além disso, se você estiver criando manualmente sua própria instância das [client SDK do Azure Cosmos DB](./sql-api-sdk-dotnet-core.md), você deve seguir o padrão de ter apenas uma instância do cliente [usando uma abordagem de padrão de Singleton](../azure-functions/manage-connections.md#documentclient-code-example-c) . Esse processo irá evitar os problemas potenciais de soquete em suas operações.
 
-## <a name="common-known-scenarios-and-workarounds"></a>Soluções alternativas e cenários comuns de conhecidos
+## <a name="common-scenarios-and-workarounds"></a>Cenários e soluções alternativas comuns
 
-### <a name="azure-function-fails-with-error-message-either-the-source-collection-collection-name-in-database-database-name-or-the-lease-collection-collection2-name-in-database-database2-name-does-not-exist-both-collections-must-exist-before-the-listener-starts-to-automatically-create-the-lease-collection-set-createleasecollectionifnotexists-to-true"></a>Função do Azure falha com mensagem de erro "a coleção de origem 'collection-name' (no banco de dados 'nome do banco de dados') ou a coleção de concessão 'collection2-name' (no banco de dados 'database2-name') não existe. Ambas as coleções devem existir antes de inicia o ouvinte. Para criar automaticamente a coleção de concessão, defina 'CreateLeaseCollectionIfNotExists' como 'true' "
+### <a name="azure-function-fails-with-error-message-collection-doesnt-exist"></a>Falha de função do Azure com coleta de mensagens de erro não existe
+
+Função do Azure falha com mensagem de erro "a coleção de origem 'collection-name' (no banco de dados 'nome do banco de dados') ou a coleção de concessão 'collection2-name' (no banco de dados 'database2-name') não existe. Ambas as coleções devem existir antes de inicia o ouvinte. Para criar automaticamente a coleção de concessão, defina 'CreateLeaseCollectionIfNotExists' como 'true' "
 
 Isso significa que um ou ambos os contêineres do Cosmos do Azure necessários para o gatilho funcionar não existem ou não estão acessíveis para a função do Azure. **O próprio erro lhe dirá qual banco de dados Cosmos do Azure e contêineres é o gatilho procurando** com base em sua configuração.
 
@@ -78,7 +80,8 @@ Se algumas alterações estiverem falta no destino, isso pode significar que é 
 
 Nesse cenário, o melhor curso de ação é adicionar `try/catch blocks` no seu código e dentro dos loops que talvez estivesse processando as alterações, para detectar qualquer falha para um determinado subconjunto de itens e tratá-los adequadamente (enviá-los para outro armazenamento adicional análise ou repetição). 
 
-> **Gatilho do Azure Cosmos DB, por padrão, não repita um lote de alterações se houve uma exceção sem tratamento** durante a execução de seu código. Isso significa que o motivo pelo qual as alterações não chegaram ao destino é porque você não conseguir processá-las.
+> [!NOTE]
+> Gatilho do Azure Cosmos DB, por padrão, não repita um lote de alterações se houve uma exceção sem tratamento durante a execução de seu código. Isso significa que o motivo pelo qual as alterações não chegaram ao destino é porque você não conseguir processá-las.
 
 Se você descobrir que algumas alterações não foram recebidas em todos os pelo seu gatilho, o cenário mais comum é que há **outro em execução de função do Azure**. Ele pode ser outra função do Azure implantado no Azure ou uma função do Azure em execução localmente no computador de um desenvolvedor que tem **exatamente a mesma configuração** (mesmo monitorados e contêineres de concessão), e essa função do Azure é aquele que rouba um subconjunto das alterações que você esperaria que sua função do Azure para processar.
 

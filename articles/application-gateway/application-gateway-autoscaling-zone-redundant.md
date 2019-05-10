@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/7/2019
 ms.author: victorh
-ms.openlocfilehash: b1cdcfc9e81938f3f562046b971407b31a593525
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: dfb5b8b69b2ca9bea118603406f4747036d2641c
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65202906"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510831"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>Dimensionamento automático e o Gateway de aplicativo com redundância de zona 
 
@@ -62,7 +62,7 @@ Diretrizes de unidade de computação:
 | Standard_v2                                       |    0.20             | 0.0080                          |
 | WAF_v2                                            |    0.36             | 0.0144                          |
 
-O [página de preços](https://azure.microsoft.com/en-us/pricing/details/application-gateway/) será atualizada para refletir os preços regionais em 14 de maio de 2019. A cobrança está agendada para iniciar em 1 de junho de 2019.
+O [página de preços](https://azure.microsoft.com/pricing/details/application-gateway/) será atualizada para refletir os preços regionais em 14 de maio de 2019. A cobrança está agendada para iniciar em 1 de junho de 2019.
 
 **Exemplo 1**
 
@@ -93,7 +93,7 @@ Preço unitário de capacidade = 744(hours) * Max (computação de unidade Max(2
 
 Preço total = $267.84 + US $85.71 = US $353.55
 
-O [página de preços](https://azure.microsoft.com/en-us/pricing/details/application-gateway/) será atualizada para refletir os preços regionais em 14 de maio de 2019. A cobrança está agendada para iniciar em 1 de junho de 2019.
+O [página de preços](https://azure.microsoft.com/pricing/details/application-gateway/) será atualizada para refletir os preços regionais em 14 de maio de 2019. A cobrança está agendada para iniciar em 1 de junho de 2019.
 
 ## <a name="scaling-application-gateway-and-waf-v2"></a>Dimensionando o WAF e o Gateway de aplicativo v2
 
@@ -112,7 +112,7 @@ A tabela a seguir compara os recursos disponíveis com cada SKU.
 | Redundância de zona                                   |          | &#x2713; |
 | VIP estático                                        |          | &#x2713; |
 | Controlador de entrada de serviço do Kubernetes (AKS) do Azure |          | &#x2713; |
-| Integração do Cofre da Chave do Azure                       |          | &#x2713; |
+| Integração do Azure Key Vault                       |          | &#x2713; |
 | Reescreva cabeçalhos HTTP (S)                           |          | &#x2713; |
 | Roteamento baseado em URL                                 | &#x2713; | &#x2713; |
 | Hospedagem de vários sites                             | &#x2713; | &#x2713; |
@@ -124,7 +124,7 @@ A tabela a seguir compara os recursos disponíveis com cada SKU.
 | Páginas de erro personalizadas                                | &#x2713; | &#x2713; |
 | Suporte para WebSocket                                 | &#x2713; | &#x2713; |
 | Suporte do HTTP/2                                    | &#x2713; | &#x2713; |
-| Descarregamento de conexão                               | &#x2713; | &#x2713; |
+| Descarga de conexão                               | &#x2713; | &#x2713; |
 
 > [!NOTE]
 > A v2 de dimensionamento automático agora é compatível com a SKU [investigações de integridade padrão](application-gateway-probe-overview.md#default-health-probe) para monitorar a integridade de todos os recursos em seu pool de back-end e realce os membros de back-end que são considerados não íntegro automaticamente. Investigação de integridade padrão é configurada automaticamente para o back-ends que não têm qualquer configuração de investigação personalizada. Para obter mais informações, consulte [investigações de integridade no gateway de aplicativo](application-gateway-probe-overview.md).

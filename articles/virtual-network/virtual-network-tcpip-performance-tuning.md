@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 31ca0ee666ff37afa37fb9636860c557d92a52c7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d0124d6656167af3942e0d054b4e1fa7a2b48e8b
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924786"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410057"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP ajuste de desempenho para VMs do Azure
 
@@ -256,7 +256,7 @@ Como uma MTU maior significa uma MSS maiores, você talvez esteja se perguntando
 
 ### <a name="accelerated-networking-and-receive-side-scaling"></a>Rede acelerada e RSS
 
-#### <a name="accelerated-networking"></a>Redes aceleradas
+#### <a name="accelerated-networking"></a>Rede acelerada
 
 Funções de rede da máquina virtual foram historicamente intensivo na VM convidada e host do hipervisor/de CPU. Todos os pacotes que transite por meio do host é processado no software pelo host de CPU, incluindo todos os encapsulamento de rede virtual e desencapsulamento. Portanto, mais o tráfego que passa por host, maior será a CPU carregar. E se a CPU do host está ocupada com outras operações, que também afetará taxa de transferência de rede e latência. Azure resolve esse problema com a rede acelerada.
 
@@ -276,7 +276,7 @@ Para usar a rede acelerada, você precisa habilitá-lo explicitamente em cada VM
 
 Colocação em escala (RSS) é uma tecnologia de driver de rede que distribui o recebimento do tráfego de rede com mais eficiência com a distribuição de processamento de recebimento entre várias CPUs em um sistema multiprocessador do lado de recebimento. Em termos simples, o RSS permite que um sistema processar mais tráfego recebido, pois ela usa todas as CPUs disponíveis, em vez de apenas um. Para obter uma discussão mais técnica sobre RSS, consulte [Introdução ao RSS](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling).
 
-Para obter o melhor desempenho quando a rede acelerada está habilitada em uma VM, você precisa habilitar o RSS. RSS também pode fornecer a rede acelerada de benefícios em VMs que não usam. Para uma visão geral de como determinar se o RSS está habilitado e como habilitá-lo, consulte [otimizar a taxa de transferência de rede para máquinas virtuais do Azure](http://aka.ms/FastVM).
+Para obter o melhor desempenho quando a rede acelerada está habilitada em uma VM, você precisa habilitar o RSS. RSS também pode fornecer a rede acelerada de benefícios em VMs que não usam. Para uma visão geral de como determinar se o RSS está habilitado e como habilitá-lo, consulte [otimizar a taxa de transferência de rede para máquinas virtuais do Azure](https://aka.ms/FastVM).
 
 ### <a name="tcp-timewait-and-timewait-assassination"></a>TCP TIME_WAIT e TIME_WAIT assassination
 
@@ -316,7 +316,7 @@ O limite de taxa de transferência se aplica à máquina virtual. Taxa de transf
 
 - **Protocolo**: Todo o tráfego de saída em todos os protocolos conta para o limite.
 
-Para obter mais informações, consulte [largura de banda de rede de máquina Virtual](http://aka.ms/AzureBandwidth).
+Para obter mais informações, consulte [largura de banda de rede de máquina Virtual](https://aka.ms/AzureBandwidth).
 
 ### <a name="internet-performance-considerations"></a>Considerações sobre o desempenho da Internet
 

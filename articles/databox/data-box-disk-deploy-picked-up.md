@@ -1,20 +1,20 @@
 ---
-title: Devolver o Microsoft Azure Data Box Disk | Microsoft Docs
+title: Tutorial sobre como devolver o Microsoft Azure Data Box Disk | Microsoft Docs
 description: Usar este tutorial para aprender como enviar o Azure Data Box Disk para a Microsoft
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7c62ec722e5bb909c13b21a7b98d86dd72d9e665
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 023542dbc22234fc57e4ce8b662a9760be4efe04
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59425943"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150757"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Tutorial: Devolver o Azure Data Box Disk e verificar o upload de dados para o Azure
 
@@ -54,7 +54,12 @@ Execute as seguintes etapas se estiver devolvendo o dispositivo nos EUA ou Canad
     - Afixe o rótulo ao dispositivo.
 
 2. Lacre a caixa de envio e verifique se a etiqueta de remessa de devolução está visível.
-3. Agende uma retirada com a UPS.
+3. Agende uma retirada com a UPS. Para agendar uma retirada:
+
+    - Ligue para o serviço de no-break local (linha gratuita específica do país).
+    - Em sua chamada, mencione a remessa inversa, conforme mostrado na etiqueta impressa de número de controle.
+    - Se o número de controle não está entre aspas, o serviço de no-break exigirá que você pague um encargo adicional durante a retirada.
+    - Em vez de agendar a retirada, você também pode descartar o Data Box Disk no local mais próximo de redistribuição.
 
 
 ### <a name="pick-up-in-europe"></a>Retirada na Europa

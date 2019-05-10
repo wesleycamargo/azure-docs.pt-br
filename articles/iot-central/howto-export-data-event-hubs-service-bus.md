@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: b0a34cd8eebdd816cb780b34de936a6cc56d0994
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 78edeb0c418f5c426771d241464d389f8a632e96
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730238"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463945"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Exportar dados no Azure IoT Central
 
@@ -64,14 +64,14 @@ Agora que você tem um destino de barramento de serviço/Hubs de eventos para ex
     > [!Note]
     > Se a Exportação Contínua de Dados não for exibida no menu à esquerda, isso indicará que você não é um administrador no aplicativo. Contate o administrador para configurar a exportação de dados.
 
-    ![Criar novo Hub de Eventos cde](media/howto-export-data/export_menu.PNG)
+    ![Criar novo Hub de Eventos cde](media/howto-export-data/export_menu1.png)
 
 3. Selecione o **+ novo** botão no canto superior direito. Escolha uma das **Hubs de eventos** ou **do barramento de serviço do Azure** como o destino de exportação. 
 
     > [!NOTE] 
     > O número máximo de exportações por aplicativo é cinco. 
 
-    ![Criar exportação contínua de dados](media/howto-export-data/export_new.PNG)
+    ![Criar exportação contínua de dados](media/howto-export-data/export_new1.png)
 
 4. Na caixa de listagem suspensa, selecione suas **namespace do barramento de serviço/namespace de Hubs de eventos**. Você também pode escolher a última opção da lista, **Inserir uma cadeia de conexão**. 
 
@@ -81,7 +81,7 @@ Agora que você tem um destino de barramento de serviço/Hubs de eventos para ex
     > [!NOTE] 
     > Para aplicativos de avaliação de 7 dias, a única maneira de configurar a exportação contínua de dados é por meio de uma cadeia de conexão. Isso ocorre porque os aplicativos de avaliação de 7 dias não têm uma assinatura do Azure associada.
 
-    ![Criar novo Hub de Eventos cde](media/howto-export-data/export_create.PNG)
+    ![Criar novo Hub de Eventos cde](media/howto-export-data/export_create1.png)
 
 5. (Opcional) Se você escolher **Inserir uma cadeia de conexão**, uma nova caixa será exibida para que você cole a cadeia de conexão. Para obter a cadeia de conexão para:
     - Os Hubs de eventos ou barramento de serviço, vá para o namespace no portal do Azure.
@@ -95,7 +95,7 @@ Agora que você tem um destino de barramento de serviço/Hubs de eventos para ex
 
 6. Para ativar a exportação contínua de dados, verifique se a opção **Exportação de dados** está **Ativada**. Clique em **Salvar**.
 
-  ![Configure a exportação contínua de dados](media/howto-export-data/export_list.PNG)
+    ![Configure a exportação contínua de dados](media/howto-export-data/export_list1.png)
 
 7. Após alguns minutos, seus dados serão exibidos no destino escolhido.
 

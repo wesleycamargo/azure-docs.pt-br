@@ -106,19 +106,6 @@
               href: apache-hadoop-use-mapreduce-dotnet-sdk.md
             - name: Executar exemplos do MapReduce
               href: apache-hadoop-run-samples-linux.md
-        - name: Usar Apache Pig com o Apache Hadoop
-          href: hdinsight-use-pig.md
-          items:
-            - name: Usar SSH e Apache Pig
-              href: apache-hadoop-use-pig-ssh.md
-            - name: Usar PowerShell do Azure
-              href: apache-hadoop-use-pig-powershell.md
-            - name: Usar o SDK para .NET
-              href: apache-hadoop-use-pig-dotnet-sdk.md
-            - name: Usar cURL
-              href: apache-hadoop-use-pig-curl.md
-        - name: Usar Apache DataFu com Apache Pig
-          href: apache-hadoop-use-pig-datafu-udf.md
         - name: Enviar trabalhos do Apache Hadoop
           href: submit-apache-hadoop-jobs-programmatically.md
     - name: Desenvolver

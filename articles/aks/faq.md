@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: f365fcd61944fbae131ab79a1c3660aaf02fa8d7
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 17bc1d2b7a08314f19f1bf8f87d0c774afc37500
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073941"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508172"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas frequentes sobre o Serviço de Kubernetes do Azure (AKS)
 
@@ -25,9 +25,7 @@ Para obter uma lista completa das regiões disponíveis, consulte [AKS regiões 
 
 ## <a name="does-aks-support-node-autoscaling"></a>O AKS é compatível com o dimensionamento automático de nó?
 
-Sim, dimensionamento automática está disponível via [Kubernetes autoscaler][auto-scaler] como parte do Kubernetes 1.10. Para obter mais informações sobre como configurar e usar o dimensionador automático de cluster manualmente, consulte [dimensionamento automático de Cluster no AKS][aks-cluster-autoscale].
-
-Você também pode usar o dimensionador automático interna de cluster (atualmente em visualização no AKS) para gerenciar o dimensionamento de nós. Para obter mais informações, consulte [dimensionar automaticamente um cluster para atender às demandas do aplicativo no AKS][aks-cluster-autoscaler].
+Sim, dimensionamento automática está disponível via [Kubernetes autoscaler][auto-scaler] como parte do Kubernetes 1.10. Para obter mais informações sobre como configurar e usar o dimensionador automático de cluster, consulte [dimensionamento automático de Cluster no AKS][aks-cluster-autoscale].
 
 ## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>O AKS oferece suporte a controle de acesso baseado em função (RBAC) do Kubernetes?
 
@@ -43,17 +41,13 @@ Não no momento. O servidor de API do Kubernetes é exposto como um FQDN (nome d
 
 ## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>As atualizações de segurança são aplicadas aos nós do agente do AKS?
 
-Azure aplica automaticamente os patches de segurança para os nós do Linux no seu cluster em uma agenda noturna. No entanto, você é responsável por garantir que esses nós são reiniciados como de Linux necessários. Há várias opções para a execução de reinicializações de nó:
+Sim, o Azure aplica automaticamente os patches de segurança para os nós no cluster em uma agenda noturna. No entanto, você é responsável por garantir que ps nós sejam reiniciados conforme necessário. Há várias opções para a execução de reinicializações de nó:
 
 - Manualmente, por meio do portal do Azure ou da CLI do Azure.
 - Atualizando o cluster AKS. O cluster atualiza automaticamente [cordon e drain nodes][cordon-drain], depois traz de volta cada nó com a última imagem do Ubuntu e uma nova versão de patch ou uma versão menor do Kubernetes. Para obter mais informações, consulte [atualizar um cluster AKS][aks-upgrade].
 - Usando [Kured](https://github.com/weaveworks/kured), um daemon de reinicialização software livre para Kubernetes. O Kured é executado como um [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) e monitora cada nó para a presença de um arquivo que indica que uma reinicialização é necessária. As reinicializações do SO são gerenciadas no cluster usando o mesmo [cordon e o processo de drenagem][cordon-drain] como uma atualização do cluster.
 
 Para obter mais informações sobre como usar o kured, consulte [Aplicar atualizações de segurança e o kernel para nós do AKS][node-updates-kured].
-
-### <a name="windows-server-nodes"></a>Nós do Windows Server
-
-Para nós do Windows Server (atualmente em visualização no AKS), atualização do Windows executado automaticamente e aplicar as atualizações mais recentes. Em um agendamento regular em todo o ciclo de lançamento do Windows Update e seu próprio processo de validação, você deve realizar uma atualização sobre os pools de nó do Windows Server no cluster do AKS. Este processo de atualização cria nós que executam a imagem mais recente do Windows Server e os patches, em seguida, remove os nós mais antigos. Para obter mais informações sobre esse processo, consulte [Upgrade de um pool de nós no AKS][nodepool-upgrade].
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Por que são criados dois grupos de recursos com o AKS?
 
@@ -108,13 +102,24 @@ Atualmente, o AKS não está integrado de maneira nativa ao Cofre de Chaves do A
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Posso executar contêineres do Windows Server no AKS?
 
-Sim, os contêineres do Windows Server estão disponíveis na visualização. Para executar contêineres do Windows Server no AKS, você deve criar um pool de nós que executa o Windows Server como o sistema operacional convidado. Contêineres do Windows Server só podem usar o Windows Server 2019. Para começar, [criar um cluster do AKS com um pool de nós do Windows Server][aks-windows-cli].
-
-Suporte de pool de nós de servidor janela inclui algumas limitações que fazem parte do Windows Server no projeto Kubernetes upstream. Para obter mais informações sobre essas limitações, consulte [contêineres do Windows Server nas limitações de AKS][aks-windows-limitations].
+Para executar contêineres do Windows Server, você precisa executar nós baseados no Windows Server. Nós baseados em Windows Server não estão disponíveis no AKS neste momento. É possível, no entanto, usar o Kubelet Virtual para agendar contêineres do Windows em Instâncias de Contêiner do Azure e gerenciá-los como parte do seu cluster do AKS. Para obter mais informações, consulte [Use Virtual Kubelet with AKS][virtual-kubelet] (Usar Virtual Kubelet com o AKS).
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>O AKS oferece um contrato de nível de serviço?
 
 Em um contrato de nível serviço (SLA), o provedor concorda em reembolse o cliente para o custo do serviço se o nível de serviço publicado não for atendido. Como o AKS é gratuito, não há nenhum custo a reembolsar e, portanto, nenhum SLA formal. No entanto, a AKS procura manter a disponibilidade de pelo menos 99,5% para o servidor da API do Kubernetes.
+
+## <a name="why-can-i-not-set-maxpods-below-30"></a>Por que posso não definir `maxPods` abaixo de 30?
+
+AKS oferece suporte à configuração de `maxPods` valor no momento da criação de cluster por meio de modelos da CLI do Azure e o Azure Resource Manager. No entanto, há uma *valor mínimo* (validado no momento da criação) para Kubenet e CNI do Azure, mostrado abaixo:
+
+| Rede | Mínimo | Máximo |
+| -- | :--: | :--: |
+| Azure CNI | 30 | 250 |
+| Kubenet | 30 | 110 |
+
+Como o AKS é um serviço gerenciado, fornecemos complementos e compartimentos, podemos implantar e gerenciar como parte do cluster. No passado, os usuários poderiam definir um `maxPods` valor menor do que o valor necessário para os pods gerenciados executar (exemplo: 30), o AKS agora calcula o número mínimo de pods por meio de: ((maxPods ou (maxPods * vm_count)) > mínimo de pods de complemento gerenciado.
+
+Os usuários não podem substituir o mínimo `maxPods` validação.
 
 <!-- LINKS - internal -->
 
@@ -128,10 +133,6 @@ Em um contrato de nível serviço (SLA), o provedor concorda em reembolse o clie
 [aks-preview-cli]: /cli/azure/ext/aks-preview/aks
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [aks-rm-template]: /rest/api/aks/managedclusters/createorupdate#managedcluster
-[aks-cluster-autoscaler]: cluster-autoscaler.md
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
-[aks-windows-cli]: windows-container-cli.md
-[aks-windows-limitations]: windows-node-limitations.md
 
 <!-- LINKS - external -->
 

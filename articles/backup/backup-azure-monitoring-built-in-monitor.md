@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: pullabhk
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 8d3e3257f16fe4e0f846c2268bfefc2771387de6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ab7d2c0af4bc71733a7995b7e781f0facbfbb29f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60809040"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236444"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitoramento de cargas de trabalho de Backup do Azure
 
@@ -49,7 +49,7 @@ Os alertas são principalmente a cenários em que os usuários são notificados 
 Os cenários a seguir são definidos pelo serviço como cenários podem gerar alertas.
 
   - Falhas de backup/restauração
-  - Backup bem-sucedido com avisos
+  - Backup bem-sucedido com avisos para o agente de Backup do Azure (MAB)
   - Interrompa a proteção com reter dados/parar a proteção com excluir dados
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Exceções quando um alerta não será gerado.
@@ -92,7 +92,7 @@ Quando a notificação está configurada, você receberá um email de boas-vindo
 Se a frequência foi definida como um resumo de hora em hora e um alerta foi gerado e resolvido em uma hora, não é uma parte do resumo de hora em hora futura.
 
 > [!NOTE]
-> 
+>
 > * Se uma operação destrutiva, como **parar a proteção com excluir dados** é executada, um alerta é gerado e um email é enviado para proprietários de assinatura, os administradores e coadministradores, mesmo se as notificações não forem configuradas para o serviço de recuperação cofre.
 > * Para configurar a notificação para trabalhos com êxito, use [do Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 

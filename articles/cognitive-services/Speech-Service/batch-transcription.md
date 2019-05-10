@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 1a2d24be00b0e1224b5f8d52105e2969d64e5f64
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 2148d1bd79a858bec37e6c574c2a6b6e2009fe46
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922470"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190407"
 ---
 # <a name="why-use-batch-transcription"></a>Por que usar a transcrição do lote?
 
@@ -65,7 +65,7 @@ Parâmetros de configuração são fornecidos como JSON:
 ```json
 {
   "recordingsUrl": "<URL to the Azure blob to transcribe>",
-  "models": ["<optional acoustic model ID>, <optional language model ID>"],
+  "models": [{"Id":"<optional acoustic model ID>"},{"Id":"<optional language model ID>"}],
   "locale": "<local to us, for example en-US>",
   "name": "<user define name of the transcription batch>",
   "description": "<optional description of the transcription>",
@@ -83,7 +83,7 @@ Parâmetros de configuração são fornecidos como JSON:
 
 ### <a name="configuration-properties"></a>Propriedades de configuração
 
-| Parâmetro | DESCRIÇÃO | Obrigatório/Opcional |
+| Parâmetro | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
 | `ProfanityFilterMode` | Especifica como lidar com conteúdo ofensivo nos resultados do reconhecimento. Os valores aceitos são `none`, o que desativa a filtragem de profanação, `masked` que substitui a profanidade por asteriscos, `removed` que remove todos os palavrões do resultado ou `tags`, que adiciona tags de "profanidade". A configuração padrão é `masked`. | Opcional |
 | `PunctuationMode` | Especifica como manipular a pontuação nos resultados do reconhecimento. Os valores aceitos são `none`, o que desativa a pontuação, `dictated` que implica pontuação explícita, `automatic` que permite ao decodificador lidar com pontuação ou `dictatedandautomatic`, o que implica em sinais de pontuação ditados ou automáticos. | Opcional |
@@ -151,7 +151,7 @@ Um exemplo de saída JSON é semelhante a abaixo:
 ```
 Os recursos usa um modelo de sentimento, que está atualmente em versão Beta.
 
-## <a name="sample-code"></a>Exemplo de código
+## <a name="sample-code"></a>Código de exemplo
 
 O exemplo completo está disponível no [repositório de exemplo do GitHub](https://aka.ms/csspeech/samples) dentro do subdiretório `samples/batch`.
 

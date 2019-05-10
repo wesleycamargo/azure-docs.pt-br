@@ -45,7 +45,7 @@ As propriedades a seguir têm suporte no serviço vinculado do Google BigQuery.
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade type deve ser definida como **Google BigQuery**. | Sim |
+| type | A propriedade type deve ser definida como **Google BigQuery**. | Sim |
 | project | A ID de projeto do projeto padrão do BigQuery para consulta.  | Sim |
 | additionalProjects | Uma lista de IDs de projeto separadas por vírgulas dos projetos públicos do BigQuery para acesso.  | Não  |
 | requestGoogleDriveScope | Se deve solicitar acesso ao Google Drive. Permitir o acesso ao Google Drive habilita o suporte para tabelas federadas que combinam dados do BigQuery com dados do Google Drive. O valor padrão é **false**.  | Não  |
@@ -157,7 +157,7 @@ Para copiar dados do Google BigQuery, defina o tipo de origem na atividade de c�
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte da atividade de cópia deve ser definida como: **GoogleBigQuerySource**. | Sim |
+| type | A propriedade tipo da fonte da atividade de cópia deve ser definida como: **GoogleBigQuerySource**. | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Um exemplo é `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**

@@ -284,6 +284,8 @@
               href: transparent-data-encryption-azure-sql.md
             - name: TDE com Bring Your Own Key
               href: transparent-data-encryption-byok-azure-sql.md
+        - name: Atributos de segurança
+          href: sql-database-security-attributes.md
     - name: Escalabilidade
       items:
         - name: Visão geral de escalabilidade
@@ -460,6 +462,8 @@
           href: sql-database-managed-instance-create-vnet-subnet.md
         - name: Configurar a rede virtual e a sub-rede existentes para a instância gerenciada
           href: sql-database-managed-instance-configure-vnet-subnet.md
+        - name: Excluir sub-rede após excluir a instância gerenciada
+          href: sql-database-managed-instance-delete-virtual-cluster.md
         - name: Configurar DNS personalizado
           href: sql-database-managed-instance-custom-dns.md
         - name: Configuração de rede de sincronização

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e60a58a8d2f1c69728a2d049fe1414ca1997893e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82672136d6f9af50a3d91da2044f6e0ced4b44a6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479296"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409377"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usar o serviço de importação/exportação do Microsoft Azure para importar dados do Armazenamento de Blobs
 
@@ -64,7 +64,7 @@ Execute as etapas a seguir para preparar as unidades.
     
     Os parâmetros utilizados são descritos na tabela a seguir:
 
-    |Opção  |DESCRIÇÃO  |
+    |Opção  |Descrição  |
     |---------|---------|
     |/j:     |O nome do arquivo de diário, com a extensão .jrn. Um arquivo de diário é gerado por unidade. É recomendável utilizar o número de série do disco como o nome do arquivo de diário.         |
     |/id:     |A ID da sessão. Use um número de sessão exclusivo para cada instância do comando.      |
@@ -98,7 +98,7 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
    - Digite um nome descritivo para o trabalho de importação. Use o nome para acompanhar o andamento dos trabalhos.
        - O nome pode conter apenas letras minúsculas, números e hifens.
        - O nome deve começar com uma letra e não pode conter espaços.
-   - Selecione uma assinatura.
+   - Selecionar uma assinatura.
    - Insira ou selecione um grupo de recursos.  
 
      ![Criar trabalho de importação - Etapa 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
@@ -114,7 +114,7 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
 4. Em **Informações sobre a remessa de devolução**:
 
    - Selecione a operadora na lista suspensa. Se você quiser usar uma operadora que não seja FedEx/DHL, escolha uma opção existente na lista suspensa. Entre em contato com operações de caixa de dados do Azure de equipe em `adbops@microsoft.com` com as informações sobre o carro que você planeja usar.
-   - Insira um número válido de conta de operadora que você criou com essa operadora. A Microsoft usará essa conta para enviar de volta as unidades para você após a conclusão do seu trabalho de importação. Caso não tenha um número de conta, crie uma conta da operadora [FedEx](https://www.fedex.com/us/oadr/) ou [DHL](http://www.dhl.com/).
+   - Insira um número válido de conta de operadora que você criou com essa operadora. A Microsoft usará essa conta para enviar de volta as unidades para você após a conclusão do seu trabalho de importação. Caso não tenha um número de conta, crie uma conta da operadora [FedEx](https://www.fedex.com/us/oadr/) ou [DHL](https://www.dhl.com/).
    - Forneça um nome de contato completo e válido, telefone, email, endereço, cidade, CEP, estado/município e país/região. 
         
        > [!TIP] 

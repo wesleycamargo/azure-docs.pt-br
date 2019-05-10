@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 175cc03dac21280a5e3ef3ec130cb94bc800f540
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 094c8d45f7f6099b169e25c89dbfc4a7d6522dfc
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153895"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510948"
 ---
 # <a name="introduction-to-azure-storage"></a>Introdução ao Armazenamento do Azure
 
@@ -158,7 +158,7 @@ Os recursos do Armazenamento do Azure podem ser acessados por qualquer linguagem
 
 ### <a name="azure-storage-data-movement-api-and-library-references"></a>Bibliotecas de referência e API de movimentação de dados do Armazenamento do Azure
 * [API REST do Serviço de Importação/Exportação do Armazenamento](https://docs.microsoft.com/rest/api/storageimportexport/)
-* [Biblioteca do Cliente de Movimentação de Dados do Armazenamento para .NET](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement)
+* [Biblioteca do Cliente de Movimentação de Dados do Armazenamento para .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement)
 
 ### <a name="tools-and-utilities"></a>Ferramentas e utilitários
 * [Cmdlets do Azure PowerShell para Armazenamento](https://docs.microsoft.com/powershell/module/az.storage)

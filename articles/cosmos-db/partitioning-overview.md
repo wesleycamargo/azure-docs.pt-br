@@ -25,7 +25,7 @@ Além de uma chave de partição que determina a partição de lógica do item, 
 
 ## <a name="managing-logical-partitions"></a>Gerenciando partições lógicas
 
-O Azure Cosmos DB de forma transparente e automática gerencia o posicionamento das partições lógicas em partições físicas para atender com eficiência às necessidades de desempenho e escalabilidade do contêiner. À medida que aumentam os requisitos de taxa de transferência e armazenamento de um aplicativo, o Azure Cosmos DB move automaticamente as partições lógicas para distribuir a carga entre um número maior de servidores.
+O Azure Cosmos DB de forma transparente e automática gerencia o posicionamento das partições lógicas em partições físicas para atender com eficiência às necessidades de desempenho e escalabilidade do contêiner. À medida que aumentam os requisitos de taxa de transferência e armazenamento de um aplicativo, o Azure Cosmos DB move automaticamente as partições lógicas para distribuir a carga entre um número maior de servidores. 
 
 O Azure Cosmos DB usa o particionamento baseado em hash distribuídas partições lógicas em partições físicas. O Azure Cosmos DB faz o hash do valor de chave de partição de um item. O resultado com hash determina a partição física. Em seguida, Azure Cosmos DB aloca o espaço da chave de partição de hashes de chave uniformemente entre as partições físicas.
 

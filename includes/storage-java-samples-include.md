@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 578c1eda476dccf798cd80b933fdc521450f29b2
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: 41ec1940409953c7e12ffa9e919397a800591fed
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165222"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209784"
 ---
 ## <a name="java-sample-code-repositories"></a>Repositórios de código de exemplo Java
 
@@ -20,4 +20,3 @@ Veja uma lista de todos os nossos repositórios de exemplo para a Biblioteca de 
 * [Introdução ao Serviço Arquivo do Azure em Java](https://azure.microsoft.com/resources/samples/storage-file-java-getting-started/)
 * [Introdução ao Serviço Fila do Azure em Java](https://azure.microsoft.com/resources/samples/storage-queue-java-getting-started/)
 * [Introdução ao Serviço Tabela do Azure em Java](https://azure.microsoft.com/resources/samples/storage-table-java-getting-started/)
-* [Amostras da Biblioteca do Cliente Java de Armazenamento](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage)
