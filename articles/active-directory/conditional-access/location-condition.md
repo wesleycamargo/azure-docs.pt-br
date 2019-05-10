@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7b12f5c7736307f0b62b6f6c2b526eb0108569c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 27309c08fe4419197faa17dcceb3645b00387e93
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190192"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65227911"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Quais são as condições de localização no acesso condicional do Active Directory do Azure? 
 
@@ -32,9 +32,9 @@ Azure AD permite logon único para dispositivos, aplicativos e serviços de qual
 - Exigir autenticação multifator para usuários que acessam um serviço quando estão fora da rede corporativa.
 - Bloqueando o acesso para usuários que acessam um serviço de países e regiões específicas.
 
-Um local é um rótulo para uma rede local que representa uma localização nomeada ou IPs confiáveis de autenticação multifator.
+Um local é um rótulo para um local de rede que representa um local nomeado ou a autenticação multifator confiáveis IPs.
 
-## <a name="named-locations"></a>Localizações nomeadas
+## <a name="named-locations"></a>Locais nomeados
 
 Com localizações nomeadas, você pode criar agrupamentos lógicos de intervalos de endereços IP ou países e regiões.
 
@@ -54,7 +54,7 @@ A localização nomeada tem os seguintes componentes:
 
 - **Marcar como local confiável** – Um sinalizador que você pode definir para uma localização nomeada indicar um local confiável. Normalmente, os locais confiáveis são áreas de rede controladas pelo departamento de TI. Além de acesso condicional, localizações nomeadas confiáveis também são usadas por relatórios de segurança de proteção de identidade do Azure e do Microsoft Azure AD para reduzir [falsos positivos](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 - **Países/regiões** - esta opção permite que você selecione um ou mais países ou regiões para definir uma localização nomeada.
-- **Incluir áreas desconhecidas** – Alguns endereços IP não são mapeados para um país específico. Esta opção permite que você escolha se esses endereços IP devem ser incluídos na localização nomeada. Use essa configuração quando a política usando a localização nomeada deve aplicar-se a localizações desconhecidas.
+- **Incluir áreas desconhecidas** -alguns endereços IP não são mapeados para um país ou região específica. Esta opção permite que você escolha se esses endereços IP devem ser incluídos na localização nomeada. Use essa configuração quando a política usando a localização nomeada deve aplicar-se a localizações desconhecidas.
 
 O número de localizações que você pode configurar é restrito pelo tamanho do objeto relacionado no Azure AD. As organizações podem configurar até 90 localizações nomeadas, cada uma configurada com intervalos de IP até 12000.
 
@@ -67,9 +67,9 @@ Se uma política é configurada para aplicar a "Qualquer local", ela será aplic
 
 ## <a name="trusted-ips"></a>IPs confiáveis
 
-Você também pode configurar intervalos de endereços IP que representam a Intranet local da sua organização nas [configurações do serviço de autenticação multifator](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Esse recurso permite que você configure até 50 intervalos de endereços IP. Os intervalos de endereços IP estão no formato CIDR. Para obter mais informações, confira [IPs confiáveis](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
+Você também pode configurar intervalos de endereços IP que representam a Intranet local da sua organização nas [configurações do serviço de autenticação multifator](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Esse recurso permite que você configure até 50 intervalos de endereços IP. Os intervalos de endereços IP estão no formato CIDR. Para obter mais informações, consulte [IPs confiáveis](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
 
-Se você tem IPs confiáveis configurados, eles aparecem como **IPS confiáveis MFA** na lista de locais para a condição de localização.
+Se você tiver o recurso IPs confiáveis configurados, eles aparecem como **IPS confiáveis de MFA** na lista de locais para a condição de localização.
 
 ### <a name="skipping-multi-factor-authentication"></a>Ignorando a autenticação multifator
 
@@ -98,7 +98,7 @@ Quando você configurar a condição de localização, você tem a opção de fa
 
 Por padrão, selecionar **Qualquer local** faz com que uma política seja aplicada a todos os endereços IP, o que significa qualquer endereço na Internet. Essa configuração não está limitada aos endereços IP que você configurou como localização nomeada. Quando seleciona **Qualquer local**, você ainda pode excluir locais específicos de uma política. Por exemplo, você pode aplicar uma política para todos os locais confiáveis de exceções de locais para definir o escopo para todos os locais, exceto a rede corporativa.
 
-### <a name="all-trusted-locations"></a>Todos os locais confiáveis
+### <a name="all-trusted-locations"></a>Todas as localizações confiáveis
 
 Esta opção se aplica a:
 

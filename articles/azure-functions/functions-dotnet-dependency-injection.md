@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2019
 ms.author: jehollan
-ms.openlocfilehash: 1ef688dff65dc11f875f76e2f9127bf89af2f2b9
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 2044718d2ec7a7acc58e1e7ba9ba04ec5caf16b3
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074584"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408457"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usar injeção de dependência no .NET do Azure Functions
 
@@ -65,7 +65,7 @@ Em um aplicativo de função, um tempo de vida do serviço com escopo correspond
 
 Serviços de tempo de vida singleton são recomendados para conexões de clientes e, por exemplo uma `SqlConnection`, `CloudBlobClient`, ou `HttpClient`.
 
-Exibir ou baixar uma [exemplo de tempos de vida de serviço diferentes](http://aka.ms/functions/di-sample).
+Exibir ou baixar uma [exemplo de tempos de vida de serviço diferentes](https://aka.ms/functions/di-sample).
 
 ## <a name="logging-services"></a>Serviços de registro em log
 
@@ -78,7 +78,7 @@ Se você precisar de seu próprio provedor de registro em log, a maneira recomen
 
 O host de função serão registrados muitos serviços em si.  Abaixo estão os serviços que são seguros assumir uma dependência.  Não há suporte para outros serviços de host para registrar ou dependem.  Se houver outros serviços que você deseja assumir uma dependência, por favor [criar um problema e uma discussão no GitHub](https://github.com/azure/azure-functions-host).
 
-|Tipo de serviço|Tempo de vida|DESCRIÇÃO|
+|Tipo de Serviço|Tempo de vida|Descrição|
 |--|--|--|
 |`Microsoft.Extensions.Configuration.IConfiguration`|singleton|Configuração de tempo de execução|
 |`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|singleton|Responsável por fornecer a ID da instância do host|

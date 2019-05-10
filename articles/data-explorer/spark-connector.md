@@ -7,12 +7,12 @@ ms.reviewer: michazag
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 4/29/2019
-ms.openlocfilehash: 8cb1489a0663556f9dd9e6026a036df2468d656d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 854e29b67b6e24c583a98b5851bf17551cfcbf61
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928326"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441358"
 ---
 # <a name="azure-data-explorer-connector-for-apache-spark-preview"></a>Conector do Gerenciador de dados do Azure para o Apache Spark (visualização)
 
@@ -109,7 +109,7 @@ Conector do Spark do Gerenciador de dados do Azure permite que você autentique 
 
 Método de autenticação simples e comuns a maioria dos. Esse método é recomendado para uso do conector Spark do Azure Data Explorer.
 
-|propriedades  |DESCRIÇÃO  |
+|propriedades  |Descrição  |
 |---------|---------|
 |**KUSTO_AAD_CLIENT_ID**     |   Identificador do aplicativo (cliente) do AD do Azure.      |
 |**KUSTO_AAD_AUTHORITY_ID**     |  Autoridade de autenticação do AD do Azure. ID de diretório do AD (Locatário) do Azure.        |
@@ -200,7 +200,7 @@ Para obter mais informações sobre funções de entidade do Data Explorer do Az
     display(df)
     ```
 
-1. Ao ler grandes quantidades de dados, armazenamento de BLOBs transitório deve ser fornecido. Forneça a chave SAS do contêiner de armazenamento, ou nome da conta de armazenamento, chave de conta e nome do contêiner. 
+1. Ao ler grandes quantidades de dados, armazenamento de BLOBs transitório deve ser fornecido. Forneça a chave SAS do contêiner de armazenamento, ou nome da conta de armazenamento, chave de conta e nome do contêiner. Essa etapa só é necessária para a versão prévia atual do conector do Spark.
 
     ```scala
     // Use either container/account-key/account name, or container SaS

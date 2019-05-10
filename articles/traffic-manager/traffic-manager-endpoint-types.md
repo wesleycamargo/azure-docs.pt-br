@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: b609a0ace0b428e1af81634c6a25485e3a5e89bb
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: dc76f56b6c05f22a380ff33715fe22e8c72e4891
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916648"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508426"
 ---
 # <a name="traffic-manager-endpoints"></a>Pontos de extremidade do Gerenciador de Tráfego
 O Gerenciador de Tráfego do Microsoft Azure permite controlar como o tráfego de rede é distribuído para implantações de aplicativos executados em diferentes datacenters. Você configurar cada implantação de aplicativo como um “ponto de extremidade” no Gerenciador de Tráfego. Quando o Gerenciador de Tráfego recebe uma solicitação DNS, ele escolhe um ponto de extremidade disponível para retornar na resposta DNS. O Gerenciador de Tráfego baseia a escolha no status atual do ponto de extremidade e o método de roteamento de tráfego. Para obter mais informações, consulte [Como o Gerenciador de Tráfego Funciona](traffic-manager-how-it-works.md).
 
 Há três tipos de ponto de extremidade suportados pelo Gerenciador de Tráfego:
 * **pontos de extremidade do Azure** são usados para os serviços hospedados no Azure.
-* Os **pontos de extremidade externos** são usados para os endereços IPv4/IPv6 ou para os serviços hospedados fora do Azure, que podem ser locais ou com um provedor de hospedagem diferente.
+* **Pontos de extremidade externos** são usados para endereços IPv4/IPv6, FQDNs, ou para serviços hospedados fora do Azure que pode ser local ou com um provedor de hospedagem diferente.
 * **pontos de extremidade aninhados** são usados para combinar os perfis do Gerenciador de Tráfego para criar esquemas de roteamento de tráfego mais flexíveis para suportar as necessidades de implantações maiores e mais complexas.
 
 Não há nenhuma restrição sobre como os pontos de extremidade de diferentes tipos são combinados em um único perfil do Gerenciador de Tráfego. Cada perfil pode conter qualquer combinação de tipos de ponto de extremidade.
@@ -46,7 +46,7 @@ Ao usar os pontos de extremidade do Azure, o Gerenciador de Tráfego detecta qua
 
 ## <a name="external-endpoints"></a>pontos de extremidade externos
 
-Os pontos de extremidade externos são usados para os endereços IPv4/IPv6 ou para os serviços fora do Azure. O uso dos pontos de extremidade nos endereços IPv4/IPv6 permite que o gerenciador de tráfego verifique a integridade dos pontos de extremidade, sem exigir um nome DNS para eles. Como resultado, o Gerenciador de Tráfego pode responder a consultas com registros A/AAAA ao retornar o ponto de extremidade em uma resposta. Os serviços fora do Azure podem incluir um serviço hospedado localmente ou em um provedor diferente. Os pontos de extremidade externos podem ser usados individualmente ou combinados com os Pontos de Extremidade do Azure no mesmo perfil do Gerenciador de Tráfego, exceto para os pontos de extremidade especificados como endereços IPv4 ou IPv6, que só podem ser pontos de extremidade externos. Combinar pontos de extremidade do Azure com pontos de extremidade Externos permite vários cenários:
+Pontos de extremidade externos são usados para qualquer um dos endereços IPv4/IPv6, FQDNs, ou para serviços fora do Azure. O uso dos pontos de extremidade nos endereços IPv4/IPv6 permite que o gerenciador de tráfego verifique a integridade dos pontos de extremidade, sem exigir um nome DNS para eles. Como resultado, o Gerenciador de Tráfego pode responder a consultas com registros A/AAAA ao retornar o ponto de extremidade em uma resposta. Os serviços fora do Azure podem incluir um serviço hospedado localmente ou em um provedor diferente. Os pontos de extremidade externos podem ser usados individualmente ou combinados com os Pontos de Extremidade do Azure no mesmo perfil do Gerenciador de Tráfego, exceto para os pontos de extremidade especificados como endereços IPv4 ou IPv6, que só podem ser pontos de extremidade externos. Combinar pontos de extremidade do Azure com pontos de extremidade Externos permite vários cenários:
 
 * Fornecer redundância aumentada para um aplicativo local existente, em um modelo de failover ativo-ativo ou ativo-passivo usando o Azure. 
 * Rotear o tráfego para os pontos de extremidade que não tenham um nome DNS associado a eles. Além disso, diminuir a latência geral da pesquisa de DNS, removendo a necessidade de executar uma segunda consulta DNS para obter um endereço IP de um nome DNS retornado. 

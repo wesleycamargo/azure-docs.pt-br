@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
 ms.author: rogarana
-ms.openlocfilehash: 7010425ba8acff4ed223e2a402d7a927a91c06b6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: af903ce3ce7cfa165c278e415827dda36630e7b4
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687136"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209725"
 ---
 # <a name="overview-of-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Visão geral da autenticação do Azure Active Directory por SMB para arquivos do Azure (versão prévia)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -50,8 +50,8 @@ O Azure AD por SMB para Arquivos do Azure oferece diversos benefícios em relaç
 -   **Fazer backup das ACLs junto com seus dados**  
     Você pode usar Arquivos do Azure para fazer backup de seus compartilhamentos de arquivos locais existentes. Os Arquivos do Azure preservam suas ACLs junto com seus dados ao fazer backup de um compartilhamento de arquivos para os Arquivos do Azure por SMB.
 
-## <a name="how-it-works"></a>Como ele funciona
-Os Arquivos do Azure usam o Azure AD Domain Services para oferecer suporte a autenticação do Kerberos com credenciais do Azure AD das VMs ingressadas por domínio. Antes de poder usar o Azure AD com o Arquivos do Azure, você deve primeiro habilitar o Azure AD Domain Services e ingressar no domínio a partir das VMs das quais você planeja acessar dados de arquivos. Sua VM ingressada no domínio deve residir na mesma rede virtual (VNET) que o Azure AD Domain Services. 
+## <a name="how-it-works"></a>Como funciona
+Os Arquivos do Azure usam o Azure AD Domain Services para oferecer suporte a autenticação do Kerberos com credenciais do Azure AD das VMs ingressadas por domínio. Antes de poder usar o Azure AD com o Arquivos do Azure, você deve primeiro habilitar o Azure AD Domain Services e ingressar no domínio a partir das VMs das quais você planeja acessar dados de arquivos. Sua VM ingressado no domínio deve residir na mesma rede virtual (VNET) como o Azure AD Domain Services. 
 
 Quando uma identidade associada a um aplicativo em execução em uma VM tenta acessar dados em Arquivos do Azure, a solicitação é enviada ao Azure AD Domain Services para autenticar a identidade. Se a autenticação for bem-sucedida, o Azure AD Domain Services retorna um token do Kerberos. O aplicativo envia uma solicitação que inclui o token do Kerberos e os Arquivos do Azure usam esse token para autorizar a solicitação. Os Arquivos do Azure apenas recebem o token e não persistem em credenciais do Azure AD.
 

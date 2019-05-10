@@ -5,47 +5,33 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 29180d6c1bb5f0991a4f33c3b7c9418f84d8260c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0512806ec797f43fc54d8a28a7cbadf86faf1d9
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61027959"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65229986"
 ---
-# <a name="preview---secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Visualização - proteger o tráfego entre os pods usando diretivas de rede no serviço de Kubernetes do Azure (AKS)
+# <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Proteger o tráfego entre os pods usando as políticas de rede no Serviço de Kubernetes do Azure (AKS)
 
 Ao executar aplicativos modernos baseados em microsserviços no Kubernetes, muitas vezes você deseja controlar quais componentes podem se comunicar uns com os outros. O princípio de privilégio mínimo deve ser aplicado a como o tráfego pode fluir entre os pods em um cluster do serviço de Kubernetes do Azure (AKS). Digamos que você provavelmente deseja bloquear o tráfego diretamente para os aplicativos de back-end. O *política de rede* recurso no Kubernetes permite que você defina regras para tráfego de entrada e saída entre os pods em um cluster.
 
-Este artigo mostra como instalar o mecanismo de políticas de rede e criar políticas de rede do Kubernetes para controlar o fluxo de tráfego entre os pods no AKS. Esse recurso está atualmente na visualização.
-
-> [!IMPORTANT]
-> Recursos de visualização do AKS são Self-service e aceitação. As visualizações são fornecidas para reunir opiniões e bugs de nossa comunidade. No entanto, eles não são suportados pelo suporte técnico do Azure. Se você cria um cluster ou adicionar esses recursos para clusters existentes, há suporte para esse cluster até que o recurso não está mais em visualização e muda para GA (disponibilidade geral).
->
-> Se você encontrar problemas com recursos de visualização [abra um problema no repositório GitHub do AKS] [ aks-github] com o nome do recurso de visualização no título do bug.
+Este artigo mostra como instalar o mecanismo de políticas de rede e criar políticas de rede do Kubernetes para controlar o fluxo de tráfego entre os pods no AKS. Política de rede deve ser usada apenas para nós com base em Linux e os pods no AKS.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Você precisa da CLI do Azure versão 2.0.61 ou posterior instalado e configurado. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
 
-Para criar um cluster do AKS que pode usar a diretiva de rede, primeiro habilite um sinalizador de recursos em sua assinatura. Para registrar o sinalizador de recurso *EnableNetworkPolicy*, use o comando [az feature register][az-feature-register] como mostrado no exemplo a seguir:
-
-```azurecli-interactive
-az feature register --name EnableNetworkPolicy --namespace Microsoft.ContainerService
-```
-
-Demora alguns minutos para o status exibir *Registrado*. Você pode verificar o status de registro usando o [lista de recursos az] [ az-feature-list] comando:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableNetworkPolicy')].{Name:name,State:properties.state}"
-```
-
-Quando estiver pronto, atualize o registro do *containerservice* provedor de recursos usando o [registro de provedor az] [ az-provider-register] comando:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+> [!TIP]
+> Se você usou o recurso de política de rede durante a visualização, é recomendável que você [criar um novo cluster](#create-an-aks-cluster-and-enable-network-policy).
+> 
+> Se você quiser continuar usando os clusters de teste existente que usou a política de rede durante a visualização, atualizar seu cluster para um novas versões do Kubernetes para a versão mais recente do GA e, em seguida, implante o manifesto YAML a seguir para corrigir o servidor de métricas e o Kubernetes com falha Painel de controle. Essa correção só é necessária para clusters que usaram o mecanismo de diretiva de rede Malhado.
+>
+> Como prática recomendada de segurança, [reveja o conteúdo deste manifesto YAML] [ calico-aks-cleanup] para entender o que é implantado no cluster AKS.
+>
+> `kubectl delete -f https://raw.githubusercontent.com/Azure/aks-engine/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml`
 
 ## <a name="overview-of-network-policy"></a>Visão geral da política de rede
 
@@ -78,6 +64,7 @@ Política de rede funciona somente com a opção CNI do Azure (Avançado). Imple
 | Conformidade com a especificação do Kubernetes | Todos os tipos de política com suporte |  Todos os tipos de política com suporte |
 | Recursos adicionais                      | Nenhum                       | Estendido consistindo de ponto de extremidade do Host, rede Global definida e a política de rede Global de modelo de política. Para obter mais informações sobre como usar o `calicoctl` CLI para gerenciar esses recursos, consulte [referência de usuário calicoctl][calicoctl]. |
 | Suporte                                  | Compatível com a equipe de engenharia e suporte do Azure | Suporte da comunidade de Malhado. Para obter mais informações sobre o suporte pago adicional, consulte [opções de suporte do projeto Malhado][calico-support]. |
+| Registro em Log                                  | Regras adicionadas / excluídas no IPTables são registradas em todos os hosts sob */var/log/azure-npm.log* | Para obter mais informações, consulte [logs do componente Malhado][calico-logs] |
 
 ## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Cria um cluster do AKS e habilita a política de rede
 
@@ -140,7 +127,6 @@ az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
     --node-count 1 \
-    --kubernetes-version 1.12.6 \
     --generate-ssh-keys \
     --network-plugin azure \
     --service-cidr 10.0.0.0/16 \
@@ -478,12 +464,13 @@ Para saber mais sobre as políticas, consulte [políticas de rede do Kubernetes]
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
-[aks-github]: https://github.com/azure/aks/issues]
+[aks-github]: https://github.com/azure/aks/issues
 [tigera]: https://www.tigera.io/
-[calicoctl]: https://docs.projectcalico.org/v3.5/reference/calicoctl/
+[calicoctl]: https://docs.projectcalico.org/v3.6/reference/calicoctl/
 [calico-support]: https://www.projectcalico.org/support
+[calico-logs]: https://docs.projectcalico.org/v3.6/maintenance/component-logs
+[calico-aks-cleanup]: https://github.com/Azure/aks-engine/blob/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

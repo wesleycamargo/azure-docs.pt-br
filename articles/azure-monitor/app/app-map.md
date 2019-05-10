@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 89aa5006882680205816e7e5d1e7e55b9c4b2ab0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 618453ec9857254fe14608df8091bb79bd3815b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60692764"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65509992"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa do Aplicativo: Triagem dos Aplicativos Distribuídos
 
@@ -66,15 +66,15 @@ Para solucionar problemas de desempenho selecione **Investigar o desempenho**.
 
 ![Captura de tela da experiência de desempenho](media/app-map/performance.png)
 
-### <a name="go-to-details"></a>Acessar detalhes
+### <a name="go-to-details"></a>Ir para detalhes
 
-Selecione **Acessar detalhes** para explorar a experiência de transação de ponta a ponta que pode oferecer exibições feitas no nível da pilha de chamadas.
+Selecione **vá para detalhes** para explorar a experiência de transação de ponta a ponta, que pode oferecer exibições até o nível de pilha de chamada.
 
 ![Captura de tela do botão Acessar detalhes](media/app-map/go-to-details.png)
 
 ![Captura de tela de detalhes da transação de ponta a ponta](media/app-map/end-to-end-transaction.png)
 
-### <a name="view-in-analytics"></a>Exibir na análise
+### <a name="view-in-analytics"></a>Exibir no Analytics
 
 Para consultar e investigar ainda mais os dados do aplicativos, clique em **Exibir na análise**.
 

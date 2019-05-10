@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/20/2018
+ms.date: 04/30/2019
 ms.author: sajagtap
-ms.openlocfilehash: 43a43ddcbfc656a3eb5a274e1bb63a473b7c89a2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a6c467d3153400815e37a5d461766140abd1fa32
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098194"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228116"
 ---
 # <a name="video-moderation-with-human-review"></a>Moderação de vídeo com revisão humana
 
-Use a [moderação vídeo](video-moderation-api.md) assistido por computador do Content Moderator e a [ferramenta de análise humana](Review-Tool-User-Guide/human-in-the-loop.md) para moderar vídeos e transcrições conteúdos para adultos (explícito) e obscenos (sugestivos) para obter os melhores resultados para sua empresa.
+Use Content Moderator auxiliada por computador [moderação de vídeo](video-moderation-api.md) e [ferramenta de análise humana](Review-Tool-User-Guide/human-in-the-loop.md) moderar vídeos e transcrições de adulto (explícita) racista (sugestivas) o conteúdo e obter os melhores resultados para sua empresa.
 
 ## <a name="video-trained-classifier-preview"></a>Classificador treinado para vídeo (versão prévia)
 
@@ -28,52 +28,53 @@ A classificação de vídeo assistido por computador é obtida com os modelos tr
 ## <a name="shot-detection"></a>Detecção de captura
 
 Ao emitir os detalhes de classificação, a inteligência adicional de vídeo ajuda com mais flexibilidade na análise de vídeos. Em vez de emitir apenas os quadros, o serviço de moderação de vídeo da Microsoft fornece informações de nível de captura também. Agora você tem a opção para analisar seus vídeos no nível de captura e o nível de quadro.
- 
+
 ## <a name="key-frame-detection"></a>Detecção de quadro-chave
 
 Em vez de emitir quadros em intervalos regulares, o serviço de moderação de vídeo identifica e emite apenas os quadros potencialmente completos (bons). O recurso permite a geração de quadro eficiente para análise de adultos e obscenos em nível de quadro.
 
 A extração a seguir mostra uma resposta parcial com capturas potenciais, quadros-chave e pontuações de adultos e obscenos:
 
-    "fragments": [
-    {
-      "start": 0,
-      "duration": 18000
-    },
-    {
-      "start": 18000,
-      "duration": 3600,
-      "interval": 3600,
-      "events": [
-        [
-          {
-            "reviewRecommended": false,
-            "adultScore": 0.00001,
-            "racyScore": 0.03077,
-            "index": 5,
-            "timestamp": 18000,
-            "shotIndex": 0
-          }
-        ]
+```json
+"fragments":[  
+  {  
+    "start":0,
+    "duration":18000
+  },
+  {  
+    "start":18000,
+    "duration":3600,
+    "interval":3600,
+    "events":[  
+      [  
+        {  
+          "reviewRecommended":false,
+          "adultScore":0.00001,
+          "racyScore":0.03077,
+          "index":5,
+          "timestamp":18000,
+          "shotIndex":0
+        }
       ]
-    },
-    {
-      "start": 18386372,
-      "duration": 119149,
-      "interval": 119149,
-      "events": [
-        [
-          {
-            "reviewRecommended": true,
-            "adultScore": 0.00000,
-            "racyScore": 0.91902,
-            "index": 5085,
-            "timestamp": 18386372,
-            "shotIndex": 62
-          }
-        ]
+    ]
+  },
+  {  
+    "start":18386372,
+    "duration":119149,
+    "interval":119149,
+    "events":[  
+      [  
+        {  
+          "reviewRecommended":true,
+          "adultScore":0.00000,
+          "racyScore":0.91902,
+          "index":5085,
+          "timestamp":18386372,
+          "shotIndex":62
+        }
       ]
-
+    ]
+```
 
 ## <a name="visualization-for-human-reviews"></a>Visualização para revisões humanas
 
@@ -99,12 +100,9 @@ Os vídeos normalmente têm narração que também precisa de moderação para f
 
 ![exibição de transcrição da ferramenta de análise de vídeo](images/video-review-transcript-view.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
-Introdução com o [Início rápido de moderação de vídeo](video-moderation-api.md). 
-
-Saiba como gerar [análises de vídeos](video-reviews-quickstart-dotnet.md) para seus revisores humanos do seu resultado moderado.
-
-Adicione [análises de transcrição de vídeo](video-transcript-reviews-quickstart-dotnet.md) às suas análises de vídeo.
-
-Confira o tutorial detalhado sobre como desenvolver uma [solução completa de moderação de vídeo](video-transcript-moderation-review-tutorial-dotnet.md). 
+- Introdução com o [Início rápido de moderação de vídeo](video-moderation-api.md).
+- Saiba como gerar [análises de vídeos](video-reviews-quickstart-dotnet.md) para seus revisores humanos do seu resultado moderado.
+- Adicione [análises de transcrição de vídeo](video-transcript-reviews-quickstart-dotnet.md) às suas análises de vídeo.
+- Confira o tutorial detalhado sobre como desenvolver uma [solução completa de moderação de vídeo](video-transcript-moderation-review-tutorial-dotnet.md).

@@ -8,14 +8,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/15/2019
+ms.date: 05/02/2019
 ms.author: gwallace
-ms.openlocfilehash: e2b36633996f961d100f0a98abb09135fd4393e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b71ba69bcf4965ea607e097c392573e77aab6865
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60869853"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408282"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de script personalizado para o Windows
 
@@ -106,7 +106,7 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publicador | Microsoft.Compute | string |
-| Tipo | CustomScriptExtension | string |
+| tipo | CustomScriptExtension | string |
 | typeHandlerVersion | 1.9 | int |
 | fileUris (por exemplo) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | matriz |
 | carimbo de data/hora (exemplo) | 123456789 | Inteiro de 32 bits |
@@ -207,6 +207,16 @@ Se você quiser executar a extensão do script personalizado mais de uma vez, po
 * A extensão **nome** parâmetro é o mesmo que a implantação anterior da extensão.
 * Atualize a configuração caso contrário, que o comando não será executado novamente. É possível adicionar uma propriedade dinâmica ao comando, como um carimbo de data/hora.
 
+Como alternativa, você pode definir as [ForceUpdateTag](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag) propriedade **verdadeiro**.
+
+### <a name="using-invoke-webrequest"></a>Usando Invoke-WebRequest
+
+Se você estiver usando [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) em seu script, você deve especificar o parâmetro `-UseBasicParsing` ou caso contrário você receberá o seguinte erro ao verificar o status detalhado:
+
+```error
+The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
+```
+
 ## <a name="classic-vms"></a>VMs clássicas
 
 Para implantar a extensão de Script personalizado em VMs clássicas, você pode usar o portal do Azure ou os cmdlets do PowerShell clássico do Azure.
@@ -263,7 +273,7 @@ em que `<n>` é um inteiro decimal que pode ser alterado entre as execuções da
 
 Ao executar o comando `commandToExecute`, a extensão definirá esse diretório (por exemplo, `...\Downloads\2`) como o diretório de trabalho atual. Esse processo permite o uso de caminhos relativos para localizar os arquivos baixados por meio da propriedade `fileURIs`. Veja a tabela abaixo para obter exemplos.
 
-Como o caminho absoluto do download pode variar ao longo do tempo, é melhor optar por caminhos de arquivo/script relativos na cadeia de caracteres `commandToExecute`, sempre que possível. Por exemplo: 
+Como o caminho absoluto do download pode variar ao longo do tempo, é melhor optar por caminhos de arquivo/script relativos na cadeia de caracteres `commandToExecute`, sempre que possível. Por exemplo:
 
 ```json
 "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""

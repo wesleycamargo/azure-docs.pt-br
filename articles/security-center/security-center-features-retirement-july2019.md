@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: ac677a7f9586dbe893cbcbc480564aceac0149a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 614dabe842c7fe99da3ddb486c27003c79382ea1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147918"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231399"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Desativação de recursos da Central de segurança (julho de 2019)
 
@@ -81,6 +81,7 @@ Um clique no espaço de trabalho é aberto em "Identidade e acesso" painel de an
 ![Página de identidade - painel][8]
 
 No futuro todas as três telas acima será desativado. Seus dados permanecerão disponíveis na solução de segurança de log analytics e não serão modificados ou removidos.
+As consultas de análise de Log originais usadas para preencher o painel de acesso e identidade estão disponíveis na Central de segurança [repositório GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ### <a name="classic-identity--access-preview---new-experience"></a>Identidade e acesso (Preview) – a nova experiência clássicos
 Enquanto o painel de análise de Log forneceu insights em um determinado espaço de trabalho apenas, os recursos da Central de segurança nativos fornecem visibilidade sobre todas as assinaturas e todos os espaços de trabalho associados a eles, em uma forma fácil-usar o modo de exibição que lhe permite se concentrar no que do importante, acordo com a pontuação segura de sua identidade e acesso (aram).
@@ -96,13 +97,14 @@ O botão, junto com o painel por espaço de trabalho, será removido após a sub
 
 Hoje em dia quando você clica em "Ir para o mapa de eventos de segurança" é aberto o painel inteligência contra ameaças. O painel de inteligência de ameaça será desativado.  
 
-![Painel Inteligência contra ameaças][11]
+![Painel Inteligência Contra Ameaças][11]
 
 Quando você escolhe um espaço de trabalho para exibir o painel de inteligência de ameaças, a segurança alertas tela map(Preview) *no Log Analytics* é aberto. Essa tela será desativada.
 
 ![Mapa de alertas de segurança no Log Analytics][12]
 
 Os dados existentes permanecerão disponíveis na solução de segurança de log analytics e não serão ser modificados ou removidos.
+As consultas de análise de Log originais usadas para preencher o painel inteligência contra ameaças estão disponíveis na Central de segurança [repositório GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ### <a name="security-events-map---new-experience"></a>Mapa de eventos de segurança - nova experiência
 Recomendamos que nossos clientes para usar a funcionalidade de mapa de alertas incorporada a Central de segurança - "(visualização) de mapa de alertas de segurança". Isso fornece uma experiência otimizada e funciona em todas as assinaturas e espaços de trabalho associados, permitindo que uma macro exibir em seu ambiente e não se concentrar em um único espaço de trabalho.
@@ -165,6 +167,8 @@ O painel de segurança no Log analytics fornece uma visão geral de por espaço 
 
 ### <a name="security--audit-dashboard---new-experience"></a>Painel de segurança e auditoria - nova experiência
 Nossos clientes são aconselhados a usar a Central de segurança do Azure, que fornece a mesma visão geral da segurança em várias assinaturas e espaços de trabalho associados a eles, junto com um conjunto de recursos mais avançado.
+
+As consultas do Log Analytics originais usadas para preencher a segurança e auditoria painel estão disponíveis na Central de segurança [repositório GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre a [Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/)
