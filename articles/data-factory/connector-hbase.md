@@ -43,11 +43,11 @@ As propriedades a seguir têm suporte para o serviço vinculado do HBase:
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **HBase** | Sim |
 | host | O endereço IP ou nome do host do servidor HBase. (ou seja  `[clustername].azurehdinsight.net`, `192.168.222.160`)  | Sim |
-| porta | A porta TCP que a instância HBase usa para escutar as conexões de clientes. O valor padrão é 9090. Se você conectar ao Microsoft Azure HDInsights, especifique a porta como 443. | Não  |
+| port | A porta TCP que a instância HBase usa para escutar as conexões de clientes. O valor padrão é 9090. Se você conectar ao Microsoft Azure HDInsights, especifique a porta como 443. | Não  |
 | httpPath | A URL parcial correspondente ao servidor do HBase, por exemplo, `/hbaserest0` ao usar cluster HDInsights. | Não  |
 | authenticationType | O mecanismo de autenticação a ser usado para se conectar ao servidor do HBase. <br/>Valores permitidos são: **Anônimo**, **Básico** | Sim |
-| Nome de Usuário | O nome de usuário usado para se conectar à instância do HBase.  | Não  |
-| Senha | A senha correspondente ao nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não  |
+| username | O nome de usuário usado para se conectar à instância do HBase.  | Não  |
+| password | A senha correspondente ao nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não  |
 | enableSsl | Especifica se as conexões com o servidor são criptografadas usando SSL. O valor padrão é falso.  | Não  |
 | trustedCertPath | O caminho completo do arquivo .pem que contém certificados de autoridade de certificação confiáveis para verificar o servidor ao se conectar via SSL. Essa propriedade só pode ser definida ao usar o SSL em IR auto-hospedado. O valor padrão é o arquivo de cacerts.pem instalado com o IR.  | Não  |
 | allowHostNameCNMismatch | Especifica se é necessário o nome do certificado SSL emitido pela autoridade de certificação para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é falso.  | Não  |
