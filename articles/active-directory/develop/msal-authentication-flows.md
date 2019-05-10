@@ -17,18 +17,18 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7db73ff8bef553b36408cfae90e32014f875bd3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 39f323c2ac86e8d42319b3d99221f6c20beff3e4
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190994"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406681"
 ---
 # <a name="authentication-flows"></a>Fluxos de autenticação
 
 Este artigo descreve os fluxos de autenticação diferentes fornecidos pela biblioteca de autenticação da Microsoft (MSAL).  Esses fluxos podem ser usados em uma variedade de cenários de aplicativo diferente.
 
-| Flow | DESCRIÇÃO | Usado em|  
+| Flow | Descrição | Usado em|  
 | ---- | ----------- | ------- | 
 | [Interativo](#interactive) | Obtém o token por meio de um processo interativo que solicita ao usuário credenciais por meio de um navegador ou a janela pop-up. | [Aplicativos da área de trabalho](scenario-desktop-overview.md), [aplicativos móveis](scenario-mobile-overview.md) |
 | [Concessão implícita](#implicit-grant) | Permite que o aplicativo obter tokens sem executar uma troca de credenciais do servidor de back-end. Isso permite que o aplicativo autentique o usuário, mantenha a sessão e obtenha tokens para outras APIs da Web, tudo dentro do código JavaScript do cliente.| [Aplicativos de página única (SPA)](scenario-spa-overview.md) |
@@ -36,7 +36,7 @@ Este artigo descreve os fluxos de autenticação diferentes fornecidos pela bibl
 | [On-behalf-of](#on-behalf-of) | Um aplicativo chama uma serviço/API web, que por sua vez precisa chamar outro serviço/API web. A ideia é propagar as permissões e identidade de usuário delegado por meio da cadeia de solicitações. | [APIs da Web](scenario-web-api-call-api-overview.md) |
 | [Credenciais do cliente](#client-credentials) | Permite que você acesse recursos hospedados na web usando a identidade de um aplicativo. Normalmente usado para interações de servidor para servidor que devem ser executado em segundo plano, sem interação imediata com um usuário. | [Aplicativos daemon](scenario-daemon-overview.md) |
 | [Código de dispositivo](#device-code) | Permite que os usuários entrarem dispositivos restritos a entrada como uma smart TV, dispositivo IoT ou impressora. | [Aplicativos de área de trabalho/móvel](scenario-desktop-acquire-token.md#command-line-tool-without-web-browser) |
-| [Autenticação integrada do Windows](scenario-desktop-acquire-token.md#integrated-windows-authentication) | Permite que aplicativos no Azure AD ou de domínio Unido computadores para adquirir um token silenciosamente (sem nenhuma interação da interface do usuário do usuário).| [Aplicativos de área de trabalho/móvel](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
+| [Autenticação Integrada do Windows](scenario-desktop-acquire-token.md#integrated-windows-authentication) | Permite que aplicativos no Azure AD ou de domínio Unido computadores para adquirir um token silenciosamente (sem nenhuma interação da interface do usuário do usuário).| [Aplicativos de área de trabalho/móvel](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
 | [Nome de usuário/senha](scenario-desktop-acquire-token.md#username--password) | Permite que um aplicativo para a entrada do usuário manipulando diretamente sua senha. Este fluxo não é recomendado. | [Aplicativos de área de trabalho/móvel](scenario-desktop-acquire-token.md#username--password) | 
 
 ## <a name="interactive"></a>Interativo
@@ -89,7 +89,7 @@ A MSAL dá suporte a [fluxo de autenticação em nome do OAuth 2](v2-oauth2-on-b
 3. Quando o cliente chama a API da Web, a API da Web solicita outro token em nome de usuário.  
 4. A API Web protegida usa esse token para chamar uma API Web downstream em nome de usuário.  A API da Web também mais tarde pode solicitar tokens para outras APIs de downstream (mas ainda em nome do usuário mesmo).
 
-## <a name="client-credentials"></a>Credenciais do cliente
+## <a name="client-credentials"></a>Credenciais de cliente
 
 A MSAL dá suporte a [fluxo de credenciais de cliente OAuth 2](v2-oauth2-client-creds-grant-flow.md). Esse fluxo permite que você acesse recursos hospedados na web usando a identidade de um aplicativo. Esse tipo de concessão normalmente é usado para interações de servidor para servidor que devem ser executadas em segundo plano, sem interação imediata com um usuário. Esses tipos de aplicativos são geralmente denominados daemons ou contas de serviço. 
 
@@ -126,7 +126,7 @@ Usando o fluxo de código do dispositivo, o aplicativo obtém tokens por meio de
 
 ![Fluxo de código do dispositivo](media/msal-authentication-flows/device-code.png)
 
-1. Sempre que a autenticação do usuário é necessária, o aplicativo fornece um código e pede ao usuário para usar outro dispositivo (como um smartphone conectado à internet) para navegar até uma URL (por exemplo, http://microsoft.com/devicelogin), em que o usuário será solicitado a inserir o código. Se feito, a página da web levará o usuário por meio de uma experiência de autenticação normal, incluindo solicitações de consentimento e a autenticação multifator, se necessário.
+1. Sempre que a autenticação do usuário é necessária, o aplicativo fornece um código e pede ao usuário para usar outro dispositivo (como um smartphone conectado à internet) para navegar até uma URL (por exemplo, https://microsoft.com/devicelogin), em que o usuário será solicitado a inserir o código. Se feito, a página da web levará o usuário por meio de uma experiência de autenticação normal, incluindo solicitações de consentimento e a autenticação multifator, se necessário.
 
 2. Após a autenticação bem-sucedida, o aplicativo de linha de comando receberá os símbolos necessários por meio de um canal de retorno e os usará para executar as chamadas à API da web que precisa.
 

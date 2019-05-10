@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/05/2019
+ms.date: 05/07/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 097b5e8ee69d945e0a9e24ba1c62b0ae82dd896b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2ddcf1f38d3d92f9d9bdd12203ebf99f20600478
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689409"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409778"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planejamento e implementação de Máquinas Virtuais do Azure para SAP NetWeaver
 
@@ -391,17 +391,10 @@ As limitações gerais padrão e as limitações máximas das assinaturas do Azu
 ## <a name="possible-scenarios"></a>Cenários possíveis
 SAP é normalmente visto como um dos aplicativos mais essenciais nas empresas. A arquitetura e as operações desses aplicativos geralmente são complexas, e é importante que você atenda aos requisitos de disponibilidade e desempenho.
 
-Portanto, as empresas precisam analisar cuidadosamente quais aplicativos podem ser executados em um ambiente de nuvem pública, independentemente do provedor de nuvem escolhido.
+Assim, as empresas precisam analisar cuidadosamente sobre qual provedor de nuvem para escolher para executar tal negócios processos essenciais de negócios no. Azure é a plataforma de nuvem pública ideal para aplicativos SAP críticos de negócios e processos de negócios. Considerando a ampla variedade de infraestrutura do Azure, quase todos os sistemas SAP NetWeaver e 4hana/s existentes podem ser hospedados no Azure hoje mesmo. O Azure fornece VMs com vários Terabytes de memória e CPUs mais de 200. Além do que o Azure oferece [instâncias grandes do HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), que permitem que as implantações do HANA de expansão de até 24 TB e ANA de escalabilidade horizontal implantações de 120 TB. 
 
-Os tipos de sistema possíveis para implantação da SAP NetWeaver com base em aplicativos em ambientes de nuvem pública estão listados abaixo:
 
-1. Sistemas de produção de médio porte
-2. Sistemas de desenvolvimento
-3. Sistemas de teste
-4. Protótipos de sistema
-5. Sistemas de demonstração/aprendizado
-
-Para implantar sistemas SAP no Azure IaaS ou IaaS em geral, é importante entender as diferenças significativas entre as ofertas de terceirizados tradicionais ou hosters e as ofertas de IaaS. Enquanto o terceirizado ou hoster tradicional adapta a infraestrutura (tipo de servidor, rede e armazenamento) para a carga de trabalho que um cliente deseja hospedar, é responsabilidade do cliente escolher a carga de trabalho certa para implantações de IaaS.
+Para implantar sistemas SAP no Azure IaaS ou IaaS em geral, é importante entender as diferenças significativas entre as ofertas de terceirizados tradicionais ou hosters e as ofertas de IaaS. Enquanto o terceirizado ou hoster tradicional adapta a infraestrutura (tipo de servidor, rede e armazenamento) para a carga de trabalho que um cliente deseja hospedar, em vez disso, é responsabilidade do cliente ou do parceiro para caracterizar a carga de trabalho e escolha o Azure correto componentes de máquinas virtuais, armazenamento e rede para implantações de IaaS.
 
 Como uma primeira etapa, os clientes precisam verificar os seguintes itens:
 
@@ -422,11 +415,13 @@ A maioria desses dados pode ser encontrada [aqui (Linux)][virtual-machines-sizes
 
 Tenha em mente que os limites listados no link acima são os limites superiores. Isso não significa que os limites para qualquer um dos recursos, por exemplo, IOPS, possam ser fornecidos em todas as circunstâncias. As exceções, no entanto, são os recursos de CPU e memória de um tipo de VM escolhido. Para os tipos de VM aos quais a SAP dá suporte, os recursos de CPU e memória são reservados e, como tal, ficam disponíveis em qualquer ponto no tempo para consumo dentro da VM.
 
-A plataforma Microsoft Azure, assim como outras plataformas de IaaS, é uma plataforma multilocatário. Como resultado, recursos de armazenamento, rede e outros são compartilhados entre locatários. Lógica de cotas e limitação inteligente é usada para evitar que um locatário afete o desempenho de outro locatário (vizinho barulhento) de forma drástica. Embora a lógica do Azure tente manter as variações de largura de banda experimentadas pequenas, plataformas altamente compartilhadas tendem a apresentar variações maiores na disponibilidade de recurso/largura de banda do que muitos clientes são habituados a encontrar em suas implantações locais. Como resultado, você pode experimentar diferentes níveis de largura de banda em relação à E/S de armazenamento ou rede (o volume e também a latência) de minuto a minuto. A probabilidade de que um sistema SAP no Azure possa sofrer variações maiores do que aquelas em um sistema local precisa ser levada em conta.
+A plataforma Microsoft Azure é uma plataforma de vários locatário. Como resultado, recursos de armazenamento, rede e outros são compartilhados entre locatários. Lógica de cotas e limitação inteligente é usada para evitar que um locatário afete o desempenho de outro locatário (vizinho barulhento) de forma drástica. Especialmente para certificar a plataforma do Azure para SAP HANA, a Microsoft precisa provar o isolamento de recursos para casos em que várias VMs podem executar no mesmo host regularmente para SAP. Embora a lógica do Azure tente manter as variações de largura de banda experimentadas pequenas, plataformas altamente compartilhadas tendem a apresentar variações maiores na disponibilidade de recurso/largura de banda do que os clientes podem enfrentar em suas implantações locais. A probabilidade de que um sistema SAP no Azure possa sofrer variações maiores do que aquelas em um sistema local precisa ser levada em conta.
 
-Uma última etapa é avaliar os requisitos de disponibilidade. Pode ocorrer que a infraestrutura subjacente do Azure precise ser atualizada e exija que os hosts que executam as VMs sejam reinicializados. Nesses casos, as VMs em execução nesses hosts seriam desligadas e reiniciadas também. O tempo dessa manutenção, é feito durante o horário comercial não de núcleo para uma região específica, mas a janela potencial de algumas horas durante as quais uma reinicialização ocorrerá é relativamente grande. Existem diversas tecnologias na plataforma Azure que podem ser configuradas para atenuar parcial ou totalmente o impacto dessas atualizações. Melhorias futuras da plataforma Azure, aplicativo SAP e DBMS são projetados para minimizar o impacto dessas reinicializações.
+Uma última etapa é avaliar os requisitos de disponibilidade. Pode ocorrer que a infraestrutura subjacente do Azure precise ser atualizada e exija que os hosts que executam as VMs sejam reinicializados. Microsoft documenta os diferentes casos [manutenção para máquinas virtuais no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates). Para atenuar raros casos em que as VMs são forçadas a reinicialização, mas ainda mais importante para os casos que você precisa para o sistema operacional convidado de patch ou componentes do DBMS, você precisa desenvolver um conceitos de alta disponibilidade válido para seus sistemas SAP de produção. Esse requisito não é nada diferente do que os requisitos que você enfrenta em ambientes locais. Microsoft progressivamente está avançando da plataforma do Azure para reduzir o tempo de inatividade causado por alterações de plataforma. 
 
 Para implantar com êxito um sistema SAP no Azure, o sistema operacional, o banco de dados e os aplicativos SAP do(s) sistema(s) SAP local(is) devem aparecer na matriz de suporte do Azure da SAP, enquadrar-se nos recursos que a infraestrutura do Azure pode fornecer e que podem funcionar com os SLAs de disponibilidade que o Microsoft Azure oferece. Conforme esses sistemas são identificados, você precisa escolher um dos seguintes dois cenários de implantação.
+
+
 
 
 
@@ -1006,7 +1001,7 @@ A infraestrutura como serviço do Azure não é uma rua de mão única, em que v
 
 Durante o tempo de download, os VHDs ou Managed Disks não podem estar ativos. Mesmo ao baixar discos montados em VMs, a VM precisa ser desligada e desalocada. Se você quiser apenas baixar o conteúdo do banco de dados, que deverá então ser usado para configurar um novo sistema local, e se for aceitável que o sistema no Azure ainda possa estar operacional durante o tempo de download e instalação do novo sistema, você poderá evitar um longo tempo de inatividade executando um backup de banco de dados compactado em um disco e simplesmente baixando esse disco, em vez de também baixar a VM base do SO.
 
-#### <a name="powershell"></a>Powershell
+#### <a name="powershell"></a>PowerShell
 
 * Baixando um Managed Disk  
   Primeiro, você precisa obter acesso ao blob subjacente do Managed Disk. Em seguida, você pode copiar o blob de base para uma nova conta de armazenamento e baixar o blob da conta de armazenamento.
@@ -1066,7 +1061,7 @@ Os discos de dados podem ser armazenados como arquivos VHD em uma Conta de Armaz
 
 Discos de dados também podem ser Managed Disks. Nesse caso, o Managed Disk é usado para criar um novo Managed Disk antes de ser anexado à máquina virtual. O nome do Managed Disk deve ser exclusivo dentro de um grupo de recursos.
 
-##### <a name="powershell"></a>Powershell
+##### <a name="powershell"></a>PowerShell
 
 Você pode usar os cmdlets do Azure PowerShell para copiar um VHD, conforme mostrado [neste artigo][storage-powershell-guide-full-copy-vhd]. Para criar um novo Managed Disk, use New-AzDiskConfig e New-AzDisk conforme mostrado no exemplo a seguir.
 
@@ -1094,7 +1089,7 @@ Edições profissionais de Gerenciadores do Armazenamento do Azure que podem ser
 
 A cópia de um VHD no interior de uma conta de armazenamento é um processo que leva apenas alguns segundos (semelhante ao hardware de SAN criando instantâneos com cópia lenta e cópia em gravação). Depois de ter uma cópia do arquivo VHD, você pode anexá-lo a uma máquina virtual ou usá-lo como uma imagem para anexar cópias do VHD a máquinas virtuais.
 
-##### <a name="powershell"></a>Powershell
+##### <a name="powershell"></a>PowerShell
 
 ```powershell
 # attach a vhd to a vm
@@ -1140,7 +1135,7 @@ az vm disk attach --disk <new disk name or managed disk id> --resource-group <re
 #### <a name="9789b076-2011-4afa-b2fe-b07a8aba58a1"></a>Copiando discos entre Contas de Armazenamento do Azure
 Esta tarefa não pode ser realizada no Portal do Azure. Você pode usar cmdlets do Azure PowerShell, a CLI do Azure ou um navegador de armazenamento de terceiros. Os comandos CLI ou cmdlets do PowerShell podem criar e gerenciar blobs, os quais incluem a capacidade de copiar blobs em regiões entre contas de armazenamento de forma assíncrona na assinatura do Azure.
 
-##### <a name="powershell"></a>Powershell
+##### <a name="powershell"></a>PowerShell
 Você também pode copiar VHDs entre assinaturas. Para obter mais informações, leia [este artigo][storage-powershell-guide-full-copy-vhd].
 
 O fluxo básico da lógica de cmdlet do PS tem esta aparência:
@@ -1379,7 +1374,7 @@ Pressupõe-se que você criou uma imagem de VM, conforme descrito em algumas se�
 
 A sequência de eventos para implementar o cenário tem esta aparência:
 
-##### <a name="powershell"></a>Powershell
+##### <a name="powershell"></a>PowerShell
 
 * Criar um novo grupo de recursos para cada estrutura de treinamento/demonstração
 
@@ -1506,7 +1501,7 @@ rgNameLower=saperpdemo1
 az group create --name $rgName --location "North Europe"
 ```
 
-* Criar uma nova conta de armazenamento
+* Criar uma conta de armazenamento
 
 ```
 az storage account create --resource-group $rgName --location "North Europe" --kind Storage --sku Standard_LRS --name $rgNameLower
@@ -1637,9 +1632,9 @@ As portas de comunicação SAP típicas estão listadas na tabela a seguir. Basi
 | Serviço | Número da Porta | Exemplo `<nn`> = 01 | Intervalo Padrão (Mín-Máx) | Comentário |
 | --- | --- | --- | --- | --- |
 | Dispatcher |sapdp`<nn>` confira * |3201 |3200 – 3299 |Dispatcher SAP, usado pela GUI da SAP para Windows e Java |
-| Servidor de mensagens |sapms`<sid`> confira ** |3600 |número livre de sapms`<anySID`> |sid = ID do sistema SAP |
+| Servidor de mensagens |sapms`<sid`> confira ** |3.600 |número livre de sapms`<anySID`> |sid = ID do sistema SAP |
 | Gateway |sapgw`<nn`> confira * |3301 |livre |Gateway SAP, usado para comunicação CPIC e RFC |
-| Roteador SAP |sapdp99 |3299 |livre |Apenas os nomes de serviço CI (instância central) podem ser reatribuídos em /etc/services, para um valor arbitrário, após a instalação. |
+| Roteador SAP |sapdp99 |3299 |gratuito |Apenas os nomes de serviço CI (instância central) podem ser reatribuídos em /etc/services, para um valor arbitrário, após a instalação. |
 
 *) nn = Número da Instância SAP
 

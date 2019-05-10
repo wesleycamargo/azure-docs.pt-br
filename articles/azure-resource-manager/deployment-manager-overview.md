@@ -12,14 +12,14 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: a615ab26e4ea046ced70ce2c154a0c304b741986
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd7e29f8f37572565e505aade97b964254b6d72c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550865"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466554"
 ---
-# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>Ativar práticas de implantação seguras com o Azure Deployment Manager (visualização privada)
+# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Habilitar práticas de implantação segura com o Azure Deployment Manager (visualização pública)
 
 Para implantar seu serviço em várias regiões e garantir que ele esteja sendo executado conforme o esperado em cada região, você pode usar o Azure Deployment Manager para coordenar uma implementação gradual do serviço. Assim como você faria em qualquer implantação do Azure, defina os recursos para seu serviço em [ modelos do Resource Manager ](resource-group-authoring-templates.md). Depois de criar os modelos, use o Deployment Manager para descrever a topologia do seu serviço e como ele deve ser implementado.
 
@@ -200,7 +200,9 @@ No modelo de implementação, você cria uma fonte de artefato para os binários
 
 ### <a name="steps"></a>Etapas
 
-Você pode definir uma etapa a ser executada antes ou depois de sua operação de implantação. Atualmente, apenas a etapa `wait` está disponível. A etapa de espera faz uma pausa na implantação antes de continuar. Ele permite que você verifique se seu serviço está sendo executado conforme o esperado antes de implantar a próxima unidade de serviço. O exemplo a seguir mostra o formato geral de uma etapa de espera.
+Você pode definir uma etapa a ser executada antes ou depois de sua operação de implantação. Atualmente, apenas o `wait` etapa e a 'verificação de integridade' estão disponíveis. 
+
+A etapa de espera faz uma pausa na implantação antes de continuar. Ele permite que você verifique se seu serviço está sendo executado conforme o esperado antes de implantar a próxima unidade de serviço. O exemplo a seguir mostra o formato geral de uma etapa de espera.
 
 ```json
 {
@@ -219,7 +221,7 @@ Você pode definir uma etapa a ser executada antes ou depois de sua operação d
 
 A propriedade duration usa [padrão ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). O exemplo anterior Especifica uma espera de um minuto.
 
-Para obter mais informações, consulte [as etapas de referência de modelo](/azure/templates/Microsoft.DeploymentManager/steps).
+Para obter mais informações sobre a etapa de verificação de integridade, consulte [ ]() e [ ]() para obter mais informações, consulte [as etapas de referência de modelo](/azure/templates/Microsoft.DeploymentManager/steps).
 
 ### <a name="rollouts"></a>Distribuições
 

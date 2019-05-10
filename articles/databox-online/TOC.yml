@@ -81,24 +81,28 @@
           href: data-box-edge-technical-specifications-compliance.md
     - name: Como
       items:
-        - name: Gerenciar a computação
-          href: data-box-edge-manage-compute.md
         - name: 'Desenvolver um módulo C#'
           href: data-box-edge-create-iot-edge-module.md
-        - name: Gerenciar compartilhamentos
-          href: data-box-edge-manage-shares.md
-        - name: Gerenciar usuários
-          href: data-box-edge-manage-users.md
-        - name: Gerenciar agendas de largura de banda
-          href: data-box-edge-manage-bandwidth-schedules.md
-        - name: 'Gerenciar energia, acesso, conectividade'
-          href: data-box-edge-manage-access-power-connectivity-mode.md
-        - name: Gerenciar via PowerShell
-          href: data-box-edge-connect-powershell-interface.md
+        - name: Gerenciar
+          items:
+            - name: Azure Data Box Edge
+              href: data-box-edge-manage-compute.md
+            - name: Compartilhamentos
+              href: data-box-edge-manage-shares.md
+            - name: Usuários
+              href: data-box-edge-manage-users.md
+            - name: Agenda da largura de banda
+              href: data-box-edge-manage-bandwidth-schedules.md
+            - name: 'Potência, acesso, conectividade'
+              href: data-box-edge-manage-access-power-connectivity-mode.md
+            - name: Via PowerShell
+              href: data-box-edge-connect-powershell-interface.md
         - name: Solucionar problemas
           href: data-box-edge-troubleshoot.md
         - name: Monitoramento
           href: data-box-edge-monitor.md
+        - name: Devolução do dispositivo
+          href: data-box-edge-return-device.md
     - name: Notas de versão
       items:
         - name: Disponibilidade Geral

@@ -12,15 +12,15 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 02/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7dc07ba7f1d62b49232b1cd892070804099fab8c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e7c330846cd907f35bb23ae5e453383d7c35222e
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024013"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471891"
 ---
 # <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>Carregar e ler os dados com o SDK do Azure Machine Learning Data Prep
-Neste artigo, você aprenderá a diferentes métodos de carregamento de dados usando o SDK do Azure Machine Learning Data Prep. Para ver a documentação de referência do SDK, consulte o [visão geral](https://aka.ms/data-prep-sdk). O SDK suporta vários recursos de ingestão de dados, incluindo:
+Neste artigo, você aprenderá a diferentes métodos de carregamento de dados usando o SDK do Azure Machine Learning Data Prep.  O SDK suporta vários recursos de ingestão de dados, incluindo:
 
 * Carregar de muitos tipos de arquivos com inferência de parâmetros de análise (codificação, separador, cabeçalhos)
 * Conversão de tipos usando inferência durante o carregamento de arquivos
@@ -28,6 +28,7 @@ Neste artigo, você aprenderá a diferentes métodos de carregamento de dados us
 
 > [!Important]
 > Se você estiver criando uma nova solução, tente as [conjuntos de dados do Azure Machine Learning](how-to-explore-prepare-data.md) (visualização) para preparação e exploração de dados. Conjuntos de dados é a próxima versão da SDK, oferecendo funcionalidade expandida para gerenciar conjuntos de dados em soluções de inteligência Artificial a preparação de dados.
+> Se você usar o `azureml-dataprep` pacote para criar um fluxo de dados com transformações em vez de usar o `azureml-datasets` pacote para criar um conjunto de dados, você não poderá usar instantâneos ou conjuntos de dados com controle de versão posterior.
 
 A tabela a seguir mostra uma seleção de funções usadas para carregamento de dados de tipos de arquivo comuns.
 
@@ -161,7 +162,7 @@ dflow.head(5)
 |0|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum| |
 |1|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum| |
 |2|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum| |
-|3|RANK|Title|Estúdio|Worldwide|Domestic / %|Coluna1|Overseas / %|Coluna2|Year^| |
+|3|Classificar|Title|Estúdio|Mundial|Domestic / %|Coluna1|Overseas / %|Coluna2|Year^| |
 |4|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009^|5|
 
 A saída mostra que os dados na segunda folha tinham três linhas vazias antes dos cabeçalhos. A função `read_excel()` contém parâmetros opcionais para pular linhas e usar cabeçalhos. Execute o seguinte código para pular as três primeiras linhas e use a quarta linha como os cabeçalhos.
@@ -170,7 +171,7 @@ A saída mostra que os dados na segunda folha tinham três linhas vazias antes d
 dflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_column_headers=True, skip_rows=3)
 ```
 
-||RANK|Title|Estúdio|Worldwide|Domestic / %|Coluna1|Overseas / %|Coluna2|Year^|
+||Classificar|Title|Estúdio|Mundial|Domestic / %|Coluna1|Overseas / %|Coluna2|Year^|
 |------|------|------|-----|------|-----|-------|----|-----|-----|
 |0|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009^|
 |1|2|Titanic|Par.|2186,8|658. 7|0,301|1528,1|0. 699|1997^|
@@ -305,7 +306,7 @@ dflow = dprep.read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azur
 dflow.to_pandas_dataframe().head()
 ```
 
-||FMID|MarketName|Site|street|city|Município|
+||FMID|MarketName|Site|street|city|Condado|
 |----|------|-----|----|----|----|----|
 |0|1012063|Associação do mercado dos fazendeiros de Caledonia - Danville|https://sites.google.com/site/caledoniafarmers... ||Danville|Caledonia|
 |1|1011871|Stearns Homestead Fazendeiros ' mercado|http://Stearnshomestead.com |6975 Ridge Road|Parma|Cuyahoga|
@@ -315,5 +316,4 @@ dflow.to_pandas_dataframe().head()
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Consulte o SDK [visão geral](https://aka.ms/data-prep-sdk) para padrões de design e exemplos de uso
 * Consulte o SDK do Azure Machine Learning Data Prep [tutorial](tutorial-data-prep.md) para obter um exemplo de resolver um cenário específico

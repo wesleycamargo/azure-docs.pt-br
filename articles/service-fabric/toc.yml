@@ -643,8 +643,6 @@
                   href: service-fabric-cluster-config-upgrade-azure.md
                 - name: Nós de cluster do patch (Windows)
                   href: service-fabric-patch-orchestration-application.md
-                - name: Nós de cluster do patch (Linux)
-                  href: service-fabric-patch-orchestration-application-linux.md
                 - name: Habilitar criptografia de disco (Windows)
                   href: service-fabric-enable-azure-disk-encryption-windows.md
                 - name: Habilitar criptografia de disco (Linux)

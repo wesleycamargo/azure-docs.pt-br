@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 3ddda89b19a04bdcd45f392f297ee5e930833538
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8fa461d8c3a70d4b0d2d9973a840ffc7d1ff6470
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60711588"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472777"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Atualizar um cluster do Azure Service Fabric
 
@@ -99,7 +99,7 @@ Você pode especificar as políticas de integridade personalizados ou examinar a
 Muitas configurações diferentes podem ser personalizadas em um cluster, como o nível de confiabilidade das propriedades de nó e o cluster. Para obter mais informações, leia [Configurações de fábrica do cluster do Service Fabric](service-fabric-cluster-fabric-settings.md).
 
 ## <a name="patch-the-os-in-the-cluster-nodes"></a>Corrigir o sistema operacional nos nós de cluster
-O aplicativo de orquestração de patch (POA) é um aplicativo do Azure Service Fabric que automatiza a aplicação de patches do sistema operacional em um cluster do Service Fabric sem tempo de inatividade. O [Aplicativo de Orquestração de Patch para Windows](service-fabric-patch-orchestration-application.md) ou [Aplicativo de Orquestração de Patch para Linux](service-fabric-patch-orchestration-application-linux.md) pode ser implantado em seu cluster para instalar os patches de maneira orquestrada, mantendo os serviços disponível o tempo todo. 
+O aplicativo de orquestração de patch (POA) é um aplicativo do Service Fabric que automatiza a correção do sistema operacional em um cluster do Service Fabric sem tempo de inatividade. O [Aplicativo de Orquestração de Patches para Windows](service-fabric-patch-orchestration-application.md) pode ser implantado em seu cluster para instalar os patches de maneira orquestrada, mantendo os serviços disponíveis o tempo todo.
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5e9558eae43b351aa198b64bb2a7903c756064c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 63b64df457af5b7d3d2bd5901f73d89ccd3c913a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61025208"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506967"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
 
@@ -98,7 +98,7 @@ O corpo pode ser semelhante ao seguinte:
 
 Não é necessário especificar parâmetros. O padrão será aplicado.
 
-| NOME             | Type  | DESCRIÇÃO  |Padrão  |
+| NOME             | Type  | Descrição  |Padrão  |
 |------------------|-------|--------------|---------|
 | `Type`           | Enum  | O tipo de processamento a ser executado. Os tipos são alinhados com os tipos de [comandos de atualização](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) da TMSL: full, clearValues, calculate, dataOnly, automatic e defragment. Não há suporte para a adição de tipo.      |   automático      |
 | `CommitMode`     | Enum  | Determina se os objetos serão confirmados em lotes ou somente na conclusão. Os modos incluem: default, transactional, partialBatch.  |  transacional       |
@@ -201,42 +201,9 @@ Aqui está um exemplo de código em C# para você começar, [RestApiSample on Gi
 1.  Clone ou baixe o repositório. Abra a solução RestApiSample.
 2.  Localize a linha **client.BaseAddress = …** e forneça sua [URL base](#base-url).
 
-O exemplo de código pode usar um logon interativo, nome de usuário/senha, ou uma [entidade de serviço](#service-principal).
+O exemplo de código utiliza [entidade de serviço](#service-principal) autenticação.
 
-#### <a name="interactive-login-or-usernamepassword"></a>Logon interativo ou nome de usuário/senha
-
-Essa forma de autenticação exige que um aplicativo do Azure seja criado com as permissões de API necessárias atribuídas. 
-
-1.  No Portal do Azure, clique em **Criar um recurso** > **Azure Active Directory** > **Registros do aplicativo** > **Novo registro do aplicativo**.
-
-    ![Novo Registro de aplicativo](./media/analysis-services-async-refresh/aas-async-app-reg.png)
-
-
-2.  Em **Criar**, digite um nome e, em seguida, selecione **Nativo** em tipo de aplicativo. Para **URI de Redirecionamento**, digite **urn:ietf:wg:oauth:2.0:oob** e, em seguida, clique em **Criar**.
-
-    ![Configurações](./media/analysis-services-async-refresh/aas-async-app-reg-name.png)
-
-3.  Selecione seu aplicativo e, em seguida, copie e salve a **ID do Aplicativo**.
-
-    ![Copiar ID do aplicativo](./media/analysis-services-async-refresh/aas-async-app-id.png)
-
-4.  Em **Configurações**, clique em **Permissões necessárias** > **Adicionar**.
-
-    ![Adicionar acesso à API](./media/analysis-services-async-refresh/aas-async-add.png)
-
-5.  Em **Selecionar uma API**, digite **Azure Analysis Services** na caixa de pesquisa e, em seguida, selecione-o.
-
-    ![Selecionar API](./media/analysis-services-async-refresh/aas-async-select-api.png)
-
-6.  Selecione **Leitura e gravação em todos os modelos** e, em seguida, clique em **Selecionar**. Quando as duas estiverem selecionadas, clique em **Concluído** para adicionar as permissões. Pode levar alguns minutos para propagar.
-
-    ![Selecionar Leitura e gravação em todos os modelos](./media/analysis-services-async-refresh/aas-async-select-read.png)
-
-7.  No exemplo de código, localize o método **UpdateToken()**. Observe o conteúdo deste método.
-8.  Localize **string clientID = …** e, em seguida, insira a **ID do Aplicativo** que você copiou na etapa 3.
-9.  Execute o exemplo.
-
-#### <a name="service-principal"></a>Entidade de serviço
+### <a name="service-principal"></a>Entidade de serviço
 
 Consulte [Criar entidade de serviço - portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md) e [Adicionar uma entidade de serviço à função de administrador de servidor](analysis-services-addservprinc-admins.md) para obter mais informações sobre como configurar uma entidade de serviço e atribuir as permissões necessárias no Azure AS. Ao concluir as etapas, execute as seguintes etapas adicionais:
 

@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bad64f439d45581f8f4b55ea1ac849db1e27cb76
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b979609374afbd11bde0e15ce540e8930315482f
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024593"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472474"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Anexar um recurso dos Serviços Cognitivos a um conjunto de habilidades no Azure Search 
 
@@ -28,7 +28,7 @@ Se o pipeline consistir em habilidades não relacionadas à API de Serviços Cog
 > [!NOTE]
 > À medida que você expande o escopo ao aumentar a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, você precisará anexar um recurso faturável dos Serviços Cognitivos. As cobranças são geradas ao chamar APIs nos Serviços Cognitivos e para a extração de imagem como parte do estágio de decodificação de documentos no Azure Search. Não há encargos para extração de texto em documentos.
 >
-> Execução de habilidades internas é cobrada existente [dos serviços Cognitivos pagamento medida que vá preços](https://azure.microsoft.com/pricing/details/cognitive-services/). Preços de extração de imagem é descrita na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> A execução de habilidades integradas é cobrada nos [preços pagos conforme o uso dos Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. O preço de extração de imagem é descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 ## <a name="use-free-resources"></a>Usar recursos gratuitos
 
@@ -60,7 +60,7 @@ Você é cobrado apenas pelas habilidades que chamam a API de Serviços Cognitiv
 
    ![Criar um recurso de serviços Cognitivos](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "criar um recurso de serviços Cognitivos")
 
-1. No local, escolha a mesma região do Azure Search para evitar encargos de largura de banda de saída entre regiões.
+1. No local, escolha a mesma região do Azure Search. Isso é necessário por motivos de desempenho, mas ele também anula os encargos de largura de banda de saída entre regiões.
 
 1. No tipo de preço, escolha **S0** para obter a coleção em um dos recursos de serviços Cognitivos, incluindo os recursos de visão e a linguagem que faça as habilidades predefinidas usadas pelo Azure Search. 
 

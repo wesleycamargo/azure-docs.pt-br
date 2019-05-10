@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: d7737f73ee4eb9ae9dc8c4845020b7543a5b3495
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 47407df90a83501b8739a428789e20cddc59e83d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159159"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65468324"
 ---
 Efêmeros discos do sistema operacional são criados no armazenamento local da máquina Virtual (VM) e não são persistidos no armazenamento do Azure remoto. Discos de SO efêmeros funcionam bem para cargas de trabalho sem monitoração de estado, em que os aplicativos são tolerantes a falhas VM individuais, mas estiver mais preocupado com o tempo necessário para implantações em grande escala ou o tempo para refazer a imagem de instâncias de VM individuais. Também é adequado para aplicativos implantados usando o modelo de implantação clássico, para mover para o modelo de implantação do Resource Manager. Com o disco do SO efêmero, você deve observar menor latência de leitura/gravação para o disco do sistema operacional e a recriação de imagem de VM mais rápida. Além disso, o disco do SO efêmero é gratuito, você incorrerá em nenhum custo de armazenamento para o disco do sistema operacional. 
  
@@ -30,12 +30,12 @@ Principais diferenças entre os discos do sistema operacional persistentes e ef�
 |                             | Disco do sistema operacional persistente                          | Disco do SO Efêmero                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
 | Limite de tamanho do disco do sistema operacional      | 2 TiB                                                                                        | Cache de tamanho para o tamanho da VM ou 2TiB, o que for menor - [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md), e [GS](../articles/virtual-machines/linux/sizes-memory.md)              |
-| Tamanhos VM com suporte          | Todos                                                                                          | DSv1, DSv2, DSv3, Esv2, Fs, FsV2, GS, M                                               |
+| Tamanhos VM com suporte          | Todos                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
 | Suporte ao tipo de disco           | Disco do sistema operacional gerenciado e não gerenciado                                                                | Somente disco do sistema operacional gerenciado                                                               |
 | Suporte de regiões              | Todas as regiões                                                                                  | Todas as regiões                              |
 | Persistência de dados            | Dados de disco do sistema operacional gravados em disco do sistema operacional são armazenados no armazenamento do Azure                                  | Dados gravados no disco do sistema operacional são armazenados no armazenamento de VM local e não são persistidos no armazenamento do Azure. |
 | Estado parada desalocada      | As VMs e instâncias de conjunto de dimensionamento podem ser interrompida e desalocada e reiniciadas do estado parada desalocada | Máquinas virtuais e instâncias de conjunto de escala não podem ser interrompida e desalocada                                  |
-| Suporte de disco do sistema operacional especializado | Sim                                                                                          | Não                                                                                  |
+| Suporte de disco do sistema operacional especializado | Sim                                                                                          | Não                                                                                 |
 | Redimensionamento do disco do sistema operacional              | Durante a criação da VM e depois a VM é interrompida e desalocada com suporte                                | Suporte durante a criação da VM apenas                                                  |
 | Redimensionar para um novo tamanho VM   | Os dados de disco do sistema operacional são preservados                                                                    | Dados no disco do SO são excluídos, o sistema operacional for novamente provisionado                                      |
 
@@ -48,13 +48,13 @@ Se registre para a visualização de discos efêmeros do sistema operacional usa
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-Register-AzRmProviderFeature –FeatureName LocalDiffDiskPreview
+Register-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
 ```
 
 Para verificar se você está registrado para a versão prévia:
 
 ```azurepowershell-interactive
-Get-AzRmProviderFeature –FeatureName LocalDiffDiskPreview
+Get-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
 ```
 
 ### <a name="cli"></a>CLI
@@ -67,7 +67,7 @@ az feature register --namespace Microsoft.Compute --name LocalDiffDiskPreview
 Para verificar se você está registrado para a versão prévia:
  
 ```azurecli-interactive
-az provider show –namespace ‘Microsoft.Compute’
+az provider show --namespace Microsoft.Compute
 ```
 
 

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: dc6d3fd2239624e6fccecfbd565eb815b372ed3d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ed6a50ee68d39e6e0d01b405eb02edd6d4c93613
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920424"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407582"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Configurar um aplicativo PHP de Linux para o serviço de aplicativo do Azure
 
@@ -151,7 +151,7 @@ Se você precisar fazer alterações em sua instalação do PHP, você pode alte
 
 Para personalizar as diretivas PHP_INI_USER, PHP_INI_PERDIR e PHP_INI_ALL (consulte [ini](https://www.php.net/manual/ini.list.php)), adicione um *. htaccess* arquivo para o diretório raiz do seu aplicativo.
 
-No *. htaccess* do arquivo, adicione as diretivas usando o `php_value <directive-name> <value>` sintaxe. Por exemplo: 
+No *. htaccess* do arquivo, adicione as diretivas usando o `php_value <directive-name> <value>` sintaxe. Por exemplo:
 
 ```
 php_value upload_max_filesize 1000M
@@ -187,7 +187,7 @@ Crie um diretório no `/home/site` chamado `ini`, em seguida, crie um *. ini* de
 > Nos contêineres internos do Linux no serviço de aplicativo */home* é usado como armazenamento compartilhado persistente. 
 >
 
-Por exemplo, para alterar o valor de [expose_php](http://php.net/manual/ini.core.php#ini.expose-php) execute os seguintes comandos:
+Por exemplo, para alterar o valor de [expose_php](https://php.net/manual/ini.core.php#ini.expose-php) execute os seguintes comandos:
 
 ```bash
 cd /home/site
@@ -233,7 +233,7 @@ Para que as alterações entrem em vigor, reinicie o aplicativo.
 Quando um aplicativo PHP em funcionamento se comporta de forma diferente no serviço de aplicativo ou tem erros, tente o seguinte:
 
 - [Acessar o fluxo de log](#access-diagnostic-logs).
-- Teste o aplicativo localmente no modo de produção. Serviço de aplicativo executa seus aplicativos Node. js no modo de produção, portanto, você precisará certificar-se de que seu projeto funcione conforme o esperado no modo de produção localmente. Por exemplo: 
+- Teste o aplicativo localmente no modo de produção. Serviço de aplicativo executa seus aplicativos Node. js no modo de produção, portanto, você precisará certificar-se de que seu projeto funcione conforme o esperado no modo de produção localmente. Por exemplo:
     - Dependendo da sua *Composer. JSON*, pacotes diferentes podem ser instalados para o modo de produção (`require` versus `require-dev`).
     - Determinadas estruturas da web podem implantar arquivos estáticos diferentemente em modo de produção.
     - Determinadas estruturas da web podem usar scripts de inicialização personalizada ao ser executado no modo de produção.

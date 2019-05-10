@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 719cbe1ec8962b320aa2850053d44cdef7f56a8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 925ae2dd7b564eece4842cf25cc32b68d9e5c0b6
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691534"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472033"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurar o Application Insights para seu site ASP.NET
 
@@ -29,7 +29,7 @@ A instalação leva apenas alguns cliques no Visual Studio. Você tem a opção 
 Para adicionar o Application Insights ao seu site ASP.NET, você precisa:
 
 - Instale o [Visual Studio 2017 para Windows](https://www.visualstudio.com/downloads/) com as cargas de trabalho a seguir:
-    - Desenvolvimento Web e ASP.NET
+    - ASP.NET e desenvolvimento web (não desmarcar os componentes opcionais)
     - Desenvolvimento do Azure
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
@@ -63,7 +63,7 @@ Se você deseja definir o grupo de recursos ou o local onde os dados estão arma
 > [!NOTE]
 > Se você não quiser enviar telemetria para o portal durante a depuração, adicione o SDK do Application Insights ao seu aplicativo, mas não configure um recurso no portal. Você pode ver a telemetria no Visual Studio enquanto você está depurando. Posteriormente, você pode retornar a esta página de configuração, ou você poderia esperar até depois de implantar seu aplicativo e [ative telemetria em tempo de execução](../../azure-monitor/app/monitor-performance-live-website-now.md).
 
-## <a name="run"></a> Etapa 2: Executar seu aplicativo
+## <a name="run"></a> Etapa 2: Executar o aplicativo
 Execute o aplicativo com F5. Abra páginas diferentes para gerar alguma telemetria.
 
 No Visual Studio, você verá uma contagem dos eventos que foram registrados.

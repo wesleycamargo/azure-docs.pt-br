@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 05/08/2019
 ms.author: raynew
-ms.openlocfilehash: eaad582dc6484cb62d0bebf1af447ff61301a3bb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2267a4e836fe1aff214f40e34afa830de50fa2d5
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685941"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471641"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para backup de VM do Azure
 Você pode usar o [serviço de Backup do Azure](backup-overview.md) para fazer backup de máquinas locais e cargas de trabalho e máquinas virtuais (VMs). Este artigo resume as configurações de suporte e limitações quando você faz backup de VMs do Azure com o Backup do Azure.
@@ -41,7 +41,7 @@ Saiba mais sobre o backup [usando um servidor de backup](backup-architecture.md#
 **Ação** | **Suporte**
 --- | ---
 Habilitar o backup ao criar uma VM do Windows Azure | Com suporte para:  Windows Server de 2019 (Datacenter/Datacenter Core), Windows Server 2016 (Core Datacenter/Datacenter); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM e SP1)
-Habilitar backup ao criar uma VM do Linux | Com suporte para:<br/><br/> - Servidor Ubuntu: 1710, 1704, 1604 (LTS), 1404 (LTS)<br/><br/> - Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> - Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> – Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
+Habilitar backup ao criar uma VM do Linux | Com suporte para:<br/><br/> - Servidor Ubuntu: 18.04, 17.10, 17.04, 16.04 (LTS), 14.04 (LTS)<br/><br/> - Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> - Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> – Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
 Fazer backup de uma VM que é um desligamento/offline VM |  Com suporte.<br/><br/> O instantâneo só é consistente com a falha e não com o aplicativo.
 Fazer backup de discos após a migração para discos gerenciados |  Com suporte.<br/><br/> O backup continuará a funcionar. Nenhuma ação é necessária.
 Backup de discos gerenciados depois de habilitar o bloqueio de grupo de recursos | Sem suporte.<br/><br/> O Backup do Azure não é possível excluir os pontos de recursos mais antigos e os backups serão começam a falhar quando é atingido o limite máximo de pontos de restauração.
@@ -150,6 +150,7 @@ Fazer backup de VMs implantadas por meio do [Azure Marketplace](https://azuremar
 Fazer backup de VMs que são implantadas de uma imagem personalizada (terceiros) |    Com suporte.<br/><br/> A VM também deve estar em execução em um sistema operacional com suporte.<br/><br/> Ao recuperar arquivos na VM, você pode restaurar apenas em um sistema operacional compatível (não um SO anterior ou posterior).
 Fazer backup de VMs que são migradas para o Azure  |  Com suporte.<br/><br/> Para fazer backup da VM, o agente da VM deve estar instalado no computador migrado.
 Fazer backup de consistência de várias VMs | O Backup do Azure não oferece consistência de dados e aplicativos em várias VMs.
+Backup com [as configurações de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)  | Sem suporte. <br/><br/> Se a restauração da VM do Azure com as configurações de diagnóstico é disparada usando [criar novo](backup-azure-arm-restore-vms.md#create-a-vm) opção a restauração falhará.
 
 
 ## <a name="vm-storage-support"></a>Suporte ao armazenamento de VM

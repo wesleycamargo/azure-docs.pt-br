@@ -9,36 +9,41 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 11/21/2017
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3b6c4b8cebdff772ea1bd4ac95e4c8c06043f5d5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e70eb7ae73e88b37e649d519d0d0428554dd4ab3
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728153"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467500"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Compartilhar uma exibição personalizada usando uma URL parametrizada
 
-Para compartilhar uma exibição personalizada no explorador do Time Series Insights, você pode criar programaticamente uma URL parametrizada da exibição personalizada.
+Para compartilhar uma exibição personalizada no Explorer do Time Series Insights, você pode criar programaticamente uma URL parametrizada da exibição personalizada.
 
-O explorador do Time Series Insights dá suporte aos parâmetros de consulta de URL para exibições específicas na experiência diretamente da URL.  Por exemplo, usando apenas a URL, você pode especificar um ambiente de destino, um predicado de pesquisa e um período de tempo desejado. Quando um usuário clica na URL personalizada, a interface fornece um link diretamente para esse ativo no portal do Time Series Insights.  Aplicam-se políticas de acesso a dados. 
+O Explorer do Time Series Insights dá suporte a parâmetros de consulta de URL para especificar os modos de exibição na experiência diretamente da URL. Por exemplo, usando apenas a URL, você pode especificar um ambiente de destino, um predicado de pesquisa e um período de tempo desejado. Quando um usuário clica na URL personalizada, a interface fornece um link diretamente para esse ativo no portal do Time Series Insights. Aplicam-se políticas de acesso a dados.
+
+> [!TIP]
+> * Exibir a versão gratuita [Time Series Insights de demonstração](https://insights.timeseries.azure.com/samples).
+> * Ler que o acompanha [Explorer do Time Series Insights](./time-series-insights-explorer.md) documentação.
 
 ## <a name="environment-id"></a>ID do Ambiente
 
-O parâmetro `environmentId=<guid>` especifica a ID do ambiente de destino.  Este é um componente do FQDN de acesso a dados, e pode ser encontrado no canto superior direito da visão geral do ambiente no portal do Azure.  É tudo o que precede `env.timeseries.azure.com`. Um parâmetro de ID do ambiente de exemplo é `?environmentId=10000000-0000-0000-0000-100000000108`.
+O parâmetro `environmentId=<guid>` especifica a ID do ambiente de destino. Ele é um componente do FQDN de acesso a dados, e você pode encontrá-lo no canto superior direito da visão geral do ambiente no portal do Azure. É tudo o que precede `env.timeseries.azure.com`.
 
-## <a name="time"></a>Hora
+Um parâmetro de ID do ambiente de exemplo é `?environmentId=10000000-0000-0000-0000-100000000108`.
+
+## <a name="time"></a>Time
 
 Você pode especificar valores de tempo relativos ou absolutos com uma URL parametrizada.
 
 ### <a name="absolute-time-values"></a>Valores de tempo absolutos
 
-Para valores de tempo absolutos, use os parâmetros `from=<integer>` e `to=<integer>`. 
+Para valores de tempo absolutos, use os parâmetros `from=<integer>` e `to=<integer>`.
 
-`from=<integer>` é um valor em milissegundos de JavaScript da hora de início para o alcance de pesquisa.
-
-`to=<integer>` é um valor em milissegundos de JavaScript da hora de término para o alcance de pesquisa. 
+* `from=<integer>` é um valor em milissegundos de JavaScript da hora de início para o alcance de pesquisa.
+* `to=<integer>` é um valor em milissegundos de JavaScript da hora de término para o alcance de pesquisa.
 
 Para identificar os milissegundos de JavaScript para uma data, veja [Conversor de carimbo de data/hora Epoch & Unix](https://www.freeformatter.com/epoch-timestamp-to-date-converter.html).
 
@@ -48,78 +53,75 @@ Para um valor de tempo relativo, use `relativeMillis=<value>`, onde *value* est�
 
 Por exemplo, `&relativeMillis=3600000` exibe os 60 minutos mais recentes dos dados.
 
-Os valores aceitos correspondem ao menu **rápida** do explorador do Time Series Insights e incluem o seguinte:
+Valores aceitos correspondem ao Gerenciador de Time Series Insights **tempo rápido** menu e incluem:
 
-- 1800000 (Últimos 30 minutos)
-- 3600000 (Últimos 60 minutos)
-- 10800000 (Últimas 3 Horas)
-- 21600000 (Últimas 6 Horas)
-- 43200000 (Últimas 12 Horas)
-- 86400000 (Últimas 24 Horas)
-- 604800000 (Últimos 7 Dias)
-- 2592000000 (Últimas 30 Horas)
+* `1800000` (Últimos 30 min.)
+* `3600000` (Últimos 60 minutos)
+* `10800000` (Últimas 3 horas)
+* `21600000` (Últimas 6 horas)
+* `43200000` (Últimas 12 horas)
+* `86400000` (Últimas 24 horas)
+* `604800000` (Últimos 7 dias)
+* `2592000000` (Últimas 30 horas)
 
 ### <a name="optional-parameters"></a>Parâmetros opcionais
 
-O parâmetro `timeSeriesDefinitions=<collection of term objects>` especifica os termos de uma exibição do Time Series Insights, onde:
+O `timeSeriesDefinitions=<collection of term objects>` parâmetro especifica os termos de um modo de exibição do Time Series Insights:
 
-- "name":"\<string>"
-  - O nome do *termo*.
-- "splitBy":"\<string>"
-  - O nome da coluna para *dividido por*.
-- "measureName":"\<string>"
-  - O nome da coluna de *medida*.
-- "predicate":"\<string>"
-  - O cláusula *where* para filtragem do lado do servidor.
-- "useSum":"true"
-  - Este é um parâmetro opcional que especifica o uso de soma para a medida.  Observe que, se "Eventos" for a medida selecionada, a contagem será selecionada por padrão.  Se "Eventos" não estiver selecionado, a média será selecionada por padrão.  
+| Parâmetro | Item de URL | Descrição |
+| --- | --- | --- |
+| **name** | `\<string>` | O nome do *termo*. |
+| **splitBy** | `\<string>` | O nome da coluna para *dividido por*. |
+| **measureName** | `\<string>` | O nome da coluna de *medida*. |
+| **predicate** | `\<string>` | O cláusula *where* para filtragem do lado do servidor. |
+| **useSum** | `true` | Um parâmetro opcional que especifica o uso de soma para a medida. </br>  Observe que, se `Events` é a medida selecionada, a contagem será selecionada por padrão.  </br>  Se `Events` não é selecionada, a média será selecionada por padrão. |
 
-O parâmetro "multiChartStack=<true/false>" permite o empilhamento no gráfico, e o parâmetro "multiChartSameScale=<true/false>" permite a mesma escala de eixo Y entre os termos de um parâmetro opcional.  
+* O `multiChartStack=<true/false>` par chave-valor permite o empilhamento no gráfico.
+* O `multiChartSameScale=<true/false>` par chave-valor permite que a mesma escala de eixo y entre os termos de um parâmetro opcional.  
+* O `timeBucketUnit=<Unit>&timeBucketSize=<integer>` permite que você ajuste o controle deslizante de intervalo para fornecer mais granulares ou suave, agregada mais a exibição do gráfico.  
+* O `timezoneOffset=<integer>` parâmetro permite que você defina o fuso horário para o gráfico seja exibido em como um deslocamento em UTC.
 
-- 'multiChartStack=false'
-  - 'True' está habilitado por padrão, portanto passe 'false' para empilhar.
-- 'multiChartStack=false&multiChartSameScale=true' 
-  - O empilhamento deve estar habilitado para usar a mesma escala de eixo Y entre os termos.  É 'false', por padrão, então passar 'true' permite essa funcionalidade.  
-  
-O `timeBucketUnit=<Unit>&timeBucketSize=<integer>` permite que você ajuste o controle deslizante de intervalo para fornecer mais granulares ou suave, agregada mais a exibição do gráfico.  
-- `timeBucketUnit=<Unit>&timeBucketSize=<integer>`
-  - Unidades = dias, horas, minutos, segundos e milissegundos.  Sempre colocar em maiuscula a unidade.
-  - Defina o número de unidades passando o inteiro desejado ao timeBucketSize.  Observe que é possível suavizar até sete dias.  
-  
-O `timezoneOffset=<integer>` parâmetro permite que você defina o fuso horário para o gráfico seja exibido em como um deslocamento em UTC.  
-  - `timezoneOffset=-<integer>`
-    - O inteiro é sempre em milissegundos.  
-    - Observe que essa funcionalidade é ligeiramente diferente da habilitada no gerenciador de TSI, onde permitimos a escolha entre local (horário do navegador) ou UTC.  
- 
+| Par (es) | Descrição |
+| --- | --- |
+| `multiChartStack=false` | `true` é habilitado por padrão, portanto passe `false` empilhar. |
+| `multiChartStack=false&multiChartSameScale=true` | O empilhamento deve estar habilitado para usar a mesma escala de eixo Y entre os termos.  Ele tem `false` por padrão, então passar 'true' permite que essa funcionalidade. |
+| `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Unidades = dias, horas, minutos, segundos e milissegundos.  Sempre colocar em maiuscula a unidade. </br> Defina o número de unidades passando o inteiro desejado ao timeBucketSize.  Observe que é possível suavizar até sete dias.  |
+| `timezoneOffset=-<integer>` | O inteiro é sempre em milissegundos. </br> Observe que essa funcionalidade é ligeiramente diferente da habilitada no gerenciador de TSI, onde permitimos a escolha entre local (horário do navegador) ou UTC. |
+
 ### <a name="examples"></a>Exemplos
 
-Por exemplo, para adicionar as definições de série de tempo como um parâmetro de URL, você pode usar o seguinte:
+Para adicionar as definições de série de tempo em um ambiente de TSI como um parâmetro de URL, acrescente:
 
-```https
+```plaintext
 &timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},
 {"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
 
-Uso destas definições de série de tempo de exemplo para 
+Use as definições de série de tempo de exemplo para:
 
-- ID do ambiente
-- últimos 60 minutos de dados
-- termos (F1PressureID, F2TempStation e F3VibrationPL) que incluem os parâmetros opcionais
- 
-você pode construir a URL parametrizada a seguir para uma exibição:
+* A ID do ambiente
+* Últimos 60 minutos de dados
+* Os termos (F1PressureID, F2TempStation e F3VibrationPL) que incluem os parâmetros opcionais
 
-```https
+Você pode construir a URL a seguir com parâmetros para um modo de exibição:
+
+```plaintext
 https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]
 ```
 
-Se tiver usado o explorador do Time Series Insights para criar a exibição descrita na URL anterior, ela terá esta aparência:
+> [!TIP]
+> Consulte o Gerenciador de live [usando a URL](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]).
 
-![Termos do explorador do Time Series Insights](media/parameterized-url/url1.png)
+A URL acima descreve e cria a exibição do TSI Explorer:
 
-A exibição completa (incluindo o gráfico) teria esta aparência:
+[![Termos do Explorador de análise de séries de tempo](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
 
-![Modo de exibição de Gráfico](media/parameterized-url/url2.png)
+A exibição completa (incluindo o gráfico):
+
+[![Modo de exibição de gráfico](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como [consulta de dados usando C# ](time-series-insights-query-data-csharp.md).
+* Saiba como [consulta de dados usando C# ](time-series-insights-query-data-csharp.md).
+
+* Saiba mais sobre o [tempo Series Insights Explorer](./time-series-insights-explorer.md).

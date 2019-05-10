@@ -342,6 +342,8 @@
               items:
                 - name: Adquirir um token do cache
                   href: msal-net-acquire-token-silently.md
+                - name: Limpar o cache de token
+                  href: msal-net-clear-token-cache.md
                 - name: Criar uma instância de um cliente público com opções
                   href: msal-net-instantiate-public-client-config-options.md
                 - name: Criar uma instância de um cliente confidencial com opções
