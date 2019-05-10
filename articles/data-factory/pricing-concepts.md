@@ -9,16 +9,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: shlo
-ms.openlocfilehash: 454899cd7cc592b87f96233d73ca8c4ed6ac333f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: a825982532047f6e311c5508394df243310f02ab
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935750"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233933"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Noções básicas de preços do Data Factory por meio de exemplos
 
 Este artigo explica e demonstra o modelo de preços do Azure Data Factory com exemplos detalhados.
+
+> [!NOTE]
+> Os preços usados nesses exemplos abaixo são hipotéticos e não pretende implicam preços reais.
 
 ## <a name="copy-data-from-aws-s3-to-azure-blob-storage-hourly"></a>Copiar dados do AWS S3 para o Armazenamento de Blobs do Azure por hora
 
@@ -122,13 +125,13 @@ Para executar o cenário, você precisará criar um pipeline com os seguintes it
   - Atividade de pipeline = US$ 0,00003 (proporcional a 1 minuto de tempo de execução. US$ 0,002/hora no Azure Integration Runtime)
   - Atividade de pipeline externa = US$ 0,000041 (proporcional a 10 minutos de tempo de execução. US$ 0,00025/hora no Azure Integration Runtime)
 
-## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>Usando a depuração de fluxo de dados de mapeamento para um dia de trabalho normal
+## <a name="using-mapping-data-flow-debug-for-a-normal-workday-preview-pricing"></a>Usando a depuração de fluxo de dados de mapeamento para um dia de trabalho normal (Visualizar preço)
 
 Como engenheiro de dados, você é responsável por projetar, compilar e testar o mapeamento de fluxos de dados todos os dias. Faça logon na UI ADF da manhã e habilitar o modo de depuração para fluxos de dados. O TTL padrão para as sessões de depuração é 60 minutos. Funciona ao longo do dia de 10 horas, para que a sessão de depuração nunca expira. Portanto, seu encargo para o dia será:
 
 **10 (horas) x 8 (núcleos) x $0.112 = US $8.96**
 
-## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>Transformar dados no armazenamento de blob com o mapeamento de fluxos de dados
+## <a name="transform-data-in-blob-store-with-mapping-data-flows-preview-pricing"></a>Transformar dados no armazenamento de blob com o mapeamento de fluxos de dados (Visualizar preço)
 
 Nesse cenário, você deseja transformar dados no Blob Store visualmente no ADF mapeando os dados fluem em um agendamento por hora.
 

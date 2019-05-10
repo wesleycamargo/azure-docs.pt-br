@@ -5,21 +5,21 @@ services: asc-for-iot
 ms.service: ascforiot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 670e6d2b-e168-4b14-a9bf-51a33c2a9aad
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/18/2019
+ms.date: 04/29/2019
 ms.author: mlottner
-ms.openlocfilehash: cac2f740c1b2ae109f29ce44cd035fc6a83dd148
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 3ef3891ac2b0423688f49ae034331935b1b0cd6c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60010553"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192483"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>Início Rápido: Habilitar o serviço no Hub IoT
 
@@ -39,6 +39,7 @@ Este artigo fornece uma explicação de como habilitar o serviço de versão pr�
   - Dois tipos de informação são armazenados por padrão no espaço de trabalho do Log Analytics pela ASC para IoT; **alertas de segurança** e **recomendações**. 
   - Você pode optar por adicionar armazenamento de um tipo de informações adicionais **eventos brutos**. Observe que armazenar **eventos brutos** no Log Analytics transporta os custos de armazenamento adicionais. 
 - Hub IoT (camada standard ou superior)
+- Atenda a todos os [pré-requisitos de serviço](service-prerequisites.md) 
 
 ## <a name="enable-asc-for-iot-on-your-iot-hub"></a>Habilitar a ASC para IoT no Hub IoT 
 
@@ -50,8 +51,7 @@ Para habilitar perguntas de segurança no seu Hub IoT, faça o seguinte:
 4. Fornecer os detalhes do seu espaço de trabalho do Log Analytics. 
    - Opte por armazenar **eventos brutos** além dos tipos de informações padrão de armazenamento, deixando o **evento bruto** alternado em **Ativar**. 
    - Opte por habilitar **coleção de gêmeos**, deixando a **coleção de gêmeos** alternada em **Ativar**. 
-5. Clique em **OK**. 
-6. Clique em **Save** (Salvar). 
+5. Clique em **Save** (Salvar). 
 
 Parabéns! Você concluiu a habilitação da ASC para IoT em seu Hub IoT. 
 

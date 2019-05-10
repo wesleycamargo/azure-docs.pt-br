@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: ea3bb551a32fdfb7e4a378c36858860808e27419
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 132ba922fa73c73d0e001e84659b5a24996d406b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072760"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235797"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal)
 
@@ -294,7 +294,7 @@ Os seguintes recursos foram lançados na conferência Build 2019:
 
 * [Visualização do guia de migração de API V3](luis-migration-api-v3.md)
 * [Dashboard de análises aprimoradas](luis-how-to-use-dashboard.md)
-* [Aprimorados os domínios predefinidos](luis-reference-prebuilt-domains.md) funcionam com V2 e V3 APIs
+* [Domínios predefinidos aprimorados](luis-reference-prebuilt-domains.md) 
 
 ## <a name="next-steps"></a>Próximas etapas
 

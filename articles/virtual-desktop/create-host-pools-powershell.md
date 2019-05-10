@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/05/2019
+ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: e550111e04ea77e35a4554bcc6e3bffaf4d543d2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 165980da2b78e7514ea1938bdbeb6fda82dd123d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924951"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236666"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Criar um pool de host com o PowerShell
 
@@ -100,17 +100,6 @@ Para registrar os agentes da área de trabalho Virtual do Windows, faça o segui
    - Baixe o [carregador de inicialização de agente da área de trabalho Virtual Windows](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
    - O instalador baixado com o botão direito, selecione **propriedades**, selecione **Unblock**, em seguida, selecione **Okey**. Isso permitirá que seu sistema para o instalador de confiança.
    - Execute o instalador.
-4. Instalar ou ativar a pilha de área de trabalho Virtual do Windows lado a lado. As etapas serão diferentes dependendo de qual versão do sistema operacional da máquina virtual usa.
-   - Se SO do sua máquina virtual Windows Server 2016:
-     - Baixe o [pilha de lado a lado da área de trabalho Virtual do Windows](https://go.microsoft.com/fwlink/?linkid=2084270).
-     - O instalador baixado com o botão direito, selecione **propriedades**, selecione **Unblock**, em seguida, selecione **Okey**. Isso permitirá que seu sistema para o instalador de confiança.
-     - Execute o instalador.
-   - Se o sistema de operacional da máquina virtual for Windows 10 1809 ou posterior ou Windows Server 2019 ou posterior:
-     - Baixe o [script](https://go.microsoft.com/fwlink/?linkid=2084268) para ativar a pilha de lado a lado.
-     - O script baixado com o botão direito, selecione **propriedades**, selecione **Unblock**, em seguida, selecione **Okey**. Isso permitirá que seu sistema para o script de confiança.
-     - Dos **inicie** menu, procure o Windows PowerShell ISE, clique duas vezes e selecione **executar como administrador**.
-     - Selecione **arquivo**, em seguida, **abra...** e, em seguida, localize o script do PowerShell no arquivo de download e abri-lo.
-     - Selecione o botão verde play para executar o script.
 
 >[!IMPORTANT]
 >Para ajudar a proteger seu ambiente da Área de Trabalho Virtual do Windows no Azure, recomendamos que você não abra a porta de entrada 3389 nas VMs. A Área de Trabalho Virtual do Windows não exige uma porta de entrada 3389 aberta para que os usuários acessem as VMs do pool de hosts. Caso você precise abrir a porta 3389 para fins de solução de problemas, recomendamos o uso do [acesso just-in-time à VM](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).

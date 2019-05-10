@@ -4,7 +4,7 @@ description: Saiba como se conectar a dados de Syslog a Sentinela do Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 5dd59729-c623-4cb4-b326-bb847c8f094b
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9144f20eae5a925ad88054e972c99ae024bcefe3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 673b1df6094703bebcbfd9d82c1268c01d46e814
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60714652"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233590"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Conectar-se a sua solução externa usando Syslog
 
@@ -32,7 +32,7 @@ Você pode se conectar a qualquer dispositivo local com suporte para Syslog para
 > [!NOTE]
 > Se seu dispositivo dá suporte a CEF Syslog, a conexão é mais completo e você deve escolher essa opção e siga as instruções em [conexão dos dados do CEF](connect-common-event-format.md).
 
-## <a name="how-it-works"></a>Como ele funciona
+## <a name="how-it-works"></a>Como funciona
 
 Conexão de syslog é realizado usando um agente para Linux. Por padrão, o agente para Linux recebe eventos de Syslog daemon através de UDP, mas em casos em que uma máquina Linux é esperada para coletar um alto volume de eventos de Syslog, como quando um agente do Linux é receber eventos de outros dispositivos, a configuração seja alterada para Use o transporte TCP entre o daemon do Syslog e o agente.
 
