@@ -113,7 +113,7 @@
         - name: Excluir um cluster AKS
           href: '/cli/azure/aks#az-aks-delete'
           maintainContext: true
-        - name: Criar nós virtuais (versão prévia)
+        - name: Criar nós virtuais
           items:
             - name: CLI do Azure
               href: virtual-nodes-cli.md
@@ -123,9 +123,13 @@
           href: virtual-kubelet.md
         - name: Usar o dimensionador automático de cluster (versão prévia)
           href: cluster-autoscaler.md
+        - name: Usar vários pools de nó (versão prévia)
+          href: use-multiple-node-pools.md
         - name: Implantar AKS com Terraform
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
           maintainContext: true
+        - name: Usar o painel do Kubernetes
+          href: kubernetes-dashboard.md
     - name: Configurar volumes de dados
       items:
         - name: Disco do Azure - Dinâmico
@@ -173,12 +177,16 @@
           href: kubernetes-service-principal.md
         - name: Limitar o acesso ao arquivo de configuração de cluster
           href: control-kubeconfig-access.md
-        - name: Proteger o tráfego de pod com políticas de rede (versão prévia)
+        - name: Proteger o tráfego de pod com políticas de rede
           href: use-network-policies.md
         - name: Usar políticas de segurança de pod (versão prévia)
           href: use-pod-security-policies.md
+        - name: Definir intervalos de IP autorizados do servidor de API (versão prévia)
+          href: api-server-authorized-ip-ranges.md
         - name: Atualizar as credenciais da entidade de serviço de cluster
           href: update-credentials.md
+        - name: Restringir e controlar o tráfego de saída do cluster
+          href: limit-egress-traffic.md
         - name: Habilitar integração do Azure Active Directory
           items:
             - name: Usar a CLI do Azure
@@ -285,10 +293,6 @@
         - name: Projeto de DevOps do Azure
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
-    - name: Noções básicas do Kubernetes
-      items:
-        - name: Usar painel do Kubernetes
-          href: kubernetes-dashboard.md
     - name: Solucionar problemas
       items:
         - name: Problemas comuns
