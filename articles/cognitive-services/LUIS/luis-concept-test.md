@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: c9f1cf80cd3a781e878daca2048f7c5dc9095a7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02c079e9cda88c969e5382b2c70c551cf9a88e14
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710602"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522503"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Testando os enunciados de exemplo no LUIS
 
@@ -46,7 +46,7 @@ Todo o teste de ponto de extremidade conta para sua cota de uso.
 Se você fizer testes com relação a um ponto de extremidade e não quiser que a declaração fique registrada, lembre-se de usar a configuração da cadeia de caracteres de consulta `logging=false`.
 
 ## <a name="where-to-find-utterances"></a>Onde encontrar declarações
-O LUIS armazena todos os enunciados registrados em log de consulta, disponíveis para download no site do [LUIS](luis-reference-regions.md), página **Aplicativos**, assim como as [APIs de criação do LUIS](https://aka.ms/luis-authoring-apis). 
+O LUIS armazena todos os enunciados registrados em log de consulta, disponíveis para download no site do [LUIS](luis-reference-regions.md), página **Aplicativos**, assim como as [APIs de criação do LUIS](https://go.microsoft.com/fwlink/?linkid=2092087). 
 
 Os enunciados que o LUIS não tiver certeza estarão listados na página **[Examinar enunciados de ponto de extremidade](luis-how-to-review-endpoint-utterances.md)** no site do [LUIS](luis-reference-regions.md). 
 
@@ -58,6 +58,6 @@ Lembre-se de [treinar](luis-how-to-train.md) o LUIS após fazer alterações no 
 ## <a name="best-practices"></a>Práticas recomendadas
 Conheça as [práticas recomendadas](luis-concept-best-practices.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre como [testar](luis-interactive-test.md) suas declarações.
