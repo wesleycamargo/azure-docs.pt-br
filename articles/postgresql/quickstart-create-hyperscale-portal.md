@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.openlocfilehash: 30de4da43569abf4d7bd668fd0fa481ecac23f4d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 4271d94f07125a870cc4aa859b01db819d583f40
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080024"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406440"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-preview-in-the-azure-portal"></a>Início Rápido: Criar um Banco de Dados do Azure para PostgreSQL - Hyperscale (Citus) (visualização) no portal do Azure
 
@@ -34,8 +34,8 @@ Siga estas etapas para criar um Banco de Dados do Azure para o servidor PostgreS
 4. Preencha o formulário de detalhes sobre o novo servidor com as seguintes informações:
    - Grupo de recursos: clique no link **Criar novo** abaixo da caixa de texto desse campo. Insira um nome como **myresourcegroup**.
    - Nome do grupo de servidores: digite um nome exclusivo para o novo grupo de servidores que também poderá ser usado para um subdomínio do servidor.
-   - Nome de usuário administrador: insira um nome de usuário que será usado posteriormente para conectar ao banco de dados.
-   - Senha: deve ter pelo menos oito caracteres e conter caracteres das três seguintes categorias: letras maiúsculas em inglês, letras minúsculas em inglês, números (0 a 9) e caracteres não alfanuméricos (!, $, #, % etc.)
+   - Nome de usuário administrador: insira um nome de usuário que será usado posteriormente para conectar o banco de dados.
+   - Senha: deve ter pelo menos oito caracteres de comprimento e conter caracteres das três seguintes categorias: letras maiúsculas em inglês, letras minúsculas em inglês, números (0 a 9) e caracteres não alfanuméricos (!, $, #, % etc.)
    - Localização: utilize a localização mais próxima dos usuários para fornecer a eles acesso mais rápido aos dados.
 
    > [!IMPORTANT]
@@ -169,7 +169,7 @@ GROUP BY hour
 ORDER BY hour;
 ```
 
-Até agora, as consultas envolveram os eventos github\_de modo exclusivo, mas podemos combinar essas informações com os usuários do github\_. Uma vez que criamos usuários fragmentados e eventos no mesmo identificador (`user_id`), as linhas de ambas as tabelas com IDs de usuário correspondentes serão [colocadas](http://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) nos mesmos nós de banco de dados e podem ser unidas facilmente.
+Até agora, as consultas envolveram os eventos github\_de modo exclusivo, mas podemos combinar essas informações com os usuários do github\_. Uma vez que criamos usuários fragmentados e eventos no mesmo identificador (`user_id`), as linhas de ambas as tabelas com IDs de usuário correspondentes serão [colocadas](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) nos mesmos nós de banco de dados e podem ser unidas facilmente.
 
 Se entrarmos em `user_id`, o Hyperscale pode efetuar push na execução de junção em fragmentos para execução em paralelo nos nós do trabalhador. Por exemplo, vamos encontrar os usuários que criaram o maior número de repositórios:
 

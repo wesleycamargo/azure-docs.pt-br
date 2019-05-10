@@ -9,12 +9,12 @@ ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: openshift
 manager: jeconnoc
-ms.openlocfilehash: 7c5fbf135c02abf04e90865e20e902a95174598c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 3c265d6695af7ba1bc5833db59966a626cb29cb9
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65078109"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416044"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Configurar seu ambiente de desenvolvimento do Azure Red Hat OpenShift
 
@@ -80,7 +80,13 @@ Para registrar esses provedores e os recursos manualmente, use as instruções a
     az provider register -n Microsoft.Network --wait
     ```
 
-5. Atualize o registro do provedor de recurso do containerservice:
+5. Registre o provedor Microsoft. keyvault:
+
+    ```bash
+    az provider register -n Microsoft.KeyVault --wait
+    ```
+
+6. Atualize o registro do provedor de recurso do containerservice:
 
     ```bash
     az provider register -n Microsoft.ContainerService --wait
@@ -104,6 +110,6 @@ Agora você está pronto para usar o Azure Red Hat OpenShift!
 
 Experimente o tutorial:
 > [!div class="nextstepaction"]
-> [Criar um cluster do Azure Red Hat OpenShift](tutorial-create-cluster.md)
+> [Criar um cluster do Red Hat OpenShift no Azure](tutorial-create-cluster.md)
 
 [azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli

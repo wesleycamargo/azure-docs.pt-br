@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 92546e6aabdf43c2f9cb0339fb21dd2dfc641d44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e9101a1e23d361e66c5c30969069cbd4b971590
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587782"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236776"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco etapas para proteger sua infraestrutura de identidade
 
@@ -36,7 +36,7 @@ Esta lista de verificação ajudará você a implantar rapidamente ações recom
 
 As recomendações neste documento estão alinhadas com a [Classificação de Segurança de Identidade](https://docs.microsoft.com/azure/active-directory/fundamentals/identity-secure-score), uma avaliação automatizada da configuração de segurança de identidade do locatário do Azure AD. As organizações podem usar a página de Classificação de Segurança de Identidade no portal do Azure AD para localizar lacunas na configuração de segurança atual e assegurar que sigam as melhores práticas atuais da Microsoft para segurança. Implementar cada recomendação na página de Classificação de Segurança aumentará sua classificação e permitirá que você acompanhe o progresso, além de ajudá-lo a comparar a implementação com outras organizações de porte semelhante ou do setor.
 
-![Classificação de segurança de identidade](media/azure-ad/azure-ad-sec-steps0.png)
+![Classificação de Segurança de Identidade](media/azure-ad/azure-ad-sec-steps0.png)
 
 ## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Antes de começar: Proteja contas com privilégios com MFA
 
@@ -59,12 +59,12 @@ Considerando a frequência com que as senhas são adivinhadas, obtidas por phish
 
 Muitas organizações usam a complexidade tradicional (exigindo caracteres especiais, números, letras maiúsculas e minúsculas) e regras de expiração de senha. A [pesquisa da Microsoft](https://aka.ms/passwordguidance) mostrou que essas políticas fazem com que os usuários escolham senhas que sejam mais fáceis de adivinhar.
 
-O recurso de [senha proibida dinamicamente](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords) do Azure AD usa o comportamento atual do invasor para impedir que os usuários definam senhas que possam ser facilmente adivinhadas. Esse recurso sempre é ativado quando os usuários são criados na nuvem, mas agora também está disponível para organizações híbridas ao implantarem a [Proteção por senha do Azure AD para Windows Server Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). A proteção por senha do Azure AD bloqueará usuários a partir das escolhas dessas senhas comuns e poderá ser estendida para bloquear a senha contendo as palavras-chave personalizadas que você especificar. Por exemplo, é possível impedir que os usuários escolham senhas que contenham nomes de produtos da empresa ou de uma equipe esportiva local.
+O recurso de [senha proibida dinamicamente](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad) do Azure AD usa o comportamento atual do invasor para impedir que os usuários definam senhas que possam ser facilmente adivinhadas. Esse recurso sempre é ativado quando os usuários são criados na nuvem, mas agora também está disponível para organizações híbridas ao implantarem a [Proteção por senha do Azure AD para Windows Server Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). A proteção por senha do Azure AD bloqueará usuários a partir das escolhas dessas senhas comuns e poderá ser estendida para bloquear a senha contendo as palavras-chave personalizadas que você especificar. Por exemplo, é possível impedir que os usuários escolham senhas que contenham nomes de produtos da empresa ou de uma equipe esportiva local.
 
 A Microsoft recomenda adotar a seguinte política de senha moderna com base nas [diretrizes NIST](https://pages.nist.gov/800-63-3/sp800-63b.html):
 
 1. Exigir senhas com pelo menos 8 caracteres. Senhas mais longas não são necessariamente melhores, uma vez que podem fazer com que os usuários escolham senhas previsíveis, salvem senhas em arquivos ou as anotem.
-2. Desabilitar regras de expiração, as quais motivam os usuários a criarem senhas fáceis de descobrir como, por exemplo, **Verão2018!**.
+2. Desabilitar regras de expiração, que orientar os usuários a fáceis de adivinhar senhas como **Spring2019!**
 3. Desabilitar os requisitos de composição de caracteres e impedir que os usuários escolham senhas atacadas mais comumente, pois eles fazem com que os usuários escolham substituições de caracteres previsíveis nas senhas.
 
 Você poderá usar o [PowerShell para impedir que as senhas expirem](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) para os usuários, se você criar identidades diretamente no Azure AD. As organizações híbridas devem implementar essas políticas usando as [configurações de política de grupo do domínio](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) ou [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
@@ -132,7 +132,7 @@ O Azure Active Directory tem muitos recursos que interceptam automaticamente ata
 
 O risco do usuário indica a probabilidade de a identidade de um usuário ter sido comprometida e é calculada com base nos [eventos de risco do usuário](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) associados à identidade de um usuário. Uma política de risco de usuário é uma política de acesso condicional que avalia o nível de risco para um grupo ou usuário específico. Com base no nível de risco Baixo, Médio ou Alto, é possível configurar uma política para bloquear o acesso ou exigir uma mudança de senha segura usando a autenticação multifator. A recomendação da Microsoft é a de exigir uma mudança de senha segura para usuários com risco alto.
 
-![Usuários sinalizados por risco](media/azure-ad/azure-ad-sec-steps1.png)
+![Usuários sinalizados para risco](media/azure-ad/azure-ad-sec-steps1.png)
 
 ### <a name="implement-sign-in-risk-policy-using-azure-ad-identity-protection"></a>Implementar a política de risco de entrada usando o Azure AD Identity Protection
 
@@ -162,11 +162,11 @@ O Azure AD Identity Protection fornece dois relatórios importantes que devem se
 1. Os relatórios de entradas arriscadas exibirão as atividades de entrada do usuário que você deve investigar, pois o proprietário legítimo pode não ter sido verificado na entrada.
 2. Os relatórios de usuário arriscados exibirão as contas de usuários que poderão ter sido comprometidas, como as credenciais perdidas detectadas ou usuário que entrou a partir de localizações diferentes causando um evento de viagem impossível. 
 
-![Usuários sinalizados por risco](media/azure-ad/azure-ad-sec-steps3.png)
+![Usuários sinalizados para risco](media/azure-ad/azure-ad-sec-steps3.png)
 
 ### <a name="audit-apps-and-consented-permissions"></a>Auditar aplicativos e permissões de consentimento
 
-Os usuários podem ser induzidos a navegar para um site ou aplicativos comprometidos que terão acesso às informações do perfil e aos dados do usuário, como o email. Um ator mal-intencionado pode usar as permissões consentidas que recebeu para criptografar o conteúdo da caixa de correio e exigir um resgate para recuperar os dados da caixa de correio. [Os administradores devem revisar e auditar](https://blogs.technet.microsoft.com/office365security/defending-against-illicit-consent-grants/) as permissões dadas pelos usuários.
+Os usuários podem ser induzidos a navegar para um site ou aplicativos comprometidos que terão acesso às informações do perfil e aos dados do usuário, como o email. Um ator mal-intencionado pode usar as permissões consentidas que recebeu para criptografar o conteúdo da caixa de correio e exigir um resgate para recuperar os dados da caixa de correio. [Os administradores devem revisar e auditar](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) as permissões dadas pelos usuários.
 
 ## <a name="step-5---enable-end-user-self-help"></a>Etapa 5: habilitar a autoajuda do usuário final
 

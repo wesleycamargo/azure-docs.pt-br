@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: b5d035308c50525449edf47131c4a6a8c62b750b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 981b78345a0d9ea589e9c39ddaa2e253f1dd343f
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784753"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412832"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Excluir um cofre dos Serviços de Recuperação de Site
 
@@ -22,6 +22,10 @@ Dependências podem impedir a exclusão de um cofre do Azure Site Recovery. As a
 
 ## <a name="delete-a-site-recovery-vault"></a>Excluir um cofre do Site Recovery 
 Para excluir o cofre, siga as etapas recomendadas para seu cenário.
+### <a name="azure-vms-to-azure"></a>VMs do Azure para o Azure
+
+1. Exclua todas as VMs protegidas seguindo as etapas em [Desabilitar a proteção de um VMware](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-azure-vm-azure-to-azure).
+2. Exclua o cofre.
 
 ### <a name="vmware-vms-to-azure"></a>VMs VMware para o Azure
 

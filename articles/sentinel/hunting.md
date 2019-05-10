@@ -4,7 +4,7 @@ description: Este artigo descreve como usar os recursos de procura Sentinel do A
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 6aa9dd27-6506-49c5-8e97-cc1aebecee87
 ms.service: sentinel
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: adedc8bc1f574ae089f2a11033fab4f390c57a9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 754722508de248294667ee9e923e8faf3ad67f61
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60714776"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236294"
 ---
 # <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>Busca de ameaças com na visualização do Azure Sentinel
 
@@ -68,7 +68,7 @@ Com a procura de sentinela do Azure, você pode tirar proveito dos recursos a se
 
  
 
-## <a name="query-language"></a>Idioma de consulta 
+## <a name="query-language"></a>Linguagem da consulta 
 
 Procura no Azure Sentinel baseia-se a linguagem de consulta do Log Analytics do Azure. Para obter mais informações sobre a linguagem de consulta e os operadores com suporte, consulte [referência de linguagem de consulta](https://docs.loganalytics.io/docs/Language-Reference/).
 
@@ -128,7 +128,7 @@ Crie uma nova consulta de procura:
 1. Clique em **nova consulta** e selecione **salvar**.
 2. Preencha todos os campos em branco e selecione **salvar**.
 
-   ![Nova Consulta](./media/tutorial-hunting/new-query.png)
+   ![Nova consulta](./media/tutorial-hunting/new-query.png)
 
 Clonar e modificar uma consulta existente de procura:
 

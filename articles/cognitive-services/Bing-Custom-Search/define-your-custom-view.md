@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: c4cb93e39a67e13646a339af6ac999a8fd96b383
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 83ae5f923130ecb46b7b94cd8112ee45ae13e3f4
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129631"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236249"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configure sua experiência de Pesquisa Personalizada do Bing
 
@@ -25,9 +25,9 @@ O portal permite criar uma instância de pesquisa que especifica as fatias da We
 
 Ao definir fatias da web, use o seguinte:
 
-| Nome da fatia | DESCRIÇÃO                                                                                                                                                                                                                                                                                                |
+| Nome da fatia | Descrição                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domínio     | Uma fatia de domínio inclui todo o conteúdo localizado em um domínio da Internet. Por exemplo, `www.microsoft.com`. Omitir `www.` faz com que o Bing também pesquise os subdomínios do domínio. Por exemplo, se você especificar `microsoft.com`, o Bing também retorna os resultados de `support.microsoft.com` ou `technet.microsoft.com`. |
+| Domínio     | Uma fatia de domínio inclui todo o conteúdo localizado em um domínio da Internet. Por exemplo, `www.microsoft.com`. Omitir `www.` faz com que o Bing também pesquise os subdomínios do domínio. Por exemplo, se você especificar `microsoft.com`, o Bing também retorna os resultados de `support.microsoft.com` ou `technet.microsoft.com`. |
 | Subpágina    | Uma fatia de subpágina inclui todo o conteúdo localizado na subpágina e nos caminhos abaixo. É possível especificar no máximo duas subpáginas no caminho. Por exemplo, `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Página da web    | Uma fatia da página da Web pode incluir apenas essa página da Web em uma pesquisa personalizada. Opcionalmente, é possível especificar se quer incluir subpáginas.                                                                                                                                                                                  |
 
@@ -94,7 +94,7 @@ O portal permite que você ajuste a classificação da pesquisa de conteúdo de 
 
 |            |                                                                                                                                                                      |
 |------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Bloco      | Mova o domínio, a subpágina ou a página da Web para a lista Bloqueado. O Bing excluirá o conteúdo do site selecionado para não aparecer nos resultados da pesquisa.                    |
+| Bloquear      | Mova o domínio, a subpágina ou a página da Web para a lista Bloqueado. O Bing excluirá o conteúdo do site selecionado para não aparecer nos resultados da pesquisa.                    |
 | Aumentar      | Aumenta o conteúdo do domínio ou da subpágina nos resultados da pesquisa.                                                                                        |
 | Rebaixar     | Rebaixa o conteúdo do domínio ou subpágina ao nível abaixo nos resultados da pesquisa. Você seleciona se quer rebaixar o conteúdo do domínio ou da subpágina à qual a página da Web pertence. |
 | Fixar no início | Move o domínio, a subpágina ou a página da Web para a lista **Fixado**. Isso força que a página da Web sejam exibida como o primeiro resultado de pesquisa para uma determinada consulta de pesquisa.                   |
@@ -118,9 +118,9 @@ O portal também permite que você fixe URLs na parte superior dos resultados da
 
 Você pode fixar uma página da Web na parte superior de duas maneiras:
 
-* Na guia  **Fixado** , insira a URL da página da Web a ser fixada na parte superior e a consulta correspondente.
+* No **fixos** , insira a URL da página da Web para fixar na parte superior e a consulta correspondente.
 
-* No painel **Visualização**, insira uma consulta de pesquisa e clique em pesquisar. Localize a página da Web que você deseja fixar para a sua consulta e, em seguida, clique em  **Fixar no topo**. A página da Web e a consulta serão adicionadas à lista **Fixado**.
+* No painel **Visualização**, insira uma consulta de pesquisa e clique em pesquisar. Localizar a página da Web que você deseja fixar para a sua consulta e, em seguida, clique em **fixar no topo**. A página da Web e a consulta serão adicionadas à lista **Fixado**.
 
 ### <a name="specify-the-pins-match-condition"></a>Especificar a condição de correspondência da fixação
 
@@ -129,11 +129,11 @@ Por padrão, as páginas da Web só estão fixadas na parte superior dos resulta
 > [!NOTE]
 > Todas as comparações entre a consulta de pesquisa do usuário e a consulta de pesquisa da fixação diferenciam maiúsculas de minúsculas.
 
-| Value | DESCRIÇÃO                                                                          |
+| Value | Descrição                                                                          |
 |---------------|----------------------------------------------------------------------------------|
 | Começa com | A fixação é uma correspondência se a cadeia de caracteres de consulta do usuário começa com a cadeia de caracteres de consulta da fixação |
 | Termina com   | A fixação é uma correspondência se a cadeia de caracteres de consulta do usuário termina com a cadeia de caracteres de consulta da fixação.  |
-| Contém:    | A fixação é uma correspondência se a cadeia de caracteres de consulta do usuário contém a cadeia de caracteres de consulta da fixação.   |
+| Contém    | A fixação é uma correspondência se a cadeia de caracteres de consulta do usuário contém a cadeia de caracteres de consulta da fixação.   |
 
 
 Para alterar a condição de correspondência da fixação, clique no ícone de edição da fixação. Na coluna **Condição de correspondência de consulta**, clique na lista suspensa e selecione a nova condição a ser usada. Em seguida, clique no ícone de salvar para salvar as alterações.
@@ -155,7 +155,7 @@ Se você inscreveu-se na Pesquisa Personalizada no nível apropriado (consulte a
 - Aumentar e rebaixar contam como dois ajustes na classificação.
 - Para cada instância de pesquisa personalizada, o número máximo de fixações que você pode fazer é limitado a 200.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 - [Chamar sua pesquisa personalizada](./search-your-custom-view.md)
 - [Configurar a experiência de interface do usuário hospedada](./hosted-ui.md)

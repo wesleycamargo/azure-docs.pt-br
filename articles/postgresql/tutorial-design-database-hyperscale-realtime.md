@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/06/2019
-ms.openlocfilehash: 7324ab1d7aa6e42100c9c6760c17b0ea6445f21d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 9f3473d83678ffea888dad736a9620006b2961f7
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079451"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406401"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Tutorial: Criar um painel de análise em tempo real usando o Banco de Dados do Azure para PostgreSQL – Hyperscale (Citus) (versão prévia)
 
@@ -41,7 +41,7 @@ Entre no [Portal do Azure](https://portal.azure.com).
 Siga estas etapas para criar um Banco de Dados do Azure para o servidor PostgreSQL:
 1. Clique em **Criar um recurso** no canto superior esquerdo do portal do Azure.
 2. Selecione **Bancos de Dados** na página **Novo** e selecione **Banco de Dados do Azure para PostgreSQL** na página **Bancos de Dados**.
-3. Para a opção de implantação, clique no botão **Criar** em **grupo de servidores Hyperscale (Citus) - VERSÃO PRÉVIA.**
+3. Para a opção de implantação, clique no botão **Criar** em **grupo de servidores Hyperscale (Citus) - VISUALIZAÇÃO.**
 4. Preencha o formulário de detalhes sobre o novo servidor com as seguintes informações:
    - Grupo de recursos: clique no link **Criar novo** abaixo da caixa de texto desse campo. Insira um nome como **myresourcegroup**.
    - Nome do grupo de servidores: **mydemoserver** (nome de um servidor que é mapeado para o nome DNS e, portanto, deve ser globalmente exclusivo).
@@ -54,8 +54,8 @@ Siga estas etapas para criar um Banco de Dados do Azure para o servidor PostgreS
 
 5. Clique em **Configurar grupo de servidores**. Deixe as configurações nessa seção inalteradas e clique em **Salvar**.
 6. Clique em **Examinar + criar** e, em seguida, **Criar** para provisionar o servidor. O provisionamento demora alguns minutos.
-7. A página será redirecionada para monitorar a implantação. Quando o status ao vivo mudar de **Sua implantação está em andamento** para **Sua implantação está concluída**, clique no item de menu **Saídas** no lado esquerdo da página.
-8. A página de saídas conterá um nome do host do coordenador com um botão ao lado dele para copiar o valor para a área de transferência. Registre essas informações para o uso posterior.
+7. A página será redirecionada para monitorar a implantação. Quando o status em tempo real mudar de **Sua implantação está em andamento** para **Sua implantação está concluída**, clique no item de menu **Saídas** no lado esquerdo da página.
+8. A página de saídas conterá um nome do host do coordenador com um botão ao lado dele para copiar o valor para a área de transferência. Registre essas informações para uso posterior.
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Configurar uma regra de firewall no nível de servidor
 
@@ -170,7 +170,7 @@ DO $$
       ip_address, status_code, response_time_msec
     ) VALUES (
       trunc(random()*32), clock_timestamp(),
-      concat('http://example.com/', md5(random()::text)),
+      concat('https://example.com/', md5(random()::text)),
       ('{China,India,USA,Indonesia}'::text[])[ceil(random()*4)],
       concat(
         trunc(random()*250 + 2), '.',

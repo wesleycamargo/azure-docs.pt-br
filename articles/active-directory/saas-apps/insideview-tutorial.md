@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 91e1780462021430913a1354b4add7c5f047ec15
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 76db7381985853a81843df812dffcd8ab2bd8f9a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263172"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407458"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Tutorial: Integração do Azure Active Directory com o InsideView
 
@@ -142,13 +142,13 @@ Para configurar o logon único do Azure AD com o InsideView, execute as seguinte
 
     c. Abra seu certificado codificado em Base 64, que você baixou do Portal do Azure, copie o conteúdo dele para a área de transferência e cole-o na caixa de texto **Certificado STS**.
 
-    d. Na caixa de texto **Mapeamento de ID de usuário do CRM**, digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    d. Na caixa de texto **Mapeamento de ID de usuário do CRM**, digite `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    e. Na caixa de texto **Mapeamento de Email do CRM**, digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    e. Na caixa de texto **Mapeamento de Email do CRM**, digite `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    f. Na caixa de texto **Mapeamento de Nome do CRM**, digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    f. Na caixa de texto **Mapeamento de Nome do CRM**, digite `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    g. Na caixa de texto **Mapeamento de Sobrenome do CRM**, digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.  
+    g. Na caixa de texto **Mapeamento de Sobrenome do CRM**, digite `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.  
 
     h. Clique em **Save** (Salvar).
 

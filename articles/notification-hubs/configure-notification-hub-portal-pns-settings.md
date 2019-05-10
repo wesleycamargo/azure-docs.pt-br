@@ -10,12 +10,12 @@ ms.workload: mobile
 ms.topic: quickstart
 ms.date: 02/14/2019
 ms.author: jowargo
-ms.openlocfilehash: 04108c4b5a8ce04b971a0529393ea442cb1cf226
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ee627a168e6ca9bb758d994a3f75cc6185976971
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480116"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203698"
 ---
 # <a name="set-up-push-notifications-in-a-notification-hub-in-the-azure-portal"></a>Configurar notificações por push em um hub de notificação no portal do Azure
 
@@ -47,7 +47,7 @@ Para configurar p Apple Push Notification Service (APNS):
 
      ![Captura de tela de uma configuração de token APNS no portal do Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
 
-Para obter mais informações, consulte [Enviar notificações por push para iOS usando os Hubs de Notificações do Microsoft Azure](notification-hubs-ios-apple-push-notification-apns-get-started.md).
+Para obter mais informações, confira [Enviar notificações por push para iOS usando os Hubs de Notificação do Microsoft Azure](notification-hubs-ios-apple-push-notification-apns-get-started.md).
 
 ## <a name="google-firebase-cloud-messaging"></a>Google Firebase Cloud Messaging
 

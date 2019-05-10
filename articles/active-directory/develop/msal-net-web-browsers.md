@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6e13ec3d822ba8a8cd2484f42ea81e615bae268
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: d4b4c4cd4dbab10a9d4796a8393cc7f479b90cc4
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190978"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406763"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>Usando navegadores da web em MSAL.NET
 Navegadores da Web são necessários para a autenticação interativa. Por padrão, MSAL.NET suporta o [navegador da web de sistema](#system-web-browser-on-xamarinios-and-xamarinandroid) no xamarin. IOS e [xamarin. Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/system-browser). Mas [você também pode habilitar o navegador da Web incorporado](#enable-embedded-webviews) dependendo dos requisitos de (necessidade de logon único (SSO), segurança UX) em [xamarin. IOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) e [xamarin. Android](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid) aplicativos. E você pode até mesmo [escolha dinamicamente](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) qual navegador da web para usar com base na presença de Chrome ou um navegador que dão suporte a guias personalizadas do Chrome no Android.
@@ -93,7 +93,7 @@ Como um desenvolvedor usando MSAL.NET, você tem várias opções para exibir a 
 
 #### <a name="choosing-between-embedded-web-browser-or-system-browser-on-xamarinios"></a>Escolhendo entre o navegador da web incorporadas ou sistema no xamarin. IOS
 
-Em seu aplicativo iOS, no `AppDelegate.cs` você pode pode inicializar o `ParentWindow` para `null`. Não é usado no iOS
+Em seu aplicativo iOS, no `AppDelegate.cs` você pode inicializar o `ParentWindow` para `null`. Não é usado no iOS
 
 ```csharp
 App.ParentWindow = null; // no UI parent on iOS
@@ -122,7 +122,7 @@ Se você quiser usar o navegador da web de sistema para habilitar o SSO com apli
 
 Com base no valor retornado por esse método e seus requisitos, você pode tomar uma decisão:
 
-- Você pode retornar uma mensagem de erro personalizada para o usuário. Por exemplo:  "Instalar o Chrome para continuar com a autenticação" - OR-
+- Você pode retornar uma mensagem de erro personalizada para o usuário. Por exemplo: "Instalar o Chrome para continuar com a autenticação" - OR-
 - Você pode fazer fallback para a opção de exibição da Web incorporado e inicie a interface do usuário como uma exibição da Web incorporada.
 
 O código a seguir mostra a opção de exibição da Web incorporado:
