@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 22d408204b69e0a564103efd29468c6f0d68d93a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c9add80b7494ae2a8e671967a96dc5d3c7307f51
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61374345"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541627"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Editar uma base de dados de conhecimento no QnA Maker
 
@@ -36,7 +36,7 @@ O QnA Maker permite que você gerencie o conteúdo de sua base de dados de conhe
  
 1. Escolha a opção **Configurações**. Aqui você pode editar o campo obrigatório Nome do Serviço.
   
-    |Objetivo|Ação|
+    |Meta|Ação|
     |--|--|
     |Adicionar URL|Você pode adicionar novos URLs para adicionar novos conteúdos de perguntas frequentes à base de conhecimento clicando em **Gerenciar base de conhecimento -> link "+ Adicionar URL"**.|
     |Excluir URL|Você pode excluir URLs existentes selecionando o ícone de exclusão, a lixeira.|
@@ -72,8 +72,7 @@ Adicione perguntas alternativas para um par de QnA existente para melhorar a pro
 
 ## <a name="add-metadata"></a>Adicionar metadados
 
-
-Adicione pares de metadados, selecionando o ícone de metadados. Um par de metadados consiste em uma chave e um valor.
+Adicionar pares de metadados, selecionando primeiro **as opções de exibição**, em seguida, selecionando **Mostrar metadados**. Isso exibe a coluna de metadados. Em seguida, selecione a **+** para adicionar um par de metadados. Esse par consiste em uma chave e um valor.
 
 ![Adicionar Metadados](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 
