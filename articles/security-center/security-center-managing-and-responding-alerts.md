@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: 28a9b90e23d0d182197450e6449b8d3296fe99d6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 582912160c8ed514401be3522e52dcc6eb45d263
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111382"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235778"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Gerenciando e respondendo a alertas de segurança na Central de segurança do Azure
 Este documento ajuda você a usar a Central de Segurança do Azure para gerenciar e responder a alertas de segurança.
@@ -67,16 +67,16 @@ Na parte inferior dessa página estão os detalhes de cada alerta. Para classifi
 
 ### <a name="alert-severity"></a>Severidade do alerta
 
-> [!NOTE]
-> A severidade do alerta é exibida diferente no portal e a API REST, as diferenças são indicadas na lista abaixo.
-
 -   **Alta**: Há uma grande probabilidade de que o recurso seja comprometido. Você deve analisá-lo imediatamente. A Central de Segurança tem alta confiança em ambas as más intenções e em descobertas usadas para emitir o alerta. Por exemplo, um alerta que detecta a execução de uma ferramenta mal-intencionada conhecida como Mimikatz, uma ferramenta comum usada para roubo de credenciais. 
--   **Média (baixa na API REST)**: Isso provavelmente é uma atividade suspeita que pode indicar que um recurso está comprometido.
+-   **Média**: Isso provavelmente é uma atividade suspeita que pode indicar que um recurso está comprometido.
 Confiança da Central de Segurança na análise ou localizar é médio e a confiança de más intenções é médio a alto. Normalmente, esses seriam machine learning ou detecções baseadas em anomalia. Por exemplo, uma tentativa de conexão de um local anômalo.
--   **Baixa (Informação na API REST)**: Isso pode ser um positivo benigno ou um ataque bloqueado. 
+-   **Baixa**: Isso pode ser um positivo benigno ou um ataque bloqueado. 
     - A Central de Segurança não está confiante o suficiente para que a intenção seja mal-intencionada e a atividade possa ser inocente. Por exemplo, limpar log é uma ação que pode acontecer quando um invasor tenta ocultar seus rastros, mas em muitos casos é uma operação de rotina executada por administradores.
     - A Central de Segurança geralmente não informa quando ataques foram bloqueados, a menos que seja um caso interessante que sugerimos que você examine. 
--   **Informativo (Silencioso na API REST)**: Você só verá alertas informativos ao fazer busca detalhada em um incidente de segurança ou se você usar a API REST com uma determinada ID de alerta. Um incidente geralmente é composto de um número de alertas, alguns dos quais podem aparecer por conta própria e são apenas informativo, mas no contexto de outros alertas podem ser dignos de uma análise mais detalhada. 
+-   **Informativo**: Você só verá alertas informativos ao fazer busca detalhada em um incidente de segurança ou se você usar a API REST com uma determinada ID de alerta. Um incidente geralmente é composto de um número de alertas, alguns dos quais podem aparecer por conta própria e são apenas informativo, mas no contexto de outros alertas podem ser dignos de uma análise mais detalhada.  
+
+> [!NOTE]
+> Se você estiver usando o **2015-06-01-preview** versão da API, em seguida, há diferenças na qual o alarme tipos de gravidade são aplicados a quais cenários do que está listado acima.  
 
 ### <a name="filtering-alerts"></a>Filtragem de alertas
 Você pode filtrar com base na data, no estado e na gravidade dos alertas. A filtragem de alertas pode ser útil para cenários em que é necessário restringir o escopo da exibição de alertas de segurança. Por exemplo, convém lidar com os alertas de segurança que ocorreram nas últimas 24 horas, pois você está investigando uma possível falha no sistema.

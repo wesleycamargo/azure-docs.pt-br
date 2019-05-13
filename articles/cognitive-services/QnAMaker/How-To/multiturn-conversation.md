@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: d94b527f1ad84d2b34a1708fd31eed273f8c363a
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 24158d5949c0a31e5444c609cbfced970bdeca07
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074454"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471951"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Prompts de acompanhamento de uso para criar várias sequências de uma conversa
 
@@ -116,7 +116,7 @@ Na base de dados de Conhecimento, quando um par de perguntas e respostas que est
 
 ## <a name="test-the-qna-set-to-get-all-the-follow-up-prompts"></a>Solicita que o QnA definida para obter todos os o acompanhamento de teste
 
-Quando o teste a pergunta com acompanhamento solicitar que no **teste** painel, a resposta inclui os prompts de acompanhamento.
+Quando o teste a pergunta com acompanhamento solicitar que no **teste** painel, selecione **Ativar Ativar várias**e digite sua pergunta. A resposta inclui os prompts de acompanhamento.
 
 ![Ao testar a pergunta no painel de teste, a resposta inclui os prompts de acompanhamento.](../media/conversational-context/test-pane-with-question-having-follow-up-prompts.png)
 

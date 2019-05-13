@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0749e1acba9f13f9e0e95dfc66f9cf818c752cff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2df72d03bae8987de4998276a0be0f3ce1ec0333
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60334658"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230050"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurar minha conta para verificação em duas etapas
 A verificação em duas etapas é uma etapa adicional de segurança que ajuda a proteger sua conta, tornando mais difícil para outras pessoas invadi-la. Se você está lendo este artigo, é provável que tenha um email de seu administrador do trabalho ou escola sobre Autenticação Multifator. Ou talvez você tenha tentado entrar e recebido uma mensagem pedindo para configurar uma verificação de segurança adicional. Se esse for o caso, **você não poderá entrar até concluir o processo de registro automático**.
@@ -69,7 +69,7 @@ Usar esse método requer que você instale um aplicativo autenticador em seu tel
    ![Caixa para inserir um PIN](./media/multi-factor-authentication-end-user-first-time/scan3.png)
 
 8. Após digitar o PIN, selecione **Fechar**. Nesse ponto, sua verificação deve ter sido bem-sucedida.
-9. É recomendável inserir o número de seu telefone celular caso você perca acesso ao aplicativo móvel. Especifique seu país/região na lista suspensa e insira o número de seu telefone celular na caixa ao lado do país/região. Selecione **Avançar**.
+9. É recomendável inserir o número de seu telefone celular caso você perca acesso ao aplicativo móvel. Especifique seu país/região na lista suspensa e insira seu número de telefone celular na caixa ao lado do nome de país/região. Selecione **Avançar**.
 10. Neste ponto, você precisará configurar senhas de aplicativo para aplicativos que não são navegador assim como o Outlook 2010 ou anterior, ou o aplicativo de email nativo em dispositivos da Apple. Isso ocorre porque alguns aplicativos não dão suporte à verificação em duas etapas. Se você não usar esses aplicativos, clique em **Concluído** e ignore o restante das etapas.
 11. Se estiver usando esses aplicativos, copie a senha de aplicativo fornecida e cole-a no aplicativo no lugar de sua senha regular. Você pode usar a mesma senha de aplicativo para vários aplicativos. Para obter mais informações, [ajuda com senhas de aplicativo].
 12. Clique em **Concluído**.
@@ -87,7 +87,7 @@ Se você quiser adicionar uma conta ao aplicativo móvel manualmente em vez de u
 1. Selecione **Telefone de Autenticação** na lista suspensa.  
 
     ![Configuração](./media/multi-factor-authentication-end-user-first-time/phone.png)  
-2. Escolha o seu país/região na lista suspensa e insira o número do celular.
+2. Escolha seu país/região na lista suspensa e insira seu número de telefone celular.
 3. Selecione o método que você prefere usar com o celular – texto ou ligação.
 4. Selecione **Contate-me** para verificar seu número de telefone. Dependendo do modo selecionado, podemos lhe enviar uma mensagem de texto ou fazer uma chamada. Siga as instruções fornecidas na tela e selecione **Verificar**.
 5. Neste ponto, você precisará configurar senhas de aplicativo para aplicativos que não são navegador assim como o Outlook 2010 ou anterior, ou o aplicativo de email nativo em dispositivos da Apple. Isso ocorre porque alguns aplicativos não dão suporte à verificação em duas etapas. Se você não usar esses aplicativos, clique em **Concluído** e ignore o restante das etapas.

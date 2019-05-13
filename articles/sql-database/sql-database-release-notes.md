@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 05/07/2019
 ms.author: carlrab
-ms.openlocfilehash: e6d702c7a3194f07f9d04139acbc9b6101b296ea
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 923e475cd690902c61c2f89578c2c62effe4cd86
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717435"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406577"
 ---
 # <a name="sql-database-release-notes"></a>Notas de versão do banco de dados SQL
 
@@ -25,6 +25,7 @@ Este artigo lista os novos recursos e melhorias no serviço de banco de dados SQ
 
 | Recurso | Detalhes |
 | ---| --- |
+| Camada de computação sem servidor | Para obter informações, consulte [banco de dados SQL sem servidor (visualização)](sql-database-serverless.md).|
 | Trabalhos de banco de dados elástico | Para obter informações, consulte [criar, configurar e gerenciar trabalhos Elásticos](elastic-jobs-overview.md) |
 | Transações elásticas | [Transações distribuídas entre bancos de dados na nuvem](sql-database-elastic-transactions-overview.md) |
 | Consultas elásticas | Para obter informações, consulte [visão geral de consulta elástica](sql-database-elastic-query-overview.md) |
@@ -45,6 +46,16 @@ Este artigo lista os novos recursos e melhorias no serviço de banco de dados SQ
 |Análise de SQL|Para obter informações, consulte [análise de SQL do Azure](../azure-monitor/insights/azure-sql.md)|
 | Suporte a fuso horário para instâncias gerenciadas|Para obter mais informações, consulte [fuso horário no banco de dados de instância gerenciada do SQL](sql-database-managed-instance-timezone.md)|
 |||
+
+## <a name="may-2019"></a>Maio de 2019
+
+### <a name="service-improvements"></a>Melhorias nos serviços
+
+| Melhorias nos serviços | Detalhes |
+| --- | --- |
+|Tipo de serviço de Hiperescala| Para obter mais informações, consulte [camada de serviço em hiperescala para até 100 TB](sql-database-service-tier-hyperscale.md).|
+|Camada de computação sem servidor| Para obter mais informações, consulte [banco de dados SQL sem servidor (visualização)](sql-database-serverless.md).|
+
 
 ## <a name="april-2019"></a>Abril de 2019
 

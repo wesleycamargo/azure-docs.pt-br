@@ -1,0 +1,82 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentação do Reconhecimento de Tinta Digital
+metadata:
+  title: 'Documentação do Reconhecimento de Tinta Digital – Inícios Rápidos, tutoriais e referência da API – Serviços Cognitivos do Azure | Microsoft Docs'
+  description: Saiba como usar a Tradução de Texto para traduzir o texto em vários idiomas.
+  services: cognitive-services
+  author: erhopf
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/02/2019
+  ms.author: erhopf
+abstract:
+  description: 'Escrita à tinta digital se refere às tecnologias que permitem representações digitais de entrada, como manuscrito e desenhos. Conforme os dispositivos continuam possibilitando experiências sofisticadas de escrita à tinta digital, a inteligência artificial e o aprendizado de máquina permitem o reconhecimento de formas e texto escritos em qualquer contexto. A API de Reconhecimento de Tinta Digital é um serviço baseado em nuvem que permite que você envie traços de tinta e obtenha informações detalhadas sobre eles.'
+sections:
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/ink-recognizer/overview
+            html: <p>Saiba mais sobre o Reconhecimento de Tinta Digital e como integrá-lo aos seus produtos</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: O que é a API de Reconhecimento de Tinta Digital?
+          - href: concepts/send-ink-data.md
+            html: <p>Saiba mais sobre os padrões de chamada recomendados ao usar a API</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Como enviar dados de tinta à API de Reconhecimento de Tinta Digital
+  - title: Guia de início rápido de 5 minutos
+    items:
+      - type: paragraph
+        text: 'Comece a usar a API de Reconhecimento de Tinta Digital:'
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: media/index/logo-csharp.svg
+            title: 'C#'
+          - image:
+              src: media/index/logo-java.svg
+            title: Java
+          - image:
+              src: media/index/logo-js.svg
+            title: JavaScript
+        rows:
+          - title: Reconhecer traços de tinta digital
+            values:
+              - href: quickstarts/csharp.md
+              - href: quickstarts/java.md
+              - href: quickstarts/javascript.md
+  - title: Exemplos
+    items:
+      - type: paragraph
+        text: 'Use estes programas de exemplo para ver como a API de Reconhecimento de Tinta Digital pode ser integrada aos seus aplicativos:'
+      - type: paragraph
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089503">C# e UWP (Plataforma Universal do Windows)</a>'
+      - type: paragraph
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089804">C# e WPF (Windows Presentation Foundation)</a>'
+      - type: paragraph
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089908">Aplicativo de navegador da Web JavaScript</a>'
+      - type: paragraph
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089906">Aplicativo móvel Java e Android</a>'
+      - type: paragraph
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089805">Aplicativo móvel Swift e iOS</a>'
+  - title: Referência
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: API REST
+            html: '<p><a href="https://go.microsoft.com/fwlink/?linkid=2089907"> Referência da API REST </a></p>'
+          - title: PowerShell
+            html: '<p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">PowerShell do Azure</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices">CLI do Azure</a></p>'

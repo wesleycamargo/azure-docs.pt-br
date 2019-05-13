@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 01/28/2019
+ms.date: 04/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: e7617aec2739daa4f84bcecab060ae0f8e28fabe
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 712b5a003d3542908698d7b69c636780f6cf1007
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361584"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021709"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Tutorial: Treinar um modelo de classificação de imagem com o serviço do Azure Machine Learning
 
@@ -45,31 +45,29 @@ Vá para [Configurar seu ambiente de desenvolvimento](#start) para ler as etapas
 * Um servidor de notebook do Python 3.6 com o seguinte instalado:
     * O SDK do Azure Machine Learning para Python
     * `matplotlib` e `scikit-learn`
-* O notebook do tutorial e o arquivo utils.py
-* Um workspace do machine learning 
-* O arquivo de configuração para o workspace no mesmo diretório que o notebook 
+* O notebook do tutorial e o arquivo **utils.py**
+* Um workspace do machine learning
+* O arquivo de configuração para o workspace no mesmo diretório que o notebook
 
 Obtenha todos esses pré-requisitos de qualquer uma das seções a seguir.
  
-* Usar o [Azure Notebooks](#azure) 
+* Usar um [servidor de notebook de nuvem em seu workspace](#azure) 
 * Usar [seu próprio servidor de notebook](#server)
 
-### <a name="azure"></a>Usar o Azure Notebooks: notebooks gratuitos do Jupyter na nuvem
+### <a name="azure"></a>Usar um servidor de notebook de nuvem em seu workspace
 
-É fácil começar a usar o Azure Notebooks! O [SDK do Azure Machine Learning para Python](https://aka.ms/aml-sdk) já está instalado e configurado para você no [Azure Notebooks](https://notebooks.azure.com/). A instalação e as atualizações futuras são gerenciadas automaticamente por meio dos serviços do Azure.
-
-Depois de concluir as etapas a seguir, execute o notebook **tutorials/img-classification-part1-training.ipynb** no seu projeto de **Introdução**.
+É fácil começar a usar seu próprio servidor de notebook baseado em nuvem. O [SDK do Azure Machine Learning para Python](https://aka.ms/aml-sdk) já está instalado e configurado depois que você cria este recurso de nuvem.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+* Depois de iniciar a página da Web do notebook, abra o notebook **tutorials/img-classification-part1-training.ipynb**.
 
 
 ### <a name="server"></a>Use seu próprio servidor do Jupyter Notebook
 
-Use estas etapas para criar um servidor de notebook local do Jupyter no seu computador. 
-
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
- Depois de concluir as etapas, execute o notebook **tutorials/img-classification-part1-training.ipynb**.
+ Depois de concluir as etapas, execute o notebook **tutorials/img-classification-part1-training.ipynb** no diretório clonado.
 
 ## <a name="start"></a>Configurar seu ambiente de desenvolvimento
 
@@ -315,18 +313,16 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 
 Observe como o script obtém dados e salva modelos:
 
-+ O script de treinamento lê um argumento para localizar o diretório que contém os dados. Quando você envia o trabalho mais tarde, você aponta para o armazenamento de dados para este argumento: `parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`.
++ O script de treinamento lê um argumento para localizar o diretório que contém os dados. Quando você envia o trabalho mais tarde, você aponta para o armazenamento de dados para este argumento: ```parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')```
 
-+ O script de treinamento salva seu modelo em um diretório chamado **outputs**: <br/>
-`joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`.<br/>
-Qualquer coisa escrita neste diretório é automaticamente enviada para o seu workspace. Você acessará seu modelo desse diretório posteriormente no tutorial.
-O arquivo `utils.py` é referenciado no script de treinamento para carregar o conjunto de dados corretamente. Copie esse script na pasta de script para que ele possa ser acessado junto com o script de treinamento no recurso remoto.
++ O script de treinamento salva o modelo em um diretório chamado **outputs**. Qualquer coisa escrita neste diretório é automaticamente enviada para o seu workspace. Você acessará seu modelo desse diretório posteriormente no tutorial. `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
 
++ O script de treinamento exige o arquivo `utils.py` para carregar o conjunto de dados corretamente. O código a seguir copia `utils.py` em `script_folder`, de modo que o arquivo possa ser acessado juntamente com o script de treinamento no recurso remoto.
 
-```python
-import shutil
-shutil.copy('utils.py', script_folder)
-```
+  ```python
+  import shutil
+  shutil.copy('utils.py', script_folder)
+  ```
 
 
 ### <a name="create-an-estimator"></a>Criar um estimador

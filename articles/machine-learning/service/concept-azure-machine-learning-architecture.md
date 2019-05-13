@@ -1,7 +1,7 @@
 ---
 title: Arquitetura e principais conceitos
 titleSuffix: Azure Machine Learning service
-description: Saiba mais sobre arquitetura, termos, conceitos e fluxo de trabalho que compõem o serviço Azure Machine Learning.
+description: Saiba mais sobre a arquitetura, termos, conceitos e fluxo de trabalho que compõem o serviço Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: b06e3ff50eba4763403450a807aa90ef6335f1a9
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: cb716e0d9f97d3ea2e9584a9fc3d7a6f57da9179
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025228"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65502091"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Como funciona o Serviço do Azure Machine Learning: Arquitetura e conceitos
 
@@ -23,7 +23,7 @@ Saiba mais sobre a arquitetura, conceitos e fluxo de trabalho para o serviço Az
 
 [![Arquitetura e fluxo de trabalho do serviço do Azure Machine Learning](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
-## <a name="workflow"></a>Fluxo de trabalho
+## <a name="workflow"></a>Fluxo de Trabalho
 
 O fluxo de trabalho de aprendizado de máquina geralmente segue esta sequência:
 
@@ -32,9 +32,7 @@ O fluxo de trabalho de aprendizado de máquina geralmente segue esta sequência:
 1. **Enviar os scripts** para o destino de computação configurado para ser executado nesse ambiente. Durante o treinamento, os scripts podem ler ou gravar no **armazenamento de dados**. Além disso, os registros de execução são salvos como **execuções** no **workspace** e agrupados em **experimentos**.
 1. **Consulte o experimento** quanto a métricas registradas nas execuções atuais e anteriores. Se as métricas não indicarem um resultado desejado, volte para a etapa 1 e itere em seus scripts.
 1. Depois que uma execução satisfatória for encontrada, registre o modelo persistente no **registro de modelo**.
-1. Desenvolva um script de pontuação.
-1. **Crie uma imagem** e registre-a no **registro da imagem**.
-1. **Implante a imagem** como um **serviço web** no Azure.
+1. Desenvolver um script de pontuação que usa o modelo e **implantar o modelo** como um **serviço web** no Azure, ou para um **dispositivo IoT Edge**.
 
 
 > [!NOTE]
@@ -46,7 +44,7 @@ O workspace é o recurso de nível superior para o Serviço do Azure Machine Lea
 
 O workspace mantém uma lista de destinos de computação que podem ser usados para fazer o treinamento do seu modelo. Ele também mantém um histórico das execuções de treinamento, incluindo logs, métricas, saída e um instantâneo dos seus scripts. Essas informações são usadas para determinar quais execuções de treinamento produzem o melhor modelo.
 
-Os modelos são registrados no workspace. Um modelo registrado e scripts de pontuação são usados para criar uma imagem. A imagem, em seguida, pode ser implantada em Instâncias de Contêiner do Azure, Serviço de Kubernetes do Azure, ou uma matriz de portas programáveis em campo (FPGA) como um ponto de extremidade HTTP baseado em REST. Ele também pode ser implantado em um dispositivo Azure IoT Edge como um módulo.
+Os modelos são registrados no workspace. Use um modelo registrado e pontuação de scripts para implantar um modelo para instâncias de contêiner do Azure, serviço de Kubernetes do Azure, ou para uma matriz de portões programáveis em campo (FPGA) como um ponto de extremidade HTTP baseado em REST. Ele também pode ser implantado em um dispositivo Azure IoT Edge como um módulo. Internamente, uma imagem do docker é criada para hospedar a imagem implantada. Se necessário, você pode especificar sua própria imagem.
 
 Você pode criar vários workspaces, e cada workspace pode ser compartilhado por várias pessoas. Quando você compartilha um espaço de trabalho, você pode controlar o acesso a ele, atribuindo usuários a funções a seguir:
 
@@ -94,7 +92,7 @@ Os modelos são identificados por nome e versão. Cada vez que você registra um
 
 Você pode fornecer as marcas de metadados adicionais quando registrar o modelo e, em seguida, usar essas marcas ao procurar pelos modelos.
 
-Você não pode excluir modelos que estão sendo usados por uma imagem.
+Você não pode excluir modelos que estão sendo usados por uma implantação ativa.
 
 Para obter um exemplo de registro de um modelo, consulte [Treinar um modelo de classificação de imagem com o Azure Machine Learning](tutorial-train-models-with-aml.md).
 
@@ -208,11 +206,11 @@ O registro de imagem controla imagens criadas a partir de seus modelos. Você po
 
 ## <a name="deployment"></a>Implantação
 
-Uma implantação é uma instanciação de sua imagem em um serviço web que pode ser hospedado na nuvem ou um módulo do IoT para implantações de dispositivos integrados.
+Uma implantação é uma instanciação de seu modelo em um serviço web que pode ser hospedado na nuvem ou um módulo do IoT para implantações de dispositivos integrados.
 
 ### <a name="web-service"></a>Serviço Web
 
-Um serviço web implantado pode usar Instâncias de Contêiner do Azure, Serviço de Kubernetes do Azure ou FGPAs. O serviço é criado a partir de uma imagem que encapsula seu modelo, scripts e arquivos associados. A imagem tem um balanceamento de carga, ponto de extremidade HTTP que recebe as solicitações de pontuação enviadas para o serviço Web.
+Um serviço web implantado pode usar Instâncias de Contêiner do Azure, Serviço de Kubernetes do Azure ou FGPAs. Crie o serviço do seu modelo, scripts e arquivos associados. Eles são encapsulados em uma imagem, que fornece o ambiente de tempo de execução para o serviço web. A imagem tem um balanceamento de carga, ponto de extremidade HTTP que recebe as solicitações de pontuação enviadas para o serviço Web.
 
 O Azure ajuda a monitorar a implantação do serviço Web por meio da coleta de telemetria do Application Insight ou a telemetria de modelo se você tiver optado por habilitar esse recurso. Os dados de telemetria estão acessíveis apenas para você e armazenados em suas instâncias de conta de armazenamento e Application Insights.
 
@@ -234,7 +232,7 @@ Os pipelines de aprendizado de máquina são usados para criar e gerenciar fluxo
 
 Para obter mais informações sobre os pipelines de aprendizado de máquina com esse serviço, consulte [Pipelines e Azure Machine Learning](concept-ml-pipelines.md).
 
-## <a name="logging"></a>Registro em log
+## <a name="logging"></a>Registro em Log
 
 Ao desenvolver sua solução, use o SDK do Python do Azure Machine Learning em seu script de Python para registrar métricas arbitrárias. Após a execução, consulte as métricas para determinar se a execução produziu o modelo que você deseja implantar.
 

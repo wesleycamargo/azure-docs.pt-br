@@ -9,12 +9,12 @@ ms.date: 4/29/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 130eb9cc8bec4681f5c0d165735c6c3b2357576c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 560f7eb8a8809cdd6ef410a610be9806f9709754
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148312"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409971"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerenciar o ciclo de vida de armazenamento de BLOBs do Azure
 
@@ -87,7 +87,7 @@ Você pode definir e implantar o gerenciamento de ciclo de vida como parte da su
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {
@@ -156,7 +156,7 @@ Cada regra na política tem vários parâmetros:
 
 | Nome do parâmetro | Tipo de parâmetro | Observações | Obrigatório |
 |----------------|----------------|-------|----------|
-| Nome           | String |Um nome de regra pode incluir até 256 caracteres alfanuméricos. A regra de nome diferencia maiúsculas de minúsculas.  Ela deve ser exclusiva em uma política. | True |
+| nome           | String |Um nome de regra pode incluir até 256 caracteres alfanuméricos. A regra de nome diferencia maiúsculas de minúsculas.  Ela deve ser exclusiva em uma política. | True |
 | enabled | Boolean | Um booliano opcional para permitir que uma regra para ser temporário desabilitado. Valor padrão é true se não for definido. | Falso | 
 | tipo           | Um valor de enumeração | O tipo atual de válido é `Lifecycle`. | True |
 | definição     | Um objeto que define a regra de ciclo de vida | Cada definição é composta por um conjunto de filtros e um conjunto de ações. | True |
@@ -208,10 +208,10 @@ Os filtros limitam as ações de regra a um subconjunto de blobs na conta de arm
 
 Filtros válidos incluem:
 
-| Nome do filtro | Tipo do filtro | Observações | Obrigatório |
+| Nome do filtro | Tipo de filtro | Observações | É Necessário |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Uma matriz de valores de enumeração predefinidos. | A versão atual dá suporte a `blockBlob`. | Sim |
-| prefixMatch | Uma matriz de cadeias de caracteres para prefixos a serem correspondidos. Cada regra pode definir até 10 prefixos. Uma cadeia de caracteres de prefixo deve começar com um nome de contêiner. Por exemplo, se você deseja encontrar uma correspondência para todos os blobs em "https://myaccount.blob.core.windows.net/container1/foo/..." em uma regra, o prefixMatch é `container1/foo`. | Se você não definir prefixMatch, a regra se aplica a todos os blobs na conta de armazenamento.  | Não  |
+| prefixMatch | Uma matriz de cadeias de caracteres para prefixos a serem correspondidos. Cada regra pode definir até 10 prefixos. Uma cadeia de caracteres de prefixo deve começar com um nome de contêiner. Por exemplo, se você deseja encontrar uma correspondência para todos os blobs em "https://myaccount.blob.core.windows.net/container1/foo/..." em uma regra, o prefixMatch é `container1/foo`. | Se você não definir prefixMatch, a regra se aplica a todos os blobs na conta de armazenamento.  | Não |
 
 ### <a name="rule-actions"></a>Ações de regra
 
@@ -230,7 +230,7 @@ Gerenciamento de ciclo de vida dá suporte a disposição em camadas e exclusão
 
 As condições de execução são com base na idade. Os blobs base usam a hora da última modificação para acompanhar a idade, enquanto os instantâneos de blob usam a hora de criação do instantâneo para executar a mesma tarefa.
 
-| Executar a condição de ação | Valor de condição | DESCRIÇÃO |
+| Executar a condição de ação | Valor de condição | Descrição |
 |----------------------------|-----------------|-------------|
 | daysAfterModificationGreaterThan | Valor inteiro que indica a idade em dias | Condição válida para ações de blob de base |
 | daysAfterCreationGreaterThan     | Valor inteiro que indica a idade em dias | Condição válida para ações de instantâneo de blob | 

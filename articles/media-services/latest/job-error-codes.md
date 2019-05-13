@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/28/2019
 ms.author: juliako
-ms.openlocfilehash: f10883ca89c048d384eff9bddaf7642e22941109
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9443a50d130e6542672eb143bcb56d04d63959a4
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160584"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235714"
 ---
 # <a name="media-services-job-error-codes"></a>Códigos de erro do trabalho de serviços de mídia
 
@@ -28,13 +28,13 @@ Este tópico vincula a um documento de referência para uma descrição detalhad
 
 O documento REST a seguir fornece explicações detalhadas sobre [códigos de erro do trabalho](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, comentários, obtenha atualizações
+## <a name="ask-questions-give-feedback-get-updates"></a>Fazer perguntas, comentar, obter atualizações
 
 Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
 
 ## <a name="see-also"></a>Consulte também
 
-- [Códigos de erro de origem](origin-error-codes.md)
+- [Códigos de erro de ponto de extremidade de streaming](streaming-endpoint-error-codes.md)
 - [Conceitos de serviços de mídia do Azure](concepts-overview.md)
 - [Cotas e limitações](limits-quotas-constraints.md)
 

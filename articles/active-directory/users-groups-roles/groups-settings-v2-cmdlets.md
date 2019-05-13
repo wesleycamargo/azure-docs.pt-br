@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7287616dbad1aa77a6e4aaa110ade39dcea4f195
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb48d37e1cf552f9ad375906d8cd05301ac2dd0c
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60470048"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407859"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlets da versão 2 do Azure Active Directory para gerenciamento de grupos
 
@@ -168,7 +168,7 @@ Para excluir grupos do diretório, use o cmdlet Remove-AzureADGroup da seguinte 
 
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
 
-## <a name="manage-group-membership"></a>Gerenciar associação ao grupo 
+## <a name="manage-group-membership"></a>Gerenciar associação a um grupo 
 ### <a name="add-members"></a>Adicionar membros
 Para adicionar novos membros a um grupo, use o cmdlet Add-AzureADGroupMember. Esse comando adiciona um membro ao grupo Intune Administrators que usamos no exemplo anterior:
 
@@ -233,13 +233,13 @@ Para adicionar proprietários a um grupo, use o cmdlet Add-AzureADGroupOwner:
 
     PS C:\Windows\system32> Add-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 
-O parâmetro -ObjectId é o ObjectID do grupo ao qual queremos adicionar um proprietário, e -RefObjectId é o ObjectID do usuário que queremos adicionar como um proprietário do grupo.
+O parâmetro - ObjectId é o ObjectID do grupo ao qual queremos adicionar um proprietário de e - RefObjectId é o ObjectID do usuário ou entidade que queremos adicionar como proprietário do grupo de serviço.
 
 Para recuperar os proprietários de um grupo, use o cmdlet Get-AzureADGroupOwner:
 
     PS C:\Windows\system32> Get-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
 
-O cmdlet retorna a lista de proprietários para o grupo especificado:
+O cmdlet retorna a lista de proprietários (usuários e entidades de serviço) para o grupo especificado:
 
     DeletionTimeStamp ObjectId                             ObjectType
     ----------------- --------                             ----------

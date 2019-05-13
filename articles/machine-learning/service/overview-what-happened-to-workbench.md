@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 217eecfe8f380718361c2f1b56965e4af85d54c9
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 61c5d60f0c2fab3786aa6adfa194c0716e621ea3
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526700"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023660"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>O que aconteceu com o Workbench de aprendizado de máquina do Azure?
 
@@ -87,7 +87,7 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 
 Os modelos registrados em seu registro de modelo antigo devem ser migrados para o seu novo workspace se você quiser continuar a usá-los. Para migrar seus modelos, baixe-os e registre-os novamente no novo workspace. 
 
-As imagens que você criou em seu registro de imagem antigo devem ser recriadas no novo workspace para continuar a usá-las. Você pode fazer isso seguindo as seções em [Configurar e criar uma imagem](how-to-deploy-and-where.md#configureimage). 
+As imagens criadas em seu antigo Registro de imagens não podem ser migradas diretamente para o novo workspace. Na maioria dos casos, o modelo pode ser implantado sem a necessidade de criar uma imagem. Se necessário, é possível criar uma imagem para o modelo no novo workspace. Para saber mais, confira [Manage, register, deploy, and monitor machine learning models](concept-model-management-and-deployment.md) (Gerenciar, registrar, implantar e monitorar modelos de machine learning).
 
 ## <a name="what-about-deployed-web-services"></a>E serviços web implantados?
 

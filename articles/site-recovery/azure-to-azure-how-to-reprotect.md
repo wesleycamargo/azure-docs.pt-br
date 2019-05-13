@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: bd65b1479ace1a51087836eb8032f16fd10dc119
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eabb7d194a3ef65282befab1ae59e85ba56f2f5b
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60791197"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472152"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Proteger novamente VMs do Azure que sofreram failover para a região primária
 
@@ -68,7 +68,7 @@ Quando você dispara um trabalho de nova proteção e a VM de destino existe, oc
 1. A VM do lado de destino é desligada quando ela está em execução.
 2. Se a VM estiver usando discos gerenciados, uma cópia dos discos originais serão criados com o sufixo '-ASRReplica'. Os discos originais são excluídos. As cópias '-ASRReplica' são usadas para replicação.
 3. Se a VM estiver usando discos não gerenciados, os discos de dados da VM de destino são desanexados e usados para replicação. Uma cópia do disco do sistema operacional é criada e anexada na VM. O disco do sistema operacional original é desanexado e usado para replicação.
-4. Somente alterações entre o disco de origem e o disco de destino são sincronizadas. Os diferenciais são computados comparando ambos os discos e, em seguida, transferidos. Isso levará algumas horas para concluir.
+4. Somente alterações entre o disco de origem e o disco de destino são sincronizadas. Os diferenciais são computados comparando ambos os discos e, em seguida, transferidos. Para localizar a verificação de tempo estimado abaixo.
 5. Após a conclusão da sincronização, a replicação delta começa e cria um ponto de recuperação de acordo com a política de replicação.
 
 Quando você dispara um trabalho de nova proteção e a VM de destino e o disco não existem, ocorre o seguinte:
@@ -76,6 +76,21 @@ Quando você dispara um trabalho de nova proteção e a VM de destino e o disco 
 2. Se a VM estiver usando discos não gerenciados, réplicas dos discos originais serão criadas na conta de armazenamento de destino.
 3. Todos discos são copiados da região com failover para a nova região de destino.
 4. Após a conclusão da sincronização, a replicação delta começa e cria um ponto de recuperação de acordo com a política de replicação.
+
+#### <a name="estimated-time--to-do-the-reprotection"></a>Tempo estimado para fazer a nova proteção 
+
+Na maioria dos casos, o Azure Site Recovery não replica os dados completos para a região de origem. Abaixo estão as condições que determina a quantidade de dados será replicada:
+
+1.  Se a fonte de dados da VM for excluído, corrompido ou inacessível por alguma razão, como o grupo de recursos altera/exclui, em seguida, durante a IR completo da nova proteção acontecerá, pois não há nenhum dado disponível na região de origem para usar.
+2.  Se a fonte de dados da VM está acessível apenas diferenciais são calculados comparando dois discos e, então, transferidos. Verifique a tabela a seguir para obter o tempo estimado 
+
+|* * Situação de exemplo * * | * * Tempo necessário para a nova proteção * * |
+|--- | --- |
+|Região de origem tem 1 VM com 1 TB de disco padrão<br/>-Somente os dados de 127 GB são usados e o restante do disco está vazio<br/>-Tipo de disco é o padrão com taxa de transferência 60 MiB/S<br/>-Nenhuma alteração de dados após o failover| Tempo aproximado 45 minutos – 1,5 horas<br/> -Durante a nova proteção, recuperação de Site preencherá a soma de verificação de dados inteiros, que o levará a 127 GB / 45 MBs aproximadamente 45 minutos<br/>-Algum tempo de sobrecarga é necessário para o Site Recovery automaticamente a escala é de 20 a 30 minutos<br/>-Sem nenhum encargo |
+|Região de origem tem 1 VM com 1 TB de disco padrão<br/>-Somente os dados de 127 GB são usados e o restante do disco está vazio<br/>-Tipo de disco é o padrão com taxa de transferência 60 MiB/S<br/>-As alterações de dados 45 GB após o failover| Tempo aproximado horas 1 – 2 horas<br/>-Durante a nova proteção, recuperação de Site preencherá a soma de verificação de dados inteiros, que o levará a 127 GB / 45 MBs aproximadamente 45 minutos<br/>-Tempo para aplicar as alterações de 45 GB é 45 GB de transferência / 45 MBps ~ 17 minutos<br/>-Encargos de saída seria apenas para 45 GB de dados não para a soma de verificação|
+ 
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

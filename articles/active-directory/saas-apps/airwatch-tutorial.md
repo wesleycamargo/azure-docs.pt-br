@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e20a298c34a7b2723963396f8ccaafaa9472e19a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7ec8b575157dcf2fe8430f554798af62b966c78d
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57888324"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406692"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Tutorial: Integração do Azure Active Directory com AirWatch
 
@@ -139,7 +139,7 @@ Para configurar o logon único do Azure AD com o AirWatch, execute as seguintes 
 
     f. Clique em **Ok**
 
-    g. Clique em **Salvar**.
+    g. Clique em **Save** (Salvar).
 
 7. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -195,7 +195,7 @@ Para configurar o logon único do Azure AD com o AirWatch, execute as seguintes 
 
     c. Para **Formato de NameID**, selecione **Endereço de Email**.
 
-    d. Clique em **Salvar**.
+    d. Clique em **Save** (Salvar).
 
 8. Clique na guia **Usuário** novamente.
 
@@ -207,17 +207,17 @@ Para configurar o logon único do Azure AD com o AirWatch, execute as seguintes 
 
      a. Na caixa de texto **Identificador de Objeto**, digite `http://schemas.microsoft.com/identity/claims/objectidentifier`.
 
-    b. Na caixa de texto **Nome de usuário**, digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    b. Na caixa de texto **Nome de usuário**, digite `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    c. Na caixa de texto **Nome de Exibição**, digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    c. Na caixa de texto **Nome de Exibição**, digite `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    d. Na caixa de texto **Nome**, digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    d. Na caixa de texto **Nome**, digite `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    e. Na caixa de texto **Sobrenome**, digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    e. Na caixa de texto **Sobrenome**, digite `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
-    f. Na caixa de texto **Email**, digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    f. Na caixa de texto **Email**, digite `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    g. Clique em **Salvar**.
+    g. Clique em **Save** (Salvar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -237,7 +237,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -292,7 +292,7 @@ Para permitir que os usuários do Azure AD façam logon no AirWatch, eles devem 
 
     a. Digite **Nome**, **Senha**, **Confirmar Senha**, **Nome**, **Sobrenome** e **Endereço de Email** de uma conta válida do Azure Active Directory que você deseja provisionar nas caixas de texto relacionadas.
 
-   b. Clique em **Salvar**.
+   b. Clique em **Save** (Salvar).
 
 > [!NOTE]
 > É possível usar qualquer outra ferramenta de criação da conta de usuário do AirWatch ou as APIs fornecidas pelo AirWatch para provisionar as contas de usuário do AAD.

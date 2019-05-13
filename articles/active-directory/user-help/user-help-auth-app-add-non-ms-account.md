@@ -28,7 +28,7 @@ Adicione suas contas não Microsoft, como Google, Facebook ou GitHub ao aplicati
 ## <a name="add-personal-accounts"></a>Adicionar contas pessoais
 Em geral, para todas as suas contas pessoais, você deverá:
 
-1. Entre em sua conta e habilite a verificação de dois fatores usando seu dispositivo ou computador.
+1. Entre em sua conta e ative a verificação de dois fatores usando seu dispositivo ou computador.
 
 2. Adicionar a conta ao aplicativo Microsoft Authenticator. Você pode ser solicitado a digitalizar um código QR como parte desse processo.
 

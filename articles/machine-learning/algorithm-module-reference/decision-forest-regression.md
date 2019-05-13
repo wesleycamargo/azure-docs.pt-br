@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 67016582149824c8deb83b54102190a57bd19383
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d372adf75d46fdedb7a6f2b17e47822475d1f155
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028794"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442367"
 ---
 # <a name="decision-forest-regression-module"></a>Módulo de regressão de floresta de decisão
 
@@ -25,7 +25,7 @@ Use este módulo para criar um modelo de regressão com base em um ensemble de �
 
 Depois de configurar o modelo, você deve treinar o modelo usando um conjunto de dados rotulado e o [treinar modelo](./train-model.md) módulo.  O modelo treinado, em seguida, pode ser usado para fazer previsões. 
 
-## <a name="how-it-works"></a>Como ele funciona
+## <a name="how-it-works"></a>Como funciona
 
 Árvores de decisão são modelos não paramétricos que executam uma sequência de testes simples para cada instância, percorrendo uma estrutura de dados de árvore binária até que um nó folha (decisão) seja atingido.
 
@@ -39,7 +39,7 @@ Depois de configurar o modelo, você deve treinar o modelo usando um conjunto de
 
 Esse modelo de regressão consiste em um ensemble de árvores de decisão. Cada árvore em uma floresta de decisão de regressão gera uma distribuição Gaussiana como uma previsão. Uma agregação é executada sobre o ensemble de árvores para encontrar uma distribuição Gaussiana mais próximo da distribuição combinada em todas as árvores no modelo.
 
-Para obter mais informações sobre a estrutura teórica para este algoritmo e sua implementação, consulte este artigo: [As florestas de decisão: Uma estrutura unificada para classificação, regressão, estimativa de densidade, aprendizado de admissão e aprendizado Semisupervisionado ](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
+Para obter mais informações sobre a estrutura teórica para este algoritmo e sua implementação, consulte este artigo: [As florestas de decisão: Uma estrutura unificada para classificação, regressão, estimativa de densidade, aprendizado de admissão e aprendizado Semisupervisionado](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>Como configurar o modelo de regressão de floresta de decisão
 
@@ -53,7 +53,7 @@ Para obter mais informações sobre a estrutura teórica para este algoritmo e s
 
     - **Replicar**: Na replicação, cada árvore é treinado em exatamente os mesmos dados de entrada. A determinação de qual dividir o predicado é usado para cada nó de árvore permanece aleatória e árvores será variadas.
 
-         Para obter mais informações sobre o processo de treinamento com o **replicar** opção, consulte [florestas de decisão para pesquisa Visual computacional e análise de imagens médicas. Criminisi e J. Shotton. Springer 2013.](http://research.microsoft.com/projects/decisionforests/).
+         Para obter mais informações sobre o processo de treinamento com o **replicar** opção, consulte [florestas de decisão para pesquisa Visual computacional e análise de imagens médicas. Criminisi e J. Shotton. Springer 2013.](https://research.microsoft.com/projects/decisionforests/).
 
 3. Especifique como deseja que o modelo ser treinado, definindo o **criar modo de treino** opção.
 

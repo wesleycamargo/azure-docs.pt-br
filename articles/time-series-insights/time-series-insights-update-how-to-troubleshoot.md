@@ -8,26 +8,26 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3ab3c680f7279ff78e0319f28f67c1cc8c203b47
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e4a63bfd4e82147fe3324e146f2aaff8889da87e
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708024"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472410"
 ---
 # <a name="diagnose-and-troubleshoot"></a>Diagnosticar e solucionar problemas
 
 Este artigo resume vários problemas comuns que você pode encontrar ao trabalhar com o ambiente da Versão prévia do Azure Time Series Insights. O artigo também descreve possíveis causas e soluções para cada problema.
 
-## <a name="problem-i-cant-find-my-environment-in-the-time-series-insights-preview-explorer"></a>Problema: Não consigo localizar meu ambiente no gerenciador da Versão prévia do Azure Time Series Insights
+## <a name="problem-i-cant-find-my-environment-in-the-preview-explorer"></a>Problema: Não consigo localizar meu ambiente no Gerenciador de visualização
 
 Esse problema pode ocorrer se você não tem permissões para acessar o ambiente do Time Series Insights. Os usuários precisam de uma função de acesso de nível de leitura para exibir o ambiente do Time Series Insights. Para verificar os níveis de acesso atuais e conceder acesso adicional, visite a seção de Políticas de Acesso a Dados no recurso Time Series Insights no [portal do Azure](https://portal.azure.com/).
 
-  ![Ambiente][1]
+  [![Environment](media/v2-update-diagnose-and-troubleshoot/environment.png)](media/v2-update-diagnose-and-troubleshoot/environment.png#lightbox)
 
-## <a name="problem-no-data-is-seen-in-the-time-series-insights-preview-explorer"></a>Problema: Nenhum dado é visto no gerenciador da Versão prévia do Azure Time Series Insights
+## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>Problema: nenhum dado for visto no Gerenciador de visualização
 
 Há vários motivos comuns pelos quais você não pode ver seus dados no [Gerenciador da Versão prévia do Azure Time Series Insights](https://insights.timeseries.azure.com/preview).
 
@@ -35,7 +35,7 @@ Há vários motivos comuns pelos quais você não pode ver seus dados no [Gerenc
 
     Verifique se a origem do evento, que é um hub de eventos ou um hub IoT, está recebendo dados de suas marcas ou instâncias. Para verificar, acesse a página de visão geral do recurso no portal do Azure.
 
-    ![Painel de insights][2]
+    [![Insights de painel](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png)](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png#lightbox)
 
 - Os dados de origem do evento não estão no formato JSON.
 
@@ -45,12 +45,12 @@ Há vários motivos comuns pelos quais você não pode ver seus dados no [Gerenc
 
   * Para o Hub IoT, você precisa fornecer a chave com a permissão de **conexão de serviço**.
 
-    ![Configuração][3]
+    [![Configuração](media/v2-update-diagnose-and-troubleshoot/configuration.png)](media/v2-update-diagnose-and-troubleshoot/configuration.png#lightbox)
 
   * Conforme mostrado na imagem anterior, as políticas **iothubowner** e **service** funcionam pois têm a permissão de **conexão de serviço**.
   * Para o hub de eventos, você precisa fornecer a chave que tem a permissão de **Escuta**.
   
-    ![Permissões][4]
+    [![Permissões](media/v2-update-diagnose-and-troubleshoot/permissions.png)](media/v2-update-diagnose-and-troubleshoot/permissions.png#lightbox)
 
   * Conforme mostrado na imagem anterior, as políticas **read** e **manage** funcionam pois têm a permissão de **Escuta**.
 
@@ -62,7 +62,7 @@ Há vários motivos comuns pelos quais você não pode ver seus dados no [Gerenc
 
     Esse problema poderá ocorrer se a propriedade de ID do Time Series for configurada incorretamente no momento do provisionamento do ambiente. Para obter mais informações, confira [Melhores práticas para a escolha de uma ID do Time Series](./time-series-insights-update-how-to-id.md). Neste momento, você não pode atualizar um ambiente existente do Time Series Insights para usar uma ID do Time Series diferente.
 
-## <a name="problem-some-data-shows-but-some-is-missing"></a>Problema: Alguns dados aparecem, mas outros estão ausentes
+## <a name="problem-some-data-shows-but-some-is-missing"></a>Problema: alguns dados mostra, mas alguns está ausente
 
 Pode ser que você esteja enviando dados sem a ID do Time Series.
 
@@ -73,7 +73,7 @@ Pode ser que você esteja enviando dados sem a ID do Time Series.
     > [!NOTE]
     > No momento, o Time Series Insights é compatível com uma taxa máxima de ingestão de 6 Mbps.
 
-## <a name="problem-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>Problema: A configuração de nome da propriedade do Carimbo de data/hora de minha origem do evento não funciona
+## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>Problema: o nome de propriedade de carimbo de hora de minha origem do evento não funciona
 
 Verifique se o nome e o valor estão em conformidade com as seguintes regras:
 
@@ -88,34 +88,26 @@ A maneira mais fácil de assegurar que o nome da propriedade Carimbo de data/hor
 
 Se a propriedade Carimbo de data/hora não for especificada explicitamente, o tempo de enfileiramento de um hub IoT ou hub de eventos será usado como o Carimbo de data/hora padrão.
 
-## <a name="problem-i-cant-edit-or-view-my-time-series-model"></a>Problema: Não consigo editar ou exibir meu modelo do Time Series
+## <a name="problem-i-cant-view-or-edit-my-time-series-model"></a>Problema: Não é possível exibir ou Editar meu modelo de série temporal
 
 - Talvez você esteja acessando um ambiente S1 ou S2 do Time Series Insights.
 
    Os modelos do Time Series são compatíveis apenas com ambientes PAYG. Para obter mais informações de como acessar o ambiente S1/S2 usando o gerenciador da Versão prévia do Time Series Insights, confira [Visualizar dados no gerenciador](./time-series-insights-update-explorer.md).
 
-   ![Access][5]
+   [![Access](media/v2-update-diagnose-and-troubleshoot/access.png)](media/v2-update-diagnose-and-troubleshoot/access.png#lightbox)
 
 - Talvez você não tenha permissões para exibir e editar o modelo.
 
    Os usuários precisam de acesso de nível de colaborador para editar e exibir o modelo do Time Series. Para verificar os níveis de acesso atuais e conceder acesso adicional, visite a seção de Políticas de Acesso a Dados no recurso Time Series Insights no portal do Azure.
 
-## <a name="problem-all-my-instances-in-the-time-series-insights-preview-explorer-dont-have-a-parent"></a>Problema: Nenhuma das minhas instâncias no gerenciador da Versão prévia do Time Series Insights têm um pai
+## <a name="problem-all-my-instances-in-the-preview-explorer-lack-a-parent"></a>Problema: todas as minhas instâncias no Gerenciador de visualização não têm um pai
 
 Esse problema pode ocorrer o ambiente não tem uma hierarquia de modelo do Time Series definida. Para obter mais informações, confira [Trabalhar com modelos do Time Series](./time-series-insights-update-how-to-tsm.md).
 
-  ![Modelos do Time Series][6]
+  [![Modelos de série temporal](media/v2-update-diagnose-and-troubleshoot/tsm.png)](media/v2-update-diagnose-and-troubleshoot/tsm.png#lightbox)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Leia [Trabalhar com modelos do Time Series](./time-series-insights-update-how-to-tsm.md).
 
 - Saiba mais sobre [suporte para formas de JSON](./how-to-shape-query-json.md).
-
-<!-- Images -->
-[1]: media/v2-update-diagnose-and-troubleshoot/environment.png
-[2]: media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png
-[3]: media/v2-update-diagnose-and-troubleshoot/configuration.png
-[4]: media/v2-update-diagnose-and-troubleshoot/permissions.png
-[5]: media/v2-update-diagnose-and-troubleshoot/access.png
-[6]: media/v2-update-diagnose-and-troubleshoot/tsm.png

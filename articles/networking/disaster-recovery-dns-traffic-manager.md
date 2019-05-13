@@ -4,7 +4,7 @@ description: Visão geral das soluções de recuperação de desastre usando o D
 services: dns
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: ec252c1f45e5c27f17b725f6ab68cc94f67897c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a560cc526e73f3ce7e851f2a545f9b16fa53b423
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60507582"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501733"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Recuperação de desastres usando o DNS do Azure e o Gerenciador de Tráfego
 
@@ -140,8 +140,9 @@ As etapas para configurar o failover com o Gerenciador de Tráfego do Azure são
 ### <a name="step-1-create-a-new-azure-traffic-manager-profile"></a>Etapa 1: Criar um novo perfil do Gerenciador de Tráfego do Azure
 Criar um novo perfil do Gerenciador de Tráfego do Azure com o nome contoso123 e selecione o Método de roteamento como Prioritário. Se você tiver um grupo de recursos já existente que você deseja associar, então você pode selecionar um grupo de recursos existente, caso contrário, crie um novo grupo de recursos.
 
-![Criar um perfil de Gerenciador de Tráfego](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
-*Figura - Criar um perfil do Gerenciador de Tráfego*
+![Criar perfil do Gerenciador de Tráfego](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
+
+*Figura - criar um perfil do Gerenciador de tráfego*
 
 ### <a name="step-2-create-endpoints-within-the-traffic-manager-profile"></a>Etapa 2: Criar pontos de extremidade no perfil do Gerenciador de Tráfego
 
@@ -166,7 +167,7 @@ Se Repetição estiver definida como 1 e o TTL estiver definido como 10 segundos
 
 Durante um desastre, o ponto de extremidade primário é analisado e o status é alterado para **degradado** e o site recuperação de desastre permanece **Online**. Por padrão, o Gerenciador de Tráfego envia todo o tráfego para o ponto de extremidade primário (prioridade mais alta). Se o ponto de extremidade primário aparece como degradado, o Gerenciador de Tráfego roteia o tráfego para o segundo ponto de extremidade desde que ele permaneça íntegro. Existe a opção de configurar mais pontos de extremidade no Gerenciador de Tráfego que podem servir como pontos de extremidade de failover adicionais ou, como balanceadores de carga que compartilham a carga entre os pontos de extremidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre o [Gerenciador de Tráfego do Azure](../traffic-manager/traffic-manager-overview.md).
 - Saiba mais sobre [DNS do Azure](../dns/dns-overview.md).
 

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fb657d2c2cd4eeae0eb96dd37505a1c47278725
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 277e7663c978e64ee1440e14583e884b768b3139
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60247840"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441645"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicionar identidade visual à página de entrada de sua empresa no Azure Active Directory
 Use o logotipo da organização e os esquemas de cores personalizados para fornecer uma aparência consistente nas páginas de entrada do Azure AD (Azure Active Directory). As páginas de entrada aparecem quando os usuários entram nos aplicativos baseados na Web da organização, como o Office 365, que usam o Azure AD como provedor de identidade.
@@ -70,7 +70,7 @@ Sua identidade visual personalizada não aparecerá imediatamente quando os usu�
 
         - **Cor do plano de fundo da página de entrada.** Especifique a cor hexadecimal (por exemplo, branco é #FFFFFF) que aparecerá no lugar da sua imagem de plano de fundo em situações de conexão com pouca largura de banda. É recomendável a utilização da cor principal do logotipo do banner ou da cor da organização.
 
-        - **Imagem de logotipo quadrado.** Selecione uma imagem .png (preferencial) ou .jpg do logotipo da organização para ser exibida aos usuários durante o processo de configuração dos novos dispositivos do Windows 10 Enterprise. Essa imagem é usada somente para autenticação do Windows e aparece apenas em locatários que estão usando o [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) para implantação ou páginas de entrada de senha em outras experiências do Windows 10.
+        - **Imagem de logotipo quadrado.** Selecione uma imagem .png (preferencial) ou .jpg do logotipo da organização para ser exibida aos usuários durante o processo de configuração dos novos dispositivos do Windows 10 Enterprise. Essa imagem é usada somente para autenticação do Windows e aparece apenas em locatários que estão usando o [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) para implantação ou páginas de entrada de senha em outras experiências do Windows 10. Em alguns casos elas talvez apareçam na caixa de diálogo de consentimento.
         
             A imagem não pode ser maior que 240x240 pixels e deve ter um tamanho de arquivo inferior a 10 KB. É recomendável usar uma imagem transparente, já que o plano de fundo pode não ser adequado ao plano de fundo do logotipo. Além disso, é recomendável não adicionar preenchimento ao redor da imagem, pois pode fazer seu logotipo parecer pequeno.
     

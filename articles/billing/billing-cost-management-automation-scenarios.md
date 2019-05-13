@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: 0d2b0f2d3fad318ac0152d92fe92614d8dadda1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb7a13d9abcf7c677d51f03df002ea06b543014e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60615869"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232469"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Cenários de automação para gerenciamento de custos e de cobrança
 
@@ -48,11 +48,11 @@ Você pode APIs de gerenciamento de custos e de cobrança em vários cenários p
 |:---------------------------:|:-------------------------:|:----------------:|:--------------------:|:----------------:|:------------------:|:---------:|
 | Orçamentos                     |                           |                  |           X          |                  |                    |     X     |
 | Cobranças do Marketplace                |             X             |         X        |           X          |         X        |          X         |     X     |
-| Tabela de preços                 |             X             |         X        |           X          |         X        |          X         |           |
+| Tabela de Preços                 |             X             |         X        |           X          |         X        |          X         |           |
 | Recomendações de reserva |                           |                  |           X          |                  |                    |           |
 | Detalhes da reserva         |                           |                  |           X          |         X        |                    |           |
 | Resumos da reserva       |                           |                  |           X          |         X        |                    |           |
-| Detalhes de uso               |             X             |         X        |           X          |         X        |          X         |     X     |
+| Detalhes de Uso               |             X             |         X        |           X          |         X        |          X         |     X     |
 | Períodos de Cobrança             |             X             |         X        |           X          |         X        |                    |           |
 | Faturas                    |             X             |         X        |           X          |         X        |                    |           |
 | RateCard                    |             X             |                  |           X          |         X        |          X         |           |
@@ -85,9 +85,9 @@ Os clientes Diretos via Web e empresariais podem usar todas as seguintes APIs, e
 -   [API de Uso sem Classificação](/previous-versions/azure/reference/mt219003(v=azure.100)): obtenha informações de uso bruto antes que o Azure faça qualquer medição/cobrança.
 
 ### <a name="billing"></a>Cobrança
--   [API dos Períodos de Cobrança](https://docs.microsoft.com/rest/api/billing/billingperiods): determine um período de cobrança para analisar, juntamente com as IDs de fatura para aquele período. Você pode usar as IDs de fatura com a API de Faturas.
+-   [API dos Períodos de Cobrança](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): determine um período de cobrança para analisar, juntamente com as IDs de fatura para aquele período. Você pode usar as IDs de fatura com a API de Faturas.
 
--   [API de Faturas](https://docs.microsoft.com/rest/api/billing/invoices): obtenha a URL de download para uma fatura para um período de cobrança em formato PDF.
+-   [API de Faturas](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices): obtenha a URL de download para uma fatura para um período de cobrança em formato PDF.
 
 ### <a name="enterprise-consumption"></a>Consumo de Enterprise
 As seguintes APIs são apenas para Enterprise:
@@ -126,7 +126,7 @@ Essas APIs fornecem dados fundamentalmente diferentes:
 ### <a name="whats-the-difference-between-the-invoice-api-and-the-usage-details-api"></a>Qual é a diferença entre a API de fatura e a API de detalhes de uso?
 Essas APIs fornecem uma exibição diferente dos mesmos dados:
 
-- A [API de Fatura](https://docs.microsoft.com/rest/api/billing/invoices) destina-se somente a clientes Diretos da Web. Ela fornece um rollup mensal de sua fatura com base nos encargos agregados para cada tipo de medidor. 
+- A [API de Fatura](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices) destina-se somente a clientes Diretos da Web. Ela fornece um rollup mensal de sua fatura com base nos encargos agregados para cada tipo de medidor. 
 
 - A [API de Detalhes de Uso](https://docs.microsoft.com/rest/api/consumption/usagedetails) apresenta uma exibição detalhada dos registros de uso/custo para cada dia. Os clientes Enterprise e Diretos via Web podem usá-la.
 

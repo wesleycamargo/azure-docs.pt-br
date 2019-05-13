@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 03/08/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 98c2ad15d836162608affbfbc89908a15e274cee
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: a0ab928ef3b8551e3e20ff3c4b16533c80ee4b7d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528745"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149285"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Tutorial: Extrair dados relacionados ao contexto de um enunciado
 
 Neste tutorial, localize partes relacionadas de dados com base no contexto. Por exemplo, os locais de origem e destino para uma transferência de uma cidade para outra. As duas partes de dados podem ser necessárias e estão relacionadas entre si.  
 
-Este tutorial foi escrito anteriormente com o uso de entidades hierárquicas. As funções de entidade substituem a necessidade pelo tipo de entidade hierárquica. Uma função pode ser usada com qualquer tipo de entidade predefinida ou personalizada e usada em padrões e enunciados de exemplo. 
+Uma função pode ser usada com qualquer tipo de entidade predefinida ou personalizada e usada em padrões e enunciados de exemplo. 
 
 **Neste tutorial, você aprenderá a:**
 
@@ -93,12 +93,8 @@ A entidade predefinida, geographyV2, extrai informações de localização, incl
     ![Adicionar funções à entidade predefinida](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 1. Selecione **Intenções** no painel de navegação à esquerda e, em seguida, selecione a intenção **MoveEmployeeToCity**. Observe que os nomes das cidades são rotulados com a entidade predefinida **geogrpahyV2**.
 1. No primeiro enunciado da lista, selecione a localização de origem. Um menu suspenso será exibido. Selecione **geographyV2** na lista e, em seguida, siga o menu para selecionar **Origem**.
-
-    [![Captura de tela da marcação da cidade como a localização de origem](media/tutorial-entity-roles/tag-origin-city-with-role.png "Screenshot of marking city as Origin location")](media/tutorial-entity-roles/tag-origin-city-with-role.png#lightbox)
-
 1. Use o método da etapa anterior para marcar todas as funções de localizações em todos os enunciados. 
 
-    [![Captura de tela da entidade Locais rotulada em declarações](media/tutorial-entity-roles/all-locations-marked-with-roles.png "Captura de tela da entidade Locais rotulada em declarações")](media/tutorial-entity-roles/all-locations-marked-with-roles.png#lightbox)
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Adicionar enunciados de exemplo à intenção None 
 
@@ -117,7 +113,7 @@ A entidade predefinida, geographyV2, extrai informações de localização, incl
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 
-1. Vá até o final da URL na barra de endereços e insira `Please move Carl Chamerlin from Tampa to Portland`. O último parâmetro de querystring é `q`, o enunciado **consulta**. Esse enunciado não é igual a nenhum dos enunciados rotulados, portanto, ele é um bom teste e deve retornar a intenção `MoveEmployee` com a entidade hierárquica extraída.
+1. Vá até o final da URL na barra de endereços e insira `Please move Carl Chamerlin from Tampa to Portland`. O último parâmetro de querystring é `q`, o enunciado **consulta**. Esse enunciado não é igual a nenhum dos enunciados rotulados e, portanto, é um bom teste e deve retornar a intenção `MoveEmployee` com a entidade extraída.
 
     ```json
     {

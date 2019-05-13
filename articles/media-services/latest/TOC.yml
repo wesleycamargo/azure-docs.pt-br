@@ -24,16 +24,13 @@
     - name: Transmitir ao vivo - .NET
       href: stream-live-tutorial-with-api.md
     - name: Analisar vídeo - .NET
-      displayName: 'job, transform'
+      displayName: 'job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset'
       href: analyze-videos-tutorial-with-api.md
-    - name: Criptografia dinâmica AES-128 - .NET
+    - name: Criptografar dinamicamente com o AES-128 – .NET
       href: protect-with-aes128.md
-- name: Exemplos
-  items:
-    - name: Exemplos de código do Azure
-      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3'
-    - name: CLI do Azure
-      href: cli-samples.md
+    - name: Criptografar dinamicamente com o DRM – .NET
+      displayName: 'PlayReady, Widevine'
+      href: protect-with-drm.md
 - name: Conceitos
   href: concepts-overview.md
   items:
@@ -50,16 +47,16 @@
           displayName: 'encoding, presets, jobs, adaptive, bitrate'
         - name: Transformações e Trabalhos
           href: transforms-jobs-concept.md
+          displayName: 'preset, schema'
         - name: Formatos Media Encoder Standard
           displayName: 'containers, codecs'
           href: media-encoder-standard-formats.md
         - name: Escada de taxa de bits adaptável Autogen
           href: autogen-bitrate-ladder.md
         - name: Codificação com reconhecimento de conteúdo
-          displayName: 'content, aware, cae'
           href: cae-experimental.md
         - name: Códigos de erro do trabalho
-          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+          href: job-error-codes.md
     - name: Análise de mídia
       items:
         - name: Visão geral
@@ -68,13 +65,13 @@
         - name: Transformações e Trabalhos
           href: transforms-jobs-concept.md
         - name: Códigos de erro do trabalho
-          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+          href: job-error-codes.md
     - name: 'Empacotamento, entrega, proteção'
       items:
         - name: Empacotamento
           items:
             - name: Empacotamento dinâmico
-              displayName: packager
+              displayName: 'origin, packager'
               href: dynamic-packaging-overview.md
             - name: Manifestos dinâmicos
               href: filters-dynamic-manifest-overview.md
@@ -83,7 +80,7 @@
         - name: Proteção do conteúdo
           items:
             - name: Tipos de criptografia e protocolos de streaming
-              displayName: Dynamic encryption
+              displayName: 'dynamic, encryption'
               href: content-protection-overview.md
             - name: Sistema de DRM múltiplo com controle de acesso
               href: design-multi-drm-system-with-access-control.md
@@ -96,7 +93,7 @@
                 - name: Requisitos de licença FairPlay
                   href: fairplay-license-overview.md
         - name: Origem/pontos de extremidade de streaming
-          displayName: 'origins, cdn'
+          displayName: 'origin, packager, cdn'
           href: streaming-endpoint-concept.md
         - name: Localizadores de Streaming
           displayName: URLs
@@ -105,8 +102,8 @@
           href: streaming-policy-concept.md
         - name: Políticas da Chave de Conteúdo
           href: content-key-policy-concept.md
-        - name: Códigos de erro de origem
-          href: origin-error-codes.md
+        - name: Códigos de erro do ponto de extremidade de streaming
+          href: streaming-endpoint-error-codes.md
     - name: Transmissão ao vivo
       items:
         - name: Visão geral
@@ -140,6 +137,7 @@
           href: use-azure-media-player.md
     - name: Desenvolver com APIs v3
       href: media-services-apis-overview.md
+      displayName: 'access, naming, long-running'
       items:
         - name: 'Entidades de página, de filtro e de ordem'
           href: entities-overview.md
@@ -147,10 +145,10 @@
           href: rbac-overview.md
         - name: Códigos do Erro
           items:
-            - name: Códigos de erro de origem
-              href: origin-error-codes.md
+            - name: Códigos de erro do ponto de extremidade de streaming
+              href: streaming-endpoint-error-codes.md
             - name: Códigos de erro do trabalho
-              href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+              href: job-error-codes.md
     - name: Diretrizes de migração da v2 para a v3
       href: migrate-from-v2-to-v3.md
 - name: Guias de instruções
@@ -159,10 +157,14 @@
       items:
         - name: Criar uma conta - CLI
           href: create-account-cli-how-to.md
+        - name: Redefinir as credenciais da conta – CLI
+          href: cli-reset-account-credentials.md
         - name: APIs de acesso - CLI
           href: access-api-cli-how-to.md
         - name: Dimensionar as Unidades Reservadas de Mídia - CLI
           href: media-reserved-units-cli-how-to.md
+        - name: Criar um ativo – CLI
+          href: cli-create-asset.md
         - name: Desenvolver com o REST
           items:
             - name: Conectar-se com o Postman
@@ -189,6 +191,14 @@
         - name: De um arquivo local - REST
           displayName: upload
           href: upload-files-rest-how-to.md
+        - name: De um arquivo local – CLI
+          href: cli-upload-file-asset.md
+    - name: Criar transformações e trabalhos
+      items:
+        - name: Criar transformações – CLI
+          href: cli-create-transform.md
+        - name: Criar trabalhos – CLI
+          href: cli-create-jobs.md
     - name: Codificar conteúdo
       items:
         - name: HTTPS como entrada de trabalho – .NET
@@ -215,8 +225,6 @@
       items:
         - name: Obter política de chave de conteúdo - .NET
           href: get-content-key-policy-dotnet-howto.md
-        - name: Criptografia dinâmica DRM - .NET
-          href: protect-with-drm.md
         - name: Offline FairPlay para iOS
           href: offline-fairplay-for-ios.md
         - name: Offline Widevine para Android
@@ -231,10 +239,15 @@
           href: filters-dynamic-manifest-rest-howto.md
         - name: Com a CLI
           href: filters-dynamic-manifest-cli-howto.md
+    - name: Entregar conteúdo
+      items:
+        - name: Publicar um ativo – CLI
+          href: cli-publish-asset.md
 - name: Referência
   items:
     - name: Especificação OpenAPI (Swagger)
       href: 'https://aka.ms/ams-v3-rest-sdk'
+      displayName: schema
     - name: REST
       href: 'https://aka.ms/ams-v3-rest-ref'
     - name: CLI do Azure
@@ -255,10 +268,10 @@
       href: /azure/templates/microsoft.media/allversions
     - name: Códigos do Erro
       items:
-        - name: Códigos de erro de origem
-          href: origin-error-codes.md
+        - name: Códigos de erro do ponto de extremidade de streaming
+          href: streaming-endpoint-error-codes.md
         - name: Códigos de erro do trabalho
-          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+          href: job-error-codes.md
 - name: Recursos
   items:
     - name: Comunidade dos Serviços de Mídia do Azure
@@ -286,7 +299,7 @@
           href: 'https://aka.ms/ams-v3-nodejs-sdk'
         - name: Ruby
           href: 'https://aka.ms/ams-v3-ruby-sdk'
-    - name: AMSE
+    - name: Gerenciador dos Serviços de Mídia do Azure
       href: 'https://github.com/Azure/Azure-Media-Services-Explorer'
     - name: Notas de versão
       href: release-notes.md

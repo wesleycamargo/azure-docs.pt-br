@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 87f86f861ffc036077b25a2514fbd2d0c57da735
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0783251eaeef188c49c5b3aa61b5ecaec48127b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716761"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506703"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -46,7 +46,7 @@ Por exemplo, o JSON a seguir mostra uma política que limita os locais em que os
                     "strongType": "location",
                     "displayName": "Allowed locations"
                 },
-                "defaultValue": "westus2"
+                "defaultValue": [ "westus2" ]
             }
         },
         "displayName": "Allowed locations",
@@ -70,7 +70,7 @@ Todos os exemplos do Azure Policy estão em [exemplos do Azure Policy](../sample
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
-## <a name="mode"></a>Mode
+## <a name="mode"></a>Modo
 
 O **modo** determina quais tipos de recursos serão avaliados para uma política. Os modos suportados são:
 
@@ -114,7 +114,7 @@ Por exemplo, você pode definir uma definição de política para limitar os loc
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "westus2",
+        "defaultValue": [ "westus2" ],
         "allowedValues": [
             "eastus2",
             "westus2",
@@ -229,6 +229,10 @@ Uma condição avalia se um **campo** ou um acessador de **valor** atende a dete
 - `"notIn": ["value1","value2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
+- `"less": "value"`
+- `"lessOrEquals": "value"`
+- `"greater": "value"`
+- `"greaterOrEquals": "value"`
 - `"exists": "bool"`
 
 Ao usar as condições **like** e **notLike**, você fornece um curinga (`*`) no valor.
@@ -416,15 +420,25 @@ Para obter detalhes completos sobre cada efeito, a ordem de avaliação, proprie
 
 ### <a name="policy-functions"></a>Funções de política
 
-Todas as [funções de modelo do Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) estão disponíveis para uso dentro de uma regra de política, exceto as funções a seguir:
+Todos os [funções de modelo do Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) estão disponíveis para uso dentro de uma regra de política, exceto as seguintes funções e funções definidas pelo usuário:
 
 - copyIndex()
 - deployment()
 - lista*
+- newGuid()
+- pickZones()
 - providers()
 - reference()
 - resourceId()
 - variables()
+
+As funções a seguir estão disponíveis para usar uma regra de política, mas diferem de uso em um modelo do Azure Resource Manager:
+
+- addDays(dateTime, numberOfDaysToAdd)
+  - **Data e hora**: cadeia de caracteres [obrigatório] - cadeia de caracteres no formato de data e Hora Universal ISO 8601 ' AAAA-MM-ddTHH:mm:ss.fffffffZ'
+  - **numberOfDaysToAdd**: inteiro [obrigatório] - número de dias a serem adicionados
+- UtcNow () – ao contrário de um modelo do Resource Manager, isso pode ser usado fora do valor padrão.
+  - Retorna uma cadeia de caracteres que é definida como a data e hora atuais no formato de data e Hora Universal ISO 8601 ' AAAA-MM-ddTHH:mm:ss.fffffffZ'
 
 Além disso, a função `field` está disponível para as regras de política. `field` é principalmente para uso com **AuditIfNotExists** e **DeployIfNotExists** para referenciar campos no recurso que estão sendo avaliados. Um exemplo desse uso pode ser visto no [exemplo DeployIfNotExists](effects.md#deployifnotexists-example).
 
@@ -484,7 +498,7 @@ A lista de aliases sempre está aumentando. Para descobrir quais aliases atualme
 
 ### <a name="understanding-the--alias"></a>Noções básicas sobre o alias [*]
 
-Vários aliases disponíveis têm uma versão que é exibida como um nome "normal" e outra que tem **[\*]** anexado a ela. Por exemplo: 
+Vários aliases disponíveis têm uma versão que é exibida como um nome "normal" e outra que tem **[\*]** anexado a ela. Por exemplo:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

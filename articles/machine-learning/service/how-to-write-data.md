@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: d8644c2c0d4ee5b6ee4dcf16e470e4f2fa478237
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 0275d27a0a27d0279886f6f7fd15b14d312a44ea
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023688"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471999"
 ---
 # <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>Escrever e configurar os dados com o SDK do Azure Machine Learning Data Prep
 
@@ -25,6 +25,7 @@ Neste artigo, você aprenderá os diferentes métodos para gravar dados usando o
 
 > [!Important]
 > Se você estiver criando uma nova solução, tente as [conjuntos de dados do Azure Machine Learning](how-to-explore-prepare-data.md) (visualização) para transformar seus dados, dados de instantâneo e armazenar definições de conjunto de dados com controle de versão. Conjuntos de dados é a próxima versão da SDK, oferecendo funcionalidade expandida para gerenciar conjuntos de dados em soluções de inteligência Artificial a preparação de dados.
+> Se você usar o `azureml-dataprep` pacote para criar um fluxo de dados com transformações em vez de usar o `azureml-datasets` pacote para criar um conjunto de dados, você não poderá usar instantâneos ou conjuntos de dados com controle de versão posterior.
 
 Como não há nenhuma limitação para a quantidade de etapas de gravação em um pipeline, você pode facilmente adicionar mais etapas de gravação para obter resultados intermediários para solução de problemas ou para outros pipelines.
 
@@ -39,7 +40,7 @@ Os formatos de arquivo a seguir têm suporte
 Usando o SDK do Azure Machine Learning Data Prep Python, você pode gravar dados para:
 + um sistema de arquivos local
 + Armazenamento do Blobs do Azure
-+ Armazenamento do Azure Data Lake
++ Azure Data Lake Storage
 
 ## <a name="spark-considerations"></a>Considerações sobre o Spark
 
@@ -89,11 +90,11 @@ Saída de exemplo:
 
 | | Coluna1 | Coluna2 | Coluna3 | Coluna4 | Coluna5 | Coluna6 | Coluna7 | Coluna8 | Coluna9 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-|0| 10000.0 | 99999.0 | ERROR | NÃO | NÃO | ENRS | NaN    | NaN | NaN |   
-|1| 10003.0 | 99999.0 | ERROR | NÃO | NÃO | ENSO |    NaN | NaN | NaN |   
-|2| 10010.0 | 99999.0 | ERROR | NÃO | JN | ENJA |    70933.0 | -8667.0 | 90.0 |
-|3| 10013.0 | 99999.0 | ERROR | NÃO | NÃO |     | NaN | NaN | NaN |
-|4| 10014.0 | 99999.0 | ERROR | NÃO | NÃO | ENSO |    59783.0 | 5350.0 |  500.0|
+|0| 10000.0 | 99999.0 | ERRO | NÃO | NÃO | ENRS | NaN    | NaN | NaN |   
+|1| 10003.0 | 99999.0 | ERRO | NÃO | NÃO | ENSO |    NaN | NaN | NaN |   
+|2| 10010.0 | 99999.0 | ERRO | NÃO | JN | ENJA |    70933.0 | -8667.0 | 90.0 |
+|3| 10013.0 | 99999.0 | ERRO | NÃO | NÃO |     | NaN | NaN | NaN |
+|4| 10014.0 | 99999.0 | ERRO | NÃO | NÃO | ENSO |    59783.0 | 5350.0 |  500.0|
 
 Na saída anterior, vários erros aparecem nas colunas numéricas por causa de números que não foram analisados corretamente. Quando gravados em CSV, valores nulos são substituídos com a cadeia de caracteres "ERROR", por padrão.
 

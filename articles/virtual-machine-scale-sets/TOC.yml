@@ -129,6 +129,8 @@
         - name: Desempenho do armazenamento Premium
           href: ../virtual-machines/windows/premium-storage-performance.md
           maintainContext: true
+        - name: Discos do SO Efêmero
+          href: ephemeral-os-disks.md
         - name: Metas da escalabilidade para os discos
           href: ../virtual-machines/windows/disk-scalability-targets.md
           maintainContext: true
@@ -204,7 +206,7 @@
               href: virtual-machine-scale-sets-encrypt-disks-ps.md
             - name: Usar a CLI do Azure
               href: virtual-machine-scale-sets-encrypt-disks-cli.md
-            - name: Criptografia de disco com sequenciamento de extensão
+            - name: Sequenciamento de extensões
               href: ../security/azure-security-disk-encryption-extension-sequencing.md
               maintainContext: true
         - name: Trabalhar com grandes conjuntos de dimensionamento
@@ -221,13 +223,16 @@
               href: virtual-machine-scale-sets-manage-cli.md
             - name: Usar PowerShell do Azure
               href: virtual-machine-scale-sets-manage-powershell.md
-        - name: Galerias de imagens compartilhadas (versão prévia)
-          href: shared-image-galleries.md
+        - name: Galerias de imagens compartilhadas
           items:
+            - name: Visão geral
+              href: shared-image-galleries.md
             - name: CLI
               href: shared-images-cli.md
             - name: PowerShell
               href: shared-images-powershell.md
+            - name: Compartilhar imagens entre locatários
+              href: share-images-across-tenants.md
             - name: Solucionar problemas de imagens compartilhadas
               href: troubleshooting-shared-images.md
         - name: Colocação em escala vertical em um conjunto de dimensionamento

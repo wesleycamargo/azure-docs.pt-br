@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 465352af52cbc84773e52782233065b3000921e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c9b305beae1b385d4714e3a80e6843c7e76a4f60
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60695337"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410987"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Conectar-se a rede do seu laboratório com uma rede virtual do par no Azure Lab Services 
 Este artigo fornece informações sobre o emparelhamento de rede laboratórios com outra rede. 
@@ -33,7 +33,6 @@ Talvez seja necessário conectar-se a rede do seu laboratório com uma rede virt
 
 Certas redes locais conectadas à rede Virtual do Azure ou por meio [ExpressRoute](../../expressroute/expressroute-introduction.md) ou [Gateway de rede Virtual](../../vpn-gateway/vpn-gateway-about-vpngateways.md). Esses serviços devem ser configurados fora do Azure Lab Services. Para saber mais sobre como conectar uma rede local ao Azure usando o ExpressRoute, consulte [Visão geral do ExpressRoute]) (... /expressroute/expressroute-Introduction.MD). Para conectividade local usar um Gateway de rede Virtual, o gateway especificado rede virtual e a conta de laboratório deve estar na mesma região.
 
-
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Configurar no momento da criação da conta de laboratório
 Durante a criação de conta nova do laboratório, você pode escolher uma rede virtual existente que mostra a **rede virtual do par** lista suspensa. A rede virtual selecionada é connected(peered) para os laboratórios criados na conta de laboratório. Todas as máquinas virtuais em laboratórios que são criados após a criação dessa alteração teria acesso aos recursos na rede virtual emparelhada. 
 
@@ -44,15 +43,14 @@ Durante a criação de conta nova do laboratório, você pode escolher uma rede 
 
 
 ## <a name="configure-after-the-lab-is-created"></a>Configurar depois que o laboratório for criado
-A mesma propriedade pode ser habilitada no **configuração Labs** guia da **conta de laboratório** página se você não configurou uma rede ponto a ponto no momento da criação da conta de laboratório. Alterações feitas a essa configuração aplica-se somente para os laboratórios criados após a alteração.
+A mesma propriedade pode ser habilitada no **configuração Labs** guia da **conta de laboratório** página se você não configurou uma rede ponto a ponto no momento da criação da conta de laboratório. Alterações feitas a essa configuração aplica-se somente para os laboratórios criados após a alteração. Como você pode ver na imagem, você pode habilitar ou desabilitar **rede virtual do par** para laboratórios na conta de laboratório. 
 
 ![Habilitar ou desabilitar a rede virtual emparelhamento depois que o laboratório for criado](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer-existing-lab.png) 
 
-Como você pode ver na imagem, você pode habilitar ou desabilitar **rede virtual do par** para laboratórios na conta de laboratório. 
+Quando você seleciona uma rede virtual para o **rede virtual do par** campo, o **permitir que o criador de laboratório para escolher o local do laboratório** opção está desabilitada. É porque os laboratórios na conta de laboratório devem estar na mesma região que a conta de laboratório para que eles possam se conectar com os recursos na rede virtual ponto a ponto. 
 
 > [!IMPORTANT]
 > Essa alteração de configuração se aplica somente a laboratórios criados depois que a alteração for feita, não para os laboratórios existentes. 
-
 
 
 ## <a name="next-steps"></a>Próximas etapas

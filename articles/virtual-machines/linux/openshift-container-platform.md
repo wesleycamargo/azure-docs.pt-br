@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/18/2019
 ms.author: haroldw
-ms.openlocfilehash: 296bc42313ef80425004d3c9b43c6792cbaf97f4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 664099322bef3ac85d980fbe5e43dcc49cba862b
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718246"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411554"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Implantar o OpenShift Container Platform no Azure
 
@@ -66,7 +66,7 @@ O exemplo a seguir mostra um arquivo de parâmetros chamado azuredeploy.paramete
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "_artifactsLocation": {
@@ -249,7 +249,7 @@ Versões diferentes podem ter parâmetros diferentes. Portanto, verifique os par
 
 ### <a name="azuredeployparametersjson-file-explained"></a>azuredeploy. Arquivo Parameters. JSON explicado
 
-| Propriedade | DESCRIÇÃO | Opções válidas | Valor Padrão |
+| Propriedade | Descrição | Opções válidas | Valor Padrão |
 |----------|-------------|---------------|---------------|
 | `_artifactsLocation`  | URL para artefatos (json, scripts, etc.) |  |  https:\//raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
 | `location` | Região do Azure para implantar recursos para |  |  |
@@ -301,9 +301,9 @@ Versões diferentes podem ter parâmetros diferentes. Portanto, verifique os par
 | `existingInfraSubnetReference` | Referência completa a sub-rede existente de infraestrutura nós. Não é necessária se a criação de nova rede virtual / sub-rede |  |  |
 | `existingCnsSubnetReference` | Referência completa a sub-rede existente para nós CNS. Não é necessária se a criação de nova rede virtual / sub-rede |  |  |
 | `existingNodeSubnetReference` | Referência completa a sub-rede existente para nós de computação. Não é necessária se a criação de nova rede virtual / sub-rede |  |  |
-| `masterClusterType` | Especifique se o cluster usa nós mestres públicos ou privados. Se for escolhida a privada, os nós mestres não sejam expostos à Internet através de um IP público. Em vez disso, ele usará IP privado, especificado no `masterPrivateClusterIp` | público <br> privado | público |
+| `masterClusterType` | Especifique se o cluster usa nós mestres públicos ou privados. Se for escolhida a privada, os nós mestres não sejam expostos à Internet através de um IP público. Em vez disso, ele usará IP privado, especificado no `masterPrivateClusterIp` | público <br> Particular | público |
 | `masterPrivateClusterIp` | Se nós mestres privadas forem selecionadas, em seguida, um endereço IP privado deve ser especificado para uso pelo Balanceador de carga interno para nós mestres. Esse endereço IP estático deve ser dentro do bloco CIDR da sub-rede mestre e ainda não estiver em uso. Se nós mestres públicos são selecionados, esse valor não será usado, mas ainda deve ser especificado |  | 10.1.0.200 |
-| `routerClusterType` | Especifique se o cluster usa privado ou público infraestrutura nós. Se private for escolhido, a infraestrutura, nós não sejam expostos à Internet através de um IP público. Em vez disso, ele usará IP privado, especificado no `routerPrivateClusterIp` | público <br> privado | público |
+| `routerClusterType` | Especifique se o cluster usa privado ou público infraestrutura nós. Se private for escolhido, a infraestrutura, nós não sejam expostos à Internet através de um IP público. Em vez disso, ele usará IP privado, especificado no `routerPrivateClusterIp` | público <br> Particular | público |
 | `routerPrivateClusterIp` | Se privada infraestrutura nós forem selecionados, em seguida, um endereço IP privado deve ser especificado para usar, o balanceador de carga interno para infraestrutura nós. Esse endereço IP estático deve ser dentro do bloco CIDR da sub-rede mestre e ainda não estiver em uso. Se público infraestrutura nós forem selecionados, esse valor não será usado, mas ainda deve ser especificado |  | 10.2.0.200 |
 | `routingCertType` | Usar o certificado personalizado para o certificado autoassinado do padrão ou de domínio de roteamento – siga as instruções em **certificados personalizados** seção | selfsigned <br> personalizado | selfsigned |
 | `masterCertType` | Usar o certificado personalizado para o domínio do mestre ou o certificado autoassinado do padrão – siga as instruções em **certificados personalizados** seção | selfsigned <br> personalizado | selfsigned |

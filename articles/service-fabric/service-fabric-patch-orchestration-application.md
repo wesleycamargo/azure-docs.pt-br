@@ -14,25 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 6c0aa42cc22d22431d7d0270aca52e089046cb01
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ef2b1bd9cfe9aed1e82335d62bb09b5ffcbe1016
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60773359"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471773"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch do sistema operacional Windows em seu cluster do Service Fabric
-
-> [!div class="op_single_selector"]
-> * [Windows](service-fabric-patch-orchestration-application.md)
-> * [Linux](service-fabric-patch-orchestration-application-linux.md)
->
->
-
 
 > 
 > [!IMPORTANT]
 > A versão 1.2 do aplicativo. * vai sem suporte em 30 de abril de 2019. Atualize para a versão mais recente.
+
+> 
+> [!IMPORTANT]
+> O aplicativo de orquestração de patch no linux foi preterido. Visite [atualizações automáticas de imagem do sistema operacional do conjunto de dimensionamento de máquina virtual do Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) para orquestrar as atualizações no linux.
 
 
 [A escalabilidade da máquina virtual do conjunto do Azure para atualizações de imagem do sistema operacional](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) é a melhor prática para manter seus sistemas operacionais corrigidos no Azure e o POA (Patch Orchestration Application) é um wrapper do serviço Service Fabric RepairManager Systems que ativa o SO baseado em configuração agendamento de patch para clusters hospedados que não são do Azure. O POA não é necessário para clusters hospedados que não sejam do Azure, mas o agendamento da instalação de patches por domínios de atualização é necessário para corrigir os hosts dos clusters do Service Fabric sem tempo de inatividade.
@@ -336,7 +333,7 @@ P. **Quanto tempo leva a aplicação de patch a um cluster inteiro?**
 a. O tempo necessário para aplicação de patch a um cluster inteiro depende dos seguintes fatores:
 
 - Tempo necessário para aplicar o patch a um nó.
-- A política do Serviço do Coordinator. – A política padrão, `NodeWise`, resulta na aplicação de patch em apenas um nó por vez, o que seria mais lento que `UpgradeDomainWise`. Por exemplo:  Se um nó leva cerca de 1 hora para ser corrigido, a fim de corrigir um cluster de 20 nós (do mesmo tipo de nós) com 5 domínios de atualização, cada um contendo 4 nós.
+- A política do Serviço do Coordinator. – A política padrão, `NodeWise`, resulta na aplicação de patch em apenas um nó por vez, o que seria mais lento que `UpgradeDomainWise`. Por exemplo: Se um nó leva cerca de 1 hora para ser corrigido, a fim de corrigir um cluster de 20 nós (do mesmo tipo de nós) com 5 domínios de atualização, cada um contendo 4 nós.
     - Deve levar aproximadamente 20 horas para aplicar o patch em todo o cluster, se a política é `NodeWise`
     - Deve levar cerca de 5 horas se a política é `UpgradeDomainWise`
 - Carga do cluster – cada operação de aplicação de patch exige realocação da carga de trabalho do cliente para outros nós disponíveis no cluster. O nó passando por aplicação de patch estaria no estado [Desabilitando](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) durante esse tempo. Se o cluster está executando perto de carga de pico, o processo de desabilitação levaria mais tempo. Portanto, o processo geral de aplicação de patch pode parecer lento em condições assim, sob pressão.

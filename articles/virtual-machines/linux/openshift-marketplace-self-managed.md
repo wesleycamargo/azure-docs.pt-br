@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/18/2019
+ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: 1228c770799de37c85b8a48b1dc923ac8294eeca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9b981924dcaf715dd1d05d452b756a40b63f8dac
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60773393"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233088"
 ---
 # <a name="configure-prerequisites"></a>Configurar pré-requisitos
 
@@ -39,8 +39,8 @@ Essa opção é a mais simples, mas ele também tem recursos de personalização
 - **Tipo de disco**: são usados os Managed Disks.
 - **Rede**: Suporte para rede nova ou existente e o intervalo CIDR personalizado.
 - **CNS**: o CNS pode ser habilitado.
-- **Métrica**: as métricas podem ser habilitadas.
-- **Registro em log**: o registro em log pode ser habilitado.
+- **Métrica**: Métricas hawkular podem ser habilitadas.
+- **Registro em log**: O registro em log EFK pode ser habilitado.
 - **Azure Cloud Provider**: Habilitado por padrão, pode ser desabilitado.
 
 No canto superior esquerdo do portal do Azure, clique em **criar um recurso**, insira 'openshift container platform' na caixa de pesquisa e pressione Enter.
@@ -81,7 +81,7 @@ Insira valores para os parâmetros de entrada e clique em **Okey**.
 
 | Parâmetro de entrada | Descrição do parâmetro |
 |-----------------------|-----------------|
-| Prefixo do nome do Cluster OCP | O usuário de administrador a ser criado em todas as instâncias VM |
+| Prefixo do nome do Cluster OCP | Prefixo usado para configurar nomes de host para todos os nós do cluster. Entre 1 e 20 caracteres |
 | Tamanho do nó mestre | Aceite o tamanho da VM padrão ou clique em **alterar o tamanho** para selecionar um tamanho VM diferente.  Selecione o tamanho da VM apropriado para sua carga de trabalho |
 | Tamanho do nó de infraestrutura | Aceite o tamanho da VM padrão ou clique em **alterar o tamanho** para selecionar um tamanho VM diferente.  Selecione o tamanho da VM apropriado para sua carga de trabalho |
 | Número de nós de aplicativo | Aceite o tamanho da VM padrão ou clique em **alterar o tamanho** para selecionar um tamanho VM diferente.  Selecione o tamanho da VM apropriado para sua carga de trabalho |
@@ -90,7 +90,7 @@ Insira valores para os parâmetros de entrada e clique em **Okey**.
 | Rede Virtual nova ou existente | Criar uma nova rede virtual (padrão) ou usar uma rede virtual existente |
 | Escolha as configurações padrão de CIDR ou personalizar o intervalo de IP (CIDR) | Aceite os intervalos de CIDR padrão ou selecione **intervalo de IP personalizado** e insira as informações personalizadas de CIDR.  As configurações padrão serão criar uma rede virtual com o CIDR de 10.0.0.0/14, sub-rede mestre com 10.1.0.0/16 infraestrutura sub-rede com 10.2.0.0/16 e a sub-rede de computação e cns com 10.3.0.0/16 |
 | Nome do grupo de recursos do Cofre de chave | O nome do grupo de recursos que contém o Cofre de chaves |
-| Nome do cofre de chaves | O nome do Cofre de chaves que contém o segredo com o ssh chave privada.  Somente caracteres alfanuméricos e traços são permitidos e ter entre 3 e 24 caracteres |
+| Nome do Cofre de Chaves | O nome do Cofre de chaves que contém o segredo com o ssh chave privada.  Somente caracteres alfanuméricos e traços são permitidos e ter entre 3 e 24 caracteres |
 | Nome do segredo | O nome do segredo que contém o ssh chave privada.  Somente caracteres alfanuméricos e traços são permitidos |
 
    ![Folha de infraestrutura de oferta](media/openshift-marketplace-self-managed/ocp-inframain.png)  

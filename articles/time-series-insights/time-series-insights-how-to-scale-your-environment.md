@@ -10,23 +10,22 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/15/2017
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: fcdfc78a62d901bdaf50c18e9286e6f2d30c5b13
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f7d9827b11136370bcb401073a4d9cc4871c1cc9
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714135"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472783"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Como dimensionar o ambiente do Time Series Insights
 
-Este artigo descreve como alterar a capacidade do seu ambiente Time Series Insights usando o Portal do Azure. A capacidade é o multiplicador aplicado à taxa de ingresso, à capacidade de armazenamento e ao custo associado com a SKU selecionada. 
+Este artigo descreve como alterar a capacidade do seu ambiente Time Series Insights usando o Portal do Azure. A capacidade é o multiplicador aplicado à taxa de ingresso, à capacidade de armazenamento e ao custo associado com a SKU selecionada.
 
-Você pode usar o Portal do Azure para aumentar ou diminuir a capacidade de um determinada SKU de preços. 
+Você pode usar o Portal do Azure para aumentar ou diminuir a capacidade de um determinada SKU de preços.
 
-No entanto, não é permitido alterar a SKU da camada de preços. Por exemplo, um ambiente com uma SKU de preço S1 não pode ser convertido em um S2 ou vice-versa. 
-
+No entanto, não é permitido alterar a SKU da camada de preços. Por exemplo, um ambiente com uma SKU de preço S1 não pode ser convertido em um S2 ou vice-versa.
 
 ## <a name="s1-sku-ingress-rates-and-capacities"></a>As taxas e as capacidades de entrada de SKU S1
 
@@ -45,19 +44,20 @@ No entanto, não é permitido alterar a SKU da camada de preços. Por exemplo, u
 As capacidades são dimensionadas linearmente, portanto, uma SKU S1 com capacidade 2 dá suporte a 2 GB (2 milhões) de eventos por taxa de entrada por dia e 60 GB (60 milhões de eventos) por mês.
 
 ## <a name="change-the-capacity-of-your-environment"></a>Alterar a capacidade do seu ambiente
-1. No Portal do Azure, localize e selecione seu ambiente Time Series Insights. 
 
-2. No menu de seu ambiente do Time Series Insights, escolha **Configurar**.
+1. No Portal do Azure, localize e selecione seu ambiente Time Series Insights.
 
-   ![configure.png](media/scale-your-environment/configure.png)
+1. No menu de seu ambiente do Time Series Insights, escolha **Configurar**.
 
-3. Ajuste o controle deslizante **Capacidade** para selecionar a capacidade que atenda aos requisitos de suas taxas de entrada e capacidade de armazenamento. Observe que a **Taxa de entrada**, a **Capacidade de armazenamento** e o **Custo estimado** são atualizadas dinamicamente para mostrar o impacto da alteração. 
+   [![configure.png](media/scale-your-environment/configure.png)](media/scale-your-environment/configure.png#lightbox)
 
-   ![Controle deslizante](media/scale-your-environment/slider.png)
+1. Ajuste o controle deslizante **Capacidade** para selecionar a capacidade que atenda aos requisitos de suas taxas de entrada e capacidade de armazenamento. Observe que a **Taxa de entrada**, a **Capacidade de armazenamento** e o **Custo estimado** são atualizadas dinamicamente para mostrar o impacto da alteração.
 
-   Como alternativa, você pode digitar o número do multiplicador de capacidade na caixa de texto à direita do controle deslizante. 
+   [![Slider](media/scale-your-environment/slider.png)](media/scale-your-environment/slider.png#lightbox)
 
-4. Selecione **Salvar** para dimensionar o ambiente. O indicador de progresso é exibido momentaneamente até que a alteração seja confirmada. 
+   Como alternativa, você pode digitar o número do multiplicador de capacidade na caixa de texto à direita do controle deslizante.
+
+1. Selecione **Salvar** para dimensionar o ambiente. O indicador de progresso é exibido momentaneamente até que a alteração seja confirmada.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/25/2019
-ms.openlocfilehash: d47c073eb6bfc3012d42d6add8a15029271120f4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/07/2019
+ms.openlocfilehash: 6a36770ff623e35c56a972a482e24ebb24849051
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65136507"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467411"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gerenciar aplicativos lógicos com Visual Studio
 
@@ -36,8 +36,7 @@ Embora você possa criar, editar, gerenciar e implantar aplicativos lógicos na 
   Este início rápido usa o Visual Studio Community 2017, que é gratuito.
 
     > [!IMPORTANT]
-    > Ao instalar o Visual Studio 2019 ou 2017, selecione a carga de trabalho **Desenvolvimento do Azure**.
-    > Para obter mais informações, consulte [gerenciar recursos associados com suas contas do Azure no Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
+    > Ao instalar o Visual Studio 2019 ou 2017, selecione a carga de trabalho **Desenvolvimento do Azure**. Para o Visual Studio 2019, o Cloud Explorer pode abrir o Designer de Aplicativo Lógico no portal do Azure, mas ainda não pode abrir o Designer de Aplicativo Lógico inserido. Para obter mais informações, consulte [gerenciar recursos associados com suas contas do Azure no Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
 
     Para instalar o Cloud Explorer para Visual Studio 2015, [baixar o Gerenciador de nuvem do Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
     Para obter mais informações, consulte [gerenciar recursos associados com suas contas do Azure no Gerenciador de nuvem do Visual Studio (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
@@ -70,7 +69,7 @@ No Visual Studio, é possível localizar todos os aplicativos lógicos associado
 
 1. Abra o Visual Studio. No menu **Exibir**, selecione **Cloud Explorer**.
 
-1. In Cloud Explorer, escolha **Gerenciamento de Contas**. Selecione a assinatura do Azure associada aos aplicativos lógicos e escolha **Aplicar**. Por exemplo: 
+1. In Cloud Explorer, escolha **Gerenciamento de Contas**. Selecione a assinatura do Azure associada aos aplicativos lógicos e escolha **Aplicar**. Por exemplo:
 
    ![Escolha "Gerenciamento de Contas"](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
@@ -105,6 +104,9 @@ No Visual Studio, é possível abrir aplicativos lógicos previamente criados e 
 É possível baixar aplicativos lógicos pelo [Portal do Azure](https://portal.azure.com) e salvá-los como modelos do [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Em seguida, você poderá editar localmente os modelos com o Visual Studio e personalizar aplicativos lógicos para diferentes ambientes de implantação. O download de aplicativos lógicos *parametriza*  automaticamente suas definições dentro dos [modelos do Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment), que também usam JSON (JavaScript Object Notation).
 
 1. No Visual Studio, abra o Cloud Explorer, localize e selecione o aplicativo lógico que você deseja baixar pelo Azure.
+
+   > [!NOTE]
+   > Para Visual Studio de 2019, Gerenciador de nuvem pode abrir o Designer do aplicativo lógico no portal do Azure, mas ainda não é possível abrir o Designer do aplicativo lógico incorporado por baixar o aplicativo lógico.
 
 2. No menu de atalho desse aplicativo, selecione **Abrir com o Editor do Aplicativo Lógico**.
 
@@ -153,14 +155,14 @@ Para verificar o status e diagnosticar problemas com execuções de aplicativos 
 
    ![Abrir histórico de execução](./media/manage-logic-apps-with-visual-studio/view-run-history.png)
 
-1. Para visualizar os detalhes de uma execução específica, clique duas vezes em uma execução. Por exemplo: 
+1. Para visualizar os detalhes de uma execução específica, clique duas vezes em uma execução. Por exemplo:
 
    ![Histórico de execução detalhado](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   
    > [!TIP]
    > Para classificar a tabela por propriedade, escolha o cabeçalho da coluna para essa propriedade. 
 
-1. Expanda as etapas cujas entradas e saídas você quer revisar. Por exemplo: 
+1. Expanda as etapas cujas entradas e saídas você quer revisar. Por exemplo:
 
    ![Exibir entradas e saídas para cada etapa](./media/manage-logic-apps-with-visual-studio/run-inputs-outputs.png)
 

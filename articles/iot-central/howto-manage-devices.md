@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a723ca6d69d45613636c7659e6566cec19b31d65
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4746620f083996bf64e77617ec472c3d3894d91
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364056"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464266"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gerenciar dispositivos no aplicativo Azure IoT Central
 
@@ -66,7 +66,7 @@ Para dispositivos de registro em massa no aplicativo:
 
 1. Selecione **Importar**.
 
-    ![Ação Importar](./media/howto-manage-devices/BulkImport1.png)
+    ![Ação Importar](./media/howto-manage-devices/bulkimport1a.png)
 
 1. Selecione o arquivo CSV que contém a lista de IDs dos Dispositivos a serem importados.
 
@@ -74,7 +74,7 @@ Para dispositivos de registro em massa no aplicativo:
 
 1. Depois que a importação estiver concluída, uma mensagem de êxito será exibida na grade do dispositivo.
 
-    ![Importação com êxito](./media/howto-manage-devices/BulkImport3.png)
+    ![Importação com êxito](./media/howto-manage-devices/bulkimport3a.png)
 
 Se a operação de importação do dispositivo falhar, uma mensagem de erro será exibida na grade do dispositivo. É gerado um arquivo de log captura todos os erros que você pode baixar.
 
@@ -86,13 +86,13 @@ Se você registrar dispositivos iniciando a importação em **Dispositivos não 
 
 1. No painel esquerdo, escolha **Dispositivos não associados**:
 
-    ![Dispositivos não associados](./media/howto-manage-devices/UnassociatedDevices1.png)
+    ![Dispositivos não associados](./media/howto-manage-devices/unassociateddevices1a.png)
 
 1. Selecione os dispositivos que você deseja associar a um modelo:
 
 1. Selecione **associar**:
 
-    ![Associar Dispositivos](./media/howto-manage-devices/UnassociatedDevices2.png)
+    ![Associar Dispositivos](./media/howto-manage-devices/unassociateddevices2a.png)
 
 1. Escolha o modelo da lista de modelos disponíveis e selecione **associar**.
 
@@ -113,7 +113,7 @@ Para exportar em massa os dispositivos do seu aplicativo:
 
 1. Selecione os dispositivos que você deseja exportar e, em seguida, selecione a **exportar** ação.
 
-    ![Exportação](./media/howto-manage-devices/Export1.png)
+    ![Exportação](./media/howto-manage-devices/export1a.png)
 
 1. O processo de exportação tem início. Você pode acompanhar o status na parte superior da grade.
 
@@ -121,7 +121,7 @@ Para exportar em massa os dispositivos do seu aplicativo:
 
 1. Selecione o **mensagem de êxito** para baixar o arquivo em uma pasta local no disco.
 
-    ![Exportação bem-sucedida](./media/howto-manage-devices/Export2.png)
+    ![Exportação bem-sucedida](./media/howto-manage-devices/export2a.png)
 
 1. O arquivo CSV exportado contém as seguintes colunas: ID do dispositivo, nome do dispositivo, chaves de dispositivo e impressões digitais de certificado X509:
 

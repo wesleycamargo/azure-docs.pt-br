@@ -7,15 +7,15 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3e813b8a1709675d0d870d64df83428ab82e25b3
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5b9e0dfb88c979618ce4cc5ed56e372cb0f65608
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024310"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472712"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Escolher um tipo de preço para o Azure Search
 
@@ -43,7 +43,7 @@ Dentro de uma camada, você pode [ajustar os recursos de partição e réplica](
 
 A tabela a seguir lista as camadas disponíveis. Incluem outras fontes de informações de camada a [página de preços](https://azure.microsoft.com/pricing/details/search/), [limites de serviço e dados](search-limits-quotas-capacity.md)e a página do portal quando um serviço de provisionamento.
 
-|Camada | Capacity |
+|Tipo | Capacity |
 |-----|-------------|
 |Grátis | Compartilhado com outros assinantes. Não Evolutivo, limitado a 3 índices e 50 MB de armazenamento. |
 |Basic | Recursos de computação dedicados para cargas de trabalho de produção em uma escala menor. Uma partição de 2 GB e até três réplicas. |
@@ -89,7 +89,7 @@ Encargos se aplicam para dados de saída, se os serviços estiverem em regiões 
 
 ### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. IA-indexação aprimorada usando os serviços Cognitivos
 
-Para [indexação de inteligência Artificial com os serviços Cognitivos](cognitive-search-concept-intro.md), você deve planejar na anexação de um recurso de serviços Cognitivos faturável na S0 camada de preços para o processamento de pagamento conforme o uso. Não há nenhum "custo fixo" associado com a anexação de serviços Cognitivos. Você paga apenas pelo processamento que você precisa.
+Para [indexação de inteligência Artificial com os serviços Cognitivos](cognitive-search-concept-intro.md), você deve planejar na anexação de um recurso de serviços Cognitivos faturável, na mesma região do Azure Search, no tipo de preços S0 do processamento de pagamento conforme o uso. Não há nenhum "custo fixo" associado com a anexação de serviços Cognitivos. Você paga apenas pelo processamento que você precisa.
 
 Extração de imagem durante a decodificação de documentos é um encargo de Azure Search, cobrado com base no número de imagens extraídos de seus documentos. A extração de texto atualmente é gratuita. 
 

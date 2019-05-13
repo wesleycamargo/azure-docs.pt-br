@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fef2d42282291bb0ea6afeea03e60234d3d47a4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93fae0babdee5eac87d50679fdd5b2b938c4df2e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648781"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236905"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Lista de verificação de planejamento e implantação de carga de trabalho SAP no Azure 
 
@@ -140,9 +140,10 @@ O piloto pode ser executado antes ou junto com o planejamento e a preparação d
       2. Para evitar tempos limites de GUI entre interfaces da SAP GUI implantadas locais e camadas de aplicativo SAP implantadas no Azure, verifique se os parâmetros a seguir estão definidos no default.pfl ou no perfil da instância:
          1.   rdisp/keepalive_timeout = 3600
          2.   rdisp/keepalive = 20
-      3. Se você usar uma configuração de Cluster de Failover do Windows, verifique se o tempo para reagir em nós não responsivos está definido corretamente para o Azure. O artigo da Microsoft [Ajustando limites de rede de cluster de failover](https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/) lista parâmetros e como eles afetam as sensibilidades de failover. Entre os parâmetros listados, esses dois parâmetros devem ser definidos com os valores:
-         1.   SameSubNetDelay = 2
+      3. Se você usar uma configuração de Cluster de Failover do Windows, verifique se o tempo para reagir em nós não responsivos está definido corretamente para o Azure. O artigo da Microsoft [Ajustando limites de rede de cluster de failover](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834) lista parâmetros e como eles afetam as sensibilidades de failover. Supondo que os nós de cluster estão na mesma sub-rede, os seguintes parâmetros devem ser alterados:
+         1.   SameSubNetDelay = 2000
          2.   SameSubNetThreshold = 15
+         3.   RoutingHistorylength = 30
 4. Testar seus procedimentos de alta disponibilidade e recuperação de desastre
    1. Simule situações de failover desligando VMs (SO convidado do Windows) ou colocando os sistemas operacionais no modo de pânico (SO convidado do Linux) para descobrir se suas configurações de failover funcionam como planejado. 
    2. Meça seu tempo necessário para executar um failover. Se os tempos forem excessivos, considere:

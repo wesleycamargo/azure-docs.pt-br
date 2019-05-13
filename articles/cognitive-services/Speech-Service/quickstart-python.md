@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Reconhecer fala, Python – Serviços de Fala'
+title: 'Início Rápido: Reconhecer fala, Python – Serviços de Fala'
 titleSuffix: Azure Cognitive Services
 description: Use este guia para criar um aplicativo de console de conversão de fala em texto que usa o SDK de Fala para Python. Quando terminar, você pode usar o microfone do computador para transcrever a conversão de fala em texto em tempo real.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 05/02/2019
 ms.author: chlandsi
-ms.openlocfilehash: 1464d1ca8fcf1ad5a955d69aa76caec9aa568dad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 34af7544a7678dfd8c8f870369bf0b4b1083b96d
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886110"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020710"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Início rápido: Reconhecer fala com o SDK de Fala para Python
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Início Rápido: Reconhecer fala com o SDK de Fala para Python
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -30,15 +30,24 @@ Este artigo mostra como usar os Serviços de Fala por meio do SDK de Fala para P
 * O pacote do SDK de Fala do Python está disponível para estes sistemas operacionais:
     * Windows: x64 e x86.
     * Mac: macOS X versão 10.12 ou mais recente.
-    * Linux: Ubuntu 16.04 ou 18.04 em x64.
-* No Ubuntu, execute estes comandos para instalar os pacotes necessários:
+    * Linux: Ubuntu 16.04, Ubuntu 18.04, Debian 9 em x64.
+* No Linux, execute estes comandos para instalar os pacotes necessários:
 
-  ```sh
-  sudo apt-get update
-  sudo apt-get install build-essential libssl1.0.0 libasound2 wget
-  ```
+  * No Ubuntu:
 
-* No Windows, você também precisa de [Pacotes Redistribuíveis do Microsoft Visual C++ para Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para sua plataforma.
+    ```sh
+    sudo apt-get update
+    sudo apt-get install build-essential libssl1.0.0 libasound2
+    ```
+
+  * No Debian 9:
+
+    ```sh
+    sudo apt-get update
+    sudo apt-get install build-essential libssl1.0.2 libasound2
+    ```
+
+* No Windows, é necessário ter os [Pacotes Redistribuíveis do Microsoft Visual C++ para Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para a sua plataforma.
 
 ## <a name="install-the-speech-sdk"></a>Instalar o SDK de Fala
 

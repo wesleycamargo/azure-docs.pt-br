@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: cdde9f0ec69bec48ae0fb747db0cc49e81920817
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3cedfaf1ae16c17026314fc24dbdc7bb11494caf
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57872545"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020950"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Início rápido: Reconhecer fala com o SDK de Fala para Unity (Beta)
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Início Rápido: Reconhecer fala com o SDK de Fala para Unity (Beta)
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -27,14 +27,15 @@ Caso você não esteja familiarizado com o Unity, será recomendável estudar o 
 
 > [!NOTE]
 > Atualmente, o SDK de Fala para Unity está em beta.
-> Ele dá suporte ao Windows x86 e x64 (aplicativo da área de trabalho independente ou Plataforma Universal do Windows) e Android (ARM32/64, x86).
+> Ele dá suporte à Área de Trabalho do Windows (x86 e x64) ou à Plataforma Universal do Windows (x86, x64, ARM/ARM64) e ao Android (x86, ARM32/64).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este projeto, você precisará de:
 
-* [Unity 2018.3 ou posterior](https://store.unity.com/)
+* [Unity 2018.3 ou posterior](https://store.unity.com/) com o [Unity 2019.1 adicionando suporte ao UWP ARM64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+     * Para obter suporte ao ARM64, instale as [ferramentas de build opcionais para o ARM64 e o SDK do Windows 10 para ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/) 
 * Uma chave de assinatura para o Serviço de Fala. [Obtenha uma gratuitamente](get-started.md).
 * Acesso ao microfone do computador.
 

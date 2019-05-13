@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 7e4364a06a3d20edc7aafd54a4dcd86dfd039043
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8508dbecceb9984f53a133d9634882603549cdd1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573563"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199635"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Como criar e usar um balanceador de carga interno com um ambiente do Serviço de Aplicativo #
 
@@ -133,8 +133,8 @@ Depois de criar o seu ASE, o nome de domínio mostra o domínio especificado. Um
 
 O ASE ILB precisa de um certificado SSL válido. Use autoridades de certificação internas, compre um certificado de um emissor externo ou use um certificado auto-assinado. Independentemente da origem do certificado SSL, os seguintes atributos de certificado devem ser configurados corretamente:
 
-* **Entidade**: Esse atributo deve ser definido como *.seu-domínio-raiz-aqui.
-* **Nome Alternativo da Entidade**: Esse atributo deve incluir **.seu-domínio-raiz-aqui* e **.scm.seu-domínio-raiz-aqui*. Conexões SSL para o site SCM/Kudu associados a cada aplicativo usam um endereço no formato *nome-do-seu-aplicativo.scm.seu-domínio-raiz-aqui*.
+* **Entidade**: Esse atributo deve ser definido como *\.seu-domínio-raiz-aqui.
+* **Nome Alternativo da Entidade**: Esse atributo deve incluir *.seu-domínio-raiz-aqui* e *.scm.seu-domínio-raiz-aqui*. Conexões SSL para o site SCM/Kudu associados a cada aplicativo usam um endereço no formato *nome-do-seu-aplicativo.scm.seu-domínio-raiz-aqui*.
 
 Converta ou salve o certificado SSL como um arquivo .pfx. O arquivo .pfx deve incluir todos os certificados intermediários e raiz. Proteja-o com uma senha.
 

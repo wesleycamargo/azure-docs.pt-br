@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: ced83b83c2d64ba5c4816f378c66dae9f4210391
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3fc14b821064719f39eb877aa2253f8084496a66
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60193621"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523506"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossário de noções básicas de linguagem de conceitos e vocabulário comuns
 O glossário do LUIS (Reconhecimento vocal) explica os termos que você pode encontrar à medida que trabalha com o Serviço de API do LUIS.
@@ -26,7 +26,7 @@ A versão ativa do LUIS é a versão que recebe alterações no modelo. No site 
 
 ## <a name="authoring"></a>Criação
 
-A criação é a capacidade de criar, gerenciar e implantar um [aplicativo LUIS](#luis-app), usando o site do [LUIS](luis-reference-regions.md) ou as [APIs de criação](https://aka.ms/luis-authoring-api).
+A criação é a capacidade de criar, gerenciar e implantar um [aplicativo LUIS](#luis-app), usando o site do [LUIS](luis-reference-regions.md) ou as [APIs de criação](https://go.microsoft.com/fwlink/?linkid=2092087).
 
 ## <a name="authoring-key"></a>Chave de criação
 
@@ -74,7 +74,7 @@ No contexto do LUIS, um **domínio** é uma área de conhecimento. Seu domínio 
 
 ## <a name="endpoint"></a>Ponto de extremidade
 
-A URL do [ponto de extremidade LUIS](https://aka.ms/luis-endpoint-apis) é onde você envia consultas LUIS após o [aplicativo LUIS](#luis-app) ser criado e publicado. A URL de ponto de extremidade contém a região do aplicativo publicado, bem como a ID do aplicativo. Você pode encontrar o ponto de extremidade na página **[Chaves e pontos de extremidade](luis-how-to-azure-subscription.md)** do aplicativo ou obter a URL do ponto de extremidade na API [Obter Informações do Aplicativo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
+A URL do [ponto de extremidade LUIS](https://go.microsoft.com/fwlink/?linkid=2092356) é onde você envia consultas LUIS após o [aplicativo LUIS](#luis-app) ser criado e publicado. A URL de ponto de extremidade contém a região do aplicativo publicado, bem como a ID do aplicativo. Você pode encontrar o ponto de extremidade na página **[Chaves e pontos de extremidade](luis-how-to-azure-subscription.md)** do aplicativo ou obter a URL do ponto de extremidade na API [Obter Informações do Aplicativo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
 
 Um exemplo de ponto de extremidade tem a seguinte aparência:
 
@@ -82,11 +82,11 @@ Um exemplo de ponto de extremidade tem a seguinte aparência:
 
 |Parâmetro querystring|description|
 |--|--|
-|region| [região publicada](luis-reference-regions.md#publishing-regions) |
+|Região| [região publicada](luis-reference-regions.md#publishing-regions) |
 |appID | ID do aplicativo LUIS |
 |subscriptionID | Chave de ponto de extremidade (assinatura) de LUIS criada no portal do Azure |
 |q | utterance |
-|timezoneOffset| minutes|
+|timezoneOffset| minutos|
 
 ## <a name="entity"></a>Entidade
 

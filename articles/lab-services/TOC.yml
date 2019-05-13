@@ -64,26 +64,34 @@
   items:
     - name: Laboratórios de sala de aula
       items:
-        - name: Gerenciar contas de laboratório
-          href: classroom-labs/how-to-manage-lab-accounts.md
-        - name: Gerenciar laboratórios de sala de aula
-          href: classroom-labs/how-to-manage-classroom-labs.md
-        - name: Configurar e publicar modelos
-          href: classroom-labs/how-to-create-manage-template.md
-        - name: Configurar e controlar uso
-          href: classroom-labs/how-to-configure-student-usage.md
-        - name: Acessar laboratórios de sala de aula
-          href: classroom-labs/how-to-use-classroom-lab.md
-        - name: Criar e gerenciar agendas
-          href: classroom-labs/how-to-create-schedules.md
-        - name: Criar um ambiente com várias VMs em uma VM de modelo
-          href: classroom-labs/how-to-enable-multi-vm-environment.md
-        - name: Conectar seus laboratórios a uma rede virtual emparelhada
-          href: classroom-labs/how-to-connect-peer-virtual-network.md
-        - name: Anexar e usar uma galeria de imagens compartilhadas
-          href: classroom-labs/how-to-use-shared-image-gallery.md
-        - name: Habilitar a conexão de área de trabalho remota para Linux
-          href: classroom-labs/how-to-enable-remote-desktop-linux.md
+        - name: Criar e configurar contas de laboratório
+          items:
+            - name: Criar e gerenciar contas de laboratório
+              href: classroom-labs/how-to-manage-lab-accounts.md
+            - name: Configurar contas de laboratório
+              href: classroom-labs/how-to-configure-lab-accounts.md
+            - name: Conectar seus laboratórios a uma rede virtual emparelhada
+              href: classroom-labs/how-to-connect-peer-virtual-network.md
+            - name: Anexar ou desanexar uma galeria de imagens compartilhada
+              href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
+        - name: 'Criar, configurar e usar os laboratórios de sala de aula'
+          items:
+            - name: Criar e gerenciar laboratórios de sala de aula
+              href: classroom-labs/how-to-manage-classroom-labs.md
+            - name: Configurar e publicar modelos
+              href: classroom-labs/how-to-create-manage-template.md
+            - name: Configurar e controlar uso
+              href: classroom-labs/how-to-configure-student-usage.md
+            - name: Acessar laboratórios de sala de aula
+              href: classroom-labs/how-to-use-classroom-lab.md
+            - name: Criar e gerenciar agendas
+              href: classroom-labs/how-to-create-schedules.md
+            - name: Criar um ambiente com várias VMs em uma VM de modelo
+              href: classroom-labs/how-to-enable-multi-vm-environment.md
+            - name: Usar uma galeria de imagens compartilhada
+              href: classroom-labs/how-to-use-shared-image-gallery.md
+            - name: Habilitar a conexão de área de trabalho remota para Linux
+              href: classroom-labs/how-to-enable-remote-desktop-linux.md
     - name: Laboratórios de Desenvolvimento/Teste
       items:
         - name: Especificar grupo de recursos para máquinas virtuais do laboratório
@@ -166,12 +174,16 @@
               href: connect-environment-lab-virtual-network.md
             - name: Integrar ambientes ao seu pipeline de CI/CD do Azure DevOps
               href: integrate-environments-devops-pipeline.md
+            - name: Usar serviços de PaaS (plataforma como serviço)
+              href: use-paas-services.md
         - name: Proteger o acesso aos laboratórios
           items:
             - name: Adicionar proprietários e usuários do laboratório
               href: devtest-lab-add-devtest-user.md
             - name: Personalizar permissões com funções personalizadas
               href: devtest-lab-grant-user-permissions-to-specific-lab-policies.md
+            - name: Automatizar a adição de um usuário de laboratório
+              href: automate-add-lab-user.md
         - name: Configurar um laboratório
           items:
             - name: Definir políticas e agendas

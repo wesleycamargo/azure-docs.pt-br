@@ -62,11 +62,11 @@ As propriedades a seguir têm suporte para o serviço vinculado do DB2:
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **Db2** | Sim |
-| Servidor |Nome do servidor DB2. Você pode especificar o número da porta após o nome do servidor delimitado por dois pontos, por exemplo, `server:port`. |Sim |
-| Banco de Dados |Nome do banco de dados DB2. |Sim |
+| server |Nome do servidor DB2. Você pode especificar o número da porta após o nome do servidor delimitado por dois pontos, por exemplo, `server:port`. |Sim |
+| database |Nome do banco de dados DB2. |Sim |
 | authenticationType |Tipo de autenticação usado para se conectar ao banco de dados DB2.<br/>O valor permitido é: **Básica**. |Sim |
-| Nome de Usuário |Especifica o nome de usuário para se conectar ao banco de dados DB2. |Sim |
-| Senha |Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
+| username |Especifica o nome de usuário para se conectar ao banco de dados DB2. |Sim |
+| password |Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime auto-hospedado ou o Integration Runtime do Azure (se seu armazenamento de dados estiver publicamente acessível). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 **Exemplo:**
@@ -174,30 +174,30 @@ Ao copiar dados do DB2, os seguintes mapeamentos são usados de tipos de dados d
 | Tipo do Banco de Dados DB2 | Tipo de dados provisório do Data Factory |
 |:--- |:--- |
 | BigInt |Int64 |
-| Binário |Byte[] |
+| Binary |Byte[] |
 | Blob |Byte[] |
-| Char |Cadeia de caracteres |
-| Clob |Cadeia de caracteres |
-| Data |DateTime |
-| DB2DynArray |Cadeia de caracteres |
-| DbClob |Cadeia de caracteres |
+| Char |String |
+| Clob |String |
+| Date |Datetime |
+| DB2DynArray |String |
+| DbClob |String |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Double |Double |
 | Float |Double |
-| Graphic |Cadeia de caracteres |
-| Número inteiro |Int32 |
+| Graphic |String |
+| Integer |Int32 |
 | LongVarBinary |Byte[] |
-| LongVarChar |Cadeia de caracteres |
-| LongVarGraphic |Cadeia de caracteres |
+| LongVarChar |String |
+| LongVarGraphic |String |
 | Numeric |Decimal |
 | Real |Single |
 | SmallInt |Int16 |
-| Hora |TimeSpan |
-| Timestamp |DateTime |
+| Time |TimeSpan |
+| Timestamp |Datetime |
 | VarBinary |Byte[] |
-| VarChar |Cadeia de caracteres |
-| VarGraphic |Cadeia de caracteres |
+| VarChar |String |
+| VarGraphic |String |
 | Xml |Byte[] |
 
 

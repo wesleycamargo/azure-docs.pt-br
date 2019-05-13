@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: c8444fd57fe939dfb212d88c22a071c13dac691e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a20662c2fc9b416fefce89a6ebe706307ee71bb7
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60519216"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236474"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Preparar e carregar imagens para o aplicativo Azure IoT Central
 
@@ -74,7 +74,7 @@ Para carregar uma imagem para usar no **meus aplicativos** página, navegue até
 
 ![Carregar imagem de aplicativo](media/howto-prepare-images/uploadapplicationmanager.png)
 
-Selecione o bloco de imagem do aplicativo para carregar sua imagem preparada (160 268 px) em seu computador local.
+Selecione o **imagem do aplicativo** lado a lado para carregar uma imagem (160 268 px) em seu computador local.
 
 ### <a name="application-dashboard"></a>Painel do aplicativo
 
@@ -82,7 +82,7 @@ Para carregar uma imagem no painel do aplicativo, navegue até a **Dashboard** p
 
 ![Carregar a imagem do painel](media/howto-prepare-images/uploadhomepage.png)
 
-Em configurar a imagem, selecione o bloco de imagem para carregar sua imagem preparada do computador local. O bloco de tamanho menor é 200x200 px, os blocos maiores podem ser múltiplos retangulares ou quadrados de blocos pequenos. Por exemplo, 200 x 400 px, x 200 a 400 px ou 400x400 px.
+Sob **configurar a imagem**, selecione o **imagem** lado a lado para carregar uma imagem do computador local. O bloco de tamanho menor é 200x200 px, os blocos maiores podem ser múltiplos retangulares ou quadrados de blocos pequenos. Por exemplo, 200 x 400 px, x 200 a 400 px ou 400x400 px.
 
 **Salvar** a imagem carregada. Você pode redimensioná-la enquanto estiver no modo de edição. Selecione **feito** quando terminar.
 
@@ -92,7 +92,7 @@ Para fazer o upload de uma imagem em um modelo de dispositivo, navegue até **Mo
 
 ![Carregar imagem do modelo de dispositivo](media/howto-prepare-images/uploaddevicetemplate.png)
 
-Selecione o bloco de imagem para carregar sua imagem preparada (64 x 64 px) em seu computador local.
+Selecione o bloco de imagem para carregar uma imagem (64 x 64 px) em seu computador local.
 
 ### <a name="device-dashboard"></a>Painel do dispositivo
 
@@ -100,7 +100,7 @@ Para fazer o upload de uma imagem em um dashboard de dispositivo, navegue até *
 
 ![Carregar imagem do painel do dispositivo](media/howto-prepare-images/uploaddevicedashboard.png)
 
-Em configurar a imagem, selecione o bloco de imagem e, em seguida, escolha o arquivo a ser carregado em seu computador local. O bloco de tamanho menor é 200x200 px, os blocos maiores podem ser múltiplos retangulares ou quadrados de blocos pequenos. Por exemplo, 200 x 400 px, x 200 a 400 px ou 400x400 px.
+Sob **configurar a imagem**, selecione o **imagem** lado a lado e, em seguida, escolha o arquivo a ser carregado em seu computador local. O bloco de tamanho menor é 200x200 px, os blocos maiores podem ser múltiplos retangulares ou quadrados de blocos pequenos. Por exemplo, 200 x 400 px, x 200 a 400 px ou 400x400 px.
 
 **Salvar** a imagem carregada. Você pode redimensionar e reposicionar enquanto estiver no modo de edição. Selecione **feito** quando terminar.
 
@@ -110,13 +110,14 @@ Para fazer upload de uma imagem em um painel de conjunto de dispositivos, navegu
 
 ![Carregar imagem do painel do conjunto de dispositivos](media/howto-prepare-images/uploaddevicesetdashboard.png)
 
-Em configurar a imagem, selecione o bloco de imagem para carregar sua imagem preparada do computador local. O bloco de tamanho menor é 200x200 px, os blocos maiores podem ser múltiplos retangulares ou quadrados de blocos pequenos. Por exemplo, 200 x 400 px, x 200 a 400 px ou 400x400 px.
+Sob **configurar a imagem**, selecione o **imagem** lado a lado para carregar uma imagem do computador local. O bloco de tamanho menor é 200x200 px, os blocos maiores podem ser múltiplos retangulares ou quadrados de blocos pequenos. Por exemplo, 200 x 400 px, x 200 a 400 px ou 400x400 px.
 
 **Salvar** a imagem carregada. Você pode redimensionar e reposicionar enquanto estiver no modo de edição. Selecione **feito** quando terminar.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu como preparar e carregar imagens para o aplicativo Azure IoT Central, a próxima etapa sugerida é apresentada:
+Agora que você aprendeu a preparar e carregar imagens no seu aplicativo do Azure IoT Central, aqui estão as próximas etapas sugeridas:
 
-> [!div class="nextstepaction"]
-> [Gerenciar dispositivos no aplicativo Azure IoT Central](howto-manage-devices.md)
+* [Personalizar a interface do usuário do Azure IoT Central](./howto-customize-ui.md)
+* [Configurar o painel do aplicativo](./howto-configure-homepage.md)
+* [Gerenciar dispositivos no aplicativo Azure IoT Central](howto-manage-devices.md)

@@ -3,7 +3,7 @@ title: Trabalhar com políticas de segurança | Microsoft Docs
 description: Este artigo descreve como trabalhar com políticas de segurança na Central de Segurança do Azure.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/28/2019
+ms.date: 5/05/2019
 ms.author: monhaber
-ms.openlocfilehash: 1931026869e930caef2ff2f92fb85dade15a9c8c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0465f12e3da6acc2ec8f7259ee9f040ccd3ce88e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111503"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236311"
 ---
 # <a name="working-with-security-policies"></a>Trabalhando com políticas de segurança
 
@@ -110,6 +110,9 @@ Para obter mais informações sobre as recomendações, consulte [Gerenciando re
    ![Gerenciamento de política](./media/tutorial-security-policy/policy-management.png)
 
 2. Clique no grupo de gerenciamento ou da assinatura para o qual você deseja desabilitar a recomendação.
+
+   > [!Note]
+   > Lembre-se de que um grupo de gerenciamento se aplica a suas políticas para suas assinaturas. Portanto, se você desabilitar a política de uma assinatura, e a assinatura pertence a um grupo de gerenciamento que ainda usa a mesma política, em seguida, você continuará a receber as recomendações de política. A política ainda será aplicada de nível de gerenciamento e as recomendações ainda serão geradas.
 
 1. Clique na política atribuída.
 
@@ -225,7 +228,7 @@ Este exemplo mostra como remover uma atribuição:
 
 |Nome da política na Central de Segurança|Nome da política exibido no Azure Policy |Nome do parâmetro de efeito da política|
 |----|----|----|
-|Criptografia do SQL |Monitorar o banco de dados SQL não criptografado na Central de Segurança do Azure |sqlEncryptionMonitoringEffect| 
+|Criptografia SQL |Monitorar o banco de dados SQL não criptografado na Central de Segurança do Azure |sqlEncryptionMonitoringEffect| 
 |Auditoria do SQL |Monitorar o banco de dados SQL não auditado na Central de Segurança do Azure |sqlAuditingMonitoringEffect|
 |Atualizações do sistema |Monitorar atualizações de sistemas ausentes na Central de Segurança do Azure |systemUpdatesMonitoringEffect|
 |Criptografia do armazenamento |Auditar a criptografia de blob ausente para contas de armazenamento |storageEncryptionMonitoringEffect|
@@ -233,11 +236,11 @@ Este exemplo mostra como remover uma atribuição:
 |Controles de aplicativo adaptáveis |Monitorar a possível lista de permissões de aplicativos na Central de Segurança do Azure |adaptiveApplicationControlsMonitoringEffect|
 |Grupos de segurança de rede |Monitorar o acesso de rede permissivo na Central de Segurança do Azure |networkSecurityGroupsMonitoringEffect| 
 |Configurações de segurança |Monitorar as vulnerabilidades do SO na Central de Segurança do Azure |systemConfigurationsMonitoringEffect| 
-|Proteção do ponto de extremidade |Monitorar o Endpoint Protection ausente na Central de Segurança do Azure |endpointProtectionMonitoringEffect |
-|Criptografia do disco |Monitorar discos da VM não criptografados na Central de Segurança do Azure |diskEncryptionMonitoringEffect|
-|Avaliação de vulnerabilidade |monitora vulnerabilidades de máquinas virtuais na Central de Segurança do Azure |vulnerabilityAssessmentMonitoringEffect|
+|Endpoint Protection |Monitorar o Endpoint Protection ausente na Central de Segurança do Azure |endpointProtectionMonitoringEffect |
+|Criptografia de disco |Monitorar discos da VM não criptografados na Central de Segurança do Azure |diskEncryptionMonitoringEffect|
+|Avaliação de vulnerabilidade |Monitorar Vulnerabilidades de VM na Central de Segurança do Azure |vulnerabilityAssessmentMonitoringEffect|
 |Firewall do aplicativo Web |Monitorar o aplicativo Web desprotegido na Central de Segurança do Azure |webApplicationFirewallMonitoringEffect |
-|Firewall da próxima geração |Monitorar pontos de extremidade de rede desprotegidos na Central de Segurança do Azure| |
+|Firewall de próxima geração |Monitorar pontos de extremidade de rede desprotegidos na Central de Segurança do Azure| |
 
 
 ### <a name="who-can-edit-security-policies"></a>Quem pode editar as políticas de segurança?

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: ea3bb551a32fdfb7e4a378c36858860808e27419
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: fc05f285b286bd0f036c583c154a40cf64e144d4
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072760"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522044"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal)
 
@@ -46,7 +46,7 @@ Sim, é bom treinar sua intenção **None** com mais enunciados conforme você a
 Veja o tutorial [API de Verificação Ortográfica do Bing V7](luis-tutorial-bing-spellcheck.md). O LUIS impõe limites exigidos pela API de Verificação Ortográfica do Bing V7.
 
 ### <a name="how-do-i-edit-my-luis-app-programmatically"></a>Como fazer para editar meu aplicativo de LUIS programaticamente?
-Para editar seu aplicativo de LUIS programaticamente, use a [API de Criação](https://aka.ms/luis-authoring-apis). Veja [Chamar a API de criação LUIS](./luis-quickstart-node-add-utterance.md) e [Compilar um aplicativo de LUIS programaticamente usando Node.js](./luis-tutorial-node-import-utterances-csv.md) para obter exemplos de como chamar a API de Criação. A API de Criação exige que você use uma [chave de criação](luis-concept-keys.md#authoring-key), em vez de uma chave de ponto de extremidade. A criação programática permite até um milhão de chamadas por mês e cinco transações por segundo. Para obter mais informações sobre as chaves que você usa com o LUIS, consulte [Gerenciar chaves](./luis-concept-keys.md).
+Para editar seu aplicativo de LUIS programaticamente, use a [API de Criação](https://go.microsoft.com/fwlink/?linkid=2092087). Veja [Chamar a API de criação LUIS](./luis-quickstart-node-add-utterance.md) e [Compilar um aplicativo de LUIS programaticamente usando Node.js](./luis-tutorial-node-import-utterances-csv.md) para obter exemplos de como chamar a API de Criação. A API de Criação exige que você use uma [chave de criação](luis-concept-keys.md#authoring-key), em vez de uma chave de ponto de extremidade. A criação programática permite até um milhão de chamadas por mês e cinco transações por segundo. Para obter mais informações sobre as chaves que você usa com o LUIS, consulte [Gerenciar chaves](./luis-concept-keys.md).
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>Em local está o recurso de Padrão que forneceu a correspondência da expressão regular?
 O **Recurso de Padrão** anterior atualmente foi preterido, tendo sido substituído por **[Padrões](luis-concept-patterns.md)**.
@@ -294,7 +294,7 @@ Os seguintes recursos foram lançados na conferência Build 2019:
 
 * [Visualização do guia de migração de API V3](luis-migration-api-v3.md)
 * [Dashboard de análises aprimoradas](luis-how-to-use-dashboard.md)
-* [Aprimorados os domínios predefinidos](luis-reference-prebuilt-domains.md) funcionam com V2 e V3 APIs
+* [Domínios predefinidos aprimorados](luis-reference-prebuilt-domains.md) 
 
 ## <a name="next-steps"></a>Próximas etapas
 

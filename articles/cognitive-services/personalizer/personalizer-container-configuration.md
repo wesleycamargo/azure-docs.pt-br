@@ -40,7 +40,7 @@ Esse contêiner tem as seguintes configurações:
 
 ## <a name="apikey-configuration-setting"></a>Configuração de configuração do ApiKey
 
-A configuração `ApiKey` especifica a chave de recurso do Azure usada para rastrear informações de cobrança do contêiner. É necessário especificar um valor para o ApiKey e o valor deve ser uma chave válida para o recurso _Personalizador_ especificado para a configuração [`Billing`](#billing-configuration-setting).
+A configuração `ApiKey` especifica a chave de recurso do Azure usada para rastrear informações de cobrança do contêiner. É necessário especificar um valor para o ApiKey e o valor deve ser uma chave válida para o recurso do _Personalizador_ especificado para a configuração [`Billing`](#billing-configuration-setting).
 
 Essa configuração pode ser localizada no seguinte local:
 
@@ -103,12 +103,12 @@ Substitua o valor entre colchetes, `{}`, pelos seus próprios valores:
 
 | Placeholder | Valor | Formato ou exemplo |
 |-------------|-------|---|
-|{BILLING_KEY} | A chave do ponto de extremidade do recurso Personalizador. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_KEY} | A chave do ponto de extremidade do recurso do Personalizador. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT_URI} | O valor de ponto de extremidade cobrança, incluindo a região.|`https://westus2.api.cognitive.microsoft.com/`|
 
 > [!IMPORTANT]
 > As opções `Eula`, `Billing` e `ApiKey` devem ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado.  Para mais informações, consulte [Faturamento](personalizer-container-howto.md#billing).
-> O valor da ApiKey é a **Chave** da página de chaves do Recurso Personalizador do Azure. 
+> O valor da ApiKey é a **Chave** da página de chaves do Recurso do Personalizador do Azure. 
 
 ## <a name="personalizer-container-docker-examples"></a>Exemplos do Docker do contêiner do Personalizador
 

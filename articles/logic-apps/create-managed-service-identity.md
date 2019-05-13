@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
-ms.openlocfilehash: 8445b67fa049116d93f3710ff108f904ca7ecd77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 65fe89bf775a649d5654ce739d8d18e05d3048ca
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60428048"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416159"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Autenticar e acessar os recursos com identidades gerenciadas em Aplicativos Lógicos do Azure
 
@@ -59,7 +59,7 @@ Para habilitar uma identidade gerenciada atribuída pelo sistema para o seu apli
 
    ![GUIDs para ID de objeto](./media/create-managed-service-identity/object-id.png)
 
-   | Propriedade | Valor | DESCRIÇÃO | 
+   | Propriedade | Valor | Descrição | 
    |----------|-------|-------------| 
    | **ID do objeto** | <*identity-resource-ID*> | Um GUID (Identificador Global Exclusivo) que representa a identidade gerenciada atribuída pelo sistema para o seu aplicativo lógico em um locatário do Azure Active Directory | 
    ||| 
@@ -76,7 +76,7 @@ Se você desejar automatizar a criação e a implantação de recursos do Azure,
 }
 ```
 
-Por exemplo: 
+Por exemplo:
 
 ```json
 {
@@ -111,7 +111,7 @@ Quando o Azure cria o aplicativo lógico, a definição de fluxo de trabalho do 
 }
 ```
 
-| Propriedade | Valor | DESCRIÇÃO | 
+| Propriedade | Valor | Descrição | 
 |----------|-------|-------------|
 | **principalId** | <*principal-ID*> | Um GUID (Identificador Global Exclusivo) que representa o aplicativo lógico no locatário do Azure Active Directory e, às vezes, aparece como "ID de objeto" ou `objectID` | 
 | **tenantId** | <*Azure-AD-tenant-ID*> | Um GUID (identificador global exclusivo) que representa o locatário do Azure AD do qual o aplicativo lógico agora é membro. Dentro do locatário do Azure AD, a entidade de serviço tem o mesmo nome que a instância do aplicativo lógico. | 
@@ -132,7 +132,7 @@ Para fornecer acesso a outro recurso do Azure para a identidade gerenciada atrib
 
 1. No portal do Azure, acesse o recurso do Azure em que deseja atribuir acesso à identidade gerenciada. 
 
-1. No menu do recurso, selecione **Controle de acesso (IAM)** e escolha **Adicionar atribuição de função**. 
+1. No menu do recurso, selecione **controle de acesso (IAM)**. Na barra de ferramentas, escolha **Add** > **Adicionar atribuição de função**.
 
    ![Adicionar atribuição de função](./media/create-managed-service-identity/add-permissions-logic-app.png)
 

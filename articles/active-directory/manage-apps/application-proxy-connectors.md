@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a787e896016b3230d389b2ec140ae6c03477d875
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb2a2aa8204ef442bbe3a0e6ff9018cd3f153910
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292976"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406502"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Noções básicas sobre conectores de Proxy de Aplicativo Azure AD
 
@@ -29,7 +29,7 @@ Conectores são agentes leves que ficam no local e facilitam a conexão de saíd
 
 ## <a name="requirements-and-deployment"></a>Requisitos e implantação
 
-Para implantar o Proxy de Aplicativo com êxito, você precisa de pelo menos um conector, mas recomendamos dois ou mais para uma maior capacidade de recuperação. Instale o conector em um Windows Server 2012 R2 ou em uma computador de 2016. O conector precisa se comunicar com o serviço Proxy de Aplicativo e com os aplicativos locais que você publicar. 
+Para implantar o Proxy de Aplicativo com êxito, você precisa de pelo menos um conector, mas recomendamos dois ou mais para uma maior capacidade de recuperação. Instalar o conector em um computador executando o Windows Server 2012 R2 ou posterior. O conector precisa se comunicar com o serviço Proxy de Aplicativo e com os aplicativos locais que você publicar. 
 
 ### <a name="windows-server"></a>Windows Server
 Você precisa de um servidor executando o Windows Server 2012 R2 ou posterior no qual possa instalar o conector do Proxy de Aplicativo. O servidor precisa se conectar aos serviços de Proxy de Aplicativo no Azure e aos aplicativos locais que você está publicando.
@@ -85,7 +85,7 @@ Os grupos de conectores facilitam o gerenciamento de grandes implantações. Ele
 
 Para saber mais sobre os grupos de conectores, confira [Publicar aplicativos em redes e locais separados usando grupos de conector](application-proxy-connector-groups.md).
 
-## <a name="capacity-planning"></a>Planejamento da capacidade 
+## <a name="capacity-planning"></a>Planejamento de Capacidade 
 
 É importante você confirmar se planejou capacidade suficiente entre os conectores para lidar com o volume de tráfego esperado. Em geral, quanto mais usuários você tiver, maior será o computador necessário. Abaixo está uma tabela que apresenta o volume que diferentes computadores podem processar. Observe que isso é baseado em Transações por Segundo (TPS) esperadas e não em usuário, já que os padrões de uso variam e não podem ser usados para prever a carga. Haverá também algumas diferenças com base no tamanho das respostas e no tempo de resposta do aplicativo de back-end. Tamanhos de resposta maiores e tempos de resposta mais lentos resultarão em uma menor TPS máxima. É recomendável ter máquinas adicionais para que a carga distribuída entre as máquinas seja de cerca de 50%. A capacidade extra garantirá que você tenha alta disponibilidade e resiliência.
 
@@ -103,7 +103,7 @@ Para saber mais sobre os grupos de conectores, confira [Publicar aplicativos em 
 
 ## <a name="security-and-networking"></a>Rede e segurança
 
-Os conectores podem ser instalados em qualquer lugar na rede que permite que eles enviem solicitações para o serviço de Proxy de aplicativo. O importante é que o computador que executa o conector também tenha acesso aos aplicativos. Você pode instalar conectores dentro de sua rede corporativa ou em uma máquina virtual que é executada na nuvem. Os conectores podem ser executados em uma DMZ (zona desmilitarizada), mas não é necessário porque todo o tráfego é de saída e, portanto, sua rede fica segura.
+Os conectores podem ser instalados em qualquer lugar na rede que permite que eles enviem solicitações para o serviço de Proxy de aplicativo. O importante é que o computador que executa o conector também tenha acesso aos aplicativos. Você pode instalar conectores dentro de sua rede corporativa ou em uma máquina virtual que é executada na nuvem. Os conectores podem ser executados em uma rede de perímetro, também conhecida como uma DMZ (zona desmilitarizada), mas não é necessário porque todo o tráfego é de saída para que sua rede fica segura.
 
 Os conectores só enviam solicitações de saída. O tráfego de saída é enviado ao serviço de Proxy de Aplicativo e aos aplicativos publicados. Você não precisa abrir portas de entrada porque o tráfego flui nos dois sentidos quando uma sessão é estabelecida. Você também não precisa configurar o acesso de entrada por meio de firewalls. 
 
@@ -174,7 +174,7 @@ Você pode examinar o estado do serviço na janela Serviços. O conector é comp
 
  ![Local dos Serviços do Azure AD](./media/application-proxy-connectors/aad-connector-services.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 
 * [Publicar aplicativos em redes e locais separados usando grupos de conectores](application-proxy-connector-groups.md)

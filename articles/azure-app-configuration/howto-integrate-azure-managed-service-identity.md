@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 84dddf5ed9c31e8585480319af189d31e39163e5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: ff098ebd23d2ce5a8c9c39f154375be1dae6a262
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998984"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408893"
 ---
-# <a name="tutorial-integrate-with-azure-managed-identities"></a>Tutorial: Integração às Identidades Gerenciadas do Azure
+# <a name="integrate-with-azure-managed-identities"></a>Integração às Identidades Gerenciadas do Azure
 
 As [Identidades Gerenciadas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) do Azure Active Directory ajudam a simplificar o gerenciamento de segredos para seu aplicativo de nuvem. Com uma identidade gerenciada, você pode configurar seu código para usar a entidade de serviço que foi criada para o serviço de computação do Azure, que ele é executado. Você usa uma identidade gerenciada, em vez de uma credencial separada armazenada no Azure Key Vault ou uma cadeia de caracteres de conexão local. 
 
@@ -75,7 +75,7 @@ Para configurar uma identidade gerenciada no portal, primeiro, crie um aplicativ
 
 ## <a name="use-a-managed-identity"></a>Usar uma identidade gerenciada
 
-1. Abra *appsettings.json* e adicione o seguinte script. Substitua  *\<service_endpoint >*, incluindo os colchetes, com a URL para seu repositório de configurações do aplicativo:
+1. Abra *appsettings.json* e adicione o seguinte script. Substitua *\<service_endpoint>*, incluindo os colchetes, pela URL para seu repositório de configurações do aplicativo:
 
     ```json
     "AppConfig": {
@@ -193,7 +193,7 @@ Os provedores da Configuração de Aplicativo para o .NET Framework e o Java Spr
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Exemplos de CLI](./cli-samples.md)

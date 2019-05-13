@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7305c6a5047bd09f6c9bda018748643ff81fe893
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d83cf20c856d37d337f4eb22c30ee9b6823d096b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708092"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235807"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Visão geral de instantâneos de compartilhamento para Arquivos do Azure 
 Os Arquivos do Azure fornecem a funcionalidade de tirar instantâneos de compartilhamentos de arquivos. Os instantâneos de compartilhamento capturam o estado de compartilhamento naquele ponto no tempo. Neste artigo, descreveremos quais recursos os instantâneos de compartilhamento fornecem e como você pode aproveitá-los no seu caso de uso personalizado.
@@ -29,7 +29,7 @@ Imagine que você está trabalhando em um arquivo de texto em um compartilhament
 ### <a name="general-backup-purposes"></a>Objetivos gerais de backup
 Depois de criar um compartilhamento de arquivos, você pode criar periodicamente um instantâneo de compartilhamento do seu compartilhamento de arquivos para usá-lo no backup de dados. O instantâneo de compartilhamento, quando executado periodicamente, ajuda a manter versões anteriores dos dados que podem ser usadas em futuras auditorias exigidas ou na recuperação de desastre.
 
-## <a name="capabilities"></a>Funcionalidades
+## <a name="capabilities"></a>Recursos
 O instantâneo de compartilhamento é uma cópia somente leitura dos dados em determinado momento. Você pode criar, excluir e gerenciar instantâneos usando a API REST. Os mesmos recursos também estão disponíveis na biblioteca de cliente, na CLI do Azure e no portal do Azure. 
 
 Você pode exibir instantâneos de um compartilhamento usando a API REST e o SMB. Você pode recuperar a lista de versões do diretório ou arquivo e montar uma versão específica diretamente como uma unidade (disponível apenas no Windows - consulte [Limites](#limits)). 
@@ -40,7 +40,7 @@ A capacidade de instantâneo de compartilhamento é fornecida no nível de compa
 
 Um instantâneo de compartilhamento de um compartilhamento de arquivos é idêntico ao seu compartilhamento de arquivo de base. A única diferença é que um valor de **DateTime** é acrescentado ao URI do compartilhamento para indicar o horário em que o compartilhamento de instantâneo foi tirado. Por exemplo, se um URI de compartilhamento de arquivo for http://storagesample.core.file.windows.net/myshare, o URI do instantâneo será semelhante a:
 ```
-http://storagesample.file.core.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
+http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
 
 Os instantâneos de compartilhamento persistem até que sejam excluídos deliberadamente. Um instantâneo de compartilhamento não pode sobreviver além do seu compartilhamento de arquivo base. Você pode enumerar os instantâneos associados ao compartilhamento de arquivos principal para acompanhar seus instantâneos atuais. 
@@ -58,7 +58,7 @@ Embora os instantâneos de compartilhamento sejam salvos incrementalmente, você
 
 Instantâneos não contam em relação ao limite de compartilhamento de 5 TB. Não há nenhum limite para a quantidade total de espaço ocupado pelo instantâneo de compartilhamento. Os limites de conta de armazenamento ainda se aplicam.
 
-## <a name="limits"></a>limites
+## <a name="limits"></a>Limites
 O número máximo de instantâneos de compartilhamento que os Arquivos do Azure permitem atualmente é 200. Depois de 200 instantâneos de compartilhamento, os instantâneos mais antigos precisarão ser excluídos para criar novos instantâneos de compartilhamento. 
 
 Não há nenhum limite de chamadas simultâneas para criar o instantâneo de compartilhamento. Não há nenhum limite de quantidade de espaço que os instantâneos de compartilhamento de determinado compartilhamento de arquivos pode consumir. 

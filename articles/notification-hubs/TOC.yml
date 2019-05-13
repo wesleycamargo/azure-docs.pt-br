@@ -16,16 +16,24 @@
   items:
     - name: Android
       items:
-        - name: Notificações por push usando o Firebase Cloud Messaging
-          href: notification-hubs-android-push-notification-google-fcm-get-started.md
-        - name: Notificações por push usando o Google Cloud Messaging
-          href: notification-hubs-android-push-notification-google-gcm-get-started.md
-        - name: Notificações por push para dispositivos específicos
-          href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-        - name: Notificação por push para usuários específicos
-          href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-        - name: Notificações por push para aplicativos Xamarin Android
-          href: xamarin-notification-hubs-push-notifications-android-gcm.md
+        - name: Firebase Cloud Messaging
+          items:
+            - name: Notificações por push para todos os registros
+              href: notification-hubs-android-push-notification-google-fcm-get-started.md
+            - name: Notificações por push para dispositivos específicos
+              href: push-notifications-android-specific-devices-firebase-cloud-messaging.md
+            - name: Notificações por push para usuários específicos
+              href: push-notifications-android-specific-users-firebase-cloud-messaging.md
+            - name: Notificações por push para aplicativos Xamarin Android
+              href: xamarin-notification-hubs-push-notifications-android-gcm.md
+        - name: Mensagem do Google Cloud (preterido)
+          items:
+            - name: Notificações por push para todos os registros
+              href: notification-hubs-android-push-notification-google-gcm-get-started.md
+            - name: Notificações por push para dispositivos específicos
+              href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
+            - name: Notificações por push para usuários específicos
+              href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
     - name: Baidu
       items:
         - name: Notificações por push usando o push da nuvem Baidu

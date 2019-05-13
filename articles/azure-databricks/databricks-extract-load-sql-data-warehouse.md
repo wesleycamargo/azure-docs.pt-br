@@ -7,14 +7,13 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.workload: Active
-ms.date: 02/15/2019
-ms.openlocfilehash: e306245da2c76560ad447358fa1a57e491c370ee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 05/07/2019
+ms.openlocfilehash: e2110378d16ff5826b8ded4620276b784ef1d68e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855683"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203346"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutorial: Extrair, transformar e carregar dados usando o Azure Databricks
 
@@ -48,13 +47,13 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Conclua estas tarefas antes de iniciar este tutorial:
 
-* Crie um SQL Data Warehouse do Azure, crie uma regra de firewall no nível do servidor e conecte-se ao servidor como um administrador do servidor. Confira [Início Rápido: Criar um SQL Data Warehouse do Azure](../sql-data-warehouse/create-data-warehouse-portal.md).
+* Crie um SQL Data Warehouse do Azure, crie uma regra de firewall no nível do servidor e conecte-se ao servidor como um administrador do servidor. Confira [Início Rápido: Criar e consultar um SQL Data Warehouse do Azure no portal do Azure](../sql-data-warehouse/create-data-warehouse-portal.md).
 
 * Crie uma chave mestra de banco de dados para o SQL Data Warehouse do Azure. Confira [Criar uma chave mestra de banco de dados](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 
-* Crie uma conta do Armazenamento de Blobs do Azure e um contêiner dentro dela. Além disso, recupere a chave de acesso para acessar a conta de armazenamento. Confira [Início Rápido: Criar uma conta de Armazenamento de Blobs do Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
+* Crie uma conta do Armazenamento de Blobs do Azure e um contêiner dentro dela. Além disso, recupere a chave de acesso para acessar a conta de armazenamento. Confira [Início Rápido: Carregar, baixar e listar blobs com o portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-* Criar uma conta de armazenamento do Azure Data Lake Storage Gen2. Confira [Criar uma conta do Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+* Criar uma conta de armazenamento do Azure Data Lake Storage Gen2. Confira [Início Rápido: Criar uma conta de armazenamento do Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
 *  Crie uma entidade de serviço. Confira [Como: Usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
@@ -355,6 +354,11 @@ Como mencionado anteriormente, o conector do SQL Data Warehouse usa o Armazename
        .mode("overwrite")
        .save()
    ```
+
+   > [!NOTE]
+   > Este exemplo usa o sinalizador `forward_spark_azure_storage_credentials`, o que faz com que o SQL Data Warehouse acesse os dados do armazenamento de blobs usando uma chave de acesso. Esse é o único método de autenticação compatível.
+   >
+   > Se o Armazenamento de Blobs do Azure é restrito para selecionar as redes virtuais, o SQL Data Warehouse exige [Identidade de Serviço Gerenciada em vez de chaves de acesso](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Isso causará o erro: "Esta solicitação não está autorizada a executar esta operação".
 
 6. Conecte-se ao banco de dados SQL e verifique se você consegue ver um banco de dados **SampleTable**.
 

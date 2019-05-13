@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/15/2019
+ms.date: 5/8/2019
 ms.author: barclayn
-ms.openlocfilehash: d432dc25a1995a2f0348c7626a051f46ffbf418b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b73b6bdc0158591565281ca2e86a9a474c4196d9
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62118971"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467730"
 ---
 # <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
 
@@ -233,7 +233,7 @@ A Microsoft não tem a capacidade de se conectar a HSMs alocados a clientes. Os 
 
 ### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>P: E se eu precisar reinicializar meu HSM?
 
- O HSM tem a opção de reinicialização de linha de comando e é importante observar que a opção "reinicialização forçada" deve ser usada. Se isso falhar por algum motivo, envie uma solicitação de suporte com a Microsoft e temos o dispositivo fisicamente reiniciado. 
+O HSM tem a opção de reinicialização de linha de comando, no entanto, estamos enfrentando problemas de travamento de reinicialização intermitentemente e reinicializar por esse motivo, é recomendável para a opção mais segura que você envie uma solicitação de suporte com a Microsoft para que o dispositivo fisicamente reiniciado. 
 
 ## <a name="cryptography-and-standards"></a>Criptografia e Padrões
 

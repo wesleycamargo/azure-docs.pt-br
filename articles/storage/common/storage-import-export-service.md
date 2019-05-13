@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 4850dd82ca52a060c921569433035256f5b74cce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5bb68f3f0139a98f10e28957209f8530a762b76c
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478706"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413899"
 ---
 # <a name="what-is-azure-importexport-service"></a>O que é o serviço de Importação/exportação do Azure?
 
@@ -122,8 +122,8 @@ O serviço de Importação/Exportação do Azure dá suporte à cópia dos dados
 |País/Região  |País/Região  |País/Região  |País/Região  |
 |---------|---------|---------|---------|
 |Leste dos EUA    | Norte da Europa        | Índia Central        |US Gov Iowa         |
-|Oeste dos EUA     |Europa Ocidental         | Sul da Índia        | DoD do Leste dos EUA        |
-|Leste dos EUA 2    | Ásia Oriental        |  Índia Ocidental        | DoD Central dos EUA        |
+|Oeste dos EUA     |Europa Ocidental         | Sul da Índia        | US DoD — Leste        |
+|Leste dos EUA 2    | Ásia Oriental        |  Índia Ocidental        | US DoD — Região Central        |
 |Oeste dos EUA 2     | Sudeste Asiático        | Canadá Central        | Leste da China         |
 |Centro dos EUA     | Leste da Austrália        | Leste do Canadá        | Norte da China        |
 |Centro-Norte dos EUA     |  Sudeste da Austrália       | Sul do Brasil        | Sul do Reino Unido        |
@@ -131,7 +131,7 @@ O serviço de Importação/Exportação do Azure dá suporte à cópia dos dados
 |Centro-Oeste dos EUA     |  Leste do Japão       | Gov. dos EUA – Virgínia        | Nordeste da Alemanha        |
 
 
-## <a name="security-considerations"></a>Considerações de segurança
+## <a name="security-considerations"></a>Considerações sobre segurança
 
 Os dados na unidade devem ser criptografados com a Criptografia de Unidade de Disco BitLocker. Essa criptografia protegerá os dados enquanto eles estiverem em trânsito.
 
@@ -160,7 +160,7 @@ Quando você envia unidades do Azure, você paga pelo custo de envio para a tran
 
 **Custos de transação**
 
-Não há custos de transação além dos custos de transação armazenamento padrão ao importar dados para o Armazenamento do Azure. Os encargos de saída padrão são aplicáveis quando dados são exportados do armazenamento de Blobs. Para obter mais informações sobre os custos da transação, consulte [Preços de transferência de dados.](https://azure.microsoft.com/pricing/details/data-transfers/)
+[Encargo de transação de armazenamento Standard](https://azure.microsoft.com/pricing/details/storage/) se aplicam durante a importação e exportação de dados. Encargos de saída padrão também são aplicáveis, juntamente com encargos de transação de armazenamento quando dados são exportados do armazenamento do Azure. Para obter mais informações sobre os custos de saída, consulte [preços de transferência de dados.](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 
 

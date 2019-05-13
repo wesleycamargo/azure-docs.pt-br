@@ -131,6 +131,8 @@
           href: platform/alerts-common-schema.md
         - name: Regras de ação
           href: platform/alerts-action-rules.md
+        - name: Análise de alterações
+          href: app/change-analysis.md
     - name: Visualizar dados
       href: visualizations.md
     - name: Integrações de parceiro
@@ -555,6 +557,8 @@
                   href: app/usage-workbooks.md
             - name: Solução de análise de aplicativo Web
               href: insights/azure-web-apps-analytics.md
+            - name: Aplicativos hospedados do Kubernetes
+              href: app/kubernetes.md
         - name: Monitorar contêineres
           items:
             - name: Azure Monitor para contêineres
@@ -563,13 +567,19 @@
                   href: insights/container-insights-overview.md
                 - name: Perguntas frequentes
                   href: insights/container-insights-faq.md
-                - name: Integrar
-                  href: insights/container-insights-onboard.md
+                - name: Habilitar o monitoramento
+                  items:
+                    - name: Habilitar a visão geral de monitoramento
+                      href: insights/container-insights-onboard.md
+                    - name: Habilitar para o novo cluster
+                      href: insights/container-insights-enable-new-cluster.md
+                    - name: Habilitar para o cluster atual
+                      href: insights/container-insights-enable-existing-clusters.md
                 - name: Analise
                   href: insights/container-insights-analyze.md
                 - name: Desabilitar o monitoramento
                   href: insights/container-insights-optout.md
-                - name: Exibir logs ativos do contêiner
+                - name: Exibir logs em tempo real
                   href: insights/container-insights-live-logs.md
                 - name: Analisar dados com consultas de log
                   href: insights/container-insights-log-search.md
@@ -585,8 +595,6 @@
               href: insights/containers.md
             - name: Monitorar aplicativos do Docker
               href: app/docker.md
-            - name: Application Insights para Kubernetes
-              href: app/kubernetes.md
         - name: Monitorar grupos de recursos
           href: insights/resource-group-insights.md
         - name: Monitorar bancos de dados

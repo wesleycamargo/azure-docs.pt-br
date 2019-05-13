@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
 ms.author: markvi
-ms.openlocfilehash: 5b3c6c99b05320ee53c3ff49f5c299650c32e939
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ee8891eae108256875660cc3f2256b65703a1aa
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440809"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406780"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Como parar de usar a máquina virtual gerenciados a extensão de identidades e começar a usar o serviço de metadados de instância do Azure
 
@@ -35,7 +35,7 @@ Devido a várias limitações descritas na próxima seção, a extensão de VM d
 
 ### <a name="provision-the-extension"></a>Provisionar a extensão 
 
-Quando você configura uma máquina virtual ou definida para ter uma identidade gerenciada de dimensionamento de máquinas virtuais, você poderá opcional escolher, você pode optar por provisionar as identidades de gerenciado para a extensão VM de recursos do Azure usando o `-Type` parâmetro sobre o [ Conjunto AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet. Você pode transmitir `ManagedIdentityExtensionForWindows` ou `ManagedIdentityExtensionForLinux`, dependendo do tipo de máquina virtual e nomeie-o usando o `-Name` parâmetro. O parâmetro `-Settings` especifica a porta usada pelo ponto de extremidade do token OAuth para aquisição de token:
+Quando você configura uma máquina virtual ou definida para ter uma identidade gerenciada de dimensionamento de máquinas virtuais, você pode optar por provisionar as identidades de gerenciado para a extensão VM de recursos do Azure usando o `-Type` parâmetro sobre o [ Conjunto AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet. Você pode transmitir `ManagedIdentityExtensionForWindows` ou `ManagedIdentityExtensionForLinux`, dependendo do tipo de máquina virtual e nomeie-o usando o `-Name` parâmetro. O parâmetro `-Settings` especifica a porta usada pelo ponto de extremidade do token OAuth para aquisição de token:
 
 ```powershell
    $settings = @{ "port" = 50342 }
@@ -119,7 +119,7 @@ GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.
 Metadata: true
 ```
 
-| Elemento | DESCRIÇÃO |
+| Elemento | Descrição |
 | ------- | ----------- |
 | `GET` | O verbo HTTP, indicando que você deseja recuperar os dados do ponto de extremidade. Neste caso, um token de acesso OAuth. | 
 | `http://localhost:50342/oauth2/token` | As identidades gerenciadas do ponto de extremidade de recursos do Azure, em que 50342 é a porta padrão e é configurável. |
@@ -145,7 +145,7 @@ Content-Type: application/json
 }
 ```
 
-| Elemento | DESCRIÇÃO |
+| Elemento | Descrição |
 | ------- | ----------- |
 | `access_token` | O token de acesso solicitado. Ao chamar uma API REST protegida, o token é inserido no campo de cabeçalho de solicitação `Authorization` como um token "portador", permitindo que a API autentique o chamador. | 
 | `refresh_token` | Não usado por identidades gerenciadas para recursos do Azure. |

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 4/9/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: cd7797ae3b79fb874bafc89437943b084020d800
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9d7b9673101ed3b6ff85a9981ba061bc870762b1
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492304"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405678"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implantar e configurar o Firewall do Azure usando o portal do Azure
 
@@ -236,12 +236,12 @@ Agora teste o firewall para confirmar se ele funciona conforme o esperado.
 1. No portal do Azure, reveja as configurações de rede da máquina virtual **Srv-Work** e anote o endereço IP privado.
 2. Conecte uma área de trabalho remota à máquina virtual **Srv-Jump** e entre. De lá, abra uma conexão de área de trabalho remota para o endereço IP privado **Srv-Work**.
 
-3. Abra o Internet Explorer e navegue até http://www.google.com.
+3. Abra o Internet Explorer e navegue até https://www.google.com.
 4. Selecione **OK** > **Fechar** nos alertas de segurança do Internet Explorer.
 
    Você deve ver a página inicial do Google.
 
-5. Navegue até http://www.microsoft.com.
+5. Navegue até https://www.microsoft.com.
 
    Você deve ser bloqueado pelo firewall.
 

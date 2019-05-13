@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 693da06ce14a4854d5db49f588fa29d791060166
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbb5f92258ff31dd7077bb1ade7fa7e5644c8bac
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61445535"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466918"
 ---
 # <a name="add-an-email-action"></a>Adicionar uma ação de e-mail
 
@@ -102,11 +102,11 @@ As etapas a seguir mostram como configurar e verificar as ações de e-mail manu
 
 1. Clique o **conector do Office 365**:
 
-    ![Conexão da API](./media/iot-accelerators-remote-monitoring-email-actions/apiconnector.png)
+    ![Conexão de API](./media/iot-accelerators-remote-monitoring-email-actions/apiconnector1.png)
 
 1. Clique no banner para começar o processo de autorização:
 
-    ![Autorizar](./media/iot-accelerators-remote-monitoring-email-actions/connector.png)
+    ![Autorizar](./media/iot-accelerators-remote-monitoring-email-actions/connector1.png)
 
 1. Clique em **Autorizar**. Você é solicitado a fazer login. A conta que você usa para fazer login deve ser o endereço de e-mail que o aplicativo usa para enviar notificações por e-mail:
 
@@ -116,7 +116,7 @@ As etapas a seguir mostram como configurar e verificar as ações de e-mail manu
 
 1. Para alterar o endereço de e-mail de onde as notificações são enviadas, clique em **Editar conexão da API**.
 
-    ![Alterar e-mail](./media/iot-accelerators-remote-monitoring-email-actions/editemail.png)
+    ![Alterar e-mail](./media/iot-accelerators-remote-monitoring-email-actions/editemail1.png)
 
 ### <a name="owner-role-outlook-setup"></a>Configuração do Outlook da função do proprietário
 
@@ -142,7 +142,7 @@ As etapas a seguir ajudam você a fazer login e configurar ações de e-mail:
 
 Fora da caixa, o acelerador de solução de Monitoramento Remoto fornece um modelo HTML básico para e-mails de ação. O modelo de e-mail usa valores das configurações de ação de e-mail. Aqui está um exemplo de e-mail:
 
-![exemplo de e-mail](./media/iot-accelerators-remote-monitoring-email-actions/emailtemplate.png)
+![exemplo de e-mail](./media/iot-accelerators-remote-monitoring-email-actions/emailtemplate1.png)
 
 As etapas a seguir mostram como editar o modelo de e-mail em HTML. Por exemplo, você pode incluir mais informações ou adicionar imagens personalizadas:
 

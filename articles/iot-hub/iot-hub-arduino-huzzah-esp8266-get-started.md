@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.openlocfilehash: 293901aca3fa1a94c9c6340d2e04f47914db0e07
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 00d0e3a749c4af8faacfed5f725ce16e0492c399
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60783153"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409072"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Conectar-se o Adafruit Feather HUZZAH ESP8266 ao Hub IoT do Azure na nuvem
 
@@ -169,7 +169,7 @@ O aplicativo de exemplo está hospedado no GitHub. Clone o repositório de exemp
 9. Na janela **Configurações do Usuário**, copie e cole o seguinte no final do arquivo
 
    ```json
-   "arduino.additionalUrls": "http://arduino.esp8266.com/stable/package_esp8266com_index.json"
+   "arduino.additionalUrls": "https://arduino.esp8266.com/stable/package_esp8266com_index.json"
    ```
 
    ![Configurar a URL do pacote do Arduino no código do VS](media/iot-hub-arduino-huzzah-esp8266-get-started/12_vscode-package-url.png)
@@ -224,7 +224,7 @@ O aplicativo de exemplo pode simular a temperatura e umidade dados caso você n�
 
 2. Insira `F1`, em seguida, digite **Arduino** e selecione **Arduino: Carregar** para compilar e implantar o aplicativo de exemplo para Feather HUZZAH ESP8266.
 
-### <a name="enter-your-credentials"></a>Inserir suas credenciais
+### <a name="enter-your-credentials"></a>Insira suas credenciais
 
 Depois que o upload for concluído com êxito, siga estas etapas para inserir suas credenciais:
 

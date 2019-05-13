@@ -1,21 +1,21 @@
 ---
-title: Conectar-se ao Banco de Dados do Azure para PostgreSQL usando PHP
-description: Este guia de início rápido fornece um exemplo de código PHP que você pode usar para se conectar e consultar dados do Banco de Dados do Azure para PostgreSQL.
+title: Usar PHP para se conectar ao Banco de Dados do Azure para PostgreSQL – Servidor único
+description: Este início rápido fornece um exemplo de código PHP que você pode usar para se conectar e consultar dados do Banco de Dados do Azure para PostgreSQL – Servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: f07dfabf854cf56e1c3cae87bbd0736839be8039
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 2/28/2018
+ms.openlocfilehash: c6320eabd4d5808e8cfe1d39ec4a72bbbce42f77
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608725"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067331"
 ---
-# <a name="azure-database-for-postgresql-use-php-to-connect-and-query-data"></a>Banco de Dados do Azure para PostgreSQL: Usar PHP para se conectar e consultar dados
+# <a name="azure-database-for-postgresql---single-server-use-php-to-connect-and-query-data"></a>Banco de Dados do Azure para PostgreSQL – Servidor único: Usar PHP para se conectar e consultar dados
 Este guia de início rápido demonstra como se conectar a um banco de dados do Azure para PostgreSQL usando aplicativo [PHP](https://secure.php.net/manual/intro-whatis.php). Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. As etapas neste artigo pressupõem que você esteja familiarizado com o desenvolvimento usando PHP e que tenha começado a trabalhar recentemente com o Banco de Dados do Azure para PostgreSQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos

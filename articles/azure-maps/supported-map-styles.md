@@ -3,17 +3,17 @@ title: Estilos de mapa compatíveis com o Azure Mapas | Microsoft Docs
 description: Estilos de mapa compatíveis com o Azure Mapas
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 76ab49c7f28260249483bf3bc4387e8cbaca13b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db396ad06bf46cbbaf486696b68393a6a4214c2f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60767144"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230835"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Categorias compatíveis com o Azure Mapas
 O Azure Mapas dá suporte a vários estilos de mapa internos diferentes, como descrito abaixo.
@@ -56,6 +56,17 @@ Este estilo de mapa é um híbrido de estradas e rótulos sobrepostos sobre imag
 **APIs aplicáveis:**
 * Controle de mapa JS 
 * Controle de mapa do Android
+
+
+## <a name="grayscalelight"></a>grayscale_light
+**escala de cinza claro** é uma versão leve do estilo de mapa rodoviário.
+
+![escala de cinza claro](./media/supported-map-styles/grayscale_light.png)
+
+**APIs aplicáveis:**
+* Controle de mapa JS
+* Controle de mapa do Android
+
 
 ## <a name="night"></a>noite
 **noite** é uma versão escura do estilo de mapa rodoviário com estradas e símbolos coloridos.

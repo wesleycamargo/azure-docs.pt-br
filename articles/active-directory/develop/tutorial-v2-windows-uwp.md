@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bd57b3d41ad7c670b5423f10a9c93b55e87d757
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 448858efeaae4c3e2a41d41181e9ec74b03223f6
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522785"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138246"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Chamar a API do Microsoft Graph de um aplicativo da Plataforma Universal do Windows (XAML)
 
@@ -333,8 +333,10 @@ Agora você precisa registrar seu aplicativo no Portal de Registro de Aplicativo
    - Na seção **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)**.
    - Selecione **Registrar** para criar o aplicativo.
 1. Na página **Visão geral** do aplicativo, localize o valor de **ID do aplicativo (cliente)** e registre-o para uso posterior. Volte para o Visual Studio, abra **MainPage.xaml.cs** e substitua o valor de ClientId pela ID do Aplicativo que você acabou de registrar:
-1. Na lista de páginas para o aplicativo, selecione **Autenticação**:
-   - Na seção **URIs de Redirecionamento** | **URIs de redirecionamento sugeridos para clientes públicos (móvel, área de trabalho)**, marque **urn:ietf:wg:oauth:2.0:oob**
+1. Na lista de páginas para o aplicativo, selecione **Autenticação**.
+   1. Na seção **URIs de Redirecionamento** na lista de URIs de Redirecionamento:
+   1. Na coluna **TIPO**, selecione **Cliente público (dispositivo móvel e desktop)**.
+   1. Insira `urn:ietf:wg:oauth:2.0:oob` na coluna **URI DE REDIRECIONAMENTO**.
 1. Clique em **Salvar**.
 1. Na lista de páginas para o aplicativo, selecione **Permissões da API**
    - Clique no botão **Adicionar uma permissão** e, em seguida,
@@ -384,7 +386,7 @@ Também serão exibidas informações básicas sobre o token adquirido por meio 
 |Propriedade  |Formatar  |DESCRIÇÃO |
 |---------|---------|---------|
 |**Nome de Usuário** |<span>user@domain.com</span> |É o nome de usuário que identifica o usuário.|
-|**O Token Expira** |DateTime |A hora em que o token expira. MSAL estende a data de validade renovando o token, conforme necessário.|
+|**O Token Expira** |Datetime |A hora em que o token expira. MSAL estende a data de validade renovando o token, conforme necessário.|
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Mais informações sobre escopos e permissões delegadas
 

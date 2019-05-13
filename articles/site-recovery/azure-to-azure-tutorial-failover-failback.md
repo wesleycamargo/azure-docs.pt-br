@@ -6,21 +6,19 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 04/29/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 96e3c0b761a9ed4c5f84d8ece1ba504bd5aacf6f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 95e4e3f3acc52c230405f0c0cc4a05b03b21a386
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797560"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153803"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Fazer failover e proteger novamente VMs do Azure entre regiões
 
-O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para sua estratégia de recuperação de desastre ao gerenciar e orquestrar a replicação, o failover e o failback de computadores locais e de VMs (máquinas virtuais) do Azure.
-
-Este tutorial descreve como fazer failover de uma VM do Azure para uma região secundária do Azure. Após fazer failover, proteja novamente a VM. Neste tutorial, você aprenderá como:
+Este tutorial descreve como fazer failover de uma máquina virtual (VM) do Azure para uma região secundária do Azure com o serviço do [Azure Site Recovery](site-recovery-overview.md). Após fazer failover, proteja novamente a VM. Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Fazer failover da VM do Azure
@@ -29,8 +27,10 @@ Este tutorial descreve como fazer failover de uma VM do Azure para uma região s
 > [!NOTE]
 > Este tutorial contém o caminho mais simples com configurações padrão e personalização mínima. Para ver cenários mais complexos, use os artigos em “Como” para VMs do Azure.
 
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
+- Antes de começar, reveja as [perguntas frequentes](site-recovery-faq.md#failover) sobre failover.
 - É importante realizar uma [simulação de recuperação de desastre](azure-to-azure-tutorial-dr-drill.md) para verificar se tudo está funcionando conforme o esperado.
 - Verifique as propriedades da VM antes de executar o failover de teste. A VM deve atender aos [requisitos do Azure](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 
@@ -54,6 +54,11 @@ Este tutorial descreve como fazer failover de uma VM do Azure para uma região s
 
 6. Quando estiver satisfeito com a máquina virtual que passou por failover, você pode **Confirmar** o failover.
    Confirmar exclui todos os pontos de recuperação disponíveis com o serviço. Agora não será possível alterar o ponto de recuperação.
+
+> [!NOTE]
+> Quando você faz o failover de uma máquina virtual à qual você adiciona um disco após habilitar a replicação da VM, os pontos da replicação mostrarão os discos que estão disponíveis para recuperação. Por exemplo, se uma VM tiver um único disco e você adicionar um novo, os pontos de replicação que foram criados antes de você adicionar o disco mostrará que o ponto de replicação consiste em "1 de 2 discos".
+
+![Fazer failover com um disco adicionado](./media/azure-to-azure-tutorial-failover-failback/failover-added.png)
 
 ## <a name="reprotect-the-secondary-vm"></a>Proteger novamente a VM secundária
 

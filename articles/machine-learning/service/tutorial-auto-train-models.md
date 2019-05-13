@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4d09fca68af55b577c47316363ed386e98525baf
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d6e478cba13c7b4cf628535a4a1ecdbec344a733
+ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925752"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035464"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial: Usar o aprendizado de máquina automatizado para compilar o modelo de regressão
 
@@ -54,16 +54,16 @@ Vá para [Configurar seu ambiente de desenvolvimento](#start) para ler as etapas
 
 Obtenha todos esses pré-requisitos de qualquer uma das seções a seguir.
 
-* Usar o [Azure Notebooks](#azure)
+* Usar um [servidor de notebook de nuvem em seu workspace](#azure) 
 * Usar [seu próprio servidor de notebook](#server)
 
-### <a name="azure"></a>Usar o Azure Notebooks: notebooks gratuitos do Jupyter na nuvem
+### <a name="azure"></a>Usar um servidor de notebook de nuvem em seu workspace
 
-É fácil começar a usar o Azure Notebooks! O [SDK do Azure Machine Learning para Python](https://aka.ms/aml-sdk) já está instalado e configurado para você no [Azure Notebooks](https://notebooks.azure.com/). A instalação e as atualizações futuras são gerenciadas automaticamente por meio dos serviços do Azure.
-
-Após concluir as etapas abaixo, execute o notebook **tutorials/regression-part2-automated-ml.ipynb** em seu projeto de **Introdução**.
+É fácil começar a usar seu próprio servidor de notebook baseado em nuvem. O [SDK do Azure Machine Learning para Python](https://aka.ms/aml-sdk) já está instalado e configurado depois que você cria este recurso de nuvem.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+* Após abrir a página da Web do notebook, execute o notebook **tutorials/regression-part2-data-prep.ipynb**.
 
 ### <a name="server"></a>Use seu próprio servidor do Jupyter Notebook
 

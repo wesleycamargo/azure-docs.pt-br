@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6236f0fa2400113225e04ffd4884cf743d1e250a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b71454fc553a0f81c26426a6a9588f15d5311e38
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138280"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406430"
 ---
 # <a name="single-page-application---code-configuration"></a>Aplicativo de página única - configuração de código
 
@@ -32,7 +32,7 @@ Plataforma de identidade da Microsoft fornece a biblioteca msal para suportar o 
 
 As bibliotecas que dão suporte a fluxo implícito são:
 
-| Biblioteca MSAL | DESCRIÇÃO |
+| Biblioteca MSAL | Descrição |
 |--------------|--------------|
 | ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)  | Biblioteca de JavaScript simples para uso em qualquer aplicativo de web do lado cliente criado usando estruturas de JavaScript ou SPA como Angular, VUE, React. js, etc. |
 | ![MSAL Angular](media/sample-v2-code/logo_angular.png) <br/> [MSAL Angular](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | Wrapper da biblioteca principal msal para simplificar o uso em aplicativos de página única criado com a estrutura Angular. Essa biblioteca está em versão prévia e tem [problemas conhecidos](https://github.com/AzureAD/microsoft-authentication-library-for-js/issues?q=is%3Aopen+is%3Aissue+label%3Aangular) com determinadas versões Angular e navegadores. |
@@ -47,7 +47,7 @@ Na biblioteca MSAL, as informações de registro de aplicativo são passadas com
 // Configuration object constructed.
 const config = {
     auth: {
-        clientID: 'your_app_id',
+        clientId: 'your_app_id',
         redirectUri: "your_app_redirect_uri" //defaults to application start page
     }
 }
@@ -63,7 +63,7 @@ Para obter mais detalhes sobre as opções configuráveis disponíveis, consulte
 //In app.module.ts
 @NgModule({
   imports: [ MsalModule.forRoot({
-                clientID: 'your_app_id'
+                clientId: 'your_app_id'
             })]
          })
 

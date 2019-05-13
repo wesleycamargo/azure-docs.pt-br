@@ -7,18 +7,18 @@ ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: d10ee8c1af85de5eb79cd4a4af6882c7a8f084f1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b0a6c016b2be12ac6686b3748b4b16281899323e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159549"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511055"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Criar uma imagem e usar uma identidade atribuída pelo usuário gerenciada para acessar arquivos no armazenamento do Azure 
 
 Azure Image Builder dá suporte a usando scripts ou copiar arquivos de vários locais, como o GitHub e o Azure armazenamento etc. Para usá-los, eles devem ter sido acessíveis externamente para o construtor de imagens do Azure, mas você pode proteger os blobs de armazenamento do Azure usando Tokens SAS.
 
-Este artigo mostra como criar uma imagem personalizada usando o construtor de imagem de VM do Azure, em que o serviço usará um [identidade atribuída pelo usuário gerenciado](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) para acessar os arquivos no armazenamento do Azure para a personalização de imagem, sem ter que fazer os arquivos acessíveis publicamente ou configurar tokens SAS.
+Este artigo mostra como criar uma imagem personalizada usando o construtor de imagem de VM do Azure, em que o serviço usará um [identidade atribuída pelo usuário gerenciado](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para acessar os arquivos no armazenamento do Azure para a personalização de imagem, sem ter que fazer os arquivos acessíveis publicamente ou configurar tokens SAS.
 
 No exemplo a seguir, você criará dois grupos de recursos, um será usado para a imagem personalizada e o outro hospedará uma conta de armazenamento do Azure, que contém um arquivo de script. Isso simula um cenário de vida real, em que você pode ter artefatos de compilação ou arquivos de imagem em diferentes contas de armazenamento, fora do construtor de imagens. Você aprenderá a criar uma identidade atribuída pelo usuário e, em seguida, grant que permissões de leitura no arquivo de script, mas você não irá definir qualquer acesso público para esse arquivo. Você usará o personalizador do Shell para baixar e executar esse script da conta de armazenamento.
 
@@ -130,7 +130,7 @@ az role assignment create \
 
 ## <a name="create-user-assigned-managed-identity"></a>Criar identidade atribuída pelo usuário gerenciada
 
-Criar a identidade e atribuir permissões para a conta de armazenamento de script. Para obter mais informações, consulte [identidade de gerenciado atribuída pelo usuário](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
+Criar a identidade e atribuir permissões para a conta de armazenamento de script. Para obter mais informações, consulte [identidade de gerenciado atribuída pelo usuário](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
 
 ```azurecli-interactive
 # Create the user assigned identity 

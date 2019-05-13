@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1150e68167ad4e932acce744cdd5eba88e49a8c4
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: e51437a99217316ead50d4075be52f089225e618
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579454"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190865"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Início Rápido: Adicionar entrada com a Microsoft para um aplicativo Web do ASP.NET Core
 
@@ -73,13 +73,13 @@ Neste início rápido, você aprenderá como um aplicativo Web ASP.NET Core pode
 
 #### <a name="step-2-download-your-aspnet-core-project"></a>Etapa 2: Baixar o projeto do ASP.NET Core
 
-- [Baixar a solução do Visual Studio 2017](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
+- [Baixar a solução do Visual Studio 2019](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Etapa 3: Configurar o projeto do Visual Studio
 
 1. Extraia o arquivo zip para uma pasta local na pasta raiz, por exemplo, **C:\Azure-Samples**
-1. Se você usa o Visual Studio 2017, abra a solução no Visual Studio (opcional).
-1. Edite o arquivo **appsettings.json**. Localize `ClientId` e atualize o valor de `ClientId` com o valor da **ID do Aplicativo (cliente)** do aplicativo recém-registrado. 
+1. Se você usa o Visual Studio 2019, abra a solução no Visual Studio (opcional).
+1. Edite o arquivo **appsettings.json**. Localize `ClientId` e atualize o valor de `ClientId` com o valor da **ID do Aplicativo (cliente)** do aplicativo que você registrou. 
 
     ```json
     "ClientId": "Enter_the_Application_Id_here"
@@ -99,7 +99,7 @@ Neste início rápido, você aprenderá como um aplicativo Web ASP.NET Core pode
 
 ## <a name="more-information"></a>Mais informações
 
-Esta seção apresenta uma visão geral do código necessário para a entrada de usuários. Isso pode ser útil para entender como o código funciona, argumentos principais e também se você quiser adicionar entrada a um aplicativo do ASP.NET Core existente.
+Esta seção apresenta uma visão geral do código necessário para a entrada de usuários. Essa visão geral pode ser útil para entender como o código funciona, os argumentos principais e também caso você queira adicionar entrada a um aplicativo ASP.NET Core existente.
 
 ### <a name="startup-class"></a>Classe de inicialização
 
@@ -136,7 +136,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-O método `AddAuthentication` configura o serviço para adicionar a autenticação baseada em cookies, que é usada em cenários do navegador, além de definir o desafio para OpenId Connect. 
+O método `AddAuthentication` configura o serviço para adicionar a autenticação baseada em cookies, que é usada em cenários do navegador, e para definir o desafio para OpenId Connect. 
 
 A linha que contém `.AddAzureAd` adiciona a autenticação de plataforma de identidade da Microsoft ao seu aplicativo. Em seguida, ele é configurado para se conectar usando o ponto de extremidade de plataforma de identidade da Microsoft.
 

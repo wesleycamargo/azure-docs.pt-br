@@ -1,21 +1,21 @@
 ---
-title: Conectar-se ao Banco de Dados do Azure para PostgreSQL usando Java
-description: Este guia de início rápido fornece um exemplo de código Java que você pode usar para se conectar e consultar dados do Banco de Dados do Azure para PostgreSQL.
+title: Use o Java para se conectar ao Banco de Dados do Azure para PostgreSQL – Servidor único
+description: Este início rápido fornece um exemplo de código de Java que você pode usar para se conectar e consultar os dados do Banco de Dados do Azure para PostgreSQL – Servidor único.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: c8216c67a912beb9a735c3757520684cc837e989
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 5/6/2019
+ms.openlocfilehash: 33d127c25fdb38071f44f21257df9b74b69dfa2e
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544644"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067394"
 ---
-# <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>Banco de Dados do Azure para PostgreSQL: Usar o Java para se conectar e consultar dados
+# <a name="azure-database-for-postgresql---single-server-use-java-to-connect-and-query-data"></a>Banco de Dados do Azure para PostgreSQL – Servidor único: Usar o Java para se conectar e consultar dados
 Este guia de início rápido demonstra como se conectar a um banco de dados do Azure para PostgreSQL usando aplicativo Java. Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. As etapas neste artigo pressupõem que você está familiarizado com o desenvolvimento usando Java e que começou recentemente a trabalhar com o Banco de Dados do Azure para PostgreSQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos

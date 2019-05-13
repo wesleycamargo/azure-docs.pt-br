@@ -32,10 +32,10 @@ As opções de backup dependem de onde o agente está instalado. Para obter mais
 --- | ---
 Baixe o agente de MARS mais recente | Você pode baixar do cofre a versão mais recente do agente ou [baixá-lo diretamente](https://aka.ms/azurebackup_agent).
 Instalar diretamente em um computador | Você pode instalar o agente do MARS diretamente em um servidor do Windows local ou em uma VM do Windows que está executando qualquer um dos [sistemas operacionais com suporte](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
-Instalar em um servidor de backup | Quando você configura o DPM ou MABS para fazer backup no Azure, você baixa e instala o agente MARS no servidor. Você pode instalar o agente em [sistemas operacionais com suporte](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) na matriz de suporte do servidor de backup.
+Instalar em um servidor de backup | Ao configurar o DPM ou MABS para fazer backup no Azure, você baixa e instala o agente MARS no servidor. Você pode instalar o agente em [sistemas operacionais com suporte](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) na matriz de suporte do servidor de backup.
 
 > [!NOTE]
-> Por padrão, as VMs do Azure que são habilitados para backup têm uma instalação da extensão de Backup do Azure. Essa extensão faz backup de toda a VM. Você poderá instalar e executar o agente MARS em uma VM do Azure junto com a extensão se você quiser fazer backup de pastas e arquivos específicos, em vez da VM completa.
+> Por padrão, as VMs do Azure que são habilitados para backup têm uma instalação da extensão de Backup do Azure. Essa extensão faz backup de toda a VM. Você poderá instalar e executar o agente MARS em uma VM do Azure junto com a extensão se quiser fazer backup de pastas e arquivos específicos, em vez da VM completa.
 > Quando você executa o agente do MARS em uma VM do Azure, ele faz o backup de arquivos ou pastas que estão no armazenamento temporário na VM. Backups falham se os arquivos ou pastas são removidas do armazenamento temporário ou se o armazenamento temporário é removido.
 
 

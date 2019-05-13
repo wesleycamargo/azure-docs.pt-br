@@ -123,7 +123,7 @@ VMs do Azure cujo backup foi feito com o Backup do Azure estão sujeitas aos [pr
 
 A cobrança não é iniciado até que o primeiro backup bem-sucedido seja concluído. Neste ponto, a cobrança de VMs protegidas e de armazenamento é iniciada. A cobrança continuará desde que os dados de backup para a máquina virtual são armazenados em um cofre. Se você interromper a proteção para uma VM, mas os dados de backup para a VM existirem em um cofre, a cobrança continuará.
 
-A cobrança para uma VM especificada parará somente se a proteção for interrompida e os dados de backup forem excluídos. Quando a proteção for interrompido e não houver nenhum trabalho de backup ativo, o tamanho do último backup bem-sucedido de VM torna-se o tamanho da instância protegida usada para a fatura mensal.
+A cobrança para uma VM especificada parará somente se a proteção for interrompida e os dados de backup forem excluídos. Quando a proteção for interrompida e não houver nenhum trabalho de backup ativo, o tamanho do último backup bem-sucedido de VM se tornará o tamanho da instância protegida usada para a fatura mensal.
 
 O cálculo do tamanho da instância protegida se baseia a *real* tamanho da VM. O tamanho da VM é a soma de todos os dados na VM, excluindo o armazenamento temporário. Preço é baseado nos dados reais que tem armazenados nos discos de dados, não no máximo tamanho com suporte para cada disco de dados é anexado à VM.
 

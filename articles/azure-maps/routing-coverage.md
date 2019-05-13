@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 028f16b480ceb57598c6499739ab0e5745b4a132
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: f9f5b24a52ebfb8b87f1abaa3b60091d7f4690ab
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870000"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230662"
 ---
 # <a name="azure-maps-routing-coverage"></a>Cobertura de rotas nos Mapas do Azure
 
@@ -27,9 +27,9 @@ Fazer check-out de cobertura para [ **Renderização**](render-coverage.md).
 
 | Símbolo             | Significado                                |
 |--------------------|----------------------------------------|
-| ✓                  | País fornecido com dados detalhados.   |
-| Ø                  | País fornecido com dados simplificados. |
-| País/região faltando | Os dados do país/região não foram fornecidos.          |
+| ✓                  | País/região fornecido com dados detalhados.   |
+| Ø                  | País/região fornecido com dados simplificados. |
+| País/região faltando | Dados de país/região não são fornecidos.          |
 
 <br>  
 
@@ -41,7 +41,7 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 
 | País/Região                 | Roteamento         | Roteamento de tráfego | Roteamento de caminhão |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
-| Argélia                        |        ✓       |                       |             |
+| Algéria                        |        ✓       |                       |             |
 | Angola                         |        ✓       |                       |             |
 | Benin                          |        ✓       |                       |             |
 | Botsuana                       |        ✓       |                       |             |
@@ -69,7 +69,7 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Nigéria                        |        ✓       |         ✓            |             |
 | Ruanda                         |        ✓       |                       |             |
 | Senegal                        |        ✓       |                       |             |
-| Seychelles                     |        ✓       |                       |             |
+| Seicheles                     |        ✓       |                       |             |
 | África do Sul                   |        ✓       ||         ✓            |             |
 | Suazilândia                      |        ✓       |                       |             |
 | Tanzânia                       |        ✓       |                       |             |
@@ -136,7 +136,7 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Camboja                       |        ✓       |                      |             |
 | Fiji                           |        ✓       |                      |             |
 | Guam                           |        ✓       |                      |             |
-| RAE de Hong Kong                  |        ✓       |         ✓            |             |
+| Região Administrativa Especial de Hong Kong                  |        ✓       |         ✓            |             |
 | Índia                          |        ✓       |         ✓            |             |
 | Indonésia                      |        ✓       |         ✓            |             |
 | Coreia do Sul                          |        Ø       |                      |             |
@@ -146,7 +146,7 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Myanmar                        |        ✓       |                      |             |
 | Nova Zelândia                    |        ✓       |         ✓            |     ✓       | 
 | Filipinas                    |        ✓       |         ✓            |             |
-| Singapura                      |        ✓       |         ✓            |             |
+| Cingapura                      |        ✓       |         ✓            |             |
 | Taiwan                         |        ✓       |         ✓            |             |
 | Tailândia                       |        ✓       |         ✓            |             |
 | Vietnã                        |        ✓       |         ✓            |             |
@@ -180,7 +180,7 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Geórgia                        |        ✓       |                      |             |
 | Alemanha                        |        ✓       |         ✓            |     ✓      | 
 | Grécia                         |        ✓       |         ✓            |     ✓      |  
-| Guernesey                       |        ✓       |                      |             |
+| Guernsey                       |        ✓       |                      |             |
 | Hungria                        |        ✓       |         ✓            |     ✓      | 
 | Islândia                        |        ✓       |         ✓            |             |
 | Irlanda                        |        ✓       |         ✓            |     ✓      | 
@@ -199,14 +199,14 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | +Aruba                         |        ✓       |                      |             | 
 | + Países baixos Caribe         |        ✓       |                      |             |
 | +Curaçao                       |        ✓       |                      |             |
-| + Saint Maarten                  |        ✓       |                      |             |
+| + Sint Maarten                  |        ✓       |                      |             |
 | Noruega                         |        ✓       |         ✓            |     ✓      | 
 | Polônia                         |        ✓       |         ✓            |     ✓      | 
 | Portugal                       |        ✓       |         ✓            |     ✓      |  
 | Romênia                        |        ✓       |         ✓            |     ✓      | 
 | Federação Russa             |        ✓       |         ✓            |     ✓      | 
 | San Marino                     |        ✓       |         ✓            |             |
-| + Saint Maarten                  |        ✓       |                      |             |
+| + Sint Maarten                  |        ✓       |                      |             |
 | Sérvia                         |        ✓       |                      |     ✓      | 
 | Eslováquia                       |        ✓       |         ✓            |     ✓      | 
 | Eslovênia                       |        ✓       |         ✓            |     ✓      |
@@ -220,9 +220,9 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | + Bermuda                       |        ✓       |                      |             |
 | + Ilhas Virgens Britânicas.        |        ✓       |                      |             |
 | + Ilhas de Cayman                |        ✓       |                      |             |
-| +Gibraltar                      |        ✓       |         ✓            |             | 
+| +Gibraltar                     |        ✓       |         ✓            |             | 
 | +Montserrat                    |        ✓       |                      |             |
-| + Ilhas Turcos e Caicos        |        ✓       |                      |             |
+| + Ilhas Turcos e Caicos      |        ✓       |                      |             |
 | Cidade do Vaticano                   |        ✓       |         ✓            |             |
 | Ilha de Man                    |        ✓       |                      |             |
 
@@ -238,7 +238,7 @@ A tabela a seguir fornece informações de cobertura para rota nos Mapas do Azur
 | Kuwait                         |        ✓       |         ✓            |             |
 | Líbano                        |        ✓       |                      |             |
 | Omã                           |        ✓       |         ✓            |             |
-| Catar                          |        ✓       |         ✓            |             |
+| Qatar                          |        ✓       |         ✓            |             |
 | Arábia Saudita                   |        ✓       |         ✓            |             |
 | Emirados Árabes Unidos           |        ✓       |         ✓            |             |
 | Iêmen                          |        ✓       |                      |             |

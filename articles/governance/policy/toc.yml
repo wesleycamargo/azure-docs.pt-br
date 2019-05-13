@@ -118,7 +118,7 @@
           href: samples/enforce-data-lake-store-encryption.md
     - name: Configuração de convidado
       items:
-        - name: Auditar aplicativos instalados no Linux
+        - name: Aplicativos de auditoria não estão instalados no Linux
           displayName: 'audit, vm'
           href: samples/guest-configuration-applications-installed-linux.md
     - name: Cofres de Chaves

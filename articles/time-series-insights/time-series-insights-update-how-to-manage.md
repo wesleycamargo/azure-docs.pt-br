@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: a73be313daa3b45cabc2adb07bb3d2592c7d307e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ce24fb8c62432e50fe04de23d2abbee1ec120c6c
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725467"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471636"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Provisionar e gerenciar a Versão Prévia do Azure Time Series Insights
 
@@ -33,7 +33,7 @@ Ao provisionar um ambiente de versão prévia do Azure Time Series Insights, é 
 Saiba [como planejar o ambiente](./time-series-insights-update-plan.md).
 
 >[!IMPORTANT]
-> Para a visualização, verifique se você estiver usando um armazenamento do Azure, uso geral v1 (GPv1) de conta.  Suporte para GPv2 e posterior será adicionado em breve.  
+> Para a visualização, verifique se você estiver usando um armazenamento do Azure, uso geral v1 (GPv1) de conta.
 
 Opcionalmente, você poderá associar cada ambiente de Versão Prévia do Azure Time Series Insights a uma origem do evento. Para obter mais informações, leia [Adicionar uma origem de Hub de Eventos](./time-series-insights-how-to-add-an-event-source-eventhub.md) e [Adicionar uma origem de Hub IoT](./time-series-insights-how-to-add-an-event-source-iothub.md). Durante essa etapa, você fornecerá uma propriedade de ID de carimbo de data/hora e um grupo de consumidores exclusivo. Isso garante que o ambiente tenha acesso aos eventos apropriados.
 
@@ -45,7 +45,7 @@ As etapas a seguir descrevem como criar um ambiente de Versão Prévia do Azure 
 
 1. Selecione o botão **PAYG** no menu **SKU**. Forneça um nome de ambiente e escolha qual grupo de assinaturas e qual grupo de recursos usar. Em seguida, selecione uma localização com suporte na qual hospedar o ambiente.
 
-   ![Criar uma instância do Azure Time Series Insights.][1]
+   [![Crie uma instância do Azure Time Series Insights.](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
 
 1. Insira uma ID do Time Series.
 
@@ -56,7 +56,7 @@ As etapas a seguir descrevem como criar um ambiente de Versão Prévia do Azure 
 
 1. Crie uma conta de armazenamento do Azure, selecionando um nome de conta de armazenamento e designando uma opção de replicação. Ao fazer isso, você cria automaticamente uma conta de uso geral v1 do Armazenamento do Azure. Ela será criada na mesma região que o ambiente de Versão Prévia do Azure Time Series Insights que você selecionou anteriormente.
 
-    ![Criar uma conta de armazenamento do Azure para a instância][5]
+    [![Criar uma conta de armazenamento do Azure para sua instância](media/v2-update-manage/manage_five.PNG)](media/v2-update-manage/manage_five.PNG#lightbox)
 
 1. Opcionalmente, você pode adicionar uma origem do evento.
 
@@ -67,11 +67,11 @@ As etapas a seguir descrevem como criar um ambiente de Versão Prévia do Azure 
      > [!TIP]
      > O tempo de enfileiramento de mensagens pode não ser a melhor configuração definida para usar em cenários de eventos em lotes ou de upload de dados históricos. Verifique sua decisão de usar ou não uma propriedade de Carimbo de Data/Hora nesses casos.
 
-     ![Guia Origem do Evento][2]
+     [![Guia de origem do evento](media/v2-update-manage/manage_two.PNG)](media/v2-update-manage/manage_two.PNG#lightbox)
 
 1. Confirme que seu ambiente foi provisionado com as configurações desejadas.
 
-    ![Guia Revisar + Criar][3]
+    [![Revisar + criar o guia](media/v2-update-manage/manage_three.PNG)](media/v2-update-manage/manage_three.PNG#lightbox)
 
 ## <a name="manage-the-environment"></a>Gerenciar o ambiente
 
@@ -88,7 +88,7 @@ As etapas a seguir descrevem como criar um ambiente de Versão Prévia do Azure 
 
 * A folha **Dados de referência** do portal do Azure foi removida na Versão Prévia do Azure Time Series Insights porque os dados de referência não são um componente dos ambientes de PAYG.
 
-![Ambiente de Versão Prévia do Azure Time Series Insights no portal do Azure][4]
+[![Ambiente de visualização dos Insights de série de tempo no portal do Azure](media/v2-update-manage/manage_four.PNG)](media/v2-update-manage/manage_four.PNG#lightbox)
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -97,10 +97,3 @@ As etapas a seguir descrevem como criar um ambiente de Versão Prévia do Azure 
 - Saiba como [adicionar uma origem do hub de evento](./time-series-insights-how-to-add-an-event-source-eventhub.md).
 
 - Configure [uma origem do hub IoT](./time-series-insights-how-to-add-an-event-source-iothub.md).
-
-<!-- Images -->
-[1]: media/v2-update-manage/manage_one.PNG
-[2]: media/v2-update-manage/manage_two.PNG
-[3]: media/v2-update-manage/manage_three.PNG
-[4]: media/v2-update-manage/manage_four.PNG
-[5]: media/v2-update-manage/manage_five.PNG

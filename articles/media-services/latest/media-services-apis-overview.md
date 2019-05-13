@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: b80f11ef97a10728f07cebe1fe80b954e506da52
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4c5b30ab075bbca22b6a58ccf65e55d332820937
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147886"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406539"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Desenvolver com os serviços de mídia APIs v3
 
@@ -25,7 +25,11 @@ Este artigo discute as regras que se aplicam às entidades e APIs ao desenvolver
 
 ## <a name="accessing-the-azure-media-services-api"></a>Acessando a API de serviços de mídia do Azure
 
-Para acessar os recursos dos serviços de mídia do Azure, você pode usar a autenticação de entidade de serviço do Azure Active Directory (AD).
+Para estar autorizado a acessar os recursos e a API dos Serviços de Mídia, primeiro você deve ser autenticado. Dá suporte a serviços de mídia [Azure Active Directory (AD do Azure)-com base em](../../active-directory/fundamentals/active-directory-whatis.md) autenticação. Duas opções de autenticação comuns são:
+ 
+* **Autenticação de entidade de serviço** - usado para autenticar um serviço (por exemplo: aplicativos web, aplicativos de funções, aplicativos lógicos, API e microsserviços). Os aplicativos que geralmente usam esse método de autenticação são aplicativos que executam serviços daemon, serviços de camada intermediária ou trabalhos agendados. Por exemplo, para Web há aplicativos sempre devem ser uma camada intermediária que se conecta aos serviços de mídia com uma entidade de serviço.
+* **Autenticação de usuário** - usado para autenticar uma pessoa que está usando o aplicativo para interagir com os recursos de serviços de mídia. O aplicativo interativo deve primeiro solicitar ao usuário as credenciais do usuário. Um exemplo é um aplicativo de console de gerenciamento usado por usuários autorizados para monitorar trabalhos de codificação ou uma transmissão ao vivo.
+
 A API de serviços de mídia requer que o usuário ou aplicativo que faz a API REST solicitações têm acesso ao recurso da conta de serviços de mídia e usar um **Colaborador** ou **proprietário** função. A API pode ser acessada com o **Reader** função, mas apenas **obter** ou **lista**   operações estarão disponíveis. Para obter mais informações, consulte [controle de acesso baseado em função para contas de serviços de mídia](rbac-overview.md).
 
 Em vez de criar uma entidade de serviço, considere o uso de identidades gerenciadas para recursos do Azure para acessar a API de serviços de mídia por meio do Azure Resource Manager. Para saber mais sobre identidades gerenciadas para recursos do Azure, consulte [What ' s identidades gerenciadas para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
@@ -52,6 +56,16 @@ Na figura a seguir, os números representam o fluxo das solicitações em ordem 
 2. O token de acesso do Azure AD é enviado à camada intermediária.
 4. A camada intermediária envia a solicitação à API REST da Mídia do Azure com o token do Azure AD.
 5. A camada intermediária obtém novamente os dados dos Serviços de Mídia.
+
+### <a name="samples"></a>Amostras
+
+Consulte os seguintes exemplos que mostram como se conectar com a entidade de serviço do Azure AD:
+
+* [Conecte-se com REST](media-rest-apis-with-postman.md)  
+* [Conectar-se com Java](configure-connect-java-howto.md)
+* [Conectar-se com .NET](configure-connect-dotnet-howto.md)
+* [Conectar-se com Node.js](configure-connect-nodejs-howto.md)
+* [Conectar-se com Python](configure-connect-python-howto.md)
 
 ## <a name="naming-conventions"></a>Convenções de nomenclatura
 
@@ -88,7 +102,7 @@ Os serviços de mídia tem as seguintes operações de longa execução:
 
 Consulte [filtragem, ordenação, paginação de entidades de serviços de mídia do Azure](entities-overview.md)
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, comentários, obtenha atualizações
+## <a name="ask-questions-give-feedback-get-updates"></a>Fazer perguntas, comentar, obter atualizações
 
 Confira o artigo [comunidade dos Serviços de Mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, comentários e obter atualizações sobre os serviços de mídia.
 

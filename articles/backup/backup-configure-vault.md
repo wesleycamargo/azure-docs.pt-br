@@ -34,7 +34,7 @@ O agente do MARS é usado pelo Backup do Azure para fazer backup do estado do si
 - Execute o agente diretamente em computadores do Windows local para que eles podem fazer backup diretamente em um cofre de serviços de recuperação de backup no Azure.
 - Execute VMs do Azure de agente que executa o Windows (lado a lado com a extensão de backup de VM do Azure) para fazer backup de arquivos e pastas específicos na VM.
 - Execute o agente em um MABS (Servidor de Backup do Microsoft Azure) ou em um servidor do System Center DPM (Data Protection Manager). Nesse cenário, computadores e cargas de trabalho de backup para MABS/DPM e, em seguida, o MABS/DPM faz o backup em um cofre no Azure usando o agente do MARS.
-O que você poderá fazer backup dependerá do local em que o agente estiver instalado.
+Os itens dos quais você poderá fazer backup dependerão do local em que o agente estiver instalado.
 
 > [!NOTE]
 > É o principal método para fazer backup de VMs do Azure usando uma extensão de Backup do Azure na VM. Isso faz backup de toda a VM. Você talvez queira instalar e usar o agente do MARS junto com a extensão, se você quiser fazer backup de arquivos e pastas específicos na VM. [Saiba mais](backup-architecture.md#architecture-direct-backup-of-azure-vms).

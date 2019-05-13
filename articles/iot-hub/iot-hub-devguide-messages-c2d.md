@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: c8424743f30ec1bbf8d8096f6630c7451bc910c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b0c1b877a9468ce9c3b851bce62cb87c64c04260
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61363162"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472731"
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Enviar mensagens de nuvem para o dispositivo do Hub IoT
 
@@ -71,19 +71,20 @@ Uma maneira comum de tirar proveito da expiração da mensagem e evitar enviar m
 
 ## <a name="message-feedback"></a>Comentários da mensagem
 
-Quando você envia uma mensagem da nuvem para o dispositivo, o serviço pode solicitar a entrega de um comentário por mensagem sobre o estado final dessa mensagem.
+Quando você envia uma mensagem da nuvem para o dispositivo, o serviço pode solicitar a entrega de um comentário por mensagem sobre o estado final dessa mensagem. Isso é feito definindo o `iothub-ack` propriedade do aplicativo na mensagem C2D sendo enviada para qualquer um dos seguintes valores:
 
-| Propriedade Ack | Comportamento |
+| Valor da propriedade ACK | Comportamento |
 | ------------ | -------- |
+| **nenhum**     | O IoT Hub não gera uma mensagem de comentários (comportamento padrão). |
 | **positivo** | Se a mensagem da nuvem para o dispositivo alcança o estado **Concluído**, o Hub IoT gera uma mensagem de comentários. |
 | **negativo** | Se a mensagem de nuvem para dispositivo alcançar o estado **Mensagens mortas**, o Hub IoT gerará uma mensagem de comentários. |
-| **completo**     | O Hub IoT gera uma mensagem de comentários em ambos os casos. |
+| **full**     | O Hub IoT gera uma mensagem de comentários em ambos os casos. |
 
 Se **Ack** estiver definida como **total** e você não receber uma mensagem de comentários, isso significará que a mensagem de comentários expirou. O serviço não pode saber o que aconteceu com a mensagem original. Na prática, um serviço deve garantir que possa processar os comentários antes que eles expirem. O tempo de expiração máximo é de dois dias, tempo suficiente para restabelecer a execução do serviço caso ocorra uma falha.
 
 Como explicado em [Pontos de extremidade](iot-hub-devguide-endpoints.md), o Hub IoT fornece comentários por meio de um ponto de extremidade voltado para o serviço (**/messages/servicebound/feedback**) como mensagens. A semântica de recebimento dos comentários é a mesma das mensagens da nuvem para o dispositivo. Sempre que possível, os comentários de mensagem são feitos em lotes em uma única mensagem, com o seguinte formato:
 
-| Propriedade     | DESCRIÇÃO |
+| Propriedade     | Descrição |
 | ------------ | ----------- |
 | EnqueuedTime | O carimbo de hora que indica quando a mensagem de comentários foi recebida pelo hub. |
 | UserId       | `{iot hub name}` |
@@ -91,12 +92,12 @@ Como explicado em [Pontos de extremidade](iot-hub-devguide-endpoints.md), o Hub 
 
 O corpo é uma matriz de registros serializada em JSON, cada um com as seguintes propriedades:
 
-| Propriedade           | DESCRIÇÃO |
+| Propriedade           | Descrição |
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | Carimbo de data e hora que indica quando ocorreu a saída da mensagem. Por exemplo, o hub recebeu a mensagem de comentários ou a mensagem original expirou. |
 | OriginalMessageId  | **MessageId** da mensagem de nuvem para o dispositivo para qual essa informação de comentários se relaciona. |
 | StatusCode         | Cadeia de caracteres obrigatória. Usado em mensagens de comentários geradas pelo Hub IoT. <br/> 'Êxito' <br/> 'Expirado' <br/> 'DeliveryCountExceeded' <br/> 'Rejeitado' <br/> 'Limpo' |
-| DESCRIÇÃO        | Valores de cadeia de caracteres para **StatusCode**. |
+| Descrição        | Valores de cadeia de caracteres para **StatusCode**. |
 | deviceId           | **DeviceId** do dispositivo de destino da mensagem de nuvem para o dispositivo para qual esse comentário se relaciona. |
 | DeviceGenerationId | **DeviceGenerationId** do dispositivo de destino da mensagem de nuvem para o dispositivo para qual esse comentário se relaciona. |
 
@@ -125,7 +126,7 @@ O exemplo a seguir mostra o corpo de uma mensagem de comentários.
 
 Cada Hub IoT expõe as seguintes opções de configuração para mensagens de nuvem para o dispositivo:
 
-| Propriedade                  | DESCRIÇÃO | Intervalo e padrão |
+| Propriedade                  | Descrição | Intervalo e padrão |
 | ------------------------- | ----------- | ----------------- |
 | defaultTtlAsIso8601       | TTL padrão para mensagens da nuvem para o dispositivo. | Intervalo ISO_8601 de até 2D (mínimo de 1 minuto). Padrão: 1 hora. |
 | maxDeliveryCount          | Contagem máxima de entrega para filas de nuvem para o dispositivo por dispositivo. | 1 a 100. Padrão: 10. |

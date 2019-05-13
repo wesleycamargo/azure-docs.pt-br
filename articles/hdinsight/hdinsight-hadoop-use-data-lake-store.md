@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 067bdcfc496fc986ae87620b7d57d7cad3a0f734
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/09/2019
+ms.openlocfilehash: 22015d1e838e940cbf5a79323f4046c4a7e1719e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694173"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506796"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Usar Data Lake Storage Gen1 com clusters Azure HDInsight
 
@@ -42,12 +42,12 @@ A partir de agora, somente alguns tipos/versões do cluster HDInsight dão supor
 
 | Tipo de cluster HDInsight | Data Lake Storage Gen1 como armazenamento padrão | Data Lake Storage Gen1 como armazenamento adicional| Observações |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight versão 4.0 | Não  | Não  |Não há suporte para o ADLS Gen1 com o HDInsight 4.0 |
+| HDInsight versão 4.0 | Não | Não |Não há suporte para o ADLS Gen1 com o HDInsight 4.0 |
 | HDInsight versão 3.6 | sim | Sim | Com exceção do HBase|
 | HDInsight versão 3.5 | sim | Sim | Com exceção do HBase|
 | HDInsight versão 3.4 | Não | Sim | |
-| HDInsight versão 3.3 | Não  | Não  | |
-| HDInsight versão 3.2 | Não  | Sim | |
+| HDInsight versão 3.3 | Não | Não | |
+| HDInsight versão 3.2 | Não | Sim | |
 | Storm | | |É possível usar o Data Lake Storage Gen1 para gravar os dados de uma topologia do Storm. Também é possível usar o Data Lake Storage para dados de referência que, em seguida, podem ser lidos por uma topologia do Storm.|
 
 > [!WARNING]  
@@ -108,13 +108,13 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-data-lake-storage-gen1-as-additional-storage"></a>Usar o Data Lake Storage Gen1 como armazenamento adicional
 
-É possível usar o Data Lake Storage Gen1 como armazenamento adicional para o cluster também. Nesses casos, o armazenamento padrão do cluster pode ser um Azure Storage Blob ou uma conta do Data Lake Storage. Se você estiver executando trabalhos de HDInsight com os dados armazenados no Data Lake Storage como armazenamento adicional, use o caminho totalmente qualificado para os arquivos. Por exemplo: 
+É possível usar o Data Lake Storage Gen1 como armazenamento adicional para o cluster também. Nesses casos, o armazenamento padrão do cluster pode ser um Azure Storage Blob ou uma conta do Data Lake Storage. Se você estiver executando trabalhos de HDInsight com os dados armazenados no Data Lake Storage como armazenamento adicional, use o caminho totalmente qualificado para os arquivos. Por exemplo:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
 Observe que agora não há **cluster_root_path** na URL. Isso ocorre porque o Data Lake Storage não é um armazenamento padrão nesse caso, portanto, tudo o que você precisa fazer é fornecer o caminho para os arquivos.
 
-Para poder usar um Data Lake Storage Gen1 como armazenamento adicional, só é necessário permitir o acesso da entidade de serviço aos caminhos em que os arquivos são armazenados.  Por exemplo: 
+Para poder usar um Data Lake Storage Gen1 como armazenamento adicional, só é necessário permitir o acesso da entidade de serviço aos caminhos em que os arquivos são armazenados.  Por exemplo:
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
@@ -220,8 +220,8 @@ if($addNewCertKeyCredential)
     Write-Host "Creating new KeyCredential for the app"
     $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
     New-AzADAppCredential -ApplicationId $appId -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
-    Write-Host "Waiting for 30 seconds for the permissions to get propagated"
-    Start-Sleep -s 30
+    Write-Host "Waiting for 7 minutes for the permissions to get propagated"
+    Start-Sleep -s 420 #7 minutes
 }
 
 Write-Host "Updating the certificate on HDInsight cluster..."

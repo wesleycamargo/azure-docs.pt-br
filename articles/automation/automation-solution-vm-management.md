@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/24/2019
+ms.date: 05/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: eaff996f5d0ad9c2eac00c9306ef8808b43e25c2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 017c2fd934f35a64f26687f4a58634dda9a821a3
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146034"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501973"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solução Iniciar/Parar VMs fora do horário comercial na Automação do Azure
 
@@ -75,7 +75,7 @@ Para implantar a iniciar/parar VMs durante a solução de horas em uma conta de 
 | Microsoft.Resources/subscriptions/resourceGroups/read | Grupo de recursos |
 | Microsoft.Resources/deployments/* | Grupo de recursos |
 
-### <a name="new-automation-account-and-a-new-log-analytics-workspace"></a>Nova conta de automação e um novo espaço de trabalho do Log Analytics
+#### <a name="new-automation-account-and-a-new-log-analytics-workspace"></a>Nova conta de automação e um novo espaço de trabalho do Log Analytics
 
 Para implantar a iniciar/parar VMs durante horários de solução para uma nova conta de automação do Log Analytics espaço de trabalho e o usuário que implanta a solução precisa de permissões definidas na seção anterior, bem como as seguintes permissões:
 
@@ -91,6 +91,30 @@ Para implantar a iniciar/parar VMs durante horários de solução para uma nova 
 | Microsoft.Automation/automationAccounts/write | Grupo de recursos |
 | Microsoft.OperationalInsights/workspaces/write | Grupo de recursos |
 
+### <a name="region-mappings"></a>Mapeamentos de região
+
+Ao habilitar iniciar/parar VMs fora do horário comercial, somente determinadas regiões têm suporte para vincular um espaço de trabalho do Log Analytics e uma conta de automação.
+
+A tabela abaixo mostra os mapeamentos com suporte:
+
+|**Região do Workspace do Log Analytics**|**Região da Automação do Azure**|
+|---|---|
+|AustraliaSoutheast|AustraliaSoutheast|
+|Canadá Central|Canadá Central|
+|CentralIndia|CentralIndia|
+|EastUS<sup>1</sup>|EastUS2|
+|JapanEast|JapanEast|
+|SoutheastAsia|SoutheastAsia|
+|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
+|WestEurope|WestEurope|
+|UKSouth|UKSouth|
+|USGovVirginia|USGovVirginia|
+|EastUS2EUAP<sup>1</sup>|CentroEUAEUAP|
+
+<sup>1</sup> mapeamentos EastUS2EUAP e EastUS para espaços de trabalho do Log Analytics para contas de automação não são um mapeamento de região para região exato, mas é o mapeamento correto.
+
+<sup>2</sup> devido a restrições de capacidade a região não está disponível durante a criação de novos recursos. Isso inclui contas de automação e o Log Analytics para espaços de trabalho. No entanto, os recursos vinculados pré-existentes na região devem continuam a funcionar.
+
 ## <a name="deploy-the-solution"></a>Implantar a solução
 
 Execute as seguintes etapas para adicionar a solução Iniciar/Parar VMs fora do horário comercial à sua conta de Automação e, em seguida, configure as variáveis para personalizar a solução.
@@ -101,6 +125,7 @@ Execute as seguintes etapas para adicionar a solução Iniciar/Parar VMs fora do
 
    > [!NOTE]
    > Você também pode criá-lo em qualquer lugar no portal do Azure, clicando em **criar um recurso**. Na página Marketplace, digite uma palavra-chave, como **Iniciar** ou **Iniciar/Parar**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Como alternativa, você pode digitar uma ou mais palavras-chave do nome completo da solução e, em seguida, pressionar Enter. Selecione **Iniciar/Parar VMs fora do horário** nos resultados da pesquisa.
+
 2. Na página **Iniciar/Parar VMs durante as horas de folga** para a solução selecionada, revise as informações de resumo e clique em **Criar**.
 
    ![Portal do Azure](media/automation-solution-vm-management/azure-portal-01.png)

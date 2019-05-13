@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 01/14/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: f58d06cd191166f47d864241564bc57019b59132
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c72de0ef874659a5d7840689e38bd7857c25b840
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60707286"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464046"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Gerenciar IoT Central do portal do Azure
 
@@ -29,19 +29,19 @@ Para criar um aplicativo, navegue até a [portal do Azure](https://ms.portal.azu
 
 Na barra de pesquisa, digite **IoT Central**.
 
-![Portal de gerenciamento: pesquisar](media/howto-manage-iot-central-from-portal/image0a.png)
+![Portal de gerenciamento: pesquisar](media/howto-manage-iot-central-from-portal/image0a1.png)
 
 Selecione o **aplicativo Central da IoT** item de linha nos resultados da pesquisa.
 
-![Portal de gerenciamento: resultados da pesquisa](media/howto-manage-iot-central-from-portal/image0b.png)
+![Portal de gerenciamento: resultados da pesquisa](media/howto-manage-iot-central-from-portal/image0b1.png)
 
 Agora, selecione **Criar**.
 
-![Portal de gerenciamento: Recursos de IoT Central](media/howto-manage-iot-central-from-portal/image0c.png)
+![Portal de gerenciamento: Recursos de IoT Central](media/howto-manage-iot-central-from-portal/image0c1.png)
 
 Preencha todos os campos no formulário. Este formulário é semelhante ao formulário que você preenche para criar aplicativos na página do [Gerenciador de Aplicativos](https://aka.ms/iotcentral) do IoT Central. Para obter mais informações, confira o guias de início rápido [Criar um aplicativo do IoT Central](quick-deploy-iot-central.md).
 
-![Portal de gerenciamento: criar recurso do IoT Central](media/howto-manage-iot-central-from-portal/image1.png)  
+![Portal de gerenciamento: criar recurso do IoT Central](media/howto-manage-iot-central-from-portal/image1a.png)  
 
 Após preencher todos os campos, selecione **criar**.
 
@@ -54,7 +54,7 @@ Se você já tiver um aplicativo do Azure IoT Central, poderá excluí-lo ou mov
 
 Para começar, selecione **todos os recursos** no menu de navegação principal à esquerda. Use a caixa de pesquisa para digitar o nome do aplicativo para localizá-lo na lista de recursos. Selecione o aplicativo de IoT Central que você deseja gerenciar.
 
-![Portal de gerenciamento: gerenciamento de recursos](media/howto-manage-iot-central-from-portal/image2.png)
+![Portal de gerenciamento: gerenciamento de recursos](media/howto-manage-iot-central-from-portal/image2a.png)
 
 Para navegar até o aplicativo, selecione a URL do aplicativo IoT Central.
 
@@ -62,11 +62,11 @@ Para navegar até o aplicativo, selecione a URL do aplicativo IoT Central.
 
 Para mover o aplicativo para outro grupo de recursos, selecione **alterar** ao lado do grupo de recursos. Na página **Mover recursos**, escolha o grupo de recursos para o qual você deseja migrar esse aplicativo.
 
-![Portal de gerenciamento: gerenciamento de recursos](media/howto-manage-iot-central-from-portal/image4.png)
+![Portal de gerenciamento: gerenciamento de recursos](media/howto-manage-iot-central-from-portal/image4a.png)
 
 Para mover o aplicativo para uma assinatura diferente, selecione a **alterar** link ao lado da assinatura. Escolha a assinatura para a qual você deseja migrar esse aplicativo na caixa de diálogo exibida.
 
-![Portal de gerenciamento: gerenciamento de recursos](media/howto-manage-iot-central-from-portal/image5.png)
+![Portal de gerenciamento: gerenciamento de recursos](media/howto-manage-iot-central-from-portal/image5a.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

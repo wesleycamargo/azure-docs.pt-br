@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 30186d0f8197a35db409684775e2ec78288b8818
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 73b185eabc77d293328b1251a4af1aafffc5f319
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726656"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236362"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de endereço IP e métodos de alocação no Azure
 
@@ -43,7 +43,7 @@ No Gerenciador de recursos do Azure, um endereço [IP público](virtual-network-
 
 * Interfaces de rede de máquina virtual
 * Balanceadores de carga para Internet
-* Gateways VPN
+* Gateways de VPN
 * Application gateways
 
 ### <a name="ip-address-version"></a>Versão do endereço IP
@@ -105,11 +105,14 @@ Os endereços IP públicos estáticos são comumente usados nas seguintes situa�
 >
 
 ### <a name="dns-hostname-resolution"></a>Resolução de nome de host DNS
-Você pode especificar um rótulo de nome de domínio DNS para um recurso IP público que cria um mapeamento para *domainnamelabel*.*location*.cloudapp.azure.com para o endereço IP público nos servidores DNS gerenciados pelo Azure. Por exemplo, se você criar um recurso IP público com **contoso** como um *domainnamelabel* no *local* do Azure no **Oeste dos EUA**, o nome de domínio totalmente qualificado (FQDN) **contoso.westus.cloudapp.azure.com** será resolvido para o endereço IP público do recurso. Você pode usar o FQDN para criar um registro CNAME do domínio personalizado apontando para o endereço IP público no Azure. Em vez de ou além de usar o rótulo de nome DNS com o sufixo padrão, você pode usar o serviço DNS do Azure para configurar um nome DNS com um sufixo personalizado que seja resolvido para o endereço IP público. Para obter mais informações, consulte [Usar o DNS do Azure com o endereço IP público do Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).
+Você pode especificar um rótulo de nome de domínio DNS para um recurso IP público que cria um mapeamento para *domainnamelabel*.*location*.cloudapp.azure.com para o endereço IP público nos servidores DNS gerenciados pelo Azure. Por exemplo, se você criar um recurso IP público com **contoso** como um *domainnamelabel* no *local* do Azure no **Oeste dos EUA**, o nome de domínio totalmente qualificado (FQDN) **contoso.westus.cloudapp.azure.com** será resolvido para o endereço IP público do recurso.
 
 > [!IMPORTANT]
 > Cada rótulo de nome do domínio criado deve ser exclusivo dentro de seu local do Azure.  
 >
+
+### <a name="dns-best-practices"></a>Práticas recomendadas do DNS
+Se você precisar migrar para uma região diferente, você não pode migrar o FQDN do seu endereço IP público. Como prática recomendada, você pode usar o FQDN para criar um registro CNAME do domínio personalizado apontando para o endereço IP público no Azure. Se você precisar mover para um IP público diferente, ela exigirá uma atualização para o registro CNAME em vez de ter que atualizar manualmente o FQDN para o novo endereço. Você pode usar [DNS do Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) ou um provedor DNS externo para o registro de DNS. 
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
 
@@ -119,7 +122,7 @@ Você pode associar um endereço IP público a uma máquina virtual [Windows](..
 
 Você pode associar um endereço IP público criado com um dos [SKUs](#sku) ao [Azure Load Balancer](../load-balancer/load-balancer-overview.md), atribuindo-o à configuração de **front-end** do balanceador de carga. O endereço IP público serve como um endereço IP virtual de balanceamento de carga (VIP). Você pode atribuir um endereço IP público estático ou dinâmico a um front-end de balanceador de carga. Você também pode atribuir vários endereços IP públicos a um front-end de balanceador de carga, que permite cenários [multi-VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) como um ambiente de multilocatário com sites baseados em SSL. Para saber mais sobre os SKUs do balanceador de carga do Azure, confira [SKU padrão do balanceador de carga do Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-### <a name="vpn-gateways"></a>Gateways VPN
+### <a name="vpn-gateways"></a>Gateways de VPN
 
 Um [Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) conecta uma rede virtual do Azure a outras redes virtuais do Azure ou a uma rede local. Um endereço IP público é atribuído ao Gateway de VPN para permitir que ele se comunique com a rede remota. Você pode atribuir apenas um endereço IP público básico *dinâmico* a um gateway de VPN.
 
@@ -130,12 +133,12 @@ Você pode associar um endereço IP público do Azure [Application Gateway](../a
 ### <a name="at-a-glance"></a>Imediato
 A tabela a seguir mostra a propriedade específica por meio da qual um endereço IP público pode ser associado a um recurso de nível superior e os métodos possíveis de alocação (dinâmico ou estático) que podem ser usados.
 
-| Recurso de nível superior | Associação de Endereço IP | Dinâmico | estático |
+| Recurso de nível superior | Associação de Endereço IP | Dinâmico | Static |
 | --- | --- | --- | --- |
 | Máquina virtual |interface de rede |Sim |Sim |
 | Balanceador de carga voltado para a Internet |Configuração de front-end |Sim |Sim |
-| gateway de VPN |Configuração de IP do gateway |Sim |Sim |
-| Gateway de Aplicativo |Configuração de front-end |Sim (apenas V1) |Sim (apenas V2) |
+| Gateway de VPN |Configuração de IP do gateway |Sim |Não |
+| Application gateway |Configuração de front-end |Sim (apenas V1) |Sim (apenas V2) |
 
 ## <a name="private-ip-addresses"></a>Endereços IP privados
 Endereços IP privados permitem que os recursos do Azure comuniquem-se com outros recursos de uma [rede virtual](virtual-networks-overview.md) , ou na rede local por meio de um gateway de VPN ou circuito de ExpressRoute, sem usar um endereço IP acessível pela Internet.
@@ -178,13 +181,13 @@ Você pode atribuir um endereço IP privado para a configuração de **front-end
 ### <a name="at-a-glance"></a>Imediato
 A tabela a seguir mostra a propriedade específica por meio da qual um endereço IP privado pode ser associado a um recurso de nível superior e os métodos possíveis de alocação (dinâmico ou estático) que podem ser usados.
 
-| Recurso de nível superior | Associação de Endereço IP | dinâmico | estático |
+| Recurso de nível superior | Associação de Endereço IP | dinâmico | Static |
 | --- | --- | --- | --- |
 | Máquina virtual |interface de rede |Sim |Sim |
 | Balanceador de carga |Configuração de front-end |Sim |Sim |
-| Gateway de Aplicativo |Configuração de front-end |Sim |Sim |
+| Application gateway |Configuração de front-end |Sim |Sim |
 
-## <a name="limits"></a>limites
+## <a name="limits"></a>Limites
 Os limites impostos sobre o endereçamento IP são indicados em todo o conjunto de [limites de rede](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) no Azure. Os limites são por região e por assinatura. Você pode [entrar em contato com o suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar os limites padrão até os limites máximos com base nas necessidades de sua empresa.
 
 ## <a name="pricing"></a>Preços

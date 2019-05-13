@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 43f783617c36d30aa1fd65cce580bb5e666afed1
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5973cfc955cfce0ec1b073ac96bd68f07f093087
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021472"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409122"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>Contrato de licença do SDK dos Dispositivos de Fala
 
@@ -32,7 +32,7 @@ Estes termos de licença constituem um contrato entre você e a Microsoft Corpor
 
     a) Geral. Você pode instalar e usar qualquer número de cópias do software para desenvolver e testar seus aplicativos, exclusivamente para a finalidade indicada acima e caso contrário, para suas finalidades de negócios internos.
 
-    b) Software de Terceiros. O software poderá incluir aplicativos de terceiros licenciados a você nos termos deste contrato ou sob os termos desses terceiros. Termos de licença, avisos e confirmações, se houver, para os aplicativos de terceiros podem estar acessíveis online em http://aka.ms/thirdpartynotices ou em um arquivo de avisos anexado. Mesmo que esses aplicativos sejam controlados por outros contratos, a isenção de responsabilidade, as limitações e exclusões de danos abaixo também se aplicam à extensão permitida pela legislação aplicável.
+    b) Software de Terceiros. O software poderá incluir aplicativos de terceiros licenciados a você nos termos deste contrato ou sob os termos desses terceiros. Termos de licença, avisos e confirmações, se houver, para os aplicativos de terceiros podem estar acessíveis online em https://aka.ms/thirdpartynotices ou em um arquivo de avisos anexado. Mesmo que esses aplicativos sejam controlados por outros contratos, a isenção de responsabilidade, as limitações e exclusões de danos abaixo também se aplicam à extensão permitida pela legislação aplicável.
 
     c) parâmetros de comparação competitiva. Se você for um concorrente e você acessar ou usar o software para fins parâmetros de desempenho ou análise da concorrência ou coleta de informações de inteligência, você renunciará com relação à Microsoft, suas subsidiárias e suas empresas afiliadas (incluindo prospectivamente), a qualquer uso de concorrência, acesso e restrições de teste de parâmetros de comparação nos termos que regem seu software até a medida em que seus termos de uso são ou pretendem ser, mais restritivos do que os termos da Microsoft. Se você não renunciar a essas restrições pretendidas nos termos que regem o software, você não terá permissão para acessar ou usar este software e não o fará.
 
@@ -74,13 +74,13 @@ Estes termos de licença constituem um contrato entre você e a Microsoft Corpor
 
     e) compartilhar, publicar, distribuir ou emprestar o software (exceto para qualquer código distribuível, sujeito aos termos acima), fornecer o software como uma solução autônoma hospedada para outros usuários usarem nem transferir o software ou este contrato a terceiros.
 
-1. RESTRIÇÕES DE EXPORTAÇÃO. É necessário cumprir todas as leis de exportação nacionais e internacionais e os regulamentos que se aplicam ao software, que incluem restrições sobre destinos, usuários finais e uso final. Para obter mais informações sobre as restrições de exportação, acesse http://aka.ms/exporting.
+1. RESTRIÇÕES DE EXPORTAÇÃO. É necessário cumprir todas as leis de exportação nacionais e internacionais e os regulamentos que se aplicam ao software, que incluem restrições sobre destinos, usuários finais e uso final. Para obter mais informações sobre as restrições de exportação, acesse https://aka.ms/exporting.
 
 1. SERVIÇOS DE SUPORTE. A Microsoft não é obrigada, sob este contrato, a fornecer qualquer serviço de suporte para o software. Qualquer suporte fornecido é "no estado em que se encontra", "com todas as falhas" e sem garantia de nenhum tipo.
 
 1. ATUALIZAÇÕES. O software poderá verificar periodicamente se há atualizações e baixá-las e instalá-las para você. Você poderá obter atualizações somente da Microsoft ou de fontes autorizadas. A Microsoft talvez precise atualizar o sistema para fornecer atualizações. Você concorda em receber essas atualizações automáticas sem qualquer aviso adicional. Talvez as atualizações não incluam todos os recursos existentes de software, serviços ou dispositivos periféricos nem deem suporte a eles.
 
-1. ARBITRAGEM VINCULATIVA E RENÚNCIA À AÇÃO COLETIVA. Esta seção será aplicável caso você more nos Estados Unidos (ou, caso seja uma empresa, tenha sede nos Estados Unidos).  Se você e a Microsoft entrarem em litígio, você e a Microsoft concordarão em tentar resolvê-lo informalmente em 60 dias. Se você e a Microsoft não conseguirem resolvê-lo, você e a Microsoft chegarão a uma arbitragem individual vinculativa perante a American Arbitration Association (Associação Americana de Arbitragem) nos termos da “FAA” (Lei Federal de Arbitragem), para não haver julgamento no tribunal diante de um juiz ou júri. Em vez disso, um arbitrador neutro decidirá. Não são permitidos processos de ação coletiva, arbitragens coletivas, ações judiciais por um procurador-geral privado e qualquer outro procedimento em que alguém atue em uma capacidade representativa; nem é permitida a combinação de procedimentos individuais sem o consentimento de todas as partes. O Contrato de Arbitragem completo contém mais termos e se encontra em http://aka.ms/arb-agreement-1. Você e a Microsoft concordam com esses termos.
+1. ARBITRAGEM VINCULATIVA E RENÚNCIA À AÇÃO COLETIVA. Esta seção será aplicável caso você more nos Estados Unidos (ou, caso seja uma empresa, tenha sede nos Estados Unidos).  Se você e a Microsoft entrarem em litígio, você e a Microsoft concordarão em tentar resolvê-lo informalmente em 60 dias. Se você e a Microsoft não conseguirem resolvê-lo, você e a Microsoft chegarão a uma arbitragem individual vinculativa perante a American Arbitration Association (Associação Americana de Arbitragem) nos termos da “FAA” (Lei Federal de Arbitragem), para não haver julgamento no tribunal diante de um juiz ou júri. Em vez disso, um arbitrador neutro decidirá. Não são permitidos processos de ação coletiva, arbitragens coletivas, ações judiciais por um procurador-geral privado e qualquer outro procedimento em que alguém atue em uma capacidade representativa; nem é permitida a combinação de procedimentos individuais sem o consentimento de todas as partes. O Contrato de Arbitragem completo contém mais termos e se encontra em https://aka.ms/arb-agreement-1. Você e a Microsoft concordam com esses termos.
 
 1. RESCISÃO. Sem prejuízo a quaisquer outros direitos, a Microsoft poderá encerrar este contrato caso você não cumpra um de seus termos ou suas condições. Nesse caso, você deverá destruir todas as cópias do software e todos os seus componentes.
 

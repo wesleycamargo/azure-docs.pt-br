@@ -8,19 +8,19 @@
   items:
     - name: 1. Criar um locatário na Área de Trabalho Virtual do Windows
       href: tenant-setup-azure-active-directory.md
-    - name: 2. Criar um pool de host com o Azure Marketplace
-      href: create-host-pools-azure-marketplace.md
-    - name: 3. Gerenciar grupos de aplicativos
-      href: manage-app-groups.md
-    - name: 4. Criar entidades de serviço e atribuições de função com o PowerShell
+    - name: 2. Criar entidades de serviço e atribuições de função com o PowerShell
       href: create-service-principal-role-powershell.md
+    - name: 3. Criar um pool de host com o Azure Marketplace
+      href: create-host-pools-azure-marketplace.md
+    - name: 4. Gerenciar grupos de aplicativos
+      href: manage-app-groups.md
 - name: Instruções
   items:
     - name: Conectar-se a recursos de Área de Trabalho Virtual do Windows
       items:
-        - name: Conectar-se com o Windows 7 e Windows 10
+        - name: Conectar-se do Windows 10 ou Windows 7
           href: connect-windows-7-and-10.md
-        - name: Conectar-se ao cliente Web
+        - name: Conectar-se com um navegador da Web
           href: connect-web.md
     - name: Criar um pool de host com um modelo do Azure Resource Manager
       href: create-host-pools-arm-template.md
@@ -34,6 +34,8 @@
       href: diagnostics-role-service.md
     - name: Preparar e personalizar uma imagem de VHD mestre
       href: set-up-customize-master-image.md
+    - name: Configurar GPU para a Área de Trabalho Virtual do Windows
+      href: configure-vm-gpu.md
     - name: Dimensionar automaticamente hosts da sessão
       href: set-up-scaling-script.md
 - name: Conceitos

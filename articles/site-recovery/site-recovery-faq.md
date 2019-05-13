@@ -8,16 +8,21 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/08/2019
 ms.author: raynew
-ms.openlocfilehash: 824782e54f2cd989f9ab13857d9b894b215fc550
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 74ccc76ff139cae21e3583b0fea11596f5fd6b62
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61278881"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413920"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: perguntas frequentes
-Este artigo resume as perguntas frequentes sobre o Azure Site Recovery. 
+Este artigo resume as perguntas frequentes sobre o Azure Site Recovery.</br>
+Para consultas específicas no ASR diferente cenários, consulte cenário perguntas frequentes específicas.<br>
 
+- [Recuperação de desastres VM do Azure para o Azure](azure-to-azure-common-questions.md)
+- [Recuperação de desastres de VM do VMware para o Azure](vmware-azure-common-questions.md)
+- [Recuperação de desastres VM do Hyper-V para o Azure](hyper-v-azure-common-questions.md)
+ 
 ## <a name="general"></a>Geral
 
 ### <a name="what-does-site-recovery-do"></a>O que faz o Site Recovery?
@@ -104,7 +109,7 @@ Para máquinas virtuais e servidores físicos que estão sendo replicados entre 
 
 
 
-## <a name="disaster-recovery"></a>Recuperação de desastre
+## <a name="disaster-recovery"></a>Recuperação de desastres
 
 ### <a name="what-can-site-recovery-protect"></a>O que o Site Recovery pode proteger?
 * **VMs do Azure**: O Site Recovery pode replicar qualquer carga de trabalho em execução em uma VM do Azure com suporte

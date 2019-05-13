@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: c447a14f72c56e3e1e244011aa215a33b3f222a6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ec5b3572cbf74bad9b82eb93a45d7a4664023b95
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922457"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408232"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorar o desempenho do Serviço de Aplicativo do Azure
 
@@ -274,7 +274,7 @@ Abaixo está um exemplo, substitua todas as instâncias de `AppMonitoredSite` co
             "type": "string"
         }
     },
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0"
 }
 ```
@@ -348,7 +348,7 @@ Abaixo está o nosso guia passo a passo de solução de problemas para o monitor
 
 A tabela a seguir fornece uma explicação mais detalhada do que significam esses valores, seus subjacente faz com que e correções recomendadas:
 
-|Valor de problema|Explicação|Correção
+|Valor de problema|Explicação|Corrigir
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Esse valor indica que a extensão detectou que alguns aspectos do SDK do já está presente no aplicativo e serão retirada. Ele pode ser devido a uma referência a `System.Diagnostics.DiagnosticSource`, `Microsoft.AspNet.TelemetryCorrelation`, ou `Microsoft.ApplicationInsights`  | Remova as referências. Algumas dessas referências são adicionadas por padrão de determinados modelos do Visual Studio e as versões mais antigas do Visual Studio podem adicionar referências a `Microsoft.ApplicationInsights`.
 |`AppAlreadyInstrumented:true` | Se o aplicativo está direcionando o .NET Core 2.1 ou 2.2 e refere-se ao [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) meta-package, em seguida, ele traz no Application Insights e extensão será retirada. | Os clientes no .NET Core 2.1,2.2 [recomendado](https://github.com/aspnet/Announcements/issues/287) usar meta-package Microsoft em vez disso.|

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: 934dfd3334b6f433c7acdf9816a3fb5e24f0430f
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: f40350129a12c7865051bcae80b74b6f9c069179
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872001"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233534"
 ---
 # <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>Detecção de anomalias e previsões no Data Explorer do Azure
 
@@ -119,7 +119,7 @@ demo_make_series2
 
 ## <a name="summary"></a>Resumo
 
-Este documento detalha as funções nativas do Data Explorer do Azure para detecção de anomalias de série temporal e previsão, que melhora significativamente o modelo de Decomposição básico no qual ele se baseia. Cada série temporal original é decomposto, anomalias detectadas, e previsão executada. As funcionalidades de detecção e previsão de anomalias do série tempo são usadas para perto de cenários de monitoramento em tempo real, como detecção de falhas, manutenção preditiva e por demanda e previsão de carga.
+Este documento detalha as funções nativas do Data Explorer do Azure para detecção de anomalias de série temporal e previsão. Cada série temporal original é decomposto em componentes sazonais, de tendência e residual para detectar anomalias e/ou previsão. Essas funcionalidades podem ser usadas para perto de cenários de monitoramento em tempo real, como detecção de falhas, manutenção preditiva e por demanda e previsão de carga.
 
 ## <a name="next-steps"></a>Próximas etapas
 
