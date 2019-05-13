@@ -5,7 +5,7 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-keywords: azure functions, funções, arquitetura serverless
+keywords: azure functions, funções, arquitetura sem servidor
 ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
@@ -24,7 +24,7 @@ O Azure Functions dá suporte ao padrão de projeto de software de injeção de 
 
 O Azure Functions se baseia nos recursos de injeção de dependência do ASP.NET Core.  Você deve compreender os serviços, tempos de vida e padrões de projeto de [injeção de dependência do ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) antes de usá-las em funções.
 
-## <a name="installing-dependency-injection-packages"></a>Instalando os pacotes de injeção de dependência
+## <a name="installing-dependency-injection-packages"></a>Instalar os pacotes de injeção de dependência
 
 Para usar os recursos de injeção de dependência, você precisará incluir o pacote do NuGet que expõe essas APIs.
 
@@ -34,7 +34,7 @@ Install-Package Microsoft.Azure.Functions.Extensions
 
 ## <a name="registering-services"></a>Registrando serviços
 
-Para registrar os serviços, você pode criar um método `Configure` e adicionar componentes a uma instânci `IFunctionsHostBuilder`.  O host do Azure Functions cria um `IFunctionsHostBuilder` e o passa diretamente no seu método configurado.
+Para registrar os serviços, você pode criar um método `Configure` e adicionar componentes a uma instância `IFunctionsHostBuilder`. O host do Azure Functions cria um `IFunctionsHostBuilder` e o passa diretamente no seu método configurado.
 
 Para registrar o seu método `Configure`, você deve adicionar um atributo de assembly que especifica o tipo para seu método `Configure` usando o atributo `FunctionsStartup`.
 
@@ -61,7 +61,7 @@ namespace MyNamespace
 
 Os aplicativos de função do Azure fornecem os mesmos tempos de vida do serviço como [injeção de dependência do ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection#service-lifetimes), temporário, escopo, singleton e.
 
-Em um aplicativo de função, um tempo de vida de escopo de serviço corresponde a um tempo de vida de execução de função. Os serviços com escopo são criados uma vez por execução.  As solicitações posteriores para o serviço durante a execução vão reutilizar essa instância.  Um tempo de vida do serviço singleton corresponde ao tempo de vida do host e é reutilizado em execuções de função nessa instância.
+Em um aplicativo de função, um tempo de vida de serviço com escopo corresponde a um tempo de vida de execução de função. Os serviços com escopo são criados uma vez por execução. As solicitações posteriores para o serviço durante a execução vão reutilizar essa instância. Um tempo de vida do serviço singleton corresponde ao tempo de vida do host e é reutilizado em execuções de função nessa instância.
 
 Serviços de tempo de vida singleton são recomendados para conexões de clientes e, por exemplo uma `SqlConnection`, `CloudBlobClient`, ou `HttpClient`.
 
@@ -76,7 +76,7 @@ Se você precisar de seu próprio provedor de registro em log, a maneira recomen
  
 ## <a name="function-app-provided-services"></a>Serviços de aplicativo fornecida da função
 
-O host de função registra muitos serviços em si.  Abaixo estão os serviços que são seguros assumir uma dependência.  Não há suporte para registrar ou depender de outros serviços de host.  Se houver outros serviços que você deseja assumir uma dependência, por favor [criar um problema e uma discussão no GitHub](https://github.com/azure/azure-functions-host).
+O host de função registra muitos serviços em si. Abaixo estão os serviços nos quais é seguro assumir uma dependência. Não há suporte para registrar ou depender de outros serviços de host. Se houver outros serviços em que você deseja assumir uma dependência, por favor [crie um problema e uma discussão no GitHub](https://github.com/azure/azure-functions-host).
 
 |Tipo de serviço|Tempo de vida|DESCRIÇÃO|
 |--|--|--|
