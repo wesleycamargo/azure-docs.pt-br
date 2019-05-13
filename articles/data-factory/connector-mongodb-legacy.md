@@ -55,12 +55,12 @@ As propriedades a seguir têm suporte para o serviço vinculado do MongoDB:
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
 | type |A propriedade type deve ser definida como: **MongoDb** |Sim |
-| Servidor |Endereço IP ou nome do host do servidor MongoDB. |Sim |
-| porta |A porta TCP usada pelo servidor MongoDB para ouvir conexões de cliente. |Não (o padrão é 27017) |
+| server |Endereço IP ou nome do host do servidor MongoDB. |Sim |
+| port |A porta TCP usada pelo servidor MongoDB para ouvir conexões de cliente. |Não (o padrão é 27017) |
 | databaseName |Nome do banco de dados MongoDB que você deseja acessar. |Sim |
 | authenticationType | Tipo de autenticação usado para se conectar ao banco de dados MongoDB.<br/>Valores permitidos são: **Básico** e **Anônimo**. |Sim |
-| Nome de Usuário |Conta de usuário para acessar o MongoDB. |Sim (se a autenticação básica for usada). |
-| Senha |Senha do usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim (se a autenticação básica for usada). |
+| username |Conta de usuário para acessar o MongoDB. |Sim (se a autenticação básica for usada). |
+| password |Senha do usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim (se a autenticação básica for usada). |
 | authSource |Nome do banco de dados MongoDB que você deseja usar para verificar suas credenciais para autenticação. |Não. Para a autenticação Básica, o padrão é usar a conta do administrador e o banco de dados especificado, usando a propriedade databaseName. |
 | enableSsl | Especifica se as conexões com o servidor são criptografadas usando SSL. O valor padrão é falso.  | Não  |
 | allowSelfSignedServerCert | Especifica se deve permitir os certificados autoassinados do servidor. O valor padrão é falso.  | Não  |
@@ -176,14 +176,14 @@ Ao copiar dados do MongoDB, os seguintes mapeamentos são usados de tipos de dad
 
 | Tipo de dados do MongoDB | Tipo de dados provisório do Data Factory |
 |:--- |:--- |
-| Binário |Byte[] |
+| Binary |Byte[] |
 | Boolean |Boolean |
-| Data |DateTime |
+| Date |DateTime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |Cadeia de caracteres |
-| Cadeia de caracteres |Cadeia de caracteres |
+| ObjectID |String |
+| String |String |
 | UUID |Guid |
 | Object |Renormalizado para colunas simples com “_" como separador aninhado |
 
