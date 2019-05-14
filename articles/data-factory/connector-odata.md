@@ -48,11 +48,11 @@ As propriedades a seguir são compatíveis com o serviço vinculado do OData:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **type** precisa ser definida como **OData**. |Sim |
+| type | A propriedade **type** precisa ser definida como **OData**. |Sim |
 | url | A URL raiz do serviço OData. |Sim |
 | authenticationType | O tipo de autenticação usado para se conectar à fonte OData. Os valores permitidos são **Anonymous**, **Basic**, **Windows**, **AadServicePrincipal** e **ManagedServiceIdentity**. OAuth baseado no usuário não é compatível. | Sim |
 | userName | Especifique o **userName** se estiver usando a autenticação Básica ou do Windows. | Não  |
-| Senha | Especifique a **senha** da conta de usuário que você especificou para **userName**. Marque esse campo como um tipo **SecureString** para armazená-lo com segurança no Data Factory. Você também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não  |
+| password | Especifique a **senha** da conta de usuário que você especificou para **userName**. Marque esse campo como um tipo **SecureString** para armazená-lo com segurança no Data Factory. Você também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não  |
 | servicePrincipalId | Especifique a ID do cliente do aplicativo do Azure Active Directory. | Não  |
 | aadServicePrincipalCredentialType | Especifique o tipo de credencial a ser usada para autenticação da entidade de serviço. Os valores permitidos são: `ServicePrincipalKey` ou `ServicePrincipalCert`. | Não  |
 | servicePrincipalKey | Especifique a chave do aplicativo do Azure Active Directory. Marque esse campo como **SecureString** para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | Não  |
@@ -197,8 +197,8 @@ Para copiar dados do OData, defina a propriedade **type** do conjunto de dados c
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **type** do conjunto de dados precisa ser definida como **ODataResource**. | Sim |
-| caminho | O caminho para o recurso OData. | Sim |
+| type | A propriedade **type** do conjunto de dados precisa ser definida como **ODataResource**. | Sim |
+| path | O caminho para o recurso OData. | Sim |
 
 **Exemplo**
 
@@ -232,7 +232,7 @@ Para copiar dados do OData, defina o tipo de **origem** na Atividade de Cópia c
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **type** da fonte da Atividade de Cópia precisa ser definida como **RelationalSource**. | Sim |
+| type | A propriedade **type** da fonte da Atividade de Cópia precisa ser definida como **RelationalSource**. | Sim |
 | query | Opções de consulta OData para filtrar dados. Exemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Observação**: o conector do OData copia os dados da URL combinada: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Para saber mais, confira as [Componentes da URL do OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não  |
 
 **Exemplo**
