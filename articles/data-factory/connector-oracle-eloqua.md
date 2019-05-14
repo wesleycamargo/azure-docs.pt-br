@@ -46,8 +46,8 @@ As propriedades a seguir têm suporte para o serviço vinculado do Oracle Eloqua
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **Eloqua** | Sim |
 | endpoint | O endpoint do servidor Eloqua. O Eloqua dá suporte a vários datacenters e, para determinar o ponto de extremidade, faça logon em https://login.eloqua.com com a credencial e, em seguida, copie a parte da **URL base** da URL redirecionada com o padrão `xxx.xxx.eloqua.com`. | Sim |
-| Nome de Usuário | O nome de site e nome de usuário da conta Eloqua no formulário: `SiteName\Username` e.g. `Eloqua\Alice`.  | Sim |
-| Senha | A senha correspondente ao nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| username | O nome de site e nome de usuário da conta Eloqua no formulário: `SiteName\Username` e.g. `Eloqua\Alice`.  | Sim |
+| password | A senha correspondente ao nome de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não  |
 | useHostVerification | Especifica se é necessário o nome do host no certificado do servidor para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é true.  | Não  |
 | usePeerVerification | Especifica se deve verificar a identidade do servidor quando se conecta por meio de SSL. O valor padrão é true.  | Não  |
