@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 32870f37781b4161de692af91c79fe47efb3737e
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 4022c95bfda8cbdaed75876793bfbba4254a5c54
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65077314"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410259"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---hyperscale-citus-preview"></a>Extensões de PostgreSQL no banco de dados do Azure para PostgreSQL – em hiperescala (Citus) (visualização)
 
@@ -128,7 +128,7 @@ As tabelas a seguir listam as extensões PostgreSQL padrão que têm suporte atu
 > [!div class="mx-tableFixed"]
 > | **Extensão** | **Descrição** |
 > |---|---|
-> | [PostGIS](http://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | Objetos espaciais e geográficos para PostgreSQL. |
+> | [PostGIS](https://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | Objetos espaciais e geográficos para PostgreSQL. |
 > | address\_standardizer, address\_standardizer\_data\_us | Usado para analisar um endereço em elementos constituintes. Usado para oferecer suporte à etapa de normalização de endereços de geocodificação. |
 > | postgis\_sfcgal | Funções de PostGIS SFCGAL. |
 > | postgis\_tiger\_geocoder | PostGIS tiger geocoder e geocoder inversa. |

@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.custom: vs-azure
 ms.topic: article
 ms.date: 04/25/2019
-ms.openlocfilehash: 265ed220b023a9d81fc5af48920152d95d9cac08
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: fb071ac056355a056e5333284808417a258515de
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65136683"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467444"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Construir seu primeiro aplicativo sem servidor com os Aplicativos Lógicos do Azure e o Azure Functions - Visual Studio
 
@@ -34,6 +34,7 @@ Para construir um aplicativo sem servidor no Visual Studio, serão necessários 
 
     > [!IMPORTANT]
     > Ao instalar o Visual Studio 2019 ou 2017, selecione a carga de trabalho **Desenvolvimento do Azure**.
+    > Para o Visual Studio 2019, o Cloud Explorer pode abrir o Designer de Aplicativo Lógico no portal do Azure, mas ainda não pode abrir o Designer de Aplicativo Lógico inserido.
 
   * O [SDK do Microsoft Azure para .NET (2.9.1 ou posterior)](https://azure.microsoft.com/downloads/). 
   Saiba mais sobre o [SDK do Azure para .NET](https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet).
@@ -110,7 +111,7 @@ Antes de abrir o aplicativo lógico com o Designer do Aplicativo Lógico no Visu
 
 1. Se ainda não estiver selecionado, selecione sua assinatura do Azure e o grupo de recursos para o qual você quer implantar. Escolha **Implantar**.
 
-   ![Configurações de implantação](./media/logic-apps-serverless-get-started-vs/deploy-to-resource-group.png)
+   ![Configurações da Implantação](./media/logic-apps-serverless-get-started-vs/deploy-to-resource-group.png)
 
 1. Se a caixa **Editar Parâmetros** for exibida, forneça o nome do recurso a ser usado para o aplicativo lógico e o aplicativo de funções do Azure e depois salve as configurações. Use um nome globalmente exclusivo para o aplicativo de funções.
 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 05/09/2019
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac94574ac297da7b3555be8d92ba3c5b62a990c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e490ed9d104fc039a79083a94ddaebdeba766d2a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292582"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506649"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Acesso remoto a aplicativos locais por meio do Proxy de Aplicativo do Azure Active Directory 
 
@@ -44,6 +44,8 @@ O Proxy de Aplicativo funciona com:
 
 O Proxy de Aplicativo é compatível com o logon único. Para obter mais informações sobre métodos com suporte, consulte [Escolhendo um método de logon único](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
 
+O Proxy de aplicativo é recomendado para dando externos usuários remotos acesso aos recursos internos. O Proxy de aplicativo substitui a necessidade de uma VPN ou um proxy reverso. Ele não se destina a usuários internos na rede corporativa.  Usuários internos que usam desnecessariamente o Proxy de aplicativo podem apresentar problemas de desempenho inesperado e indesejado.
+
 ## <a name="how-application-proxy-works"></a>Como o Proxy de Aplicativo funciona
 
 O diagrama a seguir mostra como o Azure AD e o Proxy de Aplicativo trabalham juntos para fornecer o logon único para aplicativos locais.
@@ -57,10 +59,10 @@ O diagrama a seguir mostra como o Azure AD e o Proxy de Aplicativo trabalham jun
 5. O conector envia a solicitação para o aplicativo no local.  
 6. A resposta é enviada por meio do conector e do serviço Proxy de Aplicativo para o usuário.
 
-| Componente | DESCRIÇÃO |
+| Componente | Descrição |
 | --------- | ----------- |
 | Ponto de extremidade  | O ponto de extremidade é uma URL ou um [portal do usuário final](end-user-experiences.md). Os usuários podem acessar aplicativos enquanto estão fora de sua rede ao acessar uma URL externa. Usuários dentro de sua rede podem acessar o aplicativo por meio de uma URL ou de um portal do usuário final. Quando os usuários acessam um desses pontos de extremidade, eles são autenticados no Azure AD e, em seguida, são direcionados por meio do conector até o aplicativo local.|
-| AD do Azure | O Azure AD executa a autenticação usando o diretório do locatário armazenado na nuvem. |
+| Azure AD | O Azure AD executa a autenticação usando o diretório do locatário armazenado na nuvem. |
 | Serviço do Proxy de Aplicativo | Esse serviço de Proxy de Aplicativo é executado na nuvem como parte do Azure AD. Ele passa o token de logon do usuário para o Conector de Proxy de Aplicativo. O Proxy de Aplicativo encaminha qualquer cabeçalho acessível na solicitação e define os cabeçalhos de acordo com seu protocolo para o endereço IP do cliente. Se a solicitação de entrada para o proxy já tiver esse cabeçalho, o endereço IP do cliente será adicionado ao final da lista separada por vírgulas que é o valor do cabeçalho.|
 | Conector de Proxy de Aplicativo | O conector é um agente leve executado em um Windows Server na sua rede. Ele gerencia a comunicação entre o serviço de Proxy de Aplicativo na nuvem e o aplicativo local. O conector usa apenas conexões de saída, portanto você não precisa abrir portas de entrada nem colocar nada na DMZ. Os conectores são sem monitoração de estado e efetuam pull de informações da nuvem conforme necessário. Para obter mais informações sobre conectores, como eles fazem o balanceamento de carga e a autenticação, consulte [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-connectors.md).|
 | AD (Active Directory) | O Active Directory é executado localmente para realizar a autenticação para contas de domínio. Quando o logon único está configurado, o conector se comunica com o AD para realizar qualquer autenticação adicional necessária.

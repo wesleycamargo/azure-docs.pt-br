@@ -1,90 +1,155 @@
 ---
-title: Entender o uso de reservas do Azure para Enterprise | Microsoft Docs
+title: Entender o uso de reservas do Azure para Enterprise Agreements
 description: Aprenda a ler o seu uso para entender como a reserva do Azure para o seu registro Enterprise é aplicada.
-services: billing
-documentationcenter: ''
-author: manish-shukla01
-manager: manshuk
-editor: ''
+author: bandersmsft
+manager: yashar
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2019
+ms.date: 05/07/2019
 ms.author: banders
-ms.openlocfilehash: daa7f6a116578fa8d1f2b5bf825a6f4cd48f7f64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8d85dd1c21f952261e838c01843e15dafcc0e931
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60370641"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415778"
 ---
-# <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Entenda o uso de reserva do Azure para sua inscrição na empresa
+# <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Obter o uso e custos de reserva do Enterprise Agreement
 
-Use o **ReservationId** de [página reservas](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) e o arquivo de uso de [portal EA](https://ea.azure.com) para avaliar o uso de reserva. Você também pode ver o uso de reserva na seção de resumo de uso de [portal de EA](https://ea.azure.com).
+Dados de uso e custos de reserva estão disponíveis para clientes do contrato Enterprise no portal do Azure e APIs REST. Este artigo ajuda você a:
 
-Se você comprou a reserva em um contexto de cobrança pagamento conforme o uso, consulte [entender o uso de reserva para a sua assinatura paga conforme o uso.](billing-understand-reserved-instance-usage.md)
+- Obter dados de compra de reserva
+- Obter dados de subutilização de reserva
+- Amortizar os custos de reserva
+- Estorno para utilização de reserva
+- Calcular a economia de reserva
 
-## <a name="usage-for-reserved-virtual-machines-instances"></a>Uso para Instâncias de Máquinas Virtuais Reservadas
+Encargos do Marketplace são consolidados em dados de uso. Você exibir encargos para primeiro uso de terceiros, o uso do marketplace e compras de uma única fonte de dados.
 
-As seções a seguir, suponha que você esteja executando uma VM do Windows Standard_D1_v2 na região Leste dos EUA e suas informações de reserva, como a tabela a seguir:
+## <a name="reservation-charges-in-azure-usage-data"></a>Encargos de reserva em dados de uso do Azure
 
-| Campo | Valor |
-|---| --- |
-|ReservationId |8f82d880-d33e-4e0d-bcb5-6bcb5de0c719|
-|Quantidade |1|
-|SKU | Standard_D1|
-|Região | eastus |
+Dados são divididos em dois conjuntos de dados separados: _Custo real_ e _custo amortizado_. Diferem entre esses dois conjuntos de dados:
 
-A parte de hardware da VM é coberta porque a VM implantada coincide com os atributos de reserva. Para ver quais softwares do Windows não são cobertos pela reserva, consulte [Instâncias de VM de Reserva do Azure Custos do software do Windows](billing-reserved-instance-windows-software-costs.md).
+**Custo real** -fornece dados para reconciliar com sua fatura mensal. Esses dados tem a reserva de custos de aquisição. Ele tem zero EffectivePrice para o uso que recebeu o desconto de reserva.
 
-### <a name="usage-in-csv-file-for-reserved-vm-instances"></a>Uso no arquivo CSV para instâncias de VM reservadas
+**Custo amortizado** -EffectiveCost que obtém o desconto de reserva do recurso é o custo proporcional de instância reservada. O conjunto de dados também tem custos de reserva não utilizados. A soma do custo de reserva e reserva não utilizada fornece o custo amortizado diário da reserva.
 
-Você pode baixar o arquivo CSV de uso do Enterprise no Portal Empresarial. No arquivo CSV, filtre **Informações Adicionais** e digite **ReservationID**. A captura de tela a seguir mostra os campos relacionados à reserva:
+Comparação de dois conjuntos de dados:
 
-![Csv do Enterprise Agreement (EA) para reserva do Azure](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-csv.png)
+| Dados | Conjunto de dados de custo real | Conjunto de dados de custo amortizado |
+| --- | --- | --- |
+| Compras de reserva | Disponíveis nessa exibição.<br>  Para obter esse filtro de dados em ChargeType = &quot;compra&quot;. <br> Consulte ReservationID ou ReservationName saber quais reserva o encargo é cobrado.  | Não aplicável a este modo de exibição. <br> Os custos de compra não são fornecidos nos dados amortizados. |
+| effectivePrice | O valor é zero para uso que obtém um desconto de reserva. | O valor é o custo é Rateado por hora da reserva para uso com o desconto de reserva. |
+| Reserva não utilizada (fornece o número de horas que a reserva não foi usada em um dia e o valor monetário do desperdício) | Não é aplicável nesta exibição. | Disponíveis nessa exibição.<br> Para obter esses dados, filtrar ChargeType = &quot;UnusedReservation&quot;.<br>  Consulte ReservationID ou ReservationName saber quais reserva foi subutilizada. Essa é a quantidade de reserva foi desperdiçado em para o dia.  |
+| UnitPrice (preço do recurso da sua folha de preço) | Disponível | Disponível |
 
-1. **ReservationId** em **campo Informações Adicionais** representa a reserva aplicada à VM.
-2. **ConsumptionMeter** é a ID do medidor para a VM.
-3. **Meter ID** é o medidor de reservas com custo de $ 0. O custo da VM em execução é pago pela instância da VM reservada.
-4. Standard_D1 é uma VM vCPU e a VM é implantada sem o Benefício Híbrido do Azure. Portanto, esse medidor abrange o custo extra de software do Windows. Para localizar o medidor correspondente a série D 1 núcleo de VM, consulte [os custos de software do Windows de instâncias de VM do Azure reserva](billing-reserved-instance-windows-software-costs.md).  Se você tiver o benefício híbrido do Azure, esse custo extra não é aplicado.
+Outras informações disponíveis nos dados de uso do Azure mudou:
 
-## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Uso para reservas de capacidade reservadas do Banco de Dados SQL e Cosmos DB
+- Produto e informações de medidor - Azure não substitui o medidor consumido originalmente com o ReservationId e ReservationName, como anteriormente.
+- ReservationId e ReservationName - são seus próprios campos nos dados. Anteriormente, costumava ser disponível somente para AdditionalInfo.
+- ProductOrderId - a identificação do pedido de reserva, adicionado como seu próprio campo.
+- ProductOrderName - o nome do produto a reserva adquirida.
+- Termo - 12 meses ou 36 meses.
+- RINormalizationRatio - disponível em AdditionalInfo. Isso é a taxa em que a reserva é aplicada para o registro de uso. Se a flexibilidade de tamanho de instância está habilitada na sua reserva, em seguida, ele pode aplicar a outros tamanhos. O valor mostra a proporção que a reserva foi aplicada para o registro de uso.
 
-As seções a seguir usam o Banco de Dados SQL do Azure como exemplo para descrever o relatório de uso. Também é possível usar as mesmas etapas para obter o uso do Azure Cosmos DB.
+## <a name="get-azure-consumption-and-reservation-usage-data-using-api"></a>Obter dados de uso de reserva e de consumo do Azure usando a API
 
-Suponha que você esteja executando um Banco de Dados SQL Gen 4 na região leste dos EUA e as informações de reserva são semelhantes à tabela a seguir:
+Você pode obter os dados usando a API ou baixá-lo do portal do Azure.
 
-| Campo | Valor |
-|---| --- |
-|ReservationId |8244e673-83e9-45ad-B54B-3f5295d37cae|
-|Quantidade |2|
-|Produto| Banco de dados do SQL Gen 4 (2 núcleos)|
-|Região | eastus |
+Você chama o [API detalhes de uso](/rest/api/consumption/usagedetails/list) com a versão de API &quot;2019-04-01-preview&quot; para obter os novos dados. Para obter detalhes sobre a terminologia, consulte [termos de uso](billing-understand-your-usage.md). O chamador deve ser um administrador corporativo para o contrato corporativo usando o [portal de EA](https://ea.azure.com). Os administradores de empresa somente leitura também pode obter os dados.
 
-### <a name="usage-in-csv-file"></a>Uso no arquivo CSV
+Os dados não estão disponíveis no [APIs de relatórios para clientes Enterprise – detalhes de uso](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
 
-Filtre em **Informações Adicionais**, digite a **ID de Reserva** e escolha a **Categoria do Medidor** necessária - Banco de Dados SQL do Azure ou Azure Cosmos DB. A captura de tela a seguir mostra os campos relacionados à reserva.
+Aqui está um exemplo de chamada para a API:
 
-![Capacidade reservada do csv de EA (Enterprise Agreement) para o banco de dados SQL](./media/billing-understand-reserved-instance-usage-ea/billing-ea-sql-db-reserved-capacity-csv.png)
+```
+https://consumption.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-04-01-preview&amp;$filter={filter}
+```
 
-1. **ReservationId** no **informações adicionais** campo é a reserva é aplicada ao recurso de banco de dados SQL.
-2. **ConsumptionMeter** é o ID do medidor para o recurso Banco de Dados SQL.
-3. **ID do medidor** é o medidor de reserva com custo de US $0. Qualquer recurso de banco de dados SQL que se qualifica para a reserva mostra essa ID de medidor no arquivo CSV.
+Para obter mais informações sobre {enrollmentId} e {billingPeriodId}, consulte o [detalhes de uso – lista](https://docs.microsoft.com/rest/api/consumption/usagedetails/list) artigo de API.
 
-## <a name="usage-summary-page-in-enterprise-portal"></a>Página de resumo de uso no portal da empresa
+Informações na tabela a seguir sobre a métrica e o filtro podem ajudar a resolver problemas comuns de reserva.
 
-Seu uso de reserva do Azure também é exibido na seção de resumo de uso no Portal Empresarial: ![Resumo de uso do Enterprise Agreement (EA)](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png)
+| **Tipo de dados de API** | Ação de chamada de API |
+| --- | --- |
+| **Todos os encargos (uso e compras)** | Substitua {metric} ActualCost |
+| **Uso que obteve o desconto de reserva** | Substitua {metric} ActualCost<br>Substitua {filter} por: properties/reservationId%20ne%20 |
+| **Uso que não obtiveram o desconto de reserva** | Substitua {metric} ActualCost<br>Substitua {filter} por: properties/reservationId%20eq%20 |
+| **Encargos amortizados (uso e compras)** | Substitua {metric} AmortizedCost |
+| **Relatório de reserva não utilizados** | Substitua {metric} AmortizedCost<br>Substitua {filter} por: properties/ChargeType%20eq%20'UnusedReservation' |
+| **Compras de reserva** | Substitua {metric} com ActualCostReplace {filter}: properties/ChargeType%20eq%20'Purchase'  |
+| **Reembolsos** | Substitua {metric} ActualCost<br>Substitua {filter} por: properties/ChargeType%20eq%20'Refund' |
 
-1. Você não é cobrado o componente de hardware da VM pois ele é coberto pela reserva. Para uma reserva de banco de dados SQL, você ver uma linha com **nome do serviço** banco de dados SQL do Azure reservadas a utilização da capacidade.
-2. Neste exemplo, você não tem o benefício híbrido do Azure para que você será cobrado para o software do Windows usado com a VM.
+## <a name="download-the-usage-csv-file-with-new-data"></a>Baixe o arquivo CSV de uso com novos dados
+
+Se você for um administrador EA, você pode baixar o arquivo CSV que contém os novos dados de uso do portal do Azure. Esses dados não estão disponíveis a partir de [portal de EA](https://ea.azure.com).
+
+No portal do Azure, navegue até [gerenciamento de custos + cobrança](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
+
+1. Selecione a conta de cobrança.
+2. Clique em **uso + encargos**.
+3. Clique em **Download**.  
+![Exemplo mostrando onde baixar o arquivo de dados de uso do CSV no portal do Azure](./media/billing-understand-reserved-instance-usage-ea/portal-download-csv.png)
+4. Na **baixar uso + encargos** , em **detalhes de uso da versão 2** , selecione **todos os encargos (uso e compras)** e, em seguida, clique em baixar. Repita a operação em **amortizado encargos (uso e compras)**.
+
+Os arquivos CSV que você baixar contêm os custos reais e os custos amortizados.
+
+## <a name="common-cost-and-usage-tasks"></a>Tarefas comuns de uso e custo
+
+As seções a seguir são tarefas comuns que a maioria das pessoas use para exibir seus dados de uso e custo de reserva.
+
+### <a name="get-reservation-purchase-costs"></a>Obter custos de compra de reserva
+
+Os custos de compra de reserva estão disponíveis nos dados de custo real. Filtrar por _ChargeType = compra_. Consulte ProductOrderID para determinar qual pedido de reserva a compra destina-se.
+
+### <a name="get-underutilized-reservation-quantity-and-costs"></a>Obter a quantidade de reserva do subutilizada e os custos
+
+Obter dados de custo amortizado e filtrar _ChargeType_ _= UnusedReservation_. Você obtém a quantidade diária de reserva não utilizados e o custo. Você pode filtrar os dados para uma reserva ou ordem de reserva usando _ReservationId_ e _ProductOrderId_ campos, respectivamente. Se uma reserva foi 100% de utilização, o registro tem uma quantidade igual a 0.
+
+### <a name="amortize-reservation-costs"></a>Amortizar os custos de reserva
+
+Obter dados de custo amortizado e filtro para um pedido de reserva usando _ProductOrderID_ para obter custos amortizados diários de uma reserva.
+
+### <a name="chargeback-for-a-reservation"></a>Estorno de uma reserva
+
+É possível usar de reserva de estorno para outras organizações por marcas, grupos de recursos ou assinatura. Dados de custo amortizado fornecem valor monetário de utilização de uma reserva atentamente os tipos de dados a seguir:
+
+- Recursos (como uma VM)
+- Grupo de recursos
+- tags
+- Assinatura
+
+### <a name="get-the-blended-rate-for-chargeback"></a>Obter a taxa combinada de estorno
+
+Para determinar a taxa combinada, obter os dados de custos amortizados e o custo total de agregação. Para VMs, você pode usar informações MeterName ou ServiceType dados AdditionalInfo JSON. Divida o custo pela quantidade usada para obter a taxa combinada de total.
+
+### <a name="audit-optimum-reservation-use-for-instance-size-flexibility"></a>Reserva ideal de auditoria use, por exemplo, flexibilidade de tamanho
+
+A quantidade de múltiplos com o _RINormalizationRatio_, de AdditionalInfo. Os resultados indicam quantas horas de uso de reserva foi aplicada para o registro de uso.
+
+### <a name="determine-reservation-savings"></a>Determinar as economias de reserva
+
+Obter os dados de custos Amortized e filtrar os dados para uma instância reservada. Em seguida:
+
+1. Obter custos estimados de pago conforme o uso. Multiplicar os _UnitPrice_ de valor com _quantidade_ valores para obter a estimados custos pagos conforme o uso, se o desconto de reserva não se aplicam ao uso.
+2. Obtenha os custos de reserva. Soma de _custo_ valores para obter o valor monetário de você paga a instância reservada. Ele inclui os custos utilizados e não utilizados de reserva.
+3. Subtrai os custos de reserva de custos estimados de pago conforme o uso para obter a economia estimada.
+
+## <a name="reservation-purchases-and-amortization-in-azure-cost-analysis"></a>As compras de reserva e amortização na análise de custo do Azure
+
+Custo da instância reservada está disponível no [modo de visualização de análise de custo do Azure](https://preview.portal.azure.com/?feature.canmodifystamps=true&amp;microsoft_azure_costmanagement=stage2&amp;Microsoft_Azure_CostManagement_arm_canary=true&amp;Microsoft_Azure_CostManagement_apiversion=2019-04-01-preview&amp;Microsoft_Azure_CostManagement_amortizedCost=true#blade/Microsoft_Azure_CostManagement/Menu/costanalysis). Por padrão, o modo de exibição de dados de custo é para o custo real. Você pode alternar para o custo amortizado. Aqui está um exemplo.
+
+![Exemplo mostrando onde selecionar custo amortizado na análise de custo](./media/billing-understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
+
+Aplica filtros para ver os encargos por um tipo de reserva ou sem bateria. Agrupar em nome de reserva para ver os custos divididos por reservas.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
 Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
-
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -97,4 +162,3 @@ Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
 - [Entender como o desconto de reserva é aplicado](billing-understand-vm-reservation-charges.md)
 - [Entender o uso de reserva para a sua assinatura paga conforme o uso](billing-understand-reserved-instance-usage.md)
 - [Custos de software do Windows não estão incluídos nas reservas](billing-reserved-instance-windows-software-costs.md)
-

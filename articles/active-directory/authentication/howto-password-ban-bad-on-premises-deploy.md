@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1c24ec49652cfe9105aa66fd1d5e26c81afcd14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 256215b1976598b961ada7210e5ee92c9f72d440
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414811"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506865"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implantar proteção de senha do Azure AD
 
@@ -39,6 +39,9 @@ Depois que o recurso tiver sido executado em modo de auditoria por um período r
 * Todos os controladores de domínio que obtém o agente de controlador de domínio de serviço para a proteção de senha do AD do Azure instalada deve executar o Windows Server 2012 ou posterior. Esse requisito não implica que a floresta ou domínio do Active Directory também deve estar no nível funcional domínio ou floresta de Windows Server 2012. Conforme mencionado na [princípios de Design](concept-password-ban-bad-on-premises.md#design-principles), nenhum mínimo DFL ou FFL necessários para o controlador de domínio proxy ou agente de software ser executado.
 * Todas as máquinas que obtêm o serviço de agente de controlador de domínio instalado devem ter o .NET 4.5 instalado.
 * Todas as máquinas que obtêm o proxy do serviço de proteção por senha do Azure AD instalada deve executar o Windows Server 2012 R2 ou posterior.
+   > [!NOTE]
+   > Implantação do serviço de proxy é um requisito obrigatório para implantar a proteção por senha do Azure AD, mesmo que o controlador de domínio pode ter saída conectividade direta com a internet. 
+   >
 * Todos os computadores em que o serviço de Proxy de proteção de senha do AD do Azure será instalado devem ter o .NET 4.7 instalado.
   .NET 4.7 já deve estar instalado em um Windows Server totalmente atualizado. Se isso não for o caso, baixe e execute o instalador encontrado em [o .NET Framework 4.7 o instalador offline para o Windows](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
 * Todos os computadores, incluindo controladores de domínio, que obtém os componentes de proteção de senha do Azure AD instalados deve ter o tempo de execução C Universal instalado. Você pode obter o tempo de execução, tornando-se de que ter todas as atualizações do Windows Update. Ou você pode obtê-lo em um pacote de atualização específicas do sistema operacional. Para obter mais informações, consulte [atualização para o tempo de execução C Universal no Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
@@ -262,7 +265,7 @@ Há dois instaladores necessários para a proteção de senha do AD do Azure. El
 
    Você pode instalar o serviço do agente de controlador de domínio em um computador que ainda não é um controlador de domínio. Nesse caso, o serviço iniciar e executar mas permanecem inativo até que a máquina será promovida para um controlador de domínio.
 
-   Você pode automatizar a instalação do software usando os procedimentos padrão do MSI. Por exemplo: 
+   Você pode automatizar a instalação do software usando os procedimentos padrão do MSI. Por exemplo:
 
    `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn`
 
@@ -285,7 +288,7 @@ A preocupação principal de disponibilidade para proteção por senha é a disp
 
 O design do software agente DC minimiza os problemas comuns que estão associados com alta disponibilidade. O agente do DC mantém um cache local da política de senha baixado mais recentemente. Mesmo se todos os registrados servidores proxy se tornar indisponíveis, os agentes de controlador de domínio continuam a impor sua política de senha armazenada em cache. Uma frequência de atualização razoável para políticas de senha em uma grande implantação costuma *dias*, não em horas ou menos. Assim, interrupções breves dos servidores proxy não afetam significativamente a proteção por senha do Azure AD.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Agora que você instalou os serviços que você precisa para a proteção de senha do AD do Azure em seus servidores locais, [executar configuração pós-instalação e reunir informações de relatório](howto-password-ban-bad-on-premises-operations.md) para concluir a implantação.
 

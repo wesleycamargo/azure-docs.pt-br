@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: db8c8de7a8047f7aa6a81f6a3b372d161408f1be
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d1704220a13b6d6b5a48b7167d7912a38057127d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097124"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466493"
 ---
 # <a name="set-up-a-device-template"></a>Configurar um modelo de dispositivo
 
@@ -68,10 +68,9 @@ Para adicionar uma nova medida de telemetria, selecione **+ nova medição**, es
 
 > [!NOTE]
 > Os nomes de campo no modelo de dispositivo precisarão corresponder aos nomes de propriedade no código do dispositivo correspondente para que a medida de telemetria seja exibida no aplicativo quando um dispositivo real estiver conectado. Faça o mesmo ao definir configurações, propriedades do dispositivo e comandos enquanto você continua a definir o modelo de dispositivo nas seções a seguir.
+. png, por exemplo, você pode adicionar uma nova medida de telemetria de temperatura:
 
-Por exemplo, é possível adicionar uma nova medida de telemetria de temperatura:
-
-| Nome de exibição        | Nome do campo    |  Unidades    | Min   |max|
+| Nome para exibição        | Nome do Campo    |  Unidades    | Min.   |Máx|
 | --------------------| ------------- |-----------|-------|---|
 | Temperatura         | temp          |  degC     |  0    |100|
 
@@ -92,7 +91,7 @@ Forneça os detalhes **Nome para exibição**, **Nome do campo** e **Gravidade**
 
 Por exemplo, você pode adicionar um novo evento **Fan Motor Error**.
 
-| Nome de exibição        | Nome do campo    |  Gravidade padrão |
+| Nome para exibição        | Nome do Campo    |  Severidade Padrão |
 | --------------------| ------------- |-----------|
 | Erro do motor do ventilador     | fanmotorerror |  Erro    |
 
@@ -115,7 +114,7 @@ Forneça os detalhes para **Nome de exibição**, **Nome do campo** e **Valores*
 
 Por exemplo, você pode adicionar um novo **estado do Modo de fãs** que tenha dois valores possíveis que o dispositivo pode enviar, **Em funcionamento** e **Parado**.
 
-| Nome de exibição | Nome do campo    |  Valor 1   | Nome de exibição | Valor 2    |Nome de exibição  | 
+| Nome para exibição | Nome do Campo    |  Valor 1   | Nome para exibição | Valor 2    |Nome para exibição  | 
 | -------------| ------------- |----------- | -------------| -----------| -------------|
 | Modo ventilação     | fanmode       |  1         | Operacional    |     0      | Parado      |
 
@@ -142,7 +141,7 @@ As configurações podem estar em um dos três estados. O dispositivo informa es
 
 Por exemplo, você pode adicionar uma nova configuração de velocidade do ventilador, selecionando **as configurações** e inserindo na nova **número** configuração:
 
-| Nome de exibição  | Nome do campo    |  Unidades  | Decimais |Inicial|
+| Nome para exibição  | Nome do Campo    |  Unidades  | Decimais |Inicial|
 | --------------| ------------- |---------| ---------|---- |
 | Velocidade da ventoinha     | fanSpeed      | RPM     | 2        | 0   |
 
@@ -161,7 +160,7 @@ Existem duas categorias de propriedades:
 
 Por exemplo, adicione a última data de manutenção do dispositivo como uma nova propriedade **Data** (uma propriedade do aplicativo) à guia **Propriedades**:
 
-| Nome de exibição  | Nome do campo | Valor inicial   |
+| Nome para exibição  | Nome do Campo | Valor Inicial   |
 | --------------| -----------|-----------------|
 | Atendido por último      | lastServiced        | 29/01/2019     |
 
@@ -190,7 +189,7 @@ Você pode criar uma propriedade de local como uma propriedade de aplicativo usa
 
 3. Configure **Nome de exibição**, **Nome do campo** e (opcionalmente) **Valor inicial** para o local.
 
-    | Nome de exibição  | Nome do campo | Valor inicial |
+    | Nome para exibição  | Nome do Campo | Valor Inicial |
     | --------------| -----------|---------| 
     | Endereço de instalação | installAddress | Microsoft, 1 Microsoft Way, Redmond, WA 98052   |
 
@@ -212,7 +211,7 @@ Você pode criar uma propriedade de localização como uma propriedade de dispos
 
 3. Configure o nome de exibição e o nome de campo e selecione **Localização** como o tipo de dados:
 
-    | Nome de exibição  | Nome do campo | Tipo de Dados |
+    | Nome para exibição  | Nome do Campo | Tipo de Dados |
     | --------------| -----------|-----------|
     | Localização do dispositivo | deviceLocation | location  |
 
@@ -235,11 +234,11 @@ Como um comando é diferente de um cenário?
 
 Por exemplo, você pode adicionar um novo **Echo** comando selecionando o **comandos** guia, em seguida, selecionando **+ novo comando**e inserindo os detalhes do novo comando:
 
-| Nome de exibição  | Nome do campo | Tempo limite padrão | Tipo de Dados |
+| Nome para exibição  | Nome do Campo | Tempo Limite Padrão | Tipo de Dados |
 | --------------| -----------|---------------- | --------- |
 | Comando echo  | echo       |  30             | text      |
 
-![Formulário "Configurar Comando" com detalhes para o echo](./media/howto-set-up-template/commandsecho.png)
+![Formulário "Configurar Comando" com detalhes para o echo](./media/howto-set-up-template/commandsecho1.png)
 
 Depois que você selecionar **Salvar**, o comando **Eco** será exibido como um bloco e estará pronto para ser usado no **Device Explorer** quando o dispositivo real for conectado. Os nomes de campo de seu comando precisam corresponder aos nomes de propriedade no código do dispositivo correspondente para que os comandos sejam executados com êxito.
 
@@ -255,7 +254,7 @@ O painel é onde um operador pode acessar para visualizar as informações de um
 
 Por exemplo, adicione um bloco **Configurações e Propriedades** para mostrar uma seleção dos valores atuais de configurações e propriedades selecionando a guia **Painel** e o bloco na Biblioteca:
 
-![Formulário "Configurar detalhes do dispositivo" com detalhes para configurações e propriedades](./media/howto-set-up-template/dashboardsettingsandpropertiesform.png)
+![Formulário "Configurar detalhes do dispositivo" com detalhes para configurações e propriedades](./media/howto-set-up-template/dashboardsettingsandpropertiesform1.png)
 
 Agora, quando um operador exibir o painel no **Device Explorer**, ele poderá ver o bloco.
 

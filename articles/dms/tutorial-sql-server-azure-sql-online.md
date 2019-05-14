@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: c01eccb63639a3838c9f726bc48400a76aba8cf0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/01/2019
+ms.openlocfilehash: 131b86fec5fb51c6ff6f29a8e0beed86145a24b7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799025"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136634"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Tutorial: Migrar o SQL Server para um banco de dados individual ou em pool no Banco de Dados SQL do Azure online usando o DMS
 
@@ -166,7 +166,7 @@ Depois que você estiver familiarizado com a avaliação e satisfeito de que o b
 Para migrar o esquema **AdventureWorks2012** para um banco de dados individual ou em pool do Banco de Dados SQL do Azure, siga estas etapas:
 
 1. No Assistente de Migração de Dados, selecione o ícone de Novo (+) e, em seguida, em **Tipo de projeto**, selecione **Migração**.
-2. Especifique um nome de projeto, no **tipo de servidor de origem** caixa de texto, selecione **do SQL Server**e, em seguida, no **tipo de servidor de destino** caixa de texto, selecione **SQL Azure Banco de dados**.
+2. Especifique um nome de projeto, no **tipo de servidor de origem** caixa de texto, selecione **do SQL Server**e, em seguida, no **tipo de servidor de destino** caixa de texto, selecione **Banco de Dados SQL do Azure**.
 3. Em **escopo migração**, selecione **somente esquema**.
 
     Depois de executar as etapas anteriores, a interface do AMD deve aparecer como mostrado no gráfico abaixo:
@@ -182,7 +182,7 @@ Para migrar o esquema **AdventureWorks2012** para um banco de dados individual o
 
     ![Detalhes de Conexão de destino Assistente de Migração de Dados](media/tutorial-sql-server-to-azure-sql-online/dma-target-connect.png)
 
-7. Selecione **próximo** para ir para o **selecionar objetos** tela, em que você pode especificar os objetos de esquema no **AdventureWorks2012** banco de dados que precisam ser implantados no Azure Banco de dados SQL.
+7. Selecione **próximo** para ir para o **selecionar objetos** tela, em que você pode especificar os objetos de esquema no **AdventureWorks2012** banco de dados que precisam ser implantados no Banco de Dados SQL do Azure.
 
     Por padrão, todos os discos são selecionados.
 
@@ -192,7 +192,7 @@ Para migrar o esquema **AdventureWorks2012** para um banco de dados individual o
 
     ![Script de esquema](media/tutorial-sql-server-to-azure-sql-online/dma-schema-script.png)
 
-9. Selecione **implantar esquema** para implantar o esquema de banco de dados do SQL Azure e, em seguida, depois que o esquema é implantado, verifique o servidor de destino para todas as anomalias.
+9. Selecione **implantar esquema** para implantar o esquema de banco de dados SQL do Azure e, em seguida, depois que o esquema é implantado, verifique o servidor de destino para todas as anomalias.
 
     ![Implantar o esquema](media/tutorial-sql-server-to-azure-sql-online/dma-schema-deploy.png)
 
@@ -234,9 +234,7 @@ Para migrar o esquema **AdventureWorks2012** para um banco de dados individual o
 
     Para obter mais informações sobre os custos e camadas de preços, consulte a [página de preços](https://aka.ms/dms-pricing).
 
-    Se você precisar de ajuda para escolher a camada correta do Serviço de Migração de Banco de Dados do Azure, consulte as recomendações na postagem [aqui](https://go.microsoft.com/fwlink/?linkid=861067).  
-
-     ![Criar uma instância do Serviço de Migração de Banco de Dados do Azure](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
+    ![Criar uma instância do Serviço de Migração de Banco de Dados do Azure](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
 
 7. Selecione **Criar** para criar o serviço.
 
@@ -299,7 +297,7 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
 
 3. Selecione **Salvar**, na tela **Selecionar tabelas**, expanda a lista de tabela e revise a lista de campos afetados.
 
-    O Serviço de Migração de Banco de Dados do Azure seleciona automaticamente todas as tabelas de origem que existem na instância do Banco de Dados SQL de destino. Se quiser migrar novamente as tabelas que já contêm dados, você precisará selecionar as tabelas nesta folha de forma explícita.
+    O Serviço de Migração de Banco de Dados do Azure seleciona automaticamente todas as tabelas de origem que existem na instância do Banco de Dados SQL do Azure de destino. Se quiser migrar novamente as tabelas que já contêm dados, você precisará selecionar as tabelas nesta folha de forma explícita.
 
     ![Selecionar tabelas](media/tutorial-sql-server-to-azure-sql-online/dms-configure-setting-activity3.png)
 

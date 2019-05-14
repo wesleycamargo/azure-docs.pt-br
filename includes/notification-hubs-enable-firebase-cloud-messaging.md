@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/05/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: e6b949824ec5da60c5e2485be830e61d156a11ff
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a33812dedaed81a1ed0b6fca8285f70f44decced
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55830659"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198798"
 ---
 1. Faça logon no [console do Firebase](https://firebase.google.com/console/). Crie um novo projeto do Firebase se você ainda não tiver um.
 2. Depois de criar seu projeto, selecione **Adicionar Firebase ao seu aplicativo Android**. 
@@ -44,6 +44,7 @@ ms.locfileid: "55830659"
         ```
         apply plugin: 'com.google.gms.google-services'
         ```        
+    4. Selecione **Sincronizar agora*** na barra de ferramentas. 
  
         ![Alterações na configuração de build.gradle](./media/notification-hubs-enable-firebase-cloud-messaging/build-gradle-configurations.png)
 6. Selecione **Avançar** na página. 

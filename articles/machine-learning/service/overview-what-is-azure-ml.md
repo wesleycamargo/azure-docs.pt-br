@@ -10,12 +10,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 201ee251b195845e33ed3829be8540664811f2ab
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 383bfbfe335300685be0ee1a43c78748f688276a
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025307"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472749"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>O que é o serviço Azure Machine Learning?
 
@@ -106,8 +106,6 @@ Você recebe créditos para gastar em serviços do Azure. Depois que eles forem 
 - Siga os tutoriais completos: 
   + [Treinar um modelo de classificação de imagem com o Serviço do Azure Machine Learning](tutorial-train-models-with-aml.md) 
   + [Preparar os dados e usar o aprendizado de máquina automatizado para treinar um modelo de regressão automaticamente](tutorial-data-prep.md)
-
-- Use o [SDK do Azure Machine Learning Data Prep](https://aka.ms/data-prep-sdk) para preparar seus dados.
 
 - Saiba mais sobre [pipelines de aprendizado de máquina](/azure/machine-learning/service/concept-ml-pipelines) para compilar, otimizar e gerenciar cenários de aprendizado de máquina.
 

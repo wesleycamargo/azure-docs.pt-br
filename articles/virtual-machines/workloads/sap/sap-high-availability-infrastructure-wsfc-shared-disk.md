@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b729327187a52f36d50f8a754f5521527bb07ac6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae3d1b36b89bb1bce1ff384bfa12a1bf643614fd
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60717184"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408767"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Prepare a infraestrutura do Azure para alta disponibilidade do SAP usando o cluster de failover do Windows e o disco compartilhado para a instância SAP ASCS/SCS
 
@@ -33,7 +33,7 @@ ms.locfileid: "60717184"
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
 [sap-installation-guides]:http://service.sap.com/instguides
-[tuning-failover-cluster-network-thresholds]:https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/
+[tuning-failover-cluster-network-thresholds]:https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834
 
 [azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
@@ -481,7 +481,7 @@ Para criar os pontos de extremidade de balanceamento interno de carga, crie esse
 | Nome da regra do balanceamento de carga/serviço | Números de porta padrão | Portas concretas para (instância do ASCS com número de instância 00) (ERS com 10) |
 | --- | --- | --- |
 | Enfileirar Servidor / *lbrule3200* |32\<InstanceNumber\> |3200 |
-| Servidor de Mensagens ABAP / *lbrule3600* |36\<InstanceNumber\> |3600 |
+| Servidor de Mensagens ABAP / *lbrule3600* |36\<InstanceNumber\> |3.600 |
 | Mensagem interna ABAP / *lbrule3900* |39\<InstanceNumber\> |3900 |
 | HTTP do Servidor de Mensagens / *Lbrule8100* |81\<InstanceNumber\> |8100 |
 | HTTP do SAP para Iniciar Serviço ASCS / *Lbrule50013* |5\<InstanceNumber\>13 |50013 |
@@ -526,7 +526,7 @@ Se você quiser usar números diferentes para as instâncias SAP ASCS ou SCS, pr
 2. Para todas as regras de balanceamento de carga que pertencem à instância do SAP ASCS ou SCS, altere estes valores:
 
    * NOME
-   * Porta
+   * Port
    * Porta de back-end
 
    Por exemplo, se você quer alterar o número de instância do ASCS padrão de 00 para 31, precisa fazer as alterações em todas as portas listadas na Tabela 1.
@@ -551,7 +551,7 @@ O Azure Load Balancer tem um balanceador de carga interno que fecha conexões qu
 
 Para adicionar entradas de Registro em ambos os nós de cluster da instância SAP ASCS/SCS, primeiro adicione essas entradas de Registro do Windows a ambos os nós de cluster do Windows para SAP ASCS/SCS:
 
-| Caminho | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| `Path` | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nome da variável |`KeepAliveTime` |
 | Tipo de variável |REG_DWORD (Decimal) |
@@ -562,7 +562,7 @@ Para adicionar entradas de Registro em ambos os nós de cluster da instância SA
 
 Em seguida, adicione as seguintes entradas de Registro em nós de cluster do Windows para SAP ASCS/SCS:
 
-| Caminho | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| `Path` | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nome da variável |`KeepAliveInterval` |
 | Tipo de variável |REG_DWORD (Decimal) |
@@ -739,8 +739,9 @@ Configurar a testemunha de compartilhamento de arquivos do cluster envolve as se
 
 Depois de instalar com êxito o Cluster de Failover do Windows, é necessário alterar alguns limites para adaptar a detecção de failover às condições no Azure. Os parâmetros a serem alterados estão documentados no blog [Ajustar os limites de rede de cluster de failover][tuning-failover-cluster-network-thresholds]. Supondo que as duas VMs que criam a configuração de Cluster do Windows para ASCS/SCS estejam na mesma sub-rede, os parâmetros a seguir precisam ser alterados para estes valores:
 
-- SameSubNetDelay = 2
+- SameSubNetDelay = 2000
 - SameSubNetThreshold = 15
+- RoutingHistoryLength = 30
 
 Essas configurações foram testadas com clientes e oferecem um boa comprometimento. Elas são flexíveis o suficiente, mas eles também fornecem failover rápido em condições de erro real em um software SAP ou em um nó ou uma falha VM.
 

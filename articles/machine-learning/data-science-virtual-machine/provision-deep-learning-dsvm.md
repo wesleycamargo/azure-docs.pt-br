@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 1fc4a4024893c29c35b4369d13227830cfbbca84
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 318df03c7c4447d051dfa396098462c0f8bbf423
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943915"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410448"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Provisionar uma Máquina Virtual de Aprendizado Aprofundado no Azure 
 
@@ -68,7 +68,7 @@ Depois de criar a máquina virtual, você poderá entrar na área de trabalho re
 
 ### <a name="linux-edition"></a>Edição do Linux
 
-Após a criação da VM, você poderá entrar nela usando SSH. Use as credenciais da conta que você criou na [ **Noções básicas** ](#basics) seção da etapa 3 para a interface do shell de texto. Para obter mais informações sobre conexões de SSH para VMs do Azure, consulte [instalar e configurar a área de trabalho remota para se conectar a uma VM do Linux no Azure](/azure/virtual-machines/linux/use-remote-desktop). Em um cliente Windows, você pode baixar uma ferramenta de cliente SSH como [Putty](http://www.putty.org). Se você preferir uma área de trabalho gráfica (Sistema do Windows X), poderá usar o encaminhamento X11 no Putty ou instalar o cliente X2Go. 
+Após a criação da VM, você poderá entrar nela usando SSH. Use as credenciais da conta que você criou na [ **Noções básicas** ](#basics) seção da etapa 3 para a interface do shell de texto. Para obter mais informações sobre conexões de SSH para VMs do Azure, consulte [instalar e configurar a área de trabalho remota para se conectar a uma VM do Linux no Azure](/azure/virtual-machines/linux/use-remote-desktop). Em um cliente Windows, você pode baixar uma ferramenta de cliente SSH como [Putty](https://www.putty.org). Se você preferir uma área de trabalho gráfica (Sistema do Windows X), poderá usar o encaminhamento X11 no Putty ou instalar o cliente X2Go. 
 
 > [!NOTE]
 > O cliente X2Go apresentou desempenho melhor do que o encaminhamento X11 nos testes. Recomendamos o uso do cliente X2Go para uma interface gráfica de área de trabalho.

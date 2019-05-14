@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 6c0ecf70935d4504472156f6bda726d94f130dbb
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3265477108b7e74d65050408add6c5d5c94b4852
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148173"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233884"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referência de domínio predefinida para seu aplicativo LUIS
 Esta referência contém informações sobre o [domínios pré-compilada](luis-how-to-use-prebuilt-domains.md), que são conjuntos predefinidos de entidades que oferece LUÍS e tentativas.
@@ -62,7 +62,6 @@ The table below summarizes the currently supported domains. Support for English 
 |Locais|Locais incluem as empresas, instituições, restaurantes, espaços públicos e endereços. O domínio dá suporte ao local Localizando e solicitando sobre as informações de um local público, como local, horas e distância operacionais.|
 |RestaurantReservation|Domínio de reserva do restaurante suporta intenções para lidar com as reservas de restaurantes.|
 |ToDo|ToDo domínio fornece tipos de listas de tarefas para os usuários adicionar, marcar e excluir seus itens de tarefas.|
-|ToDo_IPA|Com base no domínio de tarefas pendentes, ToDo_IPA é uma versão personalizada para expandir as entidades no ToDo. A versão de IPA fornece intenções e entidades para dar suporte a reconhecimento de um tipo de lista de tarefas pendentes. O modelo define três tipos de listas de tarefas: lista de compras, lista de compras e lista de tarefas pendentes que abrangem os outros casos.|
 |Utilidades|Utilitários é um domínio geral entre LUIS todos os modelos predefinidos, que contém declarações em cenários de diferença e intenções comuns.|
 |Clima|Domínio de clima se concentra na verificação de condição de clima e comunicados com local e a hora ou verificação de tempo por condições climáticas.|
 |Web|O domínio da Web fornece a intenção e as entidades de pesquisa para um site.|

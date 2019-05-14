@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: a7a020284f44eda0da62f307866c74b0a8df493d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e87e95ec9e4e20ee4785c2b1f448a7ca5f442b8a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205694"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409204"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Instalar e configurar a integração de relatório de uso e custo do AWS
 
@@ -38,7 +38,7 @@ Use o **relatórios** página do console do gerenciamento de custo e cobrança n
 7. Para **habilitar o suporte para**, nenhuma seleção é necessária.
 8. Para **configurações de atualização de dados**, selecione **atualizar automaticamente seu custo &amp; fechado de relatório de uso, quando os encargos são detectados para os meses anteriores com letras**.
 9. Clique em **Avançar**.
-10. Para **bucket do Amazon S3**, digite o nome do bucket do Amazon S3 em que você deseja obter relatórios entregues a e clique em **verificar**. O número de buckets deve ter as permissões apropriadas para ser válido. Para obter mais informações sobre como adicionar permissões para o bucket, consulte [Bucket de configuração e permissões de acesso do objeto](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html).
+10. Para **bucket do Amazon S3**, digite o nome do bucket do Amazon S3 em que você deseja obter relatórios entregues a e clique em **verificar**. O número de buckets deve ter as permissões apropriadas para ser válido. Para obter mais informações sobre como adicionar permissões para o bucket, consulte [Bucket de configuração e permissões de acesso do objeto](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html).
 11. Para **prefixo de caminho do relatório**, digite o prefixo de caminho de relatório que você deseja ser adicionado ao nome do seu relatório.
 12. Para **compactação**, selecione **GZIP**.
 13. Clique em **Avançar**.

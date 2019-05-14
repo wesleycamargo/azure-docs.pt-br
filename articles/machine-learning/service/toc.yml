@@ -6,9 +6,6 @@
     - name: O que é o serviço Azure Machine Learning?
       displayName: AML services overview
       href: overview-what-is-azure-ml.md
-    - name: O que aconteceu com o Workbench?
-      displayName: desktop ui Workbench upgrade update transfer
-      href: overview-what-happened-to-workbench.md
 - name: Configuração
   items:
     - name: Criar um workspace
@@ -117,6 +114,7 @@
         - name: Usar o portal para workspaces
           href: how-to-manage-workspace.md
         - name: Use um modelo do Resource Manager
+          displayName: arm
           href: how-to-create-workspace-template.md
     - name: "Configure o ambiente de desenvolvimento\_"
       items:
@@ -197,6 +195,8 @@
         - name: Onde e como implantar
           displayName: publish azure kubernetes azure container instances
           href: how-to-deploy-and-where.md
+        - name: GPUs
+          href: how-to-deploy-inferencing-gpus.md
         - name: FPGAs
           href: how-to-deploy-fpga-web-service.md
         - name: IoT Edge
@@ -224,6 +224,10 @@
       items:
         - name: Criar um pipeline de ML
           href: how-to-create-your-first-pipeline.md
+        - name: CI/CD dos fluxos de trabalho do ML com o Azure Pipelines
+          displayName: 'continuous, integration, delivery'
+          href: /azure/devops/pipelines/targets/azure-machine-learning?view=azure-devop
+          mainContext: true
     - name: Gerenciar cotas de recursos
       displayName: limits
       href: how-to-manage-quotas.md
@@ -235,9 +239,6 @@
     - name: SDK do aprendizado de máquina
       displayName: api core package python data prep
       href: 'https://aka.ms/aml-sdk'
-    - name: SDK de preparação de dados
-      displayName: api core package python data prep
-      href: 'https://aka.ms/data-prep-sdk'
     - name: Monitoramento do SDK
       displayName: api package python monitor
       href: 'https://aka.ms/aml-monitoring-sdk'
@@ -352,3 +353,6 @@
     - name: Comparar os nossos produtos de ML
       href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
       maintainContext: true
+    - name: O que aconteceu com o Workbench?
+      displayName: desktop ui Workbench upgrade update transfer
+      href: overview-what-happened-to-workbench.md

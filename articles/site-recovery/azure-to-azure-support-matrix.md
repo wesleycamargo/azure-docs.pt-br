@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: raynew
-ms.openlocfilehash: 9b905d532dfe71fea7c4ec0377eb53b9e3073907
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1118d1de72ca7cd44844a0b526efd85eb419bc67
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926583"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412769"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matriz de suporte para replicar VMs do Azure de uma região para outra
 
@@ -47,7 +47,7 @@ Este artigo resume os pré-requisitos e suporte ao conjunto de recuperação de 
 **Cluster geográfico** | **Regiões do Azure**
 -- | --
 América | Leste do Canadá, Canadá Central, Centro-Sul dos EUA, Centro-Oeste dos EUA, Leste dos EUA, Leste dos EUA 2, Oeste dos EUA, Oeste dos EUA 2, EUA Central, Centro-Norte dos EUA
-Europa | Oeste do Reino Unido, Sul do Reino Unido, Norte da Europa, Europa Ocidental, França Central, Sul da França
+Europa | Oeste do Reino Unido, Sul do Reino Unido, Europa Setentrional, Europa Ocidental, França Central, Sul da França, Oeste da África do Sul, Norte da África do Sul
 Ásia | Sul da Índia, Índia Central, Sudeste Asiático, Ásia Oriental, Leste do Japão, Oeste do Japão, Coreia Central, Sul da Coreia
 Austrália   | Leste da Austrália, Sudeste da Austrália, Austrália Central, Austrália Central 2
 Azure Government    | US Gov Virginia, US Gov Iowa, US Gov – Arizona, US Gov – Texas, US DoD Leste, US DoD Central
@@ -150,12 +150,13 @@ Tamanho | Qualquer tamanho de VM do Azure com, no mínimo, 2 núcleos de CPU e 1
 Conjuntos de disponibilidade | Com suporte | Se você habilitar a replicação para uma VM do Azure com as opções padrão, um conjunto de disponibilidade será criado automaticamente, com base nas configurações de região de origem. Você pode modificar essas configurações.
 Zonas de disponibilidade | Com suporte |
 Benefício de uso híbrido (HUB) | Com suporte | Se a VM de origem tiver uma licença do HUB ativada, um failover de teste ou falha na VM também usará a licença do HUB.
-Conjuntos de dimensionamento da VM | Sem suporte |
+Conjuntos de dimensionamento de VMs | Sem suporte |
 Imagens da galeria do Azure - Microsoft publicada | Com suporte | Suportado se a VM for executada em um sistema operacional suportado.
 Imagens da Galeria do Azure – publicadas por terceiros | Com suporte | Suportado se a VM for executada em um sistema operacional suportado.
 Imagens personalizadas – publicadas por terceiros | Com suporte | Suportado se a VM for executada em um sistema operacional suportado.
 VMs migradas com o Site Recovery | Com suporte | Se uma VM VMware ou uma máquina física foi migrada para o Azure usando o Site Recovery, você precisará desinstalar a versão mais antiga do serviço Mobility em execução na máquina e reiniciá-la antes de replicá-la para outra região do Azure.
 Políticas de RBAC | Sem suporte | Políticas RBAC (controle) em VMs não são replicadas para o failover de VM na região de destino de acesso baseado em função.
+Extensões | Sem suporte | As extensões não são replicadas para o failover de VM na região de destino. Ele precisa ser instalado manualmente após o failover.
 
 ## <a name="replicated-machines---disk-actions"></a>As máquinas - ações de disco replicadas
 
@@ -201,7 +202,7 @@ RA-GRS | Com suporte |
 ZRS | Sem suporte |
 Armazenamento Frio e Quente | Sem suporte | Não há suporte para discos de máquina virtual no armazenamento frio e quente
 Firewalls de Armazenamento do Azure para redes virtuais  | Com suporte | Se restringir o acesso à rede virtual para contas de armazenamento, habilite [permitir que os serviços Microsoft confiáveis](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
-Contas de armazenamento V2 de uso geral (camadas Hot e Cool) | Não  | Os custos das transações aumentam substancialmente em comparação com as contas de armazenamento V1 de uso geral
+Contas de armazenamento V2 de uso geral (camadas Hot e Cool) | Não | Os custos das transações aumentam substancialmente em comparação com as contas de armazenamento V1 de uso geral
 
 >[!IMPORTANT]
 > Para evitar problemas de desempenho, certifique-se de que você siga as metas de escalabilidade e desempenho de disco VM para [Linux](../virtual-machines/linux/disk-scalability-targets.md) ou [Windows](../virtual-machines/windows/disk-scalability-targets.md) VMs. Se você usar as configurações padrão, o Site Recovery cria os discos necessários e a contas de armazenamento, com base na configuração de origem. Se você personaliza e selecionar suas próprias configurações, siga as metas de escalabilidade e desempenho de disco para VMs de origem.
@@ -230,7 +231,7 @@ Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou maior |20 MB/s | 1684 GB por d
 NIC | Número máximo suportado para um tamanho específico de VM do Azure | As NICs são criadas quando a VM é criada durante o failover.<br/><br/> O número de NICs na VM de failover depende do número de NICs na VM de origem quando a replicação foi ativada. Se você adicionar ou remover uma NIC depois de habilitar a replicação, isso não afetará o número de NICs na VM replicada após o failover. Também Observe que a ordem das NICs após o failover não é garantia de ser o mesmo que a ordem original.
 Balanceador de Carga de Internet | Com suporte | Associe o balanceador de carga pré-configurado usando um script de automação do Azure em um plano de recuperação.
 Balanceador de carga interno | Com suporte | Associe o balanceador de carga pré-configurado usando um script de automação do Azure em um plano de recuperação.
-Endereço IP público | Com suporte | Associe um endereço IP público existente à NIC. Ou crie um endereço IP público e associe-o à NIC usando um script de automação do Azure em um plano de recuperação.
+Endereço IP Público | Com suporte | Associe um endereço IP público existente à NIC. Ou crie um endereço IP público e associe-o à NIC usando um script de automação do Azure em um plano de recuperação.
 NSG em NIC | Com suporte | Associe o NSG à NIC usando um script de automação do Azure em um plano de recuperação.
 NSG na sub-rede | Com suporte | Associe o NSG à sub-rede usando um script de automação do Azure em um plano de recuperação.
 Endereço IP reservado (estático) | Com suporte | Se a NIC na VM de origem tiver um endereço IP estático e a sub-rede de destino tiver o mesmo endereço IP disponível, ela será atribuída à VM com falha.<br/><br/> Se a sub-rede de destino não tiver o mesmo endereço IP disponível, um dos endereços IP disponíveis na sub-rede será reservado para a VM.<br/><br/> Você também pode especificar um endereço IP fixo e uma sub-rede na **itens replicados** > **configurações** > **de computação e rede**  >  **Interfaces de rede**.
@@ -244,7 +245,7 @@ Proxy autenticado | Sem suporte | Se a VM estiver usando um proxy autenticado pa
 Conexão do VPN site a site no local<br/><br/>(com ou sem o ExpressRoute)| Com suporte | Certifique-se de que as UDRs e os NSGs são configurados de forma que o tráfego do Site Recovery não é roteado para o local. [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)    
 Conexão VNET a VNET | Com suporte | [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)  
 Pontos de extremidade de serviço de rede virtual | Com suporte | Se você estiver restringindo o acesso à rede virtual para contas de armazenamento, certifique-se de que os serviços Microsoft confiáveis tenham a permissão para acessar a conta de armazenamento.
-Redes aceleradas | Com suporte | A rede acelerada deve estar ativada na VM de origem. [Saiba mais](azure-vm-disaster-recovery-with-accelerated-networking.md).
+Rede acelerada | Com suporte | A rede acelerada deve estar ativada na VM de origem. [Saiba mais](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 

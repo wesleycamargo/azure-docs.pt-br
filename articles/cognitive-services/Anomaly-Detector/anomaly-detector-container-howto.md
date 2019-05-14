@@ -9,12 +9,12 @@ ms.subservice: anomaly-detection
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: aahi
-ms.openlocfilehash: 5dcec0d5f313b1c746c0674d0f9bf4d30ed19e5c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: cc82e091ae4c033bda7f1d91c9aed36bb081de88
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026307"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233621"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>Instalar e executar contêineres do Detector de anomalias
 
@@ -37,9 +37,9 @@ Você deve cumprir os seguintes pré-requisitos antes de usar contêineres do De
 |--|--|
 |Mecanismo Docker| É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`.| 
-|Recursos do Detector de anomalias |Para usar esses contêineres, você deve ter:<br><br>Uma _Detector de anomalias_ recursos do Azure para obter a chave de cobrança associada e o URI de ponto de extremidade cobrança. Ambos os valores estão disponíveis nas páginas de visão geral do Detector de anomalias e chaves do portal do Azure e são necessários para iniciar o contêiner.<br><br>**{BILLING_KEY}**: chave do recurso<br><br>**{BILLING_ENDPOINT_URI}**: exemplo de URI de terminal é: `https://westus2.api.cognitive.microsoft.com`|
+|Recursos do Detector de anomalias |Para usar esses contêineres, será necessário ter:<br><br>Uma _Detector de anomalias_ recursos do Azure para obter a chave de cobrança associada e o URI de ponto de extremidade cobrança. Ambos os valores estão disponíveis nas páginas de visão geral do Detector de anomalias e chaves do portal do Azure e são necessários para iniciar o contêiner.<br><br>**{BILLING_KEY}**: chave do recurso<br><br>**{BILLING_ENDPOINT_URI}**: exemplo de URI de terminal é: `https://westus2.api.cognitive.microsoft.com`|
 
-## <a name="request-access-to-the-container-registry"></a>Solicitação de acesso para o registro de contêiner
+## <a name="request-access-to-the-container-registry"></a>Solicitar acesso ao Registro de contêiner
 
 Você deve primeiro concluir e enviar o [formulário de solicitação de contêiner do Detector de anomalias](https://aka.ms/adcontainer) para solicitar acesso ao contêiner.
 
@@ -49,18 +49,15 @@ Você deve primeiro concluir e enviar o [formulário de solicitação de contêi
 
 ## <a name="the-host-computer"></a>O computador host
 
-O **host** é o computador que executa o contêiner do Docker. Ele pode ser um computador local ou um serviço de hospedagem do Docker no Azure, incluindo:
+[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-* [Serviço de Kubernetes do Azure](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
-* [Instâncias de Contêiner do Azure](https://docs.microsoft.com/container-instances/index.yml)
-* Cluster [Kubernetes](https://kubernetes.io/) implantado no [Azure Stack](https://docs.microsoft.com/azure-stack/index.yml). Para obter mais informações, consulte [Implantar Kubernetes no Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
 <!--* [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/). For instructions of deploying Anomaly Detector module in IoT Edge, see [How to deploy Anomaly Detector module in IoT Edge](how-to-deploy-anomaly-detector-module-in-iot-edge.md).-->
 
 ### <a name="container-requirements-and-recommendations"></a>Recomendações e requisitos do contêiner
 
 A tabela a seguir descreve os núcleos de CPU e memória para alocar para o contêiner do Detector de anomalias mínimos e recomendados.
 
-| QPS (consultas por segundo) | Mínimo | Recomendadas |
+| QPS (consultas por segundo) | Mínimo | Recomendado |
 |-----------|---------|-------------|
 | 10 QPS | 4 núcleos, 1GB de memória | 2GB de memória de 8 núcleos |
 | 20 QPS | 8 núcleos, 2GB de memória | 4GB de memória de 16 núcleos |
@@ -100,7 +97,7 @@ Depois que o contêiner estiver no [computador host](#the-host-computer), use o 
 
 Use o comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) para executar qualquer um dos três contêineres. O comando usa os seguintes parâmetros:
 
-| Placeholder | Value |
+| Espaço reservado | Value |
 |-------------|-------|
 |{BILLING_KEY} | Essa chave é usada para iniciar o contêiner e está disponível na página de chaves do Detector de anomalias do portal do Azure.  |
 |{BILLING_ENDPOINT_URI} | O valor do URI de ponto de extremidade cobrança está disponível na página de visão geral de Detector de anomalias do portal do Azure.|
@@ -127,9 +124,9 @@ Esse comando:
 
 ### <a name="running-multiple-containers-on-the-same-host"></a>Execução de vários contêineres no mesmo host
 
-Se você pretende executar vários contêineres com portas expostas, certifique-se de executar cada contêiner com uma porta diferente. Por exemplo, execute o primeiro contêiner na porta 5000 e o segundo contêiner na porta 5001.
+Se você pretende executar vários contêineres com portas expostas, execute cada contêiner com uma porta diferente. Por exemplo, execute o primeiro contêiner na porta 5000 e o segundo contêiner na porta 5001.
 
-Substitua os `<container-registry>` e `<container-name>` com os valores dos contêineres que você usar. Eles não precisam estar no mesmo contêiner. Você pode ter o contêiner do Detector de anomalias e o contêiner de LUIS em execução no HOST juntos ou você pode ter vários contêineres de Detector de anomalias em execução. 
+Substitua `<container-registry>` e `<container-name>` pelos valores dos contêineres que você usa. Eles não precisam estar no mesmo contêiner. Você pode ter o contêiner do Detector de anomalias e o contêiner de LUIS em execução no HOST juntos ou você pode ter vários contêineres de Detector de anomalias em execução. 
 
 Execute o primeiro contêiner na porta 5000. 
 
@@ -152,7 +149,7 @@ Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY}
 ```
 
-Cada contêiner subsequente deve estar em uma porta diferente. 
+Cada contêiner seguinte deve estar em uma porta diferente. 
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto de extremidade de previsão do contêiner
 

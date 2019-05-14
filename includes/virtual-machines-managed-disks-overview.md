@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/11/2019
+ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9d96bd76a4d284e9b4390c564446e8b27c43d591
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 91e9d3a99224c09ecfb5cc3b477a71a7f7bfed7a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60118346"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198794"
 ---
 ## <a name="benefits-of-managed-disks"></a>Benefícios dos discos gerenciados
 
@@ -31,9 +31,9 @@ Usando discos gerenciados, é possível criar até 50 mil **discos** de VM de um
 
 Os discos gerenciados são integrados a conjuntos de disponibilidade para garantir que os discos de [VMs em um conjunto de disponibilidade](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) estejam suficientemente isolados entre si para evitar pontos únicos de falha. Os discos são automaticamente colocados em unidades de escala de armazenamento diferentes (carimbos). Se um carimbo falhar devido a uma falha de hardware ou de software, somente as instâncias da VM com discos nesses carimbos falharão. Por exemplo, vamos supor que você tenha um aplicativo em execução em cinco VMs, e que as VMs estejam em um Conjunto de Disponibilidade. Os discos dessas VMs não serão armazenados no mesmo stamp, portanto, se um stamp ficar inativo, as outras instâncias do aplicativo continuarão em execução.
 
-### <a name="integration-with-availability-zones"></a>Integração com zonas de disponibilidade
+### <a name="integration-with-availability-zones"></a>Integração com as Zonas de Disponibilidade
 
-Gerenciado dá suporte a discos [zonas de disponibilidade](../articles/availability-zones/az-overview.md), que é uma oferta de alta disponibilidade que protege seus aplicativos contra falhas do datacenter. As Zonas de Disponibilidade são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. Com Zonas de Disponibilidade, o Azure oferece o melhor SLA de tempo de atividade da VM de 99,99% do setor.
+Os discos gerenciados dão suporte às [Zonas de Disponibilidade](../articles/availability-zones/az-overview.md), que são uma oferta de alta disponibilidade que protege os aplicativos contra falhas do datacenter. As Zonas de Disponibilidade são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. Com Zonas de Disponibilidade, o Azure oferece o melhor SLA de tempo de atividade da VM de 99,99% do setor.
 
 ### <a name="azure-backup-support"></a>Suporte de Backup do Azure
 
@@ -45,13 +45,13 @@ Para proteger contra desastres regionais, o [Backup do Azure](../articles/backup
 
 ## <a name="disk-roles"></a>Funções do disco
 
-Há três funções principais de disco no Azure: o disco de dados, o disco do sistema operacional e o disco temporário. Essas funções são mapeados para discos anexados à sua máquina virtual.
+Há três funções principais de disco no Azure: o disco de dados, o disco do SO e o disco temporário. Essas funções são mapeadas para discos anexados à sua máquina virtual.
 
 ![Funções de disco em ação](media/virtual-machines-managed-disks-overview/disk-types.png)
 
 ### <a name="data-disk"></a>Disco de dados
 
-Um disco de dados é um disco gerenciado anexado a uma máquina virtual para armazenar dados de aplicativos ou outros dados que precisam ser mantidos. Discos de dados são registrados como unidades SCSI e rotulados com a letra que você escolher. Cada disco de dados tem uma capacidade máxima de 32.767 gibibytes (GiB). O tamanho da máquina virtual determina quantos discos de dados você pode anexar a ele e o tipo de armazenamento que pode usar para hospedar os discos.
+Um disco de dados é um disco gerenciado anexado a uma máquina virtual para armazenar dados de aplicativos ou outros dados que precisam ser mantidos. Discos de dados são registrados como unidades SCSI e rotulados com a letra que você escolher. Cada disco de dados tem uma capacidade máxima de 32.767 GiB (gibibytes). O tamanho da máquina virtual determina quantos discos de dados você pode anexar a ele e o tipo de armazenamento que pode usar para hospedar os discos.
 
 ### <a name="os-disk"></a>Disco do sistema operacional
 
@@ -61,7 +61,7 @@ Esse disco tem uma capacidade máxima de 2.048 GiB.
 
 ### <a name="temporary-disk"></a>Disco temporário
 
-Cada VM contém um disco temporário, que não é um disco gerenciado. O disco temporário fornece armazenamento de curto prazo para aplicativos e processos e destina-se apenas a armazenar dados, como arquivos de paginação ou de permuta. Dados no disco temporário podem ser perdidos durante uma [evento de manutenção](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) evento ou quando você [reimplantar uma VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Em VMs do Linux do Azure, o disco temporário é /dev/sdb por padrão e em VMs do Windows, o disco temporário é e: por padrão. Durante a reinicialização padrão bem-sucedida da VM, os dados no disco temporário serão mantido.
+Cada VM contém um disco temporário, que não é um disco gerenciado. O disco temporário fornece armazenamento de curto prazo para aplicativos e processos e destina-se apenas a armazenar dados, como arquivos de paginação ou de permuta. Os dados no disco temporário podem ser perdidos durante um [evento de manutenção](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) ou durante a [reimplantação de uma VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Em VMs do Linux do Azure, o disco temporário é /dev/sdb por padrão e, em VMs do Windows, o disco temporário é E: por padrão. Durante uma reinicialização padrão bem-sucedida da VM, os dados no disco temporário devem persistir.
 
 ## <a name="managed-disk-snapshots"></a>Instantâneos de disco gerenciado
 
@@ -89,6 +89,6 @@ Um instantâneo é uma cópia de um disco no momento exato em que o instantâneo
 
 Um instantâneo não tem reconhecimento de nenhum disco, exceto o contido por ele. Isso torna problemático usá-lo em cenários que precisam da coordenação de vários discos, como distribuição. Os instantâneos precisariam ser capazes de coordenar uns com os outros e, no momento, não há suporte para isso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre os tipos de disco individuais oferecidos pelo Azure e qual tipo é uma boa opção para suas necessidades em nosso artigo sobre tipos de disco.

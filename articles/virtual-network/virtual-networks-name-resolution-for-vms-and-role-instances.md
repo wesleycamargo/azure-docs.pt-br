@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 763fc2952d7a1e2eac209cc9df53713c58ad83c9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e0f3de95cfd4a18294e5e8e2adcf3b52a7487dbb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925247"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411350"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolução de nomes para recursos em redes virtuais do Azure
 
@@ -169,7 +169,7 @@ Se o encaminhamento de consultas para o Azure não atender às suas necessidades
 * Ter proteção contra acesso da Internet, para atenuar as ameaças impostas por agentes externos.
 
 > [!NOTE]
-> Para melhor desempenho, quando você estiver usando máquinas virtuais do Azure como servidores DNS, o IPv6 deverá ser desabilitado. Um [endereço IP público](virtual-network-public-ip-address.md) deve ser atribuído a cada VM do servidor DNS. Para outras análises de desempenho e otimizações ao usar o Windows Server como seu servidor DNS, confira [Desempenho da resolução de nomes de um Windows DNS Server 2012 R2 recursivo](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx).
+> Para melhor desempenho, quando você estiver usando máquinas virtuais do Azure como servidores DNS, o IPv6 deverá ser desabilitado. Um [endereço IP público](virtual-network-public-ip-address.md) deve ser atribuído a cada VM do servidor DNS. Para outras análises de desempenho e otimizações ao usar o Windows Server como seu servidor DNS, confira [Desempenho da resolução de nomes de um Windows DNS Server 2012 R2 recursivo](https://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx).
 > 
 > 
 

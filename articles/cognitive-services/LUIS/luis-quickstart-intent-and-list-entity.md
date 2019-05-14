@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/01/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 9083227dd81dca219666e07b70f487069413855d
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: df37e7aad2420d0bc280121634d49675ae29ee5a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521264"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236431"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Tutorial: Obter dados de correspondência de texto exata de uma expressão
 
@@ -108,11 +108,7 @@ O nome primário _canônico_ para cada item é o nome do departamento. Exemplos 
 
 1. Na página da entidade Departamento, digite `Accounting` como o novo valor.
 
-    [![Captura de tela e inserção de valor](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Captura de tela de inserção de valor")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
-
 1. Para sinônimos, adicione os sinônimos da tabela anterior.
-
-    [![Captura de tela de a inserção de sinônimos](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Captura de tela de inserção de sinônimos")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
 1. Continue adicionando todos os nomes canônicos e seus sinônimos. 
 

@@ -237,6 +237,8 @@
               href: msal-js-prompt-behavior.md
             - name: Fornecer seu próprio HttpClient (.NET)
               href: msal-net-provide-httpclient.md
+            - name: Integrar ao Azure AD B2C
+              href: msal-b2c-overview.md
             - name: Considerações específicas da plataforma (.NET)
               items:
                 - name: Navegadores da Web
@@ -340,6 +342,8 @@
               items:
                 - name: Adquirir um token do cache
                   href: msal-net-acquire-token-silently.md
+                - name: Limpar o cache de token
+                  href: msal-net-clear-token-cache.md
                 - name: Criar uma instância de um cliente público com opções
                   href: msal-net-instantiate-public-client-config-options.md
                 - name: Criar uma instância de um cliente confidencial com opções

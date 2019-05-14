@@ -13,7 +13,7 @@ ms.date: 11/20/2018
 ms.author: mahender
 ms.openlocfilehash: 0942d5ba7b31ddb2c0dec5fe979f1331d1bf3bfd
 ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/21/2019
 ms.locfileid: "58336024"
@@ -118,7 +118,7 @@ Qualquer recurso do tipo `Microsoft.Web/sites` pode ser criado com uma identidad
 ```
 
 > [!NOTE] 
-> Um aplicativo pode ter identidades atribuídas pelo sistema e atribuídas pelo usuário ao mesmo tempo. Nesse caso, a `type` propriedade seria `SystemAssigned,UserAssigned`
+> Um aplicativo pode ter identidades atribuídas pelo sistema e atribuídas pelo usuário ao mesmo tempo. Nesse caso, a propriedade `type` seria `SystemAssigned,UserAssigned`
 
 Adicionar o tipo atribuído pelo sistema diz ao Azure para criar e gerenciar a identidade do seu aplicativo.
 
@@ -373,7 +373,7 @@ $accessToken = $tokenResponse.access_token
 
 ## <a name="remove"></a>Removendo uma identidade
 
-Uma identidade atribuída pelo sistema pode ser removida desabilitando o recurso usando o portal, PowerShell ou CLI da mesma forma que foi criado. As identidades atribuídas pelo usuário podem ser removidas individualmente. Para remover todas as identidades, no protocolo de modelo REST / ARM, isso é feito definindo o tipo como `None`:
+Uma identidade atribuída pelo sistema pode ser removida desabilitando o recurso usando o portal, o PowerShell ou a CLI da mesma forma que foi criado. As identidades atribuídas pelo usuário podem ser removidas individualmente. Para remover todas as identidades, no protocolo de modelo REST / ARM, isso é feito definindo o tipo como "None":
 
 ```json
 "identity": {

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c98136e2f45965834fa1c538a5929eee14b24466
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a2bce535d8612eca565970d4c530a27efb356334
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60886143"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464610"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Criar uma regra de Eventos e configurar notificações no aplicativo Azure IoT Central
 
@@ -31,19 +31,19 @@ Para criar uma regra de evento, o modelo do dispositivo deve ter pelo menos um e
 
 1. Se você ainda não criou regras, a tela a seguir será exibida:
 
-    ![Não há regras](media/howto-create-event-rules/Rules_Landing_Page.png)
+    ![Não há regras](media/howto-create-event-rules/rules_landing_page1.png)
 
 1. Sobre o **regras** guia, selecione **+ nova regra** para ver os tipos de regras que você pode criar.
 
 1. Escolha o **evento** lado a lado para criar uma regra de monitoramento de evento.
 
-    ![Tipos de regras](media/howto-create-event-rules/Rule_Types.png)
+    ![Tipos de regras](media/howto-create-event-rules/rule_types1.png)
 
 1. Digite um nome que o ajude a identificar a regra neste modelo de dispositivo.
 
 1. Para habilitar imediatamente a regra para todos os dispositivos criados com base neste modelo, ativar/desativar **Habilitar regra para todos os dispositivos deste modelo**.
 
-    ![Detalhe da Regra](media/howto-create-event-rules/Rule_Detail.png)
+    ![Detalhe da Regra](media/howto-create-event-rules/rule_detail1.png)
 
     A regra se aplica automaticamente a todos os dispositivos no modelo de dispositivo.
 
@@ -55,7 +55,7 @@ A condição define os critérios que são monitorados pela regra.
 
 1. Escolha o evento que deseja monitorar na lista suspensa Medida. Neste exemplo, foi selecionado o evento **Erro do Motor do Ventilador**.
 
-   ![Condição](media/howto-create-event-rules/Condition_Filled_Out.png)
+   ![Condição](media/howto-create-event-rules/condition_filled_out1.png)
 
 1. Opcionalmente, você também pode definir **Contagem** como **Agregação** e fornecer o limite correspondente.
 
@@ -64,7 +64,7 @@ A condição define os critérios que são monitorados pela regra.
 
      Por exemplo, se você quiser alertar quando há mais de três eventos de dispositivo em cinco minutos, selecione o evento e defina a função de agregação como "contagem", o operador como "maior que" e "limite" como 3. Defina "Período de tempo de agregação" como "5 minutos". A regra dispara quando mais de três eventos são enviados pelo dispositivo em cinco minutos. A frequência de avaliação da regra é igual à **Janela de tempo de agregação**, o que significa que, neste exemplo, a regra é avaliada uma vez a cada cinco minutos.
 
-     ![Adicionar a condição de evento](media/howto-create-event-rules/Aggregate_Condition_Filled_Out.png)
+     ![Adicionar a condição de evento](media/howto-create-event-rules/aggregate_condition_filled_out1.png)
 
      >[!NOTE]
      >Mais de uma medida de evento pode ser adicionada em **Condição**. Quando várias condições são especificadas, todas as condições devem ser atendidas para que a regra seja disparada. Cada condição obtém unida por uma cláusula 'AND' implicitamente. Ao usar a agregação, cada medida deve ser agregada.
@@ -75,14 +75,14 @@ Esta seção mostra como configurar as ações a serem executadas quando a regra
 
 1. Escolha **+** próximo a **Ações**. Aqui, você vê a lista de ações disponíveis.
 
-    ![Adicionar Ação](media/howto-create-event-rules/Add_Action.png)
+    ![Adicionar Ação](media/howto-create-event-rules/add_action1.png)
 
 1. Escolha a ação **Email**, insira um endereço de email válido no campo **Para** e forneça uma observação para aparecer no corpo do email quando a regra for disparada.
 
     > [!NOTE]
     > Os emails serão enviados apenas aos usuários que foram adicionados ao aplicativo e fizeram logon pelo menos uma vez. Saiba mais sobre o [gerenciamento de usuários](howto-administer.md) no Azure IoT Central.
 
-   ![Configurar Ação](media/howto-create-event-rules/Configure_Action.png)
+   ![Configurar Ação](media/howto-create-event-rules/configure_action1.png)
 
 1. Para salvar a regra, escolha **Salvar**. A regra entra em ação em alguns minutos e começa a monitorar os eventos enviados ao aplicativo. Quando a condição especificada na regra corresponde, a regra dispara a ação de email configurada.
 

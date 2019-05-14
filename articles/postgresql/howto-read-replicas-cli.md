@@ -1,21 +1,24 @@
 ---
-title: Gerenciar réplicas de leitura para o banco de dados do Azure para PostgreSQL da CLI do Azure
-description: Saiba como gerenciar o banco de dados do Azure para PostgreSQL ler réplicas da CLI do Azure.
+title: Gerenciar réplicas de leitura para o banco de dados do Azure para PostgreSQL – servidor único da CLI do Azure
+description: Saiba como gerenciar réplicas de leitura no banco de dados do Azure para PostgreSQL – servidor único da CLI do Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: b5e0336a290090ed6bd7f5af508e691677780a80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 9730faf3191ef2e2bd0b6c3caddefa0492b33fc5
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420233"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510244"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>Criar e gerenciar réplicas de leitura da CLI do Azure
 
 Neste artigo, você aprenderá como criar e gerenciar réplicas de leitura no banco de dados do Azure para PostgreSQL da CLI do Azure. Para saber mais sobre réplicas de leitura, confira [Visão Geral](concepts-read-replicas.md).
+
+> [!NOTE]
+> CLI do Azure ainda não dá suporte criando réplicas em uma região diferente do servidor mestre. Para criar uma réplica entre regiões, use o [portal do Azure](howto-read-replicas-portal.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Um [servidor do Banco de Dados do Azure para PostgreSQL](quickstart-create-server-up-azure-cli.md) que será o servidor mestre.
@@ -46,10 +49,10 @@ O parâmetro `azure.replication_support` deve ser definido como **REPLICA** no s
 
 O [criar réplica do az postgres server](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) comando requer os seguintes parâmetros:
 
-| Configuração | Valor de exemplo | DESCRIÇÃO  |
+| Configuração | Valor de exemplo | Descrição  |
 | --- | --- | --- |
 | resource-group | myresourcegroup |  O grupo de recursos onde o servidor de réplica será criado.  |
-| Nome | mydemoserver-replica | O nome do novo servidor de réplica criado. |
+| nome | mydemoserver-replica | O nome do novo servidor de réplica criado. |
 | source-server | mydemoserver | A nome de identificação do recurso ou do servidor mestre existente para replicar de. |
 
 ```azurecli-interactive

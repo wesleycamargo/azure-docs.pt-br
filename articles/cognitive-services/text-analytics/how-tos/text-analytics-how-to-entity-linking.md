@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: c179620d6858658dface5f706f7994d51f1a199b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8319dbcb8cebe51dae2a4d7e8d9749c3ab7674f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829711"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231433"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como usar o reconhecimento de entidade nomeada na análise de texto
 
@@ -33,7 +33,7 @@ O NER (reconhecimento de entidade nomeada) é a capacidade de identificar difere
 
 Na análise de texto [versão 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), vinculação de entidade e o reconhecimento de entidade nomeada (NER) estão disponíveis.
 
-### <a name="language-support"></a>Suporte ao idioma
+### <a name="language-support"></a>Suporte de idioma
 
 O uso da vinculação de entidade em vários idiomas exige o uso de uma base de conhecimento correspondente em cada idioma. Para vinculação de entidade na Análise de Texto, isso significa que cada idioma com suporte do ponto de extremidade `entities` será vinculado ao corpus da Wikipédia correspondente nesse idioma. Como o tamanho do corpora varia entre as linguagens, espera-se que a funcionalidade de vinculação de entidade também variará.
 
@@ -45,25 +45,25 @@ O uso da vinculação de entidade em vários idiomas exige o uso de uma base de 
 | Local padrão      | N/D\*         | "Redmond, Washington", "Paris"  |
 | Organização  | N/D\*         | "Microsoft"   |
 | Quantidade      | Número        | "6", "seis"     | 
-| Quantidade      | Percentual    | "50%", "cinquenta por cento"| 
+| Quantidade      | Porcentagem    | "50%", "cinquenta por cento"| 
 | Quantidade      | Ordinal       | "2º", "segundo"     | 
 | Quantidade      | NumberRange   | "4 a 8"     | 
 | Quantidade      | Idade           | "90 dias", "30 anos"    | 
-| Quantidade      | Moeda      | "US$ 10,99"     | 
+| Quantidade      | Conversor de Moedas      | "US$ 10,99"     | 
 | Quantidade      | Dimensão     | "10 milhas", "40 cm"     | 
 | Quantidade      | Temperatura   | "32 graus"    |
 | DateTime      | N/D\*         | "18h30 em 4 de fevereiro de 2012"      | 
 | DateTime      | Data          | "2 de maio de 2017", "02/05/2017"   | 
-| DateTime      | Hora          | "8h", "8:00"  | 
+| DateTime      | Time          | "8h", "8:00"  | 
 | DateTime      | DateRange     | "2 de maio a 5 de maio"    | 
 | DateTime      | TimeRange     | "18h às 19h"     | 
-| DateTime      | Duration      | "1 minuto e 45 segundos"   | 
-| DateTime      | Definir           | "toda terça-feira"     | 
-| DateTime      | timeZone      |    | 
+| DateTime      | Duração      | "1 minuto e 45 segundos"   | 
+| DateTime      | Conjunto           | "toda terça-feira"     | 
+| DateTime      | TimeZone      |    | 
 | URL           | N/D\*         | "https:\//www.bing.com"    |
 | Email         | N/D\*         | "support@contoso.com" |
 
-\* Dependendo da entrada e das entidades extraídas, determinadas entidades podem omitir o `SubType`.
+\* Dependendo da entrada e das entidades extraídas, determinadas entidades podem omitir o `SubType`.  Todos os tipos de entidade com suporte listados estão disponíveis apenas para os idiomas inglês, chinês simplificado, francês, alemão e espanhol.
 
 
 

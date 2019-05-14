@@ -5,18 +5,18 @@ author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 03/18/2019
+ms.date: 05/02/2019
 ms.author: dacoulte
-ms.openlocfilehash: b432d8557c4244d58c23e7b068874dd747f6249f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: eda5a2a6d2dae58f8da72deccbb89a34c7f21dae
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256457"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204009"
 ---
-# <a name="sample---audit-if-specified-applications-are-not-installed-inside-linux-vms"></a>Exemplo – auditar se aplicativos especificados não são instalados dentro das VMs do Linux
+# <a name="sample---audit-if-specified-applications-arent-installed-inside-linux-vms"></a>Exemplo – auditar se os aplicativos especificados não estão instalados nas VMs do Linux
 
-Essa iniciativa de Configuração de Convidado da Política audita se o aplicativo especificado está instalado dentro das máquinas virtuais do Linux. A ID dessa iniciativa interna é `/providers/Microsoft.Authorization/policySetDefinitions/c937dcb4-4398-4b39-8d63-4a6be432252e`.
+Essa iniciativa de Configuração de Convidado de Política cria um evento de auditoria quando os aplicativos especificados não estão instalados em máquinas virtuais do Linux. A ID dessa iniciativa interna é `/providers/Microsoft.Authorization/policySetDefinitions/c937dcb4-4398-4b39-8d63-4a6be432252e`.
 
 > [!IMPORTANT]
 > Todas as iniciativas de Configuração do Convidado são compostos por definições de política **auditar** e **deployIfNotExists**. Atribuir somente uma das definições de política fazem com que a Configuração do Convidado não funcione corretamente.
@@ -32,9 +32,9 @@ Você pode atribuir este exemplo usando:
 
 Essa iniciativa de [Configuração do Convidado](../concepts/guest-configuration.md) iniciativa é composta das políticas a seguir:
 
-- [auditoria](#audit-definition) - auditar um aplicativo instalado dentro das VMs do Linux
+- [audit](#audit-definition) – auditar se os aplicativos não estão instalados nas VMs do Linux
   - ID: `/providers/Microsoft.Authorization/policyDefinitions/fee5cb2b-9d9b-410e-afe3-2902d90d0004`
-- [deployIfNotExists](#deployIfNotExists-definition) - implantar a extensão da VM para auditar se um aplicativo está instalado dentro das VMs do Linux
+- [deployIfNotExists](#deployIfNotExists-definition) – implantar a extensão da VM para auditar se um aplicativo está instalado nas VMs do Linux
   - ID: `/providers/Microsoft.Authorization/policyDefinitions/4d1c04de-2172-403f-901b-90608c35c721`
 
 ### <a name="initiative-definition"></a>Definição de iniciativa
@@ -45,7 +45,9 @@ A iniciativa é criada unindo a **auditoria** e as definições **deployIfNotExi
 
 ### <a name="initiative-parameters"></a>Parâmetros de iniciativa
 
-|Nome |Tipo ||Descrição | |---|---||---| |applicationName |Cadeia de caracteres |Nomes do aplicativo. Exemplo: 'python', 'powershell' ou uma lista separada por vírgulas, como 'python, powershell'. Use \* correspondência de curinga, como ' power\*'. |
+|NOME |Type |DESCRIÇÃO |
+|---|---|---|
+|applicationName |Cadeia de caracteres |Nomes de aplicativo. Exemplo: 'python', 'powershell' ou uma lista separada por vírgulas, como 'python, powershell'. Use \* para correspondência de curingas, como 'liga\*'. |
 
 Ao criar uma atribuição através do PowerShell ou da CLI do Azure, os valores do parâmetro podem ser passados como JSON através de uma cadeia de caracteres ou de um arquivo usando `-PolicyParameter` (PowerShell) ou `--params` (CLI do Azure).
 O PowerShell também suporta `-PolicyParameterObject` que requer que seja passado uma tabela de hash de Nome/Valor para o cmdlet onde **Nome** é o nome do parâmetro e **Valor** é o valor único ou matriz de valores passados durante a atribuição.
@@ -106,7 +108,7 @@ Após as definições de **auditoria** e **deployIfNotExists** são criadas no p
 
 ### <a name="create-copy-of-audit-definition"></a>Criar cópia da definição de auditoria
 
-[![Implantar o exemplo de Política no Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
+[![Implantar o exemplo de Política no Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
 [![Implantar o exemplo de Política no Azure Gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
 
 Usar esses botões para implantar por meio do portal cria uma cópia da definição de política de **auditoria**.
@@ -114,7 +116,7 @@ Sem a definição de política **deployIfNotExists** emparelhada, a configuraç�
 
 ### <a name="create-copy-of-deployifnotexists-definition"></a>Crie uma cópia de definição deployIfNotExists
 
-[![Implantar o exemplo de Política no Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
+[![Implantar o exemplo de Política no Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
 [![Implantar o exemplo de Política no Azure Gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
 
 Usar esses botões para implantar por meio do portal cria uma cópia da definição de política de **deployIfNotExists**. Sem a definição de política de **auditoria** emparelhada, a configuração de convidado não funcionará corretamente.

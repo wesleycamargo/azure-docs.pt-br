@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7ed6fd0a4a1de3fb02b3d8583c0e5c0cecac211
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 64e3e7928d9f39b9ed2a681eb8ec9a63f73ea54a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351618"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507960"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Habilitando o write-back de dispositivo
 > [!NOTE]
@@ -31,6 +31,7 @@ ms.locfileid: "60351618"
 
 A documentação a seguir fornece informações sobre como habilitar o recurso de write-back do dispositivo no Azure AD Connect. Write-back de dispositivo é usado nas seguintes situações:
 
+* Habilitar [Windows Hello para empresas usando implantação híbrida de confiança do certificado](https://docs.microsoft.com/en-us/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
 * Habilitar acesso condicional com base em dispositivos aos aplicativos protegidos por ADFS (2012 R2 ou superior) (terceira parte confiável).
 
 Isso fornece segurança adicional e a garantia de que o acesso aos aplicativos é concedido somente a dispositivos confiáveis. Para saber mais sobre acesso condicional, consulte [Gerenciando risco com acesso condicional](../active-directory-conditional-access-azure-portal.md) e [Configurando o acesso condicional no local usando o registro do dispositivo do Azure Active Directory](../../active-directory/active-directory-device-registration-on-premises-setup.md).
@@ -128,6 +129,6 @@ Verifique a configuração no Active Directory:
 * [Gerenciamento de riscos com acesso condicional](../active-directory-conditional-access-azure-portal.md)
 * [Configurando o acesso condicional no local usando o registro do dispositivo do Azure Active Directory](../../active-directory/active-directory-device-registration-on-premises-setup.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](whatis-hybrid-identity.md).
 

@@ -105,7 +105,7 @@ sections:
         className: cardsD
         items:
           - title: APIs REST v2
-            html: '<p><a href="https://aka.ms/luis-endpoint-apis"> API do ponto de extremidade</a></p><p><a href="https://aka.ms/luis-authoring-apis"> API de criação</a></p>'
+            html: '<p><a href="https://go.microsoft.com/fwlink/?linkid=2092356"> API do ponto de extremidade</a></p><p><a href="https://go.microsoft.com/fwlink/?linkid=2092087"> API de criação</a></p>'
           - title: SDKs
             html: '<p><a href="https://aka.ms/luis-endpoint-sdk"> SDK do ponto de extremidade do .NET</a></p><p><a href="https://aka.ms/luis-authoring-sdk"> SDK de criação do .NET</a></p>'
           - title: PowerShell

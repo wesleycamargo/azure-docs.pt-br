@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: fe1e56d2975c219a56d41102c728b7873f9f4f62
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 1b8cf36c631755458bc0c531773a6b2aba7f1038
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538163"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406372"
 ---
 # <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicativo Web de página única
 
@@ -535,7 +535,7 @@ Para fins de desenvolvimento, você pode fazer a solicitação da API de Pesquis
 
 Em seguida, altere o ponto de extremidade da Pesquisa na Web do Bing no arquivo HTML para:
 
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+    https://localhost:9090/httpss://api.cognitive.microsoft.com/bing/v7.0/search
 
 Por fim, inicie o proxy CORS com o seguinte comando:
 

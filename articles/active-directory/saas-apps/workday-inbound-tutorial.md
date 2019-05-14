@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d34bd9d7f80f72b3c6c0821ad48e6be1fd260be9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 267b6afd7cd3131dcd138dfb631335f58cec833a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60385061"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407921"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Workday para provisionamento automático do usuário
 
@@ -368,7 +368,7 @@ Para provisionar no Active Directory local, um agente deverá ser instalado em u
 
 Após ter implantado o .NET 4.7.1+, você poderá baixar o **[agente de provisionamento local aqui](https://go.microsoft.com/fwlink/?linkid=847801)** e seguir as etapas fornecidas abaixo para concluir a configuração do agente.
 
-1. Faça logon no Windows Server em que você deseja instalar o novo agente.
+1. Entrar para o Windows Server em que você deseja instalar o novo agente.
 2. Inicie o Instalador do Agente de Provisionamento, aceite os termos e clique no botão **Instalar**.
 
    ![Tela Instalar](./media/workday-inbound-tutorial/pa_install_screen_1.png "Tela Instalar")
@@ -527,12 +527,12 @@ Nesta seção, você irá configurar o fluxo de dados de usuário do Workday par
 | **SelectUniqueValue (Join ("\@", Junte-se (".", \[FirstName\], \[LastName\]), "contoso.com"), Join ("\@", Junte-se (".", Mid (\[FirstName\], 1, 1 () \[LastName\]), "contoso.com"), Join ("\@", Join (".", Mid (\[FirstName\], 1, 2), \[LastName\]), "contoso.com"))**   | userPrincipalName     |     | Gravado na criação somente 
 | **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Gravado na criação somente |
 | **Switch(\[Active\], , "0", "True", "1", "False")** |  accountDisabled      |     | Criar + atualizar |
-| **Nome**   | givenName       |     |    Criar + atualizar |
-| **Sobrenome**   |   sn   |     |  Criar + atualizar |
+| **FirstName**   | givenName       |     |    Criar + atualizar |
+| **LastName**   |   sn   |     |  Criar + atualizar |
 | **PreferredNameData**  |  displayName |     |   Criar + atualizar |
 | **Empresa**         | company   |     |  Criar + atualizar |
 | **SupervisoryOrganization**  | department  |     |  Criar + atualizar |
-| **ManagerReference**   | manager  |     |  Criar + atualizar |
+| **ManagerReference**   | gerenciador  |     |  Criar + atualizar |
 | **BusinessTitle**   |  título     |     |  Criar + atualizar | 
 | **AddressLineData**    |  streetAddress  |     |   Criar + atualizar |
 | **Município**   |   l   |     | Criar + atualizar |
@@ -816,7 +816,7 @@ Ao sugerir uma nova ideia, verifique para ver se alguém já sugeriu um recurso 
 
 #### <a name="how-do-i-know-the-version-of-my-provisioning-agent"></a>Como saber a versão do meu Agente de Provisionamento?
 
-* Faça logon no servidor Windows em que o Agente de Provisionamento está instalado.
+* Entre servidor Windows em que o agente de provisionamento está instalado.
 * Vá até o menu **Painel de controle** -> **Desinstalar ou alterar um programa**
 * Procure a versão correspondente à entrada **Agente de provisionamento do Microsoft Azure AD Connect**
 
@@ -867,7 +867,7 @@ Sim, um Agente de Provisionamento pode ser configurado para lidar com vários do
 #### <a name="how-do-i-de-register-the-domain-associated-with-my-provisioning-agent"></a>Como cancelar o registro do domínio associado ao meu Agente de Provisionamento?
 
 * No portal do Azure, obtenha a *ID do locatário* do seu locatário do Azure AD.
-* Faça logon no servidor Windows em que o Agente de Provisionamento está em execução.
+* Entrar no servidor Windows que executa o agente de provisionamento.
 * Abra o PowerShell como administrador do Windows.
 * Altere o diretório que contém os scripts de registro e execute os comandos a seguir substituindo o parâmetro de \[ID do locatário\] pelo valor da ID do locatário.
 
@@ -878,7 +878,7 @@ Sim, um Agente de Provisionamento pode ser configurado para lidar com vários do
   ```
 
 * Na lista de agentes que aparecer, copie o valor do campo “id” do recurso cujo *resourceName* seja igual ao nome de domínio do AD.
-* Cole a id neste comando e execute-o no Powershell.
+* Cole o valor da ID nesse comando e execute o comando do PowerShell.
 
   ```powershell
   Remove-PublishedResource -ResourceId "[resource ID]" -TenantId "[tenant ID]"
@@ -889,7 +889,7 @@ Sim, um Agente de Provisionamento pode ser configurado para lidar com vários do
 
 #### <a name="how-do-i-uninstall-the-provisioning-agent"></a>Como desinstalar o Agente de Provisionamento?
 
-* Faça logon no servidor Windows em que o Agente de Provisionamento está instalado.
+* Entre servidor Windows em que o agente de provisionamento está instalado.
 * Vá até o menu **Painel de controle** -> **Desinstalar ou alterar um programa**
 * Desinstale os programas a seguir:
   * Agente de Provisionamento do Microsoft Azure AD Connect
@@ -946,9 +946,9 @@ A solução atualmente não dá suporte a atributos binários de configuração,
 
 #### <a name="how-do-i-format-display-names-in-ad-based-on-the-users-departmentcountrycity-attributes-and-handle-regional-variances"></a>Como formatar nomes de exibição no AD com base em atributos de país/departamento/cidade do usuário e tratar as variações regionais?
 
-É um requisito comum configurar o atributo *displayName* no AD para que ele também forneça informações sobre o departamento e o país do usuário. Por exemplo, se John Smith trabalha no Departamento de Marketing nos Estados Unidos, você poderá querer que o seu *displayName* apareça como *Smith, John (Marketing-EUA)*.
+Ele é um requisito comum para configurar o *displayName* atributo no AD para que ele também fornece informações sobre o departamento do usuário e o país/região. Por exemplo, se John Smith trabalha no Departamento de Marketing nos Estados Unidos, você poderá querer que o seu *displayName* apareça como *Smith, John (Marketing-EUA)*.
 
-Aqui está como você pode lidar com tais requisitos para construir *CN* ou *displayName* para incluir atributos como empresa, unidade de negócio, cidade ou país.
+Aqui está como você pode lidar com tais requisitos para construir *CN* ou *displayName* incluir atributos como empresa, unidade de negócios, cidade ou país/região.
 
 * Cada atributo do Workday é recuperado usando uma expressão de API XPATH subjacente, que pode ser configurada em **Mapeamento de Atributos -> Seção Avançada -> Editar lista de atributos para Workday**. Aqui está a expressão de API padrão do XPATH para os atributos *PreferredFirstName*, *PreferredLastName*, *empresa* e *SupervisoryOrganization* do Workday.
 
@@ -976,7 +976,7 @@ Aqui está como você pode lidar com tais requisitos para construir *CN* ou *dis
 
   Confirme com sua equipe do Workday se as expressões de API acima são válidas para a sua configuração de locatário do Workday. Se necessário, você pode editar conforme descrito na seção [Personalizar a lista de atributos de usuário do Workday](#customizing-the-list-of-workday-user-attributes).
 
-* Para criar a expressão de mapeamento de atributos correta, identifique qual atributo do Workday representa “com autoridade” o primeiro nome, sobrenome, país e departamento do usuário. Digamos que os atributos são *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* e *SupervisoryOrganization* respectivamente. Você pode usar isso para criar uma expressão para o atributo *displayName* conforme a seguir para obter um nome de exibição, como *Smith, John (Marketing-EUA)*.
+* Para compilar a expressão de mapeamento de atributo à direita, identifique qual atributo do Workday "autoritativo" representa o usuário primeiro nome, sobrenome, país/região e departamento. Digamos que os atributos são *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* e *SupervisoryOrganization* respectivamente. Você pode usar isso para criar uma expressão para o atributo *displayName* conforme a seguir para obter um nome de exibição, como *Smith, John (Marketing-EUA)*.
 
     ```
      Append(Join(", ",[PreferredLastName],[PreferredFirstName]), Join(""," (",[SupervisoryOrganization],"-",[CountryReferenceTwoLetter],")"))
@@ -1038,7 +1038,7 @@ Esta seção cobre os seguintes aspectos de solução de problemas:
 
 ### <a name="setting-up-windows-event-viewer-for-agent-troubleshooting"></a>Configurar o Visualizador de Eventos do Windows para solucionar problemas do agente
 
-* Faça logon no Windows Server em que o Agente de Provisionamento está implantado
+* Entrar máquina do Windows Server em que o agente de provisionamento está implantado
 * Abra o aplicativo da área de trabalho **Visualizador de Eventos do Windows Server**.
 * Selecione **Logs do Windows > Aplicativo**.
 * Use a opção **Filtrar log atual...** para exibir todos os eventos registrados na fonte **AAD. Connect.ProvisioningAgent** e excluir eventos com a ID de evento “5”, especificando o filtro “-5”, conforme mostrado abaixo.
@@ -1236,7 +1236,7 @@ Para fazer essa alteração, você deve usar o [Workday Studio](https://communit
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
+    <env:Envelope xmlns:env="https://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
       <env:Body>
         <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">
@@ -1349,7 +1349,7 @@ No Microsoft Graph Explorer, execute a seguinte consulta GET, substituindo [serv
 
 Você obterá uma resposta, conforme mostrado abaixo. Copie o “atributo de id” presente na resposta. Esse valor é o **ProvisioningJobId** e será usado para recuperar os metadados de esquema subjacentes.
 
-   [![Id do trabalho de provisionamento](./media/workday-inbound-tutorial/wd_export_03.png)](./media/workday-inbound-tutorial/wd_export_03.png#lightbox)
+   [![ID do trabalho de provisionamento](./media/workday-inbound-tutorial/wd_export_03.png)](./media/workday-inbound-tutorial/wd_export_03.png#lightbox)
 
 #### <a name="step-4-download-the-provisioning-schema"></a>Etapa 4: Baixar o esquema de provisionamento
 

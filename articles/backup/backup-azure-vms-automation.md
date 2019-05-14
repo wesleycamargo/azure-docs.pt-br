@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 62ad2e2b294a0589c9d52ddbce1339b8d55062e4
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.openlocfilehash: 10af40a1f671d5871204ff465395c8c3619671f7
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149029"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232496"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Fazer backup e restaurar VMs do Azure com o PowerShell
 
@@ -26,7 +26,7 @@ Neste artigo, você aprenderá a:
 > * Aplicar a política de backup para proteger várias máquinas virtuais
 > * Gatilho de um trabalho de backup sob demanda para as máquinas virtuais protegidas. Antes de você poder fazer backup (ou proteger) uma máquina virtual, você deve concluir os [pré-requisitos](backup-azure-arm-vms-prepare.md) para preparar o ambiente para proteger suas VMs.
 
-## <a name="before-you-start"></a>Antes de começar
+## <a name="before-you-start"></a>Antes de iniciar
 
 - [Saiba mais](backup-azure-recovery-services-vault-overview.md) sobre cofres dos serviços de recuperação.
 - [Examine](backup-architecture.md#architecture-direct-backup-of-azure-vms) a arquitetura para o backup de VM do Azure [Saiba mais sobre](backup-azure-vms-introduction.md) o processo de backup, e [examine](backup-support-matrix-iaas.md) pré-requisitos, limitações e suporte.
@@ -61,7 +61,7 @@ Para começar:
 3. Entre em sua conta do Azure usando **Connect-AzAccount**. Esse cmdlet abre uma página da Web que solicita suas credenciais de conta:
 
     * Como alternativa, é possível incluir as credenciais de conta como um parâmetro no cmdlet **Connect-AzAccount**, usando o parâmetro **-Credential**.
-    * Se você é um parceiro CSP trabalhando em nome de um locatário, especifique o cliente como um locatário usando sua tenantID ou o nome de domínio primário do locatário. Por exemplo:  **Connect-AzAccount -Tenant "fabrikam.com"**
+    * Se você é um parceiro CSP trabalhando em nome de um locatário, especifique o cliente como um locatário usando sua tenantID ou o nome de domínio primário do locatário. Por exemplo: **Connect-AzAccount -Tenant "fabrikam.com"**
 
 4. Associe a assinatura que deseja usar com a conta, uma vez que uma conta pode ter várias assinaturas:
 
@@ -102,7 +102,7 @@ As etapas a seguir orientarão você durante a criação de um cofre dos Serviç
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
-    Set-AzRecoveryServicesBackupProperties  -Vault $vault1 -BackupStorageRedundancy GeoRedundant
+    Set-AzRecoveryServicesBackupProperty  -Vault $vault1 -BackupStorageRedundancy GeoRedundant
     ```
 
    > [!TIP]
@@ -145,11 +145,11 @@ Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultConte
 
 ### <a name="modifying-storage-replication-settings"></a>Modificar configurações de replicação de armazenamento
 
-Use [AzRecoveryServicesBackupProperties conjunto](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperties?view=azps-1.6.0) comando para definir a configuração de replicação de armazenamento do cofre para LRS/GRS
+Use [AzRecoveryServicesBackupProperty conjunto](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperty) comando para definir a configuração de replicação de armazenamento do cofre para LRS/GRS
 
 ```powershell
 $vault= Get-AzRecoveryServicesVault -name "testvault"
-Set-AzRecoveryServicesBackupProperties -Vault $vault -BackupStorageRedundancy GeoRedundant/LocallyRedundant
+Set-AzRecoveryServicesBackupProperty -Vault $vault -BackupStorageRedundancy GeoRedundant/LocallyRedundant
 ```
 
 > [!NOTE]
@@ -350,7 +350,7 @@ WorkloadName     Operation            Status               StartTime            
 TestVM           ConfigureBackup      Completed            3/18/2019 8:00:21 PM      3/18/2019 8:02:16 PM      654e8aa2-4096-402b-b5a9-e5e71a496c4e
 ```
 
-### <a name="stop-protection"></a>Parar a proteção
+### <a name="stop-protection"></a>Interromper proteção
 
 #### <a name="retain-data"></a>Reter dados
 
@@ -400,7 +400,7 @@ $namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM
 $backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM"
 ```
 
-### <a name="choose-a-recovery-point"></a>Escolha um ponto de recuperação
+### <a name="choose-a-recovery-point"></a>Escolher um ponto de recuperação
 
 Use o cmdlet [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) para listar todos os pontos de recuperação para o item de backup. Em seguida, escolha o ponto de recuperação a ser restaurado. Se você não tiver certeza de qual ponto de recuperação será usado, é uma boa prática escolher o mais recente ponto RecoveryPointType = AppConsistent na lista.
 
@@ -726,7 +726,7 @@ Além de restauração de discos, você também pode restaurar arquivos individu
 As etapas básicas para restaurar um arquivo de um backup de VM do Azure são:
 
 * Selecione a VM
-* Escolha um ponto de recuperação
+* Escolher um ponto de recuperação
 * Monte os discos do ponto de recuperação
 * Copie os arquivos necessários
 * Desmonte o disco
@@ -740,7 +740,7 @@ $namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM
 $backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM"
 ```
 
-### <a name="choose-a-recovery-point"></a>Escolha um ponto de recuperação
+### <a name="choose-a-recovery-point"></a>Escolher um ponto de recuperação
 
 Use o cmdlet [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint) para listar todos os pontos de recuperação para o item de backup. Em seguida, escolha o ponto de recuperação a ser restaurado. Se você não tiver certeza de qual ponto de recuperação será usado, é uma boa prática escolher o mais recente ponto RecoveryPointType = AppConsistent na lista.
 

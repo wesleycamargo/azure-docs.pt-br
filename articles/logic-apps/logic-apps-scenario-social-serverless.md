@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 638b29dd2a15d0467c41e20ecfed9f333b34c04d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dd9d8eac7d65815d7c98a28b0d5af55f19cec47
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60507992"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464425"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Criar um painel de informações do cliente em streaming com os Aplicativos Lógicos do Azure e o Azure Functions
 
@@ -99,6 +99,9 @@ Para exibir históricos de execução anteriores no Visual Studio ou no portal d
 
 * Abrir o Gerenciador de Nuvem do Visual Studio. Localizar seu aplicativo lógico, abra o menu de atalho do aplicativo. Selecione **Abrir histórico de execução**.
 
+  > [!NOTE]
+  > Para Visual Studio de 2019, Cloud Explorer pode abrir o Designer do aplicativo lógico no portal do Azure, mas não é possível ainda abrir Designer do aplicativo lógico incorporado ou histórico de execução.
+
 * No portal do Azure, localize o aplicativo lógico. No menu do aplicativo lógico, escolha **Visão geral**. 
 
 ## <a name="create-automated-deployment-templates"></a>Criar modelos de implantação automatizados
@@ -107,7 +110,7 @@ Depois de criar uma solução de aplicativo lógico, você pode capturar e impla
 
 Para um exemplo de um modelo de implantação com uma função do Azure, verifique o [repositório de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 * [Localizar outros exemplos e cenários de Aplicativos Lógicos do Azure](logic-apps-examples-and-scenarios.md)
 

@@ -3,15 +3,15 @@ title: Desenvolver localmente com o emulador do Azure Cosmos
 description: Usando o Emulador do Azure Cosmos, você pode desenvolver e testar seu aplicativo no local gratuitamente, sem criar uma assinatura do Azure.
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 04/20/2018
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: ac2510b97e083cbbcd6529feb6f02fa17455fcb8
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 03/14/2019
+ms.openlocfilehash: c83cc8dce5978798d86d2fc2e314161765a2fb2d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925498"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205783"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Usar o Emulador do Azure Cosmos para desenvolvimento e teste locais
 

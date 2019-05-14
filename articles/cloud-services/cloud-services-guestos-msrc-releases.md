@@ -11,17 +11,47 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/26/2019
+ms.date: 5/8/2019
 ms.author: raiye
-ms.openlocfilehash: 42c241ce6b14eac2f76785b7b16b537d3e88bd8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f63b707f72b6966615d09ef0b86ce3d056a39249
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60623061"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465545"
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] em particular na qual foram introduzidas.
+
+## <a name="april-2019-guest-os"></a>Sistema operacional convidado de abril de 2019
+
+| Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| --- | --- | --- | --- | --- |
+| Rel 19-04 | [4493509] | Segurança do Windows 10 | 6.6 | 9 de abril de 2019 |
+| Rel 19-04 | [4493470] | Segurança do Windows 10 | 5.30 | 9 de abril de 2019 |
+| Rel 19-04 | [4493467] | Segurança do Windows | 4.65 | 9 de abril de 2019 |
+| Rel 19-04 | [4493450] | Segurança do Windows | 3.72 | 9 de abril de 2019 |
+| Rel 19-04 | [4493448] | Segurança do Windows | 2.85 | 9 de abril de 2019 |
+| Rel 19-04 | [4493478] | Piscando | 3.72, 4.65, 5.30, 6.6 | 9 de abril de 2019 |
+| Rel 19-04 | [4493435] | Internet Explorer | 2.85, 3.72, 4.65 | 9 de abril de 2019 |
+| Rel 19-04 | [KB4490628] | Atualização da Pilha de Manutenção | 2.85 | 12 de março de 2019 |
+| Rel 19-04 | [KB4474419] | Suporte de SHA2 | 2.85 | 12 de março de 2019 |
+| Rel 19-04 | [KB4489878] | Rollup não relacionado à segurança de março | 2.85 | 12 de março de 2019 |
+| Rel 19-04 | [KB4489891] | Rollup não relacionado à segurança de março | 3.72 | 12 de março de 2019 |
+| Rel 19-04 | [KB4489881] | Rollup não relacionado à segurança de março | 4.65 | 12 de março de 2019 |
+
+[4493509]: https://support.microsoft.com/kb/4493509
+[4493470]: https://support.microsoft.com/kb/4493470
+[4493467]: https://support.microsoft.com/kb/4493467
+[4493450]: https://support.microsoft.com/kb/4493450
+[4493448]: https://support.microsoft.com/kb/4493448
+[4493478]: https://support.microsoft.com/kb/4493478
+[4493435]: https://support.microsoft.com/kb/4493435
+[KB4490628]: https://support.microsoft.com/kb/KB4490628
+[KB4474419]: https://support.microsoft.com/kb/KB4474419
+[KB4489878]: https://support.microsoft.com/kb/KB4489878
+[KB4489891]: https://support.microsoft.com/kb/KB4489891
+[KB4489881]: https://support.microsoft.com/kb/KB4489881
 
 ## <a name="march-2019-guest-os"></a>Sistema operacional convidado de março de 2019
 
@@ -177,10 +207,10 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | Rel 18-12 | [4471328] | Segurança do Windows   | 2.81 | 11 de dezembro de 2018 |
 | Rel 18-12 | [4471326] | Segurança do Windows   | 3.68 | 11 de dezembro de 2018 |
 | Rel 18-12 | [4471322] | Segurança do Windows   | 4.61 | 11 de dezembro de 2018 |
-| Rel 18-12 | [4470600] | Segurança do .NET 3.x  | 2.81 | 11 de dezembro de 2018 |
+| Rel 18-12 | [4470600] | Segurança do .NET 3.x  | 2,81 | 11 de dezembro de 2018 |
 | Rel 18-12 | [4470601] | Segurança do .NET 3.x  | 3.68 | 11 de dezembro de 2018|
 | Rel 18-12 | [4470602] | Segurança do .NET 3.x  | 4.61 | 11 de dezembro de 2018 |
-| Rel 18-12 | [4470493] | Segurança do .NET 4. x  | 2.81 | 11 de dezembro de 2018 |
+| Rel 18-12 | [4470493] | Segurança do .NET 4. x  | 2,81 | 11 de dezembro de 2018 |
 | Rel 18-12 | [4470492] | Segurança do .NET 4. x  | 3.68 | 11 de dezembro de 2018 |
 | Rel 18-12 | [4470491] | Segurança do .NET 4. x  | 4.61| 11 de dezembro de 2018 |
 | Rel 18-12 | [4471331] | Piscando  | 3.68, 4.61, 5.26 | 5 de dezembro de 2018  |
@@ -537,11 +567,11 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D | [4014508] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |2.63 |9 de maio de 2017 |
 | N/D | [4014511] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |2.63 |9 de maio de 2017 |
 | N/D | [4014514] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |2.63 |9 de maio de 2017 |
-| N/D | [4019216] |Pacote cumulativo de atualizações não relacionado à segurança de maio |3.50 |9 de maio de 2017 |
-| N/D | [4014503] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |3.50 |9 de maio de 2017 |
-| N/D | [4014506] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |3.50 |9 de maio de 2017 |
-| N/D | [4014509] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |3.50 |9 de maio de 2017 |
-| N/D | [4014513] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |3.50 |9 de maio de 2017 |
+| N/D | [4019216] |Pacote cumulativo de atualizações não relacionado à segurança de maio |3,50 |9 de maio de 2017 |
+| N/D | [4014503] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |3,50 |9 de maio de 2017 |
+| N/D | [4014506] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |3,50 |9 de maio de 2017 |
+| N/D | [4014509] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |3,50 |9 de maio de 2017 |
+| N/D | [4014513] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |3,50 |9 de maio de 2017 |
 | N/D | [4019215] |Pacote cumulativo de atualizações não relacionado à segurança de maio |4.43 |9 de maio de 2017 |
 | N/D | [4014505] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |4.43 |9 de maio de 2017 |
 | N/D | [4014507] |Pacote cumulativo de atualizações não relacionado à segurança do .NET de maio |4.43 |9 de maio de 2017 |
@@ -554,7 +584,7 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | Rel 17-05 | [4019472] |Aprimoramentos de qualidade de SO de 2016 WS |5.7 | 9 de maio de 2017 |
 | Rel 17-05 | [4019263] |Somente Segurança do Windows |2.62 | 9 de maio de 2017 |
 | Rel 17-05 | [4019213] |Somente Segurança do Windows |4.42 | 9 de maio de 2017 |
-| Rel 17-05 | [4019214] |Somente Segurança do Windows |3.49 | 9 de maio de 2017 |
+| Rel 17-05 | [4019214] |Somente Segurança do Windows |3,49 | 9 de maio de 2017 |
 | Rel 17-05 | [4018271] |Atualização de segurança cumulativa para Internet Explorer |3.49 | 9 de maio de 2017 |
 | Rel 17-05 | [4010323] |Assistente SHA1 |2.62, 4.42, 5.7 | 9 de maio de 2017 |
 | Rel 17-05 | [4022344] |Comunicado de Segurança da Microsoft |5.7 | 9 de maio de 2017 |
@@ -564,12 +594,12 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D | [4014565] |Rollup não relacionado à segurança de .NET de abril |2.62 | 11 de abril de 2017 |
 | N/D | [4014559] |Rollup não relacionado à segurança de .NET de abril |2.62 | 11 de abril de 2017 |
 | N/D | [4015549] |Rollup não relacionado à segurança de abril |2.62 | 11 de abril de 2017 |
-| N/D | [4019990] |Atualização do D3DCompiler - requisito para .NET 4.7 |3.49 | 9 de maio de 2017 |
-| N/D | [4014563] |Rollup não relacionado à segurança de .NET de abril |3.49 | 11 de abril de 2017 |
-| N/D | [4014557] |Rollup não relacionado à segurança de .NET de abril |3.49 | 11 de abril de 2017 |
-| N/D | [4014545] |Rollup não relacionado à segurança de .NET de abril |3.49 | 11 de abril de 2017 |
-| N/D | [4014548] |Rollup não relacionado à segurança de .NET de abril |3.49 | 11 de abril de 2017 |
-| N/D | [4015551] |Rollup não relacionado à segurança de abril |3.49 | 11 de abril de 2017 |
+| N/D | [4019990] |Atualização do D3DCompiler - requisito para .NET 4.7 |3,49 | 9 de maio de 2017 |
+| N/D | [4014563] |Rollup não relacionado à segurança de .NET de abril |3,49 | 11 de abril de 2017 |
+| N/D | [4014557] |Rollup não relacionado à segurança de .NET de abril |3,49 | 11 de abril de 2017 |
+| N/D | [4014545] |Rollup não relacionado à segurança de .NET de abril |3,49 | 11 de abril de 2017 |
+| N/D | [4014548] |Rollup não relacionado à segurança de .NET de abril |3,49 | 11 de abril de 2017 |
+| N/D | [4015551] |Rollup não relacionado à segurança de abril |3,49 | 11 de abril de 2017 |
 | N/D | [3173424] |Atualização da Pilha de Manutenção  |4.42 | 12 de julho de 2016 |
 | N/D | [4014555] |Rollup não relacionado à segurança de .NET de abril  |4.42 | 11 de abril de 2017 |
 | N/D | [4014567] |Rollup não relacionado à segurança de .NET de abril |4.42 | 11 de abril de 2017 |

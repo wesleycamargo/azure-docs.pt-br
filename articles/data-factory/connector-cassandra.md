@@ -176,9 +176,9 @@ Ao copiar dados do Cassandra, os seguintes mapeamentos são usados de tipos de d
 | ASCII |String |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
-| BOOLEAN |Boolean |
-| DECIMAL |Decimal |
-| DOUBLE |Double |
+| Boolean |Boolean |
+| Decimal |Decimal |
+| Double |Double |
 | FLOAT |Single |
 | INET |String |
 | INT |Int32 |

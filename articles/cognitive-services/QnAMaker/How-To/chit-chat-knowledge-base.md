@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 08d09680ee1797e73666c185f4430c7ef3079477
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5d410e1015b751743c171adabda1d5bcbe68b491
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153706"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540996"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Adicionar bate-papo à base de dados de conhecimento
 
@@ -24,17 +24,19 @@ Adicionar bate-papo ao seu bot o torna mais comunicativo e interessante. O recur
 
 Esse conjunto de dados tem cerca de 100 cenários de bate-papo de chit a voz de várias pessoas, como profissional, amigável e Witty. Escolha a persona que mais se assemelha à voz do seu bot. Dada uma consulta de usuário, o QnA Maker tenta correspondê-la às perguntas e respostas do bate-papo conhecido mais próximo.  
 
-Alguns exemplos das personalidades diferentes estão abaixo. Você pode ver todos os conjuntos de dados personalidade juntamente com detalhes das personalidades [aqui](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets).
+Alguns exemplos das personalidades diferentes estão abaixo. Você pode ver todos os a personalidade [conjuntos de dados](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) juntamente com detalhes das personalidades.
+
+Para a consulta de usuário do `When is your birthday?`, cada personalidade tem uma resposta com estilo:
 
 <!-- added quotes so acrolinx doesn't score these sentences -->
-|Consulta do usuário|Profissional|Amigável|Geniais|
-|--|--|--|--|
-|`You are awesome`|`I aim to serve.`|`Aw, I'm blushing.`|`Flattery. I like it.`|
-|`Are you hungry?`|`I don't need to eat.`|`I only do food for thought.`|`Eating would require a lot of things I don't have. Like a digestive system. And silverware.`|
-|`Sing a song`|`I'm afraid I'm not musically inclined.`|`La la la, tra la la. I'm awesome at this.`|`Those who can, do. Those who can't, don't sing.`|
-|`Will you marry me?`|`I think it's best if we stick to a professional relationship.`|`Definitely didn't see that coming!`|`Sure. Take me to city hall. See what happens.`|
-
-
+|Personalidade|Exemplo|
+|--|--|
+|Profissional|Idade não se aplica a mim.|
+|Amigável|Eu realmente não tenho uma idade.|
+|Geniais|Eu estou livre de idade.|
+|Vençam|Não tenho uma idade.|
+|Entusiástica|Eu sou um bot, portanto, não tenho uma idade.|
+||
 
 > [!NOTE]
 > No momento, o bate-papo está disponível apenas em inglês. 

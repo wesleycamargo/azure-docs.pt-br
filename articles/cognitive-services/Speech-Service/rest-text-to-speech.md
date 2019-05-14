@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 9cbd924f87ff2f5b38f67a1bf7db34c36e9c264b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 8ebd871c314d3ecbc0c89e6c9081926558b181fd
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020453"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65237106"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST conversão de texto em fala
 
@@ -44,31 +44,31 @@ O `voices/list` ponto de extremidade permite que você obtenha uma lista complet
 
 | Região | Ponto de extremidade |
 |--------|----------|
-| Leste da Austrália | https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Sul do Brasil | https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Canadá Central | https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Centro dos EUA | https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Ásia Oriental | https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Leste dos EUA | https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Leste dos EUA 2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| França Central | https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Centro da Índia | https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Leste do Japão | https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Coreia Central | https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Centro-Norte dos EUA | https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Norte da Europa | https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Centro-Sul dos Estados Unidos | https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Sudeste Asiático | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Sul do Reino Unido | https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Europa Ocidental | https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Oeste dos EUA | https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Oeste dos EUA 2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Leste da Austrália | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Sul do Brasil | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Canadá Central | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Centro dos EUA | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Ásia Oriental | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Leste dos EUA | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Leste dos EUA 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| França Central | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Centro da Índia | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Leste do Japão | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Coreia Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Centro-Norte dos EUA | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Norte da Europa | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Centro-Sul dos Estados Unidos | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Sudeste Asiático | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Sul do Reino Unido | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Europa Ocidental | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Oeste dos EUA | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Oeste dos EUA 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
 ### <a name="request-headers"></a>Cabeçalhos da solicitação
 
 Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações de texto em fala.
 
-| Cabeçalho | DESCRIÇÃO | Obrigatório/Opcional |
+| Cabeçalho | Descrição | Obrigatório/Opcional |
 |--------|-------------|---------------------|
 | `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Obrigatório |
 
@@ -136,13 +136,13 @@ Essa resposta foi truncada para ilustrar a estrutura de uma resposta.
 
 O código de status HTTP para cada resposta indica sucesso ou erros comuns.
 
-| Código de status HTTP | DESCRIÇÃO | Possível motivo |
+| Código de status HTTP | Descrição | Possível motivo |
 |------------------|-------------|-----------------|
 | 200 | OK | A solicitação foi bem-sucedida. |
-| 400 | Solicitação incorreta | Um parâmetro obrigatório está ausente, vazio ou nulo. Ou então, o valor passado como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é muito longo. |
+| 400 | Solicitação Inválida | Um parâmetro obrigatório está ausente, vazio ou nulo. Ou então, o valor passado como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é muito longo. |
 | 401 | Não Autorizado | A solicitação não foi autorizada. Verifique se a chave de assinatura ou o token são válidos e se estão na região correta. |
 | 429 | Número Excessivo de Solicitações | Você excedeu a cota ou a taxa de solicitações permitidas para a sua assinatura. |
-| 502 | Gateway incorreto | Problema de rede ou do servidor. Também pode indicar cabeçalhos inválidos. |
+| 502 | Gateway Incorreto | Problema de rede ou do servidor. Também pode indicar cabeçalhos inválidos. |
 
 
 ## <a name="convert-text-to-speech"></a>Converter texto em fala
@@ -159,7 +159,7 @@ Essas regiões são suportadas para text-to-speech usando a API REST. Certifique
 
 Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações de texto em fala.
 
-| Cabeçalho | DESCRIÇÃO | Obrigatório/Opcional |
+| Cabeçalho | Descrição | Obrigatório/Opcional |
 |--------|-------------|---------------------|
 | `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Obrigatório |
 | `Content-Type` | Especifica o tipo de conteúdo para o texto fornecido. Aceita o valor: `application/ssml+xml`. | Obrigatório |
@@ -219,14 +219,14 @@ Confira nossos guias de início rápido para obter exemplos específicos de idio
 
 O código de status HTTP para cada resposta indica sucesso ou erros comuns.
 
-| Código de status HTTP | DESCRIÇÃO | Possível motivo |
+| Código de status HTTP | Descrição | Possível motivo |
 |------------------|-------------|-----------------|
 | 200 | OK | A solicitação foi bem-sucedida. O corpo da resposta é um arquivo de áudio. |
-| 400 | Solicitação incorreta | Um parâmetro obrigatório está ausente, vazio ou nulo. Ou então, o valor passado como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é muito longo. |
+| 400 | Solicitação Inválida | Um parâmetro obrigatório está ausente, vazio ou nulo. Ou então, o valor passado como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é muito longo. |
 | 401 | Não Autorizado | A solicitação não foi autorizada. Verifique se a chave de assinatura ou o token são válidos e se estão na região correta. |
 | 413 | Entidade de solicitação muito grande | A entrada de SSML tem mais de 1024 caracteres. |
 | 429 | Número Excessivo de Solicitações | Você excedeu a cota ou a taxa de solicitações permitidas para a sua assinatura. |
-| 502 | Gateway incorreto | Problema de rede ou do servidor. Também pode indicar cabeçalhos inválidos. |
+| 502 | Gateway Incorreto | Problema de rede ou do servidor. Também pode indicar cabeçalhos inválidos. |
 
 Se o status HTTP for `200 OK`, o corpo da resposta conterá um arquivo de áudio no formato solicitado. Este arquivo pode ser reproduzido enquanto é transferido, salvo em um buffer ou salvo em um arquivo.
 

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06b6fdf7a3d21a6b7dc84c4347824d4eaeac046f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7f37c501bb53b3b73c30d02d00d49515f907e4ae
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918407"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463625"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma assinatura do Azure ao seu locatário do Azure Active Directory
 
@@ -64,8 +64,8 @@ Antes de associar ou adicionar sua assinatura, você deve executar as seguintes 
 
     O diretório é alterado para a assinatura e você recebe uma mensagem de sucesso.
 
-    ![Mensagem de sucesso sobre alteração de diretório](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
-4. Use o **seletor de diretório** para ir para seu novo diretório. Pode levar até 10 minutos para que tudo seja mostrado corretamente.
+    ![Mensagem de sucesso sobre alteração de diretório](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
+4. Use o **seletor de diretório** para ir para seu novo diretório. Pode levar várias horas para que tudo seja mostrado corretamente. Se isso parece estar demorando muito tempo, verifique se você marcou a **filtro de assinatura Global** para a assinatura movida, para garantir que ele é simplesmente não oculto.
 
     ![Página do seletor de diretório, com informações de exemplo](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 

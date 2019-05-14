@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 981198063b8e0951d4a4a4c4627d4b7966f34154
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c85ee31a54cdbbb09686a2d20200f65fdcd8994a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148972"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235900"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>Escolha entre as camadas de serviço vCore e migrar de camadas de serviço DTU
 
@@ -44,7 +44,7 @@ A tabela a seguir ajuda a reconhecer as diferenças entre as três camadas:
 |Computação|**Provisionado computação**:<br/>Gen4: 1 a 24 vCore<br/>Gen5: 2 a 80 vCore<br/>**Computação sem servidor**<br/>Gen5: 0,5 - vCore 4|**Provisionado computação**:<br/>Gen4: 1 a 24 vCore<br/>Gen5: 2 a 80 vCore|**Provisionado computação**:<br/>Gen4: 1 a 24 vCore<br/>Gen5: 2 a 80 vCore|
 |Memória|**Provisionado computação**:<br/>Gen4: 7 GB por vCore<br/>Gen5: 5.1 GB por vCore<br/>**Computação sem servidor**<br/>Gen5: 3 GB por vCore|**Provisionado computação**:<br/>Gen4: 7 GB por vCore<br/>Gen5: 5.1 GB por vCore |**Provisionado computação**:<br/>Gen4: 7 GB por vCore<br/>Gen5: 5.1 GB por vCore|
 |Armazenamento|Utiliza o armazenamento remoto:<br/>**Banco de dados único provisionado computação**:<br/>5 GB – 4 TB<br/>**Computação sem servidor de banco de dados único**:<br/>5 GB – 1 TB<br/>**A instância gerenciada do**: 32 GB - 8 TB |Use o armazenamento SSD local:<br/>**Banco de dados único provisionado computação**:<br/>5 GB – 4 TB<br/>**A instância gerenciada do**:<br/>32 GB - 4 TB |Aumento automático flexível, de armazenamento conforme necessário. Compatível com até 100 TB de armazenamento e muito mais. Armazenamento SSD local para o cache do pool de buffers local e o armazenamento de dados local. Armazenamento remoto do Azure como armazenamento de dados de longo prazo final. |
-|Memória|Gen4: 7 GB por núcleo<br>Gen5: 5,1 GB por núcleo | Gen4: 7 GB por núcleo<br>Gen5: 5,1 GB por núcleo |Gen5: 5,1 GB por núcleo|
+|Memória|Gen4: 7 GB por núcleo<br>Gen5: 5,1 GB por núcleo | Gen4: 7 GB por núcleo<br>Gen5: 5,1 GB por núcleo |Gen4: 7 GB por núcleo<br>Gen5: 5,1 GB por núcleo|
 |Armazenamento|Utiliza o armazenamento remoto:<br/>Banco de dados individual: 5 GB – 4 TB<br/>Instância Gerenciada: 32 GB - 8 TB |Use o armazenamento SSD local:<br/>Banco de dados individual: 5 GB – 4 TB<br/>Instância Gerenciada: 32 GB - 4 TB |Aumento automático flexível, de armazenamento conforme necessário. Compatível com até 100 TB de armazenamento e muito mais. Armazenamento SSD local para o cache do pool de buffers local e o armazenamento de dados local. Armazenamento remoto do Azure como armazenamento de dados de longo prazo final. |
 |Taxa de transferência de E/S (aproximada)|Banco de dados individual: 500 IOPS por vCore com máximo de 7.000 IOPS</br>Instância Gerenciada: Depende do [tamanho do arquivo](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS por núcleo com máximo de 200.000 IOPS|TBD|
 |Disponibilidade|1 réplica, sem escala de leitura|3 réplicas, 1 [réplica em escala de leitura](sql-database-read-scale-out.md),<br/>HA com redundância de zona|réplica de leitura/1 gravação além de 0 a 4 [réplicas de escala de leitura](sql-database-read-scale-out.md)|

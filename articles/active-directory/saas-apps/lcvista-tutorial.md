@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7d2920e84e0e1e61627afe1fe029e047e13ed02
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 819f7d12f0554145295a0ec4f1eff7cb404d552d
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276400"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406962"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lcvista"></a>Tutorial: Integração do Azure Active Directory ao LCVista
 
@@ -140,13 +140,13 @@ Para configurar o logon único do Azure AD com o LCVista, execute as seguintes e
 
     c. Abra o arquivo XML de Metadados que você baixou do portal do Azure no Bloco de Notas, copie o valor **X509Certificate** e cole-o na seção **Certificado X509**.
 
-    d. Na caixa de texto **Atributo de nome**, cole o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    d. Na caixa de texto **Atributo de nome**, cole o valor `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    e. Na caixa de texto **Atributo de sobrenome**, cole o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    e. Na caixa de texto **Atributo de sobrenome**, cole o valor `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
-    f. Na caixa de texto **Atributo de email**, cole o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    f. Na caixa de texto **Atributo de email**, cole o valor `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    g. Na caixa de texto **Atributo de nome de usuário**, cole o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    g. Na caixa de texto **Atributo de nome de usuário**, cole o valor `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     e. Clique em **Salvar** para salvar as configurações.
 

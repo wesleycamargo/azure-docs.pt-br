@@ -10,28 +10,34 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 0cd08e1191c68c57975d3e68648134925155e7f2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bce260d2a6b897d3e45b231df4eecd7ecb31ba31
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025594"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143253"
 ---
 # <a name="personalizer-settings"></a>Configurações do Personalizador
 
 A configuração do serviço inclui como o serviço trata as recompensas, com que frequência o serviço faz explorações, com que frequência o modelo é treinado novamente e quantos dados são armazenados.
 
+## <a name="create-personalizer-resource"></a>Crie um recurso do Personalizador
+
 Crie um recurso do Personalizador para cada loop de comentários. 
+
+1. Entre no [Portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). O link anterior leva você à página **Criar** do serviço do Personalizador. 
+1. Insira o nome do seu serviço, selecione uma assinatura, um local, um tipo de preço e um grupo de recursos.
+1. Selecione a confirmação e, em seguida, **Criar**.
 
 ## <a name="configure-service-settings-in-the-azure-portal"></a>Definir as configurações do serviço no portal do Azure
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
 1. Encontre o recurso do Personalizador. 
 1. Na seção **Gerenciamento de recursos**, selecione **Configurações**.
 
-    ![Entre no Portal do Azure. Encontre o recurso do Personalizador. Na seção Gerenciamento de recursos, selecione Configurações.](media/settings/how-to-configure.png)
+    Antes de sair do portal do Azure, copie uma de suas chaves de recurso da página de **Chaves**. Você precisará disso para usar o [SDK do Personalizador](https://aka.ms/personalizer-dotnet-sdk-docs).
 
-### <a name="reward-settings-for-the-feedback-loop"></a>Configurações de recompensa para o loop de comentários
+### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>Defina as configurações de recompensa para o loop de comentários com base no caso de uso
 
 Defina as configurações do serviço para uso do loop de comentários de recompensas. As alterações nas seguintes configurações redefinirão o modelo atual do Personalizador e o treinarão novamente com os dois últimos dias de dados:
 
@@ -81,4 +87,4 @@ Na seção do Gerenciamento de recursos de **Modelo e Política**, importe uma n
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Aprendizado de reforço](concepts-reinforcement-learning.md) 
+[Como usar o contêiner do Personalizador](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)

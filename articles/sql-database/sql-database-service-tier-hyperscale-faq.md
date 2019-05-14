@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 55b18051f2376a59fa79b11cccc9e71cad5debbc
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.date: 05/06/2019
+ms.openlocfilehash: 4f0691dcc8a0c4b0ebbfe26a49b75b86fa50f597
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067799"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236024"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Perguntas frequentes sobre bancos de dados SQL do Azure da Hiperescala
 
@@ -73,11 +73,7 @@ A camada de serviço Hiperescala destina-se principalmente a clientes que possue
 
 ### <a name="what-regions-currently-support-hyperscale"></a>Quais regiões atualmente dão suporte em Hiperescala
 
-A camada de hiperescala de banco de dados SQL do Azure está atualmente disponível nas seguintes regiões:
-
-Leste da Austrália, Sudeste da Austrália, Sul do Brasil, Central do Canadá, centro dos EUA, Ásia Oriental, Leste dos EUA, Leste EUA 2, França Central, Leste do Japão, oeste do Japão, Centro-Norte dos EUA, Norte da Europa, África do Sul Norte, Centro-Sul dos EUA, Sudeste Asiático, Reino Unido Sul da Índia, oeste do Reino Unido, Europa Ocidental , Oeste dos EUA, oeste dos EUA 2
-
-Ver [visão geral de hiperescala de banco de dados SQL do Azure](sql-database-service-tier-hyperscale-faq.md) para o procedimento se você precisar de acesso em outra região.
+A camada de hiperescala de banco de dados SQL do Azure está atualmente disponível nas regiões listadas sob [visão geral de hiperescala de banco de dados SQL do Azure](sql-database-service-tier-hyperscale.md#regions).
 
 ### <a name="can-i-create-multiple-hyperscale-databases-per-logical-server"></a>Posso criar vários bancos de dados de Hiperescala por servidor lógico
 

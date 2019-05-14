@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/02/2019
+ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 4b022d3a51a6a1ef16c7d02aa76c5313e1a94e7e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0afa1937b5122d7cdf890176b616c433a63b25a2
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283947"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192215"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-connect"></a>Tutorial: Integração do Azure Active Directory ao Mitel Connect
 
@@ -104,12 +104,18 @@ Para configurar o logon único do Azure AD com o Mitel Connect, execute as segui
 
     ![Informações de logon único de Domínio e URLs do Mitel Connect](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://auth.mitel.io/authorize?client_id=<CLIENT ID>`
+     a. Na caixa de texto **URL de logon**, digite uma URL:
+
+    | |
+    |--|
+    | `https://portal.shoretelsky.com`|
+    | `https://teamwork.shoretel.com`|
+    | |
 
     b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://authentication.api.mitel.io/2017-09-01/saml2/<account-uui>`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [equipe de suporte do cliente do Mitel Connect](https://www.mitel.com/support/mitel-technical-support) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > O valor do Identificador não é real. Atualize esse valor com o Identificador real. Entre em contato com a [equipe de suporte ao cliente do Mitel Connect](https://www.mitel.com/support/mitel-technical-support) para obter esse valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 5. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -147,7 +153,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
      a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
+    b. No campo **Nome de usuário**, digite brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com.
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
@@ -183,7 +189,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 Nesta seção, você criará uma usuária chamado Brenda Fernandes no Mitel Connect. Trabalhe com a  [equipe de suporte do Mitel Connect](https://www.mitel.com/support/mitel-technical-support) para adicionar os usuários na plataforma Mitel Connect. Os usuários devem ser criados e ativados antes de usar o logon único.
 
-### <a name="test-single-sign-on"></a>Testar logon único 
+### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
@@ -196,4 +202,3 @@ Ao clicar no bloco do Mitel Connect no painel de acesso, você será conectado a
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

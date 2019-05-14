@@ -2,18 +2,18 @@
 title: Arquivo de inclusão
 description: Arquivo de inclusão
 services: virtual-machines
-author: rockboyfor
+author: roygara
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/13/2019
-ms.author: v-yeche
+ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 88a4110d68dc8aa921d647f90de654d2ebb4e17d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 885bc1c627626ee7ba4f391be31131b18fa1ab39
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60618009"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65211915"
 ---
 ## <a name="premium-ssd"></a>SSD Premium
 
@@ -22,12 +22,16 @@ Os SSDs Premium do Azure oferecem compatibilidade de disco de alto desempenho e 
 ### <a name="disk-size"></a>Tamanho do disco
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
+Quando você provisiona um disco de armazenamento premium, ao contrário do armazenamento padrão, a capacidade, IOPS e taxa de transferência de disco são garantidos. Por exemplo, se você criar um disco P50, o Azure provisionará uma capacidade de armazenamento de 4.095 GB, 7.500 IOPS e uma taxa de transferência de 250 MB/s para o disco. O aplicativo pode usar a capacidade e o desempenho no todo ou em parte. Os discos SSD Premium são projetados para oferecer desempenho 99,9% do tempo de destino.
+
 ## <a name="standard-ssd"></a>SSD Standard
 
 Os SSDs Standard do Azure são uma opção econômica de armazenamento otimizado para cargas de trabalho que necessitam de desempenho consistente em níveis de IOPS mais baixos. SSD padrão oferece uma experiência de bom nível de entrada para aqueles que desejam migrar para a nuvem, especialmente se passar por problemas com a variação das cargas de trabalho em execução nas soluções de HD no local. Os SSDs Standard oferecem melhor disponibilidade, consistência, confiabilidade e latência em comparação aos discos HD. Os SSDs Standard são adequado para servidores Web, servidores de aplicativos de IOPS baixo, aplicativos empresariais pouco usados e cargas de trabalho de Desenvolvimento/Teste.
 
 ### <a name="disk-size"></a>Tamanho do disco
 [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
+
+SSDs padrão é projetado para fornecer latências de milissegundo de dígito único para a maioria das operações de e/s e entregar o IOPS e taxa de transferência até os limites descritos a tabela 99% do tempo anterior. IOPS e taxa de transferência reais podem variar, às vezes, dependendo dos padrões de tráfego. SSDs Padrão fornecerão um desempenho mais consistente do que os discos HD com a menor latência.
 
 ## <a name="standard-hdd"></a>HDD Standard
 

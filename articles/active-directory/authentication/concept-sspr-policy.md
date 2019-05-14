@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d9055ef11bc5c117efc6d4de87d4ca8ec73a661
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d99169fc38f3976b35a0ebbdd6605450fbd3e2e9
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359017"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412872"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas e restrições de senha do Active Directory do Azure
 
@@ -34,8 +34,8 @@ A política de duas portas requer dois tipos de dados de autenticação, como um
   * Administrador de assistência técnica
   * Administrador de suporte a serviço
   * Administrador de cobrança
-  * Suporte de camada 1 do parceiro
-  * Suporte de camada 2 do parceiro
+  * Suporte de Camada1 a Parceiros
+  * Suporte de Camada2 a Parceiros
   * Administrador do Exchange
   * Administrador do Skype for Business
   * Administrador de usuários
@@ -45,7 +45,7 @@ A política de duas portas requer dois tipos de dados de autenticação, como um
   * Administrador de conformidade
   * Administrador de aplicativos
   * Administrador de segurança
-  * Administrador de função com privilégios
+  * Administrador de funções com privilégios
   * Administrador do Intune
   * Administrador de serviços de Proxy do aplicativo
   * Administrador do Dynamics 365
@@ -110,24 +110,51 @@ Para começar, primeiramente é preciso [baixar e instalar o módulo PowerShell 
 1. Conecte-se ao Windows PowerShell usando o administrador de usuários ou as credenciais de administrador da empresa.
 1. Execute um dos seguintes comandos:
 
-   * Para ver se a senha de um único usuário está definida para nunca expirar, execute o seguinte cmdlet usando o UPN (por exemplo, *aprilr\@contoso.onmicrosoft.com*) ou a ID de usuário do usuário que você deseja verificar: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
-   * Para ver a configuração **Senha nunca expira** para todos os usuários, execute o seguinte cmdlet: `Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
+   * Para ver se a senha de um único usuário está definida para nunca expirar, execute o seguinte cmdlet usando o UPN (por exemplo, *aprilr\@contoso.onmicrosoft.com*) ou a ID de usuário do usuário que você deseja verificar:
+
+   ```powershell
+   Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
+   ```
+
+   * Para ver os **a senha nunca expira** configuração para todos os usuários, execute o seguinte cmdlet:
+
+   ```powershell
+   Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}
+   ```
 
 ### <a name="set-a-password-to-expire"></a>Definir uma senha para expirar
 
 1. Conecte-se ao Windows PowerShell usando o administrador de usuários ou as credenciais de administrador da empresa.
 1. Execute um dos seguintes comandos:
 
-   * Para definir a senha de um usuário para que ela expire, execute o seguinte cmdlet usando o UPN ou a ID do usuário: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None`
-   * Para definir as senhas de todos os usuários da organização para que elas expirem, use o seguinte cmdlet: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None`
+   * Para definir a senha de um usuário para que a senha expirar, execute o seguinte cmdlet usando o UPN ou a ID de usuário do usuário:
+
+   ```powershell
+   Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None
+   ```
+
+   * Para definir as senhas de todos os usuários na organização para que elas expirem, use o seguinte cmdlet:
+
+   ```powershell
+   Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None
+   ```
 
 ### <a name="set-a-password-to-never-expire"></a>Definir uma senha para nunca expirar
 
 1. Conecte-se ao Windows PowerShell usando o administrador de usuários ou as credenciais de administrador da empresa.
 1. Execute um dos seguintes comandos:
 
-   * Para definir a senha de um usuário para que ela nunca expire, execute o seguinte cmdlet usando o UPN ou a ID do usuário: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration`
-   * Para definir as senhas de todos os usuários em uma organização para nunca expirar, execute o seguinte cmdlet: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration`
+   * Para definir a senha de um usuário para nunca expirar, execute o seguinte cmdlet usando o UPN ou a ID de usuário do usuário:
+
+   ```powershell
+   Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration
+   ```
+
+   * Para definir as senhas de todos os usuários em uma organização para nunca expirar, execute o seguinte cmdlet:
+
+   ```powershell
+   Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration
+   ```
 
    > [!WARNING]
    > Senhas definidas como `-PasswordPolicies DisablePasswordExpiration` ainda expiram com base no atributo `pwdLastSet`. Se você definir as senhas de usuário para nunca expirar e, então, mais de 90 dias depois, as senhas expiram. Com base no atributo `pwdLastSet`, se você alterar a expiração para `-PasswordPolicies None`, todas as senhas que tenham um `pwdLastSet` com idade acima de 90 dias exigirão que o usuário as altere na próxima vez que entrarem. Essa alteração pode afetar um grande número de usuários. 

@@ -11,16 +11,16 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 72e43ac295fcb007dd58b2b7792a16c639ee9c08
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 64ba7096f181371a378708e024f46bce17449e98
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023728"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510580"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar automatizados experimentos do ML no Python
 
-Neste guia, saiba como definir vários parâmetros de configuração de seu automatizado experimentos de machine learning com o [SDK do Azure Machine Learning](https://docs.microsoft.com/en-us/python/api/overview/azure/ml/intro?view=azure-ml-py). O aprendizado de máquina automatizado escolhe um algoritmo e hiperparâmetros para você e gera um modelo pronto para implantação. Há várias opções que você pode usar para configurar experimentos de aprendizado de máquina automatizados.
+Neste guia, saiba como definir vários parâmetros de configuração de seu automatizado experimentos de machine learning com o [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). O aprendizado de máquina automatizado escolhe um algoritmo e hiperparâmetros para você e gera um modelo pronto para implantação. Há várias opções que você pode usar para configurar experimentos de aprendizado de máquina automatizados.
 
 Para exibir exemplos de experimentos de aprendizado de máquina automatizados, confira [Tutorial: Treinar um modelo de classificação com aprendizado de máquina automatizado](tutorial-auto-train-models.md) ou [Treinar modelos com aprendizado de máquina automatizado na nuvem](how-to-auto-train-remote.md).
 
@@ -115,7 +115,7 @@ automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", 
 
 O script `get_data` pode retornar:
 
-Chave | Type | Mutuamente exclusivo com    | DESCRIÇÃO
+Chave | Type | Mutuamente exclusivo com    | Descrição
 ---|---|---|---
 X | Dataframe do Pandas ou matriz Numpy | data_train, rótulo, colunas |  Todos os recursos a serem treinados com
 y | Dataframe do Pandas ou matriz Numpy |   label   | Rotular dados a serem treinados com. Para classificação, precisa ser uma matriz de inteiros.
@@ -137,7 +137,7 @@ Automatizado experimentos de machine learning dá suporte ao carregamento de dad
 >* Adicionar coluna usando uma expressão
 >* Acrescentar valores ausentes
 >* Derivar colunas por exemplo
->* Filtragem
+>* Filtrando
 >* Transformações personalizadas de Python
 
 Para saber mais sobre o sdk de preparação de dados, confira o artigo [Como se preparar para a modelagem](how-to-load-data.md).
@@ -299,7 +299,7 @@ Será possível exibir os resultados em um widget ou embutidos se você estiver 
 ### <a name="classification-metrics"></a>Métricas de classificação
 As métricas a seguir são salvas em cada iteração para uma tarefa de classificação.
 
-|Métrica|DESCRIÇÃO|Cálculo|Parâmetros adicionais
+|Métrica|Descrição|Cálculo|Parâmetros adicionais
 --|--|--|--|
 AUC_Macro| AUC é a área embaixo da Curva característica operacional do receptor. Macro é a média aritmética do AUC para cada classe.  | [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
 AUC_Micro| AUC é a área embaixo da Curva característica operacional do receptor. Micro é calculado globalmente combinando os positivos verdadeiros e falsos positivos de cada classe| [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
@@ -325,7 +325,7 @@ weighted_accuracy|Precisão ponderada é a precisão em que o peso dado a cada e
 ### <a name="regression-and-time-series-forecasting-metrics"></a>Métricas de previsão de série de tempo e de regressão
 As métricas a seguir são salvas em cada iteração para uma tarefa de regressão ou de previsão.
 
-|Métrica|DESCRIÇÃO|Cálculo|Parâmetros adicionais
+|Métrica|Descrição|Cálculo|Parâmetros adicionais
 --|--|--|--|
 explained_variance|A variação explicada é a proporção na qual um modelo matemático responde pela variação de determinado conjunto de dados. É o percentual de redução na variação dos dados originais para a variação dos erros. Quando a média dos erros é 0, ela é igual à variação explicada.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Nenhum|
 r2_score|R2 é o coeficiente de determinação ou a redução de percentual em erros quadráticos, comparado a um modelo de linha de base que gera a média. Quando a média dos erros é 0, ela é igual à variação explicada.|[Cálculo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Nenhum|

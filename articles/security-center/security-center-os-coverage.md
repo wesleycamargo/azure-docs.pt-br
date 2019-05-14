@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/17/2019
+ms.date: 5/02/2019
 ms.author: monhaber
-ms.openlocfilehash: b5eafd15344156965d0a191688f602ffe1b5a498
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4e334af353e1d9556641914056ab0a3071ca361e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703567"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233606"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plataformas e recursos compatíveis com a Central de Segurança do Azure
 
@@ -78,11 +78,11 @@ VMs que são executadas em um serviço de nuvem também são compatíveis. Apena
 |Integração com o Windows Defender ATP|✔ (em versões compatíveis)|✔|X|X|
 |Patches ausentes|✔|✔|✔|✔|
 |Configurações de segurança|✔|✔|✔|✔|
-|Proteção do ponto de extremidade|✔|✔|X|X|
+|Endpoint Protection|✔|✔|X|X|
 |Acesso à VM JIT|✔|X|✔|X|
-|Controles de aplicativo adaptáveis|✔|X|X|X|
+|Controles de aplicativo adaptáveis|✔|✔|✔|✔|
 |FIM|✔|✔|✔|✔|
-|Criptografia do disco|✔|X|✔|X|
+|Criptografia de disco|✔|X|✔|X|
 |Implantação de terceiros|✔|X|✔|X|
 |NSGs|✔|X|✔|X|
 |Detecção de ameaças sem arquivo|✔|✔|X|X|
@@ -96,15 +96,15 @@ A tabela a seguir fornece uma matriz de:
  - Se você pode usar a Central de Segurança do Azure para instalar cada solução para você.
  - Quais soluções de proteção de ponto de extremidade a Central de Segurança pode descobrir. Se uma dessas soluções de proteção de ponto de extremidade for descoberta, a Central de Segurança não recomendará a instalação de uma.
 
-| Proteção do ponto de extremidade| Plataformas | Instalação da Central de Segurança | Descoberta da Central de Segurança |
+| Endpoint Protection| Plataformas | Instalação da Central de Segurança | Descoberta da Central de Segurança |
 |------|------|-----|-----|
 | Windows Defender (Microsoft Antimalware)| Windows Server 2016| Não, Integrado no SO| Sim |
 | System Center Endpoint Protection (antimalware da Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 (consulte a observação abaixo) | Via extensão | Sim |
-| Trend Micro – Todas as versões | Família Windows Server  | Não  | Sim |
-| Symantec v12.1.1100+| Família Windows Server  | Não  | Sim |
-| McAfee v10+ | Família Windows Server  | Não  | Sim |
-| Kaspersky| Família Windows Server  | Não  | Não   |
-| Sophos| Família Windows Server  | Não  | Não   |
+| Trend Micro – Todas as versões | Família Windows Server  | Não | Sim |
+| Symantec v12.1.1100+| Família Windows Server  | Não | Sim |
+| McAfee v10+ | Família Windows Server  | Não | Sim |
+| Kaspersky| Família Windows Server  | Não | Não  |
+| Sophos| Família Windows Server  | Não | Não  |
 
 > [!NOTE]
 > - A detecção do System Center Endpoint Protection (SCEP) em uma máquina virtual do Windows Server 2008 R2 exige que o SCEP seja instalado após o PowerShell 3.0 (ou uma versão superior).

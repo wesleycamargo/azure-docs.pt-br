@@ -13,14 +13,14 @@ ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 04/30/2019
 ms.author: jowargo
-ms.openlocfilehash: da2f9f8c8f9579d315f7df9e050ee07a5fb9cab4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 03d4c269f76a89c43dec253367d07f3bf71a06d8
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842468"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141206"
 ---
 # <a name="what-is-azure-notification-hubs"></a>O que são Hubs de Notificação do Azure?
 
@@ -35,7 +35,7 @@ Os Hubs de Notificação do Azure fornecem um mecanismo de push expansível e f�
 
 ## <a name="what-are-push-notifications"></a>O que são notificações por push?
 
-Notificações por push são uma forma de comunicação do aplicativo para o usuário na qual os usuários de aplicativos móveis recebem notificações sobre determinadas informações desejadas, geralmente em uma caixa de diálogo ou pop-up. Geralmente, os usuários podem optar por exibir ou ignorar a mensagem. Escolher a primeira opção abre o aplicativo móvel que comunicou a notificação.
+As notificações por push são uma forma de comunicação do aplicativo para o usuário na qual os usuários de aplicativos móveis recebem notificações sobre determinadas informações desejadas, geralmente em uma caixa de diálogo ou pop-up em um dispositivo móvel. Geralmente, os usuários podem optar por exibir ou ignorar a mensagem; ao optar por exibir a mensagem, ela será aberta no aplicativo móvel que enviou a notificação. Algumas notificações são silenciosas – entregues em segundo plano para o aplicativo para que ele as processe em segundo plano e decida o que fazer.
 
 As notificações por push são fundamentais para os aplicativos direcionados ao consumidor no aumento da interação e do uso do aplicativo e para os aplicativos empresariais na comunicação de informações atualizadas da empresa. É a melhor forma de comunicação de aplicativos para o usuário, porque oferece baixo consumo de bateria para dispositivos móveis, é flexível para os remetentes das notificações e permanece disponível mesmo quando os aplicativos correspondentes não estiverem ativos.
 
@@ -47,11 +47,11 @@ Saiba mais sobre as notificações por push em algumas plataformas populares, co
 
 ## <a name="how-push-notifications-work"></a>Como as notificações por push funcionam?
 
-As notificações por push são fornecidas por meio de infraestruturas específicas à plataforma chamadas de *Sistemas de Notificação de Plataforma* (PNS). Eles oferecem funcionalidades de push barebone para enviar mensagens para um dispositivo com um identificador fornecido e não contam com interfaces comuns. Para enviar uma notificação para todos os clientes entre as versões iOS, Android e Windows de um aplicativo, o desenvolvedor deve trabalhar com APNS (Apple Push Notification Service), FCM (Firebase Cloud Messaging) e WNS (serviço de notificação do Windows).
+As notificações por push são fornecidas por meio de infraestruturas específicas à plataforma chamadas de *Sistemas de Notificação de Plataforma* (PNS). Eles oferecem funcionalidades de push barebone para enviar mensagens para um dispositivo com um identificador fornecido e não contam com interfaces comuns. Para enviar uma notificação para todos os clientes entre as versões iOS, Android e Windows de um aplicativo, o desenvolvedor deve trabalhar com APNS (Apple Push Notification Service), FCM (Firebase Cloud Messaging) e WNS (serviço de notificação do Windows) separadamente.
 
 Em um alto nível, é assim que o push funciona:
 
-1. O aplicativo cliente decide que deseja receber a notificação. Portanto, ele contata o Sistema de Notificação de Plataforma (PNS) correspondente para recuperar seu identificador push exclusivo e temporário. O tipo de identificador depende do sistema (por exemplo, o WNS tem URIs, enquanto o APNS tem tokens).
+1. Um aplicativo decide que deseja receber notificações, então entra em contato com o PNS da plataforma de destino em que o aplicativo está sendo executado e solicita um identificador push único e temporário. O tipo de identificador depende do sistema (por exemplo, o WNS usa URIs, enquanto o APNS usa tokens).
 2. O aplicativo cliente armazena esse identificador no back-end do aplicativo ou provedor.
 3. Para enviar uma notificação por push, o back-end do aplicativo entra em contato com o PNS usando o identificador para selecionar um aplicativo cliente específico.
 4. O PNS encaminha a notificação para o dispositivo especificado pelo identificador.
@@ -65,9 +65,9 @@ Os PNSes são eficientes. No entanto, ainda há muito trabalho para o desenvolve
 As notificações por push requerem uma infraestrutura complexa que não está relacionada à lógica de negócios principal do aplicativo. Alguns dos desafios de infraestrutura são:
 
 - **Dependência de plataforma**
-  - O back-end deve ter uma lógica dependente de plataforma complexa e difícil de manter para enviar notificações para dispositivos em várias plataformas, já que os PNS não são unificados.
+  - O back-end requer uma lógica dependente de plataforma complexa e difícil de manter para enviar notificações para dispositivos em várias plataformas, já que os PNSs não estão unificados.
 - **Escala**
-  - De acordo com as diretrizes de PNS, os tokens de dispositivo deverão ser atualizados sempre que o aplicativo for iniciado. O back-end está lidando com uma grande quantidade de tráfego e acesso ao banco de dados apenas para manter os tokens atualizados. Quando o número de dispositivos aumenta para milhões e milhares de milhões, o custo da criação e manutenção dessa infraestrutura é enorme.
+  - De acordo com as diretrizes de PNS, os tokens de dispositivo deverão ser atualizados sempre que o aplicativo for iniciado. O back-end lida com uma grande quantidade de tráfego e acesso ao banco de dados apenas para manter os tokens atualizados. Quando o número de dispositivos aumenta para centenas, milhares ou milhões, o custo da criação e manutenção dessa infraestrutura é enorme.
   - A maioria dos PNS não dá suporte à transmissão para vários dispositivos. Uma transmissão simples para um milhão de dispositivos resulta em um milhão de chamadas para o PNS. Escalar essa quantidade de tráfego com latência mínima é uma tarefa difícil.
 - **Roteamento**
   - Embora os PNS forneçam uma maneira de enviar mensagens para dispositivos, a maioria das notificações de aplicativos são destinadas a usuários ou grupos de interesse. O back-end deve manter um registro para associar os dispositivos com grupos de interesse, usuários, propriedades, etc. Essa sobrecarga aumenta o tempo total de colocação no mercado e os custos de manutenção de um aplicativo.
@@ -105,28 +105,6 @@ Os Hubs de Notificação são o seu mecanismo por push pronto para uso com as se
   - Envie mensagens rápidas para milhões de dispositivos sem fragmentação de dispositivo ou rearquitetura.
 - **Segurança**
   - Segredo de acesso compartilhado (SAS) ou autenticação federada.
-
-## <a name="integration-with-app-service-mobile-apps"></a>Integração com Aplicativos Móveis do Serviço de Aplicativo
-
-Para facilitar uma experiência integrada e unificada nos serviços do Azure, os [Aplicativos Móveis do Serviço de Aplicativo](../app-service-mobile/app-service-mobile-value-prop.md) possui suporte interno para notificações de push usando Hubs de notificação. [Aplicativos Móveis do Serviço de Aplicativo](../app-service-mobile/app-service-mobile-value-prop.md) oferecem uma plataforma de desenvolvimento de aplicativos móveis altamente escalonável, disponível globalmente para os desenvolvedores corporativos e integradores de sistema e que traz um conjunto rico de recursos para desenvolvedores de aplicativos móveis.
-
-Os desenvolvedores de aplicativos móveis podem utilizar Hubs de notificação com o fluxo de trabalho a seguir:
-
-1. Recuperar o identificador de PNS do dispositivo
-2. Registrar o dispositivo com Hubs de Notificação por meio da conveniente API de registro do SDK do cliente de Aplicativos Móveis
-
-    > [!NOTE]
-    > Observe que os aplicativos móveis removem imediatamente todas as marcas nos registros para fins de segurança. Trabalhar com Hubs de notificação do seu back-end diretamente para associar marcas a dispositivos.
-3. Enviar notificações do seu back-end de aplicativo com Hubs de notificação
-
-Aqui estão alguns recursos convenientes para desenvolvedores com essa integração:
-
-- **SDKs de cliente de Aplicativos Móveis**:  Estes SDKs de várias plataformas fornecem APIs simples para registro e se comunicam com o hub de notificação vinculado automaticamente com o aplicativo móvel. Os desenvolvedores não precisam se aprofundar nas credenciais de Hubs de Notificação e trabalhar com um serviço adicional.
-  - *Enviar por push para um usuário*: Os SDKs marcam automaticamente o dispositivo fornecido com a ID de usuário autenticada de Aplicativos Móveis para habilitar o envio por push para o cenário do usuário.
-  - *Enviar por push para o dispositivo*: Os SDKs usam automaticamente a ID de instalação de Aplicativos Móveis como GUID para se registrar com Hubs de Notificação, poupando os desenvolvedores da dificuldade de manter vários GUIDs de serviço.
-- **Modelo de instalação**:  Os Aplicativos Móveis funcionam com o modelo de push mais recente dos Hubs de Notificação para representar todas as propriedades de push associadas a um dispositivo em uma instalação de JSON que se alinha com Serviços de Notificação por Push e é fácil de usar.
-- **Flexibilidade**:  Os desenvolvedores sempre podem optar por trabalhar com Hubs de Notificação diretamente até mesmo com a integração em vigor.
-- **Experiência integrada no [portal do Azure](https://portal.azure.com)**:  O Push como um recurso é representado visualmente em aplicativos móveis e os desenvolvedores podem trabalhar facilmente com o hub de notificação associado por meio de aplicativos móveis.
 
 ## <a name="next-steps"></a>Próximas etapas
 

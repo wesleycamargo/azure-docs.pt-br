@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/19/2019
-ms.openlocfilehash: aa9217251965b35dd90e09c619607c9421a9f6f4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 04/22/2019
+ms.openlocfilehash: 7dcbf2733ff23b0454208dbc789599cd372278ec
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572658"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507831"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Limites do modelo de compra baseado em vCore do Banco de Dados SQL do Azure para um banco de dados individual
 
@@ -50,7 +50,7 @@ Para limites do modelo de compra baseado em DTU para bancos de dados individuais
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de destino (64 KB)|500|1000|1500|2000|2500|3000|
-|Limites de taxa de log (MBps)|2.5|5|7.5|10|12.5|15|
+|Limites de taxa de log (MBps)|3,75|7.5|11,25|15|18.75|22,5|
 |Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1000|1.200|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|1|
@@ -73,7 +73,7 @@ Para limites do modelo de compra baseado em DTU para bancos de dados individuais
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)
 |IOPS de destino (64 KB)|3500|4000|4500|5.000|7000|7000|
-|Limites de taxa de log (MBps)|17.5|20|20|20|20|20|
+|Limites de taxa de log (MBps)|26.25|30|30|30|30|30|
 |Máximo de trabalhos simultâneos (solicitações)|1.400|1600|1800|2000|3200|4800|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|1|
@@ -95,8 +95,8 @@ Para limites do modelo de compra baseado em DTU para bancos de dados individuais
 |Tamanho de TempDB (GB)|64|128|192|256|320|384|384|
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
-|IOPS de destino (64 KB)|500|1000|1500|2000|2500|3000|3500|
-|Limites de taxa de log (MBps)|2.5|56|7.5|10|12.5|15|17.5|
+|IOPS de destino (64 KB)|1000|2000|3000|4000|5.000|6000|7000|
+|Limites de taxa de log (MBps)|3,75|7.5|11,25|15|18.75|22,5|26.25|
 |Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1000|1.200|1.400|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|1|1|
@@ -118,8 +118,8 @@ Para limites do modelo de compra baseado em DTU para bancos de dados individuais
 |Tamanho de TempDB (GB)|384|384|384|384|384|384|384|
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
-|IOPS de destino (64 KB)|4000|4500|5.000|6000|7000|7000|7000|
-|Limites de taxa de log (MBps)|20|20|20|20|20|20|20|
+|IOPS de destino (64 KB)|7000|7000|7000|7000|7000|7000|7000|
+|Limites de taxa de log (MBps)|30|30|30|30|30|30|30|
 |Máximo de trabalhos simultâneos (solicitações)|1600|1800|2000|2400|3200|4000|8000|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|1|1|
@@ -127,7 +127,35 @@ Para limites do modelo de compra baseado em DTU para bancos de dados individuais
 |Escala de leitura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
-## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Camada de serviço Comercialmente Crítico: Tamanhos de armazenamento e tamanhos da computação
+### <a name="serverless-compute-tier"></a>Camada de computação sem servidor
+
+O [camada de computação sem servidor](sql-database-serverless.md) está em visualização pública e é apenas para bancos de dados individuais usando a compra de vCore do modelo.
+
+#### <a name="generation-5-compute-platform"></a>Plataforma de computação de Geração 5
+
+|Tamanho da computação|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|
+|:--- | --: |--: |--: |
+|Geração de hardware|5|5|5|
+|VCores Mín-Máx|0.5-1|0.5-2|0.5-4|
+|Mín-Máx memória (GB)|2.02-3|2.05-6|2.10-12|
+|Atraso de pausa automática min (horas)|6|6|6|
+|Suporte de columnstore|Sim|sim|Sim|
+|Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|
+|Tamanho máximo de dados (GB)|512|1024|1024|
+|Tamanho máximo de log (GB)|12|24|48|
+|Tamanho de TempDB (GB)|32|64|128|
+|Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
+|Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
+|IOPS de destino (64 KB)|250|500|1000|
+|Limites de taxa de log (MBps)|2.5|5.6|10|
+|Máximo de trabalhos simultâneos (solicitações)|75|150|300|
+|Máximo permitido de sessões|30000|30000|30000|
+|Número de réplicas|1|1|1|
+|Multi-AZ|N/D|N/D|N/D|
+|Escala de leitura|N/D|N/D|N/D|
+|Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
+
+## <a name="business-critical-service-tier-for-provisioned-compute-tier"></a>Camada de serviço críticos de negócios para a camada de computação provisionada
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Camada de serviço Comercialmente Crítico: Plataforma de computação de geração 4 (parte 1)
 
@@ -144,7 +172,7 @@ Para limites do modelo de compra baseado em DTU para bancos de dados individuais
 |Tamanho de TempDB (GB)|32|64|96|128|160|192|
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
 |IOPS de destino (64 KB)|5.000|10000|15000|20000|25000|30000|
-|Limites de taxa de log (MBps)|6|12|18|24|30|36|
+|Limites de taxa de log (MBps)|8|16|24|32|40|48|
 |Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1000|1.200|
 |Máximo de logons simultâneos|200|400|600|800|1000|1.200|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
@@ -168,7 +196,7 @@ Para limites do modelo de compra baseado em DTU para bancos de dados individuais
 |Tamanho de TempDB (GB)|224|256|288|320|384|384|
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
 |IOPS de destino (64 KB)|35.000|40000|45000|50000|80000|120000|
-|Limites de taxa de log (MBps)|42|48|54|60|64|64|
+|Limites de taxa de log (MBps)|56|64|64|64|64|64|
 |Máximo de trabalhos simultâneos (solicitações)|1.400|1600|1800|2000|3200|4800|
 |Máximo de logons simultâneos (solicitações)|1.400|1600|1800|2000|3200|4800|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
@@ -191,8 +219,8 @@ Para limites do modelo de compra baseado em DTU para bancos de dados individuais
 |Tamanho de TempDB (GB)|64|128|192|256|320|384|384|
 |Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
-|IOPS de destino (64 KB)|5.000|10000|15000|20000|25000|30000|35.000|
-|Limites de taxa de log (MBps)|6|12|18|24|30|36|42|
+|IOPS de destino (64 KB)|8000|16000|24000|32000|40000|48000|56000|
+|Limites de taxa de log (MBps)|12|24|36|48|60|72|84|
 |Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1000|1.200|1.400|
 |Máximo de logons simultâneos|200|400|600|800|1000|1.200|1.400|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
@@ -215,8 +243,8 @@ Para limites do modelo de compra baseado em DTU para bancos de dados individuais
 |Tamanho de TempDB (GB)|384|384|384|384|384|384|384|
 |Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
-|IOPS de destino (64 KB)|40000|45000|50000|60000|80000|100000|200000|
-|Limites de taxa de log (MBps)|48|54|60|72|96|96|96|
+|IOPS de destino (64 KB)|64000|72000|80000|96000|128000|160000|320000|
+|Limites de taxa de log (MBps)|96|96|96|96|96|96|96|
 |Máximo de trabalhos simultâneos (solicitações)|1600|1800|2000|2400|3200|4000|8000|
 |Máximo de logons simultâneos|1600|1800|2000|2400|3200|4000|8000|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
@@ -225,30 +253,7 @@ Para limites do modelo de compra baseado em DTU para bancos de dados individuais
 |Escala de leitura|Sim|sim|sim|sim|sim|sim|Sim|
 |Armazenamento de backup incluído|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|Tamanho de BD 1X|
 
-## <a name="hyperscale-service-tier-preview"></a>Camada de serviço em hiperescala (versão prévia)
-
-### <a name="generation-4-compute-platform-storage-sizes-and-compute-sizes"></a>Plataforma de computação de geração 4: Tamanhos de armazenamento e tamanhos da computação
-
-|Nível de desempenho|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
-|:--- | --: |--: |--: |--: |--: |--: |
-|Geração de hardware|4|4|4|4|4|4|
-|vCores|1|2|4|8|16|24|
-|Memória (GB)|7|14|28|56|112|168|
-|Suporte de columnstore|Sim|sim|sim|sim|sim|Sim|
-|Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
-|Tamanho máximo de dados (TB)|100 |100 |100 |100 |100 |100 |
-|Tamanho máximo do log (TB)|1 |1 |1 |1 |1 |1 |
-|Tamanho de TempDB (GB)|32|64|128|256|384|384|
-|Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
-|IOPS de destino (64 KB)|A ser determinado|A ser determinado|A ser determinado|A ser determinado|A ser determinado|A ser determinado|
-|Latência de E/S (aproximada)|A ser determinado|A ser determinado|A ser determinado|A ser determinado|A ser determinado|A ser determinado|
-|Máximo de trabalhos simultâneos (solicitações)|200|400|800|1600|3200|4800|
-|Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
-|Número de réplicas|2|2|2|2|2|2|
-|Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|
-|Escala de leitura|Sim|sim|sim|sim|sim|Sim|
-|Armazenamento de backup incluído|7|7|7|7|7|7|
-|||
+## <a name="hyperscale-service-tier"></a>Tipo de serviço de Hiperescala
 
 ### <a name="generation-5-compute-platform"></a>Plataforma de computação de Geração 5
 
@@ -270,7 +275,7 @@ Para limites do modelo de compra baseado em DTU para bancos de dados individuais
 |Número de réplicas|2|2|2|2|2|2|2|2|
 |Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Escala de leitura|Sim|sim|sim|sim|sim|sim|sim|Sim|
-|Armazenamento de backup incluído (limite da versão prévia)|7|7|7|7|7|7|7|7|
+|Armazenamento de backup incluído |7|7|7|7|7|7|7|7|
 |||
 
 ## <a name="next-steps"></a>Próximas etapas

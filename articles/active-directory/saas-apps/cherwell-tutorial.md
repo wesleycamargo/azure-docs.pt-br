@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: ad891f99-179e-4487-834d-35f3bc01c1ec
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 05/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fffaa266a29a500f27759adb7526d1aa6d61ccd0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 211e11b5bfd6a8bb7b1d61fec120566d60b9c5c0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915230"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191203"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cherwell"></a>Tutorial: Integração do Azure Active Directory ao Cherwell
 
@@ -38,7 +39,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para configurar a integração do Azure AD ao Cherwell, você precisa dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/)
 * Assinatura habilitada para logon único do Cherwell
 
 ## <a name="scenario-description"></a>Descrição do cenário
@@ -67,7 +68,7 @@ Para configurar a integração do Cherwell ao Azure AD, você precisa adicionar 
 
 4. Na caixa de pesquisa, digite **Cherwell**, selecione **Cherwell** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![Cherwell na lista de resultados](common/search-new-app.png)
+    ![Cherwell na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
@@ -120,13 +121,13 @@ Para configurar o logon único do Azure AD com o Cherwell, execute as seguintes 
 
     a. URL de logon
 
-    b. Identificador do Azure Ad
+    b. Identificador do Azure AD
 
     c. URL de logoff
 
 ### <a name="configure-cherwell-single-sign-on"></a>Configurar o Logon Único do Cherwell
 
-Para configurar o logon único no lado do **Cherwell**, é necessário enviar o **Certificado (Base64)** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Cherwell](https://csm.cherwell.com/contact). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Cherwell**, é necessário enviar o **Certificado (Base64)** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Cherwell](https://cherwellsupport.com/CherwellPortal). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!NOTE]
 > A equipe de suporte do Cherwell precisa fazer a configuração real do SSO. Você receberá uma notificação quando o SSO tiver sido habilitado para sua assinatura.
@@ -147,10 +148,9 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-    a. No campo **Nome**, insira **BrendaFernandes**.
+     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
-    Por exemplo, BrittaSimon@contoso.com
+    b. No campo **Nome de usuário**, digite `brittasimon\@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com.
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
@@ -184,7 +184,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
 ### <a name="create-cherwell-test-user"></a>Criar um usuário de teste do Cherwell
 
-Para permitir que os usuários do Azure AD façam logon no Cherwell, eles devem ser provisionados no Cherwell. No caso do Cherwell, as contas de usuário precisam ser criadas pela [equipe de suporte do Cherwell](https://csm.cherwell.com/contact).
+Para permitir os usuários do Azure AD entrem no Cherwell, eles deverão ser provisionados no Cherwell. No caso do Cherwell, as contas de usuário precisam ser criadas pela [equipe de suporte do Cherwell](https://cherwellsupport.com/CherwellPortal).
 
 > [!NOTE]
 > Você pode usar qualquer outra ferramenta de criação da conta de usuário do Cherwell ou as APIs fornecidas pelo Cherwell para provisionar as contas de usuário do Active Directory do Azure.

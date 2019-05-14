@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2018
+ms.date: 05/07/2019
 ms.author: kumud
-ms.openlocfilehash: 913693e684ba8640a93f50d21dd3df6a6295e1c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e488a4a6438279270f3d86dafa16c45eda184059
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884751"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415697"
 ---
 # <a name="load-balancer-health-probes"></a>Investigações de integridade do Load Balancer
 
@@ -30,7 +30,7 @@ As investigações de integridade dão suporte a vários protocolos. A disponibi
 | | SKU Standard | SKU Básico |
 | --- | --- | --- |
 | [Tipos de investigações](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Comportamento de investigação inoperante](#probedown) | Todas as investigações inoperantes, todos os fluxos TCP continuam. | Todas as investigações inoperantes, todos os fluxos TCP terminam. | 
+| [Comportamento de investigação inoperante](#probedown) | Todas as investigações inoperantes, todos os fluxos TCP continuam. | Todos os testes para baixo, todos os fluxos TCP expirarem. | 
 
 > [!IMPORTANT]
 > As investigações de integridade do Load Balancer originam-se no endereço IP 168.63.129.16 e não devem ser bloqueadas para que as investigações marquem a instância como operante.  Revisar o [endereço IP de origem da investigação](#probesource) para obter detalhes.
@@ -178,7 +178,7 @@ O Load Balancer usa um serviço de investigação distribuído para seu modelo d
 
 A marca de serviço AzureLoadBalancer identifica esse endereço IP de origem nos [grupos de segurança de rede](../virtual-network/security-overview.md) e permite o tráfego da investigação de integridade por padrão.
 
-Além de investigações de integridade do Load Balancer, as operações a seguir usam este endereço IP:
+Além de investigações de integridade do balanceador de carga, o [operações a seguir usam esse endereço IP](../virtual-network/what-is-ip-address-168-63-129-16.md):
 
 - Permite que o Agente de VM se comunique com a plataforma para sinalizar que ele está em um estado "Pronto"
 - Permite a comunicação com o servidor virtual de DNS para fornecer resolução de nome filtrado aos clientes que não definem servidores DNS personalizados.  Essa filtragem garante que cada cliente só possa resolver os nomes de host de sua própria implantação.

@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Criar um Banco de Dados do Azure para PostgreSQL usando o portal do Azure'
-description: Este tutorial mostra como criar seu primeiro Banco de Dados do Azure para PostgreSQL usando o portal do Azure.
+title: 'Tutorial: Criar um Banco de Dados do Azure para PostgreSQL – Servidor único usando o portal do Azure'
+description: Este tutorial mostra como Criar seu primeiro Banco de Dados do Azure para PostgreSQL – Servidor único usando o portal do Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
-ms.date: 03/20/2018
-ms.openlocfilehash: aed539484ac01d1b18b8374ffb57456364f9bd2c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 5/16/2019
+ms.openlocfilehash: 20eb5a59e98c06d7bce4623a6a8facd998d3be4c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119251"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069175"
 ---
-# <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Tutorial: Criar um Banco de Dados do Azure para PostgreSQL usando o portal do Azure
+# <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Tutorial: Criar um Banco de Dados do Azure para PostgreSQL – Servidor único usando o portal do Azure
 
 O Banco de Dados do Azure para PostgreSQL é um serviço gerenciado que permite executar, gerenciar e dimensionar os bancos de dados altamente disponíveis do PostgreSQL na nuvem. Usando o Portal do Azure, você pode gerenciar facilmente seu servidor e projetar um banco de dados.
 
@@ -31,9 +31,6 @@ Neste tutorial, você usará o Portal do Azure para aprender a:
 ## <a name="prerequisites"></a>Pré-requisitos
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
-Faça logon no [Portal do Azure](https://portal.azure.com).
-
 ## <a name="create-an-azure-database-for-postgresql"></a>Criar um Banco de Dados do Azure para o PostgreSQL
 
 Um Banco de Dados do Azure para PostgreSQL é criado com um conjunto definido de [recursos de computação e armazenamento](./concepts-compute-unit-and-storage.md). O servidor é criado dentro de um [Grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md).
@@ -43,34 +40,40 @@ Siga estas etapas para criar um Banco de Dados do Azure para o servidor PostgreS
 2. Selecione **Bancos de Dados** na página **Novo** e selecione **Banco de Dados do Azure para PostgreSQL** na página **Bancos de Dados**.
    ![Banco de Dados do Azure para PostgreSQL – Criar o banco de dados](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
 
-3. Preencha o formulário de detalhes sobre o novo servidor com as seguintes informações:
+3. Selecione a opção de implantação **Servidor único**.
 
-   ![Criar um servidor](./media/tutorial-design-database-using-azure-portal/2-create.png)
+   ![Selecione o Banco de Dados do Azure para PostgreSQL – Opção de implantação de servidor único](./media/tutorial-design-database-using-azure-portal/select-deployment-option.png)
 
-   - Nome do servidor: **mydemoserver** (o nome de um servidor é mapeado para o nome DNS e, portanto, deve ser globalmente exclusivo) 
-   - Assinatura: Se tiver várias assinaturas, escolha a que for adequada na qual existe o recurso ou onde ele é cobrado.
-   - Grupo de recursos: **myresourcegroup**
-   - Logon e senha de administrador do servidor à sua escolha
-   - Local padrão
-   - Versão do PostgreSQL
+4. Preencha o formulário **Básico** com as seguintes informações:
 
-   > [!IMPORTANT]
-   > O logon de administrador do servidor e a senha que você especificar aqui são necessários para fazer logon no servidor e em seus bancos de dados mais tarde neste tutorial. Lembre-se ou registre essas informações para o uso posterior.
+    ![Criar um servidor](./media/tutorial-design-database-using-azure-portal/create-basics.png)
 
-4. Clique em **Tipo de preço** para especificar o tipo de preço para o novo servidor. Para este tutorial, selecione **Uso Geral**, geração da computação **Gen 5**, 2 **vCores**, 5 GB de **armazenamento** e 7 dias de **período de retenção de backup**. Selecione a opção de redundância de backup **Com redundância geográfica** para armazenar os backups automáticos do servidor no armazenamento com redundância geográfica.
-   ![Banco de Dados do Azure para PostgreSQL – escolher tipo de preço](./media/tutorial-design-database-using-azure-portal/2-pricing-tier.png)
+    Configuração|Valor sugerido|DESCRIÇÃO
+    ---|---|---
+    Assinatura|O nome da sua assinatura|A assinatura do Azure que você deseja usar para o servidor. Se você tiver várias assinaturas, escolha a assinatura para a qual você recebe a cobrança do recurso.
+    Grupo de recursos|*myresourcegroup*| Um novo nome do grupo de recursos ou um existente de sua assinatura.
+    Nome do servidor |*mydemoserver*|Um nome exclusivo que identifica o Banco de Dados do Azure para o servidor PostgreSQL. O nome de domínio *postgres.database.azure.com* é acrescentado ao nome do servidor fornecido. O servidor pode conter apenas letras minúsculas, números e o caractere de hífen (-). Ele deve conter, pelo menos, 3 até 63 caracteres.
+    Fonte de dados | *Nenhum* | Selecione *Nenhum* para criar um novo servidor do zero. (Você selecionaria *Backup* se estivesse criando um servidor de um backup de replicação geográfica de um Banco de Dados do Azure para servidor PostgreSQL existente).
+    Nome de usuário do administrador |*myadmin*| Sua própria conta de logon para uso ao se conectar ao servidor. O nome de logon do administrador não pode ser **azure_superuser,** **azure_pg_admin,** **admin,** **administrator,** **root,** **guest** ou **public**. Ele não pode começar com **pg_**.
+    Senha |Sua senha| Uma nova senha para a conta do administrador do servidor. Ele deve conter entre 8 e 128 caracteres. A senha precisa conter caracteres de três das seguintes categorias: Letras maiúsculas, letras minúsculas, números (0 a 9) e caracteres não alfanuméricos (!, $, #, % etc.).
+    Local padrão|A região mais próxima dos usuários| A localização mais próxima dos usuários.
+    Versão|A última versão principal| A última versão principal do PostgreSQL, a menos que você tenha requisitos específicos.
+    Computação + armazenamento | **Uso Geral**, **Gen 5**, **2 vCores**, **5 GB**, **7 dias**, **Com redundância geográfica** | As configurações de computação, armazenamento e backup para o novo servidor. Selecione **Configurar servidor**. Em seguida, selecione a guia **Uso Geral**. *Gen 5*, *4 vCores*, *100 GB* e *7 dias* são os valores padrão de **Geração da Computação**, **vCore**, **Armazenamento** e **Período de Retenção de Backup**. Você pode deixar esses controles deslizantes como estão ou ajustá-los. Para habilitar os backups do servidor em armazenamento com redundância geográfica, selecione **Redundância Geográfica** das **Opções de Redundância de Backup**. Para salvar a seleção desse tipo de preço, selecione **OK**. A captura de tela a seguir demonstra essas seleções.
 
-5. Clique em **OK**.
+   > [!NOTE]
+   > Considere usar o tipo de preço Básico se computação leve e E/S forem adequadas para sua carga de trabalho. Observe que servidores criados no tipo de preço Básico não podem ser dimensionados mais tarde para Uso Geral ou Otimizado para Memória. Veja a [página de preço](https://azure.microsoft.com/pricing/details/postgresql/) para obter mais informações.
+   > 
 
-6. Clique em **Criar** para provisionar o servidor. O provisionamento demora alguns minutos.
+    ![O painel “Tipo de preço”](./media/quickstart-create-database-portal/2-pricing-tier.png)
 
-7. Na barra de ferramentas, clique em **Notificações** para monitorar o processo de implantação.
-   ![Banco de Dados do Azure para PostgreSQL – Ver notificações](./media/tutorial-design-database-using-azure-portal/3-notifications.png)
+5. Selecione **Revisar + criar** para revisar suas seleções. Selecione **Criar** para provisionar o servidor. Esta operação pode levar alguns minutos.
 
-   > [!TIP]
-   > Marque a opção **Fixar no painel** para permitir o controle fácil de suas implantações.
+6. Na barra de ferramentas, selecione o ícone (sino) **Notificações** para monitorar o processo de implantação. Depois que a implantação é feita, você pode selecionar **Fixar no painel**, que cria um bloco para esse servidor no seu painel do portal do Azure como um atalho para a página **Visão geral** do servidor. A opção **Ir para recurso** abre a página **Visão geral** do servidor.
 
-   Por padrão, o banco de dados **postgres** é criado em seu servidor. O [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) é um banco de dados padrão destinado a uso por usuários, utilitários e aplicativos de terceiros. 
+    ![O painel “Notificações”](./media/quickstart-create-database-portal/3-notifications.png)
+   
+   Por padrão, um banco de dados **postgres** é criado no servidor. O banco de dados [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) é um banco de dados padrão destinado ao uso dos usuários, de utilitários e de aplicativos de terceiros. (O outro banco de dados padrão é o **azure_maintenance**. Sua função é separar os processos de serviço gerenciado das ações do usuário. Não é possível acessar este banco de dados).
+
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Configurar uma regra de firewall no nível de servidor
 
@@ -82,7 +85,7 @@ O serviço do Banco de Dados do Azure para PostgreSQL cria um firewall no nível
 
 2. Na página do servidor, selecione **Segurança da conexão**. 
 
-3. Clique na caixa de texto em **Nome da regra,** e adicione uma nova regra de firewall para colocar o intervalo de IP para conectividade na lista de permissões. Insira o intervalo de IP. Clique em **Salvar**.
+3. Clique na caixa de texto em **Nome da regra,** e adicione uma nova regra de firewall para colocar o intervalo de IP para conectividade na lista de permissões. Insira o intervalo de IP. Clique em **Save** (Salvar).
 
    ![Banco de Dados do Azure para PostgreSQL – Criar regra de firewall](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
 

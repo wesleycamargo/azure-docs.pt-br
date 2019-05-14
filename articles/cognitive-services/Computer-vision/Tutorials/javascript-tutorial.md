@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Executar operações de imagem – JavaScript'
+title: Executar operações de imagem – JavaScript
 titlesuffix: Azure Cognitive Services
 description: Explore um aplicativo JavaScript básico que usa a API da Pesquisa Visual Computacional nos Serviços Cognitivos do Azure. Execute o OCR, crie miniaturas e trabalhe com recursos visuais em uma imagem.
 services: cognitive-services
@@ -7,62 +7,58 @@ author: KellyDF
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: tutorial
-ms.date: 09/19/2017
+ms.topic: conceptual
+ms.date: 04/30/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 7ac8b9e28996c14e702730b72265fd6165798227
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 91af70406590ab8e65a5d4a4b53835e9e4d4ed2a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865066"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231667"
 ---
-# <a name="tutorial-computer-vision-api-javascript"></a>Tutorial: JavaScript da API de Pesquisa Visual Computacional
+# <a name="use-computer-vision-features-with-the-rest-api-and-javascript"></a>Usar recursos de pesquisa Visual computacional com a API REST e o JavaScript
 
-Este tutorial mostra os recursos da API REST da Pesquisa Visual Computacional dos Serviços Cognitivos do Azure.
+Este guia mostra os recursos do Azure computador visão REST API dos serviços Cognitivos.
 
 Explore um aplicativo JavaScript que usa a API da Pesquisa Visual Computacional para executar o OCR (reconhecimento óptico de caracteres), criar miniaturas com recorte inteligente, além de detectar, categorizar, marcar e descrever recursos visuais, incluindo rostos, em uma imagem. Este exemplo permite enviar uma URL de imagem para análise ou processamento. É possível usar esse exemplo de software livre como um modelo para compilar seu próprio aplicativo em JavaScript para usar a API REST da Pesquisa Visual Computacional.
 
-O aplicativo de formulário JavaScript já foi gravado, mas não possui funcionalidade de Pesquisa Visual Computacional. Neste tutorial, você adiciona o código específico da API da Pesquisa Visual Computacional para concluir a funcionalidade do aplicativo.
+O aplicativo de formulário JavaScript já foi gravado, mas não possui funcionalidade de Pesquisa Visual Computacional. Neste guia, você pode adicionar o código específico à API REST de visão do computador para concluir a funcionalidade do aplicativo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="platform-requirements"></a>Requisitos de plataforma
 
-Este tutorial foi desenvolvido usando um editor de texto simples.
+Você pode seguir as etapas deste guia usando um editor de texto simples.
 
-### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Inscrever-se na API da Pesquisa Visual Computacional e obter uma chave de assinatura 
+### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Inscrever-se na API da Pesquisa Visual Computacional e obter uma chave de assinatura
 
-Antes de criar o exemplo, é necessário assinar a API da Pesquisa Visual Computacional, que faz parte dos Serviços Cognitivos do Azure. Para detalhes de assinatura e gerenciamento de chaves, consulte [Assinaturas](https://azure.microsoft.com/try/cognitive-services/). As chaves primária e secundária são válidas para uso neste tutorial. 
+Antes de criar o exemplo, é necessário assinar a API da Pesquisa Visual Computacional, que faz parte dos Serviços Cognitivos do Azure. Para detalhes de assinatura e gerenciamento de chaves, consulte [Assinaturas](https://azure.microsoft.com/try/cognitive-services/). As chaves primárias e secundárias são válidas para uso neste guia.
 
-## <a name="acquire-the-incomplete-tutorial-project"></a>Adquirir o projeto do tutorial incompleto
+## <a name="acquire-incomplete-tutorial-project"></a>Adquirir o projeto do tutorial incompleto
 
-### <a name="download-the-tutorial-project"></a>Baixar o projeto de tutorial
+### <a name="download-the-project"></a>Baixe o projeto
 
 Clone o [Tutorial da Pesquisa Visual Computacional JavaScript dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial) ou baixe o arquivo .zip e extraia-o em um diretório vazio.
 
-Se preferir usar o tutorial concluído com todo o código do tutorial adicionado, poderá usar os arquivos na pasta **Concluído**.
+Se você preferir usar o projeto concluído com todo o tutorial código adicionado, você pode usar os arquivos a **concluído** pasta.
 
-## <a name="add-the-tutorial-code-to-the-project"></a>Adicione o código do tutorial ao projeto
+## <a name="add-tutorial-code-to-the-project"></a>Adicione o código do tutorial ao projeto
 
-O aplicativo JavaScript é configurado com seis arquivos .html, um para cada recurso. Cada arquivo demonstra uma função diferente da Pesquisa Visual Computacional (análise, OCR, etc). As seis seções do tutorial não têm interdependências, portanto, é possível adicionar o código de tutorial a um arquivo, a todos os seis arquivos ou a apenas alguns arquivos. E você pode adicionar o código de tutorial aos arquivos em qualquer ordem.
-
-Vamos começar.
+O aplicativo JavaScript é configurado com seis arquivos .html, um para cada recurso. Cada arquivo demonstra uma função diferente de visão do computador (analisar, OCR, etc.). Seis seções não tem interdependências, assim você pode adicionar o código do tutorial para um arquivo, todos os seis arquivos ou apenas um par de arquivos. E você pode adicionar o código de tutorial aos arquivos em qualquer ordem.
 
 ### <a name="analyze-an-image"></a>Analisar uma imagem
 
-O recurso Analisar da Pesquisa Visual Computacional examina uma imagem para mais de 2.000 objetos reconhecíveis, seres vivos, cenários e ações. Quando a análise estiver concluída, o recurso Analisar retornará um objeto JSON que descreve a imagem com marcas descritivas, análise de cores, legendas e muito mais.
+Recurso de análise de pesquisa Visual computacional examina uma imagem para milhares de objetos reconhecíveis, seres vivos, cenários e ações. Quando a análise estiver concluída, o recurso Analisar retornará um objeto JSON que descreve a imagem com marcas descritivas, análise de cores, legendas e muito mais.
 
-Para concluir o recurso Analisar do aplicativo de tutorial, execute as etapas a seguir:
+Para concluir o recurso de análise do aplicativo, execute as seguintes etapas:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do manipulador de eventos do botão do formulário
+#### <a name="add-the-event-handler-code-for-the-analyze-button"></a>Adicione o código de manipulador de eventos para o botão analisar
 
 Abra o arquivo **analyze.html** em um editor de texto e localize a função **analyzeButtonClick** na parte inferior do arquivo.
 
-A função do manipulador de eventos **analyzeButtonClick** limpa o formulário, exibe a imagem especificada na URL e, em seguida, chama a função **AnalyzeImage** para analisar a imagem.
-
-Copie e cole o código a seguir na função **analyzeButtonClick**.
+A função do manipulador de eventos **analyzeButtonClick** limpa o formulário, exibe a imagem especificada na URL e, em seguida, chama a função **AnalyzeImage** para analisar a imagem. Copie e cole o código a seguir na função **analyzeButtonClick**.
 
 ```javascript
 function analyzeButtonClick() {
@@ -154,7 +150,7 @@ function AnalyzeImage(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-#### <a name="run-the-application"></a>Executar o aplicativo
+#### <a name="run-the-analyze-function"></a>Executar a função de analisar
 
 Salve o arquivo **analyze.html** e abra-o em um navegador da Web. Coloque a chave de assinatura no campo **Chave de assinatura** campo e verifique se você está usando a região correta em **Região de Assinatura**. Insira uma URL de uma imagem para analisar e clique no botão**Analisar Imagem** para analisar uma imagem e ver o resultado.
 
@@ -162,15 +158,13 @@ Salve o arquivo **analyze.html** e abra-o em um navegador da Web. Coloque a chav
 
 O recurso Ponto de Referência da Pesquisa Visual Computacional analisa uma imagem para pontos de referência naturais e artificiais, como montanhas ou edifícios famosos. Quando a análise estiver concluída, o Ponto de Referência retornará um objeto JSON que identifica os pontos de referência localizados na imagem.
 
-Para concluir o recurso Ponto de Referência do aplicativo de tutorial, execute as seguintes etapas:
+Para concluir o recurso de ponto de referência do aplicativo, execute as seguintes etapas:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do manipulador de eventos do botão do formulário
+#### <a name="add-the-event-handler-code-for-the-landmark-button"></a>Adicione o código de manipulador de eventos para o botão de ponto de referência
 
 Abra o arquivo **landmark.html** em um editor de texto e localize a função **landmarkButtonClick** na parte inferior do arquivo.
 
-A função do manipulador de eventos **landmarkButtonClick** limpa o formulário, exibe a imagem especificada na URL e, em seguida, chama a função **IdentifyLandmarks** para analisar a imagem.
-
-Copie e cole o código a seguir na função **landmarkButtonClick**.
+A função do manipulador de eventos **landmarkButtonClick** limpa o formulário, exibe a imagem especificada na URL e, em seguida, chama a função **IdentifyLandmarks** para analisar a imagem. Copie e cole o código a seguir na função **landmarkButtonClick**.
 
 ```javascript
 function landmarkButtonClick() {
@@ -261,7 +255,7 @@ function IdentifyLandmarks(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-#### <a name="run-the-application"></a>Executar o aplicativo
+#### <a name="run-the-landmark-function"></a>Executar a função de ponto de referência
 
 Salve o arquivo **landmark.html** e abra-o em um navegador da Web. Coloque a chave de assinatura no campo **Chave de assinatura** campo e verifique se você está usando a região correta em **Região de Assinatura**. Insira uma URL de uma imagem para analisar e clique no botão**Analisar Imagem** para analisar uma imagem e ver o resultado.
 
@@ -269,15 +263,13 @@ Salve o arquivo **landmark.html** e abra-o em um navegador da Web. Coloque a cha
 
 O recurso Celebridades da Pesquisa Visual Computacional analisa uma imagem de pessoas famosas. Quando a análise estiver concluída, o recurso Celebridades retornará um objeto JSON que identifica as Celebridades localizadas na imagem.
 
-Para concluir o recurso Celebridades do aplicativo de tutorial, execute as seguintes etapas:
+Para concluir o recurso de celebridades do aplicativo, execute as seguintes etapas:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do manipulador de eventos do botão do formulário
+#### <a name="add-the-event-handler-code-for-the-celebrities-button"></a>Adicione o código de manipulador de eventos para o botão de celebridades
 
 Abra o arquivo **celebrities.html** em um editor de texto e localize a função **celebritiesButtonClick** na parte inferior do arquivo.
 
-A função do manipulador de eventos **celebritiesButtonClick** limpa o formulário, exibe a imagem especificada na URL e, em seguida, chama a função **IdentifyCelebrities** para analisar a imagem.
-
-Copie e cole o código a seguir na função **celebritiesButtonClick**.
+A função do manipulador de eventos **celebritiesButtonClick** limpa o formulário, exibe a imagem especificada na URL e, em seguida, chama a função **IdentifyCelebrities** para analisar a imagem. Copie e cole o código a seguir na função **celebritiesButtonClick**.
 
 ```javascript
 function celebritiesButtonClick() {
@@ -364,7 +356,7 @@ function IdentifyCelebrities(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-#### <a name="run-the-application"></a>Executar o aplicativo
+#### <a name="run-the-celebrities-function"></a>Executar a função de celebridades
 
 Salve o arquivo **celebrities.html** e abra-o em um navegador da Web. Coloque a chave de assinatura no campo **Chave de assinatura** campo e verifique se você está usando a região correta em **Região de Assinatura**. Insira uma URL de uma imagem para analisar e clique no botão**Analisar Imagem** para analisar uma imagem e ver o resultado.
 
@@ -372,15 +364,13 @@ Salve o arquivo **celebrities.html** e abra-o em um navegador da Web. Coloque a 
 
 O recurso Miniatura da Pesquisa Visual Computacional gera uma miniatura de uma imagem. Ao usar o recurso **Recorte Inteligente** o recurso Miniatura identificará a área de interesse em uma imagem e centralizará a miniatura nessa área, para gerar mais imagens em miniatura esteticamente agradáveis.
 
-Para concluir o recurso Miniatura do aplicativo de tutorial, execute as seguintes etapas:
+Para concluir o recurso de miniatura do aplicativo, execute as seguintes etapas:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do manipulador de eventos do botão do formulário
+#### <a name="add-the-event-handler-code-for-the-thumbnail-button"></a>Adicione o código de manipulador de eventos para o botão de miniatura
 
 Abra o arquivo **thumbnail.html** em um editor de texto e localize a função **thumbnailButtonClick** na parte inferior do arquivo.
 
-A função do manipulador de eventos **thumbnailButtonClick** limpa o formulário, exibe a imagem especificada na URL e, em seguida, chama a função **getThumbnail** duas vezes para criar duas miniaturas, uma com recorte inteligente e outra sem recorte inteligente.
-
-Copie e cole o código a seguir na função **thumbnailButtonClick**.
+A função do manipulador de eventos **thumbnailButtonClick** limpa o formulário, exibe a imagem especificada na URL e, em seguida, chama a função **getThumbnail** duas vezes para criar duas miniaturas, uma com recorte inteligente e outra sem recorte inteligente. Copie e cole o código a seguir na função **thumbnailButtonClick**.
 
 ```javascript
 function thumbnailButtonClick() {
@@ -485,7 +475,7 @@ function getThumbnail (sourceImageUrl, smartCropping, imageElement, responseText
 }
 ```
 
-#### <a name="run-the-application"></a>Executar o aplicativo
+#### <a name="run-the-thumbnail-function"></a>Executar a função em miniatura
 
 Salve o arquivo **thumbnail.html** e abra-o em um navegador da Web. Coloque a chave de assinatura no campo **Chave de assinatura** campo e verifique se você está usando a região correta em **Região de Assinatura**. Insira uma URL de uma imagem para analisar e clique no botão**Gerar Miniaturas** para analisar uma imagem e ver o resultado.
 
@@ -493,15 +483,13 @@ Salve o arquivo **thumbnail.html** e abra-o em um navegador da Web. Coloque a ch
 
 O recurso OCR (Reconhecimento Óptico de Caracteres) da Pesquisa Visual Computacional analisa uma imagem do texto impresso. Após a conclusão da análise, o OCR retornará um objeto JSON que contém o texto e a localização do texto na imagem.
 
-Para concluir o recurso OCR do aplicativo de tutorial, execute as etapas a seguir:
+Para concluir o recurso de OCR do aplicativo, execute as seguintes etapas:
 
-### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>Etapa 1 do OCR: Adicionar o código do manipulador de eventos do botão do formulário
+### <a name="add-the-event-handler-code-for-the-ocr-button"></a>Adicione o código de manipulador de eventos para o botão de OCR
 
 Abra o arquivo **ocr.html** em um editor de texto e localize a função **ocrButtonClick** na parte inferior do arquivo.
 
-A função do manipulador de eventos **ocrButtonClick** limpa o formulário, exibe a imagem especificada na URL e, em seguida, chama a função **ReadOcrImage** para analisar a imagem.
-
-Copie e cole o código a seguir na função **ocrButtonClick**.
+A função do manipulador de eventos **ocrButtonClick** limpa o formulário, exibe a imagem especificada na URL e, em seguida, chama a função **ReadOcrImage** para analisar a imagem. Copie e cole o código a seguir na função **ocrButtonClick**.
 
 ```javascript
 function ocrButtonClick() {
@@ -580,17 +568,17 @@ function ReadOcrImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-#### <a name="run-the-application"></a>Executar o aplicativo
+#### <a name="run-the-ocr-function"></a>Executar a função de OCR
 
 Salve o arquivo **ocr.html** e abra-o em um navegador da Web. Coloque a chave de assinatura no campo **Chave de assinatura** campo e verifique se você está usando a região correta em **Região de Assinatura**. Insira uma URL de uma imagem de texto para ler e, em seguida, clique no botão **Ler Imagem** para analisar uma imagem e ver o resultado.
 
-### <a name="read-handwritten-text-handwriting-recognition"></a>Ler texto manuscrito (Reconhecimento de Manuscrito)
+### <a name="read-handwritten-text-handwriting-recognition"></a>Ler texto manuscrito (reconhecimento de manuscrito)
 
 O recurso Reconhecimento de Manuscrito da Pesquisa Visual Computacional analisa uma imagem de texto manuscrito. Após a conclusão da análise, o Reconhecimento de Manuscrito retornará um objeto JSON que contém o texto e a localização do texto na imagem.
 
-Para concluir o recurso Reconhecimento de Manuscrito do aplicativo de tutorial, execute as etapas a seguir:
+Para concluir o recurso de reconhecimento de manuscrito do aplicativo, execute as seguintes etapas:
 
-#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do manipulador de eventos do botão do formulário
+#### <a name="add-the-event-handler-code-for-the-handwriting-button"></a>Adicione o código de manipulador de eventos para o botão de manuscrito
 
 Abra o arquivo **handwriting.html** em um editor de texto e localize a função **handwritingButtonClick** na parte inferior do arquivo.
 
@@ -739,11 +727,12 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-#### <a name="run-the-application"></a>Executar o aplicativo
+#### <a name="run-the-handwriting-function"></a>Executar a função de manuscrito
 
 Salve o arquivo **handwriting.html** e abra-o em um navegador da Web. Coloque a chave de assinatura no campo **Chave de assinatura** campo e verifique se você está usando a região correta em **Região de Assinatura**. Insira uma URL de uma imagem de texto para ler e, em seguida, clique no botão **Ler Imagem** para analisar uma imagem e ver o resultado.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [API da Pesquisa Visual Computacional C&#35; Tutorial](CSharpTutorial.md)
-- [Tutorial do Python da API da Pesquisa Visual Computacional](PythonTutorial.md)
+Neste guia, você usou a API de REST de visão do computador com o JavaScript para testar muitos dos recursos de análise de imagem disponível. Em seguida, consulte a documentação de referência para saber que mais sobre as APIs envolvidos.
+
+- [Pesquisa Visual computacional API REST](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)

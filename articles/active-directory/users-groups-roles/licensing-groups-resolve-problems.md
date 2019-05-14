@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c92969015910cc5bd72e2d9339d5c15c1f7af48b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3dbfbd76d235cedd297a5ad54b51bc4ebb550bb1
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60470140"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466276"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificar e resolver problemas de atribuição de licenças para um grupo no Azure Active Directory
 
@@ -62,7 +62,7 @@ Para ver quais usuários e grupos estão consumindo licenças, selecione um prod
 
 **PowerShell:** Os cmdlets do PowerShell relatam esse erro como _CountViolation_.
 
-## <a name="conflicting-service-plans"></a>Planos de serviço conflitante
+## <a name="conflicting-service-plans"></a>Planos de serviço conflitantes
 
 **Problema:** Um dos produtos especificados no grupo contém um plano de serviço que está em conflito com outro plano de serviço já está atribuído ao usuário por meio de um produto diferente. Alguns planos de serviço são configurados de uma maneira que não possam ser atribuídos ao mesmo usuário que outro plano de serviço relacionado.
 
@@ -107,9 +107,15 @@ Se você usar o Exchange Online, alguns usuários em seu locatário poderão est
 > ```
 > Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
 > ```
-> Para obter mais informações sobre esse problema, consulte a [mensagem de erro "O endereço Proxy já está sendo usado" no Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). O artigo também inclui informações sobre [como se conectar ao Exchange Online usando o PowerShell remoto](https://technet.microsoft.com/library/jj984289.aspx). Consulte este artigo para obter mais informações [sobre como o atributo proxyAddresses é populado no Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
+> Para obter mais informações sobre esse problema, consulte a [mensagem de erro "O endereço Proxy já está sendo usado" no Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). O artigo também inclui informações sobre [como se conectar ao Exchange Online usando o PowerShell remoto](https://technet.microsoft.com/library/jj984289.aspx).
 
 Depois de solucionar quaisquer problemas de endereço proxy para os usuários afetados, force o processamento de licença no grupo para garantir que as licenças agora possam ser aplicadas.
+
+## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Alteração do atributo ProxyAddresses e email do AD do Azure
+
+**Problema:** Ao atualizar atribuição de licença em um usuário ou grupo, você poderá ver que o atributo de email do AD do Azure e ProxyAddresses de alguns usuários sejam alterados.
+
+Atualização da atribuição de licença em faz com que um usuário, o cálculo a ser disparada de endereço de proxy, que pode alterar os atributos de usuário. Para entender o motivo exato da alteração e resolver o problema, consulte este artigo sobre [como o atributo proxyAddresses é populado no Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
 ## <a name="what-happens-when-theres-more-than-one-product-license-on-a-group"></a>O que acontece quando há mais de uma licença de produto em um grupo?
 
@@ -166,7 +172,7 @@ Dependendo de quais etapas você executou para resolver os erros, talvez seja ne
 
 Por exemplo, depois de resolver o problema de endereço proxy duplicado para um usuário afetado, você precisará disparar o processamento do usuário. Para reprocessar um usuário, vá para o painel de usuário, abra **Licenças** e, em seguida, selecione o botão **Reprocessar** na barra de ferramentas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre outros cenários de gerenciamento de licenças por meio de grupos, leia o seguinte:
 

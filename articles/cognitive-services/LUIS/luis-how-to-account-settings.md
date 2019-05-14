@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: d7d63ad642ab2d3b336e15dcca606077762ceb9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5a1d7ee3b8b16631f7b919f3aece0848d662e62
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60195804"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523511"
 ---
 # <a name="manage-account-and-authoring-key"></a>Gerenciar conta e chave de criação
 
@@ -24,7 +24,7 @@ As duas partes principais de informação para uma conta LUIS são a conta de us
 
 ## <a name="authoring-key"></a>Chave de criação
 
-Essa única e específica da região de criação chave na **configurações** página, permite que você crie todos os seus aplicativos da [LUIS](luis-reference-regions.md) portal, bem como a [APIs de criação](https://aka.ms/luis-authoring-api). Para sua comodidade, a chave de criador é permitida para fazer um número [limitado](luis-boundaries.md) de consultas de ponto de extremidade a cada mês.
+Essa única e específica da região de criação chave na **configurações** página, permite que você crie todos os seus aplicativos da [LUIS](luis-reference-regions.md) portal, bem como a [APIs de criação](https://go.microsoft.com/fwlink/?linkid=2092087). Para sua comodidade, a chave de criador é permitida para fazer um número [limitado](luis-boundaries.md) de consultas de ponto de extremidade a cada mês.
 
 [![Página Configurações de LUIS](./media/luis-how-to-account-settings/account-settings.png)](./media/luis-how-to-account-settings/account-settings.png#lightbox)
 
@@ -42,7 +42,7 @@ Se a chave de criador estiver comprometida, redefina a chave. A chave é redefin
 
 Consulte [Armazenamento e remoção de dados](luis-concept-data-storage.md#accounts) para obter informações sobre quais dados são excluídos quando você exclui sua conta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre sua [chave de criador](luis-concept-keys.md#authoring-key).
 

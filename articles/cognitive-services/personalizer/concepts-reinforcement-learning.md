@@ -10,15 +10,14 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 30f009f76c25d80281d748e1e484175380ca9743
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b65073c0646db0cd0c27a71005bb4f74b091ae09
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025538"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506879"
 ---
 # <a name="what-is-reinforcement-learning"></a>O que é o aprendizado de reforço?
-
 
 O aprendizado de reforço é uma abordagem do aprendizado de máquina que aprende comportamentos obtendo comentários de seu uso.
  
@@ -64,7 +63,7 @@ Atualmente, o Personalizador usa o [Vowpal Wabbit](https://github.com/VowpalWabb
 
 * [Como tomar decisões contextuais com uma dívida técnica baixa](https://arxiv.org/abs/1606.03966)
 * [Uma abordagem de reduções para uma classificação justa](https://arxiv.org/abs/1803.02453)
-* [Bandidos contextuais eficientes em mundos dinâmicos](https://arxiv.org/abs/1708.01799ds)
+* [Bandidos contextuais eficientes em mundos dinâmicos](https://arxiv.org/abs/1708.01799)
 * [Previsão de perda residual: Reforço: aprendizado sem comentários incrementais](https://openreview.net/pdf?id=HJNMYceCW)
 * [Como mapear instruções e observações visuais para ações com o aprendizado de reforço](https://arxiv.org/abs/1704.08795)
 * [Como aprender a pesquisar melhor do que o seu professor](https://arxiv.org/abs/1502.02206)

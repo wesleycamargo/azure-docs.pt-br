@@ -13,17 +13,20 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/03/2018
+ms.date: 05/07/2019
 ms.author: cynthn
-ms.openlocfilehash: 3a7ac2e7a86a135f20f46b03be2c38af330a5367
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c0ec2616d8bdcf3cfd6d649f12e9bfceea33690a
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60543081"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467742"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Como usar o Packer para criar imagens de máquina virtual Linux no Azure
 Cada VM (máquina virtual) no Azure é criada com base em uma imagem que define a distribuição do Linux e a versão do sistema operacional. As imagens podem incluir configurações e aplicativos pré-instalados. O Azure Marketplace fornece várias imagens internas e de terceiros para as distribuições e os ambientes de aplicativo mais comuns ou você pode criar suas próprias imagens personalizadas adequadas às suas necessidades. Este artigo fornece detalhes sobre como usar a ferramenta de software livre [Packer](https://www.packer.io/) para definir e criar imagens personalizadas no Azure.
+
+> [!NOTE]
+> Agora, o Azure tem um serviço, o construtor de imagens do Azure (visualização), para definir e criar suas próprias imagens personalizadas. Construtor de imagens do Azure é criado em Packer, portanto, você pode até usar seus scripts existentes do Packer shell provisionador com ele. Para se familiarizar com o construtor de imagens do Azure, consulte [criar uma VM do Linux com o construtor de imagens do Azure](image-builder.md).
 
 
 ## <a name="create-azure-resource-group"></a>Criar um grupo de recursos do Azure
@@ -232,6 +235,4 @@ Agora, abra um navegador da Web e digite `http://publicIpAddress` na barra de en
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste exemplo, você usou o Packer para criar uma imagem de VM com o NGINX já instalado. Use essa imagem de VM junto com os fluxos de trabalho de implantação existentes para, por exemplo, implantar o aplicativo em VMs criadas com base na Imagem com o Ansible, Chef ou Puppet.
-
-Para obter outros modelos de exemplo do Packer para outras distribuições do Linux, consulte [este repositório GitHub](https://github.com/hashicorp/packer/tree/master/examples/azure).
+Você também pode usar scripts existentes de provisionador do Packer com [Azure Image Builder](image-builder.md).

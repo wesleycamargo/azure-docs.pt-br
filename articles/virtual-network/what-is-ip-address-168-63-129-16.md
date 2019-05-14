@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/21/2019
+ms.date: 05/07/2019
 ms.author: genli
-ms.openlocfilehash: 7f0539e7c2f7e5ae8847b35b47d3708c6c5d6a09
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 78d2392e32465b3091c49032dc5df5f3a5b6061a
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107975"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416027"
 ---
 # <a name="what-is-ip-address-1686312916"></a>O que é o endereço IP 168.63.129.16?
 
@@ -28,14 +28,17 @@ O endereço IP 168.63.129.16 é um endereço IP público virtual usado para faci
 
 - Habilita o agente de VM a se comunicar com a plataforma do Azure para sinalizar que ele está em um estado "Pronto".
 - Habilita a comunicação com o servidor virtual do DNS para fornecer a resolução de nome filtrada para os recursos (como VM) que não têm um servidor DNS personalizado. Essa filtragem garante que os clientes possam resolver os nomes de host de seus recursos.
-- Habilita investigações de integridade do balanceador de carga para determinar o estado de integridade das VMs em um conjunto com balanceamento de carga.
+- Habilita [investigações de integridade do balanceador de carga do Azure](../load-balancer/load-balancer-custom-probe-overview.md) para determinar o estado de integridade de VMs.
+- Permite que a VM obtenha um endereço IP dinâmico do serviço DHCP no Azure.
 - Habilita mensagens de pulsação de Agente Convidado para a função de PaaS.
 
 ## <a name="scope-of-ip-address-1686312916"></a>Escopo de endereço IP 168.63.129.16
 
-O endereço IP público virtual 168.63.129.16 é usado em todas as regiões e todas as nuvens nacionais. Esse endereço IP público especial não será alterado. Ele é permitido pela regra de grupo de segurança de rede padrão. Recomendamos que você permita esse endereço IP em todas as políticas de firewall local. A comunicação entre esse endereço IP especial e os recursos é segura porque a plataforma interna do Azure pode originar uma mensagem desse endereço IP. Se esse endereço for bloqueado, um comportamento inesperado poderá ocorrer em uma variedade de cenários.
+O endereço IP público 168.63.129.16 é usado em todas as regiões e todas as nuvens nacionais. Esse endereço IP público especial pertence à Microsoft e não será alterado. Ele é permitido pela regra de grupo de segurança de rede padrão. Recomendamos que você permita esse endereço IP em todas as políticas de firewall local. A comunicação entre esse endereço IP especial e os recursos é segura porque a plataforma interna do Azure pode originar uma mensagem desse endereço IP. Se esse endereço for bloqueado, um comportamento inesperado poderá ocorrer em uma variedade de cenários.
 
-Além disso, você pode esperar que o tráfego flua do endereço IP público virtual 168.63.129.16 para o ponto de extremidade configurado para uma [Investigação de integridade do Load Balancer](../load-balancer/load-balancer-custom-probe-overview.md). Em um cenário de rede não virtual, a investigação de integridade é originada de um endereço IP privado. 
+[As investigações de integridade do balanceador de carga do Azure](../load-balancer/load-balancer-custom-probe-overview.md) proveniente desse endereço IP. Se você bloquear esse endereço IP, suas investigações falharão.
+
+Em um cenário de rede não-virtual, a investigação de integridade é originada de um endereço IP privado e 168.63.129.16 não é usado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

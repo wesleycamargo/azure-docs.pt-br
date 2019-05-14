@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 05/07/2019
 ms.author: zchia
-ms.openlocfilehash: b7b096bd1ecf0a4df37ed4de0cf618216dccc2bc
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 445579eb780b49f536ef1a9e13e5ca43db6f98f6
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159459"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508507"
 ---
 # <a name="tutorial-configure-keeper-password-manager--digital-vault-for-automatic-user-provisioning"></a>Tutorial: Configurar o Gerenciador de senhas protetor e cofre Digital para o provisionamento automático de usuário
 
@@ -84,7 +84,7 @@ Esta seção orienta você pelas etapas de configuração do AD do Azure serviç
 
 ### <a name="to-configure-automatic-user-provisioning-for-keeper-password-manager--digital-vault-in-azure-ad"></a>Para configurar o provisionamento automático de usuário para o Gerenciador de senhas protetor e cofre Digital no Azure AD:
 
-1. Entrar para o [portal do Azure](https://portal.azure.com) e selecione **aplicativos empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Gerenciador de senhas protetor e & Digital Cofre**.
+1. Entre no [Portal do Azure](https://portal.azure.com). Selecione **aplicativos empresariais**, em seguida, selecione **todos os aplicativos**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
@@ -104,19 +104,19 @@ Esta seção orienta você pelas etapas de configuração do AD do Azure serviç
 
 6. Entrar no seu [Console de administração do protetor e](https://keepersecurity.com/console/#login). Clique em **Admin** e selecione um nó existente ou crie um novo. Navegue até a **provisionamento** e selecione **Add Method**.
 
-    ![Console de administração do protetor](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-admin-console.png)
+    ![Console de administração do protetor](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-admin-console.png)
 
     Selecione **SCIM (sistema de gerenciamento de identidade entre domínios de**.
 
-    ![Protetor e adicionar SCIM](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-add-scim.png)
+    ![Protetor e adicionar SCIM](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-add-scim.png)
 
     Clique em **criar Token de provisionamento**.
 
-    ![Protetor e criar o ponto de extremidade](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-create-endpoint.png)
+    ![Protetor e criar o ponto de extremidade](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-create-endpoint.png)
 
     Copie os valores para **URL** e **Token** e cole-as no **URL do locatário** e **Token secreto** no Azure AD. Clique em **salvar** para concluir a configuração de provisionamento em acertou na mosca.
 
-    ![Protetor e criar Token](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-create-token.png)
+    ![Protetor e criar Token](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-create-token.png)
 
 7. Ao popular os campos mostrados na etapa 5, clique em **Conexão de teste** para garantir que o Azure AD pode se conectar ao Gerenciador de senhas protetor e cofre Digital. Se a conexão falhar, verifique se que sua conta do Gerenciador de senhas protetor e cofre Digital tem permissões de administrador e tente novamente.
 
@@ -130,19 +130,19 @@ Esta seção orienta você pelas etapas de configuração do AD do Azure serviç
 
 10. Sob o **mapeamentos** seção, selecione **sincronizar Azure usuários do Active Directory ao Gerenciador de senhas protetor e cofre Digital**.
 
-    ![Mapeamentos de usuário de protetor](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-user-mappings.png)
+    ![Mapeamentos de usuário de protetor](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-user-mappings.png)
 
 11. Examine os atributos de usuário que são sincronizados do Azure AD ao Gerenciador de senhas protetor e cofre Digital na **mapeamento de atributos** seção. Os atributos selecionados como **correspondentes** propriedades são usadas para corresponder as contas de usuário no Gerenciador de senhas protetor e cofre Digital para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Atributos de usuário do protetor](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-user-attributes.png)
+    ![Atributos de usuário do protetor](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-user-attributes.png)
 
 12. Sob o **mapeamentos** seção, selecione **sincronizar grupos do Azure Active Directory ao Gerenciador de senhas protetor e cofre Digital**.
 
-    ![Mapeamentos de grupo de protetor](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-group-mappings.png)
+    ![Mapeamentos de grupo de protetor](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-group-mappings.png)
 
 13. Examine os atributos de grupo que são sincronizados do Azure AD ao Gerenciador de senhas protetor e cofre Digital na **mapeamento de atributos** seção. Os atributos selecionados como **correspondentes** propriedades são usadas para corresponder os grupos no Gerenciador de senhas protetor e cofre Digital para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Atributos de grupo de protetor](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-group-attributes.png)
+    ![Atributos de grupo de protetor](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-group-attributes.png)
 
 14. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -176,7 +176,3 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 * [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
 
-<!--Image references-->
-[1]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-01.png
-[2]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-02.png
-[3]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-03.png

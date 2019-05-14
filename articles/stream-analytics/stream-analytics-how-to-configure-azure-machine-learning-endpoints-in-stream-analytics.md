@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.openlocfilehash: 4a360968285b91b00c8ca1999f81c11951e74482
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dfb34f8c0fca792618860e0a8d5a1bf1736f3611
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479840"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416042"
 ---
-# <a name="machine-learning-integration-in-stream-analytics"></a>Integração do Machine Learning ao Stream Analytics
+# <a name="machine-learning-integration-in-stream-analytics-preview"></a>Integração do Learning no Stream Analytics (visualização) de máquina
 O Stream Analytics dá suporte a funções definidas pelo usuário que chamam pontos de extremidade do Azure Machine Learning. O suporte da API REST para esse recurso é detalhado na [biblioteca de API REST do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). Este artigo fornece informações complementares necessárias para a implementação bem-sucedida desse recurso no Stream Analytics. Um tutorial também foi publicado e está disponível [aqui](stream-analytics-machine-learning-integration-tutorial.md).
 
 ## <a name="overview-azure-machine-learning-terminology"></a>Visão geral: Terminologia do Azure Machine Learning

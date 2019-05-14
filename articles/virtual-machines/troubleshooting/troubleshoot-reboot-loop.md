@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: 032bc1b9c4b1b0e3bf8040ed52bf4db65ba7b6c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1c97b1da094b759ccf85f310ceec4c7abfd91b9b
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318963"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472287"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Loop de reinicialização do Windows em uma VM do Azure
 Este artigo descreve o loop de reinicialização pode ocorrer em uma VM (Máquina Virtual) do Windows no Microsoft Azure.
@@ -41,7 +41,7 @@ Há um serviço de terceiros sinalizado como crítico e não é possível inici�
 
 Algumas alterações foram feitas ao sistema operacional. Geralmente, elas estão relacionadas a uma instalação de atualização, à instalação de aplicativo ou a uma nova política. Talvez você precise verificar os seguintes logs para obter detalhes adicionais:
 
-- Logs de eventos
+- Logs de Eventos
 - CBS.logWindows
 - Update.log
 
@@ -102,6 +102,8 @@ Para resolver esse problema, [faça backup do disco do sistema operacional](../w
 Restaure a VM para a última configuração válida conhecida, siga as etapas em [Como iniciar a VM do Windows do Azure com a última configuração válida conhecida](https://support.microsoft.com/help/4016731/).
 
 ### <a name="solution-for-cause-3"></a>Solução para a causa 3
+>[!NOTE]
+>O procedimento a seguir deve ser usado apenas como último recurso. Embora restaurar de regback possa restaurar o acesso ao computador, o sistema operacional não será considerado estável, pois haverá dados perdidos no Registro entre o carimbo de data/hora do hive e o dia atual. Você precisa criar uma nova VM e fazer planos para migrar os dados.
 
 1. Depois que o disco estiver anexado a uma VM de solução de problemas, ele deve ser sinalizado como **Online** no console de Gerenciamento de Disco.
 
@@ -113,5 +115,4 @@ Restaure a VM para a última configuração válida conhecida, siga as etapas em
 
 5. [Crie uma nova VM usando o disco do sistema operacional](../windows/create-vm-specialized.md).
 
->[!NOTE]
->O procedimento a seguir deve ser usado apenas como último recurso. Embora restaurar de regback possa restaurar o acesso ao computador, o sistema operacional não será considerado estável, pois haverá dados perdidos no Registro entre o carimbo de data/hora do hive e o dia atual. Você precisa criar uma nova VM e fazer planos para migrar os dados.
+

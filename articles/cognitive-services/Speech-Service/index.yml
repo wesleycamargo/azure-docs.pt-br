@@ -18,7 +18,19 @@ metadata:
   ms.author: erhopf
   ms.custom: seodec18
 abstract:
-  description: 'Saiba como usar o Serviço de Fala e o SDK de Fala para adicionar recursos habilitados para fala aos seus aplicativos. Você pode usar o SDK de Fala para adicionar funcionalidades de <i>conversão de fala em texto</i> (reconhecimento de fala/SR), <i>intenção</i>, <i>tradução</i> e <i>TTS</i> (conversão de texto em fala) aos seus aplicativos. Os Serviços de Fala também têm APIs REST que funcionam com qualquer linguagem de programação que possa fazer solicitações HTTP.'
+  description: |
+    Saiba como usar os Serviços de Fala com APIs REST ou com o SDK de Fala para adicionar recursos habilitados para fala aos seus aplicativos. Você pode usar o SDK de Fala para adicionar os seguintes recursos (e mais) aos seus aplicativos&colon; 
+    <div class="row" style="font-size:16px"><div class="column"><ul>
+    <li><b><a href="speech-to-text.md">conversão de fala em texto</a> </b> (reconhecimento de fala/SR)</li>
+    <li><b><a href="speech-devices-sdk-create-kws.md">palavra de ativação personalizada</a> </b> (spotter de palavra-chave/KWS)</li>
+    <li><b><a href="how-to-recognize-intents-from-speech-csharp.md">intenção</a></b></li>
+    <li><b><a href="speech-translation.md">tradução</a></b></li>
+    <li><b><a href="speech-container-howto.md">contêiner local</a></b></li></ul></div><div class="column"><ul>
+    <li><b><a href="text-to-speech.md">conversão de texto em fala</a> </b> (TTS)</li>
+    <li><b><a href="conversation-transcription-service.md">transcrição de conversa</a> </b> (CTS)</li>
+    <li><b><a href="how-to-phrase-lists.md">personalização da lista de frases</a>/<a href="how-to-custom-speech.md">adaptação personalizada de fala</a></b></li>
+    <li><b><a href="voice-first-virtual-assistants.md">Assistente virtual de voz-first</a></b></li>
+    <li><b><a href="call-center-transcription.md">transcrição da central de atendimento</a></b></li></ul></div></div>
 sections:
   - items:
       - type: list
@@ -44,7 +56,7 @@ sections:
   - title: Guia de início rápido de 5 minutos
     items:
       - type: paragraph
-        text: 'Saiba como baixar, instalar e usar o SDK selecionando um link de seta <img src="media/index/link.jpg" height="15" width="15"></img>.'
+        text: 'Saiba como baixar, instalar e usar o SDK selecionando um link de seta <img src="media/index/link.jpg" height="15" width="15"></img>.<br/><br/>Todos os links de seta <img src="media/index/link.jpg" height="15" width="15"></img> padrão para um início rápido de fala em texto. Nesta parte, você pode selecionar outros guias de início rápido (<a href="scenario-availability.md">nos locais disponíveis</a>) como o texto em fala ou assistente virtual de voice-first.'
       - type: table
         style: dataMatrix
         columns:
@@ -234,7 +246,7 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: '<a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk">Exemplos de SDK do Serviço</a><br/>'
+          - html: '<a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk">Exemplos de SDK de Fala</a><br/>'
           - html: '<a href="https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK">Exemplos de SDK do Dispositivo</a><br/>'
   - title: Referência
     items:

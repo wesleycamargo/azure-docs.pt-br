@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b39d9788372fb0f682bc1e5b737542b400dd4035
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 43ca5bbfd789c1c41826c9a13a0030b80c72d4bc
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919697"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510647"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução Gerenciamento de Atualizações no Azure
 
@@ -634,7 +634,7 @@ No entanto, o Gerenciamento de Atualizações ainda pode relatar que o computado
 
 Implantar atualizações por classificação de atualização não funciona no CentOS pronto para uso. Para implantar corretamente atualizações para CentOS, selecione todas as classificações para garantir que as atualizações sejam aplicadas. Para SUSE, selecionar *somente* 'Outras atualizações', já que a classificação pode resultar em que algumas atualizações de segurança também sejam instaladas se as atualizações de segurança relacionados ao zypper (gerenciamento de pacotes) ou suas dependências forem necessárias primeiro. Esse comportamento é uma limitação do zypper. Em alguns casos, talvez você precise executar novamente a implantação de atualização. Para verificar, veja o log de atualização.
 
-## <a name="remove-a-vm-for-update-management"></a>Remover uma VM do Gerenciamento de Atualizações
+## <a name="remove-a-vm-from-update-management"></a>Remover uma VM de gerenciamento de atualizações
 
 Para remover uma VM do Gerenciamento de Atualizações:
 

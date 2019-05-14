@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 05/09/2019
 ms.author: edjez
-ms.openlocfilehash: 2a62fd288f9118882e5cd9899ab572d4b247fc5a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a197531a7c78823271c0a5fa5413b76746f63a9a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65156795"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507024"
 ---
 # <a name="install-and-run-personalizer-containers"></a>Instalar e executar contêineres do Personalizador
 
@@ -56,7 +56,7 @@ Cada núcleo precisa ser de pelo menos 2,6 GHz (gigahertz) ou mais rápido.
 
 Memória e núcleo correspondem às configurações `--cpus` e `--memory`, que são usadas como parte do comando `docker run`.
 
-O contêiner deve ser capaz de conectar-se ao Hub de Eventos do Azure para retransmitir informações nas chamadas de Classificação e Recompensa para o servidor do Personalizador no Azure, além de conectar-se à API do Personalizador para carregar a configuração necessária e os modelos de machine learning mais recentes.
+O contêiner deve ser capaz de conectar-se ao Hub de Eventos do Azure para retransmitir informações nas chamadas de Classificação e Recompensa para o servidor do Personalizador no Azure, e deve ser capaz de conectar-se à API do Personalizador para carregar a configuração necessária e os modelos de machine learning mais recentes.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Obter a imagem de contêiner com `docker pull`
 
@@ -128,7 +128,7 @@ Esse comando:
 
 Se você pretende executar vários contêineres com portas expostas, execute cada contêiner com uma porta diferente. Por exemplo, execute o primeiro contêiner na porta 5000 e o segundo contêiner na porta 5001.
 
-Substitua `<container-registry>` e `<container-name>` pelos valores dos contêineres que você usa. Eles não precisam estar no mesmo contêiner. Você pode ter o contêiner do Personalizador e o contêiner do LUIS em execução no HOST juntos ou pode ter vários contêineres do Personalizador em execução. 
+Substitua `<container-registry>` e `<container-name>` pelos valores dos contêineres que você usa. Eles não precisam estar no mesmo contêiner. Você pode ter o contêiner do Personalizador e o contêiner do LUIS em execução no HOST juntos, ou pode ter vários contêineres do Personalizador em execução. 
 
 Execute o primeiro contêiner na porta 5000. 
 
@@ -182,7 +182,7 @@ O contêiner fornece um conjunto completo de documentação para os pontos de ex
 
 Os contêineres de Serviço do Personalizador enviam informações sobre cobrança para o Azure usando um recurso de _Serviço do Personalizador_ em sua conta do Azure. 
 
-Os contêineres dos Serviços Cognitivos não estão licenciados para execução sem estarem conectados ao Azure para medição. Os clientes precisam ativar os contêineres para comunicar informações de cobrança com o serviço de medição em todos os momentos. Os contêineres dos Serviços Cognitivos não enviam dados do cliente para a Microsoft. 
+Os contêineres dos Serviços Cognitivos não estão licenciados para execução sem estarem conectados ao Azure para medição. Os clientes precisam ativar os contêineres para comunicar informações de cobrança com o serviço de medição em todos os momentos.  
 
 O comando `docker run` usa os seguintes argumentos para fins de cobrança:
 

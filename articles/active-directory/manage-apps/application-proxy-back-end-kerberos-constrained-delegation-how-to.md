@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 04/23/2019
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b83b08c442a7f10d6b29122fe7959bedf8f3cff0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8413c75a683ff135b3442da6c6a94787ed0866ca
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440854"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441453"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Solucionar problemas configurações de delegação restrita de Kerberos para o Proxy do Aplicativo
 
@@ -177,7 +177,7 @@ Se você ainda não conseguir progredir, o suporte da Microsoft pode ajudá-lo. 
 
 ## <a name="other-scenarios"></a>Outros cenários
 
-- Application Proxy do Azure solicita um tíquete do Kerberos antes de enviar a solicitação para um aplicativo. Alguns aplicativos de terceiros, como Tableau Server, não gostam deste método de autenticação. Esses aplicativos esperam que as negociações mais convencionais ocorram. A primeira solicitação é anônima, e permite que o aplicativo responda com os tipos de autenticação que ele oferece suporte através de um 401.
+- Application Proxy do Azure solicita um tíquete do Kerberos antes de enviar a solicitação para um aplicativo. Alguns aplicativos de terceiros não gostam deste método de autenticação. Esses aplicativos esperam que as negociações mais convencionais ocorram. A primeira solicitação é anônima, e permite que o aplicativo responda com os tipos de autenticação que ele oferece suporte através de um 401.
 
 - Autenticação com salto duplo é comumente usada em cenários com aplicativos em camadas, com um back-end e front-end, ambos exigindo autenticação, como o SQL Server Reporting Services. Para configurar o cenário de salto múltiplo, consulte o artigo de suporte [Delegação restrita de Kerberos pode exigir transição do protocolo Kerberos nos cenários de vários saltos](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 

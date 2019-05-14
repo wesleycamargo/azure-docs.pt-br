@@ -16,12 +16,12 @@ ms.date: 04/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d32564808151c4895d2b3802fb48d2bd2d8f753
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e6120637bdf52db4b6863fb87feb1d52c78ca088
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64729539"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508103"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronização do Azure AD Connect: Atributos sincronizados com o Active Directory do Azure
 Este tópico lista os atributos que são sincronizados pela sincronização do Azure AD Connect.  
@@ -39,7 +39,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 >
 
 ## <a name="office-365-proplus"></a>Office 365 ProPlus
-| Nome do atributo | Usuário | Comentário |
+| Nome do Atributo | Usuário | Comentário |
 | --- |:---:| --- |
 | accountEnabled |X |Define se uma conta está habilitada. |
 | cn |X | |
@@ -48,11 +48,11 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | pwdLastSet |X |propriedade mecânica. Usado para saber quando invalidar tokens já emitidos. Usado pela sincronização de hash de senha, autenticação de passagem e federação. |
 |samAccountName|X| |
 | sourceAnchor |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o AD do Azure. |
-| usageLocation |X |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
+| usageLocation |X |propriedade mecânica. País/região do usuário. Usado para atribuição de licença. |
 | userPrincipalName |X |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 
 ## <a name="exchange-online"></a>Exchange Online
-| Nome do atributo | Usuário | Contato | Agrupar | Comentário |
+| Nome do Atributo | Usuário | Contato | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está habilitada. |
 | assistente |X |X | | |
@@ -87,12 +87,12 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | givenName |X |X | | |
 | homePhone |X |X | | |
 | informações |X |X |X |Atualmente, este atributo não é consumido para grupos. |
-| Initials |X |X | | |
+| Iniciais |X |X | | |
 | l |X |X | | |
 | legacyExchangeDN |X |X |X | |
 | mailNickname |X |X |X | |
 | managedBy | | |X | |
-| manager |X |X | | |
+| gerenciador |X |X | | |
 | member | | |X | |
 | Serviço Móvel |X |X | | |
 | msDS-HABSeniorityIndex |X |X |X | |
@@ -168,14 +168,14 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | thumbnailphoto |X |X | | |
 | título |X |X | | |
 | unauthOrig |X |X |X | |
-| usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
+| usageLocation |X | | |propriedade mecânica. País/região do usuário. Usado para atribuição de licença. |
 | userCertificate |X |X | | |
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 | userSMIMECertificates |X |X | | |
 | wWWHomePage |X |X | | |
 
 ## <a name="sharepoint-online"></a>SharePoint Online
-| Nome do atributo | Usuário | Contato | Agrupar | Comentário |
+| Nome do Atributo | Usuário | Contato | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está habilitada. |
 | authOrig |X |X |X | |
@@ -215,7 +215,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | mail |X |X |X | |
 | mailNickname |X |X |X | |
 | managedBy | | |X | |
-| manager |X |X | | |
+| gerenciador |X |X | | |
 | member | | |X | |
 | middleName |X |X | | |
 | Serviço Móvel |X |X | | |
@@ -251,12 +251,13 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | título |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
-| usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
+| usageLocation |X | | |propriedade mecânica. País/região do usuário
+. Usado para atribuição de licença. |
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 | wWWHomePage |X |X | | |
 
 ## <a name="lync-online-subsequently-known-as-skype-for-business"></a>Lync Online (posteriormente conhecido como Skype for Business)
-| Nome do atributo | Usuário | Contato | Agrupar | Comentário |
+| Nome do Atributo | Usuário | Contato | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está habilitada. |
 | c |X |X | | |
@@ -274,7 +275,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | mail |X |X |X | |
 | mailNickname |X |X |X | |
 | managedBy | | |X | |
-| manager |X |X | | |
+| gerenciador |X |X | | |
 | member | | |X | |
 | Serviço Móvel |X |X | | |
 | msExchHideFromAddressLists |X |X |X | |
@@ -299,27 +300,27 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
 | título |X |X | | |
-| usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
+| usageLocation |X | | |propriedade mecânica. País/região do usuário. Usado para atribuição de licença. |
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 | wWWHomePage |X |X | | |
 
 ## <a name="azure-rms"></a>Azure RMS
-| Nome do atributo | Usuário | Contato | Agrupar | Comentário |
+| Nome do Atributo | Usuário | Contato | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está habilitada. |
 | cn |X | |X |Alias ou nome comum. Geralmente, o prefixo do valor [mail]. |
 | displayName |X |X |X |Uma cadeia de caracteres que representa o nome geralmente é mostrada como um nome amigável (nome sobrenome). |
 | mail |X |X |X |endereço de email completo. |
-| member | | |X | |
+| membro | | |X | |
 | objectSID |X | |X |propriedade mecânica. Identificador de usuário do AD usado para manter a sincronização entre o AD do Azure e o AD. |
 | proxyAddresses |X |X |X |propriedade mecânica. Usado pelo AD do Azure. Contém todos os endereços de email secundários para o usuário. |
 | pwdLastSet |X | | |propriedade mecânica. Usado para saber quando invalidar tokens já emitidos. |
 | sourceAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o AD do Azure. |
-| usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
+| usageLocation |X | | |propriedade mecânica. País/região do usuário. Usado para atribuição de licença. |
 | userPrincipalName |X | | |Este UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 
 ## <a name="intune"></a>Intune
-| Nome do atributo | Usuário | Contato | Agrupar | Comentário |
+| Nome do Atributo | Usuário | Contato | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está habilitada. |
 | c |X |X | | |
@@ -333,11 +334,11 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |propriedade mecânica. Usado para saber quando invalidar tokens já emitidos. Usado pela sincronização de hash de senha, autenticação de passagem e federação. |
 | sourceAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o AD do Azure. |
-| usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
+| usageLocation |X | | |propriedade mecânica. País/região do usuário. Usado para atribuição de licença. |
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
-| Nome do atributo | Usuário | Contato | Agrupar | Comentário |
+| Nome do Atributo | Usuário | Contato | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está habilitada. |
 | c |X |X | | |
@@ -351,7 +352,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | givenName |X |X | | |
 | l |X |X | | |
 | managedBy | | |X | |
-| manager |X |X | | |
+| gerenciador |X |X | | |
 | member | | |X | |
 | Serviço Móvel |X |X | | |
 | objectSID |X | |X |propriedade mecânica. Identificador de usuário do AD usado para manter a sincronização entre o AD do Azure e o AD. |
@@ -365,7 +366,7 @@ Nesse caso, inicie com a lista de atributos neste tópico e identifique aqueles 
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | título |X |X | | |
-| usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
+| usageLocation |X | | |propriedade mecânica. País/região do usuário. Usado para atribuição de licença. |
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 
 ## <a name="3rd-party-applications"></a>aplicativos de terceira parte
@@ -376,11 +377,12 @@ Esse grupo é um conjunto de atributos usados como os atributos mínimos necess�
 
 Esse é um conjunto de atributos que poderão ser usados se o diretório do Azure AD não for usado para dar suporte ao Office 365, Dynamics ou Intune. Ele tem um pequeno conjunto de atributos principais.
 
-| Nome do atributo | Usuário | Contato | Agrupar | Comentário |
+| Nome do Atributo | Usuário | Contato | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está habilitada. |
 | cn |X | |X | |
 | displayName |X |X |X | |
+| employeeID |X |  |  | |
 | givenName |X |X | | |
 | mail |X | |X | |
 | managedBy | | |X | |
@@ -391,13 +393,13 @@ Esse é um conjunto de atributos que poderão ser usados se o diretório do Azur
 | pwdLastSet |X | | |propriedade mecânica. Usado para saber quando invalidar tokens já emitidos. Usado pela sincronização de hash de senha, autenticação de passagem e federação. |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o AD do Azure. |
-| usageLocation |X | | |propriedade mecânica. O país/região do usuário. Usado para atribuição de licença. |
+| usageLocation |X | | |propriedade mecânica. País/região do usuário. Usado para atribuição de licença. |
 | userPrincipalName |X | | |UPN é a ID de logon do usuário. Geralmente, o mesmo valor de [mail]. |
 
 ## <a name="windows-10"></a>Windows 10
 Um computador (dispositivo) ingressado no domínio do Windows 10 sincroniza alguns atributos com o Azure AD. Para saber mais sobre os cenários, veja [Conectar dispositivos ingressados no domínio ao Azure AD para experiências com o Windows 10](../active-directory-azureadjoin-devices-group-policy.md). Esses atributos sempre são sincronizados e o Windows 10 não aparece como um aplicativo que pode ser desmarcado. Um computador do Windows 10 ingressado no domínio é identificado por ter o atributo userCertificate populado.
 
-| Nome do atributo | Dispositivo | Comentário |
+| Nome do Atributo | Dispositivos | Comentário |
 | --- |:---:| --- |
 | accountEnabled |X | |
 | deviceTrustType |X |Valor fixo no código para computadores ingressados do domínio. |
@@ -411,7 +413,7 @@ Um computador (dispositivo) ingressado no domínio do Windows 10 sincroniza algu
 
 Esses atributos para o **usuário** são adicionais aos outros aplicativos que você selecionou.  
 
-| Nome do atributo | Usuário | Comentário |
+| Nome do Atributo | Usuário | Comentário |
 | --- |:---:| --- |
 | domainFQDN |X |Também chamado de dnsDomainName. Por exemplo, contoso.com. |
 | domainNetBios |X |Também chamado de netBiosName. Por exemplo, CONTOSO. |
@@ -420,7 +422,7 @@ Esses atributos para o **usuário** são adicionais aos outros aplicativos que v
 ## <a name="exchange-hybrid-writeback"></a>Write-back híbrido do Exchange
 É feito write-back desses atributos do Azure AD para o Active Directory local quando você opta por habilitar **Híbrido do Exchange**. Dependendo da sua versão do Exchange, menos atributos poderão ser sincronizados.
 
-| Nome do atributo (interface do usuário do Connect) |Nome do atributo (AD local) | Usuário | Contato | Agrupar | Comentário |
+| Nome do atributo (AD local) | Nome do atributo (interface do usuário do Connect) | Usuário | Contato | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Derivado de cloudAnchor no AD do Azure. Esse atributo é novo no AD do Windows Server 2016 e Exchange 2016. |
 | msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Arquivo Morto Online: permite que os clientes arquivem emails. |
@@ -435,7 +437,7 @@ Esses atributos para o **usuário** são adicionais aos outros aplicativos que v
 ## <a name="exchange-mail-public-folder"></a>Pasta pública do Exchange Mail
 Esses atributos são sincronizados do Active Directory local para o Azure AD quando você opta por habilitar a **Pasta pública do Exchange Mail**.
 
-| Nome do atributo | PublicFolder | Comentário |
+| Nome do Atributo | PublicFolder | Comentário |
 | --- | :---:| --- |
 | displayName | X |  |
 | mail | X |  |
@@ -447,7 +449,7 @@ Esses atributos são sincronizados do Active Directory local para o Azure AD qua
 ## <a name="device-writeback"></a>Write-back de dispositivo
 Os objetos do dispositivo são criados no Active Directory. Esses objetos podem ser dispositivos ingressados no domínio do Azure AD ou computadores ingressados no domínio do Windows 10.
 
-| Nome do atributo | Dispositivo | Comentário |
+| Nome do Atributo | Dispositivos | Comentário |
 | --- |:---:| --- |
 | altSecurityIdentities |X | |
 | displayName |X | |

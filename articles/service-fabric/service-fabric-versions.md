@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/24/2018
 ms.author: aljo
-ms.openlocfilehash: 961904c6988596a5ba73940a154d96856636a0db
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5d4ba32b3074098b3e3c1f2a4f42ac0e069e0a5f
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150907"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409892"
 ---
 # <a name="supported-service-fabric-versions"></a>Versões do Service Fabric com suporte
 
@@ -56,11 +56,11 @@ A tabela a seguir lista os sistemas operacionais com suporte para as versões co
 | --- | --- |
 | Windows Server 2012 R2 | Todas as versões |
 | Windows Server 2016 | Todas as versões |
-| Windows Server 1709 | 6,0 |
+| Windows Server 1709 | 6.0 |
 | Windows Server 1803 | 6.4 |
 | Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
-| Linux Ubuntu 16.04 | 6,0 |
+| Linux Ubuntu 16.04 | 6.0 |
 
 ## <a name="supported-version-names"></a>Nomes de versão com suporte
 
@@ -101,3 +101,4 @@ A tabela a seguir lista os nomes de versão do Service Fabric e seus números de
 | 6.4 CU3 | 6.4.637.9590 | 6.4.634.1 |
 | 6.4 CU4 | 6.4.644.9590 | 6.4.639.1 |
 | 6.4 CU5 | 6.4.654.9590 | 6.4.649.1 |
+| 6.4 CU6 | 6.4.658.9590 | ND |

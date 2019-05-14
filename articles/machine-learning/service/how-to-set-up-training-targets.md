@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9c97f23c2dfc2b1c0ff794aa20ffb58cd8b8741a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c49b9d5fdc0c17f16f1c80471a00dd53625dc6e8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819342"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236959"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurar destinos de computação para treinamento de modelo
 
@@ -430,6 +430,7 @@ Veja estes notebooks para obter exemplos de treinamento com vários destinos de 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Tutorial: Treinar um modelo](tutorial-train-models-with-aml.md) usa um destino de computação gerenciado para treinar um modelo.
+* Saiba como [ajustar os hiperparâmetros com eficiência](how-to-tune-hyperparameters.md) para criar modelos melhores.
 * Quando você tiver um modelo treinado, aprenda [como e em que local implantar modelos](how-to-deploy-and-where.md).
 * Exiba a referência do SKD da [classe RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py).
 * [Usar o Serviço do Azure Machine Learning com redes virtuais do Azure](how-to-enable-virtual-network.md)

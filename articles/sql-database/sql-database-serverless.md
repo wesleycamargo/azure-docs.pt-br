@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: 2ab8f272fc264f153144803be772d381c1780512
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7f850f309034d128efef89ea842db41d35b8491e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143263"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235748"
 ---
 # <a name="sql-database-serverless-preview"></a>Banco de dados SQL sem servidor (visualização)
 
@@ -53,7 +53,7 @@ A tabela a seguir compara a camada de computação sem servidor com a camada de 
 |**Cenário de uso típico**|Bancos de dados com o uso de intermitente, imprevisível intercalados com períodos de inatividade|Bancos de dados ou pools Elásticos com o uso mais regular|
 |**Esforço de gerenciamento de desempenho**|inferior|Maior|
 |**Dimensionamento de computação**|Automático|Manual|
-|**Capacidade de resposta de computação**|Inferior após períodos de inatividade|Imediata|
+|**Capacidade de resposta de computação**|Inferior após períodos de inatividade|Imediato|
 |**Granularidade de cobrança**|por segundo|Por hora|
 |
 
@@ -72,7 +72,7 @@ A tabela a seguir compara a camada de computação sem servidor com a camada de 
 
 ## <a name="purchasing-model-and-service-tier"></a>Camada de serviço e modelo de compra
 
-Banco de dados SQL sem servidor é atualmente compatível apenas com a camada de uso geral em 5 de geração de hardware em que o modelo de compra de vcore.
+Banco de dados SQL sem servidor é atualmente compatível apenas com a camada de uso geral em 5 de geração de hardware em que o modelo de compra de vCore.
 
 ## <a name="autoscaling"></a>Dimensionamento automático
 
@@ -111,7 +111,7 @@ Autoresume será disparada se qualquer uma das seguintes condições forem verda
 |Autotuning|Aplicativo e a verificação de recomendações de autotuning, como a indexação automática|
 |Cópia de banco de dados|Criar banco de dados como cópia<br>Exportar para um arquivo BACPAC|
 |Sincronização de dados SQL|Sincronização entre bancos de dados hub e membro que são executados em uma agenda configurável ou são executadas manualmente|
-|Modificar alguns metadados do banco de dados|Adicionando novas marcas de banco de dados<br>Alterar vcores máximo, mínimo de vcores, atraso autopause|
+|Modificar alguns metadados do banco de dados|Adicionando novas marcas de banco de dados<br>Alterar vCores máximo, mínimo de vCores, atraso autopause|
 |SQL Server Management Studio (SSMS)|Usando o SSMS versão 18 e abrindo uma nova janela de consulta para qualquer banco de dados no servidor continuará a qualquer banco de dados em pausa automática no mesmo servidor. Esse comportamento não ocorre se usando o SSMS versão 17.9.1 com o IntelliSense desativado-off.|
 
 ### <a name="connectivity"></a>Conectividade
@@ -227,16 +227,16 @@ O pool de recursos do usuário é interna a maioria dos limites de gerenciamento
 
 ### <a name="metrics"></a>Métricas
 
-|Entidade|Métrica|DESCRIÇÃO|Unidades|
+|Entidade|Métrica|Descrição|Unidades|
 |---|---|---|---|
-|Pacote do aplicativo|app_cpu_percent|Porcentagem de vCores usados pelo aplicativo em relação ao vCores máximo permitido para o aplicativo.|Percentual|
+|Pacote do aplicativo|app_cpu_percent|Porcentagem de vCores usados pelo aplicativo em relação ao vCores máximo permitido para o aplicativo.|Porcentagem|
 |Pacote do aplicativo|app_cpu_billed|A quantidade de computação cobrada para o aplicativo durante o período do relatório. O valor pago durante esse período é o produto dessa métrica e o preço unitário de vCore.<br>Os valores dessa métrica são determinados pela agregação ao longo do tempo, o número máximo de CPU usado e a memória usada por segundo.<br>Se o valor usado for menor que a quantidade mínima provisionada conforme definido pelo mínimo de vCores e memória mínima, em seguida, a quantidade mínima provisionada é cobrada.  Para comparar a CPU com a memória para fins de cobrança, memória é normalizada em unidades de vCores, pelo redimensionamento a quantidade de memória em GB por 3 GB por vCore.|segundos de vCore|
-|Pacote do aplicativo|app_memory_percent|Porcentagem de memória usada pelo aplicativo em relação à memória máxima permitida para o aplicativo.|Percentual|
-|Pool de usuário|cpu_percent|Porcentagem de vCores usados pela carga de trabalho do usuário em relação ao vCores máximo permitido para a carga de trabalho do usuário.|Percentual|
-|Pool de usuário|data_IO_percent|Porcentagem de dados usado pela carga de trabalho do usuário em relação a IOPS de dados máximo de IOPS permitidos para carga de trabalho do usuário.|Percentual|
-|Pool de usuário|log_IO_percent|Porcentagem de log MB/s usada pela carga de trabalho do usuário em relação ao MB/s de log máximo permitido para carga de trabalho do usuário.|Percentual|
-|Pool de usuário|workers_percent|Porcentagem de trabalhadores usados por carga de trabalho do usuário em relação ao máximo de trabalhos permitidos para a carga de trabalho do usuário.|Percentual|
-|Pool de usuário|sessions_percent|Porcentagem de sessões usadas pela carga de trabalho do usuário em relação ao máximo permitido para a carga de trabalho do usuário de sessões.|Percentual|
+|Pacote do aplicativo|app_memory_percent|Porcentagem de memória usada pelo aplicativo em relação à memória máxima permitida para o aplicativo.|Porcentagem|
+|Pool de usuário|cpu_percent|Porcentagem de vCores usados pela carga de trabalho do usuário em relação ao vCores máximo permitido para a carga de trabalho do usuário.|Porcentagem|
+|Pool de usuário|data_IO_percent|Porcentagem de dados usado pela carga de trabalho do usuário em relação a IOPS de dados máximo de IOPS permitidos para carga de trabalho do usuário.|Porcentagem|
+|Pool de usuário|log_IO_percent|Porcentagem de log MB/s usada pela carga de trabalho do usuário em relação ao MB/s de log máximo permitido para carga de trabalho do usuário.|Porcentagem|
+|Pool de usuário|workers_percent|Porcentagem de trabalhadores usados por carga de trabalho do usuário em relação ao máximo de trabalhos permitidos para a carga de trabalho do usuário.|Porcentagem|
+|Pool de usuário|sessions_percent|Porcentagem de sessões usadas pela carga de trabalho do usuário em relação ao máximo permitido para a carga de trabalho do usuário de sessões.|Porcentagem|
 ____
 
 > [!NOTE]

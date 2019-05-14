@@ -5,19 +5,19 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 05/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 52226d07595120395909dd5f47d5d896f5cdaa75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2eaf819870e2b70cc6238af6d1e9fa1dcb5caab8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483632"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236746"
 ---
 # <a name="azure-storage-account-overview"></a>Visão geral da conta de armazenamento do Azure
 
-Uma conta de armazenamento do Azure contém todos os seus objetos de dados do Armazenamento do Azure: blobs, arquivos, filas, tabelas e discos. Os dados na conta de armazenamento do Azure são duráveis e altamente disponíveis, seguros, enormemente escalonáveis e acessíveis de qualquer lugar no mundo por meio de HTTP ou HTTPS.
+Uma conta de armazenamento do Azure contém todos os seus objetos de dados do Armazenamento do Azure: blobs, arquivos, filas, tabelas e discos. A conta de armazenamento fornece um namespace exclusivo para seus dados de armazenamento do Azure que é acessíveis de qualquer lugar no mundo via HTTP ou HTTPS. Dados em sua conta de armazenamento do Azure são durável e altamente disponível, seguro e escalonável.
 
 Para saber como criar uma conta de armazenamento do Azure, confira [Criar uma conta de armazenamento](storage-quickstart-create-account.md).
 
@@ -165,7 +165,7 @@ Para saber mais sobre a API REST do Armazenamento do Azure, confira a [Referênc
 > [!IMPORTANT]
 > Blobs criptografados usando metadados relacionados à criptografia de armazenamento no lado do cliente com o blob. Se você copiar um blob que é criptografado com criptografia do lado do cliente, verifique se que a operação de cópia preserva os metadados de blob e especialmente os metadados relacionados à criptografia. Se você copiar um blob sem os metadados de criptografia, o conteúdo do blob não poderá ser recuperado novamente. Para obter mais detalhes sobre os metadados relacionados à criptografia, confira [Criptografia no Lado do Cliente do Armazenamento do Azure](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-### <a name="azure-importexport-service"></a>Serviço de Importação/exportação do Azure
+### <a name="azure-importexport-service"></a>Serviço de Importação/Exportação do Azure
 
 Se você tiver uma grande quantidade de dados a serem importados para sua conta de armazenamento, considere o serviço de Importação/Exportação do Azure. O serviço de Importação/Exportação do Azure permite importar com segurança grandes quantidades de dados para o armazenamento de blobs do Azure e Arquivos do Azure por meio do envio de unidades de disco rígido para um data center do Azure. 
 

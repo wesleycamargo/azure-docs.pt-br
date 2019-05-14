@@ -10,15 +10,15 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: 173343677d6c44135037978e1c5b60313251ba43
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 05/08/2019
+ms.openlocfilehash: 57b92400f81a3fac8d22c6522cde7eb3406a2e70
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003829"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415503"
 ---
-# <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms-preview"></a>Tutorial: Migração online do MongoDB para a API do Azure Cosmos DB para MongoDB usando o DMS (versão prévia)
+# <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Tutorial: Migrar o MongoDB para a API do Azure Cosmos DB para MongoDB online usando o DMS
 Use o Serviço de Migração de Banco de Dados do Azure para fazer uma migração online (com tempo de inatividade mínimo) de bancos de dados de uma instância local ou de nuvem do MongoDB para a API do Azure Cosmos DB para MongoDB.
 
 Neste tutorial, você aprenderá como:
@@ -96,9 +96,7 @@ Para concluir este tutorial, você precisará:
     > [!NOTE]
     > Há suporte para migrações online somente ao usar a camada Premium. Para obter mais informações sobre os custos e camadas de preços, consulte a [página de preços](https://aka.ms/dms-pricing).
 
-    Se você precisar de ajuda na escolha da camada certa do Serviço de Migração de Banco de Dados do Azure, veja as recomendações na postagem no blog [aqui](https://go.microsoft.com/fwlink/?linkid=861067).  
-
-     ![Criar uma instância do Serviço de Migração de Banco de Dados do Azure](media/tutorial-mongodb-to-cosmosdb-online/dms-settings3.png)
+    ![Criar uma instância do Serviço de Migração de Banco de Dados do Azure](media/tutorial-mongodb-to-cosmosdb-online/dms-settings3.png)
 
 7.  Selecione **Criar** para criar a conta.
 

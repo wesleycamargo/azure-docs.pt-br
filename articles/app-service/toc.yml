@@ -9,7 +9,7 @@
     - name: Sobre os Ambientes do Serviço de Aplicativo
       href: environment/intro.md
     - name: Comparar opções de hospedagem
-      href: overview-compare.md
+      href: /azure/architecture/guide/technology-choices/compute-decision-tree
 - name: Guia de início rápido
   expanded: true
   items:

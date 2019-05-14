@@ -1,21 +1,21 @@
 ---
-title: 'Início Rápido: criar um Banco de Dados do Azure para PostgreSQL usando a CLI do Azure'
-description: Guia de início rápido para criar e gerenciar o servidor do Banco de Dados do Azure para PostgreSQL usando a CLI (interface de linha de comando) do Azure.
+title: Guia de início rápido – Criar um Banco de Dados do Azure para PostgreSQL – Servidor único usando a CLI do Azure
+description: Guia de início rápido para criar e gerenciar o Banco de Dados do Azure para PostgreSQL – Servidor único usando a CLI (interface de linha de comando) do Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 3/12/2019
+ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: 07e3f1f2dd672fcfd0b7a3a4d102c429ac123c08
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5b16d87a69ecdac578da2a90be22013744c32bd7
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57902011"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069063"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Início Rápido: Criar um servidor de Banco de Dados do Azure para PostgreSQL usando a CLI do Azure
+# <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Início Rápido: Criar um Banco de Dados do Azure para PostgreSQL – Servidor único usando a CLI do Azure
 
 > [!TIP]
 > Considere usar o comando mais simples da CLI do Azure [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) (atualmente em versão prévia). Experimente o [início rápido](./quickstart-create-server-up-azure-cli.md).
@@ -28,12 +28,12 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 Se você optar por instalar e usar a CLI localmente, este artigo exigirá que seja executada a CLI do Azure versão 2.0 ou posterior. Para ver a versão instalada, execute o comando `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
 
-Se você estiver executando a CLI localmente, precisará fazer logon em sua conta usando o comando [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in). Observe a propriedade **id** da saída do comando para o nome da assinatura correspondente.
+Se você estiver executando a CLI localmente, precisará entrar em sua conta usando o comando [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in). Observe a propriedade **ID** da saída do comando para obter o nome da assinatura correspondente.
 ```azurecli-interactive
 az login
 ```
 
-Se tiver várias assinaturas, escolha a que for adequada para cobrança do recurso. Selecione a ID da assinatura específica em sua conta usando o comando [az account set](/cli/azure/account). Substitua a propriedade **id** da saída **logon az** para a sua assinatura no espaço reservado da ID da assinatura.
+Se tiver várias assinaturas, escolha a que for adequada para cobrança do recurso. Selecione a ID da assinatura específica em sua conta usando o comando [az account set](/cli/azure/account). Substitua a propriedade **ID** da saída **az logon** para a sua assinatura no espaço reservado da ID de assinatura.
 ```azurecli-interactive
 az account set --subscription <subscription id>
 ```

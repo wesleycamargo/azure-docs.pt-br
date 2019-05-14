@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 8c3ef3f115d37400eb72fdaca5df4f326382df5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a8da60850dae600129e0bc60fb574bfa4d3972db
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60520017"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415890"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Introdução às consultas de log do Azure Monitor
 
@@ -108,7 +108,7 @@ SecurityEvent
 
 Ao escrever as condições de filtro, você pode usar as expressões a seguir:
 
-| Expression | DESCRIÇÃO | Exemplo |
+| Expressão | Descrição | Exemplo |
 |:---|:---|:---|
 | == | Verificação de igualdade<br>(diferencia maiusculas de minúsculas) | `Level == 8` |
 | =~ | Verificação de igualdade<br>(diferencia maiusculas de minúsculas) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
@@ -184,7 +184,7 @@ SecurityEvent
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
-| extend localtime = TimeGenerated-8h
+| extend localtime = TimeGenerated -8h
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>Resumo: agregar grupos de linhas
@@ -224,7 +224,7 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>Resumir por uma coluna de hora
 Agrupar os resultados também pode ser baseado em uma coluna de hora ou outro valor contínuo. Resumindo simplesmente `by TimeGenerated` entanto seria criar grupos para cada milissegundo de único ao longo do intervalo de tempo, pois esses são valores exclusivos. 
 
-Para criar grupos com base em valores contínuos, é melhor dividir o intervalo em unidades gerenciáveis usando **bin**. A consulta a seguir analisa *Perf* registros que medem a memória livre (*MBytes disponíveis*) em um computador específico. Calcula o valor médio para cada período, se 1 hora, nos últimos 7 dias:
+Para criar grupos com base em valores contínuos, é melhor dividir o intervalo em unidades gerenciáveis usando **bin**. A consulta a seguir analisa *Perf* registros que medem a memória livre (*MBytes disponíveis*) em um computador específico. Ele calcula o valor médio de cada período de 1 hora nos últimos 7 dias:
 
 ```Kusto
 Perf 

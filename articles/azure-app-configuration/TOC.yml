@@ -4,23 +4,35 @@
   items:
     - name: Sobre a Configuração de Aplicativos do Azure
       href: overview.md
+    - name: Perguntas frequentes
+      href: faq.md
 - name: Guia de início rápido
   expanded: true
   items:
-    - name: Criar um aplicativo ASP.NET Core
-      href: quickstart-aspnet-core-app.md
-    - name: Criar um aplicativo .NET Core
-      href: quickstart-dotnet-core-app.md
-    - name: Criar um aplicativo .NET Framework
-      href: quickstart-dotnet-app.md
-    - name: Criar uma função do Azure
-      href: quickstart-azure-function-csharp.md
-    - name: Criar um aplicativo Java Spring
-      href: quickstart-java-spring-app.md
+    - name: Configuração
+      items:
+        - name: ASP.NET Core
+          href: quickstart-aspnet-core-app.md
+        - name: .NET Core
+          href: quickstart-dotnet-core-app.md
+        - name: .NET Framework
+          href: quickstart-dotnet-app.md
+        - name: Função do Azure no .NET Core
+          href: quickstart-azure-function-csharp.md
+        - name: Java Spring
+          href: quickstart-java-spring-app.md
+    - name: Gerenciamento de recursos
+      items:
+        - name: ASP.NET Core
+          href: quickstart-feature-flag-aspnet-core.md
 - name: Tutoriais
   items:
     - name: Habilitar a configuração dinâmica no ASP.NET Core
       href: enable-dynamic-configuration-aspnet-core.md
+    - name: Usar sinalizadores de recursos em um aplicativo .NET Core
+      href: use-feature-flags-dotnet-core.md
+    - name: Gerenciar sinalizadores de recursos
+      href: manage-feature-flags.md
     - name: Integrar com um pipeline de CI/CD
       href: integrate-ci-cd-pipeline.md
 - name: Exemplos
@@ -33,24 +45,38 @@
       href: concept-key-value.md
     - name: Instantâneo pontual
       href: concept-point-time-snapshot.md
+    - name: Gerenciamento de recursos
+      href: concept-feature-management.md
 - name: Guias de instruções
   items:
     - name: Integrar com a Identidade de Serviço Gerenciada do Azure
       href: howto-integrate-azure-managed-service-identity.md
     - name: Importar ou exportar dados de configuração
       href: howto-import-export-data.md
+    - name: Práticas recomendadas
+      href: howto-best-practices.md
 - name: Referência
   items:
-    - name: Provedor de configuração do .NET core
-      href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
-    - name: Construtor de configuração do .NET Framework
-      href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
-    - name: Provedor de configuração do Java Spring
-      href: 'https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config'
-    - name: SDK do Azure para .NET
-      href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane'
-    - name: REST
-      href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
+    - name: Configuração
+      items:
+        - name: Provedor de configuração do .NET core
+          href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
+        - name: Construtor de configuração do .NET Framework
+          href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
+        - name: Provedor de configuração do Java Spring
+          href: 'https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config'
+        - name: SDK do Azure para .NET
+          href: 'https://go.microsoft.com/fwlink/?linkid=2092056'
+        - name: REST
+          href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
+    - name: Gerenciamento de recursos
+      items:
+        - name: Biblioteca do .NET Core
+          href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
+        - name: Biblioteca do ASP.NET Core
+          href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
+        - name: Biblioteca de filtros do .NET core
+          href: 'https://go.microsoft.com/fwlink/?linkid=2091601'
 - name: Recursos
   items:
     - name: Vídeo de introdução

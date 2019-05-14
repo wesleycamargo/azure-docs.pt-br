@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/18/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 1ebac5476c90b3cb49fccbb95ef8dedf413a6127
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: dc43e2ad2668a7d3a808e398857cbf1d28c9aa1c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200286"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150862"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configurar HTTPS em um domínio personalizado da CDN do Azure
 
@@ -90,10 +90,10 @@ Para habilitar HTTPS em um domínio personalizado, siga estas etapas:
 # <a name="option-2-enable-https-with-your-own-certificatetaboption-2-enable-https-with-your-own-certificate"></a>[Opção 2: habilitar HTTPS com seu próprio certificado](#tab/option-2-enable-https-with-your-own-certificate)
 
 > [!IMPORTANT]
-> Este recurso está disponível apenas com perfis de **CDN Standard do Azure da Microsoft**. 
+> Este recurso está disponível apenas com os perfis de **CDN do Azure da Microsoft** e de **CDN do Azure do Verizon**. 
 >
  
-Você pode usar seu próprio certificado para habilitar o recurso HTTPS. Esse processo é feito por meio de uma integração com o Azure Key Vault, que permite que você armazene os certificados com segurança. A CDN do Azure usa esse mecanismo seguro para obter o certificado e requer algumas etapas adicionais. Quando você cria o certificado SSL, você deve criá-lo com uma autoridade de certificação (CA) com permissão. Caso contrário, se você usar uma autoridade de certificação sem permissão, sua solicitação será rejeitada. Para obter uma lista das autoridades de certificação permitidas, consulte [Autoridades de certificação permitidas para habilitar HTTPS personalizado na CDN do Azure](cdn-troubleshoot-allowed-ca.md).
+Você pode usar seu próprio certificado para habilitar o recurs HTTPS. Esse processo é feito por meio de uma integração com o Azure Key Vault, que permite que você armazene os certificados com segurança. A CDN do Azure usa esse mecanismo seguro para obter o certificado e requer algumas etapas adicionais. Quando você cria o certificado SSL, você deve criá-lo com uma autoridade de certificação (CA) com permissão. Caso contrário, se você usar uma autoridade de certificação sem permissão, sua solicitação será rejeitada. Confira uma lista das autoridades de certificação permitidas em [Autoridades de certificação permitidas para habilitar HTTPS personalizado na CDN do Azure](cdn-troubleshoot-allowed-ca.md). Para o **CDN do Azure da Verizon**, qualquer CA válida será aceita. 
 
 ### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Preparar a conta e o certificado do Azure Key Vault
  

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: aschhab
-ms.openlocfilehash: 5edeebd9698384785082e5a441c24e136ed22481
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: abba0e15314387aed09e39f05d9127f346f9c799
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61317037"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228401"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Identidades gerenciadas para recursos do Azure com Barramento de Serviço 
 
@@ -29,7 +29,7 @@ Com identidades gerenciadas, a plataforma do Azure gerencia essa identidade de t
 
 ## <a name="service-bus-roles-and-permissions"></a>Permissões e funções do Barramento de Serviço
 
-Você só pode adicionar uma identidade gerenciada às funções "Proprietário" ou "Colaborador" de um namespace do Barramento de Serviço. Ele concede controle total à identidade em todas as entidades no namespace. No entanto, operações de gerenciamento que alteram a topologia de namespace são inicialmente compatíveis apenas com o Azure Resource Manager. Não é por meio da interface de gerenciamento REST do Barramento de Serviço nativo. Isso também significa que não é possível usar o objeto cliente [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) do .NET Framework dentro de uma identidade gerenciada.
+Você só pode adicionar uma identidade gerenciada às funções "Proprietário" ou "Colaborador" de um namespace do Barramento de Serviço. Ele concede controle total à identidade em todas as entidades no namespace. No entanto, operações de gerenciamento que alteram a topologia de namespace são inicialmente compatíveis apenas com o Azure Resource Manager. Não é por meio da interface de gerenciamento REST do Barramento de Serviço nativo. Esse suporte também significa que você não pode usar o cliente do .NET Framework [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou o cliente .NET Standard [ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient) objetos dentro de uma identidade gerenciada.
 
 ## <a name="use-service-bus-with-managed-identities-for-azure-resources"></a>Usar Barramento de Serviço com identidades gerenciadas para recursos do Azure
 

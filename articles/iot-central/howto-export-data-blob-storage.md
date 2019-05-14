@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: f81ca34931e2ee4bce35fa06195fb64c47ef9a7b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9ae57b8ab26780ea975ad74f3348a0deaf8c9cc8
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682025"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464636"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Exportar dados para o Armazenamento de Blobs do Azure
 
@@ -57,14 +57,14 @@ Agora que você tem para exportar dados para um destino de armazenamento, siga e
     > [!Note]
     > Se a Exportação Contínua de Dados não for exibida no menu à esquerda, isso indicará que você não é um administrador no aplicativo. Contate o administrador para configurar a exportação de dados.
 
-    ![Criar novo Hub de Eventos cde](media/howto-export-data/export_menu.PNG)
+    ![Criar novo Hub de Eventos cde](media/howto-export-data/export_menu1.png)
 
 3. Selecione o **+ novo** botão no canto superior direito. Escolher **armazenamento de BLOBs do Azure** como o destino de exportação. 
 
     > [!NOTE] 
     > O número máximo de exportações por aplicativo é cinco. 
 
-    ![Criar exportação contínua de dados](media/howto-export-data/export_new.PNG)
+    ![Criar exportação contínua de dados](media/howto-export-data/export_new1.png)
 
 4. Na caixa de listagem suspensa, selecione suas **conta de armazenamento namespace**. Você também pode escolher a última opção da lista, **Inserir uma cadeia de conexão**. 
 
@@ -87,7 +87,7 @@ Agora que você tem para exportar dados para um destino de armazenamento, siga e
 
 6. Para ativar a exportação contínua de dados, verifique se a opção **Exportação de dados** está **Ativada**. Clique em **Salvar**.
 
-  ![Configure a exportação contínua de dados](media/howto-export-data/export-list-blob.png)
+   ![Configure a exportação contínua de dados](media/howto-export-data/export-list-blob.png)
 
 7. Após alguns minutos, seus dados serão exibidos no destino escolhido.
 

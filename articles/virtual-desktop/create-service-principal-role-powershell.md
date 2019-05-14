@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 1bbe89484d72a21c4432d452d4ddae83ea2d2553
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 93725fc9d77552d779378d0c14294a5bbb11c926
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400020"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146135"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Tutorial: Criar entidades de serviço e atribuições de função com o PowerShell
 
@@ -111,5 +111,5 @@ Estas são as três credenciais que você deverá anotar e os cmdlets que você 
 
 Neste tutorial, você aprendeu a criar uma entidade de serviço e entrar na Área de Trabalho Virtual do Windows com ela. Para saber mais sobre como entrar na Área de Trabalho Virtual do Windows, continue com as instruções de Conectar-se à Área de Trabalho Virtual do Windows.
 
-- [Conectar-se ao cliente da Área de Trabalho Remota no Windows 7 e no Windows 10](connect-windows-7-and-10.md)
-- [Conectar-se ao cliente Web da Versão Prévia da Área de Trabalho Virtual do Windows](connect-web.md)
+- [Conectar-se do Windows 10 ou Windows 7](connect-windows-7-and-10.md)
+- [Conectar-se de um navegador da Web](connect-web.md)

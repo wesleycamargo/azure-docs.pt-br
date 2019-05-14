@@ -2,18 +2,18 @@
 title: O Azure Monitor - Zero de monitoramento para o Kubernetes aplicativos hospedados do aplicativo de instrumentação | Microsoft Docs
 description: Zero monitoramento para aplicativos do Kubernetes hospedado de aplicativos de instrumentação é uma solução de monitoramento que permite que você colete a telemetria do Application Insights que pertencem às solicitações de entrada e saídas para e de pods em execução em seu cluster do Kubernetes por utilizando a tecnologia de malha de serviço chamado Istio.
 services: application-insights
-author: rishabjolly
+author: tokaplan
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: rijolly
-ms.openlocfilehash: 73f95ab75b49fb8ec5b61f6e30080f8f6d474c16
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.author: alkaplan
+ms.openlocfilehash: 42b81ec0fa01841791a5b2651d1c1189db5e27ff
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149889"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408220"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-apps"></a>Aplicativos hospedados pelo zero monitoramento de aplicativos de instrumentação para Kubernetes
 
@@ -34,7 +34,7 @@ O Azure Monitor agora aproveita a tecnologia de malha do serviço em seu cluster
 - Um [recurso do Application Insights](create-new-resource.md)
 - Ter uma malha de serviço. Se o cluster não tiver Istio implantado, você pode aprender como [instalar e usar Istio no serviço Kubernetes do Azure](https://docs.microsoft.com/azure/aks/istio-install).
 
-## <a name="capabilities"></a>Funcionalidades
+## <a name="capabilities"></a>Recursos
 
 Usando o zero de monitoramento para o Kubernetes aplicativos hospedados do aplicativo de instrumentação, você será capaz de usar:
 

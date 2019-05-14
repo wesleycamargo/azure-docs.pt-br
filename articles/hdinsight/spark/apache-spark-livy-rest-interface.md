@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: c8504c6bf25b186a4bc87c4e7565444dd3e57209
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2c1497589153f1dc5a79cc1d3414966deaf11f21
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570491"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228112"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Use a API REST do Apache Spark para enviar trabalhos remotos para um cluster do HDInsight Spark
 
@@ -153,13 +153,7 @@ Execute as seguintes etapas:
 
 ## <a name="updates-to-livy-configuration-starting-with-hdinsight-35-version"></a>Atualizações para a configuração do Livy começando com a versão do HDInsight 3.5
 
-Os clusters HDInsight 3.5 e posteriores, por padrão, desabilitam o uso de caminhos de arquivos locais para acessar arquivos de dados de amostra ou jars. Incentivamos o uso do caminho `wasb://` em vez disso, para acessar os jars ou os arquivos de dados de exemplo do cluster. Se você quiser usar o caminho local, atualize a configuração do Ambari adequadamente. Para fazer isso:
-
-1. Acesse o portal do Ambari para o cluster. A interface de usuário da Web do Ambari está disponível no seu cluster HDInsight em https://**CLUSTERNAME**.azurehdidnsight.net, em que CLUSTERNAME é o nome do cluster.
-
-2. Na navegação à esquerda, clique em **Livy** e em **Configurações**.
-
-3. Em **livy-default** adicione o nome da propriedade `livy.file.local-dir-whitelist` e defina seu valor como **"/"** se você quiser permitir acesso total ao sistema de arquivos. Se você quiser permitir o acesso somente a um diretório específico, forneça o caminho ao diretório como o valor.
+Os clusters HDInsight 3.5 e posteriores, por padrão, desabilitam o uso de caminhos de arquivos locais para acessar arquivos de dados de amostra ou jars. Incentivamos o uso do caminho `wasb://` em vez disso, para acessar os jars ou os arquivos de dados de exemplo do cluster. 
 
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>Enviar trabalhos da Livy para um cluster em uma rede virtual do Azure
 

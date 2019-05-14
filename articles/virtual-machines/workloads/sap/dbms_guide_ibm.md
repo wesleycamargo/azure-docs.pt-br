@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5cbecdb39a35339bd0b3f4d3d29d7893cdab0ac6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7d1de50e6b1b673a2613a893c19633bbd4bd43fd
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60835355"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409273"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implantação do DBMS de Máquinas Virtuais do IBM Db2 Azure para carga de trabalho do SAP
 
@@ -158,7 +158,7 @@ ms.locfileid: "60835355"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -172,7 +172,7 @@ ms.locfileid: "60835355"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -342,7 +342,7 @@ Há suporte para o SAP no IBM Db2 para LUW nos serviços de máquina Virtual do 
 Para obter informações sobre os tipos de VM do Azure e produtos SAP com suporte, consulte a Nota SAP [1928533].
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>IBM Db2 para Linux, UNIX e diretrizes de configuração do Windows para instalações do SAP em VMs do Azure
-### <a name="storage-configuration"></a>Configuração de armazenamento
+### <a name="storage-configuration"></a>Configuração do armazenamento
 Todos os arquivos de banco de dados devem ser armazenados no sistema de arquivos NTFS com base em discos anexados diretamente. Esses discos são montados na VM do Azure e são baseados no Armazenamento de Blobs de Páginas do Azure (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) ou Managed Disks (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). Qualquer variante de unidades de rede ou compartilhamentos remotos, como os seguintes serviços de arquivo do Azure **NÃO** tem suporte para arquivos de banco de dados: 
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
@@ -364,7 +364,7 @@ Para os discos que contém os caminhos de armazenamento do Db2 para seus diretó
 
 Para a VM da série M do Azure, a latência de gravação nos logs de transação pode ser reduzida por fatores, comparados ao desempenho do armazenamento Premium do Azure, ao usar o Acelerador de gravação do Azure. Portanto, você deve implantar o Acelerador de gravação do Azure para os VHDs que formam o volume para os logs de transação do Db2. Detalhes podem ser lidos no documento [Acelerador de Gravação](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator).
 
-### <a name="backuprestore"></a>Backup/restauração
+### <a name="backuprestore"></a>Backup/Restauração
 A funcionalidade de backup/restauração para IBM Db2 para LUW há suporte para a mesma forma que no padrão de sistemas operacionais Windows Server e Hyper-V.
 
 Você deve se certificar de que tenha uma estratégia de backup do banco de dados válida em vigor. 
@@ -403,5 +403,5 @@ Para os discos que contém os caminhos de armazenamento do Db2 para seus diretó
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
 
-### <a name="other"></a>Outros
+### <a name="other"></a>Outro
 Todas as outras áreas gerais, como o monitoramento do SAP ou Conjuntos de Disponibilidade do Azure se aplicam como descritas no documento [Considerações para a implantação DBMS de Máquinas Virtuais do Azure para carga de trabalho SAP](dbms_guide_general.md) para implantações de VMs com o Banco de Dados IBM também.

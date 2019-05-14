@@ -46,8 +46,8 @@ As propriedades a seguir são compatíveis com o serviço Oracle Service Cloud v
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **OracleServiceCloud** | Sim |
 | host | A URL da instância do Oracle Service Cloud.  | Sim |
-| Nome de Usuário | O nome de usuário que você usa para acessar o serviço Oracle Service Cloud.  | Sim |
-| Senha | A senha correspondente ao nome de usuário fornecido na chave do nome de usuário. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou então armazenar a senha no Azure Key Vault e permitir que o ADF copie o pull de atividade desse local ao executar a cópia de dados – saiba mais sobre como [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
+| username | O nome de usuário que você usa para acessar o serviço Oracle Service Cloud.  | Sim |
+| password | A senha correspondente ao nome de usuário fornecido na chave do nome de usuário. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou então armazenar a senha no Azure Key Vault e permitir que o ADF copie o pull de atividade desse local ao executar a cópia de dados – saiba mais sobre como [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os endpoints de fonte de dados são criptografados usando HTTPS. O valor padrão é true.  | Não  |
 | useHostVerification | Especifica se é necessário o nome do host no certificado do servidor para corresponder ao nome de host do servidor ao se conectar via SSL. O valor padrão é true.  | Não  |
 | usePeerVerification | Especifica se deve verificar a identidade do servidor quando se conecta por meio de SSL. O valor padrão é true.  | Não  |
